@@ -1,21 +1,15 @@
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  UpdateIdentityProviderRequest,
-  UpdateIdentityProviderResponse
-} from "../models/index";
+import { UpdateIdentityProviderRequest, UpdateIdentityProviderResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateIdentityProviderCommand,
-  serializeAws_json1_1UpdateIdentityProviderCommand
+  serializeAws_json1_1UpdateIdentityProviderCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateIdentityProviderCommandInput = UpdateIdentityProviderRequest;
-export type UpdateIdentityProviderCommandOutput = UpdateIdentityProviderResponse &
-  __MetadataBearer;
+export type UpdateIdentityProviderCommandOutput = UpdateIdentityProviderResponse & __MetadataBearer;
 
 export class UpdateIdentityProviderCommand extends $Command<
   UpdateIdentityProviderCommandInput,
@@ -49,18 +42,13 @@ export class UpdateIdentityProviderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateIdentityProviderCommandInput,
-    UpdateIdentityProviderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateIdentityProviderCommandInput, UpdateIdentityProviderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +58,11 @@ export class UpdateIdentityProviderCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateIdentityProviderCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateIdentityProviderCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateIdentityProviderCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIdentityProviderCommandOutput> {
     return deserializeAws_json1_1UpdateIdentityProviderCommand(output, context);
   }
 

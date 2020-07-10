@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
@@ -18,10 +14,9 @@ export interface DeleteLexiconInput {
 export namespace DeleteLexiconInput {
   export const filterSensitiveLog = (obj: DeleteLexiconInput): any => ({
     ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING })
+    ...(obj.Name && { Name: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DeleteLexiconInput =>
-    __isa(o, "DeleteLexiconInput");
+  export const isa = (o: any): o is DeleteLexiconInput => __isa(o, "DeleteLexiconInput");
 }
 
 export interface DeleteLexiconOutput {
@@ -30,10 +25,9 @@ export interface DeleteLexiconOutput {
 
 export namespace DeleteLexiconOutput {
   export const filterSensitiveLog = (obj: DeleteLexiconOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteLexiconOutput =>
-    __isa(o, "DeleteLexiconOutput");
+  export const isa = (o: any): o is DeleteLexiconOutput => __isa(o, "DeleteLexiconOutput");
 }
 
 export interface DescribeVoicesInput {
@@ -70,10 +64,9 @@ export interface DescribeVoicesInput {
 
 export namespace DescribeVoicesInput {
   export const filterSensitiveLog = (obj: DescribeVoicesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVoicesInput =>
-    __isa(o, "DescribeVoicesInput");
+  export const isa = (o: any): o is DescribeVoicesInput => __isa(o, "DescribeVoicesInput");
 }
 
 export interface DescribeVoicesOutput {
@@ -93,37 +86,31 @@ export interface DescribeVoicesOutput {
 
 export namespace DescribeVoicesOutput {
   export const filterSensitiveLog = (obj: DescribeVoicesOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVoicesOutput =>
-    __isa(o, "DescribeVoicesOutput");
+  export const isa = (o: any): o is DescribeVoicesOutput => __isa(o, "DescribeVoicesOutput");
 }
 
 export enum Engine {
   NEURAL = "neural",
-  STANDARD = "standard"
+  STANDARD = "standard",
 }
 
 /**
  * <p>This engine is not compatible with the voice that you have designated. Choose a new voice that is compatible with the engine or change the engine
  *       and restart the operation.</p>
  */
-export interface EngineNotSupportedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EngineNotSupportedException extends __SmithyException, $MetadataBearer {
   name: "EngineNotSupportedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace EngineNotSupportedException {
-  export const filterSensitiveLog = (
-    obj: EngineNotSupportedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EngineNotSupportedException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is EngineNotSupportedException =>
-    __isa(o, "EngineNotSupportedException");
+  export const isa = (o: any): o is EngineNotSupportedException => __isa(o, "EngineNotSupportedException");
 }
 
 export type Gender = "Female" | "Male";
@@ -139,10 +126,9 @@ export interface GetLexiconInput {
 export namespace GetLexiconInput {
   export const filterSensitiveLog = (obj: GetLexiconInput): any => ({
     ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING })
+    ...(obj.Name && { Name: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetLexiconInput =>
-    __isa(o, "GetLexiconInput");
+  export const isa = (o: any): o is GetLexiconInput => __isa(o, "GetLexiconInput");
 }
 
 export interface GetLexiconOutput {
@@ -163,10 +149,9 @@ export interface GetLexiconOutput {
 export namespace GetLexiconOutput {
   export const filterSensitiveLog = (obj: GetLexiconOutput): any => ({
     ...obj,
-    ...(obj.Lexicon && { Lexicon: Lexicon.filterSensitiveLog(obj.Lexicon) })
+    ...(obj.Lexicon && { Lexicon: Lexicon.filterSensitiveLog(obj.Lexicon) }),
   });
-  export const isa = (o: any): o is GetLexiconOutput =>
-    __isa(o, "GetLexiconOutput");
+  export const isa = (o: any): o is GetLexiconOutput => __isa(o, "GetLexiconOutput");
 }
 
 export interface GetSpeechSynthesisTaskInput {
@@ -178,13 +163,10 @@ export interface GetSpeechSynthesisTaskInput {
 }
 
 export namespace GetSpeechSynthesisTaskInput {
-  export const filterSensitiveLog = (
-    obj: GetSpeechSynthesisTaskInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetSpeechSynthesisTaskInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetSpeechSynthesisTaskInput =>
-    __isa(o, "GetSpeechSynthesisTaskInput");
+  export const isa = (o: any): o is GetSpeechSynthesisTaskInput => __isa(o, "GetSpeechSynthesisTaskInput");
 }
 
 export interface GetSpeechSynthesisTaskOutput {
@@ -197,25 +179,18 @@ export interface GetSpeechSynthesisTaskOutput {
 }
 
 export namespace GetSpeechSynthesisTaskOutput {
-  export const filterSensitiveLog = (
-    obj: GetSpeechSynthesisTaskOutput
-  ): any => ({
+  export const filterSensitiveLog = (obj: GetSpeechSynthesisTaskOutput): any => ({
     ...obj,
-    ...(obj.SynthesisTask && {
-      SynthesisTask: SynthesisTask.filterSensitiveLog(obj.SynthesisTask)
-    })
+    ...(obj.SynthesisTask && { SynthesisTask: SynthesisTask.filterSensitiveLog(obj.SynthesisTask) }),
   });
-  export const isa = (o: any): o is GetSpeechSynthesisTaskOutput =>
-    __isa(o, "GetSpeechSynthesisTaskOutput");
+  export const isa = (o: any): o is GetSpeechSynthesisTaskOutput => __isa(o, "GetSpeechSynthesisTaskOutput");
 }
 
 /**
  * <p>Amazon Polly can't find the specified lexicon.
  *       Verify that the lexicon's name is spelled correctly, and then try again.</p>
  */
-export interface InvalidLexiconException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidLexiconException extends __SmithyException, $MetadataBearer {
   name: "InvalidLexiconException";
   $fault: "client";
   message?: string;
@@ -223,19 +198,16 @@ export interface InvalidLexiconException
 
 export namespace InvalidLexiconException {
   export const filterSensitiveLog = (obj: InvalidLexiconException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidLexiconException =>
-    __isa(o, "InvalidLexiconException");
+  export const isa = (o: any): o is InvalidLexiconException => __isa(o, "InvalidLexiconException");
 }
 
 /**
  * <p>The NextToken is invalid.
  *       Verify that it's spelled correctly, and then try again.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   message?: string;
@@ -243,19 +215,16 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException =>
-    __isa(o, "InvalidNextTokenException");
+  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
  * <p>The provided Amazon S3 bucket name is invalid. Please check your input with S3 bucket
  *       naming requirements and try again.</p>
  */
-export interface InvalidS3BucketException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidS3BucketException extends __SmithyException, $MetadataBearer {
   name: "InvalidS3BucketException";
   $fault: "client";
   message?: string;
@@ -263,18 +232,15 @@ export interface InvalidS3BucketException
 
 export namespace InvalidS3BucketException {
   export const filterSensitiveLog = (obj: InvalidS3BucketException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidS3BucketException =>
-    __isa(o, "InvalidS3BucketException");
+  export const isa = (o: any): o is InvalidS3BucketException => __isa(o, "InvalidS3BucketException");
 }
 
 /**
  * <p>The provided Amazon S3 key prefix is invalid. Please provide a valid S3 object key name.</p>
  */
-export interface InvalidS3KeyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidS3KeyException extends __SmithyException, $MetadataBearer {
   name: "InvalidS3KeyException";
   $fault: "client";
   message?: string;
@@ -282,18 +248,15 @@ export interface InvalidS3KeyException
 
 export namespace InvalidS3KeyException {
   export const filterSensitiveLog = (obj: InvalidS3KeyException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidS3KeyException =>
-    __isa(o, "InvalidS3KeyException");
+  export const isa = (o: any): o is InvalidS3KeyException => __isa(o, "InvalidS3KeyException");
 }
 
 /**
  * <p>The specified sample rate is not valid.</p>
  */
-export interface InvalidSampleRateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSampleRateException extends __SmithyException, $MetadataBearer {
   name: "InvalidSampleRateException";
   $fault: "client";
   message?: string;
@@ -301,40 +264,32 @@ export interface InvalidSampleRateException
 
 export namespace InvalidSampleRateException {
   export const filterSensitiveLog = (obj: InvalidSampleRateException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidSampleRateException =>
-    __isa(o, "InvalidSampleRateException");
+  export const isa = (o: any): o is InvalidSampleRateException => __isa(o, "InvalidSampleRateException");
 }
 
 /**
  * <p>The provided SNS topic ARN is invalid. Please provide a valid SNS topic ARN and try again.</p>
  */
-export interface InvalidSnsTopicArnException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSnsTopicArnException extends __SmithyException, $MetadataBearer {
   name: "InvalidSnsTopicArnException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidSnsTopicArnException {
-  export const filterSensitiveLog = (
-    obj: InvalidSnsTopicArnException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidSnsTopicArnException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidSnsTopicArnException =>
-    __isa(o, "InvalidSnsTopicArnException");
+  export const isa = (o: any): o is InvalidSnsTopicArnException => __isa(o, "InvalidSnsTopicArnException");
 }
 
 /**
  * <p>The SSML you provided is invalid.
  *       Verify the SSML syntax, spelling of tags and values, and then try again.</p>
  */
-export interface InvalidSsmlException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSsmlException extends __SmithyException, $MetadataBearer {
   name: "InvalidSsmlException";
   $fault: "client";
   message?: string;
@@ -342,18 +297,15 @@ export interface InvalidSsmlException
 
 export namespace InvalidSsmlException {
   export const filterSensitiveLog = (obj: InvalidSsmlException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidSsmlException =>
-    __isa(o, "InvalidSsmlException");
+  export const isa = (o: any): o is InvalidSsmlException => __isa(o, "InvalidSsmlException");
 }
 
 /**
  * <p>The provided Task ID is not valid. Please provide a valid Task ID and try again.</p>
  */
-export interface InvalidTaskIdException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTaskIdException extends __SmithyException, $MetadataBearer {
   name: "InvalidTaskIdException";
   $fault: "client";
   message?: string;
@@ -361,10 +313,9 @@ export interface InvalidTaskIdException
 
 export namespace InvalidTaskIdException {
   export const filterSensitiveLog = (obj: InvalidTaskIdException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidTaskIdException =>
-    __isa(o, "InvalidTaskIdException");
+  export const isa = (o: any): o is InvalidTaskIdException => __isa(o, "InvalidTaskIdException");
 }
 
 export type LanguageCode =
@@ -401,22 +352,17 @@ export type LanguageCode =
 /**
  * <p>The language specified is not currently supported by Amazon Polly in this capacity.</p>
  */
-export interface LanguageNotSupportedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LanguageNotSupportedException extends __SmithyException, $MetadataBearer {
   name: "LanguageNotSupportedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace LanguageNotSupportedException {
-  export const filterSensitiveLog = (
-    obj: LanguageNotSupportedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LanguageNotSupportedException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LanguageNotSupportedException =>
-    __isa(o, "LanguageNotSupportedException");
+  export const isa = (o: any): o is LanguageNotSupportedException => __isa(o, "LanguageNotSupportedException");
 }
 
 /**
@@ -440,7 +386,7 @@ export interface Lexicon {
 export namespace Lexicon {
   export const filterSensitiveLog = (obj: Lexicon): any => ({
     ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING })
+    ...(obj.Name && { Name: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is Lexicon => __isa(o, "Lexicon");
 }
@@ -489,10 +435,9 @@ export interface LexiconAttributes {
 
 export namespace LexiconAttributes {
   export const filterSensitiveLog = (obj: LexiconAttributes): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LexiconAttributes =>
-    __isa(o, "LexiconAttributes");
+  export const isa = (o: any): o is LexiconAttributes => __isa(o, "LexiconAttributes");
 }
 
 /**
@@ -514,10 +459,9 @@ export interface LexiconDescription {
 export namespace LexiconDescription {
   export const filterSensitiveLog = (obj: LexiconDescription): any => ({
     ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING })
+    ...(obj.Name && { Name: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is LexiconDescription =>
-    __isa(o, "LexiconDescription");
+  export const isa = (o: any): o is LexiconDescription => __isa(o, "LexiconDescription");
 }
 
 /**
@@ -527,9 +471,7 @@ export namespace LexiconDescription {
  *          <p>Verify that the lexicon exists, is in the region (see <a>ListLexicons</a>)
  *       and that you spelled its name is spelled correctly. Then try again.</p>
  */
-export interface LexiconNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LexiconNotFoundException extends __SmithyException, $MetadataBearer {
   name: "LexiconNotFoundException";
   $fault: "client";
   message?: string;
@@ -537,31 +479,25 @@ export interface LexiconNotFoundException
 
 export namespace LexiconNotFoundException {
   export const filterSensitiveLog = (obj: LexiconNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LexiconNotFoundException =>
-    __isa(o, "LexiconNotFoundException");
+  export const isa = (o: any): o is LexiconNotFoundException => __isa(o, "LexiconNotFoundException");
 }
 
 /**
  * <p>The maximum size of the specified lexicon would be exceeded by this operation.</p>
  */
-export interface LexiconSizeExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LexiconSizeExceededException extends __SmithyException, $MetadataBearer {
   name: "LexiconSizeExceededException";
   $fault: "client";
   message?: string;
 }
 
 export namespace LexiconSizeExceededException {
-  export const filterSensitiveLog = (
-    obj: LexiconSizeExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LexiconSizeExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LexiconSizeExceededException =>
-    __isa(o, "LexiconSizeExceededException");
+  export const isa = (o: any): o is LexiconSizeExceededException => __isa(o, "LexiconSizeExceededException");
 }
 
 export interface ListLexiconsInput {
@@ -576,10 +512,9 @@ export interface ListLexiconsInput {
 
 export namespace ListLexiconsInput {
   export const filterSensitiveLog = (obj: ListLexiconsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListLexiconsInput =>
-    __isa(o, "ListLexiconsInput");
+  export const isa = (o: any): o is ListLexiconsInput => __isa(o, "ListLexiconsInput");
 }
 
 export interface ListLexiconsOutput {
@@ -600,14 +535,9 @@ export interface ListLexiconsOutput {
 export namespace ListLexiconsOutput {
   export const filterSensitiveLog = (obj: ListLexiconsOutput): any => ({
     ...obj,
-    ...(obj.Lexicons && {
-      Lexicons: obj.Lexicons.map(item =>
-        LexiconDescription.filterSensitiveLog(item)
-      )
-    })
+    ...(obj.Lexicons && { Lexicons: obj.Lexicons.map((item) => LexiconDescription.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListLexiconsOutput =>
-    __isa(o, "ListLexiconsOutput");
+  export const isa = (o: any): o is ListLexiconsOutput => __isa(o, "ListLexiconsOutput");
 }
 
 export interface ListSpeechSynthesisTasksInput {
@@ -630,13 +560,10 @@ export interface ListSpeechSynthesisTasksInput {
 }
 
 export namespace ListSpeechSynthesisTasksInput {
-  export const filterSensitiveLog = (
-    obj: ListSpeechSynthesisTasksInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListSpeechSynthesisTasksInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListSpeechSynthesisTasksInput =>
-    __isa(o, "ListSpeechSynthesisTasksInput");
+  export const isa = (o: any): o is ListSpeechSynthesisTasksInput => __isa(o, "ListSpeechSynthesisTasksInput");
 }
 
 export interface ListSpeechSynthesisTasksOutput {
@@ -655,32 +582,25 @@ export interface ListSpeechSynthesisTasksOutput {
 }
 
 export namespace ListSpeechSynthesisTasksOutput {
-  export const filterSensitiveLog = (
-    obj: ListSpeechSynthesisTasksOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListSpeechSynthesisTasksOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListSpeechSynthesisTasksOutput =>
-    __isa(o, "ListSpeechSynthesisTasksOutput");
+  export const isa = (o: any): o is ListSpeechSynthesisTasksOutput => __isa(o, "ListSpeechSynthesisTasksOutput");
 }
 
 /**
  * <p>Speech marks are not supported for the <code>OutputFormat</code> selected.
  *       Speech marks are only available for content in <code>json</code> format.</p>
  */
-export interface MarksNotSupportedForFormatException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MarksNotSupportedForFormatException extends __SmithyException, $MetadataBearer {
   name: "MarksNotSupportedForFormatException";
   $fault: "client";
   message?: string;
 }
 
 export namespace MarksNotSupportedForFormatException {
-  export const filterSensitiveLog = (
-    obj: MarksNotSupportedForFormatException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MarksNotSupportedForFormatException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is MarksNotSupportedForFormatException =>
     __isa(o, "MarksNotSupportedForFormatException");
@@ -689,40 +609,31 @@ export namespace MarksNotSupportedForFormatException {
 /**
  * <p>The maximum size of the lexeme would be exceeded by this operation.</p>
  */
-export interface MaxLexemeLengthExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaxLexemeLengthExceededException extends __SmithyException, $MetadataBearer {
   name: "MaxLexemeLengthExceededException";
   $fault: "client";
   message?: string;
 }
 
 export namespace MaxLexemeLengthExceededException {
-  export const filterSensitiveLog = (
-    obj: MaxLexemeLengthExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MaxLexemeLengthExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MaxLexemeLengthExceededException =>
-    __isa(o, "MaxLexemeLengthExceededException");
+  export const isa = (o: any): o is MaxLexemeLengthExceededException => __isa(o, "MaxLexemeLengthExceededException");
 }
 
 /**
  * <p>The maximum number of lexicons would be exceeded by this operation.</p>
  */
-export interface MaxLexiconsNumberExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaxLexiconsNumberExceededException extends __SmithyException, $MetadataBearer {
   name: "MaxLexiconsNumberExceededException";
   $fault: "client";
   message?: string;
 }
 
 export namespace MaxLexiconsNumberExceededException {
-  export const filterSensitiveLog = (
-    obj: MaxLexiconsNumberExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MaxLexiconsNumberExceededException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is MaxLexiconsNumberExceededException =>
     __isa(o, "MaxLexiconsNumberExceededException");
@@ -732,7 +643,7 @@ export enum OutputFormat {
   JSON = "json",
   MP3 = "mp3",
   OGG_VORBIS = "ogg_vorbis",
-  PCM = "pcm"
+  PCM = "pcm",
 }
 
 export interface PutLexiconInput {
@@ -754,10 +665,9 @@ export interface PutLexiconInput {
 export namespace PutLexiconInput {
   export const filterSensitiveLog = (obj: PutLexiconInput): any => ({
     ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING })
+    ...(obj.Name && { Name: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PutLexiconInput =>
-    __isa(o, "PutLexiconInput");
+  export const isa = (o: any): o is PutLexiconInput => __isa(o, "PutLexiconInput");
 }
 
 export interface PutLexiconOutput {
@@ -766,18 +676,15 @@ export interface PutLexiconOutput {
 
 export namespace PutLexiconOutput {
   export const filterSensitiveLog = (obj: PutLexiconOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutLexiconOutput =>
-    __isa(o, "PutLexiconOutput");
+  export const isa = (o: any): o is PutLexiconOutput => __isa(o, "PutLexiconOutput");
 }
 
 /**
  * <p>An unknown condition has caused a service failure.</p>
  */
-export interface ServiceFailureException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceFailureException extends __SmithyException, $MetadataBearer {
   name: "ServiceFailureException";
   $fault: "server";
   message?: string;
@@ -785,35 +692,30 @@ export interface ServiceFailureException
 
 export namespace ServiceFailureException {
   export const filterSensitiveLog = (obj: ServiceFailureException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceFailureException =>
-    __isa(o, "ServiceFailureException");
+  export const isa = (o: any): o is ServiceFailureException => __isa(o, "ServiceFailureException");
 }
 
 export enum SpeechMarkType {
   SENTENCE = "sentence",
   SSML = "ssml",
   VISEME = "viseme",
-  WORD = "word"
+  WORD = "word",
 }
 
 /**
  * <p>SSML speech marks are not supported for plain text-type input.</p>
  */
-export interface SsmlMarksNotSupportedForTextTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SsmlMarksNotSupportedForTextTypeException extends __SmithyException, $MetadataBearer {
   name: "SsmlMarksNotSupportedForTextTypeException";
   $fault: "client";
   message?: string;
 }
 
 export namespace SsmlMarksNotSupportedForTextTypeException {
-  export const filterSensitiveLog = (
-    obj: SsmlMarksNotSupportedForTextTypeException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SsmlMarksNotSupportedForTextTypeException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is SsmlMarksNotSupportedForTextTypeException =>
     __isa(o, "SsmlMarksNotSupportedForTextTypeException");
@@ -896,14 +798,11 @@ export interface StartSpeechSynthesisTaskInput {
 }
 
 export namespace StartSpeechSynthesisTaskInput {
-  export const filterSensitiveLog = (
-    obj: StartSpeechSynthesisTaskInput
-  ): any => ({
+  export const filterSensitiveLog = (obj: StartSpeechSynthesisTaskInput): any => ({
     ...obj,
-    ...(obj.LexiconNames && { LexiconNames: SENSITIVE_STRING })
+    ...(obj.LexiconNames && { LexiconNames: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is StartSpeechSynthesisTaskInput =>
-    __isa(o, "StartSpeechSynthesisTaskInput");
+  export const isa = (o: any): o is StartSpeechSynthesisTaskInput => __isa(o, "StartSpeechSynthesisTaskInput");
 }
 
 export interface StartSpeechSynthesisTaskOutput {
@@ -915,16 +814,11 @@ export interface StartSpeechSynthesisTaskOutput {
 }
 
 export namespace StartSpeechSynthesisTaskOutput {
-  export const filterSensitiveLog = (
-    obj: StartSpeechSynthesisTaskOutput
-  ): any => ({
+  export const filterSensitiveLog = (obj: StartSpeechSynthesisTaskOutput): any => ({
     ...obj,
-    ...(obj.SynthesisTask && {
-      SynthesisTask: SynthesisTask.filterSensitiveLog(obj.SynthesisTask)
-    })
+    ...(obj.SynthesisTask && { SynthesisTask: SynthesisTask.filterSensitiveLog(obj.SynthesisTask) }),
   });
-  export const isa = (o: any): o is StartSpeechSynthesisTaskOutput =>
-    __isa(o, "StartSpeechSynthesisTaskOutput");
+  export const isa = (o: any): o is StartSpeechSynthesisTaskOutput => __isa(o, "StartSpeechSynthesisTaskOutput");
 }
 
 /**
@@ -1025,7 +919,7 @@ export interface SynthesisTask {
 export namespace SynthesisTask {
   export const filterSensitiveLog = (obj: SynthesisTask): any => ({
     ...obj,
-    ...(obj.LexiconNames && { LexiconNames: SENSITIVE_STRING })
+    ...(obj.LexiconNames && { LexiconNames: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is SynthesisTask => __isa(o, "SynthesisTask");
 }
@@ -1033,22 +927,17 @@ export namespace SynthesisTask {
 /**
  * <p>The Speech Synthesis task with requested Task ID cannot be found.</p>
  */
-export interface SynthesisTaskNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SynthesisTaskNotFoundException extends __SmithyException, $MetadataBearer {
   name: "SynthesisTaskNotFoundException";
   $fault: "client";
   message?: string;
 }
 
 export namespace SynthesisTaskNotFoundException {
-  export const filterSensitiveLog = (
-    obj: SynthesisTaskNotFoundException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SynthesisTaskNotFoundException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SynthesisTaskNotFoundException =>
-    __isa(o, "SynthesisTaskNotFoundException");
+  export const isa = (o: any): o is SynthesisTaskNotFoundException => __isa(o, "SynthesisTaskNotFoundException");
 }
 
 export interface SynthesizeSpeechInput {
@@ -1126,10 +1015,9 @@ export interface SynthesizeSpeechInput {
 export namespace SynthesizeSpeechInput {
   export const filterSensitiveLog = (obj: SynthesizeSpeechInput): any => ({
     ...obj,
-    ...(obj.LexiconNames && { LexiconNames: SENSITIVE_STRING })
+    ...(obj.LexiconNames && { LexiconNames: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is SynthesizeSpeechInput =>
-    __isa(o, "SynthesizeSpeechInput");
+  export const isa = (o: any): o is SynthesizeSpeechInput => __isa(o, "SynthesizeSpeechInput");
 }
 
 export interface SynthesizeSpeechOutput {
@@ -1183,17 +1071,16 @@ export interface SynthesizeSpeechOutput {
 
 export namespace SynthesizeSpeechOutput {
   export const filterSensitiveLog = (obj: SynthesizeSpeechOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SynthesizeSpeechOutput =>
-    __isa(o, "SynthesizeSpeechOutput");
+  export const isa = (o: any): o is SynthesizeSpeechOutput => __isa(o, "SynthesizeSpeechOutput");
 }
 
 export enum TaskStatus {
   COMPLETED = "completed",
   FAILED = "failed",
   IN_PROGRESS = "inProgress",
-  SCHEDULED = "scheduled"
+  SCHEDULED = "scheduled",
 }
 
 /**
@@ -1202,71 +1089,56 @@ export enum TaskStatus {
  *       is 200,000 characters, of which no more than 100,000 can be billed characters.
  *       SSML tags are not counted as billed characters.</p>
  */
-export interface TextLengthExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TextLengthExceededException extends __SmithyException, $MetadataBearer {
   name: "TextLengthExceededException";
   $fault: "client";
   message?: string;
 }
 
 export namespace TextLengthExceededException {
-  export const filterSensitiveLog = (
-    obj: TextLengthExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TextLengthExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TextLengthExceededException =>
-    __isa(o, "TextLengthExceededException");
+  export const isa = (o: any): o is TextLengthExceededException => __isa(o, "TextLengthExceededException");
 }
 
 export enum TextType {
   SSML = "ssml",
-  TEXT = "text"
+  TEXT = "text",
 }
 
 /**
  * <p>The alphabet specified by the lexicon is not a supported alphabet.
  *       Valid values are <code>x-sampa</code> and <code>ipa</code>.</p>
  */
-export interface UnsupportedPlsAlphabetException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedPlsAlphabetException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedPlsAlphabetException";
   $fault: "client";
   message?: string;
 }
 
 export namespace UnsupportedPlsAlphabetException {
-  export const filterSensitiveLog = (
-    obj: UnsupportedPlsAlphabetException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UnsupportedPlsAlphabetException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UnsupportedPlsAlphabetException =>
-    __isa(o, "UnsupportedPlsAlphabetException");
+  export const isa = (o: any): o is UnsupportedPlsAlphabetException => __isa(o, "UnsupportedPlsAlphabetException");
 }
 
 /**
  * <p>The language specified in the lexicon is unsupported. For a list of
  *       supported languages, see <a href="https://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html">Lexicon Attributes</a>.</p>
  */
-export interface UnsupportedPlsLanguageException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedPlsLanguageException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedPlsLanguageException";
   $fault: "client";
   message?: string;
 }
 
 export namespace UnsupportedPlsLanguageException {
-  export const filterSensitiveLog = (
-    obj: UnsupportedPlsLanguageException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UnsupportedPlsLanguageException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UnsupportedPlsLanguageException =>
-    __isa(o, "UnsupportedPlsLanguageException");
+  export const isa = (o: any): o is UnsupportedPlsLanguageException => __isa(o, "UnsupportedPlsLanguageException");
 }
 
 /**
@@ -1317,7 +1189,7 @@ export interface Voice {
 
 export namespace Voice {
   export const filterSensitiveLog = (obj: Voice): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Voice => __isa(o, "Voice");
 }

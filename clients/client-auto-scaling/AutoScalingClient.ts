@@ -1,218 +1,170 @@
-import {
-  AttachInstancesCommandInput,
-  AttachInstancesCommandOutput
-} from "./commands/AttachInstancesCommand";
+import { AttachInstancesCommandInput, AttachInstancesCommandOutput } from "./commands/AttachInstancesCommand";
 import {
   AttachLoadBalancerTargetGroupsCommandInput,
-  AttachLoadBalancerTargetGroupsCommandOutput
+  AttachLoadBalancerTargetGroupsCommandOutput,
 } from "./commands/AttachLoadBalancerTargetGroupsCommand";
 import {
   AttachLoadBalancersCommandInput,
-  AttachLoadBalancersCommandOutput
+  AttachLoadBalancersCommandOutput,
 } from "./commands/AttachLoadBalancersCommand";
 import {
   BatchDeleteScheduledActionCommandInput,
-  BatchDeleteScheduledActionCommandOutput
+  BatchDeleteScheduledActionCommandOutput,
 } from "./commands/BatchDeleteScheduledActionCommand";
 import {
   BatchPutScheduledUpdateGroupActionCommandInput,
-  BatchPutScheduledUpdateGroupActionCommandOutput
+  BatchPutScheduledUpdateGroupActionCommandOutput,
 } from "./commands/BatchPutScheduledUpdateGroupActionCommand";
 import {
   CompleteLifecycleActionCommandInput,
-  CompleteLifecycleActionCommandOutput
+  CompleteLifecycleActionCommandOutput,
 } from "./commands/CompleteLifecycleActionCommand";
 import {
   CreateAutoScalingGroupCommandInput,
-  CreateAutoScalingGroupCommandOutput
+  CreateAutoScalingGroupCommandOutput,
 } from "./commands/CreateAutoScalingGroupCommand";
 import {
   CreateLaunchConfigurationCommandInput,
-  CreateLaunchConfigurationCommandOutput
+  CreateLaunchConfigurationCommandOutput,
 } from "./commands/CreateLaunchConfigurationCommand";
-import {
-  CreateOrUpdateTagsCommandInput,
-  CreateOrUpdateTagsCommandOutput
-} from "./commands/CreateOrUpdateTagsCommand";
+import { CreateOrUpdateTagsCommandInput, CreateOrUpdateTagsCommandOutput } from "./commands/CreateOrUpdateTagsCommand";
 import {
   DeleteAutoScalingGroupCommandInput,
-  DeleteAutoScalingGroupCommandOutput
+  DeleteAutoScalingGroupCommandOutput,
 } from "./commands/DeleteAutoScalingGroupCommand";
 import {
   DeleteLaunchConfigurationCommandInput,
-  DeleteLaunchConfigurationCommandOutput
+  DeleteLaunchConfigurationCommandOutput,
 } from "./commands/DeleteLaunchConfigurationCommand";
 import {
   DeleteLifecycleHookCommandInput,
-  DeleteLifecycleHookCommandOutput
+  DeleteLifecycleHookCommandOutput,
 } from "./commands/DeleteLifecycleHookCommand";
 import {
   DeleteNotificationConfigurationCommandInput,
-  DeleteNotificationConfigurationCommandOutput
+  DeleteNotificationConfigurationCommandOutput,
 } from "./commands/DeleteNotificationConfigurationCommand";
-import {
-  DeletePolicyCommandInput,
-  DeletePolicyCommandOutput
-} from "./commands/DeletePolicyCommand";
+import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
 import {
   DeleteScheduledActionCommandInput,
-  DeleteScheduledActionCommandOutput
+  DeleteScheduledActionCommandOutput,
 } from "./commands/DeleteScheduledActionCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
   DescribeAccountLimitsCommandInput,
-  DescribeAccountLimitsCommandOutput
+  DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand";
 import {
   DescribeAdjustmentTypesCommandInput,
-  DescribeAdjustmentTypesCommandOutput
+  DescribeAdjustmentTypesCommandOutput,
 } from "./commands/DescribeAdjustmentTypesCommand";
 import {
   DescribeAutoScalingGroupsCommandInput,
-  DescribeAutoScalingGroupsCommandOutput
+  DescribeAutoScalingGroupsCommandOutput,
 } from "./commands/DescribeAutoScalingGroupsCommand";
 import {
   DescribeAutoScalingInstancesCommandInput,
-  DescribeAutoScalingInstancesCommandOutput
+  DescribeAutoScalingInstancesCommandOutput,
 } from "./commands/DescribeAutoScalingInstancesCommand";
 import {
   DescribeAutoScalingNotificationTypesCommandInput,
-  DescribeAutoScalingNotificationTypesCommandOutput
+  DescribeAutoScalingNotificationTypesCommandOutput,
 } from "./commands/DescribeAutoScalingNotificationTypesCommand";
 import {
   DescribeLaunchConfigurationsCommandInput,
-  DescribeLaunchConfigurationsCommandOutput
+  DescribeLaunchConfigurationsCommandOutput,
 } from "./commands/DescribeLaunchConfigurationsCommand";
 import {
   DescribeLifecycleHookTypesCommandInput,
-  DescribeLifecycleHookTypesCommandOutput
+  DescribeLifecycleHookTypesCommandOutput,
 } from "./commands/DescribeLifecycleHookTypesCommand";
 import {
   DescribeLifecycleHooksCommandInput,
-  DescribeLifecycleHooksCommandOutput
+  DescribeLifecycleHooksCommandOutput,
 } from "./commands/DescribeLifecycleHooksCommand";
 import {
   DescribeLoadBalancerTargetGroupsCommandInput,
-  DescribeLoadBalancerTargetGroupsCommandOutput
+  DescribeLoadBalancerTargetGroupsCommandOutput,
 } from "./commands/DescribeLoadBalancerTargetGroupsCommand";
 import {
   DescribeLoadBalancersCommandInput,
-  DescribeLoadBalancersCommandOutput
+  DescribeLoadBalancersCommandOutput,
 } from "./commands/DescribeLoadBalancersCommand";
 import {
   DescribeMetricCollectionTypesCommandInput,
-  DescribeMetricCollectionTypesCommandOutput
+  DescribeMetricCollectionTypesCommandOutput,
 } from "./commands/DescribeMetricCollectionTypesCommand";
 import {
   DescribeNotificationConfigurationsCommandInput,
-  DescribeNotificationConfigurationsCommandOutput
+  DescribeNotificationConfigurationsCommandOutput,
 } from "./commands/DescribeNotificationConfigurationsCommand";
-import {
-  DescribePoliciesCommandInput,
-  DescribePoliciesCommandOutput
-} from "./commands/DescribePoliciesCommand";
+import { DescribePoliciesCommandInput, DescribePoliciesCommandOutput } from "./commands/DescribePoliciesCommand";
 import {
   DescribeScalingActivitiesCommandInput,
-  DescribeScalingActivitiesCommandOutput
+  DescribeScalingActivitiesCommandOutput,
 } from "./commands/DescribeScalingActivitiesCommand";
 import {
   DescribeScalingProcessTypesCommandInput,
-  DescribeScalingProcessTypesCommandOutput
+  DescribeScalingProcessTypesCommandOutput,
 } from "./commands/DescribeScalingProcessTypesCommand";
 import {
   DescribeScheduledActionsCommandInput,
-  DescribeScheduledActionsCommandOutput
+  DescribeScheduledActionsCommandOutput,
 } from "./commands/DescribeScheduledActionsCommand";
-import {
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
-} from "./commands/DescribeTagsCommand";
+import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
 import {
   DescribeTerminationPolicyTypesCommandInput,
-  DescribeTerminationPolicyTypesCommandOutput
+  DescribeTerminationPolicyTypesCommandOutput,
 } from "./commands/DescribeTerminationPolicyTypesCommand";
-import {
-  DetachInstancesCommandInput,
-  DetachInstancesCommandOutput
-} from "./commands/DetachInstancesCommand";
+import { DetachInstancesCommandInput, DetachInstancesCommandOutput } from "./commands/DetachInstancesCommand";
 import {
   DetachLoadBalancerTargetGroupsCommandInput,
-  DetachLoadBalancerTargetGroupsCommandOutput
+  DetachLoadBalancerTargetGroupsCommandOutput,
 } from "./commands/DetachLoadBalancerTargetGroupsCommand";
 import {
   DetachLoadBalancersCommandInput,
-  DetachLoadBalancersCommandOutput
+  DetachLoadBalancersCommandOutput,
 } from "./commands/DetachLoadBalancersCommand";
 import {
   DisableMetricsCollectionCommandInput,
-  DisableMetricsCollectionCommandOutput
+  DisableMetricsCollectionCommandOutput,
 } from "./commands/DisableMetricsCollectionCommand";
 import {
   EnableMetricsCollectionCommandInput,
-  EnableMetricsCollectionCommandOutput
+  EnableMetricsCollectionCommandOutput,
 } from "./commands/EnableMetricsCollectionCommand";
-import {
-  EnterStandbyCommandInput,
-  EnterStandbyCommandOutput
-} from "./commands/EnterStandbyCommand";
-import {
-  ExecutePolicyCommandInput,
-  ExecutePolicyCommandOutput
-} from "./commands/ExecutePolicyCommand";
-import {
-  ExitStandbyCommandInput,
-  ExitStandbyCommandOutput
-} from "./commands/ExitStandbyCommand";
-import {
-  PutLifecycleHookCommandInput,
-  PutLifecycleHookCommandOutput
-} from "./commands/PutLifecycleHookCommand";
+import { EnterStandbyCommandInput, EnterStandbyCommandOutput } from "./commands/EnterStandbyCommand";
+import { ExecutePolicyCommandInput, ExecutePolicyCommandOutput } from "./commands/ExecutePolicyCommand";
+import { ExitStandbyCommandInput, ExitStandbyCommandOutput } from "./commands/ExitStandbyCommand";
+import { PutLifecycleHookCommandInput, PutLifecycleHookCommandOutput } from "./commands/PutLifecycleHookCommand";
 import {
   PutNotificationConfigurationCommandInput,
-  PutNotificationConfigurationCommandOutput
+  PutNotificationConfigurationCommandOutput,
 } from "./commands/PutNotificationConfigurationCommand";
-import {
-  PutScalingPolicyCommandInput,
-  PutScalingPolicyCommandOutput
-} from "./commands/PutScalingPolicyCommand";
+import { PutScalingPolicyCommandInput, PutScalingPolicyCommandOutput } from "./commands/PutScalingPolicyCommand";
 import {
   PutScheduledUpdateGroupActionCommandInput,
-  PutScheduledUpdateGroupActionCommandOutput
+  PutScheduledUpdateGroupActionCommandOutput,
 } from "./commands/PutScheduledUpdateGroupActionCommand";
 import {
   RecordLifecycleActionHeartbeatCommandInput,
-  RecordLifecycleActionHeartbeatCommandOutput
+  RecordLifecycleActionHeartbeatCommandOutput,
 } from "./commands/RecordLifecycleActionHeartbeatCommand";
-import {
-  ResumeProcessesCommandInput,
-  ResumeProcessesCommandOutput
-} from "./commands/ResumeProcessesCommand";
-import {
-  SetDesiredCapacityCommandInput,
-  SetDesiredCapacityCommandOutput
-} from "./commands/SetDesiredCapacityCommand";
-import {
-  SetInstanceHealthCommandInput,
-  SetInstanceHealthCommandOutput
-} from "./commands/SetInstanceHealthCommand";
+import { ResumeProcessesCommandInput, ResumeProcessesCommandOutput } from "./commands/ResumeProcessesCommand";
+import { SetDesiredCapacityCommandInput, SetDesiredCapacityCommandOutput } from "./commands/SetDesiredCapacityCommand";
+import { SetInstanceHealthCommandInput, SetInstanceHealthCommandOutput } from "./commands/SetInstanceHealthCommand";
 import {
   SetInstanceProtectionCommandInput,
-  SetInstanceProtectionCommandOutput
+  SetInstanceProtectionCommandOutput,
 } from "./commands/SetInstanceProtectionCommand";
-import {
-  SuspendProcessesCommandInput,
-  SuspendProcessesCommandOutput
-} from "./commands/SuspendProcessesCommand";
+import { SuspendProcessesCommandInput, SuspendProcessesCommandOutput } from "./commands/SuspendProcessesCommand";
 import {
   TerminateInstanceInAutoScalingGroupCommandInput,
-  TerminateInstanceInAutoScalingGroupCommandOutput
+  TerminateInstanceInAutoScalingGroupCommandOutput,
 } from "./commands/TerminateInstanceInAutoScalingGroupCommand";
 import {
   UpdateAutoScalingGroupCommandInput,
-  UpdateAutoScalingGroupCommandOutput
+  UpdateAutoScalingGroupCommandOutput,
 } from "./commands/UpdateAutoScalingGroupCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -221,38 +173,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -263,7 +210,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -378,8 +325,7 @@ export type ServiceOutputTypes =
   | TerminateInstanceInAutoScalingGroupCommandOutput
   | UpdateAutoScalingGroupCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -468,9 +414,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type AutoScalingClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type AutoScalingClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -479,9 +423,7 @@ export type AutoScalingClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type AutoScalingClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type AutoScalingClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -510,7 +452,7 @@ export class AutoScalingClient extends __Client<
   constructor(configuration: AutoScalingClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

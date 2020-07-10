@@ -1,21 +1,11 @@
-import {
-  PersonalizeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PersonalizeClient";
-import {
-  DescribeBatchInferenceJobRequest,
-  DescribeBatchInferenceJobResponse
-} from "../models/index";
+import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
+import { DescribeBatchInferenceJobRequest, DescribeBatchInferenceJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeBatchInferenceJobCommand,
-  serializeAws_json1_1DescribeBatchInferenceJobCommand
+  serializeAws_json1_1DescribeBatchInferenceJobCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeBatchInferenceJobCommandInput = DescribeBatchInferenceJobRequest;
-export type DescribeBatchInferenceJobCommandOutput = DescribeBatchInferenceJobResponse &
-  __MetadataBearer;
+export type DescribeBatchInferenceJobCommandOutput = DescribeBatchInferenceJobResponse & __MetadataBearer;
 
 export class DescribeBatchInferenceJobCommand extends $Command<
   DescribeBatchInferenceJobCommandInput,
@@ -49,18 +38,13 @@ export class DescribeBatchInferenceJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeBatchInferenceJobCommandInput,
-    DescribeBatchInferenceJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeBatchInferenceJobCommandInput, DescribeBatchInferenceJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +54,7 @@ export class DescribeBatchInferenceJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeBatchInferenceJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeBatchInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeBatchInferenceJobCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class DescribeBatchInferenceJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBatchInferenceJobCommandOutput> {
-    return deserializeAws_json1_1DescribeBatchInferenceJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeBatchInferenceJobCommand(output, context);
   }
 
   // Start section: command_body_extra

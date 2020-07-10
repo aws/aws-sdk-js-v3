@@ -1,21 +1,11 @@
-import {
-  Cloud9ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Cloud9Client";
-import {
-  DescribeEnvironmentsRequest,
-  DescribeEnvironmentsResult
-} from "../models/index";
+import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
+import { DescribeEnvironmentsRequest, DescribeEnvironmentsResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeEnvironmentsCommand,
-  serializeAws_json1_1DescribeEnvironmentsCommand
+  serializeAws_json1_1DescribeEnvironmentsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeEnvironmentsCommandInput = DescribeEnvironmentsRequest;
-export type DescribeEnvironmentsCommandOutput = DescribeEnvironmentsResult &
-  __MetadataBearer;
+export type DescribeEnvironmentsCommandOutput = DescribeEnvironmentsResult & __MetadataBearer;
 
 export class DescribeEnvironmentsCommand extends $Command<
   DescribeEnvironmentsCommandInput,
@@ -49,18 +38,13 @@ export class DescribeEnvironmentsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Cloud9ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEnvironmentsCommandInput,
-    DescribeEnvironmentsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEnvironmentsCommandInput, DescribeEnvironmentsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DescribeEnvironmentsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeEnvironmentsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEnvironmentsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeEnvironmentsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEnvironmentsCommandOutput> {
     return deserializeAws_json1_1DescribeEnvironmentsCommand(output, context);
   }
 

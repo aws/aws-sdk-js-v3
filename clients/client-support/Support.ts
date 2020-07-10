@@ -2,73 +2,65 @@ import { SupportClient } from "./SupportClient";
 import {
   AddAttachmentsToSetCommand,
   AddAttachmentsToSetCommandInput,
-  AddAttachmentsToSetCommandOutput
+  AddAttachmentsToSetCommandOutput,
 } from "./commands/AddAttachmentsToSetCommand";
 import {
   AddCommunicationToCaseCommand,
   AddCommunicationToCaseCommandInput,
-  AddCommunicationToCaseCommandOutput
+  AddCommunicationToCaseCommandOutput,
 } from "./commands/AddCommunicationToCaseCommand";
-import {
-  CreateCaseCommand,
-  CreateCaseCommandInput,
-  CreateCaseCommandOutput
-} from "./commands/CreateCaseCommand";
+import { CreateCaseCommand, CreateCaseCommandInput, CreateCaseCommandOutput } from "./commands/CreateCaseCommand";
 import {
   DescribeAttachmentCommand,
   DescribeAttachmentCommandInput,
-  DescribeAttachmentCommandOutput
+  DescribeAttachmentCommandOutput,
 } from "./commands/DescribeAttachmentCommand";
 import {
   DescribeCasesCommand,
   DescribeCasesCommandInput,
-  DescribeCasesCommandOutput
+  DescribeCasesCommandOutput,
 } from "./commands/DescribeCasesCommand";
 import {
   DescribeCommunicationsCommand,
   DescribeCommunicationsCommandInput,
-  DescribeCommunicationsCommandOutput
+  DescribeCommunicationsCommandOutput,
 } from "./commands/DescribeCommunicationsCommand";
 import {
   DescribeServicesCommand,
   DescribeServicesCommandInput,
-  DescribeServicesCommandOutput
+  DescribeServicesCommandOutput,
 } from "./commands/DescribeServicesCommand";
 import {
   DescribeSeverityLevelsCommand,
   DescribeSeverityLevelsCommandInput,
-  DescribeSeverityLevelsCommandOutput
+  DescribeSeverityLevelsCommandOutput,
 } from "./commands/DescribeSeverityLevelsCommand";
 import {
   DescribeTrustedAdvisorCheckRefreshStatusesCommand,
   DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
-  DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
+  DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput,
 } from "./commands/DescribeTrustedAdvisorCheckRefreshStatusesCommand";
 import {
   DescribeTrustedAdvisorCheckResultCommand,
   DescribeTrustedAdvisorCheckResultCommandInput,
-  DescribeTrustedAdvisorCheckResultCommandOutput
+  DescribeTrustedAdvisorCheckResultCommandOutput,
 } from "./commands/DescribeTrustedAdvisorCheckResultCommand";
 import {
   DescribeTrustedAdvisorCheckSummariesCommand,
   DescribeTrustedAdvisorCheckSummariesCommandInput,
-  DescribeTrustedAdvisorCheckSummariesCommandOutput
+  DescribeTrustedAdvisorCheckSummariesCommandOutput,
 } from "./commands/DescribeTrustedAdvisorCheckSummariesCommand";
 import {
   DescribeTrustedAdvisorChecksCommand,
   DescribeTrustedAdvisorChecksCommandInput,
-  DescribeTrustedAdvisorChecksCommandOutput
+  DescribeTrustedAdvisorChecksCommandOutput,
 } from "./commands/DescribeTrustedAdvisorChecksCommand";
 import {
   RefreshTrustedAdvisorCheckCommand,
   RefreshTrustedAdvisorCheckCommandInput,
-  RefreshTrustedAdvisorCheckCommandOutput
+  RefreshTrustedAdvisorCheckCommandOutput,
 } from "./commands/RefreshTrustedAdvisorCheckCommand";
-import {
-  ResolveCaseCommand,
-  ResolveCaseCommandInput,
-  ResolveCaseCommandOutput
-} from "./commands/ResolveCaseCommand";
+import { ResolveCaseCommand, ResolveCaseCommandInput, ResolveCaseCommandOutput } from "./commands/ResolveCaseCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -163,17 +155,14 @@ export class Support extends SupportClient {
   ): void;
   public addAttachmentsToSet(
     args: AddAttachmentsToSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddAttachmentsToSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddAttachmentsToSetCommandOutput) => void),
     cb?: (err: any, data?: AddAttachmentsToSetCommandOutput) => void
   ): Promise<AddAttachmentsToSetCommandOutput> | void {
     const command = new AddAttachmentsToSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -205,17 +194,14 @@ export class Support extends SupportClient {
   ): void;
   public addCommunicationToCase(
     args: AddCommunicationToCaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddCommunicationToCaseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddCommunicationToCaseCommandOutput) => void),
     cb?: (err: any, data?: AddCommunicationToCaseCommandOutput) => void
   ): Promise<AddCommunicationToCaseCommandOutput> | void {
     const command = new AddCommunicationToCaseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -300,14 +286,8 @@ export class Support extends SupportClient {
    *             number. Case numbers are used by the <a>DescribeCases</a> operation to
    *             retrieve existing AWS Support cases.</p>
    */
-  public createCase(
-    args: CreateCaseCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateCaseCommandOutput>;
-  public createCase(
-    args: CreateCaseCommandInput,
-    cb: (err: any, data?: CreateCaseCommandOutput) => void
-  ): void;
+  public createCase(args: CreateCaseCommandInput, options?: __HttpHandlerOptions): Promise<CreateCaseCommandOutput>;
+  public createCase(args: CreateCaseCommandInput, cb: (err: any, data?: CreateCaseCommandOutput) => void): void;
   public createCase(
     args: CreateCaseCommandInput,
     options: __HttpHandlerOptions,
@@ -315,17 +295,14 @@ export class Support extends SupportClient {
   ): void;
   public createCase(
     args: CreateCaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCaseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCaseCommandOutput) => void),
     cb?: (err: any, data?: CreateCaseCommandOutput) => void
   ): Promise<CreateCaseCommandOutput> | void {
     const command = new CreateCaseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -353,17 +330,14 @@ export class Support extends SupportClient {
   ): void;
   public describeAttachment(
     args: DescribeAttachmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAttachmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAttachmentCommandOutput) => void),
     cb?: (err: any, data?: DescribeAttachmentCommandOutput) => void
   ): Promise<DescribeAttachmentCommandOutput> | void {
     const command = new DescribeAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -405,17 +379,14 @@ export class Support extends SupportClient {
   ): void;
   public describeCases(
     args: DescribeCasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCasesCommandOutput) => void),
     cb?: (err: any, data?: DescribeCasesCommandOutput) => void
   ): Promise<DescribeCasesCommandOutput> | void {
     const command = new DescribeCasesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -449,17 +420,14 @@ export class Support extends SupportClient {
   ): void;
   public describeCommunications(
     args: DescribeCommunicationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCommunicationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCommunicationsCommandOutput) => void),
     cb?: (err: any, data?: DescribeCommunicationsCommandOutput) => void
   ): Promise<DescribeCommunicationsCommandOutput> | void {
     const command = new DescribeCommunicationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -492,17 +460,14 @@ export class Support extends SupportClient {
   ): void;
   public describeServices(
     args: DescribeServicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeServicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeServicesCommandOutput) => void),
     cb?: (err: any, data?: DescribeServicesCommandOutput) => void
   ): Promise<DescribeServicesCommandOutput> | void {
     const command = new DescribeServicesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -529,17 +494,14 @@ export class Support extends SupportClient {
   ): void;
   public describeSeverityLevels(
     args: DescribeSeverityLevelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSeverityLevelsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSeverityLevelsCommandOutput) => void),
     cb?: (err: any, data?: DescribeSeverityLevelsCommandOutput) => void
   ): Promise<DescribeSeverityLevelsCommandOutput> | void {
     const command = new DescribeSeverityLevelsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -562,38 +524,25 @@ export class Support extends SupportClient {
   ): Promise<DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput>;
   public describeTrustedAdvisorCheckRefreshStatuses(
     args: DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput) => void
   ): void;
   public describeTrustedAdvisorCheckRefreshStatuses(
     args: DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput) => void
   ): void;
   public describeTrustedAdvisorCheckRefreshStatuses(
     args: DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput) => void
   ): Promise<DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput> | void {
     const command = new DescribeTrustedAdvisorCheckRefreshStatusesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -647,38 +596,23 @@ export class Support extends SupportClient {
   ): Promise<DescribeTrustedAdvisorCheckResultCommandOutput>;
   public describeTrustedAdvisorCheckResult(
     args: DescribeTrustedAdvisorCheckResultCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeTrustedAdvisorCheckResultCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTrustedAdvisorCheckResultCommandOutput) => void
   ): void;
   public describeTrustedAdvisorCheckResult(
     args: DescribeTrustedAdvisorCheckResultCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeTrustedAdvisorCheckResultCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTrustedAdvisorCheckResultCommandOutput) => void
   ): void;
   public describeTrustedAdvisorCheckResult(
     args: DescribeTrustedAdvisorCheckResultCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeTrustedAdvisorCheckResultCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeTrustedAdvisorCheckResultCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTrustedAdvisorCheckResultCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTrustedAdvisorCheckResultCommandOutput) => void
   ): Promise<DescribeTrustedAdvisorCheckResultCommandOutput> | void {
     const command = new DescribeTrustedAdvisorCheckResultCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -706,17 +640,14 @@ export class Support extends SupportClient {
   ): void;
   public describeTrustedAdvisorChecks(
     args: DescribeTrustedAdvisorChecksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTrustedAdvisorChecksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTrustedAdvisorChecksCommandOutput) => void),
     cb?: (err: any, data?: DescribeTrustedAdvisorChecksCommandOutput) => void
   ): Promise<DescribeTrustedAdvisorChecksCommandOutput> | void {
     const command = new DescribeTrustedAdvisorChecksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -735,38 +666,23 @@ export class Support extends SupportClient {
   ): Promise<DescribeTrustedAdvisorCheckSummariesCommandOutput>;
   public describeTrustedAdvisorCheckSummaries(
     args: DescribeTrustedAdvisorCheckSummariesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeTrustedAdvisorCheckSummariesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTrustedAdvisorCheckSummariesCommandOutput) => void
   ): void;
   public describeTrustedAdvisorCheckSummaries(
     args: DescribeTrustedAdvisorCheckSummariesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeTrustedAdvisorCheckSummariesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTrustedAdvisorCheckSummariesCommandOutput) => void
   ): void;
   public describeTrustedAdvisorCheckSummaries(
     args: DescribeTrustedAdvisorCheckSummariesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeTrustedAdvisorCheckSummariesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeTrustedAdvisorCheckSummariesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTrustedAdvisorCheckSummariesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTrustedAdvisorCheckSummariesCommandOutput) => void
   ): Promise<DescribeTrustedAdvisorCheckSummariesCommandOutput> | void {
     const command = new DescribeTrustedAdvisorCheckSummariesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -841,17 +757,14 @@ export class Support extends SupportClient {
   ): void;
   public refreshTrustedAdvisorCheck(
     args: RefreshTrustedAdvisorCheckCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RefreshTrustedAdvisorCheckCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RefreshTrustedAdvisorCheckCommandOutput) => void),
     cb?: (err: any, data?: RefreshTrustedAdvisorCheckCommandOutput) => void
   ): Promise<RefreshTrustedAdvisorCheckCommandOutput> | void {
     const command = new RefreshTrustedAdvisorCheckCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -863,14 +776,8 @@ export class Support extends SupportClient {
    *             the state of the case after the call to <a>ResolveCase</a>
    *             completed.</p>
    */
-  public resolveCase(
-    args: ResolveCaseCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ResolveCaseCommandOutput>;
-  public resolveCase(
-    args: ResolveCaseCommandInput,
-    cb: (err: any, data?: ResolveCaseCommandOutput) => void
-  ): void;
+  public resolveCase(args: ResolveCaseCommandInput, options?: __HttpHandlerOptions): Promise<ResolveCaseCommandOutput>;
+  public resolveCase(args: ResolveCaseCommandInput, cb: (err: any, data?: ResolveCaseCommandOutput) => void): void;
   public resolveCase(
     args: ResolveCaseCommandInput,
     options: __HttpHandlerOptions,
@@ -878,17 +785,14 @@ export class Support extends SupportClient {
   ): void;
   public resolveCase(
     args: ResolveCaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResolveCaseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResolveCaseCommandOutput) => void),
     cb?: (err: any, data?: ResolveCaseCommandOutput) => void
   ): Promise<ResolveCaseCommandOutput> | void {
     const command = new ResolveCaseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

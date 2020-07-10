@@ -1,21 +1,11 @@
-import {
-  IoTEventsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTEventsClient";
-import {
-  DescribeDetectorModelRequest,
-  DescribeDetectorModelResponse
-} from "../models/index";
+import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
+import { DescribeDetectorModelRequest, DescribeDetectorModelResponse } from "../models/index";
 import {
   deserializeAws_restJson1DescribeDetectorModelCommand,
-  serializeAws_restJson1DescribeDetectorModelCommand
+  serializeAws_restJson1DescribeDetectorModelCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeDetectorModelCommandInput = DescribeDetectorModelRequest;
-export type DescribeDetectorModelCommandOutput = DescribeDetectorModelResponse &
-  __MetadataBearer;
+export type DescribeDetectorModelCommandOutput = DescribeDetectorModelResponse & __MetadataBearer;
 
 export class DescribeDetectorModelCommand extends $Command<
   DescribeDetectorModelCommandInput,
@@ -49,18 +38,13 @@ export class DescribeDetectorModelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDetectorModelCommandInput,
-    DescribeDetectorModelCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDetectorModelCommandInput, DescribeDetectorModelCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class DescribeDetectorModelCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDetectorModelCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeDetectorModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDetectorModelCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeDetectorModelCommandOutput> {
-    return deserializeAws_restJson1DescribeDetectorModelCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDetectorModelCommandOutput> {
+    return deserializeAws_restJson1DescribeDetectorModelCommand(output, context);
   }
 
   // Start section: command_body_extra

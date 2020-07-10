@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  GetCrawlerMetricsRequest,
-  GetCrawlerMetricsResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { GetCrawlerMetricsRequest, GetCrawlerMetricsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetCrawlerMetricsCommand,
-  serializeAws_json1_1GetCrawlerMetricsCommand
+  serializeAws_json1_1GetCrawlerMetricsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetCrawlerMetricsCommandInput = GetCrawlerMetricsRequest;
-export type GetCrawlerMetricsCommandOutput = GetCrawlerMetricsResponse &
-  __MetadataBearer;
+export type GetCrawlerMetricsCommandOutput = GetCrawlerMetricsResponse & __MetadataBearer;
 
 export class GetCrawlerMetricsCommand extends $Command<
   GetCrawlerMetricsCommandInput,
@@ -50,14 +39,12 @@ export class GetCrawlerMetricsCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCrawlerMetricsCommandInput, GetCrawlerMetricsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class GetCrawlerMetricsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetCrawlerMetricsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetCrawlerMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCrawlerMetricsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetCrawlerMetricsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCrawlerMetricsCommandOutput> {
     return deserializeAws_json1_1GetCrawlerMetricsCommand(output, context);
   }
 

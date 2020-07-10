@@ -21,7 +21,7 @@ describe("TranscribeStream client", () => {
         for await (const chunk of audio) {
           yield { AudioEvent: { AudioChunk: chunk } };
         }
-      })()
+      })(),
     });
     expect(result.LanguageCode).toBe(LanguageCode);
     expect(result.MediaEncoding).toBe(MediaEncoding);
@@ -31,8 +31,6 @@ describe("TranscribeStream client", () => {
     for await (const event of result.TranscriptResultStream!) {
       transcripts.push(event);
     }
-    expect(
-      transcripts.filter(event => event["TranscriptEvent"]).length
-    ).toBeGreaterThan(0);
+    expect(transcripts.filter((event) => event["TranscriptEvent"]).length).toBeGreaterThan(0);
   }, 60000);
 });

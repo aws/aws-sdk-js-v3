@@ -1,21 +1,11 @@
-import {
-  KafkaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KafkaClient";
-import {
-  DescribeConfigurationRequest,
-  DescribeConfigurationResponse
-} from "../models/index";
+import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { DescribeConfigurationRequest, DescribeConfigurationResponse } from "../models/index";
 import {
   deserializeAws_restJson1DescribeConfigurationCommand,
-  serializeAws_restJson1DescribeConfigurationCommand
+  serializeAws_restJson1DescribeConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeConfigurationCommandInput = DescribeConfigurationRequest;
-export type DescribeConfigurationCommandOutput = DescribeConfigurationResponse &
-  __MetadataBearer;
+export type DescribeConfigurationCommandOutput = DescribeConfigurationResponse & __MetadataBearer;
 
 export class DescribeConfigurationCommand extends $Command<
   DescribeConfigurationCommandInput,
@@ -49,18 +38,13 @@ export class DescribeConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeConfigurationCommandInput,
-    DescribeConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeConfigurationCommandInput, DescribeConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class DescribeConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeConfigurationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeConfigurationCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConfigurationCommandOutput> {
+    return deserializeAws_restJson1DescribeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

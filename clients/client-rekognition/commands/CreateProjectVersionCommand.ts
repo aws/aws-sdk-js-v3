@@ -1,21 +1,11 @@
-import {
-  RekognitionClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RekognitionClient";
-import {
-  CreateProjectVersionRequest,
-  CreateProjectVersionResponse
-} from "../models/index";
+import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
+import { CreateProjectVersionRequest, CreateProjectVersionResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateProjectVersionCommand,
-  serializeAws_json1_1CreateProjectVersionCommand
+  serializeAws_json1_1CreateProjectVersionCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateProjectVersionCommandInput = CreateProjectVersionRequest;
-export type CreateProjectVersionCommandOutput = CreateProjectVersionResponse &
-  __MetadataBearer;
+export type CreateProjectVersionCommandOutput = CreateProjectVersionResponse & __MetadataBearer;
 
 export class CreateProjectVersionCommand extends $Command<
   CreateProjectVersionCommandInput,
@@ -49,18 +38,13 @@ export class CreateProjectVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateProjectVersionCommandInput,
-    CreateProjectVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateProjectVersionCommandInput, CreateProjectVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class CreateProjectVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateProjectVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateProjectVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateProjectVersionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateProjectVersionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProjectVersionCommandOutput> {
     return deserializeAws_json1_1CreateProjectVersionCommand(output, context);
   }
 

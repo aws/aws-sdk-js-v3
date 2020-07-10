@@ -1,148 +1,124 @@
 import { ConnectClient } from "./ConnectClient";
-import {
-  CreateUserCommand,
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand";
-import {
-  DeleteUserCommand,
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand";
+import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
   DescribeUserCommand,
   DescribeUserCommandInput,
-  DescribeUserCommandOutput
+  DescribeUserCommandOutput,
 } from "./commands/DescribeUserCommand";
 import {
   DescribeUserHierarchyGroupCommand,
   DescribeUserHierarchyGroupCommandInput,
-  DescribeUserHierarchyGroupCommandOutput
+  DescribeUserHierarchyGroupCommandOutput,
 } from "./commands/DescribeUserHierarchyGroupCommand";
 import {
   DescribeUserHierarchyStructureCommand,
   DescribeUserHierarchyStructureCommandInput,
-  DescribeUserHierarchyStructureCommandOutput
+  DescribeUserHierarchyStructureCommandOutput,
 } from "./commands/DescribeUserHierarchyStructureCommand";
 import {
   GetContactAttributesCommand,
   GetContactAttributesCommandInput,
-  GetContactAttributesCommandOutput
+  GetContactAttributesCommandOutput,
 } from "./commands/GetContactAttributesCommand";
 import {
   GetCurrentMetricDataCommand,
   GetCurrentMetricDataCommandInput,
-  GetCurrentMetricDataCommandOutput
+  GetCurrentMetricDataCommandOutput,
 } from "./commands/GetCurrentMetricDataCommand";
 import {
   GetFederationTokenCommand,
   GetFederationTokenCommandInput,
-  GetFederationTokenCommandOutput
+  GetFederationTokenCommandOutput,
 } from "./commands/GetFederationTokenCommand";
 import {
   GetMetricDataCommand,
   GetMetricDataCommandInput,
-  GetMetricDataCommandOutput
+  GetMetricDataCommandOutput,
 } from "./commands/GetMetricDataCommand";
 import {
   ListContactFlowsCommand,
   ListContactFlowsCommandInput,
-  ListContactFlowsCommandOutput
+  ListContactFlowsCommandOutput,
 } from "./commands/ListContactFlowsCommand";
 import {
   ListHoursOfOperationsCommand,
   ListHoursOfOperationsCommandInput,
-  ListHoursOfOperationsCommandOutput
+  ListHoursOfOperationsCommandOutput,
 } from "./commands/ListHoursOfOperationsCommand";
 import {
   ListPhoneNumbersCommand,
   ListPhoneNumbersCommandInput,
-  ListPhoneNumbersCommandOutput
+  ListPhoneNumbersCommandOutput,
 } from "./commands/ListPhoneNumbersCommand";
-import {
-  ListQueuesCommand,
-  ListQueuesCommandInput,
-  ListQueuesCommandOutput
-} from "./commands/ListQueuesCommand";
+import { ListQueuesCommand, ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
 import {
   ListRoutingProfilesCommand,
   ListRoutingProfilesCommandInput,
-  ListRoutingProfilesCommandOutput
+  ListRoutingProfilesCommandOutput,
 } from "./commands/ListRoutingProfilesCommand";
 import {
   ListSecurityProfilesCommand,
   ListSecurityProfilesCommandInput,
-  ListSecurityProfilesCommandOutput
+  ListSecurityProfilesCommandOutput,
 } from "./commands/ListSecurityProfilesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   ListUserHierarchyGroupsCommand,
   ListUserHierarchyGroupsCommandInput,
-  ListUserHierarchyGroupsCommandOutput
+  ListUserHierarchyGroupsCommandOutput,
 } from "./commands/ListUserHierarchyGroupsCommand";
-import {
-  ListUsersCommand,
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand";
+import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import {
   StartChatContactCommand,
   StartChatContactCommandInput,
-  StartChatContactCommandOutput
+  StartChatContactCommandOutput,
 } from "./commands/StartChatContactCommand";
 import {
   StartOutboundVoiceContactCommand,
   StartOutboundVoiceContactCommandInput,
-  StartOutboundVoiceContactCommandOutput
+  StartOutboundVoiceContactCommandOutput,
 } from "./commands/StartOutboundVoiceContactCommand";
-import {
-  StopContactCommand,
-  StopContactCommandInput,
-  StopContactCommandOutput
-} from "./commands/StopContactCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { StopContactCommand, StopContactCommandInput, StopContactCommandOutput } from "./commands/StopContactCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateContactAttributesCommand,
   UpdateContactAttributesCommandInput,
-  UpdateContactAttributesCommandOutput
+  UpdateContactAttributesCommandOutput,
 } from "./commands/UpdateContactAttributesCommand";
 import {
   UpdateUserHierarchyCommand,
   UpdateUserHierarchyCommandInput,
-  UpdateUserHierarchyCommandOutput
+  UpdateUserHierarchyCommandOutput,
 } from "./commands/UpdateUserHierarchyCommand";
 import {
   UpdateUserIdentityInfoCommand,
   UpdateUserIdentityInfoCommandInput,
-  UpdateUserIdentityInfoCommandOutput
+  UpdateUserIdentityInfoCommandOutput,
 } from "./commands/UpdateUserIdentityInfoCommand";
 import {
   UpdateUserPhoneConfigCommand,
   UpdateUserPhoneConfigCommandInput,
-  UpdateUserPhoneConfigCommandOutput
+  UpdateUserPhoneConfigCommandOutput,
 } from "./commands/UpdateUserPhoneConfigCommand";
 import {
   UpdateUserRoutingProfileCommand,
   UpdateUserRoutingProfileCommandInput,
-  UpdateUserRoutingProfileCommandOutput
+  UpdateUserRoutingProfileCommandOutput,
 } from "./commands/UpdateUserRoutingProfileCommand";
 import {
   UpdateUserSecurityProfilesCommand,
   UpdateUserSecurityProfilesCommandInput,
-  UpdateUserSecurityProfilesCommandOutput
+  UpdateUserSecurityProfilesCommandOutput,
 } from "./commands/UpdateUserSecurityProfilesCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -160,14 +136,8 @@ export class Connect extends ConnectClient {
   /**
    * <p>Creates a user account for the specified Amazon Connect instance.</p>
    */
-  public createUser(
-    args: CreateUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateUserCommandOutput>;
-  public createUser(
-    args: CreateUserCommandInput,
-    cb: (err: any, data?: CreateUserCommandOutput) => void
-  ): void;
+  public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
+  public createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
   public createUser(
     args: CreateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -175,17 +145,14 @@ export class Connect extends ConnectClient {
   ): void;
   public createUser(
     args: CreateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
     cb?: (err: any, data?: CreateUserCommandOutput) => void
   ): Promise<CreateUserCommandOutput> | void {
     const command = new CreateUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -195,14 +162,8 @@ export class Connect extends ConnectClient {
   /**
    * <p>Deletes a user account from the specified Amazon Connect instance.</p>
    */
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteUserCommandOutput>;
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    cb: (err: any, data?: DeleteUserCommandOutput) => void
-  ): void;
+  public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
+  public deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
   public deleteUser(
     args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
@@ -210,17 +171,14 @@ export class Connect extends ConnectClient {
   ): void;
   public deleteUser(
     args: DeleteUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -236,10 +194,7 @@ export class Connect extends ConnectClient {
     args: DescribeUserCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeUserCommandOutput>;
-  public describeUser(
-    args: DescribeUserCommandInput,
-    cb: (err: any, data?: DescribeUserCommandOutput) => void
-  ): void;
+  public describeUser(args: DescribeUserCommandInput, cb: (err: any, data?: DescribeUserCommandOutput) => void): void;
   public describeUser(
     args: DescribeUserCommandInput,
     options: __HttpHandlerOptions,
@@ -247,17 +202,14 @@ export class Connect extends ConnectClient {
   ): void;
   public describeUser(
     args: DescribeUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserCommandOutput) => void),
     cb?: (err: any, data?: DescribeUserCommandOutput) => void
   ): Promise<DescribeUserCommandOutput> | void {
     const command = new DescribeUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -282,17 +234,14 @@ export class Connect extends ConnectClient {
   ): void;
   public describeUserHierarchyGroup(
     args: DescribeUserHierarchyGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUserHierarchyGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserHierarchyGroupCommandOutput) => void),
     cb?: (err: any, data?: DescribeUserHierarchyGroupCommandOutput) => void
   ): Promise<DescribeUserHierarchyGroupCommandOutput> | void {
     const command = new DescribeUserHierarchyGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -317,20 +266,14 @@ export class Connect extends ConnectClient {
   ): void;
   public describeUserHierarchyStructure(
     args: DescribeUserHierarchyStructureCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeUserHierarchyStructureCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserHierarchyStructureCommandOutput) => void),
     cb?: (err: any, data?: DescribeUserHierarchyStructureCommandOutput) => void
   ): Promise<DescribeUserHierarchyStructureCommandOutput> | void {
     const command = new DescribeUserHierarchyStructureCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -355,17 +298,14 @@ export class Connect extends ConnectClient {
   ): void;
   public getContactAttributes(
     args: GetContactAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetContactAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContactAttributesCommandOutput) => void),
     cb?: (err: any, data?: GetContactAttributesCommandOutput) => void
   ): Promise<GetContactAttributesCommandOutput> | void {
     const command = new GetContactAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -392,17 +332,14 @@ export class Connect extends ConnectClient {
   ): void;
   public getCurrentMetricData(
     args: GetCurrentMetricDataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCurrentMetricDataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCurrentMetricDataCommandOutput) => void),
     cb?: (err: any, data?: GetCurrentMetricDataCommandOutput) => void
   ): Promise<GetCurrentMetricDataCommandOutput> | void {
     const command = new GetCurrentMetricDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -427,17 +364,14 @@ export class Connect extends ConnectClient {
   ): void;
   public getFederationToken(
     args: GetFederationTokenCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFederationTokenCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFederationTokenCommandOutput) => void),
     cb?: (err: any, data?: GetFederationTokenCommandOutput) => void
   ): Promise<GetFederationTokenCommandOutput> | void {
     const command = new GetFederationTokenCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -464,17 +398,14 @@ export class Connect extends ConnectClient {
   ): void;
   public getMetricData(
     args: GetMetricDataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMetricDataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMetricDataCommandOutput) => void),
     cb?: (err: any, data?: GetMetricDataCommandOutput) => void
   ): Promise<GetMetricDataCommandOutput> | void {
     const command = new GetMetricDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -499,17 +430,14 @@ export class Connect extends ConnectClient {
   ): void;
   public listContactFlows(
     args: ListContactFlowsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListContactFlowsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListContactFlowsCommandOutput) => void),
     cb?: (err: any, data?: ListContactFlowsCommandOutput) => void
   ): Promise<ListContactFlowsCommandOutput> | void {
     const command = new ListContactFlowsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -534,17 +462,14 @@ export class Connect extends ConnectClient {
   ): void;
   public listHoursOfOperations(
     args: ListHoursOfOperationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListHoursOfOperationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHoursOfOperationsCommandOutput) => void),
     cb?: (err: any, data?: ListHoursOfOperationsCommandOutput) => void
   ): Promise<ListHoursOfOperationsCommandOutput> | void {
     const command = new ListHoursOfOperationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -569,17 +494,14 @@ export class Connect extends ConnectClient {
   ): void;
   public listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPhoneNumbersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPhoneNumbersCommandOutput) => void),
     cb?: (err: any, data?: ListPhoneNumbersCommandOutput) => void
   ): Promise<ListPhoneNumbersCommandOutput> | void {
     const command = new ListPhoneNumbersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -589,14 +511,8 @@ export class Connect extends ConnectClient {
   /**
    * <p>Provides information about the queues for the specified Amazon Connect instance.</p>
    */
-  public listQueues(
-    args: ListQueuesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListQueuesCommandOutput>;
-  public listQueues(
-    args: ListQueuesCommandInput,
-    cb: (err: any, data?: ListQueuesCommandOutput) => void
-  ): void;
+  public listQueues(args: ListQueuesCommandInput, options?: __HttpHandlerOptions): Promise<ListQueuesCommandOutput>;
+  public listQueues(args: ListQueuesCommandInput, cb: (err: any, data?: ListQueuesCommandOutput) => void): void;
   public listQueues(
     args: ListQueuesCommandInput,
     options: __HttpHandlerOptions,
@@ -604,17 +520,14 @@ export class Connect extends ConnectClient {
   ): void;
   public listQueues(
     args: ListQueuesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListQueuesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListQueuesCommandOutput) => void),
     cb?: (err: any, data?: ListQueuesCommandOutput) => void
   ): Promise<ListQueuesCommandOutput> | void {
     const command = new ListQueuesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -640,17 +553,14 @@ export class Connect extends ConnectClient {
   ): void;
   public listRoutingProfiles(
     args: ListRoutingProfilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRoutingProfilesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRoutingProfilesCommandOutput) => void),
     cb?: (err: any, data?: ListRoutingProfilesCommandOutput) => void
   ): Promise<ListRoutingProfilesCommandOutput> | void {
     const command = new ListRoutingProfilesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -676,17 +586,14 @@ export class Connect extends ConnectClient {
   ): void;
   public listSecurityProfiles(
     args: ListSecurityProfilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSecurityProfilesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSecurityProfilesCommandOutput) => void),
     cb?: (err: any, data?: ListSecurityProfilesCommandOutput) => void
   ): Promise<ListSecurityProfilesCommandOutput> | void {
     const command = new ListSecurityProfilesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -711,17 +618,14 @@ export class Connect extends ConnectClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -747,17 +651,14 @@ export class Connect extends ConnectClient {
   ): void;
   public listUserHierarchyGroups(
     args: ListUserHierarchyGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUserHierarchyGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUserHierarchyGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListUserHierarchyGroupsCommandOutput) => void
   ): Promise<ListUserHierarchyGroupsCommandOutput> | void {
     const command = new ListUserHierarchyGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -767,14 +668,8 @@ export class Connect extends ConnectClient {
   /**
    * <p>Provides summary information about the users for the specified Amazon Connect instance.</p>
    */
-  public listUsers(
-    args: ListUsersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListUsersCommandOutput>;
-  public listUsers(
-    args: ListUsersCommandInput,
-    cb: (err: any, data?: ListUsersCommandOutput) => void
-  ): void;
+  public listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
+  public listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
   public listUsers(
     args: ListUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -782,17 +677,14 @@ export class Connect extends ConnectClient {
   ): void;
   public listUsers(
     args: ListUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsersCommandOutput) => void),
     cb?: (err: any, data?: ListUsersCommandOutput) => void
   ): Promise<ListUsersCommandOutput> | void {
     const command = new ListUsersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -822,17 +714,14 @@ export class Connect extends ConnectClient {
   ): void;
   public startChatContact(
     args: StartChatContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartChatContactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartChatContactCommandOutput) => void),
     cb?: (err: any, data?: StartChatContactCommandOutput) => void
   ): Promise<StartChatContactCommandOutput> | void {
     const command = new StartChatContactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -860,17 +749,14 @@ export class Connect extends ConnectClient {
   ): void;
   public startOutboundVoiceContact(
     args: StartOutboundVoiceContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartOutboundVoiceContactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartOutboundVoiceContactCommandOutput) => void),
     cb?: (err: any, data?: StartOutboundVoiceContactCommandOutput) => void
   ): Promise<StartOutboundVoiceContactCommandOutput> | void {
     const command = new StartOutboundVoiceContactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -880,14 +766,8 @@ export class Connect extends ConnectClient {
   /**
    * <p>Ends the specified contact.</p>
    */
-  public stopContact(
-    args: StopContactCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopContactCommandOutput>;
-  public stopContact(
-    args: StopContactCommandInput,
-    cb: (err: any, data?: StopContactCommandOutput) => void
-  ): void;
+  public stopContact(args: StopContactCommandInput, options?: __HttpHandlerOptions): Promise<StopContactCommandOutput>;
+  public stopContact(args: StopContactCommandInput, cb: (err: any, data?: StopContactCommandOutput) => void): void;
   public stopContact(
     args: StopContactCommandInput,
     options: __HttpHandlerOptions,
@@ -895,17 +775,14 @@ export class Connect extends ConnectClient {
   ): void;
   public stopContact(
     args: StopContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopContactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopContactCommandOutput) => void),
     cb?: (err: any, data?: StopContactCommandOutput) => void
   ): Promise<StopContactCommandOutput> | void {
     const command = new StopContactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -916,14 +793,8 @@ export class Connect extends ConnectClient {
    * <p>Adds the specified tags to the specified resource.</p>
    *          <p>The supported resource type is users.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -931,17 +802,14 @@ export class Connect extends ConnectClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -966,17 +834,14 @@ export class Connect extends ConnectClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1016,17 +881,14 @@ export class Connect extends ConnectClient {
   ): void;
   public updateContactAttributes(
     args: UpdateContactAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateContactAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateContactAttributesCommandOutput) => void),
     cb?: (err: any, data?: UpdateContactAttributesCommandOutput) => void
   ): Promise<UpdateContactAttributesCommandOutput> | void {
     const command = new UpdateContactAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1051,17 +913,14 @@ export class Connect extends ConnectClient {
   ): void;
   public updateUserHierarchy(
     args: UpdateUserHierarchyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserHierarchyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserHierarchyCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserHierarchyCommandOutput) => void
   ): Promise<UpdateUserHierarchyCommandOutput> | void {
     const command = new UpdateUserHierarchyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1086,17 +945,14 @@ export class Connect extends ConnectClient {
   ): void;
   public updateUserIdentityInfo(
     args: UpdateUserIdentityInfoCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserIdentityInfoCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserIdentityInfoCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserIdentityInfoCommandOutput) => void
   ): Promise<UpdateUserIdentityInfoCommandOutput> | void {
     const command = new UpdateUserIdentityInfoCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1121,17 +977,14 @@ export class Connect extends ConnectClient {
   ): void;
   public updateUserPhoneConfig(
     args: UpdateUserPhoneConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserPhoneConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserPhoneConfigCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserPhoneConfigCommandOutput) => void
   ): Promise<UpdateUserPhoneConfigCommandOutput> | void {
     const command = new UpdateUserPhoneConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1156,17 +1009,14 @@ export class Connect extends ConnectClient {
   ): void;
   public updateUserRoutingProfile(
     args: UpdateUserRoutingProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserRoutingProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserRoutingProfileCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserRoutingProfileCommandOutput) => void
   ): Promise<UpdateUserRoutingProfileCommandOutput> | void {
     const command = new UpdateUserRoutingProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1191,17 +1041,14 @@ export class Connect extends ConnectClient {
   ): void;
   public updateUserSecurityProfiles(
     args: UpdateUserSecurityProfilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserSecurityProfilesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserSecurityProfilesCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserSecurityProfilesCommandOutput) => void
   ): Promise<UpdateUserSecurityProfilesCommandOutput> | void {
     const command = new UpdateUserSecurityProfilesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

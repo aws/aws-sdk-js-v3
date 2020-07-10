@@ -1,21 +1,11 @@
-import {
-  AmplifyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AmplifyClient";
-import {
-  GetBackendEnvironmentRequest,
-  GetBackendEnvironmentResult
-} from "../models/index";
+import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
+import { GetBackendEnvironmentRequest, GetBackendEnvironmentResult } from "../models/index";
 import {
   deserializeAws_restJson1GetBackendEnvironmentCommand,
-  serializeAws_restJson1GetBackendEnvironmentCommand
+  serializeAws_restJson1GetBackendEnvironmentCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetBackendEnvironmentCommandInput = GetBackendEnvironmentRequest;
-export type GetBackendEnvironmentCommandOutput = GetBackendEnvironmentResult &
-  __MetadataBearer;
+export type GetBackendEnvironmentCommandOutput = GetBackendEnvironmentResult & __MetadataBearer;
 
 export class GetBackendEnvironmentCommand extends $Command<
   GetBackendEnvironmentCommandInput,
@@ -49,18 +38,13 @@ export class GetBackendEnvironmentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBackendEnvironmentCommandInput,
-    GetBackendEnvironmentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBackendEnvironmentCommandInput, GetBackendEnvironmentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class GetBackendEnvironmentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetBackendEnvironmentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetBackendEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBackendEnvironmentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetBackendEnvironmentCommandOutput> {
-    return deserializeAws_restJson1GetBackendEnvironmentCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBackendEnvironmentCommandOutput> {
+    return deserializeAws_restJson1GetBackendEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

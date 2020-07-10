@@ -1,21 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient";
-import {
-  CreateNotebookInstanceInput,
-  CreateNotebookInstanceOutput
-} from "../models/index";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { CreateNotebookInstanceInput, CreateNotebookInstanceOutput } from "../models/index";
 import {
   deserializeAws_json1_1CreateNotebookInstanceCommand,
-  serializeAws_json1_1CreateNotebookInstanceCommand
+  serializeAws_json1_1CreateNotebookInstanceCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateNotebookInstanceCommandInput = CreateNotebookInstanceInput;
-export type CreateNotebookInstanceCommandOutput = CreateNotebookInstanceOutput &
-  __MetadataBearer;
+export type CreateNotebookInstanceCommandOutput = CreateNotebookInstanceOutput & __MetadataBearer;
 
 export class CreateNotebookInstanceCommand extends $Command<
   CreateNotebookInstanceCommandInput,
@@ -49,18 +38,13 @@ export class CreateNotebookInstanceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateNotebookInstanceCommandInput,
-    CreateNotebookInstanceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateNotebookInstanceCommandInput, CreateNotebookInstanceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class CreateNotebookInstanceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateNotebookInstanceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateNotebookInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateNotebookInstanceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateNotebookInstanceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNotebookInstanceCommandOutput> {
     return deserializeAws_json1_1CreateNotebookInstanceCommand(output, context);
   }
 

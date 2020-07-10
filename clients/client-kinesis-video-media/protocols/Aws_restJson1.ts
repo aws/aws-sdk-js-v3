@@ -1,7 +1,4 @@
-import {
-  GetMediaCommandInput,
-  GetMediaCommandOutput
-} from "../commands/GetMediaCommand";
+import { GetMediaCommandInput, GetMediaCommandOutput } from "../commands/GetMediaCommand";
 import {
   ClientLimitExceededException,
   ConnectionLimitExceededException,
@@ -9,18 +6,15 @@ import {
   InvalidEndpointException,
   NotAuthorizedException,
   ResourceNotFoundException,
-  StartSelector
+  StartSelector,
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export const serializeAws_restJson1GetMediaCommand = async (
@@ -28,19 +22,16 @@ export const serializeAws_restJson1GetMediaCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/getMedia";
   let body: any;
   body = JSON.stringify({
     ...(input.StartSelector !== undefined && {
-      StartSelector: serializeAws_restJson1StartSelector(
-        input.StartSelector,
-        context
-      )
+      StartSelector: serializeAws_restJson1StartSelector(input.StartSelector, context),
     }),
     ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -50,7 +41,7 @@ export const serializeAws_restJson1GetMediaCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -65,7 +56,7 @@ export const deserializeAws_restJson1GetMediaCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "GetMediaOutput",
     ContentType: undefined,
-    Payload: undefined
+    Payload: undefined,
   };
   if (output.headers["content-type"] !== undefined) {
     contents.ContentType = output.headers["content-type"];
@@ -81,7 +72,7 @@ const deserializeAws_restJson1GetMediaCommandError = async (
 ): Promise<GetMediaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -90,67 +81,49 @@ const deserializeAws_restJson1GetMediaCommandError = async (
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideomedia#ClientLimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1ClientLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ConnectionLimitExceededException":
     case "com.amazonaws.kinesisvideomedia#ConnectionLimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1ConnectionLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ConnectionLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideomedia#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_restJson1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidEndpointException":
     case "com.amazonaws.kinesisvideomedia#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_restJson1InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideomedia#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideomedia#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -161,7 +134,7 @@ const deserializeAws_restJson1GetMediaCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -178,7 +151,7 @@ const deserializeAws_restJson1ClientLimitExceededExceptionResponse = async (
     name: "ClientLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -195,7 +168,7 @@ const deserializeAws_restJson1ConnectionLimitExceededExceptionResponse = async (
     name: "ConnectionLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -212,7 +185,7 @@ const deserializeAws_restJson1InvalidArgumentExceptionResponse = async (
     name: "InvalidArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -229,7 +202,7 @@ const deserializeAws_restJson1InvalidEndpointExceptionResponse = async (
     name: "InvalidEndpointException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -246,7 +219,7 @@ const deserializeAws_restJson1NotAuthorizedExceptionResponse = async (
     name: "NotAuthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -263,7 +236,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
     name: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -272,61 +245,41 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1StartSelector = (
-  input: StartSelector,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1StartSelector = (input: StartSelector, context: __SerdeContext): any => {
   return {
-    ...(input.AfterFragmentNumber !== undefined && {
-      AfterFragmentNumber: input.AfterFragmentNumber
-    }),
-    ...(input.ContinuationToken !== undefined && {
-      ContinuationToken: input.ContinuationToken
-    }),
-    ...(input.StartSelectorType !== undefined && {
-      StartSelectorType: input.StartSelectorType
-    }),
-    ...(input.StartTimestamp !== undefined && {
-      StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000)
-    })
+    ...(input.AfterFragmentNumber !== undefined && { AfterFragmentNumber: input.AfterFragmentNumber }),
+    ...(input.ContinuationToken !== undefined && { ContinuationToken: input.ContinuationToken }),
+    ...(input.StartSelectorType !== undefined && { StartSelectorType: input.StartSelectorType }),
+    ...(input.StartTimestamp !== undefined && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"]
+  requestId: output.headers["x-amzn-requestid"],
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
-  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then(encoded => {
+  collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
@@ -337,8 +290,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

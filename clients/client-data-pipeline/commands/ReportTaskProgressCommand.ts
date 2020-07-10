@@ -1,21 +1,11 @@
-import {
-  DataPipelineClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DataPipelineClient";
-import {
-  ReportTaskProgressInput,
-  ReportTaskProgressOutput
-} from "../models/index";
+import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
+import { ReportTaskProgressInput, ReportTaskProgressOutput } from "../models/index";
 import {
   deserializeAws_json1_1ReportTaskProgressCommand,
-  serializeAws_json1_1ReportTaskProgressCommand
+  serializeAws_json1_1ReportTaskProgressCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ReportTaskProgressCommandInput = ReportTaskProgressInput;
-export type ReportTaskProgressCommandOutput = ReportTaskProgressOutput &
-  __MetadataBearer;
+export type ReportTaskProgressCommandOutput = ReportTaskProgressOutput & __MetadataBearer;
 
 export class ReportTaskProgressCommand extends $Command<
   ReportTaskProgressCommandInput,
@@ -50,14 +39,12 @@ export class ReportTaskProgressCommand extends $Command<
     configuration: DataPipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ReportTaskProgressCommandInput, ReportTaskProgressCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class ReportTaskProgressCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ReportTaskProgressCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ReportTaskProgressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ReportTaskProgressCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ReportTaskProgressCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReportTaskProgressCommandOutput> {
     return deserializeAws_json1_1ReportTaskProgressCommand(output, context);
   }
 

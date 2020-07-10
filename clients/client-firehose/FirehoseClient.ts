@@ -1,51 +1,39 @@
 import {
   CreateDeliveryStreamCommandInput,
-  CreateDeliveryStreamCommandOutput
+  CreateDeliveryStreamCommandOutput,
 } from "./commands/CreateDeliveryStreamCommand";
 import {
   DeleteDeliveryStreamCommandInput,
-  DeleteDeliveryStreamCommandOutput
+  DeleteDeliveryStreamCommandOutput,
 } from "./commands/DeleteDeliveryStreamCommand";
 import {
   DescribeDeliveryStreamCommandInput,
-  DescribeDeliveryStreamCommandOutput
+  DescribeDeliveryStreamCommandOutput,
 } from "./commands/DescribeDeliveryStreamCommand";
 import {
   ListDeliveryStreamsCommandInput,
-  ListDeliveryStreamsCommandOutput
+  ListDeliveryStreamsCommandOutput,
 } from "./commands/ListDeliveryStreamsCommand";
 import {
   ListTagsForDeliveryStreamCommandInput,
-  ListTagsForDeliveryStreamCommandOutput
+  ListTagsForDeliveryStreamCommandOutput,
 } from "./commands/ListTagsForDeliveryStreamCommand";
-import {
-  PutRecordBatchCommandInput,
-  PutRecordBatchCommandOutput
-} from "./commands/PutRecordBatchCommand";
-import {
-  PutRecordCommandInput,
-  PutRecordCommandOutput
-} from "./commands/PutRecordCommand";
+import { PutRecordBatchCommandInput, PutRecordBatchCommandOutput } from "./commands/PutRecordBatchCommand";
+import { PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand";
 import {
   StartDeliveryStreamEncryptionCommandInput,
-  StartDeliveryStreamEncryptionCommandOutput
+  StartDeliveryStreamEncryptionCommandOutput,
 } from "./commands/StartDeliveryStreamEncryptionCommand";
 import {
   StopDeliveryStreamEncryptionCommandInput,
-  StopDeliveryStreamEncryptionCommandOutput
+  StopDeliveryStreamEncryptionCommandOutput,
 } from "./commands/StopDeliveryStreamEncryptionCommand";
-import {
-  TagDeliveryStreamCommandInput,
-  TagDeliveryStreamCommandOutput
-} from "./commands/TagDeliveryStreamCommand";
+import { TagDeliveryStreamCommandInput, TagDeliveryStreamCommandOutput } from "./commands/TagDeliveryStreamCommand";
 import {
   UntagDeliveryStreamCommandInput,
-  UntagDeliveryStreamCommandOutput
+  UntagDeliveryStreamCommandOutput,
 } from "./commands/UntagDeliveryStreamCommand";
-import {
-  UpdateDestinationCommandInput,
-  UpdateDestinationCommandOutput
-} from "./commands/UpdateDestinationCommand";
+import { UpdateDestinationCommandInput, UpdateDestinationCommandOutput } from "./commands/UpdateDestinationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -53,38 +41,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -95,7 +78,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -126,8 +109,7 @@ export type ServiceOutputTypes =
   | UntagDeliveryStreamCommandOutput
   | UpdateDestinationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -216,9 +198,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type FirehoseClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type FirehoseClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -227,9 +207,7 @@ export type FirehoseClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type FirehoseClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type FirehoseClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -255,7 +233,7 @@ export class FirehoseClient extends __Client<
   constructor(configuration: FirehoseClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

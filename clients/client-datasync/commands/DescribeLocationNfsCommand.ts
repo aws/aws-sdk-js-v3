@@ -1,21 +1,11 @@
-import {
-  DataSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DataSyncClient";
-import {
-  DescribeLocationNfsRequest,
-  DescribeLocationNfsResponse
-} from "../models/index";
+import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
+import { DescribeLocationNfsRequest, DescribeLocationNfsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeLocationNfsCommand,
-  serializeAws_json1_1DescribeLocationNfsCommand
+  serializeAws_json1_1DescribeLocationNfsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeLocationNfsCommandInput = DescribeLocationNfsRequest;
-export type DescribeLocationNfsCommandOutput = DescribeLocationNfsResponse &
-  __MetadataBearer;
+export type DescribeLocationNfsCommandOutput = DescribeLocationNfsResponse & __MetadataBearer;
 
 export class DescribeLocationNfsCommand extends $Command<
   DescribeLocationNfsCommandInput,
@@ -49,18 +38,13 @@ export class DescribeLocationNfsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeLocationNfsCommandInput,
-    DescribeLocationNfsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeLocationNfsCommandInput, DescribeLocationNfsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DescribeLocationNfsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeLocationNfsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeLocationNfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLocationNfsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeLocationNfsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLocationNfsCommandOutput> {
     return deserializeAws_json1_1DescribeLocationNfsCommand(output, context);
   }
 

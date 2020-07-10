@@ -1,21 +1,11 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient";
-import {
-  BatchCheckLayerAvailabilityRequest,
-  BatchCheckLayerAvailabilityResponse
-} from "../models/index";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { BatchCheckLayerAvailabilityRequest, BatchCheckLayerAvailabilityResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchCheckLayerAvailabilityCommand,
-  serializeAws_json1_1BatchCheckLayerAvailabilityCommand
+  serializeAws_json1_1BatchCheckLayerAvailabilityCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type BatchCheckLayerAvailabilityCommandInput = BatchCheckLayerAvailabilityRequest;
-export type BatchCheckLayerAvailabilityCommandOutput = BatchCheckLayerAvailabilityResponse &
-  __MetadataBearer;
+export type BatchCheckLayerAvailabilityCommandOutput = BatchCheckLayerAvailabilityResponse & __MetadataBearer;
 
 export class BatchCheckLayerAvailabilityCommand extends $Command<
   BatchCheckLayerAvailabilityCommandInput,
@@ -49,18 +38,13 @@ export class BatchCheckLayerAvailabilityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchCheckLayerAvailabilityCommandInput,
-    BatchCheckLayerAvailabilityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchCheckLayerAvailabilityCommandInput, BatchCheckLayerAvailabilityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class BatchCheckLayerAvailabilityCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchCheckLayerAvailabilityCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchCheckLayerAvailabilityCommand(
-      input,
-      context
-    );
+  private serialize(input: BatchCheckLayerAvailabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1BatchCheckLayerAvailabilityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchCheckLayerAvailabilityCommandOutput> {
-    return deserializeAws_json1_1BatchCheckLayerAvailabilityCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1BatchCheckLayerAvailabilityCommand(output, context);
   }
 
   // Start section: command_body_extra

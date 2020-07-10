@@ -1,299 +1,155 @@
-import {
-  AssignInstanceCommandInput,
-  AssignInstanceCommandOutput
-} from "./commands/AssignInstanceCommand";
-import {
-  AssignVolumeCommandInput,
-  AssignVolumeCommandOutput
-} from "./commands/AssignVolumeCommand";
-import {
-  AssociateElasticIpCommandInput,
-  AssociateElasticIpCommandOutput
-} from "./commands/AssociateElasticIpCommand";
+import { AssignInstanceCommandInput, AssignInstanceCommandOutput } from "./commands/AssignInstanceCommand";
+import { AssignVolumeCommandInput, AssignVolumeCommandOutput } from "./commands/AssignVolumeCommand";
+import { AssociateElasticIpCommandInput, AssociateElasticIpCommandOutput } from "./commands/AssociateElasticIpCommand";
 import {
   AttachElasticLoadBalancerCommandInput,
-  AttachElasticLoadBalancerCommandOutput
+  AttachElasticLoadBalancerCommandOutput,
 } from "./commands/AttachElasticLoadBalancerCommand";
-import {
-  CloneStackCommandInput,
-  CloneStackCommandOutput
-} from "./commands/CloneStackCommand";
-import {
-  CreateAppCommandInput,
-  CreateAppCommandOutput
-} from "./commands/CreateAppCommand";
-import {
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput
-} from "./commands/CreateDeploymentCommand";
-import {
-  CreateInstanceCommandInput,
-  CreateInstanceCommandOutput
-} from "./commands/CreateInstanceCommand";
-import {
-  CreateLayerCommandInput,
-  CreateLayerCommandOutput
-} from "./commands/CreateLayerCommand";
-import {
-  CreateStackCommandInput,
-  CreateStackCommandOutput
-} from "./commands/CreateStackCommand";
-import {
-  CreateUserProfileCommandInput,
-  CreateUserProfileCommandOutput
-} from "./commands/CreateUserProfileCommand";
-import {
-  DeleteAppCommandInput,
-  DeleteAppCommandOutput
-} from "./commands/DeleteAppCommand";
-import {
-  DeleteInstanceCommandInput,
-  DeleteInstanceCommandOutput
-} from "./commands/DeleteInstanceCommand";
-import {
-  DeleteLayerCommandInput,
-  DeleteLayerCommandOutput
-} from "./commands/DeleteLayerCommand";
-import {
-  DeleteStackCommandInput,
-  DeleteStackCommandOutput
-} from "./commands/DeleteStackCommand";
-import {
-  DeleteUserProfileCommandInput,
-  DeleteUserProfileCommandOutput
-} from "./commands/DeleteUserProfileCommand";
+import { CloneStackCommandInput, CloneStackCommandOutput } from "./commands/CloneStackCommand";
+import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
+import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand";
+import { CreateInstanceCommandInput, CreateInstanceCommandOutput } from "./commands/CreateInstanceCommand";
+import { CreateLayerCommandInput, CreateLayerCommandOutput } from "./commands/CreateLayerCommand";
+import { CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand";
+import { CreateUserProfileCommandInput, CreateUserProfileCommandOutput } from "./commands/CreateUserProfileCommand";
+import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
+import { DeleteInstanceCommandInput, DeleteInstanceCommandOutput } from "./commands/DeleteInstanceCommand";
+import { DeleteLayerCommandInput, DeleteLayerCommandOutput } from "./commands/DeleteLayerCommand";
+import { DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand";
+import { DeleteUserProfileCommandInput, DeleteUserProfileCommandOutput } from "./commands/DeleteUserProfileCommand";
 import {
   DeregisterEcsClusterCommandInput,
-  DeregisterEcsClusterCommandOutput
+  DeregisterEcsClusterCommandOutput,
 } from "./commands/DeregisterEcsClusterCommand";
 import {
   DeregisterElasticIpCommandInput,
-  DeregisterElasticIpCommandOutput
+  DeregisterElasticIpCommandOutput,
 } from "./commands/DeregisterElasticIpCommand";
-import {
-  DeregisterInstanceCommandInput,
-  DeregisterInstanceCommandOutput
-} from "./commands/DeregisterInstanceCommand";
+import { DeregisterInstanceCommandInput, DeregisterInstanceCommandOutput } from "./commands/DeregisterInstanceCommand";
 import {
   DeregisterRdsDbInstanceCommandInput,
-  DeregisterRdsDbInstanceCommandOutput
+  DeregisterRdsDbInstanceCommandOutput,
 } from "./commands/DeregisterRdsDbInstanceCommand";
-import {
-  DeregisterVolumeCommandInput,
-  DeregisterVolumeCommandOutput
-} from "./commands/DeregisterVolumeCommand";
+import { DeregisterVolumeCommandInput, DeregisterVolumeCommandOutput } from "./commands/DeregisterVolumeCommand";
 import {
   DescribeAgentVersionsCommandInput,
-  DescribeAgentVersionsCommandOutput
+  DescribeAgentVersionsCommandOutput,
 } from "./commands/DescribeAgentVersionsCommand";
-import {
-  DescribeAppsCommandInput,
-  DescribeAppsCommandOutput
-} from "./commands/DescribeAppsCommand";
-import {
-  DescribeCommandsCommandInput,
-  DescribeCommandsCommandOutput
-} from "./commands/DescribeCommandsCommand";
+import { DescribeAppsCommandInput, DescribeAppsCommandOutput } from "./commands/DescribeAppsCommand";
+import { DescribeCommandsCommandInput, DescribeCommandsCommandOutput } from "./commands/DescribeCommandsCommand";
 import {
   DescribeDeploymentsCommandInput,
-  DescribeDeploymentsCommandOutput
+  DescribeDeploymentsCommandOutput,
 } from "./commands/DescribeDeploymentsCommand";
 import {
   DescribeEcsClustersCommandInput,
-  DescribeEcsClustersCommandOutput
+  DescribeEcsClustersCommandOutput,
 } from "./commands/DescribeEcsClustersCommand";
-import {
-  DescribeElasticIpsCommandInput,
-  DescribeElasticIpsCommandOutput
-} from "./commands/DescribeElasticIpsCommand";
+import { DescribeElasticIpsCommandInput, DescribeElasticIpsCommandOutput } from "./commands/DescribeElasticIpsCommand";
 import {
   DescribeElasticLoadBalancersCommandInput,
-  DescribeElasticLoadBalancersCommandOutput
+  DescribeElasticLoadBalancersCommandOutput,
 } from "./commands/DescribeElasticLoadBalancersCommand";
-import {
-  DescribeInstancesCommandInput,
-  DescribeInstancesCommandOutput
-} from "./commands/DescribeInstancesCommand";
-import {
-  DescribeLayersCommandInput,
-  DescribeLayersCommandOutput
-} from "./commands/DescribeLayersCommand";
+import { DescribeInstancesCommandInput, DescribeInstancesCommandOutput } from "./commands/DescribeInstancesCommand";
+import { DescribeLayersCommandInput, DescribeLayersCommandOutput } from "./commands/DescribeLayersCommand";
 import {
   DescribeLoadBasedAutoScalingCommandInput,
-  DescribeLoadBasedAutoScalingCommandOutput
+  DescribeLoadBasedAutoScalingCommandOutput,
 } from "./commands/DescribeLoadBasedAutoScalingCommand";
 import {
   DescribeMyUserProfileCommandInput,
-  DescribeMyUserProfileCommandOutput
+  DescribeMyUserProfileCommandOutput,
 } from "./commands/DescribeMyUserProfileCommand";
 import {
   DescribeOperatingSystemsCommandInput,
-  DescribeOperatingSystemsCommandOutput
+  DescribeOperatingSystemsCommandOutput,
 } from "./commands/DescribeOperatingSystemsCommand";
 import {
   DescribePermissionsCommandInput,
-  DescribePermissionsCommandOutput
+  DescribePermissionsCommandOutput,
 } from "./commands/DescribePermissionsCommand";
-import {
-  DescribeRaidArraysCommandInput,
-  DescribeRaidArraysCommandOutput
-} from "./commands/DescribeRaidArraysCommand";
+import { DescribeRaidArraysCommandInput, DescribeRaidArraysCommandOutput } from "./commands/DescribeRaidArraysCommand";
 import {
   DescribeRdsDbInstancesCommandInput,
-  DescribeRdsDbInstancesCommandOutput
+  DescribeRdsDbInstancesCommandOutput,
 } from "./commands/DescribeRdsDbInstancesCommand";
 import {
   DescribeServiceErrorsCommandInput,
-  DescribeServiceErrorsCommandOutput
+  DescribeServiceErrorsCommandOutput,
 } from "./commands/DescribeServiceErrorsCommand";
 import {
   DescribeStackProvisioningParametersCommandInput,
-  DescribeStackProvisioningParametersCommandOutput
+  DescribeStackProvisioningParametersCommandOutput,
 } from "./commands/DescribeStackProvisioningParametersCommand";
 import {
   DescribeStackSummaryCommandInput,
-  DescribeStackSummaryCommandOutput
+  DescribeStackSummaryCommandOutput,
 } from "./commands/DescribeStackSummaryCommand";
-import {
-  DescribeStacksCommandInput,
-  DescribeStacksCommandOutput
-} from "./commands/DescribeStacksCommand";
+import { DescribeStacksCommandInput, DescribeStacksCommandOutput } from "./commands/DescribeStacksCommand";
 import {
   DescribeTimeBasedAutoScalingCommandInput,
-  DescribeTimeBasedAutoScalingCommandOutput
+  DescribeTimeBasedAutoScalingCommandOutput,
 } from "./commands/DescribeTimeBasedAutoScalingCommand";
 import {
   DescribeUserProfilesCommandInput,
-  DescribeUserProfilesCommandOutput
+  DescribeUserProfilesCommandOutput,
 } from "./commands/DescribeUserProfilesCommand";
-import {
-  DescribeVolumesCommandInput,
-  DescribeVolumesCommandOutput
-} from "./commands/DescribeVolumesCommand";
+import { DescribeVolumesCommandInput, DescribeVolumesCommandOutput } from "./commands/DescribeVolumesCommand";
 import {
   DetachElasticLoadBalancerCommandInput,
-  DetachElasticLoadBalancerCommandOutput
+  DetachElasticLoadBalancerCommandOutput,
 } from "./commands/DetachElasticLoadBalancerCommand";
 import {
   DisassociateElasticIpCommandInput,
-  DisassociateElasticIpCommandOutput
+  DisassociateElasticIpCommandOutput,
 } from "./commands/DisassociateElasticIpCommand";
 import {
   GetHostnameSuggestionCommandInput,
-  GetHostnameSuggestionCommandOutput
+  GetHostnameSuggestionCommandOutput,
 } from "./commands/GetHostnameSuggestionCommand";
-import {
-  GrantAccessCommandInput,
-  GrantAccessCommandOutput
-} from "./commands/GrantAccessCommand";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand";
-import {
-  RebootInstanceCommandInput,
-  RebootInstanceCommandOutput
-} from "./commands/RebootInstanceCommand";
-import {
-  RegisterEcsClusterCommandInput,
-  RegisterEcsClusterCommandOutput
-} from "./commands/RegisterEcsClusterCommand";
-import {
-  RegisterElasticIpCommandInput,
-  RegisterElasticIpCommandOutput
-} from "./commands/RegisterElasticIpCommand";
-import {
-  RegisterInstanceCommandInput,
-  RegisterInstanceCommandOutput
-} from "./commands/RegisterInstanceCommand";
+import { GrantAccessCommandInput, GrantAccessCommandOutput } from "./commands/GrantAccessCommand";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import { RebootInstanceCommandInput, RebootInstanceCommandOutput } from "./commands/RebootInstanceCommand";
+import { RegisterEcsClusterCommandInput, RegisterEcsClusterCommandOutput } from "./commands/RegisterEcsClusterCommand";
+import { RegisterElasticIpCommandInput, RegisterElasticIpCommandOutput } from "./commands/RegisterElasticIpCommand";
+import { RegisterInstanceCommandInput, RegisterInstanceCommandOutput } from "./commands/RegisterInstanceCommand";
 import {
   RegisterRdsDbInstanceCommandInput,
-  RegisterRdsDbInstanceCommandOutput
+  RegisterRdsDbInstanceCommandOutput,
 } from "./commands/RegisterRdsDbInstanceCommand";
-import {
-  RegisterVolumeCommandInput,
-  RegisterVolumeCommandOutput
-} from "./commands/RegisterVolumeCommand";
+import { RegisterVolumeCommandInput, RegisterVolumeCommandOutput } from "./commands/RegisterVolumeCommand";
 import {
   SetLoadBasedAutoScalingCommandInput,
-  SetLoadBasedAutoScalingCommandOutput
+  SetLoadBasedAutoScalingCommandOutput,
 } from "./commands/SetLoadBasedAutoScalingCommand";
-import {
-  SetPermissionCommandInput,
-  SetPermissionCommandOutput
-} from "./commands/SetPermissionCommand";
+import { SetPermissionCommandInput, SetPermissionCommandOutput } from "./commands/SetPermissionCommand";
 import {
   SetTimeBasedAutoScalingCommandInput,
-  SetTimeBasedAutoScalingCommandOutput
+  SetTimeBasedAutoScalingCommandOutput,
 } from "./commands/SetTimeBasedAutoScalingCommand";
-import {
-  StartInstanceCommandInput,
-  StartInstanceCommandOutput
-} from "./commands/StartInstanceCommand";
-import {
-  StartStackCommandInput,
-  StartStackCommandOutput
-} from "./commands/StartStackCommand";
-import {
-  StopInstanceCommandInput,
-  StopInstanceCommandOutput
-} from "./commands/StopInstanceCommand";
-import {
-  StopStackCommandInput,
-  StopStackCommandOutput
-} from "./commands/StopStackCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UnassignInstanceCommandInput,
-  UnassignInstanceCommandOutput
-} from "./commands/UnassignInstanceCommand";
-import {
-  UnassignVolumeCommandInput,
-  UnassignVolumeCommandOutput
-} from "./commands/UnassignVolumeCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateAppCommandInput,
-  UpdateAppCommandOutput
-} from "./commands/UpdateAppCommand";
-import {
-  UpdateElasticIpCommandInput,
-  UpdateElasticIpCommandOutput
-} from "./commands/UpdateElasticIpCommand";
-import {
-  UpdateInstanceCommandInput,
-  UpdateInstanceCommandOutput
-} from "./commands/UpdateInstanceCommand";
-import {
-  UpdateLayerCommandInput,
-  UpdateLayerCommandOutput
-} from "./commands/UpdateLayerCommand";
+import { StartInstanceCommandInput, StartInstanceCommandOutput } from "./commands/StartInstanceCommand";
+import { StartStackCommandInput, StartStackCommandOutput } from "./commands/StartStackCommand";
+import { StopInstanceCommandInput, StopInstanceCommandOutput } from "./commands/StopInstanceCommand";
+import { StopStackCommandInput, StopStackCommandOutput } from "./commands/StopStackCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UnassignInstanceCommandInput, UnassignInstanceCommandOutput } from "./commands/UnassignInstanceCommand";
+import { UnassignVolumeCommandInput, UnassignVolumeCommandOutput } from "./commands/UnassignVolumeCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAppCommandInput, UpdateAppCommandOutput } from "./commands/UpdateAppCommand";
+import { UpdateElasticIpCommandInput, UpdateElasticIpCommandOutput } from "./commands/UpdateElasticIpCommand";
+import { UpdateInstanceCommandInput, UpdateInstanceCommandOutput } from "./commands/UpdateInstanceCommand";
+import { UpdateLayerCommandInput, UpdateLayerCommandOutput } from "./commands/UpdateLayerCommand";
 import {
   UpdateMyUserProfileCommandInput,
-  UpdateMyUserProfileCommandOutput
+  UpdateMyUserProfileCommandOutput,
 } from "./commands/UpdateMyUserProfileCommand";
 import {
   UpdateRdsDbInstanceCommandInput,
-  UpdateRdsDbInstanceCommandOutput
+  UpdateRdsDbInstanceCommandOutput,
 } from "./commands/UpdateRdsDbInstanceCommand";
-import {
-  UpdateStackCommandInput,
-  UpdateStackCommandOutput
-} from "./commands/UpdateStackCommand";
-import {
-  UpdateUserProfileCommandInput,
-  UpdateUserProfileCommandOutput
-} from "./commands/UpdateUserProfileCommand";
-import {
-  UpdateVolumeCommandInput,
-  UpdateVolumeCommandOutput
-} from "./commands/UpdateVolumeCommand";
+import { UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand";
+import { UpdateUserProfileCommandInput, UpdateUserProfileCommandOutput } from "./commands/UpdateUserProfileCommand";
+import { UpdateVolumeCommandInput, UpdateVolumeCommandOutput } from "./commands/UpdateVolumeCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -301,38 +157,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -343,7 +194,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -498,8 +349,7 @@ export type ServiceOutputTypes =
   | UpdateUserProfileCommandOutput
   | UpdateVolumeCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -588,9 +438,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type OpsWorksClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type OpsWorksClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -599,9 +447,7 @@ export type OpsWorksClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type OpsWorksClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type OpsWorksClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -738,7 +584,7 @@ export class OpsWorksClient extends __Client<
   constructor(configuration: OpsWorksClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

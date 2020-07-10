@@ -1,21 +1,11 @@
-import {
-  DirectConnectClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DirectConnectClient";
-import {
-  DeleteInterconnectRequest,
-  DeleteInterconnectResponse
-} from "../models/index";
+import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
+import { DeleteInterconnectRequest, DeleteInterconnectResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteInterconnectCommand,
-  serializeAws_json1_1DeleteInterconnectCommand
+  serializeAws_json1_1DeleteInterconnectCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteInterconnectCommandInput = DeleteInterconnectRequest;
-export type DeleteInterconnectCommandOutput = DeleteInterconnectResponse &
-  __MetadataBearer;
+export type DeleteInterconnectCommandOutput = DeleteInterconnectResponse & __MetadataBearer;
 
 export class DeleteInterconnectCommand extends $Command<
   DeleteInterconnectCommandInput,
@@ -50,14 +39,12 @@ export class DeleteInterconnectCommand extends $Command<
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteInterconnectCommandInput, DeleteInterconnectCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class DeleteInterconnectCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteInterconnectCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteInterconnectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteInterconnectCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteInterconnectCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInterconnectCommandOutput> {
     return deserializeAws_json1_1DeleteInterconnectCommand(output, context);
   }
 

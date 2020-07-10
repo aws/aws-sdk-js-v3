@@ -1,21 +1,11 @@
-import {
-  GameLiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GameLiftClient";
-import {
-  UpdateGameSessionInput,
-  UpdateGameSessionOutput
-} from "../models/index";
+import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { UpdateGameSessionInput, UpdateGameSessionOutput } from "../models/index";
 import {
   deserializeAws_json1_1UpdateGameSessionCommand,
-  serializeAws_json1_1UpdateGameSessionCommand
+  serializeAws_json1_1UpdateGameSessionCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateGameSessionCommandInput = UpdateGameSessionInput;
-export type UpdateGameSessionCommandOutput = UpdateGameSessionOutput &
-  __MetadataBearer;
+export type UpdateGameSessionCommandOutput = UpdateGameSessionOutput & __MetadataBearer;
 
 export class UpdateGameSessionCommand extends $Command<
   UpdateGameSessionCommandInput,
@@ -50,14 +39,12 @@ export class UpdateGameSessionCommand extends $Command<
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateGameSessionCommandInput, UpdateGameSessionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class UpdateGameSessionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateGameSessionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateGameSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateGameSessionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateGameSessionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGameSessionCommandOutput> {
     return deserializeAws_json1_1UpdateGameSessionCommand(output, context);
   }
 

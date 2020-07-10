@@ -2,67 +2,59 @@ import { IoT1ClickDevicesServiceClient } from "./IoT1ClickDevicesServiceClient";
 import {
   ClaimDevicesByClaimCodeCommand,
   ClaimDevicesByClaimCodeCommandInput,
-  ClaimDevicesByClaimCodeCommandOutput
+  ClaimDevicesByClaimCodeCommandOutput,
 } from "./commands/ClaimDevicesByClaimCodeCommand";
 import {
   DescribeDeviceCommand,
   DescribeDeviceCommandInput,
-  DescribeDeviceCommandOutput
+  DescribeDeviceCommandOutput,
 } from "./commands/DescribeDeviceCommand";
 import {
   FinalizeDeviceClaimCommand,
   FinalizeDeviceClaimCommandInput,
-  FinalizeDeviceClaimCommandOutput
+  FinalizeDeviceClaimCommandOutput,
 } from "./commands/FinalizeDeviceClaimCommand";
 import {
   GetDeviceMethodsCommand,
   GetDeviceMethodsCommandInput,
-  GetDeviceMethodsCommandOutput
+  GetDeviceMethodsCommandOutput,
 } from "./commands/GetDeviceMethodsCommand";
 import {
   InitiateDeviceClaimCommand,
   InitiateDeviceClaimCommandInput,
-  InitiateDeviceClaimCommandOutput
+  InitiateDeviceClaimCommandOutput,
 } from "./commands/InitiateDeviceClaimCommand";
 import {
   InvokeDeviceMethodCommand,
   InvokeDeviceMethodCommandInput,
-  InvokeDeviceMethodCommandOutput
+  InvokeDeviceMethodCommandOutput,
 } from "./commands/InvokeDeviceMethodCommand";
 import {
   ListDeviceEventsCommand,
   ListDeviceEventsCommandInput,
-  ListDeviceEventsCommandOutput
+  ListDeviceEventsCommandOutput,
 } from "./commands/ListDeviceEventsCommand";
-import {
-  ListDevicesCommand,
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput
-} from "./commands/ListDevicesCommand";
+import { ListDevicesCommand, ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UnclaimDeviceCommand,
   UnclaimDeviceCommandInput,
-  UnclaimDeviceCommandOutput
+  UnclaimDeviceCommandOutput,
 } from "./commands/UnclaimDeviceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateDeviceStateCommand,
   UpdateDeviceStateCommandInput,
-  UpdateDeviceStateCommandOutput
+  UpdateDeviceStateCommandOutput,
 } from "./commands/UpdateDeviceStateCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -91,17 +83,14 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   ): void;
   public claimDevicesByClaimCode(
     args: ClaimDevicesByClaimCodeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ClaimDevicesByClaimCodeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ClaimDevicesByClaimCodeCommandOutput) => void),
     cb?: (err: any, data?: ClaimDevicesByClaimCodeCommandOutput) => void
   ): Promise<ClaimDevicesByClaimCodeCommandOutput> | void {
     const command = new ClaimDevicesByClaimCodeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -127,17 +116,14 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   ): void;
   public describeDevice(
     args: DescribeDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDeviceCommandOutput) => void),
     cb?: (err: any, data?: DescribeDeviceCommandOutput) => void
   ): Promise<DescribeDeviceCommandOutput> | void {
     const command = new DescribeDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -166,17 +152,14 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   ): void;
   public finalizeDeviceClaim(
     args: FinalizeDeviceClaimCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: FinalizeDeviceClaimCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: FinalizeDeviceClaimCommandOutput) => void),
     cb?: (err: any, data?: FinalizeDeviceClaimCommandOutput) => void
   ): Promise<FinalizeDeviceClaimCommandOutput> | void {
     const command = new FinalizeDeviceClaimCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -201,17 +184,14 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   ): void;
   public getDeviceMethods(
     args: GetDeviceMethodsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDeviceMethodsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeviceMethodsCommandOutput) => void),
     cb?: (err: any, data?: GetDeviceMethodsCommandOutput) => void
   ): Promise<GetDeviceMethodsCommandOutput> | void {
     const command = new GetDeviceMethodsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -240,17 +220,14 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   ): void;
   public initiateDeviceClaim(
     args: InitiateDeviceClaimCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InitiateDeviceClaimCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InitiateDeviceClaimCommandOutput) => void),
     cb?: (err: any, data?: InitiateDeviceClaimCommandOutput) => void
   ): Promise<InitiateDeviceClaimCommandOutput> | void {
     const command = new InitiateDeviceClaimCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -276,17 +253,14 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   ): void;
   public invokeDeviceMethod(
     args: InvokeDeviceMethodCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InvokeDeviceMethodCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InvokeDeviceMethodCommandOutput) => void),
     cb?: (err: any, data?: InvokeDeviceMethodCommandOutput) => void
   ): Promise<InvokeDeviceMethodCommandOutput> | void {
     const command = new InvokeDeviceMethodCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -312,17 +286,14 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   ): void;
   public listDeviceEvents(
     args: ListDeviceEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDeviceEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeviceEventsCommandOutput) => void),
     cb?: (err: any, data?: ListDeviceEventsCommandOutput) => void
   ): Promise<ListDeviceEventsCommandOutput> | void {
     const command = new ListDeviceEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -332,14 +303,8 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   /**
    * <p>Lists the 1-Click compatible devices associated with your AWS account.</p>
    */
-  public listDevices(
-    args: ListDevicesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDevicesCommandOutput>;
-  public listDevices(
-    args: ListDevicesCommandInput,
-    cb: (err: any, data?: ListDevicesCommandOutput) => void
-  ): void;
+  public listDevices(args: ListDevicesCommandInput, options?: __HttpHandlerOptions): Promise<ListDevicesCommandOutput>;
+  public listDevices(args: ListDevicesCommandInput, cb: (err: any, data?: ListDevicesCommandOutput) => void): void;
   public listDevices(
     args: ListDevicesCommandInput,
     options: __HttpHandlerOptions,
@@ -347,17 +312,14 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   ): void;
   public listDevices(
     args: ListDevicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDevicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDevicesCommandOutput) => void),
     cb?: (err: any, data?: ListDevicesCommandOutput) => void
   ): Promise<ListDevicesCommandOutput> | void {
     const command = new ListDevicesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -382,17 +344,14 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -403,14 +362,8 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
    * <p>Adds or updates the tags associated with the resource ARN. See <a href="https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-appendix.html#1click-limits">AWS IoT 1-Click Service Limits</a> for the maximum number of tags allowed per
    *  resource.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -418,17 +371,14 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -453,17 +403,14 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   ): void;
   public unclaimDevice(
     args: UnclaimDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnclaimDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnclaimDeviceCommandOutput) => void),
     cb?: (err: any, data?: UnclaimDeviceCommandOutput) => void
   ): Promise<UnclaimDeviceCommandOutput> | void {
     const command = new UnclaimDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -489,17 +436,14 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -525,17 +469,14 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   ): void;
   public updateDeviceState(
     args: UpdateDeviceStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDeviceStateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDeviceStateCommandOutput) => void),
     cb?: (err: any, data?: UpdateDeviceStateCommandOutput) => void
   ): Promise<UpdateDeviceStateCommandOutput> | void {
     const command = new UpdateDeviceStateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

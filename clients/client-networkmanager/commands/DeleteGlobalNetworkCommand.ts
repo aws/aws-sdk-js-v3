@@ -1,21 +1,11 @@
-import {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../NetworkManagerClient";
-import {
-  DeleteGlobalNetworkRequest,
-  DeleteGlobalNetworkResponse
-} from "../models/index";
+import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
+import { DeleteGlobalNetworkRequest, DeleteGlobalNetworkResponse } from "../models/index";
 import {
   deserializeAws_restJson1DeleteGlobalNetworkCommand,
-  serializeAws_restJson1DeleteGlobalNetworkCommand
+  serializeAws_restJson1DeleteGlobalNetworkCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteGlobalNetworkCommandInput = DeleteGlobalNetworkRequest;
-export type DeleteGlobalNetworkCommandOutput = DeleteGlobalNetworkResponse &
-  __MetadataBearer;
+export type DeleteGlobalNetworkCommandOutput = DeleteGlobalNetworkResponse & __MetadataBearer;
 
 export class DeleteGlobalNetworkCommand extends $Command<
   DeleteGlobalNetworkCommandInput,
@@ -49,18 +38,13 @@ export class DeleteGlobalNetworkCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteGlobalNetworkCommandInput,
-    DeleteGlobalNetworkCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteGlobalNetworkCommandInput, DeleteGlobalNetworkCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DeleteGlobalNetworkCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteGlobalNetworkCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteGlobalNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteGlobalNetworkCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteGlobalNetworkCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGlobalNetworkCommandOutput> {
     return deserializeAws_restJson1DeleteGlobalNetworkCommand(output, context);
   }
 

@@ -2,28 +2,20 @@ import { OutpostsClient } from "./OutpostsClient";
 import {
   CreateOutpostCommand,
   CreateOutpostCommandInput,
-  CreateOutpostCommandOutput
+  CreateOutpostCommandOutput,
 } from "./commands/CreateOutpostCommand";
-import {
-  GetOutpostCommand,
-  GetOutpostCommandInput,
-  GetOutpostCommandOutput
-} from "./commands/GetOutpostCommand";
+import { GetOutpostCommand, GetOutpostCommandInput, GetOutpostCommandOutput } from "./commands/GetOutpostCommand";
 import {
   GetOutpostInstanceTypesCommand,
   GetOutpostInstanceTypesCommandInput,
-  GetOutpostInstanceTypesCommandOutput
+  GetOutpostInstanceTypesCommandOutput,
 } from "./commands/GetOutpostInstanceTypesCommand";
 import {
   ListOutpostsCommand,
   ListOutpostsCommandInput,
-  ListOutpostsCommandOutput
+  ListOutpostsCommandOutput,
 } from "./commands/ListOutpostsCommand";
-import {
-  ListSitesCommand,
-  ListSitesCommandInput,
-  ListSitesCommandOutput
-} from "./commands/ListSitesCommand";
+import { ListSitesCommand, ListSitesCommandInput, ListSitesCommandOutput } from "./commands/ListSitesCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -53,17 +45,14 @@ export class Outposts extends OutpostsClient {
   ): void;
   public createOutpost(
     args: CreateOutpostCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateOutpostCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateOutpostCommandOutput) => void),
     cb?: (err: any, data?: CreateOutpostCommandOutput) => void
   ): Promise<CreateOutpostCommandOutput> | void {
     const command = new CreateOutpostCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -73,14 +62,8 @@ export class Outposts extends OutpostsClient {
   /**
    * <p>Gets information about the specified Outpost.</p>
    */
-  public getOutpost(
-    args: GetOutpostCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetOutpostCommandOutput>;
-  public getOutpost(
-    args: GetOutpostCommandInput,
-    cb: (err: any, data?: GetOutpostCommandOutput) => void
-  ): void;
+  public getOutpost(args: GetOutpostCommandInput, options?: __HttpHandlerOptions): Promise<GetOutpostCommandOutput>;
+  public getOutpost(args: GetOutpostCommandInput, cb: (err: any, data?: GetOutpostCommandOutput) => void): void;
   public getOutpost(
     args: GetOutpostCommandInput,
     options: __HttpHandlerOptions,
@@ -88,17 +71,14 @@ export class Outposts extends OutpostsClient {
   ): void;
   public getOutpost(
     args: GetOutpostCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOutpostCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOutpostCommandOutput) => void),
     cb?: (err: any, data?: GetOutpostCommandOutput) => void
   ): Promise<GetOutpostCommandOutput> | void {
     const command = new GetOutpostCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -123,17 +103,14 @@ export class Outposts extends OutpostsClient {
   ): void;
   public getOutpostInstanceTypes(
     args: GetOutpostInstanceTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOutpostInstanceTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOutpostInstanceTypesCommandOutput) => void),
     cb?: (err: any, data?: GetOutpostInstanceTypesCommandOutput) => void
   ): Promise<GetOutpostInstanceTypesCommandOutput> | void {
     const command = new GetOutpostInstanceTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -147,10 +124,7 @@ export class Outposts extends OutpostsClient {
     args: ListOutpostsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListOutpostsCommandOutput>;
-  public listOutposts(
-    args: ListOutpostsCommandInput,
-    cb: (err: any, data?: ListOutpostsCommandOutput) => void
-  ): void;
+  public listOutposts(args: ListOutpostsCommandInput, cb: (err: any, data?: ListOutpostsCommandOutput) => void): void;
   public listOutposts(
     args: ListOutpostsCommandInput,
     options: __HttpHandlerOptions,
@@ -158,17 +132,14 @@ export class Outposts extends OutpostsClient {
   ): void;
   public listOutposts(
     args: ListOutpostsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListOutpostsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOutpostsCommandOutput) => void),
     cb?: (err: any, data?: ListOutpostsCommandOutput) => void
   ): Promise<ListOutpostsCommandOutput> | void {
     const command = new ListOutpostsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -178,14 +149,8 @@ export class Outposts extends OutpostsClient {
   /**
    * <p>Lists the sites for the specified AWS account.</p>
    */
-  public listSites(
-    args: ListSitesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSitesCommandOutput>;
-  public listSites(
-    args: ListSitesCommandInput,
-    cb: (err: any, data?: ListSitesCommandOutput) => void
-  ): void;
+  public listSites(args: ListSitesCommandInput, options?: __HttpHandlerOptions): Promise<ListSitesCommandOutput>;
+  public listSites(args: ListSitesCommandInput, cb: (err: any, data?: ListSitesCommandOutput) => void): void;
   public listSites(
     args: ListSitesCommandInput,
     options: __HttpHandlerOptions,
@@ -193,17 +158,14 @@ export class Outposts extends OutpostsClient {
   ): void;
   public listSites(
     args: ListSitesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSitesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSitesCommandOutput) => void),
     cb?: (err: any, data?: ListSitesCommandOutput) => void
   ): Promise<ListSitesCommandOutput> | void {
     const command = new ListSitesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

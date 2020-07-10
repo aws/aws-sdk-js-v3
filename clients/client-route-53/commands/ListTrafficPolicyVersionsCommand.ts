@@ -1,22 +1,12 @@
-import {
-  Route53ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53Client";
-import {
-  ListTrafficPolicyVersionsRequest,
-  ListTrafficPolicyVersionsResponse
-} from "../models/index";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import { ListTrafficPolicyVersionsRequest, ListTrafficPolicyVersionsResponse } from "../models/index";
 import {
   deserializeAws_restXmlListTrafficPolicyVersionsCommand,
-  serializeAws_restXmlListTrafficPolicyVersionsCommand
+  serializeAws_restXmlListTrafficPolicyVersionsCommand,
 } from "../protocols/Aws_restXml";
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,12 +15,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListTrafficPolicyVersionsCommandInput = ListTrafficPolicyVersionsRequest;
-export type ListTrafficPolicyVersionsCommandOutput = ListTrafficPolicyVersionsResponse &
-  __MetadataBearer;
+export type ListTrafficPolicyVersionsCommandOutput = ListTrafficPolicyVersionsResponse & __MetadataBearer;
 
 export class ListTrafficPolicyVersionsCommand extends $Command<
   ListTrafficPolicyVersionsCommandInput,
@@ -50,19 +39,14 @@ export class ListTrafficPolicyVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTrafficPolicyVersionsCommandInput,
-    ListTrafficPolicyVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTrafficPolicyVersionsCommandInput, ListTrafficPolicyVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,10 +56,7 @@ export class ListTrafficPolicyVersionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListTrafficPolicyVersionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListTrafficPolicyVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListTrafficPolicyVersionsCommand(input, context);
   }
 
@@ -83,10 +64,7 @@ export class ListTrafficPolicyVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTrafficPolicyVersionsCommandOutput> {
-    return deserializeAws_restXmlListTrafficPolicyVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlListTrafficPolicyVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

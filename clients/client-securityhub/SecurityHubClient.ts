@@ -1,162 +1,84 @@
-import {
-  AcceptInvitationCommandInput,
-  AcceptInvitationCommandOutput
-} from "./commands/AcceptInvitationCommand";
+import { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "./commands/AcceptInvitationCommand";
 import {
   BatchDisableStandardsCommandInput,
-  BatchDisableStandardsCommandOutput
+  BatchDisableStandardsCommandOutput,
 } from "./commands/BatchDisableStandardsCommand";
 import {
   BatchEnableStandardsCommandInput,
-  BatchEnableStandardsCommandOutput
+  BatchEnableStandardsCommandOutput,
 } from "./commands/BatchEnableStandardsCommand";
 import {
   BatchImportFindingsCommandInput,
-  BatchImportFindingsCommandOutput
+  BatchImportFindingsCommandOutput,
 } from "./commands/BatchImportFindingsCommand";
-import {
-  CreateActionTargetCommandInput,
-  CreateActionTargetCommandOutput
-} from "./commands/CreateActionTargetCommand";
-import {
-  CreateInsightCommandInput,
-  CreateInsightCommandOutput
-} from "./commands/CreateInsightCommand";
-import {
-  CreateMembersCommandInput,
-  CreateMembersCommandOutput
-} from "./commands/CreateMembersCommand";
-import {
-  DeclineInvitationsCommandInput,
-  DeclineInvitationsCommandOutput
-} from "./commands/DeclineInvitationsCommand";
-import {
-  DeleteActionTargetCommandInput,
-  DeleteActionTargetCommandOutput
-} from "./commands/DeleteActionTargetCommand";
-import {
-  DeleteInsightCommandInput,
-  DeleteInsightCommandOutput
-} from "./commands/DeleteInsightCommand";
-import {
-  DeleteInvitationsCommandInput,
-  DeleteInvitationsCommandOutput
-} from "./commands/DeleteInvitationsCommand";
-import {
-  DeleteMembersCommandInput,
-  DeleteMembersCommandOutput
-} from "./commands/DeleteMembersCommand";
+import { CreateActionTargetCommandInput, CreateActionTargetCommandOutput } from "./commands/CreateActionTargetCommand";
+import { CreateInsightCommandInput, CreateInsightCommandOutput } from "./commands/CreateInsightCommand";
+import { CreateMembersCommandInput, CreateMembersCommandOutput } from "./commands/CreateMembersCommand";
+import { DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput } from "./commands/DeclineInvitationsCommand";
+import { DeleteActionTargetCommandInput, DeleteActionTargetCommandOutput } from "./commands/DeleteActionTargetCommand";
+import { DeleteInsightCommandInput, DeleteInsightCommandOutput } from "./commands/DeleteInsightCommand";
+import { DeleteInvitationsCommandInput, DeleteInvitationsCommandOutput } from "./commands/DeleteInvitationsCommand";
+import { DeleteMembersCommandInput, DeleteMembersCommandOutput } from "./commands/DeleteMembersCommand";
 import {
   DescribeActionTargetsCommandInput,
-  DescribeActionTargetsCommandOutput
+  DescribeActionTargetsCommandOutput,
 } from "./commands/DescribeActionTargetsCommand";
-import {
-  DescribeHubCommandInput,
-  DescribeHubCommandOutput
-} from "./commands/DescribeHubCommand";
-import {
-  DescribeProductsCommandInput,
-  DescribeProductsCommandOutput
-} from "./commands/DescribeProductsCommand";
+import { DescribeHubCommandInput, DescribeHubCommandOutput } from "./commands/DescribeHubCommand";
+import { DescribeProductsCommandInput, DescribeProductsCommandOutput } from "./commands/DescribeProductsCommand";
 import {
   DescribeStandardsControlsCommandInput,
-  DescribeStandardsControlsCommandOutput
+  DescribeStandardsControlsCommandOutput,
 } from "./commands/DescribeStandardsControlsCommand";
 import {
   DisableImportFindingsForProductCommandInput,
-  DisableImportFindingsForProductCommandOutput
+  DisableImportFindingsForProductCommandOutput,
 } from "./commands/DisableImportFindingsForProductCommand";
-import {
-  DisableSecurityHubCommandInput,
-  DisableSecurityHubCommandOutput
-} from "./commands/DisableSecurityHubCommand";
+import { DisableSecurityHubCommandInput, DisableSecurityHubCommandOutput } from "./commands/DisableSecurityHubCommand";
 import {
   DisassociateFromMasterAccountCommandInput,
-  DisassociateFromMasterAccountCommandOutput
+  DisassociateFromMasterAccountCommandOutput,
 } from "./commands/DisassociateFromMasterAccountCommand";
 import {
   DisassociateMembersCommandInput,
-  DisassociateMembersCommandOutput
+  DisassociateMembersCommandOutput,
 } from "./commands/DisassociateMembersCommand";
 import {
   EnableImportFindingsForProductCommandInput,
-  EnableImportFindingsForProductCommandOutput
+  EnableImportFindingsForProductCommandOutput,
 } from "./commands/EnableImportFindingsForProductCommand";
-import {
-  EnableSecurityHubCommandInput,
-  EnableSecurityHubCommandOutput
-} from "./commands/EnableSecurityHubCommand";
+import { EnableSecurityHubCommandInput, EnableSecurityHubCommandOutput } from "./commands/EnableSecurityHubCommand";
 import {
   GetEnabledStandardsCommandInput,
-  GetEnabledStandardsCommandOutput
+  GetEnabledStandardsCommandOutput,
 } from "./commands/GetEnabledStandardsCommand";
-import {
-  GetFindingsCommandInput,
-  GetFindingsCommandOutput
-} from "./commands/GetFindingsCommand";
-import {
-  GetInsightResultsCommandInput,
-  GetInsightResultsCommandOutput
-} from "./commands/GetInsightResultsCommand";
-import {
-  GetInsightsCommandInput,
-  GetInsightsCommandOutput
-} from "./commands/GetInsightsCommand";
+import { GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
+import { GetInsightResultsCommandInput, GetInsightResultsCommandOutput } from "./commands/GetInsightResultsCommand";
+import { GetInsightsCommandInput, GetInsightsCommandOutput } from "./commands/GetInsightsCommand";
 import {
   GetInvitationsCountCommandInput,
-  GetInvitationsCountCommandOutput
+  GetInvitationsCountCommandOutput,
 } from "./commands/GetInvitationsCountCommand";
-import {
-  GetMasterAccountCommandInput,
-  GetMasterAccountCommandOutput
-} from "./commands/GetMasterAccountCommand";
-import {
-  GetMembersCommandInput,
-  GetMembersCommandOutput
-} from "./commands/GetMembersCommand";
-import {
-  InviteMembersCommandInput,
-  InviteMembersCommandOutput
-} from "./commands/InviteMembersCommand";
+import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "./commands/GetMasterAccountCommand";
+import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
+import { InviteMembersCommandInput, InviteMembersCommandOutput } from "./commands/InviteMembersCommand";
 import {
   ListEnabledProductsForImportCommandInput,
-  ListEnabledProductsForImportCommandOutput
+  ListEnabledProductsForImportCommandOutput,
 } from "./commands/ListEnabledProductsForImportCommand";
-import {
-  ListInvitationsCommandInput,
-  ListInvitationsCommandOutput
-} from "./commands/ListInvitationsCommand";
-import {
-  ListMembersCommandInput,
-  ListMembersCommandOutput
-} from "./commands/ListMembersCommand";
+import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
+import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateActionTargetCommandInput,
-  UpdateActionTargetCommandOutput
-} from "./commands/UpdateActionTargetCommand";
-import {
-  UpdateFindingsCommandInput,
-  UpdateFindingsCommandOutput
-} from "./commands/UpdateFindingsCommand";
-import {
-  UpdateInsightCommandInput,
-  UpdateInsightCommandOutput
-} from "./commands/UpdateInsightCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateActionTargetCommandInput, UpdateActionTargetCommandOutput } from "./commands/UpdateActionTargetCommand";
+import { UpdateFindingsCommandInput, UpdateFindingsCommandOutput } from "./commands/UpdateFindingsCommand";
+import { UpdateInsightCommandInput, UpdateInsightCommandOutput } from "./commands/UpdateInsightCommand";
 import {
   UpdateStandardsControlCommandInput,
-  UpdateStandardsControlCommandOutput
+  UpdateStandardsControlCommandOutput,
 } from "./commands/UpdateStandardsControlCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -165,38 +87,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -207,7 +124,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -294,8 +211,7 @@ export type ServiceOutputTypes =
   | UpdateInsightCommandOutput
   | UpdateStandardsControlCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -384,9 +300,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SecurityHubClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SecurityHubClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -395,9 +309,7 @@ export type SecurityHubClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SecurityHubClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SecurityHubClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -450,7 +362,7 @@ export class SecurityHubClient extends __Client<
   constructor(configuration: SecurityHubClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

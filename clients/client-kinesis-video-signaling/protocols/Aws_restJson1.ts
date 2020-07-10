@@ -1,10 +1,7 @@
-import {
-  GetIceServerConfigCommandInput,
-  GetIceServerConfigCommandOutput
-} from "../commands/GetIceServerConfigCommand";
+import { GetIceServerConfigCommandInput, GetIceServerConfigCommandOutput } from "../commands/GetIceServerConfigCommand";
 import {
   SendAlexaOfferToMasterCommandInput,
-  SendAlexaOfferToMasterCommandOutput
+  SendAlexaOfferToMasterCommandOutput,
 } from "../commands/SendAlexaOfferToMasterCommand";
 import {
   ClientLimitExceededException,
@@ -13,18 +10,15 @@ import {
   InvalidClientException,
   NotAuthorizedException,
   ResourceNotFoundException,
-  SessionExpiredException
+  SessionExpiredException,
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export const serializeAws_restJson1GetIceServerConfigCommand = async (
@@ -32,7 +26,7 @@ export const serializeAws_restJson1GetIceServerConfigCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/v1/get-ice-server-config";
   let body: any;
@@ -40,7 +34,7 @@ export const serializeAws_restJson1GetIceServerConfigCommand = async (
     ...(input.ChannelARN !== undefined && { ChannelARN: input.ChannelARN }),
     ...(input.ClientId !== undefined && { ClientId: input.ClientId }),
     ...(input.Service !== undefined && { Service: input.Service }),
-    ...(input.Username !== undefined && { Username: input.Username })
+    ...(input.Username !== undefined && { Username: input.Username }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -50,7 +44,7 @@ export const serializeAws_restJson1GetIceServerConfigCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -59,18 +53,14 @@ export const serializeAws_restJson1SendAlexaOfferToMasterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/v1/send-alexa-offer-to-master";
   let body: any;
   body = JSON.stringify({
     ...(input.ChannelARN !== undefined && { ChannelARN: input.ChannelARN }),
-    ...(input.MessagePayload !== undefined && {
-      MessagePayload: input.MessagePayload
-    }),
-    ...(input.SenderClientId !== undefined && {
-      SenderClientId: input.SenderClientId
-    })
+    ...(input.MessagePayload !== undefined && { MessagePayload: input.MessagePayload }),
+    ...(input.SenderClientId !== undefined && { SenderClientId: input.SenderClientId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -80,7 +70,7 @@ export const serializeAws_restJson1SendAlexaOfferToMasterCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -89,22 +79,16 @@ export const deserializeAws_restJson1GetIceServerConfigCommand = async (
   context: __SerdeContext
 ): Promise<GetIceServerConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetIceServerConfigCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetIceServerConfigCommandError(output, context);
   }
   const contents: GetIceServerConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetIceServerConfigResponse",
-    IceServerList: undefined
+    IceServerList: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.IceServerList !== undefined && data.IceServerList !== null) {
-    contents.IceServerList = deserializeAws_restJson1IceServerList(
-      data.IceServerList,
-      context
-    );
+    contents.IceServerList = deserializeAws_restJson1IceServerList(data.IceServerList, context);
   }
   return Promise.resolve(contents);
 };
@@ -115,7 +99,7 @@ const deserializeAws_restJson1GetIceServerConfigCommandError = async (
 ): Promise<GetIceServerConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -124,67 +108,49 @@ const deserializeAws_restJson1GetIceServerConfigCommandError = async (
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideosignaling#ClientLimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1ClientLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideosignaling#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_restJson1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidClientException":
     case "com.amazonaws.kinesisvideosignaling#InvalidClientException":
       response = {
-        ...(await deserializeAws_restJson1InvalidClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideosignaling#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideosignaling#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "SessionExpiredException":
     case "com.amazonaws.kinesisvideosignaling#SessionExpiredException":
       response = {
-        ...(await deserializeAws_restJson1SessionExpiredExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1SessionExpiredExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -195,7 +161,7 @@ const deserializeAws_restJson1GetIceServerConfigCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -209,15 +175,12 @@ export const deserializeAws_restJson1SendAlexaOfferToMasterCommand = async (
   context: __SerdeContext
 ): Promise<SendAlexaOfferToMasterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1SendAlexaOfferToMasterCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1SendAlexaOfferToMasterCommandError(output, context);
   }
   const contents: SendAlexaOfferToMasterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendAlexaOfferToMasterResponse",
-    Answer: undefined
+    Answer: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Answer !== undefined && data.Answer !== null) {
@@ -232,7 +195,7 @@ const deserializeAws_restJson1SendAlexaOfferToMasterCommandError = async (
 ): Promise<SendAlexaOfferToMasterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -241,45 +204,33 @@ const deserializeAws_restJson1SendAlexaOfferToMasterCommandError = async (
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideosignaling#ClientLimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1ClientLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideosignaling#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_restJson1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideosignaling#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideosignaling#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -290,7 +241,7 @@ const deserializeAws_restJson1SendAlexaOfferToMasterCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -307,7 +258,7 @@ const deserializeAws_restJson1ClientLimitExceededExceptionResponse = async (
     name: "ClientLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -324,7 +275,7 @@ const deserializeAws_restJson1InvalidArgumentExceptionResponse = async (
     name: "InvalidArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -341,7 +292,7 @@ const deserializeAws_restJson1InvalidClientExceptionResponse = async (
     name: "InvalidClientException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -358,7 +309,7 @@ const deserializeAws_restJson1NotAuthorizedExceptionResponse = async (
     name: "NotAuthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -375,7 +326,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
     name: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -392,7 +343,7 @@ const deserializeAws_restJson1SessionExpiredExceptionResponse = async (
     name: "SessionExpiredException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -401,80 +352,53 @@ const deserializeAws_restJson1SessionExpiredExceptionResponse = async (
   return contents;
 };
 
-const deserializeAws_restJson1IceServer = (
-  output: any,
-  context: __SerdeContext
-): IceServer => {
+const deserializeAws_restJson1IceServer = (output: any, context: __SerdeContext): IceServer => {
   return {
     __type: "IceServer",
-    Password:
-      output.Password !== undefined && output.Password !== null
-        ? output.Password
-        : undefined,
-    Ttl:
-      output.Ttl !== undefined && output.Ttl !== null ? output.Ttl : undefined,
+    Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
+    Ttl: output.Ttl !== undefined && output.Ttl !== null ? output.Ttl : undefined,
     Uris:
       output.Uris !== undefined && output.Uris !== null
         ? deserializeAws_restJson1Uris(output.Uris, context)
         : undefined,
-    Username:
-      output.Username !== undefined && output.Username !== null
-        ? output.Username
-        : undefined
+    Username: output.Username !== undefined && output.Username !== null ? output.Username : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1IceServerList = (
-  output: any,
-  context: __SerdeContext
-): IceServer[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1IceServer(entry, context)
-  );
+const deserializeAws_restJson1IceServerList = (output: any, context: __SerdeContext): IceServer[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1IceServer(entry, context));
 };
 
-const deserializeAws_restJson1Uris = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1Uris = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"]
+  requestId: output.headers["x-amzn-requestid"],
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
-  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then(encoded => {
+  collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
@@ -485,8 +409,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

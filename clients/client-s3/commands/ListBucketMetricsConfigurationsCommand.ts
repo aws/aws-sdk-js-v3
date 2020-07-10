@@ -1,22 +1,12 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
-import {
-  ListBucketMetricsConfigurationsOutput,
-  ListBucketMetricsConfigurationsRequest
-} from "../models/index";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { ListBucketMetricsConfigurationsOutput, ListBucketMetricsConfigurationsRequest } from "../models/index";
 import {
   deserializeAws_restXmlListBucketMetricsConfigurationsCommand,
-  serializeAws_restXmlListBucketMetricsConfigurationsCommand
+  serializeAws_restXmlListBucketMetricsConfigurationsCommand,
 } from "../protocols/Aws_restXml";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,12 +15,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListBucketMetricsConfigurationsCommandInput = ListBucketMetricsConfigurationsRequest;
-export type ListBucketMetricsConfigurationsCommandOutput = ListBucketMetricsConfigurationsOutput &
-  __MetadataBearer;
+export type ListBucketMetricsConfigurationsCommandOutput = ListBucketMetricsConfigurationsOutput & __MetadataBearer;
 
 export class ListBucketMetricsConfigurationsCommand extends $Command<
   ListBucketMetricsConfigurationsCommandInput,
@@ -50,19 +39,14 @@ export class ListBucketMetricsConfigurationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListBucketMetricsConfigurationsCommandInput,
-    ListBucketMetricsConfigurationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListBucketMetricsConfigurationsCommandInput, ListBucketMetricsConfigurationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +60,14 @@ export class ListBucketMetricsConfigurationsCommand extends $Command<
     input: ListBucketMetricsConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListBucketMetricsConfigurationsCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlListBucketMetricsConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBucketMetricsConfigurationsCommandOutput> {
-    return deserializeAws_restXmlListBucketMetricsConfigurationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlListBucketMetricsConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

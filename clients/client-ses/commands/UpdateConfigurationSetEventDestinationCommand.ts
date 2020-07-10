@@ -1,21 +1,14 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import {
   UpdateConfigurationSetEventDestinationRequest,
-  UpdateConfigurationSetEventDestinationResponse
+  UpdateConfigurationSetEventDestinationResponse,
 } from "../models/index";
 import {
   deserializeAws_queryUpdateConfigurationSetEventDestinationCommand,
-  serializeAws_queryUpdateConfigurationSetEventDestinationCommand
+  serializeAws_queryUpdateConfigurationSetEventDestinationCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateConfigurationSetEventDestinationCommandInput = UpdateConfigurationSetEventDestinationRequest;
@@ -39,9 +32,7 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: UpdateConfigurationSetEventDestinationCommandInput
-  ) {
+  constructor(readonly input: UpdateConfigurationSetEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,18 +42,13 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateConfigurationSetEventDestinationCommandInput,
-    UpdateConfigurationSetEventDestinationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateConfigurationSetEventDestinationCommandInput, UpdateConfigurationSetEventDestinationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +62,14 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
     input: UpdateConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateConfigurationSetEventDestinationCommand(
-      input,
-      context
-    );
+    return serializeAws_queryUpdateConfigurationSetEventDestinationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> {
-    return deserializeAws_queryUpdateConfigurationSetEventDestinationCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateConfigurationSetEventDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

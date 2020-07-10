@@ -1,7 +1,7 @@
 import {
   QueryForecastCommand,
   QueryForecastCommandInput,
-  QueryForecastCommandOutput
+  QueryForecastCommandOutput,
 } from "./commands/QueryForecastCommand";
 import { forecastqueryClient } from "./forecastqueryClient";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
@@ -39,17 +39,14 @@ export class forecastquery extends forecastqueryClient {
   ): void;
   public queryForecast(
     args: QueryForecastCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: QueryForecastCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: QueryForecastCommandOutput) => void),
     cb?: (err: any, data?: QueryForecastCommandOutput) => void
   ): Promise<QueryForecastCommandOutput> | void {
     const command = new QueryForecastCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

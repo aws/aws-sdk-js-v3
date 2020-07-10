@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  StartThingRegistrationTaskRequest,
-  StartThingRegistrationTaskResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { StartThingRegistrationTaskRequest, StartThingRegistrationTaskResponse } from "../models/index";
 import {
   deserializeAws_restJson1StartThingRegistrationTaskCommand,
-  serializeAws_restJson1StartThingRegistrationTaskCommand
+  serializeAws_restJson1StartThingRegistrationTaskCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type StartThingRegistrationTaskCommandInput = StartThingRegistrationTaskRequest;
-export type StartThingRegistrationTaskCommandOutput = StartThingRegistrationTaskResponse &
-  __MetadataBearer;
+export type StartThingRegistrationTaskCommandOutput = StartThingRegistrationTaskResponse & __MetadataBearer;
 
 export class StartThingRegistrationTaskCommand extends $Command<
   StartThingRegistrationTaskCommandInput,
@@ -49,18 +38,13 @@ export class StartThingRegistrationTaskCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartThingRegistrationTaskCommandInput,
-    StartThingRegistrationTaskCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartThingRegistrationTaskCommandInput, StartThingRegistrationTaskCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class StartThingRegistrationTaskCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartThingRegistrationTaskCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartThingRegistrationTaskCommand(
-      input,
-      context
-    );
+  private serialize(input: StartThingRegistrationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1StartThingRegistrationTaskCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartThingRegistrationTaskCommandOutput> {
-    return deserializeAws_restJson1StartThingRegistrationTaskCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1StartThingRegistrationTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

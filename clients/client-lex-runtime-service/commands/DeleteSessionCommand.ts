@@ -1,18 +1,15 @@
 import {
   LexRuntimeServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../LexRuntimeServiceClient";
 import { DeleteSessionRequest, DeleteSessionResponse } from "../models/index";
 import {
   deserializeAws_restJson1DeleteSessionCommand,
-  serializeAws_restJson1DeleteSessionCommand
+  serializeAws_restJson1DeleteSessionCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteSessionCommandInput = DeleteSessionRequest;
-export type DeleteSessionCommandOutput = DeleteSessionResponse &
-  __MetadataBearer;
+export type DeleteSessionCommandOutput = DeleteSessionResponse & __MetadataBearer;
 
 export class DeleteSessionCommand extends $Command<
   DeleteSessionCommandInput,
@@ -47,14 +43,12 @@ export class DeleteSessionCommand extends $Command<
     configuration: LexRuntimeServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteSessionCommandInput, DeleteSessionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +58,11 @@ export class DeleteSessionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteSessionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSessionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteSessionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSessionCommandOutput> {
     return deserializeAws_restJson1DeleteSessionCommand(output, context);
   }
 

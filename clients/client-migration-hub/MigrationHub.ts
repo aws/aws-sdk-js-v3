@@ -2,87 +2,87 @@ import { MigrationHubClient } from "./MigrationHubClient";
 import {
   AssociateCreatedArtifactCommand,
   AssociateCreatedArtifactCommandInput,
-  AssociateCreatedArtifactCommandOutput
+  AssociateCreatedArtifactCommandOutput,
 } from "./commands/AssociateCreatedArtifactCommand";
 import {
   AssociateDiscoveredResourceCommand,
   AssociateDiscoveredResourceCommandInput,
-  AssociateDiscoveredResourceCommandOutput
+  AssociateDiscoveredResourceCommandOutput,
 } from "./commands/AssociateDiscoveredResourceCommand";
 import {
   CreateProgressUpdateStreamCommand,
   CreateProgressUpdateStreamCommandInput,
-  CreateProgressUpdateStreamCommandOutput
+  CreateProgressUpdateStreamCommandOutput,
 } from "./commands/CreateProgressUpdateStreamCommand";
 import {
   DeleteProgressUpdateStreamCommand,
   DeleteProgressUpdateStreamCommandInput,
-  DeleteProgressUpdateStreamCommandOutput
+  DeleteProgressUpdateStreamCommandOutput,
 } from "./commands/DeleteProgressUpdateStreamCommand";
 import {
   DescribeApplicationStateCommand,
   DescribeApplicationStateCommandInput,
-  DescribeApplicationStateCommandOutput
+  DescribeApplicationStateCommandOutput,
 } from "./commands/DescribeApplicationStateCommand";
 import {
   DescribeMigrationTaskCommand,
   DescribeMigrationTaskCommandInput,
-  DescribeMigrationTaskCommandOutput
+  DescribeMigrationTaskCommandOutput,
 } from "./commands/DescribeMigrationTaskCommand";
 import {
   DisassociateCreatedArtifactCommand,
   DisassociateCreatedArtifactCommandInput,
-  DisassociateCreatedArtifactCommandOutput
+  DisassociateCreatedArtifactCommandOutput,
 } from "./commands/DisassociateCreatedArtifactCommand";
 import {
   DisassociateDiscoveredResourceCommand,
   DisassociateDiscoveredResourceCommandInput,
-  DisassociateDiscoveredResourceCommandOutput
+  DisassociateDiscoveredResourceCommandOutput,
 } from "./commands/DisassociateDiscoveredResourceCommand";
 import {
   ImportMigrationTaskCommand,
   ImportMigrationTaskCommandInput,
-  ImportMigrationTaskCommandOutput
+  ImportMigrationTaskCommandOutput,
 } from "./commands/ImportMigrationTaskCommand";
 import {
   ListApplicationStatesCommand,
   ListApplicationStatesCommandInput,
-  ListApplicationStatesCommandOutput
+  ListApplicationStatesCommandOutput,
 } from "./commands/ListApplicationStatesCommand";
 import {
   ListCreatedArtifactsCommand,
   ListCreatedArtifactsCommandInput,
-  ListCreatedArtifactsCommandOutput
+  ListCreatedArtifactsCommandOutput,
 } from "./commands/ListCreatedArtifactsCommand";
 import {
   ListDiscoveredResourcesCommand,
   ListDiscoveredResourcesCommandInput,
-  ListDiscoveredResourcesCommandOutput
+  ListDiscoveredResourcesCommandOutput,
 } from "./commands/ListDiscoveredResourcesCommand";
 import {
   ListMigrationTasksCommand,
   ListMigrationTasksCommandInput,
-  ListMigrationTasksCommandOutput
+  ListMigrationTasksCommandOutput,
 } from "./commands/ListMigrationTasksCommand";
 import {
   ListProgressUpdateStreamsCommand,
   ListProgressUpdateStreamsCommandInput,
-  ListProgressUpdateStreamsCommandOutput
+  ListProgressUpdateStreamsCommandOutput,
 } from "./commands/ListProgressUpdateStreamsCommand";
 import {
   NotifyApplicationStateCommand,
   NotifyApplicationStateCommandInput,
-  NotifyApplicationStateCommandOutput
+  NotifyApplicationStateCommandOutput,
 } from "./commands/NotifyApplicationStateCommand";
 import {
   NotifyMigrationTaskStateCommand,
   NotifyMigrationTaskStateCommandInput,
-  NotifyMigrationTaskStateCommandOutput
+  NotifyMigrationTaskStateCommandOutput,
 } from "./commands/NotifyMigrationTaskStateCommand";
 import {
   PutResourceAttributesCommand,
   PutResourceAttributesCommandInput,
-  PutResourceAttributesCommandOutput
+  PutResourceAttributesCommandOutput,
 } from "./commands/PutResourceAttributesCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -130,17 +130,14 @@ export class MigrationHub extends MigrationHubClient {
   ): void;
   public associateCreatedArtifact(
     args: AssociateCreatedArtifactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateCreatedArtifactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateCreatedArtifactCommandOutput) => void),
     cb?: (err: any, data?: AssociateCreatedArtifactCommandOutput) => void
   ): Promise<AssociateCreatedArtifactCommandOutput> | void {
     const command = new AssociateCreatedArtifactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -166,17 +163,14 @@ export class MigrationHub extends MigrationHubClient {
   ): void;
   public associateDiscoveredResource(
     args: AssociateDiscoveredResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateDiscoveredResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateDiscoveredResourceCommandOutput) => void),
     cb?: (err: any, data?: AssociateDiscoveredResourceCommandOutput) => void
   ): Promise<AssociateDiscoveredResourceCommandOutput> | void {
     const command = new AssociateDiscoveredResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -205,17 +199,14 @@ export class MigrationHub extends MigrationHubClient {
   ): void;
   public createProgressUpdateStream(
     args: CreateProgressUpdateStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProgressUpdateStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProgressUpdateStreamCommandOutput) => void),
     cb?: (err: any, data?: CreateProgressUpdateStreamCommandOutput) => void
   ): Promise<CreateProgressUpdateStreamCommandOutput> | void {
     const command = new CreateProgressUpdateStreamCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -270,17 +261,14 @@ export class MigrationHub extends MigrationHubClient {
   ): void;
   public deleteProgressUpdateStream(
     args: DeleteProgressUpdateStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteProgressUpdateStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProgressUpdateStreamCommandOutput) => void),
     cb?: (err: any, data?: DeleteProgressUpdateStreamCommandOutput) => void
   ): Promise<DeleteProgressUpdateStreamCommandOutput> | void {
     const command = new DeleteProgressUpdateStreamCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -305,17 +293,14 @@ export class MigrationHub extends MigrationHubClient {
   ): void;
   public describeApplicationState(
     args: DescribeApplicationStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeApplicationStateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeApplicationStateCommandOutput) => void),
     cb?: (err: any, data?: DescribeApplicationStateCommandOutput) => void
   ): Promise<DescribeApplicationStateCommandOutput> | void {
     const command = new DescribeApplicationStateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -340,17 +325,14 @@ export class MigrationHub extends MigrationHubClient {
   ): void;
   public describeMigrationTask(
     args: DescribeMigrationTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMigrationTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMigrationTaskCommandOutput) => void),
     cb?: (err: any, data?: DescribeMigrationTaskCommandOutput) => void
   ): Promise<DescribeMigrationTaskCommandOutput> | void {
     const command = new DescribeMigrationTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -391,17 +373,14 @@ export class MigrationHub extends MigrationHubClient {
   ): void;
   public disassociateCreatedArtifact(
     args: DisassociateCreatedArtifactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateCreatedArtifactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateCreatedArtifactCommandOutput) => void),
     cb?: (err: any, data?: DisassociateCreatedArtifactCommandOutput) => void
   ): Promise<DisassociateCreatedArtifactCommandOutput> | void {
     const command = new DisassociateCreatedArtifactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -427,20 +406,14 @@ export class MigrationHub extends MigrationHubClient {
   ): void;
   public disassociateDiscoveredResource(
     args: DisassociateDiscoveredResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateDiscoveredResourceCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateDiscoveredResourceCommandOutput) => void),
     cb?: (err: any, data?: DisassociateDiscoveredResourceCommandOutput) => void
   ): Promise<DisassociateDiscoveredResourceCommandOutput> | void {
     const command = new DisassociateDiscoveredResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -468,17 +441,14 @@ export class MigrationHub extends MigrationHubClient {
   ): void;
   public importMigrationTask(
     args: ImportMigrationTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportMigrationTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportMigrationTaskCommandOutput) => void),
     cb?: (err: any, data?: ImportMigrationTaskCommandOutput) => void
   ): Promise<ImportMigrationTaskCommandOutput> | void {
     const command = new ImportMigrationTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -505,17 +475,14 @@ export class MigrationHub extends MigrationHubClient {
   ): void;
   public listApplicationStates(
     args: ListApplicationStatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListApplicationStatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationStatesCommandOutput) => void),
     cb?: (err: any, data?: ListApplicationStatesCommandOutput) => void
   ): Promise<ListApplicationStatesCommandOutput> | void {
     const command = new ListApplicationStatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -554,17 +521,14 @@ export class MigrationHub extends MigrationHubClient {
   ): void;
   public listCreatedArtifacts(
     args: ListCreatedArtifactsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListCreatedArtifactsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCreatedArtifactsCommandOutput) => void),
     cb?: (err: any, data?: ListCreatedArtifactsCommandOutput) => void
   ): Promise<ListCreatedArtifactsCommandOutput> | void {
     const command = new ListCreatedArtifactsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -589,17 +553,14 @@ export class MigrationHub extends MigrationHubClient {
   ): void;
   public listDiscoveredResources(
     args: ListDiscoveredResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDiscoveredResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDiscoveredResourcesCommandOutput) => void),
     cb?: (err: any, data?: ListDiscoveredResourcesCommandOutput) => void
   ): Promise<ListDiscoveredResourcesCommandOutput> | void {
     const command = new ListDiscoveredResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -637,17 +598,14 @@ export class MigrationHub extends MigrationHubClient {
   ): void;
   public listMigrationTasks(
     args: ListMigrationTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMigrationTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMigrationTasksCommandOutput) => void),
     cb?: (err: any, data?: ListMigrationTasksCommandOutput) => void
   ): Promise<ListMigrationTasksCommandOutput> | void {
     const command = new ListMigrationTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -672,17 +630,14 @@ export class MigrationHub extends MigrationHubClient {
   ): void;
   public listProgressUpdateStreams(
     args: ListProgressUpdateStreamsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProgressUpdateStreamsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProgressUpdateStreamsCommandOutput) => void),
     cb?: (err: any, data?: ListProgressUpdateStreamsCommandOutput) => void
   ): Promise<ListProgressUpdateStreamsCommandOutput> | void {
     const command = new ListProgressUpdateStreamsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -710,17 +665,14 @@ export class MigrationHub extends MigrationHubClient {
   ): void;
   public notifyApplicationState(
     args: NotifyApplicationStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: NotifyApplicationStateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: NotifyApplicationStateCommandOutput) => void),
     cb?: (err: any, data?: NotifyApplicationStateCommandOutput) => void
   ): Promise<NotifyApplicationStateCommandOutput> | void {
     const command = new NotifyApplicationStateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -762,17 +714,14 @@ export class MigrationHub extends MigrationHubClient {
   ): void;
   public notifyMigrationTaskState(
     args: NotifyMigrationTaskStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: NotifyMigrationTaskStateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: NotifyMigrationTaskStateCommandOutput) => void),
     cb?: (err: any, data?: NotifyMigrationTaskStateCommandOutput) => void
   ): Promise<NotifyMigrationTaskStateCommandOutput> | void {
     const command = new NotifyMigrationTaskStateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -822,17 +771,14 @@ export class MigrationHub extends MigrationHubClient {
   ): void;
   public putResourceAttributes(
     args: PutResourceAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutResourceAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResourceAttributesCommandOutput) => void),
     cb?: (err: any, data?: PutResourceAttributesCommandOutput) => void
   ): Promise<PutResourceAttributesCommandOutput> | void {
     const command = new PutResourceAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

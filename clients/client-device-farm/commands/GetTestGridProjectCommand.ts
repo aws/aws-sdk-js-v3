@@ -1,21 +1,11 @@
-import {
-  DeviceFarmClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DeviceFarmClient";
-import {
-  GetTestGridProjectRequest,
-  GetTestGridProjectResult
-} from "../models/index";
+import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
+import { GetTestGridProjectRequest, GetTestGridProjectResult } from "../models/index";
 import {
   deserializeAws_json1_1GetTestGridProjectCommand,
-  serializeAws_json1_1GetTestGridProjectCommand
+  serializeAws_json1_1GetTestGridProjectCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetTestGridProjectCommandInput = GetTestGridProjectRequest;
-export type GetTestGridProjectCommandOutput = GetTestGridProjectResult &
-  __MetadataBearer;
+export type GetTestGridProjectCommandOutput = GetTestGridProjectResult & __MetadataBearer;
 
 export class GetTestGridProjectCommand extends $Command<
   GetTestGridProjectCommandInput,
@@ -50,14 +39,12 @@ export class GetTestGridProjectCommand extends $Command<
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetTestGridProjectCommandInput, GetTestGridProjectCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class GetTestGridProjectCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetTestGridProjectCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetTestGridProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetTestGridProjectCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetTestGridProjectCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTestGridProjectCommandOutput> {
     return deserializeAws_json1_1GetTestGridProjectCommand(output, context);
   }
 

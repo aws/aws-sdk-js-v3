@@ -2,67 +2,59 @@ import { ComprehendMedicalClient } from "./ComprehendMedicalClient";
 import {
   DescribeEntitiesDetectionV2JobCommand,
   DescribeEntitiesDetectionV2JobCommandInput,
-  DescribeEntitiesDetectionV2JobCommandOutput
+  DescribeEntitiesDetectionV2JobCommandOutput,
 } from "./commands/DescribeEntitiesDetectionV2JobCommand";
 import {
   DescribePHIDetectionJobCommand,
   DescribePHIDetectionJobCommandInput,
-  DescribePHIDetectionJobCommandOutput
+  DescribePHIDetectionJobCommandOutput,
 } from "./commands/DescribePHIDetectionJobCommand";
 import {
   DetectEntitiesCommand,
   DetectEntitiesCommandInput,
-  DetectEntitiesCommandOutput
+  DetectEntitiesCommandOutput,
 } from "./commands/DetectEntitiesCommand";
 import {
   DetectEntitiesV2Command,
   DetectEntitiesV2CommandInput,
-  DetectEntitiesV2CommandOutput
+  DetectEntitiesV2CommandOutput,
 } from "./commands/DetectEntitiesV2Command";
-import {
-  DetectPHICommand,
-  DetectPHICommandInput,
-  DetectPHICommandOutput
-} from "./commands/DetectPHICommand";
+import { DetectPHICommand, DetectPHICommandInput, DetectPHICommandOutput } from "./commands/DetectPHICommand";
 import {
   InferICD10CMCommand,
   InferICD10CMCommandInput,
-  InferICD10CMCommandOutput
+  InferICD10CMCommandOutput,
 } from "./commands/InferICD10CMCommand";
-import {
-  InferRxNormCommand,
-  InferRxNormCommandInput,
-  InferRxNormCommandOutput
-} from "./commands/InferRxNormCommand";
+import { InferRxNormCommand, InferRxNormCommandInput, InferRxNormCommandOutput } from "./commands/InferRxNormCommand";
 import {
   ListEntitiesDetectionV2JobsCommand,
   ListEntitiesDetectionV2JobsCommandInput,
-  ListEntitiesDetectionV2JobsCommandOutput
+  ListEntitiesDetectionV2JobsCommandOutput,
 } from "./commands/ListEntitiesDetectionV2JobsCommand";
 import {
   ListPHIDetectionJobsCommand,
   ListPHIDetectionJobsCommandInput,
-  ListPHIDetectionJobsCommandOutput
+  ListPHIDetectionJobsCommandOutput,
 } from "./commands/ListPHIDetectionJobsCommand";
 import {
   StartEntitiesDetectionV2JobCommand,
   StartEntitiesDetectionV2JobCommandInput,
-  StartEntitiesDetectionV2JobCommandOutput
+  StartEntitiesDetectionV2JobCommandOutput,
 } from "./commands/StartEntitiesDetectionV2JobCommand";
 import {
   StartPHIDetectionJobCommand,
   StartPHIDetectionJobCommandInput,
-  StartPHIDetectionJobCommandOutput
+  StartPHIDetectionJobCommandOutput,
 } from "./commands/StartPHIDetectionJobCommand";
 import {
   StopEntitiesDetectionV2JobCommand,
   StopEntitiesDetectionV2JobCommandInput,
-  StopEntitiesDetectionV2JobCommandOutput
+  StopEntitiesDetectionV2JobCommandOutput,
 } from "./commands/StopEntitiesDetectionV2JobCommand";
 import {
   StopPHIDetectionJobCommand,
   StopPHIDetectionJobCommandInput,
-  StopPHIDetectionJobCommandOutput
+  StopPHIDetectionJobCommandOutput,
 } from "./commands/StopPHIDetectionJobCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -90,20 +82,14 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   ): void;
   public describeEntitiesDetectionV2Job(
     args: DescribeEntitiesDetectionV2JobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEntitiesDetectionV2JobCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEntitiesDetectionV2JobCommandOutput) => void),
     cb?: (err: any, data?: DescribeEntitiesDetectionV2JobCommandOutput) => void
   ): Promise<DescribeEntitiesDetectionV2JobCommandOutput> | void {
     const command = new DescribeEntitiesDetectionV2JobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -129,17 +115,14 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   ): void;
   public describePHIDetectionJob(
     args: DescribePHIDetectionJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePHIDetectionJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePHIDetectionJobCommandOutput) => void),
     cb?: (err: any, data?: DescribePHIDetectionJobCommandOutput) => void
   ): Promise<DescribePHIDetectionJobCommandOutput> | void {
     const command = new DescribePHIDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -167,17 +150,14 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   ): void;
   public detectEntities(
     args: DetectEntitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectEntitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectEntitiesCommandOutput) => void),
     cb?: (err: any, data?: DetectEntitiesCommandOutput) => void
   ): Promise<DetectEntitiesCommandOutput> | void {
     const command = new DetectEntitiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -210,17 +190,14 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   ): void;
   public detectEntitiesV2(
     args: DetectEntitiesV2CommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectEntitiesV2CommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectEntitiesV2CommandOutput) => void),
     cb?: (err: any, data?: DetectEntitiesV2CommandOutput) => void
   ): Promise<DetectEntitiesV2CommandOutput> | void {
     const command = new DetectEntitiesV2Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -231,14 +208,8 @@ export class ComprehendMedical extends ComprehendMedicalClient {
    * <p> Inspects the clinical text for protected health information (PHI) entities and entity
    *    category, location, and confidence score on that information.</p>
    */
-  public detectPHI(
-    args: DetectPHICommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DetectPHICommandOutput>;
-  public detectPHI(
-    args: DetectPHICommandInput,
-    cb: (err: any, data?: DetectPHICommandOutput) => void
-  ): void;
+  public detectPHI(args: DetectPHICommandInput, options?: __HttpHandlerOptions): Promise<DetectPHICommandOutput>;
+  public detectPHI(args: DetectPHICommandInput, cb: (err: any, data?: DetectPHICommandOutput) => void): void;
   public detectPHI(
     args: DetectPHICommandInput,
     options: __HttpHandlerOptions,
@@ -246,17 +217,14 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   ): void;
   public detectPHI(
     args: DetectPHICommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectPHICommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectPHICommandOutput) => void),
     cb?: (err: any, data?: DetectPHICommandOutput) => void
   ): Promise<DetectPHICommandOutput> | void {
     const command = new DetectPHICommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -271,10 +239,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
     args: InferICD10CMCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<InferICD10CMCommandOutput>;
-  public inferICD10CM(
-    args: InferICD10CMCommandInput,
-    cb: (err: any, data?: InferICD10CMCommandOutput) => void
-  ): void;
+  public inferICD10CM(args: InferICD10CMCommandInput, cb: (err: any, data?: InferICD10CMCommandOutput) => void): void;
   public inferICD10CM(
     args: InferICD10CMCommandInput,
     options: __HttpHandlerOptions,
@@ -282,17 +247,14 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   ): void;
   public inferICD10CM(
     args: InferICD10CMCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InferICD10CMCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InferICD10CMCommandOutput) => void),
     cb?: (err: any, data?: InferICD10CMCommandOutput) => void
   ): Promise<InferICD10CMCommandOutput> | void {
     const command = new InferICD10CMCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -303,14 +265,8 @@ export class ComprehendMedical extends ComprehendMedicalClient {
    * <p>InferRxNorm detects medications as entities listed in a patient record and links to the normalized
    *    concept identifiers in the RxNorm database from the National Library of Medicine.</p>
    */
-  public inferRxNorm(
-    args: InferRxNormCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<InferRxNormCommandOutput>;
-  public inferRxNorm(
-    args: InferRxNormCommandInput,
-    cb: (err: any, data?: InferRxNormCommandOutput) => void
-  ): void;
+  public inferRxNorm(args: InferRxNormCommandInput, options?: __HttpHandlerOptions): Promise<InferRxNormCommandOutput>;
+  public inferRxNorm(args: InferRxNormCommandInput, cb: (err: any, data?: InferRxNormCommandOutput) => void): void;
   public inferRxNorm(
     args: InferRxNormCommandInput,
     options: __HttpHandlerOptions,
@@ -318,17 +274,14 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   ): void;
   public inferRxNorm(
     args: InferRxNormCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InferRxNormCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InferRxNormCommandOutput) => void),
     cb?: (err: any, data?: InferRxNormCommandOutput) => void
   ): Promise<InferRxNormCommandOutput> | void {
     const command = new InferRxNormCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -353,17 +306,14 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   ): void;
   public listEntitiesDetectionV2Jobs(
     args: ListEntitiesDetectionV2JobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEntitiesDetectionV2JobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEntitiesDetectionV2JobsCommandOutput) => void),
     cb?: (err: any, data?: ListEntitiesDetectionV2JobsCommandOutput) => void
   ): Promise<ListEntitiesDetectionV2JobsCommandOutput> | void {
     const command = new ListEntitiesDetectionV2JobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -389,17 +339,14 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   ): void;
   public listPHIDetectionJobs(
     args: ListPHIDetectionJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPHIDetectionJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPHIDetectionJobsCommandOutput) => void),
     cb?: (err: any, data?: ListPHIDetectionJobsCommandOutput) => void
   ): Promise<ListPHIDetectionJobsCommandOutput> | void {
     const command = new ListPHIDetectionJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -425,17 +372,14 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   ): void;
   public startEntitiesDetectionV2Job(
     args: StartEntitiesDetectionV2JobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartEntitiesDetectionV2JobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartEntitiesDetectionV2JobCommandOutput) => void),
     cb?: (err: any, data?: StartEntitiesDetectionV2JobCommandOutput) => void
   ): Promise<StartEntitiesDetectionV2JobCommandOutput> | void {
     const command = new StartEntitiesDetectionV2JobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -461,17 +405,14 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   ): void;
   public startPHIDetectionJob(
     args: StartPHIDetectionJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartPHIDetectionJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartPHIDetectionJobCommandOutput) => void),
     cb?: (err: any, data?: StartPHIDetectionJobCommandOutput) => void
   ): Promise<StartPHIDetectionJobCommandOutput> | void {
     const command = new StartPHIDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -496,17 +437,14 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   ): void;
   public stopEntitiesDetectionV2Job(
     args: StopEntitiesDetectionV2JobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopEntitiesDetectionV2JobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopEntitiesDetectionV2JobCommandOutput) => void),
     cb?: (err: any, data?: StopEntitiesDetectionV2JobCommandOutput) => void
   ): Promise<StopEntitiesDetectionV2JobCommandOutput> | void {
     const command = new StopEntitiesDetectionV2JobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -531,17 +469,14 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   ): void;
   public stopPHIDetectionJob(
     args: StopPHIDetectionJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopPHIDetectionJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopPHIDetectionJobCommandOutput) => void),
     cb?: (err: any, data?: StopPHIDetectionJobCommandOutput) => void
   ): Promise<StopPHIDetectionJobCommandOutput> | void {
     const command = new StopPHIDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

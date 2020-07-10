@@ -1,21 +1,15 @@
 import {
   ElasticLoadBalancingv2ClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticLoadBalancingv2Client";
-import {
-  CreateTargetGroupInput,
-  CreateTargetGroupOutput
-} from "../models/index";
+import { CreateTargetGroupInput, CreateTargetGroupOutput } from "../models/index";
 import {
   deserializeAws_queryCreateTargetGroupCommand,
-  serializeAws_queryCreateTargetGroupCommand
+  serializeAws_queryCreateTargetGroupCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateTargetGroupCommandInput = CreateTargetGroupInput;
-export type CreateTargetGroupCommandOutput = CreateTargetGroupOutput &
-  __MetadataBearer;
+export type CreateTargetGroupCommandOutput = CreateTargetGroupOutput & __MetadataBearer;
 
 export class CreateTargetGroupCommand extends $Command<
   CreateTargetGroupCommandInput,
@@ -50,14 +43,12 @@ export class CreateTargetGroupCommand extends $Command<
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateTargetGroupCommandInput, CreateTargetGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +58,11 @@ export class CreateTargetGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateTargetGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateTargetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateTargetGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateTargetGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTargetGroupCommandOutput> {
     return deserializeAws_queryCreateTargetGroupCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient";
-import {
-  CreateDomainEntryRequest,
-  CreateDomainEntryResult
-} from "../models/index";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { CreateDomainEntryRequest, CreateDomainEntryResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateDomainEntryCommand,
-  serializeAws_json1_1CreateDomainEntryCommand
+  serializeAws_json1_1CreateDomainEntryCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateDomainEntryCommandInput = CreateDomainEntryRequest;
-export type CreateDomainEntryCommandOutput = CreateDomainEntryResult &
-  __MetadataBearer;
+export type CreateDomainEntryCommandOutput = CreateDomainEntryResult & __MetadataBearer;
 
 export class CreateDomainEntryCommand extends $Command<
   CreateDomainEntryCommandInput,
@@ -50,14 +39,12 @@ export class CreateDomainEntryCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDomainEntryCommandInput, CreateDomainEntryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class CreateDomainEntryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDomainEntryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateDomainEntryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDomainEntryCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateDomainEntryCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDomainEntryCommandOutput> {
     return deserializeAws_json1_1CreateDomainEntryCommand(output, context);
   }
 

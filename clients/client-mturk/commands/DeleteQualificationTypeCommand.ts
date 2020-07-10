@@ -1,21 +1,11 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
-import {
-  DeleteQualificationTypeRequest,
-  DeleteQualificationTypeResponse
-} from "../models/index";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
+import { DeleteQualificationTypeRequest, DeleteQualificationTypeResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteQualificationTypeCommand,
-  serializeAws_json1_1DeleteQualificationTypeCommand
+  serializeAws_json1_1DeleteQualificationTypeCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteQualificationTypeCommandInput = DeleteQualificationTypeRequest;
-export type DeleteQualificationTypeCommandOutput = DeleteQualificationTypeResponse &
-  __MetadataBearer;
+export type DeleteQualificationTypeCommandOutput = DeleteQualificationTypeResponse & __MetadataBearer;
 
 export class DeleteQualificationTypeCommand extends $Command<
   DeleteQualificationTypeCommandInput,
@@ -49,18 +38,13 @@ export class DeleteQualificationTypeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteQualificationTypeCommandInput,
-    DeleteQualificationTypeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteQualificationTypeCommandInput, DeleteQualificationTypeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class DeleteQualificationTypeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteQualificationTypeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteQualificationTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteQualificationTypeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteQualificationTypeCommandOutput> {
-    return deserializeAws_json1_1DeleteQualificationTypeCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQualificationTypeCommandOutput> {
+    return deserializeAws_json1_1DeleteQualificationTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

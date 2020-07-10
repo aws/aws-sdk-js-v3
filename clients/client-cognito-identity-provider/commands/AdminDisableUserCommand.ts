@@ -1,21 +1,15 @@
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  AdminDisableUserRequest,
-  AdminDisableUserResponse
-} from "../models/index";
+import { AdminDisableUserRequest, AdminDisableUserResponse } from "../models/index";
 import {
   deserializeAws_json1_1AdminDisableUserCommand,
-  serializeAws_json1_1AdminDisableUserCommand
+  serializeAws_json1_1AdminDisableUserCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type AdminDisableUserCommandInput = AdminDisableUserRequest;
-export type AdminDisableUserCommandOutput = AdminDisableUserResponse &
-  __MetadataBearer;
+export type AdminDisableUserCommandOutput = AdminDisableUserResponse & __MetadataBearer;
 
 export class AdminDisableUserCommand extends $Command<
   AdminDisableUserCommandInput,
@@ -50,14 +43,12 @@ export class AdminDisableUserCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AdminDisableUserCommandInput, AdminDisableUserCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +58,11 @@ export class AdminDisableUserCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AdminDisableUserCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AdminDisableUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminDisableUserCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AdminDisableUserCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminDisableUserCommandOutput> {
     return deserializeAws_json1_1AdminDisableUserCommand(output, context);
   }
 

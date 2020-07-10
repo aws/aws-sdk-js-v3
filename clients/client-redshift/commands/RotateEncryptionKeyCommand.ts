@@ -1,21 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient";
-import {
-  RotateEncryptionKeyMessage,
-  RotateEncryptionKeyResult
-} from "../models/index";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { RotateEncryptionKeyMessage, RotateEncryptionKeyResult } from "../models/index";
 import {
   deserializeAws_queryRotateEncryptionKeyCommand,
-  serializeAws_queryRotateEncryptionKeyCommand
+  serializeAws_queryRotateEncryptionKeyCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type RotateEncryptionKeyCommandInput = RotateEncryptionKeyMessage;
-export type RotateEncryptionKeyCommandOutput = RotateEncryptionKeyResult &
-  __MetadataBearer;
+export type RotateEncryptionKeyCommandOutput = RotateEncryptionKeyResult & __MetadataBearer;
 
 export class RotateEncryptionKeyCommand extends $Command<
   RotateEncryptionKeyCommandInput,
@@ -49,18 +38,13 @@ export class RotateEncryptionKeyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RotateEncryptionKeyCommandInput,
-    RotateEncryptionKeyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RotateEncryptionKeyCommandInput, RotateEncryptionKeyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class RotateEncryptionKeyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RotateEncryptionKeyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RotateEncryptionKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRotateEncryptionKeyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RotateEncryptionKeyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RotateEncryptionKeyCommandOutput> {
     return deserializeAws_queryRotateEncryptionKeyCommand(output, context);
   }
 

@@ -1,94 +1,58 @@
 import { CloudTrailClient } from "./CloudTrailClient";
-import {
-  AddTagsCommand,
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "./commands/AddTagsCommand";
-import {
-  CreateTrailCommand,
-  CreateTrailCommandInput,
-  CreateTrailCommandOutput
-} from "./commands/CreateTrailCommand";
-import {
-  DeleteTrailCommand,
-  DeleteTrailCommandInput,
-  DeleteTrailCommandOutput
-} from "./commands/DeleteTrailCommand";
+import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import { CreateTrailCommand, CreateTrailCommandInput, CreateTrailCommandOutput } from "./commands/CreateTrailCommand";
+import { DeleteTrailCommand, DeleteTrailCommandInput, DeleteTrailCommandOutput } from "./commands/DeleteTrailCommand";
 import {
   DescribeTrailsCommand,
   DescribeTrailsCommandInput,
-  DescribeTrailsCommandOutput
+  DescribeTrailsCommandOutput,
 } from "./commands/DescribeTrailsCommand";
 import {
   GetEventSelectorsCommand,
   GetEventSelectorsCommandInput,
-  GetEventSelectorsCommandOutput
+  GetEventSelectorsCommandOutput,
 } from "./commands/GetEventSelectorsCommand";
 import {
   GetInsightSelectorsCommand,
   GetInsightSelectorsCommandInput,
-  GetInsightSelectorsCommandOutput
+  GetInsightSelectorsCommandOutput,
 } from "./commands/GetInsightSelectorsCommand";
-import {
-  GetTrailCommand,
-  GetTrailCommandInput,
-  GetTrailCommandOutput
-} from "./commands/GetTrailCommand";
+import { GetTrailCommand, GetTrailCommandInput, GetTrailCommandOutput } from "./commands/GetTrailCommand";
 import {
   GetTrailStatusCommand,
   GetTrailStatusCommandInput,
-  GetTrailStatusCommandOutput
+  GetTrailStatusCommandOutput,
 } from "./commands/GetTrailStatusCommand";
 import {
   ListPublicKeysCommand,
   ListPublicKeysCommandInput,
-  ListPublicKeysCommandOutput
+  ListPublicKeysCommandOutput,
 } from "./commands/ListPublicKeysCommand";
-import {
-  ListTagsCommand,
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand";
-import {
-  ListTrailsCommand,
-  ListTrailsCommandInput,
-  ListTrailsCommandOutput
-} from "./commands/ListTrailsCommand";
+import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import { ListTrailsCommand, ListTrailsCommandInput, ListTrailsCommandOutput } from "./commands/ListTrailsCommand";
 import {
   LookupEventsCommand,
   LookupEventsCommandInput,
-  LookupEventsCommandOutput
+  LookupEventsCommandOutput,
 } from "./commands/LookupEventsCommand";
 import {
   PutEventSelectorsCommand,
   PutEventSelectorsCommandInput,
-  PutEventSelectorsCommandOutput
+  PutEventSelectorsCommandOutput,
 } from "./commands/PutEventSelectorsCommand";
 import {
   PutInsightSelectorsCommand,
   PutInsightSelectorsCommandInput,
-  PutInsightSelectorsCommandOutput
+  PutInsightSelectorsCommandOutput,
 } from "./commands/PutInsightSelectorsCommand";
-import {
-  RemoveTagsCommand,
-  RemoveTagsCommandInput,
-  RemoveTagsCommandOutput
-} from "./commands/RemoveTagsCommand";
+import { RemoveTagsCommand, RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
   StartLoggingCommand,
   StartLoggingCommandInput,
-  StartLoggingCommandOutput
+  StartLoggingCommandOutput,
 } from "./commands/StartLoggingCommand";
-import {
-  StopLoggingCommand,
-  StopLoggingCommandInput,
-  StopLoggingCommandOutput
-} from "./commands/StopLoggingCommand";
-import {
-  UpdateTrailCommand,
-  UpdateTrailCommandInput,
-  UpdateTrailCommandOutput
-} from "./commands/UpdateTrailCommand";
+import { StopLoggingCommand, StopLoggingCommandInput, StopLoggingCommandOutput } from "./commands/StopLoggingCommand";
+import { UpdateTrailCommand, UpdateTrailCommandInput, UpdateTrailCommandOutput } from "./commands/UpdateTrailCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -115,14 +79,8 @@ export class CloudTrail extends CloudTrailClient {
    *           If you specify a key without a value, the tag will be created with the specified key and a value of null.
    *           You can tag a trail that applies to all AWS Regions only from the Region in which the trail was created (also known as its home region).</p>
    */
-  public addTags(
-    args: AddTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AddTagsCommandOutput>;
-  public addTags(
-    args: AddTagsCommandInput,
-    cb: (err: any, data?: AddTagsCommandOutput) => void
-  ): void;
+  public addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
+  public addTags(args: AddTagsCommandInput, cb: (err: any, data?: AddTagsCommandOutput) => void): void;
   public addTags(
     args: AddTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -130,17 +88,14 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public addTags(
     args: AddTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsCommandOutput) => void),
     cb?: (err: any, data?: AddTagsCommandOutput) => void
   ): Promise<AddTagsCommandOutput> | void {
     const command = new AddTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -150,14 +105,8 @@ export class CloudTrail extends CloudTrailClient {
   /**
    * <p>Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. </p>
    */
-  public createTrail(
-    args: CreateTrailCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateTrailCommandOutput>;
-  public createTrail(
-    args: CreateTrailCommandInput,
-    cb: (err: any, data?: CreateTrailCommandOutput) => void
-  ): void;
+  public createTrail(args: CreateTrailCommandInput, options?: __HttpHandlerOptions): Promise<CreateTrailCommandOutput>;
+  public createTrail(args: CreateTrailCommandInput, cb: (err: any, data?: CreateTrailCommandOutput) => void): void;
   public createTrail(
     args: CreateTrailCommandInput,
     options: __HttpHandlerOptions,
@@ -165,17 +114,14 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public createTrail(
     args: CreateTrailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTrailCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTrailCommandOutput) => void),
     cb?: (err: any, data?: CreateTrailCommandOutput) => void
   ): Promise<CreateTrailCommandOutput> | void {
     const command = new CreateTrailCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -187,14 +133,8 @@ export class CloudTrail extends CloudTrailClient {
    *          created. <code>DeleteTrail</code> cannot be called on the shadow trails (replicated trails
    *          in other regions) of a trail that is enabled in all regions.</p>
    */
-  public deleteTrail(
-    args: DeleteTrailCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteTrailCommandOutput>;
-  public deleteTrail(
-    args: DeleteTrailCommandInput,
-    cb: (err: any, data?: DeleteTrailCommandOutput) => void
-  ): void;
+  public deleteTrail(args: DeleteTrailCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTrailCommandOutput>;
+  public deleteTrail(args: DeleteTrailCommandInput, cb: (err: any, data?: DeleteTrailCommandOutput) => void): void;
   public deleteTrail(
     args: DeleteTrailCommandInput,
     options: __HttpHandlerOptions,
@@ -202,17 +142,14 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public deleteTrail(
     args: DeleteTrailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTrailCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTrailCommandOutput) => void),
     cb?: (err: any, data?: DeleteTrailCommandOutput) => void
   ): Promise<DeleteTrailCommandOutput> | void {
     const command = new DeleteTrailCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -237,17 +174,14 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public describeTrails(
     args: DescribeTrailsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTrailsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTrailsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTrailsCommandOutput) => void
   ): Promise<DescribeTrailsCommandOutput> | void {
     const command = new DescribeTrailsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -288,17 +222,14 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public getEventSelectors(
     args: GetEventSelectorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEventSelectorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEventSelectorsCommandOutput) => void),
     cb?: (err: any, data?: GetEventSelectorsCommandOutput) => void
   ): Promise<GetEventSelectorsCommandOutput> | void {
     const command = new GetEventSelectorsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -329,17 +260,14 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public getInsightSelectors(
     args: GetInsightSelectorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInsightSelectorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInsightSelectorsCommandOutput) => void),
     cb?: (err: any, data?: GetInsightSelectorsCommandOutput) => void
   ): Promise<GetInsightSelectorsCommandOutput> | void {
     const command = new GetInsightSelectorsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -349,14 +277,8 @@ export class CloudTrail extends CloudTrailClient {
   /**
    * <p>Returns settings information for a specified trail.</p>
    */
-  public getTrail(
-    args: GetTrailCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetTrailCommandOutput>;
-  public getTrail(
-    args: GetTrailCommandInput,
-    cb: (err: any, data?: GetTrailCommandOutput) => void
-  ): void;
+  public getTrail(args: GetTrailCommandInput, options?: __HttpHandlerOptions): Promise<GetTrailCommandOutput>;
+  public getTrail(args: GetTrailCommandInput, cb: (err: any, data?: GetTrailCommandOutput) => void): void;
   public getTrail(
     args: GetTrailCommandInput,
     options: __HttpHandlerOptions,
@@ -364,17 +286,14 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public getTrail(
     args: GetTrailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTrailCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTrailCommandOutput) => void),
     cb?: (err: any, data?: GetTrailCommandOutput) => void
   ): Promise<GetTrailCommandOutput> | void {
     const command = new GetTrailCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -399,17 +318,14 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public getTrailStatus(
     args: GetTrailStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTrailStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTrailStatusCommandOutput) => void),
     cb?: (err: any, data?: GetTrailStatusCommandOutput) => void
   ): Promise<GetTrailStatusCommandOutput> | void {
     const command = new GetTrailStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -437,17 +353,14 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public listPublicKeys(
     args: ListPublicKeysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPublicKeysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPublicKeysCommandOutput) => void),
     cb?: (err: any, data?: ListPublicKeysCommandOutput) => void
   ): Promise<ListPublicKeysCommandOutput> | void {
     const command = new ListPublicKeysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -457,14 +370,8 @@ export class CloudTrail extends CloudTrailClient {
   /**
    * <p>Lists the tags for the trail in the current region.</p>
    */
-  public listTags(
-    args: ListTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsCommandOutput>;
-  public listTags(
-    args: ListTagsCommandInput,
-    cb: (err: any, data?: ListTagsCommandOutput) => void
-  ): void;
+  public listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
+  public listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
   public listTags(
     args: ListTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -472,17 +379,14 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public listTags(
     args: ListTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
     cb?: (err: any, data?: ListTagsCommandOutput) => void
   ): Promise<ListTagsCommandOutput> | void {
     const command = new ListTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -492,14 +396,8 @@ export class CloudTrail extends CloudTrailClient {
   /**
    * <p>Lists trails that are in the current account.</p>
    */
-  public listTrails(
-    args: ListTrailsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTrailsCommandOutput>;
-  public listTrails(
-    args: ListTrailsCommandInput,
-    cb: (err: any, data?: ListTrailsCommandOutput) => void
-  ): void;
+  public listTrails(args: ListTrailsCommandInput, options?: __HttpHandlerOptions): Promise<ListTrailsCommandOutput>;
+  public listTrails(args: ListTrailsCommandInput, cb: (err: any, data?: ListTrailsCommandOutput) => void): void;
   public listTrails(
     args: ListTrailsCommandInput,
     options: __HttpHandlerOptions,
@@ -507,17 +405,14 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public listTrails(
     args: ListTrailsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTrailsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTrailsCommandOutput) => void),
     cb?: (err: any, data?: ListTrailsCommandOutput) => void
   ): Promise<ListTrailsCommandOutput> | void {
     const command = new ListTrailsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -578,10 +473,7 @@ export class CloudTrail extends CloudTrailClient {
     args: LookupEventsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<LookupEventsCommandOutput>;
-  public lookupEvents(
-    args: LookupEventsCommandInput,
-    cb: (err: any, data?: LookupEventsCommandOutput) => void
-  ): void;
+  public lookupEvents(args: LookupEventsCommandInput, cb: (err: any, data?: LookupEventsCommandOutput) => void): void;
   public lookupEvents(
     args: LookupEventsCommandInput,
     options: __HttpHandlerOptions,
@@ -589,17 +481,14 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public lookupEvents(
     args: LookupEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: LookupEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: LookupEventsCommandOutput) => void),
     cb?: (err: any, data?: LookupEventsCommandOutput) => void
   ): Promise<LookupEventsCommandOutput> | void {
     const command = new LookupEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -661,17 +550,14 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public putEventSelectors(
     args: PutEventSelectorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutEventSelectorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEventSelectorsCommandOutput) => void),
     cb?: (err: any, data?: PutEventSelectorsCommandOutput) => void
   ): Promise<PutEventSelectorsCommandOutput> | void {
     const command = new PutEventSelectorsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -699,17 +585,14 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public putInsightSelectors(
     args: PutInsightSelectorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutInsightSelectorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutInsightSelectorsCommandOutput) => void),
     cb?: (err: any, data?: PutInsightSelectorsCommandOutput) => void
   ): Promise<PutInsightSelectorsCommandOutput> | void {
     const command = new PutInsightSelectorsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -719,14 +602,8 @@ export class CloudTrail extends CloudTrailClient {
   /**
    * <p>Removes the specified tags from a trail.</p>
    */
-  public removeTags(
-    args: RemoveTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RemoveTagsCommandOutput>;
-  public removeTags(
-    args: RemoveTagsCommandInput,
-    cb: (err: any, data?: RemoveTagsCommandOutput) => void
-  ): void;
+  public removeTags(args: RemoveTagsCommandInput, options?: __HttpHandlerOptions): Promise<RemoveTagsCommandOutput>;
+  public removeTags(args: RemoveTagsCommandInput, cb: (err: any, data?: RemoveTagsCommandOutput) => void): void;
   public removeTags(
     args: RemoveTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -734,17 +611,14 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public removeTags(
     args: RemoveTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsCommandOutput) => void),
     cb?: (err: any, data?: RemoveTagsCommandOutput) => void
   ): Promise<RemoveTagsCommandOutput> | void {
     const command = new RemoveTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -758,10 +632,7 @@ export class CloudTrail extends CloudTrailClient {
     args: StartLoggingCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartLoggingCommandOutput>;
-  public startLogging(
-    args: StartLoggingCommandInput,
-    cb: (err: any, data?: StartLoggingCommandOutput) => void
-  ): void;
+  public startLogging(args: StartLoggingCommandInput, cb: (err: any, data?: StartLoggingCommandOutput) => void): void;
   public startLogging(
     args: StartLoggingCommandInput,
     options: __HttpHandlerOptions,
@@ -769,17 +640,14 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public startLogging(
     args: StartLoggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartLoggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartLoggingCommandOutput) => void),
     cb?: (err: any, data?: StartLoggingCommandOutput) => void
   ): Promise<StartLoggingCommandOutput> | void {
     const command = new StartLoggingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -795,14 +663,8 @@ export class CloudTrail extends CloudTrailClient {
    *          cannot be called on the shadow trails (replicated trails in other regions) of a trail
    *          enabled in all regions.</p>
    */
-  public stopLogging(
-    args: StopLoggingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopLoggingCommandOutput>;
-  public stopLogging(
-    args: StopLoggingCommandInput,
-    cb: (err: any, data?: StopLoggingCommandOutput) => void
-  ): void;
+  public stopLogging(args: StopLoggingCommandInput, options?: __HttpHandlerOptions): Promise<StopLoggingCommandOutput>;
+  public stopLogging(args: StopLoggingCommandInput, cb: (err: any, data?: StopLoggingCommandOutput) => void): void;
   public stopLogging(
     args: StopLoggingCommandInput,
     options: __HttpHandlerOptions,
@@ -810,17 +672,14 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public stopLogging(
     args: StopLoggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopLoggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopLoggingCommandOutput) => void),
     cb?: (err: any, data?: StopLoggingCommandOutput) => void
   ): Promise<StopLoggingCommandOutput> | void {
     const command = new StopLoggingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -835,14 +694,8 @@ export class CloudTrail extends CloudTrailClient {
    *          region in which the trail was created; otherwise, an
    *             <code>InvalidHomeRegionException</code> is thrown.</p>
    */
-  public updateTrail(
-    args: UpdateTrailCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateTrailCommandOutput>;
-  public updateTrail(
-    args: UpdateTrailCommandInput,
-    cb: (err: any, data?: UpdateTrailCommandOutput) => void
-  ): void;
+  public updateTrail(args: UpdateTrailCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTrailCommandOutput>;
+  public updateTrail(args: UpdateTrailCommandInput, cb: (err: any, data?: UpdateTrailCommandOutput) => void): void;
   public updateTrail(
     args: UpdateTrailCommandInput,
     options: __HttpHandlerOptions,
@@ -850,17 +703,14 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public updateTrail(
     args: UpdateTrailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTrailCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTrailCommandOutput) => void),
     cb?: (err: any, data?: UpdateTrailCommandOutput) => void
   ): Promise<UpdateTrailCommandOutput> | void {
     const command = new UpdateTrailCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

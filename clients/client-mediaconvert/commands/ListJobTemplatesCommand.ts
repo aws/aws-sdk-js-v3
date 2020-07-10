@@ -1,21 +1,11 @@
-import {
-  MediaConvertClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaConvertClient";
-import {
-  ListJobTemplatesRequest,
-  ListJobTemplatesResponse
-} from "../models/index";
+import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
+import { ListJobTemplatesRequest, ListJobTemplatesResponse } from "../models/index";
 import {
   deserializeAws_restJson1ListJobTemplatesCommand,
-  serializeAws_restJson1ListJobTemplatesCommand
+  serializeAws_restJson1ListJobTemplatesCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListJobTemplatesCommandInput = ListJobTemplatesRequest;
-export type ListJobTemplatesCommandOutput = ListJobTemplatesResponse &
-  __MetadataBearer;
+export type ListJobTemplatesCommandOutput = ListJobTemplatesResponse & __MetadataBearer;
 
 export class ListJobTemplatesCommand extends $Command<
   ListJobTemplatesCommandInput,
@@ -50,14 +39,12 @@ export class ListJobTemplatesCommand extends $Command<
     configuration: MediaConvertClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListJobTemplatesCommandInput, ListJobTemplatesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class ListJobTemplatesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListJobTemplatesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListJobTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListJobTemplatesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListJobTemplatesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobTemplatesCommandOutput> {
     return deserializeAws_restJson1ListJobTemplatesCommand(output, context);
   }
 

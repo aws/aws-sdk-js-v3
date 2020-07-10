@@ -1,21 +1,11 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
-import {
-  SetSMSAttributesInput,
-  SetSMSAttributesResponse
-} from "../models/index";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
+import { SetSMSAttributesInput, SetSMSAttributesResponse } from "../models/index";
 import {
   deserializeAws_querySetSMSAttributesCommand,
-  serializeAws_querySetSMSAttributesCommand
+  serializeAws_querySetSMSAttributesCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type SetSMSAttributesCommandInput = SetSMSAttributesInput;
-export type SetSMSAttributesCommandOutput = SetSMSAttributesResponse &
-  __MetadataBearer;
+export type SetSMSAttributesCommandOutput = SetSMSAttributesResponse & __MetadataBearer;
 
 export class SetSMSAttributesCommand extends $Command<
   SetSMSAttributesCommandInput,
@@ -50,14 +39,12 @@ export class SetSMSAttributesCommand extends $Command<
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SetSMSAttributesCommandInput, SetSMSAttributesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class SetSMSAttributesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SetSMSAttributesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SetSMSAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetSMSAttributesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SetSMSAttributesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetSMSAttributesCommandOutput> {
     return deserializeAws_querySetSMSAttributesCommand(output, context);
   }
 

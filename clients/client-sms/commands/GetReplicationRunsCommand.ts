@@ -1,21 +1,11 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient";
-import {
-  GetReplicationRunsRequest,
-  GetReplicationRunsResponse
-} from "../models/index";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
+import { GetReplicationRunsRequest, GetReplicationRunsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetReplicationRunsCommand,
-  serializeAws_json1_1GetReplicationRunsCommand
+  serializeAws_json1_1GetReplicationRunsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetReplicationRunsCommandInput = GetReplicationRunsRequest;
-export type GetReplicationRunsCommandOutput = GetReplicationRunsResponse &
-  __MetadataBearer;
+export type GetReplicationRunsCommandOutput = GetReplicationRunsResponse & __MetadataBearer;
 
 export class GetReplicationRunsCommand extends $Command<
   GetReplicationRunsCommandInput,
@@ -50,14 +39,12 @@ export class GetReplicationRunsCommand extends $Command<
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetReplicationRunsCommandInput, GetReplicationRunsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class GetReplicationRunsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetReplicationRunsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetReplicationRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetReplicationRunsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetReplicationRunsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReplicationRunsCommandOutput> {
     return deserializeAws_json1_1GetReplicationRunsCommand(output, context);
   }
 

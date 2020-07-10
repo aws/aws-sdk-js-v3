@@ -1,21 +1,11 @@
-import {
-  AlexaForBusinessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AlexaForBusinessClient";
-import {
-  SearchNetworkProfilesRequest,
-  SearchNetworkProfilesResponse
-} from "../models/index";
+import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
+import { SearchNetworkProfilesRequest, SearchNetworkProfilesResponse } from "../models/index";
 import {
   deserializeAws_json1_1SearchNetworkProfilesCommand,
-  serializeAws_json1_1SearchNetworkProfilesCommand
+  serializeAws_json1_1SearchNetworkProfilesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type SearchNetworkProfilesCommandInput = SearchNetworkProfilesRequest;
-export type SearchNetworkProfilesCommandOutput = SearchNetworkProfilesResponse &
-  __MetadataBearer;
+export type SearchNetworkProfilesCommandOutput = SearchNetworkProfilesResponse & __MetadataBearer;
 
 export class SearchNetworkProfilesCommand extends $Command<
   SearchNetworkProfilesCommandInput,
@@ -49,18 +38,13 @@ export class SearchNetworkProfilesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SearchNetworkProfilesCommandInput,
-    SearchNetworkProfilesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SearchNetworkProfilesCommandInput, SearchNetworkProfilesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class SearchNetworkProfilesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SearchNetworkProfilesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SearchNetworkProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchNetworkProfilesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SearchNetworkProfilesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchNetworkProfilesCommandOutput> {
     return deserializeAws_json1_1SearchNetworkProfilesCommand(output, context);
   }
 

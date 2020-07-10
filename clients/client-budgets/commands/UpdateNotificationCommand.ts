@@ -1,21 +1,11 @@
-import {
-  BudgetsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BudgetsClient";
-import {
-  UpdateNotificationRequest,
-  UpdateNotificationResponse
-} from "../models/index";
+import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
+import { UpdateNotificationRequest, UpdateNotificationResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateNotificationCommand,
-  serializeAws_json1_1UpdateNotificationCommand
+  serializeAws_json1_1UpdateNotificationCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateNotificationCommandInput = UpdateNotificationRequest;
-export type UpdateNotificationCommandOutput = UpdateNotificationResponse &
-  __MetadataBearer;
+export type UpdateNotificationCommandOutput = UpdateNotificationResponse & __MetadataBearer;
 
 export class UpdateNotificationCommand extends $Command<
   UpdateNotificationCommandInput,
@@ -50,14 +39,12 @@ export class UpdateNotificationCommand extends $Command<
     configuration: BudgetsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateNotificationCommandInput, UpdateNotificationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class UpdateNotificationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateNotificationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateNotificationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateNotificationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateNotificationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNotificationCommandOutput> {
     return deserializeAws_json1_1UpdateNotificationCommand(output, context);
   }
 

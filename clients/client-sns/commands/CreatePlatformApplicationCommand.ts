@@ -1,21 +1,11 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
-import {
-  CreatePlatformApplicationInput,
-  CreatePlatformApplicationResponse
-} from "../models/index";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
+import { CreatePlatformApplicationInput, CreatePlatformApplicationResponse } from "../models/index";
 import {
   deserializeAws_queryCreatePlatformApplicationCommand,
-  serializeAws_queryCreatePlatformApplicationCommand
+  serializeAws_queryCreatePlatformApplicationCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreatePlatformApplicationCommandInput = CreatePlatformApplicationInput;
-export type CreatePlatformApplicationCommandOutput = CreatePlatformApplicationResponse &
-  __MetadataBearer;
+export type CreatePlatformApplicationCommandOutput = CreatePlatformApplicationResponse & __MetadataBearer;
 
 export class CreatePlatformApplicationCommand extends $Command<
   CreatePlatformApplicationCommandInput,
@@ -49,18 +38,13 @@ export class CreatePlatformApplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreatePlatformApplicationCommandInput,
-    CreatePlatformApplicationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreatePlatformApplicationCommandInput, CreatePlatformApplicationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +54,7 @@ export class CreatePlatformApplicationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreatePlatformApplicationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreatePlatformApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreatePlatformApplicationCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class CreatePlatformApplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePlatformApplicationCommandOutput> {
-    return deserializeAws_queryCreatePlatformApplicationCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryCreatePlatformApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

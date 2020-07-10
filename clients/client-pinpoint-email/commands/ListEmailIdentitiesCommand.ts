@@ -1,21 +1,11 @@
-import {
-  PinpointEmailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointEmailClient";
-import {
-  ListEmailIdentitiesRequest,
-  ListEmailIdentitiesResponse
-} from "../models/index";
+import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
+import { ListEmailIdentitiesRequest, ListEmailIdentitiesResponse } from "../models/index";
 import {
   deserializeAws_restJson1ListEmailIdentitiesCommand,
-  serializeAws_restJson1ListEmailIdentitiesCommand
+  serializeAws_restJson1ListEmailIdentitiesCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListEmailIdentitiesCommandInput = ListEmailIdentitiesRequest;
-export type ListEmailIdentitiesCommandOutput = ListEmailIdentitiesResponse &
-  __MetadataBearer;
+export type ListEmailIdentitiesCommandOutput = ListEmailIdentitiesResponse & __MetadataBearer;
 
 export class ListEmailIdentitiesCommand extends $Command<
   ListEmailIdentitiesCommandInput,
@@ -49,18 +38,13 @@ export class ListEmailIdentitiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListEmailIdentitiesCommandInput,
-    ListEmailIdentitiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListEmailIdentitiesCommandInput, ListEmailIdentitiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class ListEmailIdentitiesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListEmailIdentitiesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListEmailIdentitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListEmailIdentitiesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListEmailIdentitiesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEmailIdentitiesCommandOutput> {
     return deserializeAws_restJson1ListEmailIdentitiesCommand(output, context);
   }
 

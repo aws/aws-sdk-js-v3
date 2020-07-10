@@ -1,21 +1,14 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import {
   DeleteConfigurationSetEventDestinationRequest,
-  DeleteConfigurationSetEventDestinationResponse
+  DeleteConfigurationSetEventDestinationResponse,
 } from "../models/index";
 import {
   deserializeAws_queryDeleteConfigurationSetEventDestinationCommand,
-  serializeAws_queryDeleteConfigurationSetEventDestinationCommand
+  serializeAws_queryDeleteConfigurationSetEventDestinationCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteConfigurationSetEventDestinationCommandInput = DeleteConfigurationSetEventDestinationRequest;
@@ -39,9 +32,7 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DeleteConfigurationSetEventDestinationCommandInput
-  ) {
+  constructor(readonly input: DeleteConfigurationSetEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,18 +42,13 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteConfigurationSetEventDestinationCommandInput,
-    DeleteConfigurationSetEventDestinationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteConfigurationSetEventDestinationCommandInput, DeleteConfigurationSetEventDestinationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +62,14 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     input: DeleteConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteConfigurationSetEventDestinationCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDeleteConfigurationSetEventDestinationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> {
-    return deserializeAws_queryDeleteConfigurationSetEventDestinationCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteConfigurationSetEventDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

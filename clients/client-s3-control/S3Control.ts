@@ -2,82 +2,70 @@ import { S3ControlClient } from "./S3ControlClient";
 import {
   CreateAccessPointCommand,
   CreateAccessPointCommandInput,
-  CreateAccessPointCommandOutput
+  CreateAccessPointCommandOutput,
 } from "./commands/CreateAccessPointCommand";
-import {
-  CreateJobCommand,
-  CreateJobCommandInput,
-  CreateJobCommandOutput
-} from "./commands/CreateJobCommand";
+import { CreateJobCommand, CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import {
   DeleteAccessPointCommand,
   DeleteAccessPointCommandInput,
-  DeleteAccessPointCommandOutput
+  DeleteAccessPointCommandOutput,
 } from "./commands/DeleteAccessPointCommand";
 import {
   DeleteAccessPointPolicyCommand,
   DeleteAccessPointPolicyCommandInput,
-  DeleteAccessPointPolicyCommandOutput
+  DeleteAccessPointPolicyCommandOutput,
 } from "./commands/DeleteAccessPointPolicyCommand";
 import {
   DeletePublicAccessBlockCommand,
   DeletePublicAccessBlockCommandInput,
-  DeletePublicAccessBlockCommandOutput
+  DeletePublicAccessBlockCommandOutput,
 } from "./commands/DeletePublicAccessBlockCommand";
-import {
-  DescribeJobCommand,
-  DescribeJobCommandInput,
-  DescribeJobCommandOutput
-} from "./commands/DescribeJobCommand";
+import { DescribeJobCommand, DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
 import {
   GetAccessPointCommand,
   GetAccessPointCommandInput,
-  GetAccessPointCommandOutput
+  GetAccessPointCommandOutput,
 } from "./commands/GetAccessPointCommand";
 import {
   GetAccessPointPolicyCommand,
   GetAccessPointPolicyCommandInput,
-  GetAccessPointPolicyCommandOutput
+  GetAccessPointPolicyCommandOutput,
 } from "./commands/GetAccessPointPolicyCommand";
 import {
   GetAccessPointPolicyStatusCommand,
   GetAccessPointPolicyStatusCommandInput,
-  GetAccessPointPolicyStatusCommandOutput
+  GetAccessPointPolicyStatusCommandOutput,
 } from "./commands/GetAccessPointPolicyStatusCommand";
 import {
   GetPublicAccessBlockCommand,
   GetPublicAccessBlockCommandInput,
-  GetPublicAccessBlockCommandOutput
+  GetPublicAccessBlockCommandOutput,
 } from "./commands/GetPublicAccessBlockCommand";
 import {
   ListAccessPointsCommand,
   ListAccessPointsCommandInput,
-  ListAccessPointsCommandOutput
+  ListAccessPointsCommandOutput,
 } from "./commands/ListAccessPointsCommand";
-import {
-  ListJobsCommand,
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand";
+import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   PutAccessPointPolicyCommand,
   PutAccessPointPolicyCommandInput,
-  PutAccessPointPolicyCommandOutput
+  PutAccessPointPolicyCommandOutput,
 } from "./commands/PutAccessPointPolicyCommand";
 import {
   PutPublicAccessBlockCommand,
   PutPublicAccessBlockCommandInput,
-  PutPublicAccessBlockCommandOutput
+  PutPublicAccessBlockCommandOutput,
 } from "./commands/PutPublicAccessBlockCommand";
 import {
   UpdateJobPriorityCommand,
   UpdateJobPriorityCommandInput,
-  UpdateJobPriorityCommandOutput
+  UpdateJobPriorityCommandOutput,
 } from "./commands/UpdateJobPriorityCommand";
 import {
   UpdateJobStatusCommand,
   UpdateJobStatusCommandInput,
-  UpdateJobStatusCommandOutput
+  UpdateJobStatusCommandOutput,
 } from "./commands/UpdateJobStatusCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -105,17 +93,14 @@ export class S3Control extends S3ControlClient {
   ): void;
   public createAccessPoint(
     args: CreateAccessPointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAccessPointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAccessPointCommandOutput) => void),
     cb?: (err: any, data?: CreateAccessPointCommandOutput) => void
   ): Promise<CreateAccessPointCommandOutput> | void {
     const command = new CreateAccessPointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -125,14 +110,8 @@ export class S3Control extends S3ControlClient {
   /**
    * <p>Creates an Amazon S3 batch operations job.</p>
    */
-  public createJob(
-    args: CreateJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateJobCommandOutput>;
-  public createJob(
-    args: CreateJobCommandInput,
-    cb: (err: any, data?: CreateJobCommandOutput) => void
-  ): void;
+  public createJob(args: CreateJobCommandInput, options?: __HttpHandlerOptions): Promise<CreateJobCommandOutput>;
+  public createJob(args: CreateJobCommandInput, cb: (err: any, data?: CreateJobCommandOutput) => void): void;
   public createJob(
     args: CreateJobCommandInput,
     options: __HttpHandlerOptions,
@@ -140,17 +119,14 @@ export class S3Control extends S3ControlClient {
   ): void;
   public createJob(
     args: CreateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJobCommandOutput) => void),
     cb?: (err: any, data?: CreateJobCommandOutput) => void
   ): Promise<CreateJobCommandOutput> | void {
     const command = new CreateJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -175,17 +151,14 @@ export class S3Control extends S3ControlClient {
   ): void;
   public deleteAccessPoint(
     args: DeleteAccessPointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAccessPointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAccessPointCommandOutput) => void),
     cb?: (err: any, data?: DeleteAccessPointCommandOutput) => void
   ): Promise<DeleteAccessPointCommandOutput> | void {
     const command = new DeleteAccessPointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -210,17 +183,14 @@ export class S3Control extends S3ControlClient {
   ): void;
   public deleteAccessPointPolicy(
     args: DeleteAccessPointPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAccessPointPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAccessPointPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteAccessPointPolicyCommandOutput) => void
   ): Promise<DeleteAccessPointPolicyCommandOutput> | void {
     const command = new DeleteAccessPointPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -246,17 +216,14 @@ export class S3Control extends S3ControlClient {
   ): void;
   public deletePublicAccessBlock(
     args: DeletePublicAccessBlockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePublicAccessBlockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePublicAccessBlockCommandOutput) => void),
     cb?: (err: any, data?: DeletePublicAccessBlockCommandOutput) => void
   ): Promise<DeletePublicAccessBlockCommandOutput> | void {
     const command = new DeletePublicAccessBlockCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -266,14 +233,8 @@ export class S3Control extends S3ControlClient {
   /**
    * <p>Retrieves the configuration parameters and status for a batch operations job.</p>
    */
-  public describeJob(
-    args: DescribeJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeJobCommandOutput>;
-  public describeJob(
-    args: DescribeJobCommandInput,
-    cb: (err: any, data?: DescribeJobCommandOutput) => void
-  ): void;
+  public describeJob(args: DescribeJobCommandInput, options?: __HttpHandlerOptions): Promise<DescribeJobCommandOutput>;
+  public describeJob(args: DescribeJobCommandInput, cb: (err: any, data?: DescribeJobCommandOutput) => void): void;
   public describeJob(
     args: DescribeJobCommandInput,
     options: __HttpHandlerOptions,
@@ -281,17 +242,14 @@ export class S3Control extends S3ControlClient {
   ): void;
   public describeJob(
     args: DescribeJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeJobCommandOutput) => void
   ): Promise<DescribeJobCommandOutput> | void {
     const command = new DescribeJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -316,17 +274,14 @@ export class S3Control extends S3ControlClient {
   ): void;
   public getAccessPoint(
     args: GetAccessPointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAccessPointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccessPointCommandOutput) => void),
     cb?: (err: any, data?: GetAccessPointCommandOutput) => void
   ): Promise<GetAccessPointCommandOutput> | void {
     const command = new GetAccessPointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -351,17 +306,14 @@ export class S3Control extends S3ControlClient {
   ): void;
   public getAccessPointPolicy(
     args: GetAccessPointPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAccessPointPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccessPointPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetAccessPointPolicyCommandOutput) => void
   ): Promise<GetAccessPointPolicyCommandOutput> | void {
     const command = new GetAccessPointPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -386,17 +338,14 @@ export class S3Control extends S3ControlClient {
   ): void;
   public getAccessPointPolicyStatus(
     args: GetAccessPointPolicyStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAccessPointPolicyStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccessPointPolicyStatusCommandOutput) => void),
     cb?: (err: any, data?: GetAccessPointPolicyStatusCommandOutput) => void
   ): Promise<GetAccessPointPolicyStatusCommandOutput> | void {
     const command = new GetAccessPointPolicyStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -421,17 +370,14 @@ export class S3Control extends S3ControlClient {
   ): void;
   public getPublicAccessBlock(
     args: GetPublicAccessBlockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPublicAccessBlockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPublicAccessBlockCommandOutput) => void),
     cb?: (err: any, data?: GetPublicAccessBlockCommandOutput) => void
   ): Promise<GetPublicAccessBlockCommandOutput> | void {
     const command = new GetPublicAccessBlockCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -457,17 +403,14 @@ export class S3Control extends S3ControlClient {
   ): void;
   public listAccessPoints(
     args: ListAccessPointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAccessPointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccessPointsCommandOutput) => void),
     cb?: (err: any, data?: ListAccessPointsCommandOutput) => void
   ): Promise<ListAccessPointsCommandOutput> | void {
     const command = new ListAccessPointsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -477,14 +420,8 @@ export class S3Control extends S3ControlClient {
   /**
    * <p>Lists current jobs and jobs that have ended within the last 30 days for the AWS account making the request.</p>
    */
-  public listJobs(
-    args: ListJobsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListJobsCommandOutput>;
-  public listJobs(
-    args: ListJobsCommandInput,
-    cb: (err: any, data?: ListJobsCommandOutput) => void
-  ): void;
+  public listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
+  public listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
   public listJobs(
     args: ListJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -492,17 +429,14 @@ export class S3Control extends S3ControlClient {
   ): void;
   public listJobs(
     args: ListJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobsCommandOutput) => void),
     cb?: (err: any, data?: ListJobsCommandOutput) => void
   ): Promise<ListJobsCommandOutput> | void {
     const command = new ListJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -527,17 +461,14 @@ export class S3Control extends S3ControlClient {
   ): void;
   public putAccessPointPolicy(
     args: PutAccessPointPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutAccessPointPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAccessPointPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutAccessPointPolicyCommandOutput) => void
   ): Promise<PutAccessPointPolicyCommandOutput> | void {
     const command = new PutAccessPointPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -563,17 +494,14 @@ export class S3Control extends S3ControlClient {
   ): void;
   public putPublicAccessBlock(
     args: PutPublicAccessBlockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutPublicAccessBlockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutPublicAccessBlockCommandOutput) => void),
     cb?: (err: any, data?: PutPublicAccessBlockCommandOutput) => void
   ): Promise<PutPublicAccessBlockCommandOutput> | void {
     const command = new PutPublicAccessBlockCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -598,17 +526,14 @@ export class S3Control extends S3ControlClient {
   ): void;
   public updateJobPriority(
     args: UpdateJobPriorityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateJobPriorityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateJobPriorityCommandOutput) => void),
     cb?: (err: any, data?: UpdateJobPriorityCommandOutput) => void
   ): Promise<UpdateJobPriorityCommandOutput> | void {
     const command = new UpdateJobPriorityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -633,17 +558,14 @@ export class S3Control extends S3ControlClient {
   ): void;
   public updateJobStatus(
     args: UpdateJobStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateJobStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateJobStatusCommandOutput) => void),
     cb?: (err: any, data?: UpdateJobStatusCommandOutput) => void
   ): Promise<UpdateJobStatusCommandOutput> | void {
     const command = new UpdateJobStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

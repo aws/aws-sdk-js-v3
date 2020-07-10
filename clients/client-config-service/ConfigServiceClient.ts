@@ -1,315 +1,291 @@
 import {
   BatchGetAggregateResourceConfigCommandInput,
-  BatchGetAggregateResourceConfigCommandOutput
+  BatchGetAggregateResourceConfigCommandOutput,
 } from "./commands/BatchGetAggregateResourceConfigCommand";
 import {
   BatchGetResourceConfigCommandInput,
-  BatchGetResourceConfigCommandOutput
+  BatchGetResourceConfigCommandOutput,
 } from "./commands/BatchGetResourceConfigCommand";
 import {
   DeleteAggregationAuthorizationCommandInput,
-  DeleteAggregationAuthorizationCommandOutput
+  DeleteAggregationAuthorizationCommandOutput,
 } from "./commands/DeleteAggregationAuthorizationCommand";
-import {
-  DeleteConfigRuleCommandInput,
-  DeleteConfigRuleCommandOutput
-} from "./commands/DeleteConfigRuleCommand";
+import { DeleteConfigRuleCommandInput, DeleteConfigRuleCommandOutput } from "./commands/DeleteConfigRuleCommand";
 import {
   DeleteConfigurationAggregatorCommandInput,
-  DeleteConfigurationAggregatorCommandOutput
+  DeleteConfigurationAggregatorCommandOutput,
 } from "./commands/DeleteConfigurationAggregatorCommand";
 import {
   DeleteConfigurationRecorderCommandInput,
-  DeleteConfigurationRecorderCommandOutput
+  DeleteConfigurationRecorderCommandOutput,
 } from "./commands/DeleteConfigurationRecorderCommand";
 import {
   DeleteConformancePackCommandInput,
-  DeleteConformancePackCommandOutput
+  DeleteConformancePackCommandOutput,
 } from "./commands/DeleteConformancePackCommand";
 import {
   DeleteDeliveryChannelCommandInput,
-  DeleteDeliveryChannelCommandOutput
+  DeleteDeliveryChannelCommandOutput,
 } from "./commands/DeleteDeliveryChannelCommand";
 import {
   DeleteEvaluationResultsCommandInput,
-  DeleteEvaluationResultsCommandOutput
+  DeleteEvaluationResultsCommandOutput,
 } from "./commands/DeleteEvaluationResultsCommand";
 import {
   DeleteOrganizationConfigRuleCommandInput,
-  DeleteOrganizationConfigRuleCommandOutput
+  DeleteOrganizationConfigRuleCommandOutput,
 } from "./commands/DeleteOrganizationConfigRuleCommand";
 import {
   DeleteOrganizationConformancePackCommandInput,
-  DeleteOrganizationConformancePackCommandOutput
+  DeleteOrganizationConformancePackCommandOutput,
 } from "./commands/DeleteOrganizationConformancePackCommand";
 import {
   DeletePendingAggregationRequestCommandInput,
-  DeletePendingAggregationRequestCommandOutput
+  DeletePendingAggregationRequestCommandOutput,
 } from "./commands/DeletePendingAggregationRequestCommand";
 import {
   DeleteRemediationConfigurationCommandInput,
-  DeleteRemediationConfigurationCommandOutput
+  DeleteRemediationConfigurationCommandOutput,
 } from "./commands/DeleteRemediationConfigurationCommand";
 import {
   DeleteRemediationExceptionsCommandInput,
-  DeleteRemediationExceptionsCommandOutput
+  DeleteRemediationExceptionsCommandOutput,
 } from "./commands/DeleteRemediationExceptionsCommand";
 import {
   DeleteResourceConfigCommandInput,
-  DeleteResourceConfigCommandOutput
+  DeleteResourceConfigCommandOutput,
 } from "./commands/DeleteResourceConfigCommand";
 import {
   DeleteRetentionConfigurationCommandInput,
-  DeleteRetentionConfigurationCommandOutput
+  DeleteRetentionConfigurationCommandOutput,
 } from "./commands/DeleteRetentionConfigurationCommand";
 import {
   DeliverConfigSnapshotCommandInput,
-  DeliverConfigSnapshotCommandOutput
+  DeliverConfigSnapshotCommandOutput,
 } from "./commands/DeliverConfigSnapshotCommand";
 import {
   DescribeAggregateComplianceByConfigRulesCommandInput,
-  DescribeAggregateComplianceByConfigRulesCommandOutput
+  DescribeAggregateComplianceByConfigRulesCommandOutput,
 } from "./commands/DescribeAggregateComplianceByConfigRulesCommand";
 import {
   DescribeAggregationAuthorizationsCommandInput,
-  DescribeAggregationAuthorizationsCommandOutput
+  DescribeAggregationAuthorizationsCommandOutput,
 } from "./commands/DescribeAggregationAuthorizationsCommand";
 import {
   DescribeComplianceByConfigRuleCommandInput,
-  DescribeComplianceByConfigRuleCommandOutput
+  DescribeComplianceByConfigRuleCommandOutput,
 } from "./commands/DescribeComplianceByConfigRuleCommand";
 import {
   DescribeComplianceByResourceCommandInput,
-  DescribeComplianceByResourceCommandOutput
+  DescribeComplianceByResourceCommandOutput,
 } from "./commands/DescribeComplianceByResourceCommand";
 import {
   DescribeConfigRuleEvaluationStatusCommandInput,
-  DescribeConfigRuleEvaluationStatusCommandOutput
+  DescribeConfigRuleEvaluationStatusCommandOutput,
 } from "./commands/DescribeConfigRuleEvaluationStatusCommand";
 import {
   DescribeConfigRulesCommandInput,
-  DescribeConfigRulesCommandOutput
+  DescribeConfigRulesCommandOutput,
 } from "./commands/DescribeConfigRulesCommand";
 import {
   DescribeConfigurationAggregatorSourcesStatusCommandInput,
-  DescribeConfigurationAggregatorSourcesStatusCommandOutput
+  DescribeConfigurationAggregatorSourcesStatusCommandOutput,
 } from "./commands/DescribeConfigurationAggregatorSourcesStatusCommand";
 import {
   DescribeConfigurationAggregatorsCommandInput,
-  DescribeConfigurationAggregatorsCommandOutput
+  DescribeConfigurationAggregatorsCommandOutput,
 } from "./commands/DescribeConfigurationAggregatorsCommand";
 import {
   DescribeConfigurationRecorderStatusCommandInput,
-  DescribeConfigurationRecorderStatusCommandOutput
+  DescribeConfigurationRecorderStatusCommandOutput,
 } from "./commands/DescribeConfigurationRecorderStatusCommand";
 import {
   DescribeConfigurationRecordersCommandInput,
-  DescribeConfigurationRecordersCommandOutput
+  DescribeConfigurationRecordersCommandOutput,
 } from "./commands/DescribeConfigurationRecordersCommand";
 import {
   DescribeConformancePackComplianceCommandInput,
-  DescribeConformancePackComplianceCommandOutput
+  DescribeConformancePackComplianceCommandOutput,
 } from "./commands/DescribeConformancePackComplianceCommand";
 import {
   DescribeConformancePackStatusCommandInput,
-  DescribeConformancePackStatusCommandOutput
+  DescribeConformancePackStatusCommandOutput,
 } from "./commands/DescribeConformancePackStatusCommand";
 import {
   DescribeConformancePacksCommandInput,
-  DescribeConformancePacksCommandOutput
+  DescribeConformancePacksCommandOutput,
 } from "./commands/DescribeConformancePacksCommand";
 import {
   DescribeDeliveryChannelStatusCommandInput,
-  DescribeDeliveryChannelStatusCommandOutput
+  DescribeDeliveryChannelStatusCommandOutput,
 } from "./commands/DescribeDeliveryChannelStatusCommand";
 import {
   DescribeDeliveryChannelsCommandInput,
-  DescribeDeliveryChannelsCommandOutput
+  DescribeDeliveryChannelsCommandOutput,
 } from "./commands/DescribeDeliveryChannelsCommand";
 import {
   DescribeOrganizationConfigRuleStatusesCommandInput,
-  DescribeOrganizationConfigRuleStatusesCommandOutput
+  DescribeOrganizationConfigRuleStatusesCommandOutput,
 } from "./commands/DescribeOrganizationConfigRuleStatusesCommand";
 import {
   DescribeOrganizationConfigRulesCommandInput,
-  DescribeOrganizationConfigRulesCommandOutput
+  DescribeOrganizationConfigRulesCommandOutput,
 } from "./commands/DescribeOrganizationConfigRulesCommand";
 import {
   DescribeOrganizationConformancePackStatusesCommandInput,
-  DescribeOrganizationConformancePackStatusesCommandOutput
+  DescribeOrganizationConformancePackStatusesCommandOutput,
 } from "./commands/DescribeOrganizationConformancePackStatusesCommand";
 import {
   DescribeOrganizationConformancePacksCommandInput,
-  DescribeOrganizationConformancePacksCommandOutput
+  DescribeOrganizationConformancePacksCommandOutput,
 } from "./commands/DescribeOrganizationConformancePacksCommand";
 import {
   DescribePendingAggregationRequestsCommandInput,
-  DescribePendingAggregationRequestsCommandOutput
+  DescribePendingAggregationRequestsCommandOutput,
 } from "./commands/DescribePendingAggregationRequestsCommand";
 import {
   DescribeRemediationConfigurationsCommandInput,
-  DescribeRemediationConfigurationsCommandOutput
+  DescribeRemediationConfigurationsCommandOutput,
 } from "./commands/DescribeRemediationConfigurationsCommand";
 import {
   DescribeRemediationExceptionsCommandInput,
-  DescribeRemediationExceptionsCommandOutput
+  DescribeRemediationExceptionsCommandOutput,
 } from "./commands/DescribeRemediationExceptionsCommand";
 import {
   DescribeRemediationExecutionStatusCommandInput,
-  DescribeRemediationExecutionStatusCommandOutput
+  DescribeRemediationExecutionStatusCommandOutput,
 } from "./commands/DescribeRemediationExecutionStatusCommand";
 import {
   DescribeRetentionConfigurationsCommandInput,
-  DescribeRetentionConfigurationsCommandOutput
+  DescribeRetentionConfigurationsCommandOutput,
 } from "./commands/DescribeRetentionConfigurationsCommand";
 import {
   GetAggregateComplianceDetailsByConfigRuleCommandInput,
-  GetAggregateComplianceDetailsByConfigRuleCommandOutput
+  GetAggregateComplianceDetailsByConfigRuleCommandOutput,
 } from "./commands/GetAggregateComplianceDetailsByConfigRuleCommand";
 import {
   GetAggregateConfigRuleComplianceSummaryCommandInput,
-  GetAggregateConfigRuleComplianceSummaryCommandOutput
+  GetAggregateConfigRuleComplianceSummaryCommandOutput,
 } from "./commands/GetAggregateConfigRuleComplianceSummaryCommand";
 import {
   GetAggregateDiscoveredResourceCountsCommandInput,
-  GetAggregateDiscoveredResourceCountsCommandOutput
+  GetAggregateDiscoveredResourceCountsCommandOutput,
 } from "./commands/GetAggregateDiscoveredResourceCountsCommand";
 import {
   GetAggregateResourceConfigCommandInput,
-  GetAggregateResourceConfigCommandOutput
+  GetAggregateResourceConfigCommandOutput,
 } from "./commands/GetAggregateResourceConfigCommand";
 import {
   GetComplianceDetailsByConfigRuleCommandInput,
-  GetComplianceDetailsByConfigRuleCommandOutput
+  GetComplianceDetailsByConfigRuleCommandOutput,
 } from "./commands/GetComplianceDetailsByConfigRuleCommand";
 import {
   GetComplianceDetailsByResourceCommandInput,
-  GetComplianceDetailsByResourceCommandOutput
+  GetComplianceDetailsByResourceCommandOutput,
 } from "./commands/GetComplianceDetailsByResourceCommand";
 import {
   GetComplianceSummaryByConfigRuleCommandInput,
-  GetComplianceSummaryByConfigRuleCommandOutput
+  GetComplianceSummaryByConfigRuleCommandOutput,
 } from "./commands/GetComplianceSummaryByConfigRuleCommand";
 import {
   GetComplianceSummaryByResourceTypeCommandInput,
-  GetComplianceSummaryByResourceTypeCommandOutput
+  GetComplianceSummaryByResourceTypeCommandOutput,
 } from "./commands/GetComplianceSummaryByResourceTypeCommand";
 import {
   GetConformancePackComplianceDetailsCommandInput,
-  GetConformancePackComplianceDetailsCommandOutput
+  GetConformancePackComplianceDetailsCommandOutput,
 } from "./commands/GetConformancePackComplianceDetailsCommand";
 import {
   GetConformancePackComplianceSummaryCommandInput,
-  GetConformancePackComplianceSummaryCommandOutput
+  GetConformancePackComplianceSummaryCommandOutput,
 } from "./commands/GetConformancePackComplianceSummaryCommand";
 import {
   GetDiscoveredResourceCountsCommandInput,
-  GetDiscoveredResourceCountsCommandOutput
+  GetDiscoveredResourceCountsCommandOutput,
 } from "./commands/GetDiscoveredResourceCountsCommand";
 import {
   GetOrganizationConfigRuleDetailedStatusCommandInput,
-  GetOrganizationConfigRuleDetailedStatusCommandOutput
+  GetOrganizationConfigRuleDetailedStatusCommandOutput,
 } from "./commands/GetOrganizationConfigRuleDetailedStatusCommand";
 import {
   GetOrganizationConformancePackDetailedStatusCommandInput,
-  GetOrganizationConformancePackDetailedStatusCommandOutput
+  GetOrganizationConformancePackDetailedStatusCommandOutput,
 } from "./commands/GetOrganizationConformancePackDetailedStatusCommand";
 import {
   GetResourceConfigHistoryCommandInput,
-  GetResourceConfigHistoryCommandOutput
+  GetResourceConfigHistoryCommandOutput,
 } from "./commands/GetResourceConfigHistoryCommand";
 import {
   ListAggregateDiscoveredResourcesCommandInput,
-  ListAggregateDiscoveredResourcesCommandOutput
+  ListAggregateDiscoveredResourcesCommandOutput,
 } from "./commands/ListAggregateDiscoveredResourcesCommand";
 import {
   ListDiscoveredResourcesCommandInput,
-  ListDiscoveredResourcesCommandOutput
+  ListDiscoveredResourcesCommandOutput,
 } from "./commands/ListDiscoveredResourcesCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   PutAggregationAuthorizationCommandInput,
-  PutAggregationAuthorizationCommandOutput
+  PutAggregationAuthorizationCommandOutput,
 } from "./commands/PutAggregationAuthorizationCommand";
-import {
-  PutConfigRuleCommandInput,
-  PutConfigRuleCommandOutput
-} from "./commands/PutConfigRuleCommand";
+import { PutConfigRuleCommandInput, PutConfigRuleCommandOutput } from "./commands/PutConfigRuleCommand";
 import {
   PutConfigurationAggregatorCommandInput,
-  PutConfigurationAggregatorCommandOutput
+  PutConfigurationAggregatorCommandOutput,
 } from "./commands/PutConfigurationAggregatorCommand";
 import {
   PutConfigurationRecorderCommandInput,
-  PutConfigurationRecorderCommandOutput
+  PutConfigurationRecorderCommandOutput,
 } from "./commands/PutConfigurationRecorderCommand";
-import {
-  PutConformancePackCommandInput,
-  PutConformancePackCommandOutput
-} from "./commands/PutConformancePackCommand";
-import {
-  PutDeliveryChannelCommandInput,
-  PutDeliveryChannelCommandOutput
-} from "./commands/PutDeliveryChannelCommand";
-import {
-  PutEvaluationsCommandInput,
-  PutEvaluationsCommandOutput
-} from "./commands/PutEvaluationsCommand";
+import { PutConformancePackCommandInput, PutConformancePackCommandOutput } from "./commands/PutConformancePackCommand";
+import { PutDeliveryChannelCommandInput, PutDeliveryChannelCommandOutput } from "./commands/PutDeliveryChannelCommand";
+import { PutEvaluationsCommandInput, PutEvaluationsCommandOutput } from "./commands/PutEvaluationsCommand";
 import {
   PutOrganizationConfigRuleCommandInput,
-  PutOrganizationConfigRuleCommandOutput
+  PutOrganizationConfigRuleCommandOutput,
 } from "./commands/PutOrganizationConfigRuleCommand";
 import {
   PutOrganizationConformancePackCommandInput,
-  PutOrganizationConformancePackCommandOutput
+  PutOrganizationConformancePackCommandOutput,
 } from "./commands/PutOrganizationConformancePackCommand";
 import {
   PutRemediationConfigurationsCommandInput,
-  PutRemediationConfigurationsCommandOutput
+  PutRemediationConfigurationsCommandOutput,
 } from "./commands/PutRemediationConfigurationsCommand";
 import {
   PutRemediationExceptionsCommandInput,
-  PutRemediationExceptionsCommandOutput
+  PutRemediationExceptionsCommandOutput,
 } from "./commands/PutRemediationExceptionsCommand";
-import {
-  PutResourceConfigCommandInput,
-  PutResourceConfigCommandOutput
-} from "./commands/PutResourceConfigCommand";
+import { PutResourceConfigCommandInput, PutResourceConfigCommandOutput } from "./commands/PutResourceConfigCommand";
 import {
   PutRetentionConfigurationCommandInput,
-  PutRetentionConfigurationCommandOutput
+  PutRetentionConfigurationCommandOutput,
 } from "./commands/PutRetentionConfigurationCommand";
 import {
   SelectResourceConfigCommandInput,
-  SelectResourceConfigCommandOutput
+  SelectResourceConfigCommandOutput,
 } from "./commands/SelectResourceConfigCommand";
 import {
   StartConfigRulesEvaluationCommandInput,
-  StartConfigRulesEvaluationCommandOutput
+  StartConfigRulesEvaluationCommandOutput,
 } from "./commands/StartConfigRulesEvaluationCommand";
 import {
   StartConfigurationRecorderCommandInput,
-  StartConfigurationRecorderCommandOutput
+  StartConfigurationRecorderCommandOutput,
 } from "./commands/StartConfigurationRecorderCommand";
 import {
   StartRemediationExecutionCommandInput,
-  StartRemediationExecutionCommandOutput
+  StartRemediationExecutionCommandOutput,
 } from "./commands/StartRemediationExecutionCommand";
 import {
   StopConfigurationRecorderCommandInput,
-  StopConfigurationRecorderCommandOutput
+  StopConfigurationRecorderCommandOutput,
 } from "./commands/StopConfigurationRecorderCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -317,38 +293,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -359,7 +330,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -522,8 +493,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -612,9 +582,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ConfigServiceClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ConfigServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -623,9 +591,7 @@ export type ConfigServiceClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ConfigServiceClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ConfigServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -671,7 +637,7 @@ export class ConfigServiceClient extends __Client<
   constructor(configuration: ConfigServiceClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

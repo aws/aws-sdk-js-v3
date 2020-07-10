@@ -1,18 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { GetApnsChannelRequest, GetApnsChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1GetApnsChannelCommand,
-  serializeAws_restJson1GetApnsChannelCommand
+  serializeAws_restJson1GetApnsChannelCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetApnsChannelCommandInput = GetApnsChannelRequest;
-export type GetApnsChannelCommandOutput = GetApnsChannelResponse &
-  __MetadataBearer;
+export type GetApnsChannelCommandOutput = GetApnsChannelResponse & __MetadataBearer;
 
 export class GetApnsChannelCommand extends $Command<
   GetApnsChannelCommandInput,
@@ -47,14 +39,12 @@ export class GetApnsChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetApnsChannelCommandInput, GetApnsChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class GetApnsChannelCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetApnsChannelCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetApnsChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetApnsChannelCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetApnsChannelCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApnsChannelCommandOutput> {
     return deserializeAws_restJson1GetApnsChannelCommand(output, context);
   }
 

@@ -1,126 +1,66 @@
-import {
-  CreateMeshCommandInput,
-  CreateMeshCommandOutput
-} from "./commands/CreateMeshCommand";
-import {
-  CreateRouteCommandInput,
-  CreateRouteCommandOutput
-} from "./commands/CreateRouteCommand";
-import {
-  CreateVirtualNodeCommandInput,
-  CreateVirtualNodeCommandOutput
-} from "./commands/CreateVirtualNodeCommand";
+import { CreateMeshCommandInput, CreateMeshCommandOutput } from "./commands/CreateMeshCommand";
+import { CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand";
+import { CreateVirtualNodeCommandInput, CreateVirtualNodeCommandOutput } from "./commands/CreateVirtualNodeCommand";
 import {
   CreateVirtualRouterCommandInput,
-  CreateVirtualRouterCommandOutput
+  CreateVirtualRouterCommandOutput,
 } from "./commands/CreateVirtualRouterCommand";
 import {
   CreateVirtualServiceCommandInput,
-  CreateVirtualServiceCommandOutput
+  CreateVirtualServiceCommandOutput,
 } from "./commands/CreateVirtualServiceCommand";
-import {
-  DeleteMeshCommandInput,
-  DeleteMeshCommandOutput
-} from "./commands/DeleteMeshCommand";
-import {
-  DeleteMeshPolicyCommandInput,
-  DeleteMeshPolicyCommandOutput
-} from "./commands/DeleteMeshPolicyCommand";
-import {
-  DeleteRouteCommandInput,
-  DeleteRouteCommandOutput
-} from "./commands/DeleteRouteCommand";
-import {
-  DeleteVirtualNodeCommandInput,
-  DeleteVirtualNodeCommandOutput
-} from "./commands/DeleteVirtualNodeCommand";
+import { DeleteMeshCommandInput, DeleteMeshCommandOutput } from "./commands/DeleteMeshCommand";
+import { DeleteMeshPolicyCommandInput, DeleteMeshPolicyCommandOutput } from "./commands/DeleteMeshPolicyCommand";
+import { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand";
+import { DeleteVirtualNodeCommandInput, DeleteVirtualNodeCommandOutput } from "./commands/DeleteVirtualNodeCommand";
 import {
   DeleteVirtualRouterCommandInput,
-  DeleteVirtualRouterCommandOutput
+  DeleteVirtualRouterCommandOutput,
 } from "./commands/DeleteVirtualRouterCommand";
 import {
   DeleteVirtualServiceCommandInput,
-  DeleteVirtualServiceCommandOutput
+  DeleteVirtualServiceCommandOutput,
 } from "./commands/DeleteVirtualServiceCommand";
-import {
-  DescribeMeshCommandInput,
-  DescribeMeshCommandOutput
-} from "./commands/DescribeMeshCommand";
-import {
-  DescribeRouteCommandInput,
-  DescribeRouteCommandOutput
-} from "./commands/DescribeRouteCommand";
+import { DescribeMeshCommandInput, DescribeMeshCommandOutput } from "./commands/DescribeMeshCommand";
+import { DescribeRouteCommandInput, DescribeRouteCommandOutput } from "./commands/DescribeRouteCommand";
 import {
   DescribeVirtualNodeCommandInput,
-  DescribeVirtualNodeCommandOutput
+  DescribeVirtualNodeCommandOutput,
 } from "./commands/DescribeVirtualNodeCommand";
 import {
   DescribeVirtualRouterCommandInput,
-  DescribeVirtualRouterCommandOutput
+  DescribeVirtualRouterCommandOutput,
 } from "./commands/DescribeVirtualRouterCommand";
 import {
   DescribeVirtualServiceCommandInput,
-  DescribeVirtualServiceCommandOutput
+  DescribeVirtualServiceCommandOutput,
 } from "./commands/DescribeVirtualServiceCommand";
-import {
-  GetMeshPolicyCommandInput,
-  GetMeshPolicyCommandOutput
-} from "./commands/GetMeshPolicyCommand";
-import {
-  ListMeshesCommandInput,
-  ListMeshesCommandOutput
-} from "./commands/ListMeshesCommand";
-import {
-  ListRoutesCommandInput,
-  ListRoutesCommandOutput
-} from "./commands/ListRoutesCommand";
+import { GetMeshPolicyCommandInput, GetMeshPolicyCommandOutput } from "./commands/GetMeshPolicyCommand";
+import { ListMeshesCommandInput, ListMeshesCommandOutput } from "./commands/ListMeshesCommand";
+import { ListRoutesCommandInput, ListRoutesCommandOutput } from "./commands/ListRoutesCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListVirtualNodesCommandInput,
-  ListVirtualNodesCommandOutput
-} from "./commands/ListVirtualNodesCommand";
-import {
-  ListVirtualRoutersCommandInput,
-  ListVirtualRoutersCommandOutput
-} from "./commands/ListVirtualRoutersCommand";
+import { ListVirtualNodesCommandInput, ListVirtualNodesCommandOutput } from "./commands/ListVirtualNodesCommand";
+import { ListVirtualRoutersCommandInput, ListVirtualRoutersCommandOutput } from "./commands/ListVirtualRoutersCommand";
 import {
   ListVirtualServicesCommandInput,
-  ListVirtualServicesCommandOutput
+  ListVirtualServicesCommandOutput,
 } from "./commands/ListVirtualServicesCommand";
-import {
-  PutMeshPolicyCommandInput,
-  PutMeshPolicyCommandOutput
-} from "./commands/PutMeshPolicyCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateMeshCommandInput,
-  UpdateMeshCommandOutput
-} from "./commands/UpdateMeshCommand";
-import {
-  UpdateRouteCommandInput,
-  UpdateRouteCommandOutput
-} from "./commands/UpdateRouteCommand";
-import {
-  UpdateVirtualNodeCommandInput,
-  UpdateVirtualNodeCommandOutput
-} from "./commands/UpdateVirtualNodeCommand";
+import { PutMeshPolicyCommandInput, PutMeshPolicyCommandOutput } from "./commands/PutMeshPolicyCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateMeshCommandInput, UpdateMeshCommandOutput } from "./commands/UpdateMeshCommand";
+import { UpdateRouteCommandInput, UpdateRouteCommandOutput } from "./commands/UpdateRouteCommand";
+import { UpdateVirtualNodeCommandInput, UpdateVirtualNodeCommandOutput } from "./commands/UpdateVirtualNodeCommand";
 import {
   UpdateVirtualRouterCommandInput,
-  UpdateVirtualRouterCommandOutput
+  UpdateVirtualRouterCommandOutput,
 } from "./commands/UpdateVirtualRouterCommand";
 import {
   UpdateVirtualServiceCommandInput,
-  UpdateVirtualServiceCommandOutput
+  UpdateVirtualServiceCommandOutput,
 } from "./commands/UpdateVirtualServiceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -129,38 +69,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -171,7 +106,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -240,8 +175,7 @@ export type ServiceOutputTypes =
   | UpdateVirtualRouterCommandOutput
   | UpdateVirtualServiceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -330,9 +264,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type AppMeshClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type AppMeshClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -341,9 +273,7 @@ export type AppMeshClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type AppMeshClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type AppMeshClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -378,7 +308,7 @@ export class AppMeshClient extends __Client<
   constructor(configuration: AppMeshClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

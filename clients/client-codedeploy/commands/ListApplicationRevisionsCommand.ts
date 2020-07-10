@@ -1,21 +1,11 @@
-import {
-  CodeDeployClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeDeployClient";
-import {
-  ListApplicationRevisionsInput,
-  ListApplicationRevisionsOutput
-} from "../models/index";
+import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
+import { ListApplicationRevisionsInput, ListApplicationRevisionsOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListApplicationRevisionsCommand,
-  serializeAws_json1_1ListApplicationRevisionsCommand
+  serializeAws_json1_1ListApplicationRevisionsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListApplicationRevisionsCommandInput = ListApplicationRevisionsInput;
-export type ListApplicationRevisionsCommandOutput = ListApplicationRevisionsOutput &
-  __MetadataBearer;
+export type ListApplicationRevisionsCommandOutput = ListApplicationRevisionsOutput & __MetadataBearer;
 
 export class ListApplicationRevisionsCommand extends $Command<
   ListApplicationRevisionsCommandInput,
@@ -49,18 +38,13 @@ export class ListApplicationRevisionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListApplicationRevisionsCommandInput,
-    ListApplicationRevisionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListApplicationRevisionsCommandInput, ListApplicationRevisionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class ListApplicationRevisionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListApplicationRevisionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListApplicationRevisionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListApplicationRevisionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListApplicationRevisionsCommandOutput> {
-    return deserializeAws_json1_1ListApplicationRevisionsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationRevisionsCommandOutput> {
+    return deserializeAws_json1_1ListApplicationRevisionsCommand(output, context);
   }
 
   // Start section: command_body_extra

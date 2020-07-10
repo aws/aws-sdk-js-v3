@@ -2,132 +2,128 @@ import { KinesisAnalyticsV2Client } from "./KinesisAnalyticsV2Client";
 import {
   AddApplicationCloudWatchLoggingOptionCommand,
   AddApplicationCloudWatchLoggingOptionCommandInput,
-  AddApplicationCloudWatchLoggingOptionCommandOutput
+  AddApplicationCloudWatchLoggingOptionCommandOutput,
 } from "./commands/AddApplicationCloudWatchLoggingOptionCommand";
 import {
   AddApplicationInputCommand,
   AddApplicationInputCommandInput,
-  AddApplicationInputCommandOutput
+  AddApplicationInputCommandOutput,
 } from "./commands/AddApplicationInputCommand";
 import {
   AddApplicationInputProcessingConfigurationCommand,
   AddApplicationInputProcessingConfigurationCommandInput,
-  AddApplicationInputProcessingConfigurationCommandOutput
+  AddApplicationInputProcessingConfigurationCommandOutput,
 } from "./commands/AddApplicationInputProcessingConfigurationCommand";
 import {
   AddApplicationOutputCommand,
   AddApplicationOutputCommandInput,
-  AddApplicationOutputCommandOutput
+  AddApplicationOutputCommandOutput,
 } from "./commands/AddApplicationOutputCommand";
 import {
   AddApplicationReferenceDataSourceCommand,
   AddApplicationReferenceDataSourceCommandInput,
-  AddApplicationReferenceDataSourceCommandOutput
+  AddApplicationReferenceDataSourceCommandOutput,
 } from "./commands/AddApplicationReferenceDataSourceCommand";
 import {
   AddApplicationVpcConfigurationCommand,
   AddApplicationVpcConfigurationCommandInput,
-  AddApplicationVpcConfigurationCommandOutput
+  AddApplicationVpcConfigurationCommandOutput,
 } from "./commands/AddApplicationVpcConfigurationCommand";
 import {
   CreateApplicationCommand,
   CreateApplicationCommandInput,
-  CreateApplicationCommandOutput
+  CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
 import {
   CreateApplicationSnapshotCommand,
   CreateApplicationSnapshotCommandInput,
-  CreateApplicationSnapshotCommandOutput
+  CreateApplicationSnapshotCommandOutput,
 } from "./commands/CreateApplicationSnapshotCommand";
 import {
   DeleteApplicationCloudWatchLoggingOptionCommand,
   DeleteApplicationCloudWatchLoggingOptionCommandInput,
-  DeleteApplicationCloudWatchLoggingOptionCommandOutput
+  DeleteApplicationCloudWatchLoggingOptionCommandOutput,
 } from "./commands/DeleteApplicationCloudWatchLoggingOptionCommand";
 import {
   DeleteApplicationCommand,
   DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput
+  DeleteApplicationCommandOutput,
 } from "./commands/DeleteApplicationCommand";
 import {
   DeleteApplicationInputProcessingConfigurationCommand,
   DeleteApplicationInputProcessingConfigurationCommandInput,
-  DeleteApplicationInputProcessingConfigurationCommandOutput
+  DeleteApplicationInputProcessingConfigurationCommandOutput,
 } from "./commands/DeleteApplicationInputProcessingConfigurationCommand";
 import {
   DeleteApplicationOutputCommand,
   DeleteApplicationOutputCommandInput,
-  DeleteApplicationOutputCommandOutput
+  DeleteApplicationOutputCommandOutput,
 } from "./commands/DeleteApplicationOutputCommand";
 import {
   DeleteApplicationReferenceDataSourceCommand,
   DeleteApplicationReferenceDataSourceCommandInput,
-  DeleteApplicationReferenceDataSourceCommandOutput
+  DeleteApplicationReferenceDataSourceCommandOutput,
 } from "./commands/DeleteApplicationReferenceDataSourceCommand";
 import {
   DeleteApplicationSnapshotCommand,
   DeleteApplicationSnapshotCommandInput,
-  DeleteApplicationSnapshotCommandOutput
+  DeleteApplicationSnapshotCommandOutput,
 } from "./commands/DeleteApplicationSnapshotCommand";
 import {
   DeleteApplicationVpcConfigurationCommand,
   DeleteApplicationVpcConfigurationCommandInput,
-  DeleteApplicationVpcConfigurationCommandOutput
+  DeleteApplicationVpcConfigurationCommandOutput,
 } from "./commands/DeleteApplicationVpcConfigurationCommand";
 import {
   DescribeApplicationCommand,
   DescribeApplicationCommandInput,
-  DescribeApplicationCommandOutput
+  DescribeApplicationCommandOutput,
 } from "./commands/DescribeApplicationCommand";
 import {
   DescribeApplicationSnapshotCommand,
   DescribeApplicationSnapshotCommandInput,
-  DescribeApplicationSnapshotCommandOutput
+  DescribeApplicationSnapshotCommandOutput,
 } from "./commands/DescribeApplicationSnapshotCommand";
 import {
   DiscoverInputSchemaCommand,
   DiscoverInputSchemaCommandInput,
-  DiscoverInputSchemaCommandOutput
+  DiscoverInputSchemaCommandOutput,
 } from "./commands/DiscoverInputSchemaCommand";
 import {
   ListApplicationSnapshotsCommand,
   ListApplicationSnapshotsCommandInput,
-  ListApplicationSnapshotsCommandOutput
+  ListApplicationSnapshotsCommandOutput,
 } from "./commands/ListApplicationSnapshotsCommand";
 import {
   ListApplicationsCommand,
   ListApplicationsCommandInput,
-  ListApplicationsCommandOutput
+  ListApplicationsCommandOutput,
 } from "./commands/ListApplicationsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   StartApplicationCommand,
   StartApplicationCommandInput,
-  StartApplicationCommandOutput
+  StartApplicationCommandOutput,
 } from "./commands/StartApplicationCommand";
 import {
   StopApplicationCommand,
   StopApplicationCommandInput,
-  StopApplicationCommandOutput
+  StopApplicationCommandOutput,
 } from "./commands/StopApplicationCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateApplicationCommand,
   UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput
+  UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -146,38 +142,25 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): Promise<AddApplicationCloudWatchLoggingOptionCommandOutput>;
   public addApplicationCloudWatchLoggingOption(
     args: AddApplicationCloudWatchLoggingOptionCommandInput,
-    cb: (
-      err: any,
-      data?: AddApplicationCloudWatchLoggingOptionCommandOutput
-    ) => void
+    cb: (err: any, data?: AddApplicationCloudWatchLoggingOptionCommandOutput) => void
   ): void;
   public addApplicationCloudWatchLoggingOption(
     args: AddApplicationCloudWatchLoggingOptionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AddApplicationCloudWatchLoggingOptionCommandOutput
-    ) => void
+    cb: (err: any, data?: AddApplicationCloudWatchLoggingOptionCommandOutput) => void
   ): void;
   public addApplicationCloudWatchLoggingOption(
     args: AddApplicationCloudWatchLoggingOptionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AddApplicationCloudWatchLoggingOptionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AddApplicationCloudWatchLoggingOptionCommandOutput
-    ) => void
+      | ((err: any, data?: AddApplicationCloudWatchLoggingOptionCommandOutput) => void),
+    cb?: (err: any, data?: AddApplicationCloudWatchLoggingOptionCommandOutput) => void
   ): Promise<AddApplicationCloudWatchLoggingOptionCommandOutput> | void {
     const command = new AddApplicationCloudWatchLoggingOptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -211,17 +194,14 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): void;
   public addApplicationInput(
     args: AddApplicationInputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddApplicationInputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddApplicationInputCommandOutput) => void),
     cb?: (err: any, data?: AddApplicationInputCommandOutput) => void
   ): Promise<AddApplicationInputCommandOutput> | void {
     const command = new AddApplicationInputCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -239,38 +219,25 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): Promise<AddApplicationInputProcessingConfigurationCommandOutput>;
   public addApplicationInputProcessingConfiguration(
     args: AddApplicationInputProcessingConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: AddApplicationInputProcessingConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: AddApplicationInputProcessingConfigurationCommandOutput) => void
   ): void;
   public addApplicationInputProcessingConfiguration(
     args: AddApplicationInputProcessingConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AddApplicationInputProcessingConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: AddApplicationInputProcessingConfigurationCommandOutput) => void
   ): void;
   public addApplicationInputProcessingConfiguration(
     args: AddApplicationInputProcessingConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AddApplicationInputProcessingConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AddApplicationInputProcessingConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: AddApplicationInputProcessingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: AddApplicationInputProcessingConfigurationCommandOutput) => void
   ): Promise<AddApplicationInputProcessingConfigurationCommandOutput> | void {
     const command = new AddApplicationInputProcessingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -307,17 +274,14 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): void;
   public addApplicationOutput(
     args: AddApplicationOutputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddApplicationOutputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddApplicationOutputCommandOutput) => void),
     cb?: (err: any, data?: AddApplicationOutputCommandOutput) => void
   ): Promise<AddApplicationOutputCommandOutput> | void {
     const command = new AddApplicationOutputCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -338,38 +302,23 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): Promise<AddApplicationReferenceDataSourceCommandOutput>;
   public addApplicationReferenceDataSource(
     args: AddApplicationReferenceDataSourceCommandInput,
-    cb: (
-      err: any,
-      data?: AddApplicationReferenceDataSourceCommandOutput
-    ) => void
+    cb: (err: any, data?: AddApplicationReferenceDataSourceCommandOutput) => void
   ): void;
   public addApplicationReferenceDataSource(
     args: AddApplicationReferenceDataSourceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AddApplicationReferenceDataSourceCommandOutput
-    ) => void
+    cb: (err: any, data?: AddApplicationReferenceDataSourceCommandOutput) => void
   ): void;
   public addApplicationReferenceDataSource(
     args: AddApplicationReferenceDataSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AddApplicationReferenceDataSourceCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AddApplicationReferenceDataSourceCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddApplicationReferenceDataSourceCommandOutput) => void),
+    cb?: (err: any, data?: AddApplicationReferenceDataSourceCommandOutput) => void
   ): Promise<AddApplicationReferenceDataSourceCommandOutput> | void {
     const command = new AddApplicationReferenceDataSourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -403,20 +352,14 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): void;
   public addApplicationVpcConfiguration(
     args: AddApplicationVpcConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AddApplicationVpcConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddApplicationVpcConfigurationCommandOutput) => void),
     cb?: (err: any, data?: AddApplicationVpcConfigurationCommandOutput) => void
   ): Promise<AddApplicationVpcConfigurationCommandOutput> | void {
     const command = new AddApplicationVpcConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -444,17 +387,14 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): void;
   public createApplication(
     args: CreateApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApplicationCommandOutput) => void),
     cb?: (err: any, data?: CreateApplicationCommandOutput) => void
   ): Promise<CreateApplicationCommandOutput> | void {
     const command = new CreateApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -479,17 +419,14 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): void;
   public createApplicationSnapshot(
     args: CreateApplicationSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateApplicationSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApplicationSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CreateApplicationSnapshotCommandOutput) => void
   ): Promise<CreateApplicationSnapshotCommandOutput> | void {
     const command = new CreateApplicationSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -514,17 +451,14 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): void;
   public deleteApplication(
     args: DeleteApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApplicationCommandOutput) => void),
     cb?: (err: any, data?: DeleteApplicationCommandOutput) => void
   ): Promise<DeleteApplicationCommandOutput> | void {
     const command = new DeleteApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -540,38 +474,25 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): Promise<DeleteApplicationCloudWatchLoggingOptionCommandOutput>;
   public deleteApplicationCloudWatchLoggingOption(
     args: DeleteApplicationCloudWatchLoggingOptionCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteApplicationCloudWatchLoggingOptionCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteApplicationCloudWatchLoggingOptionCommandOutput) => void
   ): void;
   public deleteApplicationCloudWatchLoggingOption(
     args: DeleteApplicationCloudWatchLoggingOptionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteApplicationCloudWatchLoggingOptionCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteApplicationCloudWatchLoggingOptionCommandOutput) => void
   ): void;
   public deleteApplicationCloudWatchLoggingOption(
     args: DeleteApplicationCloudWatchLoggingOptionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteApplicationCloudWatchLoggingOptionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteApplicationCloudWatchLoggingOptionCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteApplicationCloudWatchLoggingOptionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteApplicationCloudWatchLoggingOptionCommandOutput) => void
   ): Promise<DeleteApplicationCloudWatchLoggingOptionCommandOutput> | void {
     const command = new DeleteApplicationCloudWatchLoggingOptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -587,42 +508,25 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): Promise<DeleteApplicationInputProcessingConfigurationCommandOutput>;
   public deleteApplicationInputProcessingConfiguration(
     args: DeleteApplicationInputProcessingConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteApplicationInputProcessingConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteApplicationInputProcessingConfigurationCommandOutput) => void
   ): void;
   public deleteApplicationInputProcessingConfiguration(
     args: DeleteApplicationInputProcessingConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteApplicationInputProcessingConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteApplicationInputProcessingConfigurationCommandOutput) => void
   ): void;
   public deleteApplicationInputProcessingConfiguration(
     args: DeleteApplicationInputProcessingConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteApplicationInputProcessingConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteApplicationInputProcessingConfigurationCommandOutput
-    ) => void
-  ): Promise<
-    DeleteApplicationInputProcessingConfigurationCommandOutput
-  > | void {
-    const command = new DeleteApplicationInputProcessingConfigurationCommand(
-      args
-    );
+      | ((err: any, data?: DeleteApplicationInputProcessingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteApplicationInputProcessingConfigurationCommandOutput) => void
+  ): Promise<DeleteApplicationInputProcessingConfigurationCommandOutput> | void {
+    const command = new DeleteApplicationInputProcessingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -649,17 +553,14 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): void;
   public deleteApplicationOutput(
     args: DeleteApplicationOutputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteApplicationOutputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApplicationOutputCommandOutput) => void),
     cb?: (err: any, data?: DeleteApplicationOutputCommandOutput) => void
   ): Promise<DeleteApplicationOutputCommandOutput> | void {
     const command = new DeleteApplicationOutputCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -677,38 +578,23 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): Promise<DeleteApplicationReferenceDataSourceCommandOutput>;
   public deleteApplicationReferenceDataSource(
     args: DeleteApplicationReferenceDataSourceCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteApplicationReferenceDataSourceCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteApplicationReferenceDataSourceCommandOutput) => void
   ): void;
   public deleteApplicationReferenceDataSource(
     args: DeleteApplicationReferenceDataSourceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteApplicationReferenceDataSourceCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteApplicationReferenceDataSourceCommandOutput) => void
   ): void;
   public deleteApplicationReferenceDataSource(
     args: DeleteApplicationReferenceDataSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteApplicationReferenceDataSourceCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteApplicationReferenceDataSourceCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApplicationReferenceDataSourceCommandOutput) => void),
+    cb?: (err: any, data?: DeleteApplicationReferenceDataSourceCommandOutput) => void
   ): Promise<DeleteApplicationReferenceDataSourceCommandOutput> | void {
     const command = new DeleteApplicationReferenceDataSourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -733,17 +619,14 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): void;
   public deleteApplicationSnapshot(
     args: DeleteApplicationSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteApplicationSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApplicationSnapshotCommandOutput) => void),
     cb?: (err: any, data?: DeleteApplicationSnapshotCommandOutput) => void
   ): Promise<DeleteApplicationSnapshotCommandOutput> | void {
     const command = new DeleteApplicationSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -759,38 +642,23 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): Promise<DeleteApplicationVpcConfigurationCommandOutput>;
   public deleteApplicationVpcConfiguration(
     args: DeleteApplicationVpcConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteApplicationVpcConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteApplicationVpcConfigurationCommandOutput) => void
   ): void;
   public deleteApplicationVpcConfiguration(
     args: DeleteApplicationVpcConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteApplicationVpcConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteApplicationVpcConfigurationCommandOutput) => void
   ): void;
   public deleteApplicationVpcConfiguration(
     args: DeleteApplicationVpcConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteApplicationVpcConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteApplicationVpcConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApplicationVpcConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteApplicationVpcConfigurationCommandOutput) => void
   ): Promise<DeleteApplicationVpcConfigurationCommandOutput> | void {
     const command = new DeleteApplicationVpcConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -817,17 +685,14 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): void;
   public describeApplication(
     args: DescribeApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeApplicationCommandOutput) => void),
     cb?: (err: any, data?: DescribeApplicationCommandOutput) => void
   ): Promise<DescribeApplicationCommandOutput> | void {
     const command = new DescribeApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -852,17 +717,14 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): void;
   public describeApplicationSnapshot(
     args: DescribeApplicationSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeApplicationSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeApplicationSnapshotCommandOutput) => void),
     cb?: (err: any, data?: DescribeApplicationSnapshotCommandOutput) => void
   ): Promise<DescribeApplicationSnapshotCommandOutput> | void {
     const command = new DescribeApplicationSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -893,17 +755,14 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): void;
   public discoverInputSchema(
     args: DiscoverInputSchemaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DiscoverInputSchemaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DiscoverInputSchemaCommandOutput) => void),
     cb?: (err: any, data?: DiscoverInputSchemaCommandOutput) => void
   ): Promise<DiscoverInputSchemaCommandOutput> | void {
     const command = new DiscoverInputSchemaCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -932,17 +791,14 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): void;
   public listApplications(
     args: ListApplicationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListApplicationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationsCommandOutput) => void),
     cb?: (err: any, data?: ListApplicationsCommandOutput) => void
   ): Promise<ListApplicationsCommandOutput> | void {
     const command = new ListApplicationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -967,17 +823,14 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): void;
   public listApplicationSnapshots(
     args: ListApplicationSnapshotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListApplicationSnapshotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationSnapshotsCommandOutput) => void),
     cb?: (err: any, data?: ListApplicationSnapshotsCommandOutput) => void
   ): Promise<ListApplicationSnapshotsCommandOutput> | void {
     const command = new ListApplicationSnapshotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1002,17 +855,14 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1038,17 +888,14 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): void;
   public startApplication(
     args: StartApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartApplicationCommandOutput) => void),
     cb?: (err: any, data?: StartApplicationCommandOutput) => void
   ): Promise<StartApplicationCommandOutput> | void {
     const command = new StartApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1076,17 +923,14 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): void;
   public stopApplication(
     args: StopApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopApplicationCommandOutput) => void),
     cb?: (err: any, data?: StopApplicationCommandOutput) => void
   ): Promise<StopApplicationCommandOutput> | void {
     const command = new StopApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1097,14 +941,8 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
    * <p>Adds one or more key-value tags to a Kinesis Analytics application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
    *       For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using Tagging</a>.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1112,17 +950,14 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1147,17 +982,14 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1185,17 +1017,14 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   ): void;
   public updateApplication(
     args: UpdateApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApplicationCommandOutput) => void),
     cb?: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): Promise<UpdateApplicationCommandOutput> | void {
     const command = new UpdateApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

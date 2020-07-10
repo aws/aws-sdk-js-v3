@@ -1,21 +1,11 @@
-import {
-  AutoScalingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AutoScalingClient";
-import {
-  DetachLoadBalancersResultType,
-  DetachLoadBalancersType
-} from "../models/index";
+import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
+import { DetachLoadBalancersResultType, DetachLoadBalancersType } from "../models/index";
 import {
   deserializeAws_queryDetachLoadBalancersCommand,
-  serializeAws_queryDetachLoadBalancersCommand
+  serializeAws_queryDetachLoadBalancersCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DetachLoadBalancersCommandInput = DetachLoadBalancersType;
-export type DetachLoadBalancersCommandOutput = DetachLoadBalancersResultType &
-  __MetadataBearer;
+export type DetachLoadBalancersCommandOutput = DetachLoadBalancersResultType & __MetadataBearer;
 
 export class DetachLoadBalancersCommand extends $Command<
   DetachLoadBalancersCommandInput,
@@ -49,18 +38,13 @@ export class DetachLoadBalancersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DetachLoadBalancersCommandInput,
-    DetachLoadBalancersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DetachLoadBalancersCommandInput, DetachLoadBalancersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DetachLoadBalancersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DetachLoadBalancersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DetachLoadBalancersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDetachLoadBalancersCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DetachLoadBalancersCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachLoadBalancersCommandOutput> {
     return deserializeAws_queryDetachLoadBalancersCommand(output, context);
   }
 

@@ -1,16 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>General authentication failure. The request was not signed correctly.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   message: string | undefined;
@@ -18,10 +12,9 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -128,7 +121,7 @@ export interface Artwork {
 
 export namespace Artwork {
   export const filterSensitiveLog = (obj: Artwork): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Artwork => __isa(o, "Artwork");
 }
@@ -201,10 +194,9 @@ export interface AudioCodecOptions {
 
 export namespace AudioCodecOptions {
   export const filterSensitiveLog = (obj: AudioCodecOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AudioCodecOptions =>
-    __isa(o, "AudioCodecOptions");
+  export const isa = (o: any): o is AudioCodecOptions => __isa(o, "AudioCodecOptions");
 }
 
 /**
@@ -472,10 +464,9 @@ export interface AudioParameters {
 
 export namespace AudioParameters {
   export const filterSensitiveLog = (obj: AudioParameters): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AudioParameters =>
-    __isa(o, "AudioParameters");
+  export const isa = (o: any): o is AudioParameters => __isa(o, "AudioParameters");
 }
 
 /**
@@ -493,10 +484,9 @@ export interface CancelJobRequest {
 
 export namespace CancelJobRequest {
   export const filterSensitiveLog = (obj: CancelJobRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CancelJobRequest =>
-    __isa(o, "CancelJobRequest");
+  export const isa = (o: any): o is CancelJobRequest => __isa(o, "CancelJobRequest");
 }
 
 /**
@@ -509,10 +499,9 @@ export interface CancelJobResponse {
 
 export namespace CancelJobResponse {
   export const filterSensitiveLog = (obj: CancelJobResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CancelJobResponse =>
-    __isa(o, "CancelJobResponse");
+  export const isa = (o: any): o is CancelJobResponse => __isa(o, "CancelJobResponse");
 }
 
 /**
@@ -608,7 +597,7 @@ export interface CaptionFormat {
 
 export namespace CaptionFormat {
   export const filterSensitiveLog = (obj: CaptionFormat): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is CaptionFormat => __isa(o, "CaptionFormat");
 }
@@ -661,7 +650,7 @@ export interface Captions {
 
 export namespace Captions {
   export const filterSensitiveLog = (obj: Captions): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Captions => __isa(o, "Captions");
 }
@@ -714,7 +703,7 @@ export interface CaptionSource {
 
 export namespace CaptionSource {
   export const filterSensitiveLog = (obj: CaptionSource): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is CaptionSource => __isa(o, "CaptionSource");
 }
@@ -732,7 +721,7 @@ export interface Clip {
 
 export namespace Clip {
   export const filterSensitiveLog = (obj: Clip): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Clip => __isa(o, "Clip");
 }
@@ -911,10 +900,9 @@ export interface CreateJobOutput {
 
 export namespace CreateJobOutput {
   export const filterSensitiveLog = (obj: CreateJobOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateJobOutput =>
-    __isa(o, "CreateJobOutput");
+  export const isa = (o: any): o is CreateJobOutput => __isa(o, "CreateJobOutput");
 }
 
 /**
@@ -1001,10 +989,9 @@ export interface CreateJobPlaylist {
 
 export namespace CreateJobPlaylist {
   export const filterSensitiveLog = (obj: CreateJobPlaylist): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateJobPlaylist =>
-    __isa(o, "CreateJobPlaylist");
+  export const isa = (o: any): o is CreateJobPlaylist => __isa(o, "CreateJobPlaylist");
 }
 
 /**
@@ -1071,10 +1058,9 @@ export interface CreateJobRequest {
 
 export namespace CreateJobRequest {
   export const filterSensitiveLog = (obj: CreateJobRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateJobRequest =>
-    __isa(o, "CreateJobRequest");
+  export const isa = (o: any): o is CreateJobRequest => __isa(o, "CreateJobRequest");
 }
 
 /**
@@ -1090,10 +1076,9 @@ export interface CreateJobResponse {
 
 export namespace CreateJobResponse {
   export const filterSensitiveLog = (obj: CreateJobResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateJobResponse =>
-    __isa(o, "CreateJobResponse");
+  export const isa = (o: any): o is CreateJobResponse => __isa(o, "CreateJobResponse");
 }
 
 /**
@@ -1403,10 +1388,9 @@ export interface CreatePipelineRequest {
 
 export namespace CreatePipelineRequest {
   export const filterSensitiveLog = (obj: CreatePipelineRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreatePipelineRequest =>
-    __isa(o, "CreatePipelineRequest");
+  export const isa = (o: any): o is CreatePipelineRequest => __isa(o, "CreatePipelineRequest");
 }
 
 /**
@@ -1430,10 +1414,9 @@ export interface CreatePipelineResponse {
 
 export namespace CreatePipelineResponse {
   export const filterSensitiveLog = (obj: CreatePipelineResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreatePipelineResponse =>
-    __isa(o, "CreatePipelineResponse");
+  export const isa = (o: any): o is CreatePipelineResponse => __isa(o, "CreatePipelineResponse");
 }
 
 /**
@@ -1478,10 +1461,9 @@ export interface CreatePresetRequest {
 
 export namespace CreatePresetRequest {
   export const filterSensitiveLog = (obj: CreatePresetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreatePresetRequest =>
-    __isa(o, "CreatePresetRequest");
+  export const isa = (o: any): o is CreatePresetRequest => __isa(o, "CreatePresetRequest");
 }
 
 /**
@@ -1505,10 +1487,9 @@ export interface CreatePresetResponse {
 
 export namespace CreatePresetResponse {
   export const filterSensitiveLog = (obj: CreatePresetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreatePresetResponse =>
-    __isa(o, "CreatePresetResponse");
+  export const isa = (o: any): o is CreatePresetResponse => __isa(o, "CreatePresetResponse");
 }
 
 /**
@@ -1524,10 +1505,9 @@ export interface DeletePipelineRequest {
 
 export namespace DeletePipelineRequest {
   export const filterSensitiveLog = (obj: DeletePipelineRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeletePipelineRequest =>
-    __isa(o, "DeletePipelineRequest");
+  export const isa = (o: any): o is DeletePipelineRequest => __isa(o, "DeletePipelineRequest");
 }
 
 /**
@@ -1539,10 +1519,9 @@ export interface DeletePipelineResponse {
 
 export namespace DeletePipelineResponse {
   export const filterSensitiveLog = (obj: DeletePipelineResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeletePipelineResponse =>
-    __isa(o, "DeletePipelineResponse");
+  export const isa = (o: any): o is DeletePipelineResponse => __isa(o, "DeletePipelineResponse");
 }
 
 /**
@@ -1558,10 +1537,9 @@ export interface DeletePresetRequest {
 
 export namespace DeletePresetRequest {
   export const filterSensitiveLog = (obj: DeletePresetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeletePresetRequest =>
-    __isa(o, "DeletePresetRequest");
+  export const isa = (o: any): o is DeletePresetRequest => __isa(o, "DeletePresetRequest");
 }
 
 /**
@@ -1573,10 +1551,9 @@ export interface DeletePresetResponse {
 
 export namespace DeletePresetResponse {
   export const filterSensitiveLog = (obj: DeletePresetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeletePresetResponse =>
-    __isa(o, "DeletePresetResponse");
+  export const isa = (o: any): o is DeletePresetResponse => __isa(o, "DeletePresetResponse");
 }
 
 /**
@@ -1612,10 +1589,9 @@ export interface DetectedProperties {
 
 export namespace DetectedProperties {
   export const filterSensitiveLog = (obj: DetectedProperties): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DetectedProperties =>
-    __isa(o, "DetectedProperties");
+  export const isa = (o: any): o is DetectedProperties => __isa(o, "DetectedProperties");
 }
 
 /**
@@ -1715,7 +1691,7 @@ export interface Encryption {
 
 export namespace Encryption {
   export const filterSensitiveLog = (obj: Encryption): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Encryption => __isa(o, "Encryption");
 }
@@ -1774,28 +1750,22 @@ export interface HlsContentProtection {
 
 export namespace HlsContentProtection {
   export const filterSensitiveLog = (obj: HlsContentProtection): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is HlsContentProtection =>
-    __isa(o, "HlsContentProtection");
+  export const isa = (o: any): o is HlsContentProtection => __isa(o, "HlsContentProtection");
 }
 
-export interface IncompatibleVersionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IncompatibleVersionException extends __SmithyException, $MetadataBearer {
   name: "IncompatibleVersionException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace IncompatibleVersionException {
-  export const filterSensitiveLog = (
-    obj: IncompatibleVersionException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: IncompatibleVersionException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is IncompatibleVersionException =>
-    __isa(o, "IncompatibleVersionException");
+  export const isa = (o: any): o is IncompatibleVersionException => __isa(o, "IncompatibleVersionException");
 }
 
 /**
@@ -1841,7 +1811,7 @@ export interface InputCaptions {
 
 export namespace InputCaptions {
   export const filterSensitiveLog = (obj: InputCaptions): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is InputCaptions => __isa(o, "InputCaptions");
 }
@@ -1849,9 +1819,7 @@ export namespace InputCaptions {
 /**
  * <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
  */
-export interface InternalServiceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceException";
   $fault: "server";
   message: string | undefined;
@@ -1859,10 +1827,9 @@ export interface InternalServiceException
 
 export namespace InternalServiceException {
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServiceException =>
-    __isa(o, "InternalServiceException");
+  export const isa = (o: any): o is InternalServiceException => __isa(o, "InternalServiceException");
 }
 
 /**
@@ -1983,7 +1950,7 @@ export interface Job {
 
 export namespace Job {
   export const filterSensitiveLog = (obj: Job): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Job => __isa(o, "Job");
 }
@@ -2030,7 +1997,7 @@ export interface JobAlbumArt {
 
 export namespace JobAlbumArt {
   export const filterSensitiveLog = (obj: JobAlbumArt): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is JobAlbumArt => __isa(o, "JobAlbumArt");
 }
@@ -2168,7 +2135,7 @@ export interface JobInput {
 
 export namespace JobInput {
   export const filterSensitiveLog = (obj: JobInput): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is JobInput => __isa(o, "JobInput");
 }
@@ -2447,7 +2414,7 @@ export interface JobOutput {
 
 export namespace JobOutput {
   export const filterSensitiveLog = (obj: JobOutput): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is JobOutput => __isa(o, "JobOutput");
 }
@@ -2484,7 +2451,7 @@ export interface JobWatermark {
 
 export namespace JobWatermark {
   export const filterSensitiveLog = (obj: JobWatermark): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is JobWatermark => __isa(o, "JobWatermark");
 }
@@ -2493,9 +2460,7 @@ export namespace JobWatermark {
  * <p>Too many operations for a given AWS account. For example, the number of pipelines
  *             exceeds the maximum allowed.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message: string | undefined;
@@ -2503,10 +2468,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -2535,10 +2499,9 @@ export interface ListJobsByPipelineRequest {
 
 export namespace ListJobsByPipelineRequest {
   export const filterSensitiveLog = (obj: ListJobsByPipelineRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListJobsByPipelineRequest =>
-    __isa(o, "ListJobsByPipelineRequest");
+  export const isa = (o: any): o is ListJobsByPipelineRequest => __isa(o, "ListJobsByPipelineRequest");
 }
 
 /**
@@ -2561,10 +2524,9 @@ export interface ListJobsByPipelineResponse {
 
 export namespace ListJobsByPipelineResponse {
   export const filterSensitiveLog = (obj: ListJobsByPipelineResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListJobsByPipelineResponse =>
-    __isa(o, "ListJobsByPipelineResponse");
+  export const isa = (o: any): o is ListJobsByPipelineResponse => __isa(o, "ListJobsByPipelineResponse");
 }
 
 /**
@@ -2596,10 +2558,9 @@ export interface ListJobsByStatusRequest {
 
 export namespace ListJobsByStatusRequest {
   export const filterSensitiveLog = (obj: ListJobsByStatusRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListJobsByStatusRequest =>
-    __isa(o, "ListJobsByStatusRequest");
+  export const isa = (o: any): o is ListJobsByStatusRequest => __isa(o, "ListJobsByStatusRequest");
 }
 
 /**
@@ -2624,10 +2585,9 @@ export interface ListJobsByStatusResponse {
 
 export namespace ListJobsByStatusResponse {
   export const filterSensitiveLog = (obj: ListJobsByStatusResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListJobsByStatusResponse =>
-    __isa(o, "ListJobsByStatusResponse");
+  export const isa = (o: any): o is ListJobsByStatusResponse => __isa(o, "ListJobsByStatusResponse");
 }
 
 /**
@@ -2651,10 +2611,9 @@ export interface ListPipelinesRequest {
 
 export namespace ListPipelinesRequest {
   export const filterSensitiveLog = (obj: ListPipelinesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPipelinesRequest =>
-    __isa(o, "ListPipelinesRequest");
+  export const isa = (o: any): o is ListPipelinesRequest => __isa(o, "ListPipelinesRequest");
 }
 
 /**
@@ -2677,10 +2636,9 @@ export interface ListPipelinesResponse {
 
 export namespace ListPipelinesResponse {
   export const filterSensitiveLog = (obj: ListPipelinesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPipelinesResponse =>
-    __isa(o, "ListPipelinesResponse");
+  export const isa = (o: any): o is ListPipelinesResponse => __isa(o, "ListPipelinesResponse");
 }
 
 /**
@@ -2704,10 +2662,9 @@ export interface ListPresetsRequest {
 
 export namespace ListPresetsRequest {
   export const filterSensitiveLog = (obj: ListPresetsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPresetsRequest =>
-    __isa(o, "ListPresetsRequest");
+  export const isa = (o: any): o is ListPresetsRequest => __isa(o, "ListPresetsRequest");
 }
 
 /**
@@ -2730,10 +2687,9 @@ export interface ListPresetsResponse {
 
 export namespace ListPresetsResponse {
   export const filterSensitiveLog = (obj: ListPresetsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPresetsResponse =>
-    __isa(o, "ListPresetsResponse");
+  export const isa = (o: any): o is ListPresetsResponse => __isa(o, "ListPresetsResponse");
 }
 
 /**
@@ -2767,7 +2723,7 @@ export interface Notifications {
 
 export namespace Notifications {
   export const filterSensitiveLog = (obj: Notifications): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Notifications => __isa(o, "Notifications");
 }
@@ -2843,7 +2799,7 @@ export interface Permission {
 
 export namespace Permission {
   export const filterSensitiveLog = (obj: Permission): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Permission => __isa(o, "Permission");
 }
@@ -3122,7 +3078,7 @@ export interface Pipeline {
 
 export namespace Pipeline {
   export const filterSensitiveLog = (obj: Pipeline): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Pipeline => __isa(o, "Pipeline");
 }
@@ -3184,10 +3140,9 @@ export interface PipelineOutputConfig {
 
 export namespace PipelineOutputConfig {
   export const filterSensitiveLog = (obj: PipelineOutputConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PipelineOutputConfig =>
-    __isa(o, "PipelineOutputConfig");
+  export const isa = (o: any): o is PipelineOutputConfig => __isa(o, "PipelineOutputConfig");
 }
 
 /**
@@ -3284,7 +3239,7 @@ export interface Playlist {
 
 export namespace Playlist {
   export const filterSensitiveLog = (obj: Playlist): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Playlist => __isa(o, "Playlist");
 }
@@ -3347,7 +3302,7 @@ export interface PlayReadyDrm {
 
 export namespace PlayReadyDrm {
   export const filterSensitiveLog = (obj: PlayReadyDrm): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PlayReadyDrm => __isa(o, "PlayReadyDrm");
 }
@@ -3413,7 +3368,7 @@ export interface Preset {
 
 export namespace Preset {
   export const filterSensitiveLog = (obj: Preset): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Preset => __isa(o, "Preset");
 }
@@ -3648,10 +3603,9 @@ export interface PresetWatermark {
 
 export namespace PresetWatermark {
   export const filterSensitiveLog = (obj: PresetWatermark): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PresetWatermark =>
-    __isa(o, "PresetWatermark");
+  export const isa = (o: any): o is PresetWatermark => __isa(o, "PresetWatermark");
 }
 
 /**
@@ -3667,10 +3621,9 @@ export interface ReadJobRequest {
 
 export namespace ReadJobRequest {
   export const filterSensitiveLog = (obj: ReadJobRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReadJobRequest =>
-    __isa(o, "ReadJobRequest");
+  export const isa = (o: any): o is ReadJobRequest => __isa(o, "ReadJobRequest");
 }
 
 /**
@@ -3686,10 +3639,9 @@ export interface ReadJobResponse {
 
 export namespace ReadJobResponse {
   export const filterSensitiveLog = (obj: ReadJobResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReadJobResponse =>
-    __isa(o, "ReadJobResponse");
+  export const isa = (o: any): o is ReadJobResponse => __isa(o, "ReadJobResponse");
 }
 
 /**
@@ -3705,10 +3657,9 @@ export interface ReadPipelineRequest {
 
 export namespace ReadPipelineRequest {
   export const filterSensitiveLog = (obj: ReadPipelineRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReadPipelineRequest =>
-    __isa(o, "ReadPipelineRequest");
+  export const isa = (o: any): o is ReadPipelineRequest => __isa(o, "ReadPipelineRequest");
 }
 
 /**
@@ -3732,10 +3683,9 @@ export interface ReadPipelineResponse {
 
 export namespace ReadPipelineResponse {
   export const filterSensitiveLog = (obj: ReadPipelineResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReadPipelineResponse =>
-    __isa(o, "ReadPipelineResponse");
+  export const isa = (o: any): o is ReadPipelineResponse => __isa(o, "ReadPipelineResponse");
 }
 
 /**
@@ -3751,10 +3701,9 @@ export interface ReadPresetRequest {
 
 export namespace ReadPresetRequest {
   export const filterSensitiveLog = (obj: ReadPresetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReadPresetRequest =>
-    __isa(o, "ReadPresetRequest");
+  export const isa = (o: any): o is ReadPresetRequest => __isa(o, "ReadPresetRequest");
 }
 
 /**
@@ -3770,19 +3719,16 @@ export interface ReadPresetResponse {
 
 export namespace ReadPresetResponse {
   export const filterSensitiveLog = (obj: ReadPresetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReadPresetResponse =>
-    __isa(o, "ReadPresetResponse");
+  export const isa = (o: any): o is ReadPresetResponse => __isa(o, "ReadPresetResponse");
 }
 
 /**
  * <p>The resource you are attempting to change is in use. For example, you are attempting
  *             to delete a pipeline that is currently in use.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   message: string | undefined;
@@ -3790,19 +3736,16 @@ export interface ResourceInUseException
 
 export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>The requested resource does not exist or is not available. For example, the pipeline
  *             to which you're trying to add a job doesn't exist or is still being created.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message: string | undefined;
@@ -3810,10 +3753,9 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -3844,10 +3786,9 @@ export interface TestRoleRequest {
 
 export namespace TestRoleRequest {
   export const filterSensitiveLog = (obj: TestRoleRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TestRoleRequest =>
-    __isa(o, "TestRoleRequest");
+  export const isa = (o: any): o is TestRoleRequest => __isa(o, "TestRoleRequest");
 }
 
 /**
@@ -3870,10 +3811,9 @@ export interface TestRoleResponse {
 
 export namespace TestRoleResponse {
   export const filterSensitiveLog = (obj: TestRoleResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TestRoleResponse =>
-    __isa(o, "TestRoleResponse");
+  export const isa = (o: any): o is TestRoleResponse => __isa(o, "TestRoleResponse");
 }
 
 /**
@@ -4005,7 +3945,7 @@ export interface Thumbnails {
 
 export namespace Thumbnails {
   export const filterSensitiveLog = (obj: Thumbnails): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Thumbnails => __isa(o, "Thumbnails");
 }
@@ -4035,7 +3975,7 @@ export interface TimeSpan {
 
 export namespace TimeSpan {
   export const filterSensitiveLog = (obj: TimeSpan): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TimeSpan => __isa(o, "TimeSpan");
 }
@@ -4063,7 +4003,7 @@ export interface Timing {
 
 export namespace Timing {
   export const filterSensitiveLog = (obj: Timing): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Timing => __isa(o, "Timing");
 }
@@ -4114,10 +4054,8 @@ export interface UpdatePipelineNotificationsRequest {
 }
 
 export namespace UpdatePipelineNotificationsRequest {
-  export const filterSensitiveLog = (
-    obj: UpdatePipelineNotificationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdatePipelineNotificationsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdatePipelineNotificationsRequest =>
     __isa(o, "UpdatePipelineNotificationsRequest");
@@ -4136,10 +4074,8 @@ export interface UpdatePipelineNotificationsResponse {
 }
 
 export namespace UpdatePipelineNotificationsResponse {
-  export const filterSensitiveLog = (
-    obj: UpdatePipelineNotificationsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdatePipelineNotificationsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdatePipelineNotificationsResponse =>
     __isa(o, "UpdatePipelineNotificationsResponse");
@@ -4419,10 +4355,9 @@ export interface UpdatePipelineRequest {
 
 export namespace UpdatePipelineRequest {
   export const filterSensitiveLog = (obj: UpdatePipelineRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdatePipelineRequest =>
-    __isa(o, "UpdatePipelineRequest");
+  export const isa = (o: any): o is UpdatePipelineRequest => __isa(o, "UpdatePipelineRequest");
 }
 
 /**
@@ -4446,10 +4381,9 @@ export interface UpdatePipelineResponse {
 
 export namespace UpdatePipelineResponse {
   export const filterSensitiveLog = (obj: UpdatePipelineResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdatePipelineResponse =>
-    __isa(o, "UpdatePipelineResponse");
+  export const isa = (o: any): o is UpdatePipelineResponse => __isa(o, "UpdatePipelineResponse");
 }
 
 /**
@@ -4479,13 +4413,10 @@ export interface UpdatePipelineStatusRequest {
 }
 
 export namespace UpdatePipelineStatusRequest {
-  export const filterSensitiveLog = (
-    obj: UpdatePipelineStatusRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdatePipelineStatusRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdatePipelineStatusRequest =>
-    __isa(o, "UpdatePipelineStatusRequest");
+  export const isa = (o: any): o is UpdatePipelineStatusRequest => __isa(o, "UpdatePipelineStatusRequest");
 }
 
 /**
@@ -4501,21 +4432,16 @@ export interface UpdatePipelineStatusResponse {
 }
 
 export namespace UpdatePipelineStatusResponse {
-  export const filterSensitiveLog = (
-    obj: UpdatePipelineStatusResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdatePipelineStatusResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdatePipelineStatusResponse =>
-    __isa(o, "UpdatePipelineStatusResponse");
+  export const isa = (o: any): o is UpdatePipelineStatusResponse => __isa(o, "UpdatePipelineStatusResponse");
 }
 
 /**
  * <p>One or more required parameter values were not provided in the request.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   message: string | undefined;
@@ -4523,10 +4449,9 @@ export interface ValidationException
 
 export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }
 
 /**
@@ -5106,10 +5031,9 @@ export interface VideoParameters {
 
 export namespace VideoParameters {
   export const filterSensitiveLog = (obj: VideoParameters): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VideoParameters =>
-    __isa(o, "VideoParameters");
+  export const isa = (o: any): o is VideoParameters => __isa(o, "VideoParameters");
 }
 
 /**
@@ -5136,7 +5060,7 @@ export interface Warning {
 
 export namespace Warning {
   export const filterSensitiveLog = (obj: Warning): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Warning => __isa(o, "Warning");
 }

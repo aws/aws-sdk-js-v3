@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFRegionalClientResolvedConfig
-} from "../WAFRegionalClient";
-import {
-  DisassociateWebACLRequest,
-  DisassociateWebACLResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
+import { DisassociateWebACLRequest, DisassociateWebACLResponse } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateWebACLCommand,
-  serializeAws_json1_1DisassociateWebACLCommand
+  serializeAws_json1_1DisassociateWebACLCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DisassociateWebACLCommandInput = DisassociateWebACLRequest;
-export type DisassociateWebACLCommandOutput = DisassociateWebACLResponse &
-  __MetadataBearer;
+export type DisassociateWebACLCommandOutput = DisassociateWebACLResponse & __MetadataBearer;
 
 export class DisassociateWebACLCommand extends $Command<
   DisassociateWebACLCommandInput,
@@ -50,14 +39,12 @@ export class DisassociateWebACLCommand extends $Command<
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DisassociateWebACLCommandInput, DisassociateWebACLCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class DisassociateWebACLCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DisassociateWebACLCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DisassociateWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateWebACLCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DisassociateWebACLCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateWebACLCommandOutput> {
     return deserializeAws_json1_1DisassociateWebACLCommand(output, context);
   }
 

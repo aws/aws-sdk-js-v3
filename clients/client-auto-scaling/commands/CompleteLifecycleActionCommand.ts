@@ -1,21 +1,11 @@
-import {
-  AutoScalingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AutoScalingClient";
-import {
-  CompleteLifecycleActionAnswer,
-  CompleteLifecycleActionType
-} from "../models/index";
+import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
+import { CompleteLifecycleActionAnswer, CompleteLifecycleActionType } from "../models/index";
 import {
   deserializeAws_queryCompleteLifecycleActionCommand,
-  serializeAws_queryCompleteLifecycleActionCommand
+  serializeAws_queryCompleteLifecycleActionCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CompleteLifecycleActionCommandInput = CompleteLifecycleActionType;
-export type CompleteLifecycleActionCommandOutput = CompleteLifecycleActionAnswer &
-  __MetadataBearer;
+export type CompleteLifecycleActionCommandOutput = CompleteLifecycleActionAnswer & __MetadataBearer;
 
 export class CompleteLifecycleActionCommand extends $Command<
   CompleteLifecycleActionCommandInput,
@@ -49,18 +38,13 @@ export class CompleteLifecycleActionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CompleteLifecycleActionCommandInput,
-    CompleteLifecycleActionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CompleteLifecycleActionCommandInput, CompleteLifecycleActionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class CompleteLifecycleActionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CompleteLifecycleActionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CompleteLifecycleActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCompleteLifecycleActionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CompleteLifecycleActionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteLifecycleActionCommandOutput> {
     return deserializeAws_queryCompleteLifecycleActionCommand(output, context);
   }
 

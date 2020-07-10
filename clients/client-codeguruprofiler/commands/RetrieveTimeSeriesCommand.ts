@@ -1,21 +1,11 @@
-import {
-  CodeGuruProfilerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeGuruProfilerClient";
-import {
-  RetrieveTimeSeriesRequest,
-  RetrieveTimeSeriesResponse
-} from "../models/index";
+import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
+import { RetrieveTimeSeriesRequest, RetrieveTimeSeriesResponse } from "../models/index";
 import {
   deserializeAws_restJson1RetrieveTimeSeriesCommand,
-  serializeAws_restJson1RetrieveTimeSeriesCommand
+  serializeAws_restJson1RetrieveTimeSeriesCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type RetrieveTimeSeriesCommandInput = RetrieveTimeSeriesRequest;
-export type RetrieveTimeSeriesCommandOutput = RetrieveTimeSeriesResponse &
-  __MetadataBearer;
+export type RetrieveTimeSeriesCommandOutput = RetrieveTimeSeriesResponse & __MetadataBearer;
 
 export class RetrieveTimeSeriesCommand extends $Command<
   RetrieveTimeSeriesCommandInput,
@@ -50,14 +39,12 @@ export class RetrieveTimeSeriesCommand extends $Command<
     configuration: CodeGuruProfilerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RetrieveTimeSeriesCommandInput, RetrieveTimeSeriesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class RetrieveTimeSeriesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RetrieveTimeSeriesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RetrieveTimeSeriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RetrieveTimeSeriesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RetrieveTimeSeriesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetrieveTimeSeriesCommandOutput> {
     return deserializeAws_restJson1RetrieveTimeSeriesCommand(output, context);
   }
 

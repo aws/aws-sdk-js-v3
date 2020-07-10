@@ -1,67 +1,40 @@
 import {
   CreateDetectorModelCommandInput,
-  CreateDetectorModelCommandOutput
+  CreateDetectorModelCommandOutput,
 } from "./commands/CreateDetectorModelCommand";
-import {
-  CreateInputCommandInput,
-  CreateInputCommandOutput
-} from "./commands/CreateInputCommand";
+import { CreateInputCommandInput, CreateInputCommandOutput } from "./commands/CreateInputCommand";
 import {
   DeleteDetectorModelCommandInput,
-  DeleteDetectorModelCommandOutput
+  DeleteDetectorModelCommandOutput,
 } from "./commands/DeleteDetectorModelCommand";
-import {
-  DeleteInputCommandInput,
-  DeleteInputCommandOutput
-} from "./commands/DeleteInputCommand";
+import { DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand";
 import {
   DescribeDetectorModelCommandInput,
-  DescribeDetectorModelCommandOutput
+  DescribeDetectorModelCommandOutput,
 } from "./commands/DescribeDetectorModelCommand";
-import {
-  DescribeInputCommandInput,
-  DescribeInputCommandOutput
-} from "./commands/DescribeInputCommand";
+import { DescribeInputCommandInput, DescribeInputCommandOutput } from "./commands/DescribeInputCommand";
 import {
   DescribeLoggingOptionsCommandInput,
-  DescribeLoggingOptionsCommandOutput
+  DescribeLoggingOptionsCommandOutput,
 } from "./commands/DescribeLoggingOptionsCommand";
 import {
   ListDetectorModelVersionsCommandInput,
-  ListDetectorModelVersionsCommandOutput
+  ListDetectorModelVersionsCommandOutput,
 } from "./commands/ListDetectorModelVersionsCommand";
-import {
-  ListDetectorModelsCommandInput,
-  ListDetectorModelsCommandOutput
-} from "./commands/ListDetectorModelsCommand";
-import {
-  ListInputsCommandInput,
-  ListInputsCommandOutput
-} from "./commands/ListInputsCommand";
+import { ListDetectorModelsCommandInput, ListDetectorModelsCommandOutput } from "./commands/ListDetectorModelsCommand";
+import { ListInputsCommandInput, ListInputsCommandOutput } from "./commands/ListInputsCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  PutLoggingOptionsCommandInput,
-  PutLoggingOptionsCommandOutput
-} from "./commands/PutLoggingOptionsCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { PutLoggingOptionsCommandInput, PutLoggingOptionsCommandOutput } from "./commands/PutLoggingOptionsCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateDetectorModelCommandInput,
-  UpdateDetectorModelCommandOutput
+  UpdateDetectorModelCommandOutput,
 } from "./commands/UpdateDetectorModelCommand";
-import {
-  UpdateInputCommandInput,
-  UpdateInputCommandOutput
-} from "./commands/UpdateInputCommand";
+import { UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -69,38 +42,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -111,7 +79,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -150,8 +118,7 @@ export type ServiceOutputTypes =
   | UpdateDetectorModelCommandOutput
   | UpdateInputCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -240,9 +207,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type IoTEventsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type IoTEventsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -251,9 +216,7 @@ export type IoTEventsClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type IoTEventsClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type IoTEventsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -278,7 +241,7 @@ export class IoTEventsClient extends __Client<
   constructor(configuration: IoTEventsClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

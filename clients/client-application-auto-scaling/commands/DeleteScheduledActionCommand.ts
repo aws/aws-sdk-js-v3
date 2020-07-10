@@ -1,21 +1,15 @@
 import {
   ApplicationAutoScalingClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
-import {
-  DeleteScheduledActionRequest,
-  DeleteScheduledActionResponse
-} from "../models/index";
+import { DeleteScheduledActionRequest, DeleteScheduledActionResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteScheduledActionCommand,
-  serializeAws_json1_1DeleteScheduledActionCommand
+  serializeAws_json1_1DeleteScheduledActionCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteScheduledActionCommandInput = DeleteScheduledActionRequest;
-export type DeleteScheduledActionCommandOutput = DeleteScheduledActionResponse &
-  __MetadataBearer;
+export type DeleteScheduledActionCommandOutput = DeleteScheduledActionResponse & __MetadataBearer;
 
 export class DeleteScheduledActionCommand extends $Command<
   DeleteScheduledActionCommandInput,
@@ -49,18 +42,13 @@ export class DeleteScheduledActionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationAutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteScheduledActionCommandInput,
-    DeleteScheduledActionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteScheduledActionCommandInput, DeleteScheduledActionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +58,11 @@ export class DeleteScheduledActionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteScheduledActionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteScheduledActionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteScheduledActionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScheduledActionCommandOutput> {
     return deserializeAws_json1_1DeleteScheduledActionCommand(output, context);
   }
 

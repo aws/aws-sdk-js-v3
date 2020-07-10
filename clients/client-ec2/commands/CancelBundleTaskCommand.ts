@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  CancelBundleTaskRequest,
-  CancelBundleTaskResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CancelBundleTaskRequest, CancelBundleTaskResult } from "../models/index";
 import {
   deserializeAws_ec2CancelBundleTaskCommand,
-  serializeAws_ec2CancelBundleTaskCommand
+  serializeAws_ec2CancelBundleTaskCommand,
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CancelBundleTaskCommandInput = CancelBundleTaskRequest;
-export type CancelBundleTaskCommandOutput = CancelBundleTaskResult &
-  __MetadataBearer;
+export type CancelBundleTaskCommandOutput = CancelBundleTaskResult & __MetadataBearer;
 
 export class CancelBundleTaskCommand extends $Command<
   CancelBundleTaskCommandInput,
@@ -50,14 +39,12 @@ export class CancelBundleTaskCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CancelBundleTaskCommandInput, CancelBundleTaskCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class CancelBundleTaskCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CancelBundleTaskCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CancelBundleTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CancelBundleTaskCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CancelBundleTaskCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelBundleTaskCommandOutput> {
     return deserializeAws_ec2CancelBundleTaskCommand(output, context);
   }
 

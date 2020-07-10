@@ -1,18 +1,11 @@
-import {
-  MacieClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MacieClient";
+import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
 import { DisassociateMemberAccountRequest } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateMemberAccountCommand,
-  serializeAws_json1_1DisassociateMemberAccountCommand
+  serializeAws_json1_1DisassociateMemberAccountCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DisassociateMemberAccountCommandInput = DisassociateMemberAccountRequest;
@@ -45,18 +38,13 @@ export class DisassociateMemberAccountCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MacieClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateMemberAccountCommandInput,
-    DisassociateMemberAccountCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateMemberAccountCommandInput, DisassociateMemberAccountCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,10 +54,7 @@ export class DisassociateMemberAccountCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DisassociateMemberAccountCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DisassociateMemberAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateMemberAccountCommand(input, context);
   }
 
@@ -77,10 +62,7 @@ export class DisassociateMemberAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateMemberAccountCommandOutput> {
-    return deserializeAws_json1_1DisassociateMemberAccountCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateMemberAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

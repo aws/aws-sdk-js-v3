@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -27,10 +23,9 @@ export interface BatchMeterUsageRequest {
 
 export namespace BatchMeterUsageRequest {
   export const filterSensitiveLog = (obj: BatchMeterUsageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BatchMeterUsageRequest =>
-    __isa(o, "BatchMeterUsageRequest");
+  export const isa = (o: any): o is BatchMeterUsageRequest => __isa(o, "BatchMeterUsageRequest");
 }
 
 /**
@@ -55,40 +50,32 @@ export interface BatchMeterUsageResult {
 
 export namespace BatchMeterUsageResult {
   export const filterSensitiveLog = (obj: BatchMeterUsageResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BatchMeterUsageResult =>
-    __isa(o, "BatchMeterUsageResult");
+  export const isa = (o: any): o is BatchMeterUsageResult => __isa(o, "BatchMeterUsageResult");
 }
 
 /**
  * <p>Exception thrown when the customer does not have a valid subscription for the
  *             product.</p>
  */
-export interface CustomerNotEntitledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CustomerNotEntitledException extends __SmithyException, $MetadataBearer {
   name: "CustomerNotEntitledException";
   $fault: "client";
   message?: string;
 }
 
 export namespace CustomerNotEntitledException {
-  export const filterSensitiveLog = (
-    obj: CustomerNotEntitledException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CustomerNotEntitledException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CustomerNotEntitledException =>
-    __isa(o, "CustomerNotEntitledException");
+  export const isa = (o: any): o is CustomerNotEntitledException => __isa(o, "CustomerNotEntitledException");
 }
 
 /**
  * <p>The API is disabled in the Region.</p>
  */
-export interface DisabledApiException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DisabledApiException extends __SmithyException, $MetadataBearer {
   name: "DisabledApiException";
   $fault: "client";
   message?: string;
@@ -96,10 +83,9 @@ export interface DisabledApiException
 
 export namespace DisabledApiException {
   export const filterSensitiveLog = (obj: DisabledApiException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DisabledApiException =>
-    __isa(o, "DisabledApiException");
+  export const isa = (o: any): o is DisabledApiException => __isa(o, "DisabledApiException");
 }
 
 /**
@@ -107,9 +93,7 @@ export namespace DisabledApiException {
  *             EKS pod for the given {usageDimension, timestamp} with a different
  *             usageQuantity.</p>
  */
-export interface DuplicateRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicateRequestException extends __SmithyException, $MetadataBearer {
   name: "DuplicateRequestException";
   $fault: "client";
   message?: string;
@@ -117,10 +101,9 @@ export interface DuplicateRequestException
 
 export namespace DuplicateRequestException {
   export const filterSensitiveLog = (obj: DuplicateRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DuplicateRequestException =>
-    __isa(o, "DuplicateRequestException");
+  export const isa = (o: any): o is DuplicateRequestException => __isa(o, "DuplicateRequestException");
 }
 
 /**
@@ -130,9 +113,7 @@ export namespace DuplicateRequestException {
  *             long. Your SaaS registration website should redeem this token as soon as it is submitted
  *             by the buyer's browser.</p>
  */
-export interface ExpiredTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ExpiredTokenException extends __SmithyException, $MetadataBearer {
   name: "ExpiredTokenException";
   $fault: "client";
   message?: string;
@@ -140,50 +121,40 @@ export interface ExpiredTokenException
 
 export namespace ExpiredTokenException {
   export const filterSensitiveLog = (obj: ExpiredTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExpiredTokenException =>
-    __isa(o, "ExpiredTokenException");
+  export const isa = (o: any): o is ExpiredTokenException => __isa(o, "ExpiredTokenException");
 }
 
 /**
  * <p>An internal error has occurred. Retry your request. If the problem persists, post a
  *             message with details on the AWS forums.</p>
  */
-export interface InternalServiceErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceErrorException";
   $fault: "server";
   message?: string;
 }
 
 export namespace InternalServiceErrorException {
-  export const filterSensitiveLog = (
-    obj: InternalServiceErrorException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServiceErrorException =>
-    __isa(o, "InternalServiceErrorException");
+  export const isa = (o: any): o is InternalServiceErrorException => __isa(o, "InternalServiceErrorException");
 }
 
 /**
  * <p>You have metered usage for a CustomerIdentifier that does not exist.</p>
  */
-export interface InvalidCustomerIdentifierException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidCustomerIdentifierException extends __SmithyException, $MetadataBearer {
   name: "InvalidCustomerIdentifierException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidCustomerIdentifierException {
-  export const filterSensitiveLog = (
-    obj: InvalidCustomerIdentifierException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidCustomerIdentifierException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidCustomerIdentifierException =>
     __isa(o, "InvalidCustomerIdentifierException");
@@ -194,65 +165,50 @@ export namespace InvalidCustomerIdentifierException {
  *             task, or EKS pod. The Region of the Metering Service endpoint and the AWS Region of the
  *             resource must match.</p>
  */
-export interface InvalidEndpointRegionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidEndpointRegionException extends __SmithyException, $MetadataBearer {
   name: "InvalidEndpointRegionException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidEndpointRegionException {
-  export const filterSensitiveLog = (
-    obj: InvalidEndpointRegionException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidEndpointRegionException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidEndpointRegionException =>
-    __isa(o, "InvalidEndpointRegionException");
+  export const isa = (o: any): o is InvalidEndpointRegionException => __isa(o, "InvalidEndpointRegionException");
 }
 
 /**
  * <p>The product code passed does not match the product code used for publishing the
  *             product.</p>
  */
-export interface InvalidProductCodeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidProductCodeException extends __SmithyException, $MetadataBearer {
   name: "InvalidProductCodeException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidProductCodeException {
-  export const filterSensitiveLog = (
-    obj: InvalidProductCodeException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidProductCodeException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidProductCodeException =>
-    __isa(o, "InvalidProductCodeException");
+  export const isa = (o: any): o is InvalidProductCodeException => __isa(o, "InvalidProductCodeException");
 }
 
 /**
  * <p>Public Key version is invalid.</p>
  */
-export interface InvalidPublicKeyVersionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPublicKeyVersionException extends __SmithyException, $MetadataBearer {
   name: "InvalidPublicKeyVersionException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidPublicKeyVersionException {
-  export const filterSensitiveLog = (
-    obj: InvalidPublicKeyVersionException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidPublicKeyVersionException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidPublicKeyVersionException =>
-    __isa(o, "InvalidPublicKeyVersionException");
+  export const isa = (o: any): o is InvalidPublicKeyVersionException => __isa(o, "InvalidPublicKeyVersionException");
 }
 
 /**
@@ -260,9 +216,7 @@ export namespace InvalidPublicKeyVersionException {
  *             This prevents a container from hardcoding a Region (e.g. withRegion(“us-east-1”) when
  *             calling RegisterUsage.</p>
  */
-export interface InvalidRegionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRegionException extends __SmithyException, $MetadataBearer {
   name: "InvalidRegionException";
   $fault: "client";
   message?: string;
@@ -270,18 +224,15 @@ export interface InvalidRegionException
 
 export namespace InvalidRegionException {
   export const filterSensitiveLog = (obj: InvalidRegionException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRegionException =>
-    __isa(o, "InvalidRegionException");
+  export const isa = (o: any): o is InvalidRegionException => __isa(o, "InvalidRegionException");
 }
 
 /**
  * <p>Registration token is invalid.</p>
  */
-export interface InvalidTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidTokenException";
   $fault: "client";
   message?: string;
@@ -289,32 +240,26 @@ export interface InvalidTokenException
 
 export namespace InvalidTokenException {
   export const filterSensitiveLog = (obj: InvalidTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidTokenException =>
-    __isa(o, "InvalidTokenException");
+  export const isa = (o: any): o is InvalidTokenException => __isa(o, "InvalidTokenException");
 }
 
 /**
  * <p>The usage dimension does not match one of the UsageDimensions associated with
  *             products.</p>
  */
-export interface InvalidUsageDimensionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidUsageDimensionException extends __SmithyException, $MetadataBearer {
   name: "InvalidUsageDimensionException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidUsageDimensionException {
-  export const filterSensitiveLog = (
-    obj: InvalidUsageDimensionException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidUsageDimensionException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidUsageDimensionException =>
-    __isa(o, "InvalidUsageDimensionException");
+  export const isa = (o: any): o is InvalidUsageDimensionException => __isa(o, "InvalidUsageDimensionException");
 }
 
 export interface MeterUsageRequest {
@@ -356,10 +301,9 @@ export interface MeterUsageRequest {
 
 export namespace MeterUsageRequest {
   export const filterSensitiveLog = (obj: MeterUsageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MeterUsageRequest =>
-    __isa(o, "MeterUsageRequest");
+  export const isa = (o: any): o is MeterUsageRequest => __isa(o, "MeterUsageRequest");
 }
 
 export interface MeterUsageResult {
@@ -372,32 +316,26 @@ export interface MeterUsageResult {
 
 export namespace MeterUsageResult {
   export const filterSensitiveLog = (obj: MeterUsageResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MeterUsageResult =>
-    __isa(o, "MeterUsageResult");
+  export const isa = (o: any): o is MeterUsageResult => __isa(o, "MeterUsageResult");
 }
 
 /**
  * <p>AWS Marketplace does not support metering usage from the underlying platform.
  *             Currently, only Amazon ECS is supported.</p>
  */
-export interface PlatformNotSupportedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PlatformNotSupportedException extends __SmithyException, $MetadataBearer {
   name: "PlatformNotSupportedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace PlatformNotSupportedException {
-  export const filterSensitiveLog = (
-    obj: PlatformNotSupportedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PlatformNotSupportedException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PlatformNotSupportedException =>
-    __isa(o, "PlatformNotSupportedException");
+  export const isa = (o: any): o is PlatformNotSupportedException => __isa(o, "PlatformNotSupportedException");
 }
 
 export interface RegisterUsageRequest {
@@ -423,10 +361,9 @@ export interface RegisterUsageRequest {
 
 export namespace RegisterUsageRequest {
   export const filterSensitiveLog = (obj: RegisterUsageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RegisterUsageRequest =>
-    __isa(o, "RegisterUsageRequest");
+  export const isa = (o: any): o is RegisterUsageRequest => __isa(o, "RegisterUsageRequest");
 }
 
 export interface RegisterUsageResult {
@@ -444,10 +381,9 @@ export interface RegisterUsageResult {
 
 export namespace RegisterUsageResult {
   export const filterSensitiveLog = (obj: RegisterUsageResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RegisterUsageResult =>
-    __isa(o, "RegisterUsageResult");
+  export const isa = (o: any): o is RegisterUsageResult => __isa(o, "RegisterUsageResult");
 }
 
 /**
@@ -465,10 +401,9 @@ export interface ResolveCustomerRequest {
 
 export namespace ResolveCustomerRequest {
   export const filterSensitiveLog = (obj: ResolveCustomerRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResolveCustomerRequest =>
-    __isa(o, "ResolveCustomerRequest");
+  export const isa = (o: any): o is ResolveCustomerRequest => __isa(o, "ResolveCustomerRequest");
 }
 
 /**
@@ -494,18 +429,15 @@ export interface ResolveCustomerResult {
 
 export namespace ResolveCustomerResult {
   export const filterSensitiveLog = (obj: ResolveCustomerResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResolveCustomerResult =>
-    __isa(o, "ResolveCustomerResult");
+  export const isa = (o: any): o is ResolveCustomerResult => __isa(o, "ResolveCustomerResult");
 }
 
 /**
  * <p>The calls to the API are throttled.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   message?: string;
@@ -513,31 +445,25 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
  * <p>The timestamp value passed in the meterUsage() is out of allowed range.</p>
  */
-export interface TimestampOutOfBoundsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TimestampOutOfBoundsException extends __SmithyException, $MetadataBearer {
   name: "TimestampOutOfBoundsException";
   $fault: "client";
   message?: string;
 }
 
 export namespace TimestampOutOfBoundsException {
-  export const filterSensitiveLog = (
-    obj: TimestampOutOfBoundsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TimestampOutOfBoundsException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TimestampOutOfBoundsException =>
-    __isa(o, "TimestampOutOfBoundsException");
+  export const isa = (o: any): o is TimestampOutOfBoundsException => __isa(o, "TimestampOutOfBoundsException");
 }
 
 /**
@@ -577,7 +503,7 @@ export interface UsageRecord {
 
 export namespace UsageRecord {
   export const filterSensitiveLog = (obj: UsageRecord): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is UsageRecord => __isa(o, "UsageRecord");
 }
@@ -627,14 +553,13 @@ export interface UsageRecordResult {
 
 export namespace UsageRecordResult {
   export const filterSensitiveLog = (obj: UsageRecordResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UsageRecordResult =>
-    __isa(o, "UsageRecordResult");
+  export const isa = (o: any): o is UsageRecordResult => __isa(o, "UsageRecordResult");
 }
 
 export enum UsageRecordResultStatus {
   CUSTOMER_NOT_SUBSCRIBED = "CustomerNotSubscribed",
   DUPLICATE_RECORD = "DuplicateRecord",
-  SUCCESS = "Success"
+  SUCCESS = "Success",
 }

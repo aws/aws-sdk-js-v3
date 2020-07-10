@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SupportClientResolvedConfig
-} from "../SupportClient";
+import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 import { DescribeCasesRequest, DescribeCasesResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeCasesCommand,
-  serializeAws_json1_1DescribeCasesCommand
+  serializeAws_json1_1DescribeCasesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeCasesCommandInput = DescribeCasesRequest;
-export type DescribeCasesCommandOutput = DescribeCasesResponse &
-  __MetadataBearer;
+export type DescribeCasesCommandOutput = DescribeCasesResponse & __MetadataBearer;
 
 export class DescribeCasesCommand extends $Command<
   DescribeCasesCommandInput,
@@ -47,14 +39,12 @@ export class DescribeCasesCommand extends $Command<
     configuration: SupportClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeCasesCommandInput, DescribeCasesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class DescribeCasesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeCasesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeCasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCasesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeCasesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCasesCommandOutput> {
     return deserializeAws_json1_1DescribeCasesCommand(output, context);
   }
 

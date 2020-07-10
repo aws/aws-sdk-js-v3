@@ -1,18 +1,11 @@
-import {
-  AppSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppSyncClient";
+import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { GetGraphqlApiRequest, GetGraphqlApiResponse } from "../models/index";
 import {
   deserializeAws_restJson1GetGraphqlApiCommand,
-  serializeAws_restJson1GetGraphqlApiCommand
+  serializeAws_restJson1GetGraphqlApiCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetGraphqlApiCommandInput = GetGraphqlApiRequest;
-export type GetGraphqlApiCommandOutput = GetGraphqlApiResponse &
-  __MetadataBearer;
+export type GetGraphqlApiCommandOutput = GetGraphqlApiResponse & __MetadataBearer;
 
 export class GetGraphqlApiCommand extends $Command<
   GetGraphqlApiCommandInput,
@@ -47,14 +39,12 @@ export class GetGraphqlApiCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetGraphqlApiCommandInput, GetGraphqlApiCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class GetGraphqlApiCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetGraphqlApiCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetGraphqlApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetGraphqlApiCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetGraphqlApiCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGraphqlApiCommandOutput> {
     return deserializeAws_restJson1GetGraphqlApiCommand(output, context);
   }
 

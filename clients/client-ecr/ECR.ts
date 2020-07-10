@@ -2,147 +2,135 @@ import { ECRClient } from "./ECRClient";
 import {
   BatchCheckLayerAvailabilityCommand,
   BatchCheckLayerAvailabilityCommandInput,
-  BatchCheckLayerAvailabilityCommandOutput
+  BatchCheckLayerAvailabilityCommandOutput,
 } from "./commands/BatchCheckLayerAvailabilityCommand";
 import {
   BatchDeleteImageCommand,
   BatchDeleteImageCommandInput,
-  BatchDeleteImageCommandOutput
+  BatchDeleteImageCommandOutput,
 } from "./commands/BatchDeleteImageCommand";
 import {
   BatchGetImageCommand,
   BatchGetImageCommandInput,
-  BatchGetImageCommandOutput
+  BatchGetImageCommandOutput,
 } from "./commands/BatchGetImageCommand";
 import {
   CompleteLayerUploadCommand,
   CompleteLayerUploadCommandInput,
-  CompleteLayerUploadCommandOutput
+  CompleteLayerUploadCommandOutput,
 } from "./commands/CompleteLayerUploadCommand";
 import {
   CreateRepositoryCommand,
   CreateRepositoryCommandInput,
-  CreateRepositoryCommandOutput
+  CreateRepositoryCommandOutput,
 } from "./commands/CreateRepositoryCommand";
 import {
   DeleteLifecyclePolicyCommand,
   DeleteLifecyclePolicyCommandInput,
-  DeleteLifecyclePolicyCommandOutput
+  DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
 import {
   DeleteRepositoryCommand,
   DeleteRepositoryCommandInput,
-  DeleteRepositoryCommandOutput
+  DeleteRepositoryCommandOutput,
 } from "./commands/DeleteRepositoryCommand";
 import {
   DeleteRepositoryPolicyCommand,
   DeleteRepositoryPolicyCommandInput,
-  DeleteRepositoryPolicyCommandOutput
+  DeleteRepositoryPolicyCommandOutput,
 } from "./commands/DeleteRepositoryPolicyCommand";
 import {
   DescribeImageScanFindingsCommand,
   DescribeImageScanFindingsCommandInput,
-  DescribeImageScanFindingsCommandOutput
+  DescribeImageScanFindingsCommandOutput,
 } from "./commands/DescribeImageScanFindingsCommand";
 import {
   DescribeImagesCommand,
   DescribeImagesCommandInput,
-  DescribeImagesCommandOutput
+  DescribeImagesCommandOutput,
 } from "./commands/DescribeImagesCommand";
 import {
   DescribeRepositoriesCommand,
   DescribeRepositoriesCommandInput,
-  DescribeRepositoriesCommandOutput
+  DescribeRepositoriesCommandOutput,
 } from "./commands/DescribeRepositoriesCommand";
 import {
   GetAuthorizationTokenCommand,
   GetAuthorizationTokenCommandInput,
-  GetAuthorizationTokenCommandOutput
+  GetAuthorizationTokenCommandOutput,
 } from "./commands/GetAuthorizationTokenCommand";
 import {
   GetDownloadUrlForLayerCommand,
   GetDownloadUrlForLayerCommandInput,
-  GetDownloadUrlForLayerCommandOutput
+  GetDownloadUrlForLayerCommandOutput,
 } from "./commands/GetDownloadUrlForLayerCommand";
 import {
   GetLifecyclePolicyCommand,
   GetLifecyclePolicyCommandInput,
-  GetLifecyclePolicyCommandOutput
+  GetLifecyclePolicyCommandOutput,
 } from "./commands/GetLifecyclePolicyCommand";
 import {
   GetLifecyclePolicyPreviewCommand,
   GetLifecyclePolicyPreviewCommandInput,
-  GetLifecyclePolicyPreviewCommandOutput
+  GetLifecyclePolicyPreviewCommandOutput,
 } from "./commands/GetLifecyclePolicyPreviewCommand";
 import {
   GetRepositoryPolicyCommand,
   GetRepositoryPolicyCommandInput,
-  GetRepositoryPolicyCommandOutput
+  GetRepositoryPolicyCommandOutput,
 } from "./commands/GetRepositoryPolicyCommand";
 import {
   InitiateLayerUploadCommand,
   InitiateLayerUploadCommandInput,
-  InitiateLayerUploadCommandOutput
+  InitiateLayerUploadCommandOutput,
 } from "./commands/InitiateLayerUploadCommand";
-import {
-  ListImagesCommand,
-  ListImagesCommandInput,
-  ListImagesCommandOutput
-} from "./commands/ListImagesCommand";
+import { ListImagesCommand, ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  PutImageCommand,
-  PutImageCommandInput,
-  PutImageCommandOutput
-} from "./commands/PutImageCommand";
+import { PutImageCommand, PutImageCommandInput, PutImageCommandOutput } from "./commands/PutImageCommand";
 import {
   PutImageScanningConfigurationCommand,
   PutImageScanningConfigurationCommandInput,
-  PutImageScanningConfigurationCommandOutput
+  PutImageScanningConfigurationCommandOutput,
 } from "./commands/PutImageScanningConfigurationCommand";
 import {
   PutImageTagMutabilityCommand,
   PutImageTagMutabilityCommandInput,
-  PutImageTagMutabilityCommandOutput
+  PutImageTagMutabilityCommandOutput,
 } from "./commands/PutImageTagMutabilityCommand";
 import {
   PutLifecyclePolicyCommand,
   PutLifecyclePolicyCommandInput,
-  PutLifecyclePolicyCommandOutput
+  PutLifecyclePolicyCommandOutput,
 } from "./commands/PutLifecyclePolicyCommand";
 import {
   SetRepositoryPolicyCommand,
   SetRepositoryPolicyCommandInput,
-  SetRepositoryPolicyCommandOutput
+  SetRepositoryPolicyCommandOutput,
 } from "./commands/SetRepositoryPolicyCommand";
 import {
   StartImageScanCommand,
   StartImageScanCommandInput,
-  StartImageScanCommandOutput
+  StartImageScanCommandOutput,
 } from "./commands/StartImageScanCommand";
 import {
   StartLifecyclePolicyPreviewCommand,
   StartLifecyclePolicyPreviewCommandInput,
-  StartLifecyclePolicyPreviewCommandOutput
+  StartLifecyclePolicyPreviewCommandOutput,
 } from "./commands/StartLifecyclePolicyPreviewCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UploadLayerPartCommand,
   UploadLayerPartCommandInput,
-  UploadLayerPartCommandOutput
+  UploadLayerPartCommandOutput,
 } from "./commands/UploadLayerPartCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -179,17 +167,14 @@ export class ECR extends ECRClient {
   ): void;
   public batchCheckLayerAvailability(
     args: BatchCheckLayerAvailabilityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchCheckLayerAvailabilityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchCheckLayerAvailabilityCommandOutput) => void),
     cb?: (err: any, data?: BatchCheckLayerAvailabilityCommandOutput) => void
   ): Promise<BatchCheckLayerAvailabilityCommandOutput> | void {
     const command = new BatchCheckLayerAvailabilityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -219,17 +204,14 @@ export class ECR extends ECRClient {
   ): void;
   public batchDeleteImage(
     args: BatchDeleteImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchDeleteImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeleteImageCommandOutput) => void),
     cb?: (err: any, data?: BatchDeleteImageCommandOutput) => void
   ): Promise<BatchDeleteImageCommandOutput> | void {
     const command = new BatchDeleteImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -255,17 +237,14 @@ export class ECR extends ECRClient {
   ): void;
   public batchGetImage(
     args: BatchGetImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetImageCommandOutput) => void),
     cb?: (err: any, data?: BatchGetImageCommandOutput) => void
   ): Promise<BatchGetImageCommandOutput> | void {
     const command = new BatchGetImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -296,17 +275,14 @@ export class ECR extends ECRClient {
   ): void;
   public completeLayerUpload(
     args: CompleteLayerUploadCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CompleteLayerUploadCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CompleteLayerUploadCommandOutput) => void),
     cb?: (err: any, data?: CompleteLayerUploadCommandOutput) => void
   ): Promise<CompleteLayerUploadCommandOutput> | void {
     const command = new CompleteLayerUploadCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -333,17 +309,14 @@ export class ECR extends ECRClient {
   ): void;
   public createRepository(
     args: CreateRepositoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRepositoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRepositoryCommandOutput) => void),
     cb?: (err: any, data?: CreateRepositoryCommandOutput) => void
   ): Promise<CreateRepositoryCommandOutput> | void {
     const command = new CreateRepositoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -368,17 +341,14 @@ export class ECR extends ECRClient {
   ): void;
   public deleteLifecyclePolicy(
     args: DeleteLifecyclePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLifecyclePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLifecyclePolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteLifecyclePolicyCommandOutput) => void
   ): Promise<DeleteLifecyclePolicyCommandOutput> | void {
     const command = new DeleteLifecyclePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -404,17 +374,14 @@ export class ECR extends ECRClient {
   ): void;
   public deleteRepository(
     args: DeleteRepositoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRepositoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRepositoryCommandOutput) => void),
     cb?: (err: any, data?: DeleteRepositoryCommandOutput) => void
   ): Promise<DeleteRepositoryCommandOutput> | void {
     const command = new DeleteRepositoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -439,17 +406,14 @@ export class ECR extends ECRClient {
   ): void;
   public deleteRepositoryPolicy(
     args: DeleteRepositoryPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRepositoryPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRepositoryPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteRepositoryPolicyCommandOutput) => void
   ): Promise<DeleteRepositoryPolicyCommandOutput> | void {
     const command = new DeleteRepositoryPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -481,17 +445,14 @@ export class ECR extends ECRClient {
   ): void;
   public describeImages(
     args: DescribeImagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeImagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeImagesCommandOutput) => void),
     cb?: (err: any, data?: DescribeImagesCommandOutput) => void
   ): Promise<DescribeImagesCommandOutput> | void {
     const command = new DescribeImagesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -516,17 +477,14 @@ export class ECR extends ECRClient {
   ): void;
   public describeImageScanFindings(
     args: DescribeImageScanFindingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeImageScanFindingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeImageScanFindingsCommandOutput) => void),
     cb?: (err: any, data?: DescribeImageScanFindingsCommandOutput) => void
   ): Promise<DescribeImageScanFindingsCommandOutput> | void {
     const command = new DescribeImageScanFindingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -551,17 +509,14 @@ export class ECR extends ECRClient {
   ): void;
   public describeRepositories(
     args: DescribeRepositoriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRepositoriesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRepositoriesCommandOutput) => void),
     cb?: (err: any, data?: DescribeRepositoriesCommandOutput) => void
   ): Promise<DescribeRepositoriesCommandOutput> | void {
     const command = new DescribeRepositoriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -592,17 +547,14 @@ export class ECR extends ECRClient {
   ): void;
   public getAuthorizationToken(
     args: GetAuthorizationTokenCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAuthorizationTokenCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAuthorizationTokenCommandOutput) => void),
     cb?: (err: any, data?: GetAuthorizationTokenCommandOutput) => void
   ): Promise<GetAuthorizationTokenCommandOutput> | void {
     const command = new GetAuthorizationTokenCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -632,17 +584,14 @@ export class ECR extends ECRClient {
   ): void;
   public getDownloadUrlForLayer(
     args: GetDownloadUrlForLayerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDownloadUrlForLayerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDownloadUrlForLayerCommandOutput) => void),
     cb?: (err: any, data?: GetDownloadUrlForLayerCommandOutput) => void
   ): Promise<GetDownloadUrlForLayerCommandOutput> | void {
     const command = new GetDownloadUrlForLayerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -667,17 +616,14 @@ export class ECR extends ECRClient {
   ): void;
   public getLifecyclePolicy(
     args: GetLifecyclePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLifecyclePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLifecyclePolicyCommandOutput) => void),
     cb?: (err: any, data?: GetLifecyclePolicyCommandOutput) => void
   ): Promise<GetLifecyclePolicyCommandOutput> | void {
     const command = new GetLifecyclePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -702,17 +648,14 @@ export class ECR extends ECRClient {
   ): void;
   public getLifecyclePolicyPreview(
     args: GetLifecyclePolicyPreviewCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLifecyclePolicyPreviewCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLifecyclePolicyPreviewCommandOutput) => void),
     cb?: (err: any, data?: GetLifecyclePolicyPreviewCommandOutput) => void
   ): Promise<GetLifecyclePolicyPreviewCommandOutput> | void {
     const command = new GetLifecyclePolicyPreviewCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -737,17 +680,14 @@ export class ECR extends ECRClient {
   ): void;
   public getRepositoryPolicy(
     args: GetRepositoryPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRepositoryPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRepositoryPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetRepositoryPolicyCommandOutput) => void
   ): Promise<GetRepositoryPolicyCommandOutput> | void {
     const command = new GetRepositoryPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -776,17 +716,14 @@ export class ECR extends ECRClient {
   ): void;
   public initiateLayerUpload(
     args: InitiateLayerUploadCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InitiateLayerUploadCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InitiateLayerUploadCommandOutput) => void),
     cb?: (err: any, data?: InitiateLayerUploadCommandOutput) => void
   ): Promise<InitiateLayerUploadCommandOutput> | void {
     const command = new InitiateLayerUploadCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -802,14 +739,8 @@ export class ECR extends ECRClient {
    *             Or, you can filter your results to return only <code>TAGGED</code> images to list all of
    *             the tags in your repository.</p>
    */
-  public listImages(
-    args: ListImagesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListImagesCommandOutput>;
-  public listImages(
-    args: ListImagesCommandInput,
-    cb: (err: any, data?: ListImagesCommandOutput) => void
-  ): void;
+  public listImages(args: ListImagesCommandInput, options?: __HttpHandlerOptions): Promise<ListImagesCommandOutput>;
+  public listImages(args: ListImagesCommandInput, cb: (err: any, data?: ListImagesCommandOutput) => void): void;
   public listImages(
     args: ListImagesCommandInput,
     options: __HttpHandlerOptions,
@@ -817,17 +748,14 @@ export class ECR extends ECRClient {
   ): void;
   public listImages(
     args: ListImagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListImagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImagesCommandOutput) => void),
     cb?: (err: any, data?: ListImagesCommandOutput) => void
   ): Promise<ListImagesCommandOutput> | void {
     const command = new ListImagesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -852,17 +780,14 @@ export class ECR extends ECRClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -877,14 +802,8 @@ export class ECR extends ECRClient {
    *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
    *          </note>
    */
-  public putImage(
-    args: PutImageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutImageCommandOutput>;
-  public putImage(
-    args: PutImageCommandInput,
-    cb: (err: any, data?: PutImageCommandOutput) => void
-  ): void;
+  public putImage(args: PutImageCommandInput, options?: __HttpHandlerOptions): Promise<PutImageCommandOutput>;
+  public putImage(args: PutImageCommandInput, cb: (err: any, data?: PutImageCommandOutput) => void): void;
   public putImage(
     args: PutImageCommandInput,
     options: __HttpHandlerOptions,
@@ -892,17 +811,14 @@ export class ECR extends ECRClient {
   ): void;
   public putImage(
     args: PutImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutImageCommandOutput) => void),
     cb?: (err: any, data?: PutImageCommandOutput) => void
   ): Promise<PutImageCommandOutput> | void {
     const command = new PutImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -927,17 +843,14 @@ export class ECR extends ECRClient {
   ): void;
   public putImageScanningConfiguration(
     args: PutImageScanningConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutImageScanningConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutImageScanningConfigurationCommandOutput) => void),
     cb?: (err: any, data?: PutImageScanningConfigurationCommandOutput) => void
   ): Promise<PutImageScanningConfigurationCommandOutput> | void {
     const command = new PutImageScanningConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -965,17 +878,14 @@ export class ECR extends ECRClient {
   ): void;
   public putImageTagMutability(
     args: PutImageTagMutabilityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutImageTagMutabilityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutImageTagMutabilityCommandOutput) => void),
     cb?: (err: any, data?: PutImageTagMutabilityCommandOutput) => void
   ): Promise<PutImageTagMutabilityCommandOutput> | void {
     const command = new PutImageTagMutabilityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1001,17 +911,14 @@ export class ECR extends ECRClient {
   ): void;
   public putLifecyclePolicy(
     args: PutLifecyclePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutLifecyclePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutLifecyclePolicyCommandOutput) => void),
     cb?: (err: any, data?: PutLifecyclePolicyCommandOutput) => void
   ): Promise<PutLifecyclePolicyCommandOutput> | void {
     const command = new PutLifecyclePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1038,17 +945,14 @@ export class ECR extends ECRClient {
   ): void;
   public setRepositoryPolicy(
     args: SetRepositoryPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetRepositoryPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetRepositoryPolicyCommandOutput) => void),
     cb?: (err: any, data?: SetRepositoryPolicyCommandOutput) => void
   ): Promise<SetRepositoryPolicyCommandOutput> | void {
     const command = new SetRepositoryPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1076,17 +980,14 @@ export class ECR extends ECRClient {
   ): void;
   public startImageScan(
     args: StartImageScanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartImageScanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartImageScanCommandOutput) => void),
     cb?: (err: any, data?: StartImageScanCommandOutput) => void
   ): Promise<StartImageScanCommandOutput> | void {
     const command = new StartImageScanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1112,17 +1013,14 @@ export class ECR extends ECRClient {
   ): void;
   public startLifecyclePolicyPreview(
     args: StartLifecyclePolicyPreviewCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartLifecyclePolicyPreviewCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartLifecyclePolicyPreviewCommandOutput) => void),
     cb?: (err: any, data?: StartLifecyclePolicyPreviewCommandOutput) => void
   ): Promise<StartLifecyclePolicyPreviewCommandOutput> | void {
     const command = new StartLifecyclePolicyPreviewCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1133,14 +1031,8 @@ export class ECR extends ECRClient {
    * <p>Adds specified tags to a resource with the specified ARN. Existing tags on a resource
    *             are not changed if they are not specified in the request parameters.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1148,17 +1040,14 @@ export class ECR extends ECRClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1183,17 +1072,14 @@ export class ECR extends ECRClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1222,17 +1108,14 @@ export class ECR extends ECRClient {
   ): void;
   public uploadLayerPart(
     args: UploadLayerPartCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UploadLayerPartCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UploadLayerPartCommandOutput) => void),
     cb?: (err: any, data?: UploadLayerPartCommandOutput) => void
   ): Promise<UploadLayerPartCommandOutput> | void {
     const command = new UploadLayerPartCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

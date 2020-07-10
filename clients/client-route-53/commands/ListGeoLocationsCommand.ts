@@ -1,21 +1,11 @@
-import {
-  Route53ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53Client";
-import {
-  ListGeoLocationsRequest,
-  ListGeoLocationsResponse
-} from "../models/index";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import { ListGeoLocationsRequest, ListGeoLocationsResponse } from "../models/index";
 import {
   deserializeAws_restXmlListGeoLocationsCommand,
-  serializeAws_restXmlListGeoLocationsCommand
+  serializeAws_restXmlListGeoLocationsCommand,
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListGeoLocationsCommandInput = ListGeoLocationsRequest;
-export type ListGeoLocationsCommandOutput = ListGeoLocationsResponse &
-  __MetadataBearer;
+export type ListGeoLocationsCommandOutput = ListGeoLocationsResponse & __MetadataBearer;
 
 export class ListGeoLocationsCommand extends $Command<
   ListGeoLocationsCommandInput,
@@ -50,14 +39,12 @@ export class ListGeoLocationsCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListGeoLocationsCommandInput, ListGeoLocationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class ListGeoLocationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListGeoLocationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListGeoLocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListGeoLocationsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListGeoLocationsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGeoLocationsCommandOutput> {
     return deserializeAws_restXmlListGeoLocationsCommand(output, context);
   }
 

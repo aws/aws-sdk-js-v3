@@ -2,167 +2,139 @@ import { SNSClient } from "./SNSClient";
 import {
   AddPermissionCommand,
   AddPermissionCommandInput,
-  AddPermissionCommandOutput
+  AddPermissionCommandOutput,
 } from "./commands/AddPermissionCommand";
 import {
   CheckIfPhoneNumberIsOptedOutCommand,
   CheckIfPhoneNumberIsOptedOutCommandInput,
-  CheckIfPhoneNumberIsOptedOutCommandOutput
+  CheckIfPhoneNumberIsOptedOutCommandOutput,
 } from "./commands/CheckIfPhoneNumberIsOptedOutCommand";
 import {
   ConfirmSubscriptionCommand,
   ConfirmSubscriptionCommandInput,
-  ConfirmSubscriptionCommandOutput
+  ConfirmSubscriptionCommandOutput,
 } from "./commands/ConfirmSubscriptionCommand";
 import {
   CreatePlatformApplicationCommand,
   CreatePlatformApplicationCommandInput,
-  CreatePlatformApplicationCommandOutput
+  CreatePlatformApplicationCommandOutput,
 } from "./commands/CreatePlatformApplicationCommand";
 import {
   CreatePlatformEndpointCommand,
   CreatePlatformEndpointCommandInput,
-  CreatePlatformEndpointCommandOutput
+  CreatePlatformEndpointCommandOutput,
 } from "./commands/CreatePlatformEndpointCommand";
-import {
-  CreateTopicCommand,
-  CreateTopicCommandInput,
-  CreateTopicCommandOutput
-} from "./commands/CreateTopicCommand";
+import { CreateTopicCommand, CreateTopicCommandInput, CreateTopicCommandOutput } from "./commands/CreateTopicCommand";
 import {
   DeleteEndpointCommand,
   DeleteEndpointCommandInput,
-  DeleteEndpointCommandOutput
+  DeleteEndpointCommandOutput,
 } from "./commands/DeleteEndpointCommand";
 import {
   DeletePlatformApplicationCommand,
   DeletePlatformApplicationCommandInput,
-  DeletePlatformApplicationCommandOutput
+  DeletePlatformApplicationCommandOutput,
 } from "./commands/DeletePlatformApplicationCommand";
-import {
-  DeleteTopicCommand,
-  DeleteTopicCommandInput,
-  DeleteTopicCommandOutput
-} from "./commands/DeleteTopicCommand";
+import { DeleteTopicCommand, DeleteTopicCommandInput, DeleteTopicCommandOutput } from "./commands/DeleteTopicCommand";
 import {
   GetEndpointAttributesCommand,
   GetEndpointAttributesCommandInput,
-  GetEndpointAttributesCommandOutput
+  GetEndpointAttributesCommandOutput,
 } from "./commands/GetEndpointAttributesCommand";
 import {
   GetPlatformApplicationAttributesCommand,
   GetPlatformApplicationAttributesCommandInput,
-  GetPlatformApplicationAttributesCommandOutput
+  GetPlatformApplicationAttributesCommandOutput,
 } from "./commands/GetPlatformApplicationAttributesCommand";
 import {
   GetSMSAttributesCommand,
   GetSMSAttributesCommandInput,
-  GetSMSAttributesCommandOutput
+  GetSMSAttributesCommandOutput,
 } from "./commands/GetSMSAttributesCommand";
 import {
   GetSubscriptionAttributesCommand,
   GetSubscriptionAttributesCommandInput,
-  GetSubscriptionAttributesCommandOutput
+  GetSubscriptionAttributesCommandOutput,
 } from "./commands/GetSubscriptionAttributesCommand";
 import {
   GetTopicAttributesCommand,
   GetTopicAttributesCommandInput,
-  GetTopicAttributesCommandOutput
+  GetTopicAttributesCommandOutput,
 } from "./commands/GetTopicAttributesCommand";
 import {
   ListEndpointsByPlatformApplicationCommand,
   ListEndpointsByPlatformApplicationCommandInput,
-  ListEndpointsByPlatformApplicationCommandOutput
+  ListEndpointsByPlatformApplicationCommandOutput,
 } from "./commands/ListEndpointsByPlatformApplicationCommand";
 import {
   ListPhoneNumbersOptedOutCommand,
   ListPhoneNumbersOptedOutCommandInput,
-  ListPhoneNumbersOptedOutCommandOutput
+  ListPhoneNumbersOptedOutCommandOutput,
 } from "./commands/ListPhoneNumbersOptedOutCommand";
 import {
   ListPlatformApplicationsCommand,
   ListPlatformApplicationsCommandInput,
-  ListPlatformApplicationsCommandOutput
+  ListPlatformApplicationsCommandOutput,
 } from "./commands/ListPlatformApplicationsCommand";
 import {
   ListSubscriptionsByTopicCommand,
   ListSubscriptionsByTopicCommandInput,
-  ListSubscriptionsByTopicCommandOutput
+  ListSubscriptionsByTopicCommandOutput,
 } from "./commands/ListSubscriptionsByTopicCommand";
 import {
   ListSubscriptionsCommand,
   ListSubscriptionsCommandInput,
-  ListSubscriptionsCommandOutput
+  ListSubscriptionsCommandOutput,
 } from "./commands/ListSubscriptionsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListTopicsCommand,
-  ListTopicsCommandInput,
-  ListTopicsCommandOutput
-} from "./commands/ListTopicsCommand";
+import { ListTopicsCommand, ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/ListTopicsCommand";
 import {
   OptInPhoneNumberCommand,
   OptInPhoneNumberCommandInput,
-  OptInPhoneNumberCommandOutput
+  OptInPhoneNumberCommandOutput,
 } from "./commands/OptInPhoneNumberCommand";
-import {
-  PublishCommand,
-  PublishCommandInput,
-  PublishCommandOutput
-} from "./commands/PublishCommand";
+import { PublishCommand, PublishCommandInput, PublishCommandOutput } from "./commands/PublishCommand";
 import {
   RemovePermissionCommand,
   RemovePermissionCommandInput,
-  RemovePermissionCommandOutput
+  RemovePermissionCommandOutput,
 } from "./commands/RemovePermissionCommand";
 import {
   SetEndpointAttributesCommand,
   SetEndpointAttributesCommandInput,
-  SetEndpointAttributesCommandOutput
+  SetEndpointAttributesCommandOutput,
 } from "./commands/SetEndpointAttributesCommand";
 import {
   SetPlatformApplicationAttributesCommand,
   SetPlatformApplicationAttributesCommandInput,
-  SetPlatformApplicationAttributesCommandOutput
+  SetPlatformApplicationAttributesCommandOutput,
 } from "./commands/SetPlatformApplicationAttributesCommand";
 import {
   SetSMSAttributesCommand,
   SetSMSAttributesCommandInput,
-  SetSMSAttributesCommandOutput
+  SetSMSAttributesCommandOutput,
 } from "./commands/SetSMSAttributesCommand";
 import {
   SetSubscriptionAttributesCommand,
   SetSubscriptionAttributesCommandInput,
-  SetSubscriptionAttributesCommandOutput
+  SetSubscriptionAttributesCommandOutput,
 } from "./commands/SetSubscriptionAttributesCommand";
 import {
   SetTopicAttributesCommand,
   SetTopicAttributesCommandInput,
-  SetTopicAttributesCommandOutput
+  SetTopicAttributesCommandOutput,
 } from "./commands/SetTopicAttributesCommand";
-import {
-  SubscribeCommand,
-  SubscribeCommandInput,
-  SubscribeCommandOutput
-} from "./commands/SubscribeCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UnsubscribeCommand,
-  UnsubscribeCommandInput,
-  UnsubscribeCommandOutput
-} from "./commands/UnsubscribeCommand";
+import { SubscribeCommand, SubscribeCommandInput, SubscribeCommandOutput } from "./commands/SubscribeCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UnsubscribeCommand, UnsubscribeCommandInput, UnsubscribeCommandOutput } from "./commands/UnsubscribeCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -198,17 +170,14 @@ export class SNS extends SNSClient {
   ): void;
   public addPermission(
     args: AddPermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddPermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddPermissionCommandOutput) => void),
     cb?: (err: any, data?: AddPermissionCommandOutput) => void
   ): Promise<AddPermissionCommandOutput> | void {
     const command = new AddPermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -237,17 +206,14 @@ export class SNS extends SNSClient {
   ): void;
   public checkIfPhoneNumberIsOptedOut(
     args: CheckIfPhoneNumberIsOptedOutCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CheckIfPhoneNumberIsOptedOutCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CheckIfPhoneNumberIsOptedOutCommandOutput) => void),
     cb?: (err: any, data?: CheckIfPhoneNumberIsOptedOutCommandOutput) => void
   ): Promise<CheckIfPhoneNumberIsOptedOutCommandOutput> | void {
     const command = new CheckIfPhoneNumberIsOptedOutCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -276,17 +242,14 @@ export class SNS extends SNSClient {
   ): void;
   public confirmSubscription(
     args: ConfirmSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ConfirmSubscriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ConfirmSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: ConfirmSubscriptionCommandOutput) => void
   ): Promise<ConfirmSubscriptionCommandOutput> | void {
     const command = new ConfirmSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -325,17 +288,14 @@ export class SNS extends SNSClient {
   ): void;
   public createPlatformApplication(
     args: CreatePlatformApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePlatformApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePlatformApplicationCommandOutput) => void),
     cb?: (err: any, data?: CreatePlatformApplicationCommandOutput) => void
   ): Promise<CreatePlatformApplicationCommandOutput> | void {
     const command = new CreatePlatformApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -374,17 +334,14 @@ export class SNS extends SNSClient {
   ): void;
   public createPlatformEndpoint(
     args: CreatePlatformEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePlatformEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePlatformEndpointCommandOutput) => void),
     cb?: (err: any, data?: CreatePlatformEndpointCommandOutput) => void
   ): Promise<CreatePlatformEndpointCommandOutput> | void {
     const command = new CreatePlatformEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -397,14 +354,8 @@ export class SNS extends SNSClient {
    *             already owns a topic with the specified name, that topic's ARN is returned without
    *             creating a new topic.</p>
    */
-  public createTopic(
-    args: CreateTopicCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateTopicCommandOutput>;
-  public createTopic(
-    args: CreateTopicCommandInput,
-    cb: (err: any, data?: CreateTopicCommandOutput) => void
-  ): void;
+  public createTopic(args: CreateTopicCommandInput, options?: __HttpHandlerOptions): Promise<CreateTopicCommandOutput>;
+  public createTopic(args: CreateTopicCommandInput, cb: (err: any, data?: CreateTopicCommandOutput) => void): void;
   public createTopic(
     args: CreateTopicCommandInput,
     options: __HttpHandlerOptions,
@@ -412,17 +363,14 @@ export class SNS extends SNSClient {
   ): void;
   public createTopic(
     args: CreateTopicCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTopicCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTopicCommandOutput) => void),
     cb?: (err: any, data?: CreateTopicCommandOutput) => void
   ): Promise<CreateTopicCommandOutput> | void {
     const command = new CreateTopicCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -451,17 +399,14 @@ export class SNS extends SNSClient {
   ): void;
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEndpointCommandOutput) => void),
     cb?: (err: any, data?: DeleteEndpointCommandOutput) => void
   ): Promise<DeleteEndpointCommandOutput> | void {
     const command = new DeleteEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -488,17 +433,14 @@ export class SNS extends SNSClient {
   ): void;
   public deletePlatformApplication(
     args: DeletePlatformApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePlatformApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePlatformApplicationCommandOutput) => void),
     cb?: (err: any, data?: DeletePlatformApplicationCommandOutput) => void
   ): Promise<DeletePlatformApplicationCommandOutput> | void {
     const command = new DeletePlatformApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -511,14 +453,8 @@ export class SNS extends SNSClient {
    *             is idempotent, so deleting a topic that does not exist does not result in an
    *             error.</p>
    */
-  public deleteTopic(
-    args: DeleteTopicCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteTopicCommandOutput>;
-  public deleteTopic(
-    args: DeleteTopicCommandInput,
-    cb: (err: any, data?: DeleteTopicCommandOutput) => void
-  ): void;
+  public deleteTopic(args: DeleteTopicCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTopicCommandOutput>;
+  public deleteTopic(args: DeleteTopicCommandInput, cb: (err: any, data?: DeleteTopicCommandOutput) => void): void;
   public deleteTopic(
     args: DeleteTopicCommandInput,
     options: __HttpHandlerOptions,
@@ -526,17 +462,14 @@ export class SNS extends SNSClient {
   ): void;
   public deleteTopic(
     args: DeleteTopicCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTopicCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTopicCommandOutput) => void),
     cb?: (err: any, data?: DeleteTopicCommandOutput) => void
   ): Promise<DeleteTopicCommandOutput> | void {
     const command = new DeleteTopicCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -563,17 +496,14 @@ export class SNS extends SNSClient {
   ): void;
   public getEndpointAttributes(
     args: GetEndpointAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEndpointAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEndpointAttributesCommandOutput) => void),
     cb?: (err: any, data?: GetEndpointAttributesCommandOutput) => void
   ): Promise<GetEndpointAttributesCommandOutput> | void {
     const command = new GetEndpointAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -600,23 +530,14 @@ export class SNS extends SNSClient {
   ): void;
   public getPlatformApplicationAttributes(
     args: GetPlatformApplicationAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetPlatformApplicationAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetPlatformApplicationAttributesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPlatformApplicationAttributesCommandOutput) => void),
+    cb?: (err: any, data?: GetPlatformApplicationAttributesCommandOutput) => void
   ): Promise<GetPlatformApplicationAttributesCommandOutput> | void {
     const command = new GetPlatformApplicationAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -642,17 +563,14 @@ export class SNS extends SNSClient {
   ): void;
   public getSMSAttributes(
     args: GetSMSAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSMSAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSMSAttributesCommandOutput) => void),
     cb?: (err: any, data?: GetSMSAttributesCommandOutput) => void
   ): Promise<GetSMSAttributesCommandOutput> | void {
     const command = new GetSMSAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -677,17 +595,14 @@ export class SNS extends SNSClient {
   ): void;
   public getSubscriptionAttributes(
     args: GetSubscriptionAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSubscriptionAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSubscriptionAttributesCommandOutput) => void),
     cb?: (err: any, data?: GetSubscriptionAttributesCommandOutput) => void
   ): Promise<GetSubscriptionAttributesCommandOutput> | void {
     const command = new GetSubscriptionAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -713,17 +628,14 @@ export class SNS extends SNSClient {
   ): void;
   public getTopicAttributes(
     args: GetTopicAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTopicAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTopicAttributesCommandOutput) => void),
     cb?: (err: any, data?: GetTopicAttributesCommandOutput) => void
   ): Promise<GetTopicAttributesCommandOutput> | void {
     const command = new GetTopicAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -748,38 +660,23 @@ export class SNS extends SNSClient {
   ): Promise<ListEndpointsByPlatformApplicationCommandOutput>;
   public listEndpointsByPlatformApplication(
     args: ListEndpointsByPlatformApplicationCommandInput,
-    cb: (
-      err: any,
-      data?: ListEndpointsByPlatformApplicationCommandOutput
-    ) => void
+    cb: (err: any, data?: ListEndpointsByPlatformApplicationCommandOutput) => void
   ): void;
   public listEndpointsByPlatformApplication(
     args: ListEndpointsByPlatformApplicationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListEndpointsByPlatformApplicationCommandOutput
-    ) => void
+    cb: (err: any, data?: ListEndpointsByPlatformApplicationCommandOutput) => void
   ): void;
   public listEndpointsByPlatformApplication(
     args: ListEndpointsByPlatformApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListEndpointsByPlatformApplicationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListEndpointsByPlatformApplicationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEndpointsByPlatformApplicationCommandOutput) => void),
+    cb?: (err: any, data?: ListEndpointsByPlatformApplicationCommandOutput) => void
   ): Promise<ListEndpointsByPlatformApplicationCommandOutput> | void {
     const command = new ListEndpointsByPlatformApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -811,17 +708,14 @@ export class SNS extends SNSClient {
   ): void;
   public listPhoneNumbersOptedOut(
     args: ListPhoneNumbersOptedOutCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPhoneNumbersOptedOutCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPhoneNumbersOptedOutCommandOutput) => void),
     cb?: (err: any, data?: ListPhoneNumbersOptedOutCommandOutput) => void
   ): Promise<ListPhoneNumbersOptedOutCommandOutput> | void {
     const command = new ListPhoneNumbersOptedOutCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -854,17 +748,14 @@ export class SNS extends SNSClient {
   ): void;
   public listPlatformApplications(
     args: ListPlatformApplicationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPlatformApplicationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPlatformApplicationsCommandOutput) => void),
     cb?: (err: any, data?: ListPlatformApplicationsCommandOutput) => void
   ): Promise<ListPlatformApplicationsCommandOutput> | void {
     const command = new ListPlatformApplicationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -893,17 +784,14 @@ export class SNS extends SNSClient {
   ): void;
   public listSubscriptions(
     args: ListSubscriptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSubscriptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSubscriptionsCommandOutput) => void),
     cb?: (err: any, data?: ListSubscriptionsCommandOutput) => void
   ): Promise<ListSubscriptionsCommandOutput> | void {
     const command = new ListSubscriptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -932,17 +820,14 @@ export class SNS extends SNSClient {
   ): void;
   public listSubscriptionsByTopic(
     args: ListSubscriptionsByTopicCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSubscriptionsByTopicCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSubscriptionsByTopicCommandOutput) => void),
     cb?: (err: any, data?: ListSubscriptionsByTopicCommandOutput) => void
   ): Promise<ListSubscriptionsByTopicCommandOutput> | void {
     const command = new ListSubscriptionsByTopicCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -969,17 +854,14 @@ export class SNS extends SNSClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -993,14 +875,8 @@ export class SNS extends SNSClient {
    *             further results.</p>
    *         <p>This action is throttled at 30 transactions per second (TPS).</p>
    */
-  public listTopics(
-    args: ListTopicsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTopicsCommandOutput>;
-  public listTopics(
-    args: ListTopicsCommandInput,
-    cb: (err: any, data?: ListTopicsCommandOutput) => void
-  ): void;
+  public listTopics(args: ListTopicsCommandInput, options?: __HttpHandlerOptions): Promise<ListTopicsCommandOutput>;
+  public listTopics(args: ListTopicsCommandInput, cb: (err: any, data?: ListTopicsCommandOutput) => void): void;
   public listTopics(
     args: ListTopicsCommandInput,
     options: __HttpHandlerOptions,
@@ -1008,17 +884,14 @@ export class SNS extends SNSClient {
   ): void;
   public listTopics(
     args: ListTopicsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTopicsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTopicsCommandOutput) => void),
     cb?: (err: any, data?: ListTopicsCommandOutput) => void
   ): Promise<ListTopicsCommandOutput> | void {
     const command = new ListTopicsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1045,17 +918,14 @@ export class SNS extends SNSClient {
   ): void;
   public optInPhoneNumber(
     args: OptInPhoneNumberCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: OptInPhoneNumberCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: OptInPhoneNumberCommandOutput) => void),
     cb?: (err: any, data?: OptInPhoneNumberCommandOutput) => void
   ): Promise<OptInPhoneNumberCommandOutput> | void {
     const command = new OptInPhoneNumberCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1078,14 +948,8 @@ export class SNS extends SNSClient {
    *         <p>For more information about formatting messages, see <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom
    *                 Platform-Specific Payloads in Messages to Mobile Devices</a>. </p>
    */
-  public publish(
-    args: PublishCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PublishCommandOutput>;
-  public publish(
-    args: PublishCommandInput,
-    cb: (err: any, data?: PublishCommandOutput) => void
-  ): void;
+  public publish(args: PublishCommandInput, options?: __HttpHandlerOptions): Promise<PublishCommandOutput>;
+  public publish(args: PublishCommandInput, cb: (err: any, data?: PublishCommandOutput) => void): void;
   public publish(
     args: PublishCommandInput,
     options: __HttpHandlerOptions,
@@ -1093,17 +957,14 @@ export class SNS extends SNSClient {
   ): void;
   public publish(
     args: PublishCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PublishCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PublishCommandOutput) => void),
     cb?: (err: any, data?: PublishCommandOutput) => void
   ): Promise<PublishCommandOutput> | void {
     const command = new PublishCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1128,17 +989,14 @@ export class SNS extends SNSClient {
   ): void;
   public removePermission(
     args: RemovePermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemovePermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemovePermissionCommandOutput) => void),
     cb?: (err: any, data?: RemovePermissionCommandOutput) => void
   ): Promise<RemovePermissionCommandOutput> | void {
     const command = new RemovePermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1165,17 +1023,14 @@ export class SNS extends SNSClient {
   ): void;
   public setEndpointAttributes(
     args: SetEndpointAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetEndpointAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetEndpointAttributesCommandOutput) => void),
     cb?: (err: any, data?: SetEndpointAttributesCommandOutput) => void
   ): Promise<SetEndpointAttributesCommandOutput> | void {
     const command = new SetEndpointAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1203,23 +1058,14 @@ export class SNS extends SNSClient {
   ): void;
   public setPlatformApplicationAttributes(
     args: SetPlatformApplicationAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: SetPlatformApplicationAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: SetPlatformApplicationAttributesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetPlatformApplicationAttributesCommandOutput) => void),
+    cb?: (err: any, data?: SetPlatformApplicationAttributesCommandOutput) => void
   ): Promise<SetPlatformApplicationAttributesCommandOutput> | void {
     const command = new SetPlatformApplicationAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1249,17 +1095,14 @@ export class SNS extends SNSClient {
   ): void;
   public setSMSAttributes(
     args: SetSMSAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetSMSAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetSMSAttributesCommandOutput) => void),
     cb?: (err: any, data?: SetSMSAttributesCommandOutput) => void
   ): Promise<SetSMSAttributesCommandOutput> | void {
     const command = new SetSMSAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1285,17 +1128,14 @@ export class SNS extends SNSClient {
   ): void;
   public setSubscriptionAttributes(
     args: SetSubscriptionAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetSubscriptionAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetSubscriptionAttributesCommandOutput) => void),
     cb?: (err: any, data?: SetSubscriptionAttributesCommandOutput) => void
   ): Promise<SetSubscriptionAttributesCommandOutput> | void {
     const command = new SetSubscriptionAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1320,17 +1160,14 @@ export class SNS extends SNSClient {
   ): void;
   public setTopicAttributes(
     args: SetTopicAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetTopicAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetTopicAttributesCommandOutput) => void),
     cb?: (err: any, data?: SetTopicAttributesCommandOutput) => void
   ): Promise<SetTopicAttributesCommandOutput> | void {
     const command = new SetTopicAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1344,14 +1181,8 @@ export class SNS extends SNSClient {
    *             message. Confirmation tokens are valid for three days.</p>
    *         <p>This action is throttled at 100 transactions per second (TPS).</p>
    */
-  public subscribe(
-    args: SubscribeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SubscribeCommandOutput>;
-  public subscribe(
-    args: SubscribeCommandInput,
-    cb: (err: any, data?: SubscribeCommandOutput) => void
-  ): void;
+  public subscribe(args: SubscribeCommandInput, options?: __HttpHandlerOptions): Promise<SubscribeCommandOutput>;
+  public subscribe(args: SubscribeCommandInput, cb: (err: any, data?: SubscribeCommandOutput) => void): void;
   public subscribe(
     args: SubscribeCommandInput,
     options: __HttpHandlerOptions,
@@ -1359,17 +1190,14 @@ export class SNS extends SNSClient {
   ): void;
   public subscribe(
     args: SubscribeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SubscribeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SubscribeCommandOutput) => void),
     cb?: (err: any, data?: SubscribeCommandOutput) => void
   ): Promise<SubscribeCommandOutput> | void {
     const command = new SubscribeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1402,14 +1230,8 @@ export class SNS extends SNSClient {
    *             </li>
    *          </ul>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1417,17 +1239,14 @@ export class SNS extends SNSClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1443,14 +1262,8 @@ export class SNS extends SNSClient {
    *                 <code>Unsubscribe</code> request was unintended.</p>
    *         <p>This action is throttled at 100 transactions per second (TPS).</p>
    */
-  public unsubscribe(
-    args: UnsubscribeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UnsubscribeCommandOutput>;
-  public unsubscribe(
-    args: UnsubscribeCommandInput,
-    cb: (err: any, data?: UnsubscribeCommandOutput) => void
-  ): void;
+  public unsubscribe(args: UnsubscribeCommandInput, options?: __HttpHandlerOptions): Promise<UnsubscribeCommandOutput>;
+  public unsubscribe(args: UnsubscribeCommandInput, cb: (err: any, data?: UnsubscribeCommandOutput) => void): void;
   public unsubscribe(
     args: UnsubscribeCommandInput,
     options: __HttpHandlerOptions,
@@ -1458,17 +1271,14 @@ export class SNS extends SNSClient {
   ): void;
   public unsubscribe(
     args: UnsubscribeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnsubscribeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnsubscribeCommandOutput) => void),
     cb?: (err: any, data?: UnsubscribeCommandOutput) => void
   ): Promise<UnsubscribeCommandOutput> | void {
     const command = new UnsubscribeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1495,17 +1305,14 @@ export class SNS extends SNSClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

@@ -1,22 +1,12 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
-import {
-  PutObjectLockConfigurationOutput,
-  PutObjectLockConfigurationRequest
-} from "../models/index";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { PutObjectLockConfigurationOutput, PutObjectLockConfigurationRequest } from "../models/index";
 import {
   deserializeAws_restXmlPutObjectLockConfigurationCommand,
-  serializeAws_restXmlPutObjectLockConfigurationCommand
+  serializeAws_restXmlPutObjectLockConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,12 +15,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type PutObjectLockConfigurationCommandInput = PutObjectLockConfigurationRequest;
-export type PutObjectLockConfigurationCommandOutput = PutObjectLockConfigurationOutput &
-  __MetadataBearer;
+export type PutObjectLockConfigurationCommandOutput = PutObjectLockConfigurationOutput & __MetadataBearer;
 
 export class PutObjectLockConfigurationCommand extends $Command<
   PutObjectLockConfigurationCommandInput,
@@ -50,19 +39,14 @@ export class PutObjectLockConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutObjectLockConfigurationCommandInput,
-    PutObjectLockConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutObjectLockConfigurationCommandInput, PutObjectLockConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,24 +56,15 @@ export class PutObjectLockConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutObjectLockConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutObjectLockConfigurationCommand(
-      input,
-      context
-    );
+  private serialize(input: PutObjectLockConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlPutObjectLockConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutObjectLockConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutObjectLockConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlPutObjectLockConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,15 @@
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  DescribeUserImportJobRequest,
-  DescribeUserImportJobResponse
-} from "../models/index";
+import { DescribeUserImportJobRequest, DescribeUserImportJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeUserImportJobCommand,
-  serializeAws_json1_1DescribeUserImportJobCommand
+  serializeAws_json1_1DescribeUserImportJobCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeUserImportJobCommandInput = DescribeUserImportJobRequest;
-export type DescribeUserImportJobCommandOutput = DescribeUserImportJobResponse &
-  __MetadataBearer;
+export type DescribeUserImportJobCommandOutput = DescribeUserImportJobResponse & __MetadataBearer;
 
 export class DescribeUserImportJobCommand extends $Command<
   DescribeUserImportJobCommandInput,
@@ -49,18 +42,13 @@ export class DescribeUserImportJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeUserImportJobCommandInput,
-    DescribeUserImportJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeUserImportJobCommandInput, DescribeUserImportJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +58,11 @@ export class DescribeUserImportJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeUserImportJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeUserImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeUserImportJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeUserImportJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserImportJobCommandOutput> {
     return deserializeAws_json1_1DescribeUserImportJobCommand(output, context);
   }
 

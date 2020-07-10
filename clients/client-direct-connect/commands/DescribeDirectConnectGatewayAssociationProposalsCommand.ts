@@ -1,21 +1,14 @@
-import {
-  DirectConnectClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DirectConnectClient";
+import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import {
   DescribeDirectConnectGatewayAssociationProposalsRequest,
-  DescribeDirectConnectGatewayAssociationProposalsResult
+  DescribeDirectConnectGatewayAssociationProposalsResult,
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommand,
-  serializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommand
+  serializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeDirectConnectGatewayAssociationProposalsCommandInput = DescribeDirectConnectGatewayAssociationProposalsRequest;
@@ -39,9 +32,7 @@ export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Co
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeDirectConnectGatewayAssociationProposalsCommandInput
-  ) {
+  constructor(readonly input: DescribeDirectConnectGatewayAssociationProposalsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,14 +46,12 @@ export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Co
     DescribeDirectConnectGatewayAssociationProposalsCommandInput,
     DescribeDirectConnectGatewayAssociationProposalsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +65,14 @@ export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Co
     input: DescribeDirectConnectGatewayAssociationProposalsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDirectConnectGatewayAssociationProposalsCommandOutput> {
-    return deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommand(output, context);
   }
 
   // Start section: command_body_extra

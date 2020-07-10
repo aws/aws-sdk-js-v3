@@ -2,112 +2,108 @@ import { Route53ResolverClient } from "./Route53ResolverClient";
 import {
   AssociateResolverEndpointIpAddressCommand,
   AssociateResolverEndpointIpAddressCommandInput,
-  AssociateResolverEndpointIpAddressCommandOutput
+  AssociateResolverEndpointIpAddressCommandOutput,
 } from "./commands/AssociateResolverEndpointIpAddressCommand";
 import {
   AssociateResolverRuleCommand,
   AssociateResolverRuleCommandInput,
-  AssociateResolverRuleCommandOutput
+  AssociateResolverRuleCommandOutput,
 } from "./commands/AssociateResolverRuleCommand";
 import {
   CreateResolverEndpointCommand,
   CreateResolverEndpointCommandInput,
-  CreateResolverEndpointCommandOutput
+  CreateResolverEndpointCommandOutput,
 } from "./commands/CreateResolverEndpointCommand";
 import {
   CreateResolverRuleCommand,
   CreateResolverRuleCommandInput,
-  CreateResolverRuleCommandOutput
+  CreateResolverRuleCommandOutput,
 } from "./commands/CreateResolverRuleCommand";
 import {
   DeleteResolverEndpointCommand,
   DeleteResolverEndpointCommandInput,
-  DeleteResolverEndpointCommandOutput
+  DeleteResolverEndpointCommandOutput,
 } from "./commands/DeleteResolverEndpointCommand";
 import {
   DeleteResolverRuleCommand,
   DeleteResolverRuleCommandInput,
-  DeleteResolverRuleCommandOutput
+  DeleteResolverRuleCommandOutput,
 } from "./commands/DeleteResolverRuleCommand";
 import {
   DisassociateResolverEndpointIpAddressCommand,
   DisassociateResolverEndpointIpAddressCommandInput,
-  DisassociateResolverEndpointIpAddressCommandOutput
+  DisassociateResolverEndpointIpAddressCommandOutput,
 } from "./commands/DisassociateResolverEndpointIpAddressCommand";
 import {
   DisassociateResolverRuleCommand,
   DisassociateResolverRuleCommandInput,
-  DisassociateResolverRuleCommandOutput
+  DisassociateResolverRuleCommandOutput,
 } from "./commands/DisassociateResolverRuleCommand";
 import {
   GetResolverEndpointCommand,
   GetResolverEndpointCommandInput,
-  GetResolverEndpointCommandOutput
+  GetResolverEndpointCommandOutput,
 } from "./commands/GetResolverEndpointCommand";
 import {
   GetResolverRuleAssociationCommand,
   GetResolverRuleAssociationCommandInput,
-  GetResolverRuleAssociationCommandOutput
+  GetResolverRuleAssociationCommandOutput,
 } from "./commands/GetResolverRuleAssociationCommand";
 import {
   GetResolverRuleCommand,
   GetResolverRuleCommandInput,
-  GetResolverRuleCommandOutput
+  GetResolverRuleCommandOutput,
 } from "./commands/GetResolverRuleCommand";
 import {
   GetResolverRulePolicyCommand,
   GetResolverRulePolicyCommandInput,
-  GetResolverRulePolicyCommandOutput
+  GetResolverRulePolicyCommandOutput,
 } from "./commands/GetResolverRulePolicyCommand";
 import {
   ListResolverEndpointIpAddressesCommand,
   ListResolverEndpointIpAddressesCommandInput,
-  ListResolverEndpointIpAddressesCommandOutput
+  ListResolverEndpointIpAddressesCommandOutput,
 } from "./commands/ListResolverEndpointIpAddressesCommand";
 import {
   ListResolverEndpointsCommand,
   ListResolverEndpointsCommandInput,
-  ListResolverEndpointsCommandOutput
+  ListResolverEndpointsCommandOutput,
 } from "./commands/ListResolverEndpointsCommand";
 import {
   ListResolverRuleAssociationsCommand,
   ListResolverRuleAssociationsCommandInput,
-  ListResolverRuleAssociationsCommandOutput
+  ListResolverRuleAssociationsCommandOutput,
 } from "./commands/ListResolverRuleAssociationsCommand";
 import {
   ListResolverRulesCommand,
   ListResolverRulesCommandInput,
-  ListResolverRulesCommandOutput
+  ListResolverRulesCommandOutput,
 } from "./commands/ListResolverRulesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   PutResolverRulePolicyCommand,
   PutResolverRulePolicyCommandInput,
-  PutResolverRulePolicyCommandOutput
+  PutResolverRulePolicyCommandOutput,
 } from "./commands/PutResolverRulePolicyCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateResolverEndpointCommand,
   UpdateResolverEndpointCommandInput,
-  UpdateResolverEndpointCommandOutput
+  UpdateResolverEndpointCommandOutput,
 } from "./commands/UpdateResolverEndpointCommand";
 import {
   UpdateResolverRuleCommand,
   UpdateResolverRuleCommandInput,
-  UpdateResolverRuleCommandOutput
+  UpdateResolverRuleCommandOutput,
 } from "./commands/UpdateResolverRuleCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -168,38 +164,23 @@ export class Route53Resolver extends Route53ResolverClient {
   ): Promise<AssociateResolverEndpointIpAddressCommandOutput>;
   public associateResolverEndpointIpAddress(
     args: AssociateResolverEndpointIpAddressCommandInput,
-    cb: (
-      err: any,
-      data?: AssociateResolverEndpointIpAddressCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateResolverEndpointIpAddressCommandOutput) => void
   ): void;
   public associateResolverEndpointIpAddress(
     args: AssociateResolverEndpointIpAddressCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AssociateResolverEndpointIpAddressCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateResolverEndpointIpAddressCommandOutput) => void
   ): void;
   public associateResolverEndpointIpAddress(
     args: AssociateResolverEndpointIpAddressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateResolverEndpointIpAddressCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateResolverEndpointIpAddressCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateResolverEndpointIpAddressCommandOutput) => void),
+    cb?: (err: any, data?: AssociateResolverEndpointIpAddressCommandOutput) => void
   ): Promise<AssociateResolverEndpointIpAddressCommandOutput> | void {
     const command = new AssociateResolverEndpointIpAddressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -227,17 +208,14 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public associateResolverRule(
     args: AssociateResolverRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateResolverRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateResolverRuleCommandOutput) => void),
     cb?: (err: any, data?: AssociateResolverRuleCommandOutput) => void
   ): Promise<AssociateResolverRuleCommandOutput> | void {
     const command = new AssociateResolverRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -272,17 +250,14 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public createResolverEndpoint(
     args: CreateResolverEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateResolverEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateResolverEndpointCommandOutput) => void),
     cb?: (err: any, data?: CreateResolverEndpointCommandOutput) => void
   ): Promise<CreateResolverEndpointCommandOutput> | void {
     const command = new CreateResolverEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -308,17 +283,14 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public createResolverRule(
     args: CreateResolverRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateResolverRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateResolverRuleCommandOutput) => void),
     cb?: (err: any, data?: CreateResolverRuleCommandOutput) => void
   ): Promise<CreateResolverRuleCommandOutput> | void {
     const command = new CreateResolverRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -356,17 +328,14 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public deleteResolverEndpoint(
     args: DeleteResolverEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteResolverEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResolverEndpointCommandOutput) => void),
     cb?: (err: any, data?: DeleteResolverEndpointCommandOutput) => void
   ): Promise<DeleteResolverEndpointCommandOutput> | void {
     const command = new DeleteResolverEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -392,17 +361,14 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public deleteResolverRule(
     args: DeleteResolverRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteResolverRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResolverRuleCommandOutput) => void),
     cb?: (err: any, data?: DeleteResolverRuleCommandOutput) => void
   ): Promise<DeleteResolverRuleCommandOutput> | void {
     const command = new DeleteResolverRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -420,38 +386,25 @@ export class Route53Resolver extends Route53ResolverClient {
   ): Promise<DisassociateResolverEndpointIpAddressCommandOutput>;
   public disassociateResolverEndpointIpAddress(
     args: DisassociateResolverEndpointIpAddressCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateResolverEndpointIpAddressCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateResolverEndpointIpAddressCommandOutput) => void
   ): void;
   public disassociateResolverEndpointIpAddress(
     args: DisassociateResolverEndpointIpAddressCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateResolverEndpointIpAddressCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateResolverEndpointIpAddressCommandOutput) => void
   ): void;
   public disassociateResolverEndpointIpAddress(
     args: DisassociateResolverEndpointIpAddressCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateResolverEndpointIpAddressCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateResolverEndpointIpAddressCommandOutput
-    ) => void
+      | ((err: any, data?: DisassociateResolverEndpointIpAddressCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateResolverEndpointIpAddressCommandOutput) => void
   ): Promise<DisassociateResolverEndpointIpAddressCommandOutput> | void {
     const command = new DisassociateResolverEndpointIpAddressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -480,17 +433,14 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public disassociateResolverRule(
     args: DisassociateResolverRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateResolverRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateResolverRuleCommandOutput) => void),
     cb?: (err: any, data?: DisassociateResolverRuleCommandOutput) => void
   ): Promise<DisassociateResolverRuleCommandOutput> | void {
     const command = new DisassociateResolverRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -516,17 +466,14 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public getResolverEndpoint(
     args: GetResolverEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResolverEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResolverEndpointCommandOutput) => void),
     cb?: (err: any, data?: GetResolverEndpointCommandOutput) => void
   ): Promise<GetResolverEndpointCommandOutput> | void {
     const command = new GetResolverEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -552,17 +499,14 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public getResolverRule(
     args: GetResolverRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResolverRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResolverRuleCommandOutput) => void),
     cb?: (err: any, data?: GetResolverRuleCommandOutput) => void
   ): Promise<GetResolverRuleCommandOutput> | void {
     const command = new GetResolverRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -588,17 +532,14 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public getResolverRuleAssociation(
     args: GetResolverRuleAssociationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResolverRuleAssociationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResolverRuleAssociationCommandOutput) => void),
     cb?: (err: any, data?: GetResolverRuleAssociationCommandOutput) => void
   ): Promise<GetResolverRuleAssociationCommandOutput> | void {
     const command = new GetResolverRuleAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -624,17 +565,14 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public getResolverRulePolicy(
     args: GetResolverRulePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResolverRulePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResolverRulePolicyCommandOutput) => void),
     cb?: (err: any, data?: GetResolverRulePolicyCommandOutput) => void
   ): Promise<GetResolverRulePolicyCommandOutput> | void {
     const command = new GetResolverRulePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -659,20 +597,14 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public listResolverEndpointIpAddresses(
     args: ListResolverEndpointIpAddressesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListResolverEndpointIpAddressesCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResolverEndpointIpAddressesCommandOutput) => void),
     cb?: (err: any, data?: ListResolverEndpointIpAddressesCommandOutput) => void
   ): Promise<ListResolverEndpointIpAddressesCommandOutput> | void {
     const command = new ListResolverEndpointIpAddressesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -697,17 +629,14 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public listResolverEndpoints(
     args: ListResolverEndpointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResolverEndpointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResolverEndpointsCommandOutput) => void),
     cb?: (err: any, data?: ListResolverEndpointsCommandOutput) => void
   ): Promise<ListResolverEndpointsCommandOutput> | void {
     const command = new ListResolverEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -732,17 +661,14 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public listResolverRuleAssociations(
     args: ListResolverRuleAssociationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResolverRuleAssociationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResolverRuleAssociationsCommandOutput) => void),
     cb?: (err: any, data?: ListResolverRuleAssociationsCommandOutput) => void
   ): Promise<ListResolverRuleAssociationsCommandOutput> | void {
     const command = new ListResolverRuleAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -767,17 +693,14 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public listResolverRules(
     args: ListResolverRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResolverRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResolverRulesCommandOutput) => void),
     cb?: (err: any, data?: ListResolverRulesCommandOutput) => void
   ): Promise<ListResolverRulesCommandOutput> | void {
     const command = new ListResolverRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -802,17 +725,14 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -837,17 +757,14 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public putResolverRulePolicy(
     args: PutResolverRulePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutResolverRulePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResolverRulePolicyCommandOutput) => void),
     cb?: (err: any, data?: PutResolverRulePolicyCommandOutput) => void
   ): Promise<PutResolverRulePolicyCommandOutput> | void {
     const command = new PutResolverRulePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -857,14 +774,8 @@ export class Route53Resolver extends Route53ResolverClient {
   /**
    * <p>Adds one or more tags to a specified resource.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -872,17 +783,14 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -907,17 +815,14 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -942,17 +847,14 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public updateResolverEndpoint(
     args: UpdateResolverEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateResolverEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResolverEndpointCommandOutput) => void),
     cb?: (err: any, data?: UpdateResolverEndpointCommandOutput) => void
   ): Promise<UpdateResolverEndpointCommandOutput> | void {
     const command = new UpdateResolverEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -978,17 +880,14 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public updateResolverRule(
     args: UpdateResolverRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateResolverRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResolverRuleCommandOutput) => void),
     cb?: (err: any, data?: UpdateResolverRuleCommandOutput) => void
   ): Promise<UpdateResolverRuleCommandOutput> | void {
     const command = new UpdateResolverRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

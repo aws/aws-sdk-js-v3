@@ -1,21 +1,11 @@
-import {
-  RekognitionClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RekognitionClient";
-import {
-  DescribeCollectionRequest,
-  DescribeCollectionResponse
-} from "../models/index";
+import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
+import { DescribeCollectionRequest, DescribeCollectionResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeCollectionCommand,
-  serializeAws_json1_1DescribeCollectionCommand
+  serializeAws_json1_1DescribeCollectionCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeCollectionCommandInput = DescribeCollectionRequest;
-export type DescribeCollectionCommandOutput = DescribeCollectionResponse &
-  __MetadataBearer;
+export type DescribeCollectionCommandOutput = DescribeCollectionResponse & __MetadataBearer;
 
 export class DescribeCollectionCommand extends $Command<
   DescribeCollectionCommandInput,
@@ -50,14 +39,12 @@ export class DescribeCollectionCommand extends $Command<
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeCollectionCommandInput, DescribeCollectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class DescribeCollectionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeCollectionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCollectionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeCollectionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCollectionCommandOutput> {
     return deserializeAws_json1_1DescribeCollectionCommand(output, context);
   }
 

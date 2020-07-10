@@ -1,21 +1,11 @@
-import {
-  GameLiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GameLiftClient";
-import {
-  DescribeGameSessionPlacementInput,
-  DescribeGameSessionPlacementOutput
-} from "../models/index";
+import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { DescribeGameSessionPlacementInput, DescribeGameSessionPlacementOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeGameSessionPlacementCommand,
-  serializeAws_json1_1DescribeGameSessionPlacementCommand
+  serializeAws_json1_1DescribeGameSessionPlacementCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeGameSessionPlacementCommandInput = DescribeGameSessionPlacementInput;
-export type DescribeGameSessionPlacementCommandOutput = DescribeGameSessionPlacementOutput &
-  __MetadataBearer;
+export type DescribeGameSessionPlacementCommandOutput = DescribeGameSessionPlacementOutput & __MetadataBearer;
 
 export class DescribeGameSessionPlacementCommand extends $Command<
   DescribeGameSessionPlacementCommandInput,
@@ -49,18 +38,13 @@ export class DescribeGameSessionPlacementCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeGameSessionPlacementCommandInput,
-    DescribeGameSessionPlacementCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeGameSessionPlacementCommandInput, DescribeGameSessionPlacementCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class DescribeGameSessionPlacementCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeGameSessionPlacementCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeGameSessionPlacementCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeGameSessionPlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeGameSessionPlacementCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeGameSessionPlacementCommandOutput> {
-    return deserializeAws_json1_1DescribeGameSessionPlacementCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeGameSessionPlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

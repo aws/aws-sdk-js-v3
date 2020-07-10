@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  UpdateRoleDescriptionRequest,
-  UpdateRoleDescriptionResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { UpdateRoleDescriptionRequest, UpdateRoleDescriptionResponse } from "../models/index";
 import {
   deserializeAws_queryUpdateRoleDescriptionCommand,
-  serializeAws_queryUpdateRoleDescriptionCommand
+  serializeAws_queryUpdateRoleDescriptionCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateRoleDescriptionCommandInput = UpdateRoleDescriptionRequest;
-export type UpdateRoleDescriptionCommandOutput = UpdateRoleDescriptionResponse &
-  __MetadataBearer;
+export type UpdateRoleDescriptionCommandOutput = UpdateRoleDescriptionResponse & __MetadataBearer;
 
 export class UpdateRoleDescriptionCommand extends $Command<
   UpdateRoleDescriptionCommandInput,
@@ -49,18 +38,13 @@ export class UpdateRoleDescriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateRoleDescriptionCommandInput,
-    UpdateRoleDescriptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateRoleDescriptionCommandInput, UpdateRoleDescriptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class UpdateRoleDescriptionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateRoleDescriptionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateRoleDescriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateRoleDescriptionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateRoleDescriptionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRoleDescriptionCommandOutput> {
     return deserializeAws_queryUpdateRoleDescriptionCommand(output, context);
   }
 

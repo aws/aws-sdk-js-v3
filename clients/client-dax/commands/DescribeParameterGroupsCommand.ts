@@ -1,21 +1,11 @@
-import {
-  DAXClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DAXClient";
-import {
-  DescribeParameterGroupsRequest,
-  DescribeParameterGroupsResponse
-} from "../models/index";
+import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
+import { DescribeParameterGroupsRequest, DescribeParameterGroupsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeParameterGroupsCommand,
-  serializeAws_json1_1DescribeParameterGroupsCommand
+  serializeAws_json1_1DescribeParameterGroupsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeParameterGroupsCommandInput = DescribeParameterGroupsRequest;
-export type DescribeParameterGroupsCommandOutput = DescribeParameterGroupsResponse &
-  __MetadataBearer;
+export type DescribeParameterGroupsCommandOutput = DescribeParameterGroupsResponse & __MetadataBearer;
 
 export class DescribeParameterGroupsCommand extends $Command<
   DescribeParameterGroupsCommandInput,
@@ -49,18 +38,13 @@ export class DescribeParameterGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeParameterGroupsCommandInput,
-    DescribeParameterGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeParameterGroupsCommandInput, DescribeParameterGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class DescribeParameterGroupsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeParameterGroupsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeParameterGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeParameterGroupsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeParameterGroupsCommandOutput> {
-    return deserializeAws_json1_1DescribeParameterGroupsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeParameterGroupsCommandOutput> {
+    return deserializeAws_json1_1DescribeParameterGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

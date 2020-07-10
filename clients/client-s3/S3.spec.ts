@@ -7,7 +7,7 @@ import { HttpRequest } from "@aws-sdk/protocol-http";
 describe("endpoint", () => {
   it("users can override endpoint from client.", async () => {
     //use s3 here but all the clients are generated similarly
-    const endpointValidator: SerializeMiddleware<any, any> = next => args => {
+    const endpointValidator: SerializeMiddleware<any, any> = (next) => (args) => {
       // middleware intercept the request and return it early
       const request = args.request as HttpRequest;
       expect(request.protocol).to.equal("http:");
@@ -22,12 +22,12 @@ describe("endpoint", () => {
     client.middlewareStack.add(endpointValidator, {
       step: "serialize",
       name: "endpointValidator",
-      priority: "low"
+      priority: "low",
     });
     return await client.putObject({
       Bucket: "bucket",
       Key: "key",
-      Body: "body"
+      Body: "body",
     });
   });
 });

@@ -1,75 +1,30 @@
-import {
-  CreateContainerCommandInput,
-  CreateContainerCommandOutput
-} from "./commands/CreateContainerCommand";
-import {
-  DeleteContainerCommandInput,
-  DeleteContainerCommandOutput
-} from "./commands/DeleteContainerCommand";
+import { CreateContainerCommandInput, CreateContainerCommandOutput } from "./commands/CreateContainerCommand";
+import { DeleteContainerCommandInput, DeleteContainerCommandOutput } from "./commands/DeleteContainerCommand";
 import {
   DeleteContainerPolicyCommandInput,
-  DeleteContainerPolicyCommandOutput
+  DeleteContainerPolicyCommandOutput,
 } from "./commands/DeleteContainerPolicyCommand";
-import {
-  DeleteCorsPolicyCommandInput,
-  DeleteCorsPolicyCommandOutput
-} from "./commands/DeleteCorsPolicyCommand";
+import { DeleteCorsPolicyCommandInput, DeleteCorsPolicyCommandOutput } from "./commands/DeleteCorsPolicyCommand";
 import {
   DeleteLifecyclePolicyCommandInput,
-  DeleteLifecyclePolicyCommandOutput
+  DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
-import {
-  DescribeContainerCommandInput,
-  DescribeContainerCommandOutput
-} from "./commands/DescribeContainerCommand";
-import {
-  GetContainerPolicyCommandInput,
-  GetContainerPolicyCommandOutput
-} from "./commands/GetContainerPolicyCommand";
-import {
-  GetCorsPolicyCommandInput,
-  GetCorsPolicyCommandOutput
-} from "./commands/GetCorsPolicyCommand";
-import {
-  GetLifecyclePolicyCommandInput,
-  GetLifecyclePolicyCommandOutput
-} from "./commands/GetLifecyclePolicyCommand";
-import {
-  ListContainersCommandInput,
-  ListContainersCommandOutput
-} from "./commands/ListContainersCommand";
+import { DescribeContainerCommandInput, DescribeContainerCommandOutput } from "./commands/DescribeContainerCommand";
+import { GetContainerPolicyCommandInput, GetContainerPolicyCommandOutput } from "./commands/GetContainerPolicyCommand";
+import { GetCorsPolicyCommandInput, GetCorsPolicyCommandOutput } from "./commands/GetCorsPolicyCommand";
+import { GetLifecyclePolicyCommandInput, GetLifecyclePolicyCommandOutput } from "./commands/GetLifecyclePolicyCommand";
+import { ListContainersCommandInput, ListContainersCommandOutput } from "./commands/ListContainersCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  PutContainerPolicyCommandInput,
-  PutContainerPolicyCommandOutput
-} from "./commands/PutContainerPolicyCommand";
-import {
-  PutCorsPolicyCommandInput,
-  PutCorsPolicyCommandOutput
-} from "./commands/PutCorsPolicyCommand";
-import {
-  PutLifecyclePolicyCommandInput,
-  PutLifecyclePolicyCommandOutput
-} from "./commands/PutLifecyclePolicyCommand";
-import {
-  StartAccessLoggingCommandInput,
-  StartAccessLoggingCommandOutput
-} from "./commands/StartAccessLoggingCommand";
-import {
-  StopAccessLoggingCommandInput,
-  StopAccessLoggingCommandOutput
-} from "./commands/StopAccessLoggingCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { PutContainerPolicyCommandInput, PutContainerPolicyCommandOutput } from "./commands/PutContainerPolicyCommand";
+import { PutCorsPolicyCommandInput, PutCorsPolicyCommandOutput } from "./commands/PutCorsPolicyCommand";
+import { PutLifecyclePolicyCommandInput, PutLifecyclePolicyCommandOutput } from "./commands/PutLifecyclePolicyCommand";
+import { StartAccessLoggingCommandInput, StartAccessLoggingCommandOutput } from "./commands/StartAccessLoggingCommand";
+import { StopAccessLoggingCommandInput, StopAccessLoggingCommandOutput } from "./commands/StopAccessLoggingCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -77,38 +32,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -119,7 +69,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -162,8 +112,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -252,9 +201,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MediaStoreClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MediaStoreClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -263,9 +210,7 @@ export type MediaStoreClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type MediaStoreClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type MediaStoreClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -289,7 +234,7 @@ export class MediaStoreClient extends __Client<
   constructor(configuration: MediaStoreClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

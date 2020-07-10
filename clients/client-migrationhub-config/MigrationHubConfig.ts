@@ -2,17 +2,17 @@ import { MigrationHubConfigClient } from "./MigrationHubConfigClient";
 import {
   CreateHomeRegionControlCommand,
   CreateHomeRegionControlCommandInput,
-  CreateHomeRegionControlCommandOutput
+  CreateHomeRegionControlCommandOutput,
 } from "./commands/CreateHomeRegionControlCommand";
 import {
   DescribeHomeRegionControlsCommand,
   DescribeHomeRegionControlsCommandInput,
-  DescribeHomeRegionControlsCommandOutput
+  DescribeHomeRegionControlsCommandOutput,
 } from "./commands/DescribeHomeRegionControlsCommand";
 import {
   GetHomeRegionCommand,
   GetHomeRegionCommandInput,
-  GetHomeRegionCommandOutput
+  GetHomeRegionCommandOutput,
 } from "./commands/GetHomeRegionCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -60,17 +60,14 @@ export class MigrationHubConfig extends MigrationHubConfigClient {
   ): void;
   public createHomeRegionControl(
     args: CreateHomeRegionControlCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateHomeRegionControlCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHomeRegionControlCommandOutput) => void),
     cb?: (err: any, data?: CreateHomeRegionControlCommandOutput) => void
   ): Promise<CreateHomeRegionControlCommandOutput> | void {
     const command = new CreateHomeRegionControlCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -96,17 +93,14 @@ export class MigrationHubConfig extends MigrationHubConfigClient {
   ): void;
   public describeHomeRegionControls(
     args: DescribeHomeRegionControlsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeHomeRegionControlsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHomeRegionControlsCommandOutput) => void),
     cb?: (err: any, data?: DescribeHomeRegionControlsCommandOutput) => void
   ): Promise<DescribeHomeRegionControlsCommandOutput> | void {
     const command = new DescribeHomeRegionControlsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -135,17 +129,14 @@ export class MigrationHubConfig extends MigrationHubConfigClient {
   ): void;
   public getHomeRegion(
     args: GetHomeRegionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetHomeRegionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHomeRegionCommandOutput) => void),
     cb?: (err: any, data?: GetHomeRegionCommandOutput) => void
   ): Promise<GetHomeRegionCommandOutput> | void {
     const command = new GetHomeRegionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

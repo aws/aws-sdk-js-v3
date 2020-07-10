@@ -1,21 +1,11 @@
-import {
-  IoTThingsGraphClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTThingsGraphClient";
-import {
-  UpdateFlowTemplateRequest,
-  UpdateFlowTemplateResponse
-} from "../models/index";
+import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
+import { UpdateFlowTemplateRequest, UpdateFlowTemplateResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateFlowTemplateCommand,
-  serializeAws_json1_1UpdateFlowTemplateCommand
+  serializeAws_json1_1UpdateFlowTemplateCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateFlowTemplateCommandInput = UpdateFlowTemplateRequest;
-export type UpdateFlowTemplateCommandOutput = UpdateFlowTemplateResponse &
-  __MetadataBearer;
+export type UpdateFlowTemplateCommandOutput = UpdateFlowTemplateResponse & __MetadataBearer;
 
 export class UpdateFlowTemplateCommand extends $Command<
   UpdateFlowTemplateCommandInput,
@@ -50,14 +39,12 @@ export class UpdateFlowTemplateCommand extends $Command<
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateFlowTemplateCommandInput, UpdateFlowTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class UpdateFlowTemplateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateFlowTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateFlowTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateFlowTemplateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateFlowTemplateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFlowTemplateCommandOutput> {
     return deserializeAws_json1_1UpdateFlowTemplateCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  CloudWatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchClient";
-import {
-  GetInsightRuleReportInput,
-  GetInsightRuleReportOutput
-} from "../models/index";
+import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
+import { GetInsightRuleReportInput, GetInsightRuleReportOutput } from "../models/index";
 import {
   deserializeAws_queryGetInsightRuleReportCommand,
-  serializeAws_queryGetInsightRuleReportCommand
+  serializeAws_queryGetInsightRuleReportCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetInsightRuleReportCommandInput = GetInsightRuleReportInput;
-export type GetInsightRuleReportCommandOutput = GetInsightRuleReportOutput &
-  __MetadataBearer;
+export type GetInsightRuleReportCommandOutput = GetInsightRuleReportOutput & __MetadataBearer;
 
 export class GetInsightRuleReportCommand extends $Command<
   GetInsightRuleReportCommandInput,
@@ -49,18 +38,13 @@ export class GetInsightRuleReportCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetInsightRuleReportCommandInput,
-    GetInsightRuleReportCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetInsightRuleReportCommandInput, GetInsightRuleReportCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class GetInsightRuleReportCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetInsightRuleReportCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetInsightRuleReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetInsightRuleReportCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetInsightRuleReportCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInsightRuleReportCommandOutput> {
     return deserializeAws_queryGetInsightRuleReportCommand(output, context);
   }
 

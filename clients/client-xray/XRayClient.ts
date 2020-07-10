@@ -1,83 +1,38 @@
-import {
-  BatchGetTracesCommandInput,
-  BatchGetTracesCommandOutput
-} from "./commands/BatchGetTracesCommand";
-import {
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput
-} from "./commands/CreateGroupCommand";
-import {
-  CreateSamplingRuleCommandInput,
-  CreateSamplingRuleCommandOutput
-} from "./commands/CreateSamplingRuleCommand";
-import {
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
-} from "./commands/DeleteGroupCommand";
-import {
-  DeleteSamplingRuleCommandInput,
-  DeleteSamplingRuleCommandOutput
-} from "./commands/DeleteSamplingRuleCommand";
+import { BatchGetTracesCommandInput, BatchGetTracesCommandOutput } from "./commands/BatchGetTracesCommand";
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
+import { CreateSamplingRuleCommandInput, CreateSamplingRuleCommandOutput } from "./commands/CreateSamplingRuleCommand";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
+import { DeleteSamplingRuleCommandInput, DeleteSamplingRuleCommandOutput } from "./commands/DeleteSamplingRuleCommand";
 import {
   GetEncryptionConfigCommandInput,
-  GetEncryptionConfigCommandOutput
+  GetEncryptionConfigCommandOutput,
 } from "./commands/GetEncryptionConfigCommand";
-import {
-  GetGroupCommandInput,
-  GetGroupCommandOutput
-} from "./commands/GetGroupCommand";
-import {
-  GetGroupsCommandInput,
-  GetGroupsCommandOutput
-} from "./commands/GetGroupsCommand";
-import {
-  GetSamplingRulesCommandInput,
-  GetSamplingRulesCommandOutput
-} from "./commands/GetSamplingRulesCommand";
+import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
+import { GetGroupsCommandInput, GetGroupsCommandOutput } from "./commands/GetGroupsCommand";
+import { GetSamplingRulesCommandInput, GetSamplingRulesCommandOutput } from "./commands/GetSamplingRulesCommand";
 import {
   GetSamplingStatisticSummariesCommandInput,
-  GetSamplingStatisticSummariesCommandOutput
+  GetSamplingStatisticSummariesCommandOutput,
 } from "./commands/GetSamplingStatisticSummariesCommand";
-import {
-  GetSamplingTargetsCommandInput,
-  GetSamplingTargetsCommandOutput
-} from "./commands/GetSamplingTargetsCommand";
-import {
-  GetServiceGraphCommandInput,
-  GetServiceGraphCommandOutput
-} from "./commands/GetServiceGraphCommand";
+import { GetSamplingTargetsCommandInput, GetSamplingTargetsCommandOutput } from "./commands/GetSamplingTargetsCommand";
+import { GetServiceGraphCommandInput, GetServiceGraphCommandOutput } from "./commands/GetServiceGraphCommand";
 import {
   GetTimeSeriesServiceStatisticsCommandInput,
-  GetTimeSeriesServiceStatisticsCommandOutput
+  GetTimeSeriesServiceStatisticsCommandOutput,
 } from "./commands/GetTimeSeriesServiceStatisticsCommand";
-import {
-  GetTraceGraphCommandInput,
-  GetTraceGraphCommandOutput
-} from "./commands/GetTraceGraphCommand";
-import {
-  GetTraceSummariesCommandInput,
-  GetTraceSummariesCommandOutput
-} from "./commands/GetTraceSummariesCommand";
+import { GetTraceGraphCommandInput, GetTraceGraphCommandOutput } from "./commands/GetTraceGraphCommand";
+import { GetTraceSummariesCommandInput, GetTraceSummariesCommandOutput } from "./commands/GetTraceSummariesCommand";
 import {
   PutEncryptionConfigCommandInput,
-  PutEncryptionConfigCommandOutput
+  PutEncryptionConfigCommandOutput,
 } from "./commands/PutEncryptionConfigCommand";
 import {
   PutTelemetryRecordsCommandInput,
-  PutTelemetryRecordsCommandOutput
+  PutTelemetryRecordsCommandOutput,
 } from "./commands/PutTelemetryRecordsCommand";
-import {
-  PutTraceSegmentsCommandInput,
-  PutTraceSegmentsCommandOutput
-} from "./commands/PutTraceSegmentsCommand";
-import {
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
-} from "./commands/UpdateGroupCommand";
-import {
-  UpdateSamplingRuleCommandInput,
-  UpdateSamplingRuleCommandOutput
-} from "./commands/UpdateSamplingRuleCommand";
+import { PutTraceSegmentsCommandInput, PutTraceSegmentsCommandOutput } from "./commands/PutTraceSegmentsCommand";
+import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
+import { UpdateSamplingRuleCommandInput, UpdateSamplingRuleCommandOutput } from "./commands/UpdateSamplingRuleCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -85,38 +40,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -127,7 +77,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -174,8 +124,7 @@ export type ServiceOutputTypes =
   | UpdateGroupCommandOutput
   | UpdateSamplingRuleCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -264,9 +213,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type XRayClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type XRayClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -275,9 +222,7 @@ export type XRayClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type XRayClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type XRayClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -301,7 +246,7 @@ export class XRayClient extends __Client<
   constructor(configuration: XRayClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

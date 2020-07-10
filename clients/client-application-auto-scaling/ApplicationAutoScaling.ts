@@ -2,52 +2,52 @@ import { ApplicationAutoScalingClient } from "./ApplicationAutoScalingClient";
 import {
   DeleteScalingPolicyCommand,
   DeleteScalingPolicyCommandInput,
-  DeleteScalingPolicyCommandOutput
+  DeleteScalingPolicyCommandOutput,
 } from "./commands/DeleteScalingPolicyCommand";
 import {
   DeleteScheduledActionCommand,
   DeleteScheduledActionCommandInput,
-  DeleteScheduledActionCommandOutput
+  DeleteScheduledActionCommandOutput,
 } from "./commands/DeleteScheduledActionCommand";
 import {
   DeregisterScalableTargetCommand,
   DeregisterScalableTargetCommandInput,
-  DeregisterScalableTargetCommandOutput
+  DeregisterScalableTargetCommandOutput,
 } from "./commands/DeregisterScalableTargetCommand";
 import {
   DescribeScalableTargetsCommand,
   DescribeScalableTargetsCommandInput,
-  DescribeScalableTargetsCommandOutput
+  DescribeScalableTargetsCommandOutput,
 } from "./commands/DescribeScalableTargetsCommand";
 import {
   DescribeScalingActivitiesCommand,
   DescribeScalingActivitiesCommandInput,
-  DescribeScalingActivitiesCommandOutput
+  DescribeScalingActivitiesCommandOutput,
 } from "./commands/DescribeScalingActivitiesCommand";
 import {
   DescribeScalingPoliciesCommand,
   DescribeScalingPoliciesCommandInput,
-  DescribeScalingPoliciesCommandOutput
+  DescribeScalingPoliciesCommandOutput,
 } from "./commands/DescribeScalingPoliciesCommand";
 import {
   DescribeScheduledActionsCommand,
   DescribeScheduledActionsCommandInput,
-  DescribeScheduledActionsCommandOutput
+  DescribeScheduledActionsCommandOutput,
 } from "./commands/DescribeScheduledActionsCommand";
 import {
   PutScalingPolicyCommand,
   PutScalingPolicyCommandInput,
-  PutScalingPolicyCommandOutput
+  PutScalingPolicyCommandOutput,
 } from "./commands/PutScalingPolicyCommand";
 import {
   PutScheduledActionCommand,
   PutScheduledActionCommandInput,
-  PutScheduledActionCommandOutput
+  PutScheduledActionCommandOutput,
 } from "./commands/PutScheduledActionCommand";
 import {
   RegisterScalableTargetCommand,
   RegisterScalableTargetCommandInput,
-  RegisterScalableTargetCommandOutput
+  RegisterScalableTargetCommandOutput,
 } from "./commands/RegisterScalableTargetCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -140,17 +140,14 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   ): void;
   public deleteScalingPolicy(
     args: DeleteScalingPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteScalingPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteScalingPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteScalingPolicyCommandOutput) => void
   ): Promise<DeleteScalingPolicyCommandOutput> | void {
     const command = new DeleteScalingPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -177,17 +174,14 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   ): void;
   public deleteScheduledAction(
     args: DeleteScheduledActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteScheduledActionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteScheduledActionCommandOutput) => void),
     cb?: (err: any, data?: DeleteScheduledActionCommandOutput) => void
   ): Promise<DeleteScheduledActionCommandOutput> | void {
     const command = new DeleteScheduledActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -215,17 +209,14 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   ): void;
   public deregisterScalableTarget(
     args: DeregisterScalableTargetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterScalableTargetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterScalableTargetCommandOutput) => void),
     cb?: (err: any, data?: DeregisterScalableTargetCommandOutput) => void
   ): Promise<DeregisterScalableTargetCommandOutput> | void {
     const command = new DeregisterScalableTargetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -254,17 +245,14 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   ): void;
   public describeScalableTargets(
     args: DescribeScalableTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScalableTargetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScalableTargetsCommandOutput) => void),
     cb?: (err: any, data?: DescribeScalableTargetsCommandOutput) => void
   ): Promise<DescribeScalableTargetsCommandOutput> | void {
     const command = new DescribeScalableTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -295,17 +283,14 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   ): void;
   public describeScalingActivities(
     args: DescribeScalingActivitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScalingActivitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScalingActivitiesCommandOutput) => void),
     cb?: (err: any, data?: DescribeScalingActivitiesCommandOutput) => void
   ): Promise<DescribeScalingActivitiesCommandOutput> | void {
     const command = new DescribeScalingActivitiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -334,17 +319,14 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   ): void;
   public describeScalingPolicies(
     args: DescribeScalingPoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScalingPoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScalingPoliciesCommandOutput) => void),
     cb?: (err: any, data?: DescribeScalingPoliciesCommandOutput) => void
   ): Promise<DescribeScalingPoliciesCommandOutput> | void {
     const command = new DescribeScalingPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -373,17 +355,14 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   ): void;
   public describeScheduledActions(
     args: DescribeScheduledActionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScheduledActionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScheduledActionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeScheduledActionsCommandOutput) => void
   ): Promise<DescribeScheduledActionsCommandOutput> | void {
     const command = new DescribeScheduledActionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -426,17 +405,14 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   ): void;
   public putScalingPolicy(
     args: PutScalingPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutScalingPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutScalingPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutScalingPolicyCommandOutput) => void
   ): Promise<PutScalingPolicyCommandOutput> | void {
     const command = new PutScalingPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -472,17 +448,14 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   ): void;
   public putScheduledAction(
     args: PutScheduledActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutScheduledActionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutScheduledActionCommandOutput) => void),
     cb?: (err: any, data?: PutScheduledActionCommandOutput) => void
   ): Promise<PutScheduledActionCommandOutput> | void {
     const command = new PutScheduledActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -519,17 +492,14 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   ): void;
   public registerScalableTarget(
     args: RegisterScalableTargetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterScalableTargetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterScalableTargetCommandOutput) => void),
     cb?: (err: any, data?: RegisterScalableTargetCommandOutput) => void
   ): Promise<RegisterScalableTargetCommandOutput> | void {
     const command = new RegisterScalableTargetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

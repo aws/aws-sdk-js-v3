@@ -1,18 +1,11 @@
-import {
-  Route53ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53Client";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 import { GetGeoLocationRequest, GetGeoLocationResponse } from "../models/index";
 import {
   deserializeAws_restXmlGetGeoLocationCommand,
-  serializeAws_restXmlGetGeoLocationCommand
+  serializeAws_restXmlGetGeoLocationCommand,
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetGeoLocationCommandInput = GetGeoLocationRequest;
-export type GetGeoLocationCommandOutput = GetGeoLocationResponse &
-  __MetadataBearer;
+export type GetGeoLocationCommandOutput = GetGeoLocationResponse & __MetadataBearer;
 
 export class GetGeoLocationCommand extends $Command<
   GetGeoLocationCommandInput,
@@ -47,14 +39,12 @@ export class GetGeoLocationCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetGeoLocationCommandInput, GetGeoLocationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class GetGeoLocationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetGeoLocationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetGeoLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetGeoLocationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetGeoLocationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGeoLocationCommandOutput> {
     return deserializeAws_restXmlGetGeoLocationCommand(output, context);
   }
 

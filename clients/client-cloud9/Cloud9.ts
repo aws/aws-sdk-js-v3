@@ -2,52 +2,52 @@ import { Cloud9Client } from "./Cloud9Client";
 import {
   CreateEnvironmentEC2Command,
   CreateEnvironmentEC2CommandInput,
-  CreateEnvironmentEC2CommandOutput
+  CreateEnvironmentEC2CommandOutput,
 } from "./commands/CreateEnvironmentEC2Command";
 import {
   CreateEnvironmentMembershipCommand,
   CreateEnvironmentMembershipCommandInput,
-  CreateEnvironmentMembershipCommandOutput
+  CreateEnvironmentMembershipCommandOutput,
 } from "./commands/CreateEnvironmentMembershipCommand";
 import {
   DeleteEnvironmentCommand,
   DeleteEnvironmentCommandInput,
-  DeleteEnvironmentCommandOutput
+  DeleteEnvironmentCommandOutput,
 } from "./commands/DeleteEnvironmentCommand";
 import {
   DeleteEnvironmentMembershipCommand,
   DeleteEnvironmentMembershipCommandInput,
-  DeleteEnvironmentMembershipCommandOutput
+  DeleteEnvironmentMembershipCommandOutput,
 } from "./commands/DeleteEnvironmentMembershipCommand";
 import {
   DescribeEnvironmentMembershipsCommand,
   DescribeEnvironmentMembershipsCommandInput,
-  DescribeEnvironmentMembershipsCommandOutput
+  DescribeEnvironmentMembershipsCommandOutput,
 } from "./commands/DescribeEnvironmentMembershipsCommand";
 import {
   DescribeEnvironmentStatusCommand,
   DescribeEnvironmentStatusCommandInput,
-  DescribeEnvironmentStatusCommandOutput
+  DescribeEnvironmentStatusCommandOutput,
 } from "./commands/DescribeEnvironmentStatusCommand";
 import {
   DescribeEnvironmentsCommand,
   DescribeEnvironmentsCommandInput,
-  DescribeEnvironmentsCommandOutput
+  DescribeEnvironmentsCommandOutput,
 } from "./commands/DescribeEnvironmentsCommand";
 import {
   ListEnvironmentsCommand,
   ListEnvironmentsCommandInput,
-  ListEnvironmentsCommandOutput
+  ListEnvironmentsCommandOutput,
 } from "./commands/ListEnvironmentsCommand";
 import {
   UpdateEnvironmentCommand,
   UpdateEnvironmentCommandInput,
-  UpdateEnvironmentCommandOutput
+  UpdateEnvironmentCommandOutput,
 } from "./commands/UpdateEnvironmentCommand";
 import {
   UpdateEnvironmentMembershipCommand,
   UpdateEnvironmentMembershipCommandInput,
-  UpdateEnvironmentMembershipCommandOutput
+  UpdateEnvironmentMembershipCommandOutput,
 } from "./commands/UpdateEnvironmentMembershipCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -118,17 +118,14 @@ export class Cloud9 extends Cloud9Client {
   ): void;
   public createEnvironmentEC2(
     args: CreateEnvironmentEC2CommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateEnvironmentEC2CommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEnvironmentEC2CommandOutput) => void),
     cb?: (err: any, data?: CreateEnvironmentEC2CommandOutput) => void
   ): Promise<CreateEnvironmentEC2CommandOutput> | void {
     const command = new CreateEnvironmentEC2Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -153,17 +150,14 @@ export class Cloud9 extends Cloud9Client {
   ): void;
   public createEnvironmentMembership(
     args: CreateEnvironmentMembershipCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateEnvironmentMembershipCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEnvironmentMembershipCommandOutput) => void),
     cb?: (err: any, data?: CreateEnvironmentMembershipCommandOutput) => void
   ): Promise<CreateEnvironmentMembershipCommandOutput> | void {
     const command = new CreateEnvironmentMembershipCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -188,17 +182,14 @@ export class Cloud9 extends Cloud9Client {
   ): void;
   public deleteEnvironment(
     args: DeleteEnvironmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEnvironmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEnvironmentCommandOutput) => void),
     cb?: (err: any, data?: DeleteEnvironmentCommandOutput) => void
   ): Promise<DeleteEnvironmentCommandOutput> | void {
     const command = new DeleteEnvironmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -223,17 +214,14 @@ export class Cloud9 extends Cloud9Client {
   ): void;
   public deleteEnvironmentMembership(
     args: DeleteEnvironmentMembershipCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEnvironmentMembershipCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEnvironmentMembershipCommandOutput) => void),
     cb?: (err: any, data?: DeleteEnvironmentMembershipCommandOutput) => void
   ): Promise<DeleteEnvironmentMembershipCommandOutput> | void {
     const command = new DeleteEnvironmentMembershipCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -258,20 +246,14 @@ export class Cloud9 extends Cloud9Client {
   ): void;
   public describeEnvironmentMemberships(
     args: DescribeEnvironmentMembershipsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEnvironmentMembershipsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEnvironmentMembershipsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEnvironmentMembershipsCommandOutput) => void
   ): Promise<DescribeEnvironmentMembershipsCommandOutput> | void {
     const command = new DescribeEnvironmentMembershipsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -296,17 +278,14 @@ export class Cloud9 extends Cloud9Client {
   ): void;
   public describeEnvironments(
     args: DescribeEnvironmentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEnvironmentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEnvironmentsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEnvironmentsCommandOutput) => void
   ): Promise<DescribeEnvironmentsCommandOutput> | void {
     const command = new DescribeEnvironmentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -331,17 +310,14 @@ export class Cloud9 extends Cloud9Client {
   ): void;
   public describeEnvironmentStatus(
     args: DescribeEnvironmentStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEnvironmentStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEnvironmentStatusCommandOutput) => void),
     cb?: (err: any, data?: DescribeEnvironmentStatusCommandOutput) => void
   ): Promise<DescribeEnvironmentStatusCommandOutput> | void {
     const command = new DescribeEnvironmentStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -366,17 +342,14 @@ export class Cloud9 extends Cloud9Client {
   ): void;
   public listEnvironments(
     args: ListEnvironmentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEnvironmentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEnvironmentsCommandOutput) => void),
     cb?: (err: any, data?: ListEnvironmentsCommandOutput) => void
   ): Promise<ListEnvironmentsCommandOutput> | void {
     const command = new ListEnvironmentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -401,17 +374,14 @@ export class Cloud9 extends Cloud9Client {
   ): void;
   public updateEnvironment(
     args: UpdateEnvironmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateEnvironmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEnvironmentCommandOutput) => void),
     cb?: (err: any, data?: UpdateEnvironmentCommandOutput) => void
   ): Promise<UpdateEnvironmentCommandOutput> | void {
     const command = new UpdateEnvironmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -436,17 +406,14 @@ export class Cloud9 extends Cloud9Client {
   ): void;
   public updateEnvironmentMembership(
     args: UpdateEnvironmentMembershipCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateEnvironmentMembershipCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEnvironmentMembershipCommandOutput) => void),
     cb?: (err: any, data?: UpdateEnvironmentMembershipCommandOutput) => void
   ): Promise<UpdateEnvironmentMembershipCommandOutput> | void {
     const command = new UpdateEnvironmentMembershipCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

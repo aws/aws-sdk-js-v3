@@ -1,21 +1,11 @@
-import {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchLogsClient";
-import {
-  DescribeLogStreamsRequest,
-  DescribeLogStreamsResponse
-} from "../models/index";
+import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
+import { DescribeLogStreamsRequest, DescribeLogStreamsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeLogStreamsCommand,
-  serializeAws_json1_1DescribeLogStreamsCommand
+  serializeAws_json1_1DescribeLogStreamsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeLogStreamsCommandInput = DescribeLogStreamsRequest;
-export type DescribeLogStreamsCommandOutput = DescribeLogStreamsResponse &
-  __MetadataBearer;
+export type DescribeLogStreamsCommandOutput = DescribeLogStreamsResponse & __MetadataBearer;
 
 export class DescribeLogStreamsCommand extends $Command<
   DescribeLogStreamsCommandInput,
@@ -50,14 +39,12 @@ export class DescribeLogStreamsCommand extends $Command<
     configuration: CloudWatchLogsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeLogStreamsCommandInput, DescribeLogStreamsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class DescribeLogStreamsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeLogStreamsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeLogStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLogStreamsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeLogStreamsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLogStreamsCommandOutput> {
     return deserializeAws_json1_1DescribeLogStreamsCommand(output, context);
   }
 

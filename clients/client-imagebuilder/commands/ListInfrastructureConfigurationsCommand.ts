@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  imagebuilderClientResolvedConfig
-} from "../imagebuilderClient";
-import {
-  ListInfrastructureConfigurationsRequest,
-  ListInfrastructureConfigurationsResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, imagebuilderClientResolvedConfig } from "../imagebuilderClient";
+import { ListInfrastructureConfigurationsRequest, ListInfrastructureConfigurationsResponse } from "../models/index";
 import {
   deserializeAws_restJson1ListInfrastructureConfigurationsCommand,
-  serializeAws_restJson1ListInfrastructureConfigurationsCommand
+  serializeAws_restJson1ListInfrastructureConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListInfrastructureConfigurationsCommandInput = ListInfrastructureConfigurationsRequest;
-export type ListInfrastructureConfigurationsCommandOutput = ListInfrastructureConfigurationsResponse &
-  __MetadataBearer;
+export type ListInfrastructureConfigurationsCommandOutput = ListInfrastructureConfigurationsResponse & __MetadataBearer;
 
 export class ListInfrastructureConfigurationsCommand extends $Command<
   ListInfrastructureConfigurationsCommandInput,
@@ -49,18 +38,13 @@ export class ListInfrastructureConfigurationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListInfrastructureConfigurationsCommandInput,
-    ListInfrastructureConfigurationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListInfrastructureConfigurationsCommandInput, ListInfrastructureConfigurationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +58,14 @@ export class ListInfrastructureConfigurationsCommand extends $Command<
     input: ListInfrastructureConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListInfrastructureConfigurationsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1ListInfrastructureConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListInfrastructureConfigurationsCommandOutput> {
-    return deserializeAws_restJson1ListInfrastructureConfigurationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListInfrastructureConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

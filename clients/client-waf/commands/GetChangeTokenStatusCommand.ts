@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient";
-import {
-  GetChangeTokenStatusRequest,
-  GetChangeTokenStatusResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
+import { GetChangeTokenStatusRequest, GetChangeTokenStatusResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetChangeTokenStatusCommand,
-  serializeAws_json1_1GetChangeTokenStatusCommand
+  serializeAws_json1_1GetChangeTokenStatusCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetChangeTokenStatusCommandInput = GetChangeTokenStatusRequest;
-export type GetChangeTokenStatusCommandOutput = GetChangeTokenStatusResponse &
-  __MetadataBearer;
+export type GetChangeTokenStatusCommandOutput = GetChangeTokenStatusResponse & __MetadataBearer;
 
 export class GetChangeTokenStatusCommand extends $Command<
   GetChangeTokenStatusCommandInput,
@@ -49,18 +38,13 @@ export class GetChangeTokenStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetChangeTokenStatusCommandInput,
-    GetChangeTokenStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetChangeTokenStatusCommandInput, GetChangeTokenStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class GetChangeTokenStatusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetChangeTokenStatusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetChangeTokenStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetChangeTokenStatusCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetChangeTokenStatusCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChangeTokenStatusCommandOutput> {
     return deserializeAws_json1_1GetChangeTokenStatusCommand(output, context);
   }
 

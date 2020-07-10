@@ -1,80 +1,35 @@
 import {
   BatchDeleteDocumentCommandInput,
-  BatchDeleteDocumentCommandOutput
+  BatchDeleteDocumentCommandOutput,
 } from "./commands/BatchDeleteDocumentCommand";
-import {
-  BatchPutDocumentCommandInput,
-  BatchPutDocumentCommandOutput
-} from "./commands/BatchPutDocumentCommand";
-import {
-  CreateDataSourceCommandInput,
-  CreateDataSourceCommandOutput
-} from "./commands/CreateDataSourceCommand";
-import {
-  CreateFaqCommandInput,
-  CreateFaqCommandOutput
-} from "./commands/CreateFaqCommand";
-import {
-  CreateIndexCommandInput,
-  CreateIndexCommandOutput
-} from "./commands/CreateIndexCommand";
-import {
-  DeleteFaqCommandInput,
-  DeleteFaqCommandOutput
-} from "./commands/DeleteFaqCommand";
-import {
-  DeleteIndexCommandInput,
-  DeleteIndexCommandOutput
-} from "./commands/DeleteIndexCommand";
-import {
-  DescribeDataSourceCommandInput,
-  DescribeDataSourceCommandOutput
-} from "./commands/DescribeDataSourceCommand";
-import {
-  DescribeFaqCommandInput,
-  DescribeFaqCommandOutput
-} from "./commands/DescribeFaqCommand";
-import {
-  DescribeIndexCommandInput,
-  DescribeIndexCommandOutput
-} from "./commands/DescribeIndexCommand";
+import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "./commands/BatchPutDocumentCommand";
+import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
+import { CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand";
+import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
+import { DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand";
+import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
+import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "./commands/DescribeDataSourceCommand";
+import { DescribeFaqCommandInput, DescribeFaqCommandOutput } from "./commands/DescribeFaqCommand";
+import { DescribeIndexCommandInput, DescribeIndexCommandOutput } from "./commands/DescribeIndexCommand";
 import {
   ListDataSourceSyncJobsCommandInput,
-  ListDataSourceSyncJobsCommandOutput
+  ListDataSourceSyncJobsCommandOutput,
 } from "./commands/ListDataSourceSyncJobsCommand";
-import {
-  ListDataSourcesCommandInput,
-  ListDataSourcesCommandOutput
-} from "./commands/ListDataSourcesCommand";
-import {
-  ListFaqsCommandInput,
-  ListFaqsCommandOutput
-} from "./commands/ListFaqsCommand";
-import {
-  ListIndicesCommandInput,
-  ListIndicesCommandOutput
-} from "./commands/ListIndicesCommand";
+import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
+import { ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand";
+import { ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
 import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
 import {
   StartDataSourceSyncJobCommandInput,
-  StartDataSourceSyncJobCommandOutput
+  StartDataSourceSyncJobCommandOutput,
 } from "./commands/StartDataSourceSyncJobCommand";
 import {
   StopDataSourceSyncJobCommandInput,
-  StopDataSourceSyncJobCommandOutput
+  StopDataSourceSyncJobCommandOutput,
 } from "./commands/StopDataSourceSyncJobCommand";
-import {
-  SubmitFeedbackCommandInput,
-  SubmitFeedbackCommandOutput
-} from "./commands/SubmitFeedbackCommand";
-import {
-  UpdateDataSourceCommandInput,
-  UpdateDataSourceCommandOutput
-} from "./commands/UpdateDataSourceCommand";
-import {
-  UpdateIndexCommandInput,
-  UpdateIndexCommandOutput
-} from "./commands/UpdateIndexCommand";
+import { SubmitFeedbackCommandInput, SubmitFeedbackCommandOutput } from "./commands/SubmitFeedbackCommand";
+import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
+import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -82,38 +37,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -124,7 +74,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -171,8 +121,7 @@ export type ServiceOutputTypes =
   | UpdateDataSourceCommandOutput
   | UpdateIndexCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -261,9 +210,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type kendraClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type kendraClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -272,9 +219,7 @@ export type kendraClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type kendraClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type kendraClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -297,7 +242,7 @@ export class kendraClient extends __Client<
   constructor(configuration: kendraClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

@@ -1,39 +1,21 @@
-import {
-  DeleteLexiconCommandInput,
-  DeleteLexiconCommandOutput
-} from "../commands/DeleteLexiconCommand";
-import {
-  DescribeVoicesCommandInput,
-  DescribeVoicesCommandOutput
-} from "../commands/DescribeVoicesCommand";
-import {
-  GetLexiconCommandInput,
-  GetLexiconCommandOutput
-} from "../commands/GetLexiconCommand";
+import { DeleteLexiconCommandInput, DeleteLexiconCommandOutput } from "../commands/DeleteLexiconCommand";
+import { DescribeVoicesCommandInput, DescribeVoicesCommandOutput } from "../commands/DescribeVoicesCommand";
+import { GetLexiconCommandInput, GetLexiconCommandOutput } from "../commands/GetLexiconCommand";
 import {
   GetSpeechSynthesisTaskCommandInput,
-  GetSpeechSynthesisTaskCommandOutput
+  GetSpeechSynthesisTaskCommandOutput,
 } from "../commands/GetSpeechSynthesisTaskCommand";
-import {
-  ListLexiconsCommandInput,
-  ListLexiconsCommandOutput
-} from "../commands/ListLexiconsCommand";
+import { ListLexiconsCommandInput, ListLexiconsCommandOutput } from "../commands/ListLexiconsCommand";
 import {
   ListSpeechSynthesisTasksCommandInput,
-  ListSpeechSynthesisTasksCommandOutput
+  ListSpeechSynthesisTasksCommandOutput,
 } from "../commands/ListSpeechSynthesisTasksCommand";
-import {
-  PutLexiconCommandInput,
-  PutLexiconCommandOutput
-} from "../commands/PutLexiconCommand";
+import { PutLexiconCommandInput, PutLexiconCommandOutput } from "../commands/PutLexiconCommand";
 import {
   StartSpeechSynthesisTaskCommandInput,
-  StartSpeechSynthesisTaskCommandOutput
+  StartSpeechSynthesisTaskCommandOutput,
 } from "../commands/StartSpeechSynthesisTaskCommand";
-import {
-  SynthesizeSpeechCommandInput,
-  SynthesizeSpeechCommandOutput
-} from "../commands/SynthesizeSpeechCommand";
+import { SynthesizeSpeechCommandInput, SynthesizeSpeechCommandOutput } from "../commands/SynthesizeSpeechCommand";
 import {
   Engine,
   EngineNotSupportedException,
@@ -63,21 +45,18 @@ import {
   TextLengthExceededException,
   UnsupportedPlsAlphabetException,
   UnsupportedPlsLanguageException,
-  Voice
+  Voice,
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export const serializeAws_restJson1DeleteLexiconCommand = async (
@@ -85,7 +64,7 @@ export const serializeAws_restJson1DeleteLexiconCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/v1/lexicons/{Name}";
   if (input.Name !== undefined) {
@@ -93,10 +72,7 @@ export const serializeAws_restJson1DeleteLexiconCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
@@ -109,7 +85,7 @@ export const serializeAws_restJson1DeleteLexiconCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -118,18 +94,16 @@ export const serializeAws_restJson1DescribeVoicesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/v1/voices";
   const query: any = {
     ...(input.Engine !== undefined && { Engine: input.Engine }),
     ...(input.IncludeAdditionalLanguageCodes !== undefined && {
-      IncludeAdditionalLanguageCodes: input.IncludeAdditionalLanguageCodes.toString()
+      IncludeAdditionalLanguageCodes: input.IncludeAdditionalLanguageCodes.toString(),
     }),
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode
-    }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -141,7 +115,7 @@ export const serializeAws_restJson1DescribeVoicesCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -150,7 +124,7 @@ export const serializeAws_restJson1GetLexiconCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/v1/lexicons/{Name}";
   if (input.Name !== undefined) {
@@ -158,10 +132,7 @@ export const serializeAws_restJson1GetLexiconCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
@@ -174,7 +145,7 @@ export const serializeAws_restJson1GetLexiconCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -183,7 +154,7 @@ export const serializeAws_restJson1GetSpeechSynthesisTaskCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/v1/synthesisTasks/{TaskId}";
   if (input.TaskId !== undefined) {
@@ -191,10 +162,7 @@ export const serializeAws_restJson1GetSpeechSynthesisTaskCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TaskId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{TaskId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{TaskId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: TaskId.");
   }
@@ -207,7 +175,7 @@ export const serializeAws_restJson1GetSpeechSynthesisTaskCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -216,11 +184,11 @@ export const serializeAws_restJson1ListLexiconsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/v1/lexicons";
   const query: any = {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -232,7 +200,7 @@ export const serializeAws_restJson1ListLexiconsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -241,15 +209,13 @@ export const serializeAws_restJson1ListSpeechSynthesisTasksCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/v1/synthesisTasks";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      MaxResults: input.MaxResults.toString()
-    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.Status !== undefined && { Status: input.Status })
+    ...(input.Status !== undefined && { Status: input.Status }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -261,7 +227,7 @@ export const serializeAws_restJson1ListSpeechSynthesisTasksCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -270,7 +236,7 @@ export const serializeAws_restJson1PutLexiconCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/v1/lexicons/{Name}";
   if (input.Name !== undefined) {
@@ -278,16 +244,13 @@ export const serializeAws_restJson1PutLexiconCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Content !== undefined && { Content: input.Content })
+    ...(input.Content !== undefined && { Content: input.Content }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -297,7 +260,7 @@ export const serializeAws_restJson1PutLexiconCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -306,41 +269,27 @@ export const serializeAws_restJson1StartSpeechSynthesisTaskCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/v1/synthesisTasks";
   let body: any;
   body = JSON.stringify({
     ...(input.Engine !== undefined && { Engine: input.Engine }),
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
     ...(input.LexiconNames !== undefined && {
-      LexiconNames: serializeAws_restJson1LexiconNameList(
-        input.LexiconNames,
-        context
-      )
+      LexiconNames: serializeAws_restJson1LexiconNameList(input.LexiconNames, context),
     }),
-    ...(input.OutputFormat !== undefined && {
-      OutputFormat: input.OutputFormat
-    }),
-    ...(input.OutputS3BucketName !== undefined && {
-      OutputS3BucketName: input.OutputS3BucketName
-    }),
-    ...(input.OutputS3KeyPrefix !== undefined && {
-      OutputS3KeyPrefix: input.OutputS3KeyPrefix
-    }),
+    ...(input.OutputFormat !== undefined && { OutputFormat: input.OutputFormat }),
+    ...(input.OutputS3BucketName !== undefined && { OutputS3BucketName: input.OutputS3BucketName }),
+    ...(input.OutputS3KeyPrefix !== undefined && { OutputS3KeyPrefix: input.OutputS3KeyPrefix }),
     ...(input.SampleRate !== undefined && { SampleRate: input.SampleRate }),
     ...(input.SnsTopicArn !== undefined && { SnsTopicArn: input.SnsTopicArn }),
     ...(input.SpeechMarkTypes !== undefined && {
-      SpeechMarkTypes: serializeAws_restJson1SpeechMarkTypeList(
-        input.SpeechMarkTypes,
-        context
-      )
+      SpeechMarkTypes: serializeAws_restJson1SpeechMarkTypeList(input.SpeechMarkTypes, context),
     }),
     ...(input.Text !== undefined && { Text: input.Text }),
     ...(input.TextType !== undefined && { TextType: input.TextType }),
-    ...(input.VoiceId !== undefined && { VoiceId: input.VoiceId })
+    ...(input.VoiceId !== undefined && { VoiceId: input.VoiceId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -350,7 +299,7 @@ export const serializeAws_restJson1StartSpeechSynthesisTaskCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -359,34 +308,24 @@ export const serializeAws_restJson1SynthesizeSpeechCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/v1/speech";
   let body: any;
   body = JSON.stringify({
     ...(input.Engine !== undefined && { Engine: input.Engine }),
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
     ...(input.LexiconNames !== undefined && {
-      LexiconNames: serializeAws_restJson1LexiconNameList(
-        input.LexiconNames,
-        context
-      )
+      LexiconNames: serializeAws_restJson1LexiconNameList(input.LexiconNames, context),
     }),
-    ...(input.OutputFormat !== undefined && {
-      OutputFormat: input.OutputFormat
-    }),
+    ...(input.OutputFormat !== undefined && { OutputFormat: input.OutputFormat }),
     ...(input.SampleRate !== undefined && { SampleRate: input.SampleRate }),
     ...(input.SpeechMarkTypes !== undefined && {
-      SpeechMarkTypes: serializeAws_restJson1SpeechMarkTypeList(
-        input.SpeechMarkTypes,
-        context
-      )
+      SpeechMarkTypes: serializeAws_restJson1SpeechMarkTypeList(input.SpeechMarkTypes, context),
     }),
     ...(input.Text !== undefined && { Text: input.Text }),
     ...(input.TextType !== undefined && { TextType: input.TextType }),
-    ...(input.VoiceId !== undefined && { VoiceId: input.VoiceId })
+    ...(input.VoiceId !== undefined && { VoiceId: input.VoiceId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -396,7 +335,7 @@ export const serializeAws_restJson1SynthesizeSpeechCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -409,7 +348,7 @@ export const deserializeAws_restJson1DeleteLexiconCommand = async (
   }
   const contents: DeleteLexiconCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLexiconOutput"
+    __type: "DeleteLexiconOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -421,7 +360,7 @@ const deserializeAws_restJson1DeleteLexiconCommandError = async (
 ): Promise<DeleteLexiconCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -430,23 +369,17 @@ const deserializeAws_restJson1DeleteLexiconCommandError = async (
     case "LexiconNotFoundException":
     case "com.amazonaws.polly#LexiconNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1LexiconNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LexiconNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceFailureException":
     case "com.amazonaws.polly#ServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -457,7 +390,7 @@ const deserializeAws_restJson1DeleteLexiconCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -477,7 +410,7 @@ export const deserializeAws_restJson1DescribeVoicesCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "DescribeVoicesOutput",
     NextToken: undefined,
-    Voices: undefined
+    Voices: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
@@ -495,7 +428,7 @@ const deserializeAws_restJson1DescribeVoicesCommandError = async (
 ): Promise<DescribeVoicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -504,23 +437,17 @@ const deserializeAws_restJson1DescribeVoicesCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.polly#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceFailureException":
     case "com.amazonaws.polly#ServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -531,7 +458,7 @@ const deserializeAws_restJson1DescribeVoicesCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -551,17 +478,14 @@ export const deserializeAws_restJson1GetLexiconCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "GetLexiconOutput",
     Lexicon: undefined,
-    LexiconAttributes: undefined
+    LexiconAttributes: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Lexicon !== undefined && data.Lexicon !== null) {
     contents.Lexicon = deserializeAws_restJson1Lexicon(data.Lexicon, context);
   }
   if (data.LexiconAttributes !== undefined && data.LexiconAttributes !== null) {
-    contents.LexiconAttributes = deserializeAws_restJson1LexiconAttributes(
-      data.LexiconAttributes,
-      context
-    );
+    contents.LexiconAttributes = deserializeAws_restJson1LexiconAttributes(data.LexiconAttributes, context);
   }
   return Promise.resolve(contents);
 };
@@ -572,7 +496,7 @@ const deserializeAws_restJson1GetLexiconCommandError = async (
 ): Promise<GetLexiconCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -581,23 +505,17 @@ const deserializeAws_restJson1GetLexiconCommandError = async (
     case "LexiconNotFoundException":
     case "com.amazonaws.polly#LexiconNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1LexiconNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LexiconNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceFailureException":
     case "com.amazonaws.polly#ServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -608,7 +526,7 @@ const deserializeAws_restJson1GetLexiconCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -622,22 +540,16 @@ export const deserializeAws_restJson1GetSpeechSynthesisTaskCommand = async (
   context: __SerdeContext
 ): Promise<GetSpeechSynthesisTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetSpeechSynthesisTaskCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetSpeechSynthesisTaskCommandError(output, context);
   }
   const contents: GetSpeechSynthesisTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSpeechSynthesisTaskOutput",
-    SynthesisTask: undefined
+    SynthesisTask: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.SynthesisTask !== undefined && data.SynthesisTask !== null) {
-    contents.SynthesisTask = deserializeAws_restJson1SynthesisTask(
-      data.SynthesisTask,
-      context
-    );
+    contents.SynthesisTask = deserializeAws_restJson1SynthesisTask(data.SynthesisTask, context);
   }
   return Promise.resolve(contents);
 };
@@ -648,7 +560,7 @@ const deserializeAws_restJson1GetSpeechSynthesisTaskCommandError = async (
 ): Promise<GetSpeechSynthesisTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -657,34 +569,25 @@ const deserializeAws_restJson1GetSpeechSynthesisTaskCommandError = async (
     case "InvalidTaskIdException":
     case "com.amazonaws.polly#InvalidTaskIdException":
       response = {
-        ...(await deserializeAws_restJson1InvalidTaskIdExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidTaskIdExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceFailureException":
     case "com.amazonaws.polly#ServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "SynthesisTaskNotFoundException":
     case "com.amazonaws.polly#SynthesisTaskNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1SynthesisTaskNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1SynthesisTaskNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -695,7 +598,7 @@ const deserializeAws_restJson1GetSpeechSynthesisTaskCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -715,14 +618,11 @@ export const deserializeAws_restJson1ListLexiconsCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "ListLexiconsOutput",
     Lexicons: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Lexicons !== undefined && data.Lexicons !== null) {
-    contents.Lexicons = deserializeAws_restJson1LexiconDescriptionList(
-      data.Lexicons,
-      context
-    );
+    contents.Lexicons = deserializeAws_restJson1LexiconDescriptionList(data.Lexicons, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -736,7 +636,7 @@ const deserializeAws_restJson1ListLexiconsCommandError = async (
 ): Promise<ListLexiconsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -745,23 +645,17 @@ const deserializeAws_restJson1ListLexiconsCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.polly#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceFailureException":
     case "com.amazonaws.polly#ServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -772,7 +666,7 @@ const deserializeAws_restJson1ListLexiconsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -786,26 +680,20 @@ export const deserializeAws_restJson1ListSpeechSynthesisTasksCommand = async (
   context: __SerdeContext
 ): Promise<ListSpeechSynthesisTasksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListSpeechSynthesisTasksCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListSpeechSynthesisTasksCommandError(output, context);
   }
   const contents: ListSpeechSynthesisTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListSpeechSynthesisTasksOutput",
     NextToken: undefined,
-    SynthesisTasks: undefined
+    SynthesisTasks: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   if (data.SynthesisTasks !== undefined && data.SynthesisTasks !== null) {
-    contents.SynthesisTasks = deserializeAws_restJson1SynthesisTasks(
-      data.SynthesisTasks,
-      context
-    );
+    contents.SynthesisTasks = deserializeAws_restJson1SynthesisTasks(data.SynthesisTasks, context);
   }
   return Promise.resolve(contents);
 };
@@ -816,7 +704,7 @@ const deserializeAws_restJson1ListSpeechSynthesisTasksCommandError = async (
 ): Promise<ListSpeechSynthesisTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -825,23 +713,17 @@ const deserializeAws_restJson1ListSpeechSynthesisTasksCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.polly#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceFailureException":
     case "com.amazonaws.polly#ServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -852,7 +734,7 @@ const deserializeAws_restJson1ListSpeechSynthesisTasksCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -870,7 +752,7 @@ export const deserializeAws_restJson1PutLexiconCommand = async (
   }
   const contents: PutLexiconCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutLexiconOutput"
+    __type: "PutLexiconOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -882,7 +764,7 @@ const deserializeAws_restJson1PutLexiconCommandError = async (
 ): Promise<PutLexiconCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -891,78 +773,57 @@ const deserializeAws_restJson1PutLexiconCommandError = async (
     case "InvalidLexiconException":
     case "com.amazonaws.polly#InvalidLexiconException":
       response = {
-        ...(await deserializeAws_restJson1InvalidLexiconExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidLexiconExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LexiconSizeExceededException":
     case "com.amazonaws.polly#LexiconSizeExceededException":
       response = {
-        ...(await deserializeAws_restJson1LexiconSizeExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LexiconSizeExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "MaxLexemeLengthExceededException":
     case "com.amazonaws.polly#MaxLexemeLengthExceededException":
       response = {
-        ...(await deserializeAws_restJson1MaxLexemeLengthExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1MaxLexemeLengthExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "MaxLexiconsNumberExceededException":
     case "com.amazonaws.polly#MaxLexiconsNumberExceededException":
       response = {
-        ...(await deserializeAws_restJson1MaxLexiconsNumberExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1MaxLexiconsNumberExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceFailureException":
     case "com.amazonaws.polly#ServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnsupportedPlsAlphabetException":
     case "com.amazonaws.polly#UnsupportedPlsAlphabetException":
       response = {
-        ...(await deserializeAws_restJson1UnsupportedPlsAlphabetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnsupportedPlsAlphabetExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnsupportedPlsLanguageException":
     case "com.amazonaws.polly#UnsupportedPlsLanguageException":
       response = {
-        ...(await deserializeAws_restJson1UnsupportedPlsLanguageExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnsupportedPlsLanguageExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -973,7 +834,7 @@ const deserializeAws_restJson1PutLexiconCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -987,22 +848,16 @@ export const deserializeAws_restJson1StartSpeechSynthesisTaskCommand = async (
   context: __SerdeContext
 ): Promise<StartSpeechSynthesisTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1StartSpeechSynthesisTaskCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1StartSpeechSynthesisTaskCommandError(output, context);
   }
   const contents: StartSpeechSynthesisTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartSpeechSynthesisTaskOutput",
-    SynthesisTask: undefined
+    SynthesisTask: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.SynthesisTask !== undefined && data.SynthesisTask !== null) {
-    contents.SynthesisTask = deserializeAws_restJson1SynthesisTask(
-      data.SynthesisTask,
-      context
-    );
+    contents.SynthesisTask = deserializeAws_restJson1SynthesisTask(data.SynthesisTask, context);
   }
   return Promise.resolve(contents);
 };
@@ -1013,7 +868,7 @@ const deserializeAws_restJson1StartSpeechSynthesisTaskCommandError = async (
 ): Promise<StartSpeechSynthesisTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1022,133 +877,97 @@ const deserializeAws_restJson1StartSpeechSynthesisTaskCommandError = async (
     case "EngineNotSupportedException":
     case "com.amazonaws.polly#EngineNotSupportedException":
       response = {
-        ...(await deserializeAws_restJson1EngineNotSupportedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1EngineNotSupportedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidS3BucketException":
     case "com.amazonaws.polly#InvalidS3BucketException":
       response = {
-        ...(await deserializeAws_restJson1InvalidS3BucketExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidS3BucketExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidS3KeyException":
     case "com.amazonaws.polly#InvalidS3KeyException":
       response = {
-        ...(await deserializeAws_restJson1InvalidS3KeyExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidS3KeyExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidSampleRateException":
     case "com.amazonaws.polly#InvalidSampleRateException":
       response = {
-        ...(await deserializeAws_restJson1InvalidSampleRateExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidSampleRateExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidSnsTopicArnException":
     case "com.amazonaws.polly#InvalidSnsTopicArnException":
       response = {
-        ...(await deserializeAws_restJson1InvalidSnsTopicArnExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidSnsTopicArnExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidSsmlException":
     case "com.amazonaws.polly#InvalidSsmlException":
       response = {
-        ...(await deserializeAws_restJson1InvalidSsmlExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidSsmlExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LanguageNotSupportedException":
     case "com.amazonaws.polly#LanguageNotSupportedException":
       response = {
-        ...(await deserializeAws_restJson1LanguageNotSupportedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LanguageNotSupportedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LexiconNotFoundException":
     case "com.amazonaws.polly#LexiconNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1LexiconNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LexiconNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "MarksNotSupportedForFormatException":
     case "com.amazonaws.polly#MarksNotSupportedForFormatException":
       response = {
-        ...(await deserializeAws_restJson1MarksNotSupportedForFormatExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1MarksNotSupportedForFormatExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceFailureException":
     case "com.amazonaws.polly#ServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "SsmlMarksNotSupportedForTextTypeException":
     case "com.amazonaws.polly#SsmlMarksNotSupportedForTextTypeException":
       response = {
-        ...(await deserializeAws_restJson1SsmlMarksNotSupportedForTextTypeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1SsmlMarksNotSupportedForTextTypeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TextLengthExceededException":
     case "com.amazonaws.polly#TextLengthExceededException":
       response = {
-        ...(await deserializeAws_restJson1TextLengthExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1TextLengthExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1159,7 +978,7 @@ const deserializeAws_restJson1StartSpeechSynthesisTaskCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1173,26 +992,20 @@ export const deserializeAws_restJson1SynthesizeSpeechCommand = async (
   context: __SerdeContext
 ): Promise<SynthesizeSpeechCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1SynthesizeSpeechCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1SynthesizeSpeechCommandError(output, context);
   }
   const contents: SynthesizeSpeechCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SynthesizeSpeechOutput",
     AudioStream: undefined,
     ContentType: undefined,
-    RequestCharacters: undefined
+    RequestCharacters: undefined,
   };
   if (output.headers["content-type"] !== undefined) {
     contents.ContentType = output.headers["content-type"];
   }
   if (output.headers["x-amzn-requestcharacters"] !== undefined) {
-    contents.RequestCharacters = parseInt(
-      output.headers["x-amzn-requestcharacters"],
-      10
-    );
+    contents.RequestCharacters = parseInt(output.headers["x-amzn-requestcharacters"], 10);
   }
   const data: any = output.body;
   contents.AudioStream = data;
@@ -1205,7 +1018,7 @@ const deserializeAws_restJson1SynthesizeSpeechCommandError = async (
 ): Promise<SynthesizeSpeechCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1214,100 +1027,73 @@ const deserializeAws_restJson1SynthesizeSpeechCommandError = async (
     case "EngineNotSupportedException":
     case "com.amazonaws.polly#EngineNotSupportedException":
       response = {
-        ...(await deserializeAws_restJson1EngineNotSupportedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1EngineNotSupportedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidSampleRateException":
     case "com.amazonaws.polly#InvalidSampleRateException":
       response = {
-        ...(await deserializeAws_restJson1InvalidSampleRateExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidSampleRateExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidSsmlException":
     case "com.amazonaws.polly#InvalidSsmlException":
       response = {
-        ...(await deserializeAws_restJson1InvalidSsmlExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidSsmlExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LanguageNotSupportedException":
     case "com.amazonaws.polly#LanguageNotSupportedException":
       response = {
-        ...(await deserializeAws_restJson1LanguageNotSupportedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LanguageNotSupportedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LexiconNotFoundException":
     case "com.amazonaws.polly#LexiconNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1LexiconNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LexiconNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "MarksNotSupportedForFormatException":
     case "com.amazonaws.polly#MarksNotSupportedForFormatException":
       response = {
-        ...(await deserializeAws_restJson1MarksNotSupportedForFormatExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1MarksNotSupportedForFormatExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceFailureException":
     case "com.amazonaws.polly#ServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "SsmlMarksNotSupportedForTextTypeException":
     case "com.amazonaws.polly#SsmlMarksNotSupportedForTextTypeException":
       response = {
-        ...(await deserializeAws_restJson1SsmlMarksNotSupportedForTextTypeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1SsmlMarksNotSupportedForTextTypeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TextLengthExceededException":
     case "com.amazonaws.polly#TextLengthExceededException":
       response = {
-        ...(await deserializeAws_restJson1TextLengthExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1TextLengthExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1318,7 +1104,7 @@ const deserializeAws_restJson1SynthesizeSpeechCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1335,7 +1121,7 @@ const deserializeAws_restJson1EngineNotSupportedExceptionResponse = async (
     name: "EngineNotSupportedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1352,7 +1138,7 @@ const deserializeAws_restJson1InvalidLexiconExceptionResponse = async (
     name: "InvalidLexiconException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1369,7 +1155,7 @@ const deserializeAws_restJson1InvalidNextTokenExceptionResponse = async (
     name: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1386,7 +1172,7 @@ const deserializeAws_restJson1InvalidS3BucketExceptionResponse = async (
     name: "InvalidS3BucketException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1403,7 +1189,7 @@ const deserializeAws_restJson1InvalidS3KeyExceptionResponse = async (
     name: "InvalidS3KeyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1420,7 +1206,7 @@ const deserializeAws_restJson1InvalidSampleRateExceptionResponse = async (
     name: "InvalidSampleRateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1437,7 +1223,7 @@ const deserializeAws_restJson1InvalidSnsTopicArnExceptionResponse = async (
     name: "InvalidSnsTopicArnException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1454,7 +1240,7 @@ const deserializeAws_restJson1InvalidSsmlExceptionResponse = async (
     name: "InvalidSsmlException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1471,7 +1257,7 @@ const deserializeAws_restJson1InvalidTaskIdExceptionResponse = async (
     name: "InvalidTaskIdException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1488,7 +1274,7 @@ const deserializeAws_restJson1LanguageNotSupportedExceptionResponse = async (
     name: "LanguageNotSupportedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1505,7 +1291,7 @@ const deserializeAws_restJson1LexiconNotFoundExceptionResponse = async (
     name: "LexiconNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1522,7 +1308,7 @@ const deserializeAws_restJson1LexiconSizeExceededExceptionResponse = async (
     name: "LexiconSizeExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1539,7 +1325,7 @@ const deserializeAws_restJson1MarksNotSupportedForFormatExceptionResponse = asyn
     name: "MarksNotSupportedForFormatException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1556,7 +1342,7 @@ const deserializeAws_restJson1MaxLexemeLengthExceededExceptionResponse = async (
     name: "MaxLexemeLengthExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1573,7 +1359,7 @@ const deserializeAws_restJson1MaxLexiconsNumberExceededExceptionResponse = async
     name: "MaxLexiconsNumberExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1590,7 +1376,7 @@ const deserializeAws_restJson1ServiceFailureExceptionResponse = async (
     name: "ServiceFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1607,7 +1393,7 @@ const deserializeAws_restJson1SsmlMarksNotSupportedForTextTypeExceptionResponse 
     name: "SsmlMarksNotSupportedForTextTypeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1624,7 +1410,7 @@ const deserializeAws_restJson1SynthesisTaskNotFoundExceptionResponse = async (
     name: "SynthesisTaskNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1641,7 +1427,7 @@ const deserializeAws_restJson1TextLengthExceededExceptionResponse = async (
     name: "TextLengthExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1658,7 +1444,7 @@ const deserializeAws_restJson1UnsupportedPlsAlphabetExceptionResponse = async (
     name: "UnsupportedPlsAlphabetException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1675,7 +1461,7 @@ const deserializeAws_restJson1UnsupportedPlsLanguageExceptionResponse = async (
     name: "UnsupportedPlsLanguageException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1684,114 +1470,61 @@ const deserializeAws_restJson1UnsupportedPlsLanguageExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1LexiconNameList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
+const serializeAws_restJson1LexiconNameList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
-const serializeAws_restJson1SpeechMarkTypeList = (
-  input: (SpeechMarkType | string)[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
+const serializeAws_restJson1SpeechMarkTypeList = (input: (SpeechMarkType | string)[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
-const deserializeAws_restJson1EngineList = (
-  output: any,
-  context: __SerdeContext
-): (Engine | string)[] => {
+const deserializeAws_restJson1EngineList = (output: any, context: __SerdeContext): (Engine | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1LanguageCodeList = (
-  output: any,
-  context: __SerdeContext
-): (LanguageCode | string)[] => {
+const deserializeAws_restJson1LanguageCodeList = (output: any, context: __SerdeContext): (LanguageCode | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1Lexicon = (
-  output: any,
-  context: __SerdeContext
-): Lexicon => {
+const deserializeAws_restJson1Lexicon = (output: any, context: __SerdeContext): Lexicon => {
   return {
     __type: "Lexicon",
-    Content:
-      output.Content !== undefined && output.Content !== null
-        ? output.Content
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1LexiconAttributes = (
-  output: any,
-  context: __SerdeContext
-): LexiconAttributes => {
+const deserializeAws_restJson1LexiconAttributes = (output: any, context: __SerdeContext): LexiconAttributes => {
   return {
     __type: "LexiconAttributes",
-    Alphabet:
-      output.Alphabet !== undefined && output.Alphabet !== null
-        ? output.Alphabet
-        : undefined,
-    LanguageCode:
-      output.LanguageCode !== undefined && output.LanguageCode !== null
-        ? output.LanguageCode
-        : undefined,
+    Alphabet: output.Alphabet !== undefined && output.Alphabet !== null ? output.Alphabet : undefined,
+    LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     LastModified:
       output.LastModified !== undefined && output.LastModified !== null
         ? new Date(Math.round(output.LastModified * 1000))
         : undefined,
-    LexemesCount:
-      output.LexemesCount !== undefined && output.LexemesCount !== null
-        ? output.LexemesCount
-        : undefined,
-    LexiconArn:
-      output.LexiconArn !== undefined && output.LexiconArn !== null
-        ? output.LexiconArn
-        : undefined,
-    Size:
-      output.Size !== undefined && output.Size !== null
-        ? output.Size
-        : undefined
+    LexemesCount: output.LexemesCount !== undefined && output.LexemesCount !== null ? output.LexemesCount : undefined,
+    LexiconArn: output.LexiconArn !== undefined && output.LexiconArn !== null ? output.LexiconArn : undefined,
+    Size: output.Size !== undefined && output.Size !== null ? output.Size : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1LexiconDescription = (
-  output: any,
-  context: __SerdeContext
-): LexiconDescription => {
+const deserializeAws_restJson1LexiconDescription = (output: any, context: __SerdeContext): LexiconDescription => {
   return {
     __type: "LexiconDescription",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_restJson1LexiconAttributes(output.Attributes, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1LexiconDescriptionList = (
-  output: any,
-  context: __SerdeContext
-): LexiconDescription[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1LexiconDescription(entry, context)
-  );
+const deserializeAws_restJson1LexiconDescriptionList = (output: any, context: __SerdeContext): LexiconDescription[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1LexiconDescription(entry, context));
 };
 
-const deserializeAws_restJson1LexiconNameList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1LexiconNameList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1802,170 +1535,93 @@ const deserializeAws_restJson1SpeechMarkTypeList = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1SynthesisTask = (
-  output: any,
-  context: __SerdeContext
-): SynthesisTask => {
+const deserializeAws_restJson1SynthesisTask = (output: any, context: __SerdeContext): SynthesisTask => {
   return {
     __type: "SynthesisTask",
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    Engine:
-      output.Engine !== undefined && output.Engine !== null
-        ? output.Engine
-        : undefined,
-    LanguageCode:
-      output.LanguageCode !== undefined && output.LanguageCode !== null
-        ? output.LanguageCode
-        : undefined,
+    Engine: output.Engine !== undefined && output.Engine !== null ? output.Engine : undefined,
+    LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     LexiconNames:
       output.LexiconNames !== undefined && output.LexiconNames !== null
         ? deserializeAws_restJson1LexiconNameList(output.LexiconNames, context)
         : undefined,
-    OutputFormat:
-      output.OutputFormat !== undefined && output.OutputFormat !== null
-        ? output.OutputFormat
-        : undefined,
-    OutputUri:
-      output.OutputUri !== undefined && output.OutputUri !== null
-        ? output.OutputUri
-        : undefined,
+    OutputFormat: output.OutputFormat !== undefined && output.OutputFormat !== null ? output.OutputFormat : undefined,
+    OutputUri: output.OutputUri !== undefined && output.OutputUri !== null ? output.OutputUri : undefined,
     RequestCharacters:
-      output.RequestCharacters !== undefined &&
-      output.RequestCharacters !== null
+      output.RequestCharacters !== undefined && output.RequestCharacters !== null
         ? output.RequestCharacters
         : undefined,
-    SampleRate:
-      output.SampleRate !== undefined && output.SampleRate !== null
-        ? output.SampleRate
-        : undefined,
-    SnsTopicArn:
-      output.SnsTopicArn !== undefined && output.SnsTopicArn !== null
-        ? output.SnsTopicArn
-        : undefined,
+    SampleRate: output.SampleRate !== undefined && output.SampleRate !== null ? output.SampleRate : undefined,
+    SnsTopicArn: output.SnsTopicArn !== undefined && output.SnsTopicArn !== null ? output.SnsTopicArn : undefined,
     SpeechMarkTypes:
       output.SpeechMarkTypes !== undefined && output.SpeechMarkTypes !== null
-        ? deserializeAws_restJson1SpeechMarkTypeList(
-            output.SpeechMarkTypes,
-            context
-          )
+        ? deserializeAws_restJson1SpeechMarkTypeList(output.SpeechMarkTypes, context)
         : undefined,
-    TaskId:
-      output.TaskId !== undefined && output.TaskId !== null
-        ? output.TaskId
-        : undefined,
-    TaskStatus:
-      output.TaskStatus !== undefined && output.TaskStatus !== null
-        ? output.TaskStatus
-        : undefined,
+    TaskId: output.TaskId !== undefined && output.TaskId !== null ? output.TaskId : undefined,
+    TaskStatus: output.TaskStatus !== undefined && output.TaskStatus !== null ? output.TaskStatus : undefined,
     TaskStatusReason:
-      output.TaskStatusReason !== undefined && output.TaskStatusReason !== null
-        ? output.TaskStatusReason
-        : undefined,
-    TextType:
-      output.TextType !== undefined && output.TextType !== null
-        ? output.TextType
-        : undefined,
-    VoiceId:
-      output.VoiceId !== undefined && output.VoiceId !== null
-        ? output.VoiceId
-        : undefined
+      output.TaskStatusReason !== undefined && output.TaskStatusReason !== null ? output.TaskStatusReason : undefined,
+    TextType: output.TextType !== undefined && output.TextType !== null ? output.TextType : undefined,
+    VoiceId: output.VoiceId !== undefined && output.VoiceId !== null ? output.VoiceId : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1SynthesisTasks = (
-  output: any,
-  context: __SerdeContext
-): SynthesisTask[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1SynthesisTask(entry, context)
-  );
+const deserializeAws_restJson1SynthesisTasks = (output: any, context: __SerdeContext): SynthesisTask[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1SynthesisTask(entry, context));
 };
 
-const deserializeAws_restJson1Voice = (
-  output: any,
-  context: __SerdeContext
-): Voice => {
+const deserializeAws_restJson1Voice = (output: any, context: __SerdeContext): Voice => {
   return {
     __type: "Voice",
     AdditionalLanguageCodes:
-      output.AdditionalLanguageCodes !== undefined &&
-      output.AdditionalLanguageCodes !== null
-        ? deserializeAws_restJson1LanguageCodeList(
-            output.AdditionalLanguageCodes,
-            context
-          )
+      output.AdditionalLanguageCodes !== undefined && output.AdditionalLanguageCodes !== null
+        ? deserializeAws_restJson1LanguageCodeList(output.AdditionalLanguageCodes, context)
         : undefined,
-    Gender:
-      output.Gender !== undefined && output.Gender !== null
-        ? output.Gender
-        : undefined,
+    Gender: output.Gender !== undefined && output.Gender !== null ? output.Gender : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    LanguageCode:
-      output.LanguageCode !== undefined && output.LanguageCode !== null
-        ? output.LanguageCode
-        : undefined,
-    LanguageName:
-      output.LanguageName !== undefined && output.LanguageName !== null
-        ? output.LanguageName
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
+    LanguageName: output.LanguageName !== undefined && output.LanguageName !== null ? output.LanguageName : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     SupportedEngines:
       output.SupportedEngines !== undefined && output.SupportedEngines !== null
         ? deserializeAws_restJson1EngineList(output.SupportedEngines, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1VoiceList = (
-  output: any,
-  context: __SerdeContext
-): Voice[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1Voice(entry, context)
-  );
+const deserializeAws_restJson1VoiceList = (output: any, context: __SerdeContext): Voice[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Voice(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"]
+  requestId: output.headers["x-amzn-requestid"],
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
-  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then(encoded => {
+  collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
@@ -1976,8 +1632,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

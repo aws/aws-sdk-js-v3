@@ -1,21 +1,15 @@
 import {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  CreateReplicationTaskMessage,
-  CreateReplicationTaskResponse
-} from "../models/index";
+import { CreateReplicationTaskMessage, CreateReplicationTaskResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateReplicationTaskCommand,
-  serializeAws_json1_1CreateReplicationTaskCommand
+  serializeAws_json1_1CreateReplicationTaskCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateReplicationTaskCommandInput = CreateReplicationTaskMessage;
-export type CreateReplicationTaskCommandOutput = CreateReplicationTaskResponse &
-  __MetadataBearer;
+export type CreateReplicationTaskCommandOutput = CreateReplicationTaskResponse & __MetadataBearer;
 
 export class CreateReplicationTaskCommand extends $Command<
   CreateReplicationTaskCommandInput,
@@ -49,18 +42,13 @@ export class CreateReplicationTaskCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateReplicationTaskCommandInput,
-    CreateReplicationTaskCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateReplicationTaskCommandInput, CreateReplicationTaskCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +58,11 @@ export class CreateReplicationTaskCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateReplicationTaskCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateReplicationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateReplicationTaskCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateReplicationTaskCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReplicationTaskCommandOutput> {
     return deserializeAws_json1_1CreateReplicationTaskCommand(output, context);
   }
 

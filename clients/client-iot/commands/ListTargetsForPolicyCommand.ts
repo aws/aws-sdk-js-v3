@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListTargetsForPolicyRequest,
-  ListTargetsForPolicyResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListTargetsForPolicyRequest, ListTargetsForPolicyResponse } from "../models/index";
 import {
   deserializeAws_restJson1ListTargetsForPolicyCommand,
-  serializeAws_restJson1ListTargetsForPolicyCommand
+  serializeAws_restJson1ListTargetsForPolicyCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListTargetsForPolicyCommandInput = ListTargetsForPolicyRequest;
-export type ListTargetsForPolicyCommandOutput = ListTargetsForPolicyResponse &
-  __MetadataBearer;
+export type ListTargetsForPolicyCommandOutput = ListTargetsForPolicyResponse & __MetadataBearer;
 
 export class ListTargetsForPolicyCommand extends $Command<
   ListTargetsForPolicyCommandInput,
@@ -49,18 +38,13 @@ export class ListTargetsForPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTargetsForPolicyCommandInput,
-    ListTargetsForPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTargetsForPolicyCommandInput, ListTargetsForPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class ListTargetsForPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListTargetsForPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListTargetsForPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTargetsForPolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListTargetsForPolicyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTargetsForPolicyCommandOutput> {
     return deserializeAws_restJson1ListTargetsForPolicyCommand(output, context);
   }
 

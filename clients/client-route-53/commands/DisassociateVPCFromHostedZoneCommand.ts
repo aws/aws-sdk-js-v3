@@ -1,22 +1,12 @@
-import {
-  Route53ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53Client";
-import {
-  DisassociateVPCFromHostedZoneRequest,
-  DisassociateVPCFromHostedZoneResponse
-} from "../models/index";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import { DisassociateVPCFromHostedZoneRequest, DisassociateVPCFromHostedZoneResponse } from "../models/index";
 import {
   deserializeAws_restXmlDisassociateVPCFromHostedZoneCommand,
-  serializeAws_restXmlDisassociateVPCFromHostedZoneCommand
+  serializeAws_restXmlDisassociateVPCFromHostedZoneCommand,
 } from "../protocols/Aws_restXml";
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,12 +15,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DisassociateVPCFromHostedZoneCommandInput = DisassociateVPCFromHostedZoneRequest;
-export type DisassociateVPCFromHostedZoneCommandOutput = DisassociateVPCFromHostedZoneResponse &
-  __MetadataBearer;
+export type DisassociateVPCFromHostedZoneCommandOutput = DisassociateVPCFromHostedZoneResponse & __MetadataBearer;
 
 export class DisassociateVPCFromHostedZoneCommand extends $Command<
   DisassociateVPCFromHostedZoneCommandInput,
@@ -50,19 +39,14 @@ export class DisassociateVPCFromHostedZoneCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateVPCFromHostedZoneCommandInput,
-    DisassociateVPCFromHostedZoneCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateVPCFromHostedZoneCommandInput, DisassociateVPCFromHostedZoneCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,24 +56,15 @@ export class DisassociateVPCFromHostedZoneCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DisassociateVPCFromHostedZoneCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDisassociateVPCFromHostedZoneCommand(
-      input,
-      context
-    );
+  private serialize(input: DisassociateVPCFromHostedZoneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlDisassociateVPCFromHostedZoneCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateVPCFromHostedZoneCommandOutput> {
-    return deserializeAws_restXmlDisassociateVPCFromHostedZoneCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlDisassociateVPCFromHostedZoneCommand(output, context);
   }
 
   // Start section: command_body_extra

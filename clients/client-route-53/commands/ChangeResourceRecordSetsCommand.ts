@@ -1,25 +1,12 @@
-import {
-  Route53ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53Client";
-import {
-  ChangeResourceRecordSetsRequest,
-  ChangeResourceRecordSetsResponse
-} from "../models/index";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import { ChangeResourceRecordSetsRequest, ChangeResourceRecordSetsResponse } from "../models/index";
 import {
   deserializeAws_restXmlChangeResourceRecordSetsCommand,
-  serializeAws_restXmlChangeResourceRecordSetsCommand
+  serializeAws_restXmlChangeResourceRecordSetsCommand,
 } from "../protocols/Aws_restXml";
-import {
-  getChangeResourceRecordSetsPlugin,
-  getIdNormalizerPlugin
-} from "@aws-sdk/middleware-sdk-route53";
+import { getChangeResourceRecordSetsPlugin, getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,12 +15,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ChangeResourceRecordSetsCommandInput = ChangeResourceRecordSetsRequest;
-export type ChangeResourceRecordSetsCommandOutput = ChangeResourceRecordSetsResponse &
-  __MetadataBearer;
+export type ChangeResourceRecordSetsCommandOutput = ChangeResourceRecordSetsResponse & __MetadataBearer;
 
 export class ChangeResourceRecordSetsCommand extends $Command<
   ChangeResourceRecordSetsCommandInput,
@@ -53,20 +39,15 @@ export class ChangeResourceRecordSetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ChangeResourceRecordSetsCommandInput,
-    ChangeResourceRecordSetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ChangeResourceRecordSetsCommandInput, ChangeResourceRecordSetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getChangeResourceRecordSetsPlugin(configuration));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,21 +57,12 @@ export class ChangeResourceRecordSetsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ChangeResourceRecordSetsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ChangeResourceRecordSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlChangeResourceRecordSetsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ChangeResourceRecordSetsCommandOutput> {
-    return deserializeAws_restXmlChangeResourceRecordSetsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangeResourceRecordSetsCommandOutput> {
+    return deserializeAws_restXmlChangeResourceRecordSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

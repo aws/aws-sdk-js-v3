@@ -1,167 +1,59 @@
-import {
-  CreateApiCacheCommandInput,
-  CreateApiCacheCommandOutput
-} from "./commands/CreateApiCacheCommand";
-import {
-  CreateApiKeyCommandInput,
-  CreateApiKeyCommandOutput
-} from "./commands/CreateApiKeyCommand";
-import {
-  CreateDataSourceCommandInput,
-  CreateDataSourceCommandOutput
-} from "./commands/CreateDataSourceCommand";
-import {
-  CreateFunctionCommandInput,
-  CreateFunctionCommandOutput
-} from "./commands/CreateFunctionCommand";
-import {
-  CreateGraphqlApiCommandInput,
-  CreateGraphqlApiCommandOutput
-} from "./commands/CreateGraphqlApiCommand";
-import {
-  CreateResolverCommandInput,
-  CreateResolverCommandOutput
-} from "./commands/CreateResolverCommand";
-import {
-  CreateTypeCommandInput,
-  CreateTypeCommandOutput
-} from "./commands/CreateTypeCommand";
-import {
-  DeleteApiCacheCommandInput,
-  DeleteApiCacheCommandOutput
-} from "./commands/DeleteApiCacheCommand";
-import {
-  DeleteApiKeyCommandInput,
-  DeleteApiKeyCommandOutput
-} from "./commands/DeleteApiKeyCommand";
-import {
-  DeleteDataSourceCommandInput,
-  DeleteDataSourceCommandOutput
-} from "./commands/DeleteDataSourceCommand";
-import {
-  DeleteFunctionCommandInput,
-  DeleteFunctionCommandOutput
-} from "./commands/DeleteFunctionCommand";
-import {
-  DeleteGraphqlApiCommandInput,
-  DeleteGraphqlApiCommandOutput
-} from "./commands/DeleteGraphqlApiCommand";
-import {
-  DeleteResolverCommandInput,
-  DeleteResolverCommandOutput
-} from "./commands/DeleteResolverCommand";
-import {
-  DeleteTypeCommandInput,
-  DeleteTypeCommandOutput
-} from "./commands/DeleteTypeCommand";
-import {
-  FlushApiCacheCommandInput,
-  FlushApiCacheCommandOutput
-} from "./commands/FlushApiCacheCommand";
-import {
-  GetApiCacheCommandInput,
-  GetApiCacheCommandOutput
-} from "./commands/GetApiCacheCommand";
-import {
-  GetDataSourceCommandInput,
-  GetDataSourceCommandOutput
-} from "./commands/GetDataSourceCommand";
-import {
-  GetFunctionCommandInput,
-  GetFunctionCommandOutput
-} from "./commands/GetFunctionCommand";
-import {
-  GetGraphqlApiCommandInput,
-  GetGraphqlApiCommandOutput
-} from "./commands/GetGraphqlApiCommand";
+import { CreateApiCacheCommandInput, CreateApiCacheCommandOutput } from "./commands/CreateApiCacheCommand";
+import { CreateApiKeyCommandInput, CreateApiKeyCommandOutput } from "./commands/CreateApiKeyCommand";
+import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
+import { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "./commands/CreateFunctionCommand";
+import { CreateGraphqlApiCommandInput, CreateGraphqlApiCommandOutput } from "./commands/CreateGraphqlApiCommand";
+import { CreateResolverCommandInput, CreateResolverCommandOutput } from "./commands/CreateResolverCommand";
+import { CreateTypeCommandInput, CreateTypeCommandOutput } from "./commands/CreateTypeCommand";
+import { DeleteApiCacheCommandInput, DeleteApiCacheCommandOutput } from "./commands/DeleteApiCacheCommand";
+import { DeleteApiKeyCommandInput, DeleteApiKeyCommandOutput } from "./commands/DeleteApiKeyCommand";
+import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
+import { DeleteFunctionCommandInput, DeleteFunctionCommandOutput } from "./commands/DeleteFunctionCommand";
+import { DeleteGraphqlApiCommandInput, DeleteGraphqlApiCommandOutput } from "./commands/DeleteGraphqlApiCommand";
+import { DeleteResolverCommandInput, DeleteResolverCommandOutput } from "./commands/DeleteResolverCommand";
+import { DeleteTypeCommandInput, DeleteTypeCommandOutput } from "./commands/DeleteTypeCommand";
+import { FlushApiCacheCommandInput, FlushApiCacheCommandOutput } from "./commands/FlushApiCacheCommand";
+import { GetApiCacheCommandInput, GetApiCacheCommandOutput } from "./commands/GetApiCacheCommand";
+import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
+import { GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
+import { GetGraphqlApiCommandInput, GetGraphqlApiCommandOutput } from "./commands/GetGraphqlApiCommand";
 import {
   GetIntrospectionSchemaCommandInput,
-  GetIntrospectionSchemaCommandOutput
+  GetIntrospectionSchemaCommandOutput,
 } from "./commands/GetIntrospectionSchemaCommand";
-import {
-  GetResolverCommandInput,
-  GetResolverCommandOutput
-} from "./commands/GetResolverCommand";
+import { GetResolverCommandInput, GetResolverCommandOutput } from "./commands/GetResolverCommand";
 import {
   GetSchemaCreationStatusCommandInput,
-  GetSchemaCreationStatusCommandOutput
+  GetSchemaCreationStatusCommandOutput,
 } from "./commands/GetSchemaCreationStatusCommand";
-import {
-  GetTypeCommandInput,
-  GetTypeCommandOutput
-} from "./commands/GetTypeCommand";
-import {
-  ListApiKeysCommandInput,
-  ListApiKeysCommandOutput
-} from "./commands/ListApiKeysCommand";
-import {
-  ListDataSourcesCommandInput,
-  ListDataSourcesCommandOutput
-} from "./commands/ListDataSourcesCommand";
-import {
-  ListFunctionsCommandInput,
-  ListFunctionsCommandOutput
-} from "./commands/ListFunctionsCommand";
-import {
-  ListGraphqlApisCommandInput,
-  ListGraphqlApisCommandOutput
-} from "./commands/ListGraphqlApisCommand";
+import { GetTypeCommandInput, GetTypeCommandOutput } from "./commands/GetTypeCommand";
+import { ListApiKeysCommandInput, ListApiKeysCommandOutput } from "./commands/ListApiKeysCommand";
+import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
+import { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "./commands/ListFunctionsCommand";
+import { ListGraphqlApisCommandInput, ListGraphqlApisCommandOutput } from "./commands/ListGraphqlApisCommand";
 import {
   ListResolversByFunctionCommandInput,
-  ListResolversByFunctionCommandOutput
+  ListResolversByFunctionCommandOutput,
 } from "./commands/ListResolversByFunctionCommand";
-import {
-  ListResolversCommandInput,
-  ListResolversCommandOutput
-} from "./commands/ListResolversCommand";
+import { ListResolversCommandInput, ListResolversCommandOutput } from "./commands/ListResolversCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListTypesCommandInput,
-  ListTypesCommandOutput
-} from "./commands/ListTypesCommand";
+import { ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
 import {
   StartSchemaCreationCommandInput,
-  StartSchemaCreationCommandOutput
+  StartSchemaCreationCommandOutput,
 } from "./commands/StartSchemaCreationCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateApiCacheCommandInput,
-  UpdateApiCacheCommandOutput
-} from "./commands/UpdateApiCacheCommand";
-import {
-  UpdateApiKeyCommandInput,
-  UpdateApiKeyCommandOutput
-} from "./commands/UpdateApiKeyCommand";
-import {
-  UpdateDataSourceCommandInput,
-  UpdateDataSourceCommandOutput
-} from "./commands/UpdateDataSourceCommand";
-import {
-  UpdateFunctionCommandInput,
-  UpdateFunctionCommandOutput
-} from "./commands/UpdateFunctionCommand";
-import {
-  UpdateGraphqlApiCommandInput,
-  UpdateGraphqlApiCommandOutput
-} from "./commands/UpdateGraphqlApiCommand";
-import {
-  UpdateResolverCommandInput,
-  UpdateResolverCommandOutput
-} from "./commands/UpdateResolverCommand";
-import {
-  UpdateTypeCommandInput,
-  UpdateTypeCommandOutput
-} from "./commands/UpdateTypeCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateApiCacheCommandInput, UpdateApiCacheCommandOutput } from "./commands/UpdateApiCacheCommand";
+import { UpdateApiKeyCommandInput, UpdateApiKeyCommandOutput } from "./commands/UpdateApiKeyCommand";
+import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
+import { UpdateFunctionCommandInput, UpdateFunctionCommandOutput } from "./commands/UpdateFunctionCommand";
+import { UpdateGraphqlApiCommandInput, UpdateGraphqlApiCommandOutput } from "./commands/UpdateGraphqlApiCommand";
+import { UpdateResolverCommandInput, UpdateResolverCommandOutput } from "./commands/UpdateResolverCommand";
+import { UpdateTypeCommandInput, UpdateTypeCommandOutput } from "./commands/UpdateTypeCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -169,38 +61,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -211,7 +98,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -300,8 +187,7 @@ export type ServiceOutputTypes =
   | UpdateResolverCommandOutput
   | UpdateTypeCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -390,9 +276,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type AppSyncClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type AppSyncClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -401,9 +285,7 @@ export type AppSyncClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type AppSyncClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type AppSyncClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -427,7 +309,7 @@ export class AppSyncClient extends __Client<
   constructor(configuration: AppSyncClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

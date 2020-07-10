@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  ReplaceNetworkAclAssociationRequest,
-  ReplaceNetworkAclAssociationResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ReplaceNetworkAclAssociationRequest, ReplaceNetworkAclAssociationResult } from "../models/index";
 import {
   deserializeAws_ec2ReplaceNetworkAclAssociationCommand,
-  serializeAws_ec2ReplaceNetworkAclAssociationCommand
+  serializeAws_ec2ReplaceNetworkAclAssociationCommand,
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ReplaceNetworkAclAssociationCommandInput = ReplaceNetworkAclAssociationRequest;
-export type ReplaceNetworkAclAssociationCommandOutput = ReplaceNetworkAclAssociationResult &
-  __MetadataBearer;
+export type ReplaceNetworkAclAssociationCommandOutput = ReplaceNetworkAclAssociationResult & __MetadataBearer;
 
 export class ReplaceNetworkAclAssociationCommand extends $Command<
   ReplaceNetworkAclAssociationCommandInput,
@@ -49,18 +38,13 @@ export class ReplaceNetworkAclAssociationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ReplaceNetworkAclAssociationCommandInput,
-    ReplaceNetworkAclAssociationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ReplaceNetworkAclAssociationCommandInput, ReplaceNetworkAclAssociationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +54,7 @@ export class ReplaceNetworkAclAssociationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ReplaceNetworkAclAssociationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ReplaceNetworkAclAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ReplaceNetworkAclAssociationCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class ReplaceNetworkAclAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ReplaceNetworkAclAssociationCommandOutput> {
-    return deserializeAws_ec2ReplaceNetworkAclAssociationCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2ReplaceNetworkAclAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

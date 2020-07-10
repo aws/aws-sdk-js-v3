@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  UpdateAccountAuditConfigurationRequest,
-  UpdateAccountAuditConfigurationResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { UpdateAccountAuditConfigurationRequest, UpdateAccountAuditConfigurationResponse } from "../models/index";
 import {
   deserializeAws_restJson1UpdateAccountAuditConfigurationCommand,
-  serializeAws_restJson1UpdateAccountAuditConfigurationCommand
+  serializeAws_restJson1UpdateAccountAuditConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateAccountAuditConfigurationCommandInput = UpdateAccountAuditConfigurationRequest;
-export type UpdateAccountAuditConfigurationCommandOutput = UpdateAccountAuditConfigurationResponse &
-  __MetadataBearer;
+export type UpdateAccountAuditConfigurationCommandOutput = UpdateAccountAuditConfigurationResponse & __MetadataBearer;
 
 export class UpdateAccountAuditConfigurationCommand extends $Command<
   UpdateAccountAuditConfigurationCommandInput,
@@ -49,18 +38,13 @@ export class UpdateAccountAuditConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateAccountAuditConfigurationCommandInput,
-    UpdateAccountAuditConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateAccountAuditConfigurationCommandInput, UpdateAccountAuditConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +58,14 @@ export class UpdateAccountAuditConfigurationCommand extends $Command<
     input: UpdateAccountAuditConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAccountAuditConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1UpdateAccountAuditConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAccountAuditConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateAccountAuditConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateAccountAuditConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

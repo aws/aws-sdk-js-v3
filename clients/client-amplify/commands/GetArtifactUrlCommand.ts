@@ -1,18 +1,11 @@
-import {
-  AmplifyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AmplifyClient";
+import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { GetArtifactUrlRequest, GetArtifactUrlResult } from "../models/index";
 import {
   deserializeAws_restJson1GetArtifactUrlCommand,
-  serializeAws_restJson1GetArtifactUrlCommand
+  serializeAws_restJson1GetArtifactUrlCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetArtifactUrlCommandInput = GetArtifactUrlRequest;
-export type GetArtifactUrlCommandOutput = GetArtifactUrlResult &
-  __MetadataBearer;
+export type GetArtifactUrlCommandOutput = GetArtifactUrlResult & __MetadataBearer;
 
 export class GetArtifactUrlCommand extends $Command<
   GetArtifactUrlCommandInput,
@@ -47,14 +39,12 @@ export class GetArtifactUrlCommand extends $Command<
     configuration: AmplifyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetArtifactUrlCommandInput, GetArtifactUrlCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class GetArtifactUrlCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetArtifactUrlCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetArtifactUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetArtifactUrlCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetArtifactUrlCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetArtifactUrlCommandOutput> {
     return deserializeAws_restJson1GetArtifactUrlCommand(output, context);
   }
 

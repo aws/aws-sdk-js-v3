@@ -2,17 +2,17 @@ import { ApiGatewayManagementApiClient } from "./ApiGatewayManagementApiClient";
 import {
   DeleteConnectionCommand,
   DeleteConnectionCommandInput,
-  DeleteConnectionCommandOutput
+  DeleteConnectionCommandOutput,
 } from "./commands/DeleteConnectionCommand";
 import {
   GetConnectionCommand,
   GetConnectionCommandInput,
-  GetConnectionCommandOutput
+  GetConnectionCommandOutput,
 } from "./commands/GetConnectionCommand";
 import {
   PostToConnectionCommand,
   PostToConnectionCommandInput,
-  PostToConnectionCommandOutput
+  PostToConnectionCommandOutput,
 } from "./commands/PostToConnectionCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -38,17 +38,14 @@ export class ApiGatewayManagementApi extends ApiGatewayManagementApiClient {
   ): void;
   public deleteConnection(
     args: DeleteConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConnectionCommandOutput) => void),
     cb?: (err: any, data?: DeleteConnectionCommandOutput) => void
   ): Promise<DeleteConnectionCommandOutput> | void {
     const command = new DeleteConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -73,17 +70,14 @@ export class ApiGatewayManagementApi extends ApiGatewayManagementApiClient {
   ): void;
   public getConnection(
     args: GetConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConnectionCommandOutput) => void),
     cb?: (err: any, data?: GetConnectionCommandOutput) => void
   ): Promise<GetConnectionCommandOutput> | void {
     const command = new GetConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -108,17 +102,14 @@ export class ApiGatewayManagementApi extends ApiGatewayManagementApiClient {
   ): void;
   public postToConnection(
     args: PostToConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PostToConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PostToConnectionCommandOutput) => void),
     cb?: (err: any, data?: PostToConnectionCommandOutput) => void
   ): Promise<PostToConnectionCommandOutput> | void {
     const command = new PostToConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient";
-import {
-  UpdateResourceDefinitionRequest,
-  UpdateResourceDefinitionResponse
-} from "../models/index";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { UpdateResourceDefinitionRequest, UpdateResourceDefinitionResponse } from "../models/index";
 import {
   deserializeAws_restJson1UpdateResourceDefinitionCommand,
-  serializeAws_restJson1UpdateResourceDefinitionCommand
+  serializeAws_restJson1UpdateResourceDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateResourceDefinitionCommandInput = UpdateResourceDefinitionRequest;
-export type UpdateResourceDefinitionCommandOutput = UpdateResourceDefinitionResponse &
-  __MetadataBearer;
+export type UpdateResourceDefinitionCommandOutput = UpdateResourceDefinitionResponse & __MetadataBearer;
 
 export class UpdateResourceDefinitionCommand extends $Command<
   UpdateResourceDefinitionCommandInput,
@@ -49,18 +38,13 @@ export class UpdateResourceDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateResourceDefinitionCommandInput,
-    UpdateResourceDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateResourceDefinitionCommandInput, UpdateResourceDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,12 @@ export class UpdateResourceDefinitionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateResourceDefinitionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateResourceDefinitionCommand(
-      input,
-      context
-    );
+  private serialize(input: UpdateResourceDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1UpdateResourceDefinitionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateResourceDefinitionCommandOutput> {
-    return deserializeAws_restJson1UpdateResourceDefinitionCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceDefinitionCommandOutput> {
+    return deserializeAws_restJson1UpdateResourceDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

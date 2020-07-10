@@ -1,21 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient";
-import {
-  ListTrialComponentsRequest,
-  ListTrialComponentsResponse
-} from "../models/index";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { ListTrialComponentsRequest, ListTrialComponentsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListTrialComponentsCommand,
-  serializeAws_json1_1ListTrialComponentsCommand
+  serializeAws_json1_1ListTrialComponentsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListTrialComponentsCommandInput = ListTrialComponentsRequest;
-export type ListTrialComponentsCommandOutput = ListTrialComponentsResponse &
-  __MetadataBearer;
+export type ListTrialComponentsCommandOutput = ListTrialComponentsResponse & __MetadataBearer;
 
 export class ListTrialComponentsCommand extends $Command<
   ListTrialComponentsCommandInput,
@@ -49,18 +38,13 @@ export class ListTrialComponentsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTrialComponentsCommandInput,
-    ListTrialComponentsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTrialComponentsCommandInput, ListTrialComponentsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class ListTrialComponentsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListTrialComponentsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListTrialComponentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTrialComponentsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListTrialComponentsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTrialComponentsCommandOutput> {
     return deserializeAws_json1_1ListTrialComponentsCommand(output, context);
   }
 

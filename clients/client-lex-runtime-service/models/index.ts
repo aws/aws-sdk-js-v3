@@ -2,7 +2,7 @@ import {
   SENSITIVE_STRING,
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
-  isa as __isa
+  isa as __isa,
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
@@ -11,9 +11,7 @@ import { Readable } from "stream";
  * <p>Either the Amazon Lex bot is still building, or one of the dependent services (Amazon Polly,
  *       AWS Lambda) failed with an internal service error.</p>
  */
-export interface BadGatewayException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadGatewayException extends __SmithyException, $MetadataBearer {
   name: "BadGatewayException";
   $fault: "server";
   Message?: string;
@@ -21,19 +19,16 @@ export interface BadGatewayException
 
 export namespace BadGatewayException {
   export const filterSensitiveLog = (obj: BadGatewayException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BadGatewayException =>
-    __isa(o, "BadGatewayException");
+  export const isa = (o: any): o is BadGatewayException => __isa(o, "BadGatewayException");
 }
 
 /**
  * <p> Request validation failed, there is no usable message in the context, or the bot build
  *       failed, is still in progress, or contains unbuilt changes. </p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   message?: string;
@@ -41,10 +36,9 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -66,7 +60,7 @@ export interface Button {
 
 export namespace Button {
   export const filterSensitiveLog = (obj: Button): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Button => __isa(o, "Button");
 }
@@ -74,7 +68,7 @@ export namespace Button {
 export enum ConfirmationStatus {
   CONFIRMED = "Confirmed",
   DENIED = "Denied",
-  NONE = "None"
+  NONE = "None",
 }
 
 /**
@@ -88,14 +82,13 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 
 export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConflictException =>
-    __isa(o, "ConflictException");
+  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export enum ContentType {
-  GENERIC = "application/vnd.amazonaws.card.generic"
+  GENERIC = "application/vnd.amazonaws.card.generic",
 }
 
 export interface DeleteSessionRequest {
@@ -118,10 +111,9 @@ export interface DeleteSessionRequest {
 
 export namespace DeleteSessionRequest {
   export const filterSensitiveLog = (obj: DeleteSessionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSessionRequest =>
-    __isa(o, "DeleteSessionRequest");
+  export const isa = (o: any): o is DeleteSessionRequest => __isa(o, "DeleteSessionRequest");
 }
 
 export interface DeleteSessionResponse {
@@ -149,10 +141,9 @@ export interface DeleteSessionResponse {
 
 export namespace DeleteSessionResponse {
   export const filterSensitiveLog = (obj: DeleteSessionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSessionResponse =>
-    __isa(o, "DeleteSessionResponse");
+  export const isa = (o: any): o is DeleteSessionResponse => __isa(o, "DeleteSessionResponse");
 }
 
 /**
@@ -170,9 +161,7 @@ export namespace DeleteSessionResponse {
  *             </li>
  *          </ul>
  */
-export interface DependencyFailedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DependencyFailedException extends __SmithyException, $MetadataBearer {
   name: "DependencyFailedException";
   $fault: "client";
   Message?: string;
@@ -180,10 +169,9 @@ export interface DependencyFailedException
 
 export namespace DependencyFailedException {
   export const filterSensitiveLog = (obj: DependencyFailedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DependencyFailedException =>
-    __isa(o, "DependencyFailedException");
+  export const isa = (o: any): o is DependencyFailedException => __isa(o, "DependencyFailedException");
 }
 
 /**
@@ -300,7 +288,7 @@ export namespace DialogAction {
   export const filterSensitiveLog = (obj: DialogAction): any => ({
     ...obj,
     ...(obj.message && { message: SENSITIVE_STRING }),
-    ...(obj.slots && { slots: SENSITIVE_STRING })
+    ...(obj.slots && { slots: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is DialogAction => __isa(o, "DialogAction");
 }
@@ -310,7 +298,7 @@ export enum DialogActionType {
   CONFIRM_INTENT = "ConfirmIntent",
   DELEGATE = "Delegate",
   ELICIT_INTENT = "ElicitIntent",
-  ELICIT_SLOT = "ElicitSlot"
+  ELICIT_SLOT = "ElicitSlot",
 }
 
 export enum DialogState {
@@ -319,13 +307,13 @@ export enum DialogState {
   ELICIT_SLOT = "ElicitSlot",
   FAILED = "Failed",
   FULFILLED = "Fulfilled",
-  READY_FOR_FULFILLMENT = "ReadyForFulfillment"
+  READY_FOR_FULFILLMENT = "ReadyForFulfillment",
 }
 
 export enum FulfillmentState {
   FAILED = "Failed",
   FULFILLED = "Fulfilled",
-  READY_FOR_FULFILLMENT = "ReadyForFulfillment"
+  READY_FOR_FULFILLMENT = "ReadyForFulfillment",
 }
 
 /**
@@ -362,10 +350,9 @@ export interface GenericAttachment {
 
 export namespace GenericAttachment {
   export const filterSensitiveLog = (obj: GenericAttachment): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GenericAttachment =>
-    __isa(o, "GenericAttachment");
+  export const isa = (o: any): o is GenericAttachment => __isa(o, "GenericAttachment");
 }
 
 export interface GetSessionRequest {
@@ -397,10 +384,9 @@ export interface GetSessionRequest {
 
 export namespace GetSessionRequest {
   export const filterSensitiveLog = (obj: GetSessionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSessionRequest =>
-    __isa(o, "GetSessionRequest");
+  export const isa = (o: any): o is GetSessionRequest => __isa(o, "GetSessionRequest");
 }
 
 export interface GetSessionResponse {
@@ -435,18 +421,13 @@ export interface GetSessionResponse {
 export namespace GetSessionResponse {
   export const filterSensitiveLog = (obj: GetSessionResponse): any => ({
     ...obj,
-    ...(obj.dialogAction && {
-      dialogAction: DialogAction.filterSensitiveLog(obj.dialogAction)
-    }),
+    ...(obj.dialogAction && { dialogAction: DialogAction.filterSensitiveLog(obj.dialogAction) }),
     ...(obj.recentIntentSummaryView && {
-      recentIntentSummaryView: obj.recentIntentSummaryView.map(item =>
-        IntentSummary.filterSensitiveLog(item)
-      )
+      recentIntentSummaryView: obj.recentIntentSummaryView.map((item) => IntentSummary.filterSensitiveLog(item)),
     }),
-    ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING })
+    ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetSessionResponse =>
-    __isa(o, "GetSessionResponse");
+  export const isa = (o: any): o is GetSessionResponse => __isa(o, "GetSessionResponse");
 }
 
 /**
@@ -560,7 +541,7 @@ export interface IntentSummary {
 export namespace IntentSummary {
   export const filterSensitiveLog = (obj: IntentSummary): any => ({
     ...obj,
-    ...(obj.slots && { slots: SENSITIVE_STRING })
+    ...(obj.slots && { slots: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is IntentSummary => __isa(o, "IntentSummary");
 }
@@ -568,9 +549,7 @@ export namespace IntentSummary {
 /**
  * <p>Internal service error. Retry the call.</p>
  */
-export interface InternalFailureException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalFailureException extends __SmithyException, $MetadataBearer {
   name: "InternalFailureException";
   $fault: "server";
   message?: string;
@@ -578,18 +557,15 @@ export interface InternalFailureException
 
 export namespace InternalFailureException {
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalFailureException =>
-    __isa(o, "InternalFailureException");
+  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
 /**
  * <p>Exceeded a limit.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -598,18 +574,15 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
  * <p>This exception is not used.</p>
  */
-export interface LoopDetectedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LoopDetectedException extends __SmithyException, $MetadataBearer {
   name: "LoopDetectedException";
   $fault: "server";
   Message?: string;
@@ -617,25 +590,22 @@ export interface LoopDetectedException
 
 export namespace LoopDetectedException {
   export const filterSensitiveLog = (obj: LoopDetectedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LoopDetectedException =>
-    __isa(o, "LoopDetectedException");
+  export const isa = (o: any): o is LoopDetectedException => __isa(o, "LoopDetectedException");
 }
 
 export enum MessageFormatType {
   COMPOSITE = "Composite",
   CUSTOM_PAYLOAD = "CustomPayload",
   PLAIN_TEXT = "PlainText",
-  SSML = "SSML"
+  SSML = "SSML",
 }
 
 /**
  * <p>The accept header in the request does not have a valid value.</p>
  */
-export interface NotAcceptableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NotAcceptableException extends __SmithyException, $MetadataBearer {
   name: "NotAcceptableException";
   $fault: "client";
   message?: string;
@@ -643,10 +613,9 @@ export interface NotAcceptableException
 
 export namespace NotAcceptableException {
   export const filterSensitiveLog = (obj: NotAcceptableException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotAcceptableException =>
-    __isa(o, "NotAcceptableException");
+  export const isa = (o: any): o is NotAcceptableException => __isa(o, "NotAcceptableException");
 }
 
 /**
@@ -661,10 +630,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 
 export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export interface PostContentRequest {
@@ -831,10 +799,9 @@ export namespace PostContentRequest {
   export const filterSensitiveLog = (obj: PostContentRequest): any => ({
     ...obj,
     ...(obj.requestAttributes && { requestAttributes: SENSITIVE_STRING }),
-    ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING })
+    ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PostContentRequest =>
-    __isa(o, "PostContentRequest");
+  export const isa = (o: any): o is PostContentRequest => __isa(o, "PostContentRequest");
 }
 
 export interface PostContentResponse {
@@ -1003,10 +970,9 @@ export interface PostContentResponse {
 export namespace PostContentResponse {
   export const filterSensitiveLog = (obj: PostContentResponse): any => ({
     ...obj,
-    ...(obj.message && { message: SENSITIVE_STRING })
+    ...(obj.message && { message: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PostContentResponse =>
-    __isa(o, "PostContentResponse");
+  export const isa = (o: any): o is PostContentResponse => __isa(o, "PostContentResponse");
 }
 
 export interface PostTextRequest {
@@ -1077,10 +1043,9 @@ export namespace PostTextRequest {
     ...obj,
     ...(obj.inputText && { inputText: SENSITIVE_STRING }),
     ...(obj.requestAttributes && { requestAttributes: SENSITIVE_STRING }),
-    ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING })
+    ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PostTextRequest =>
-    __isa(o, "PostTextRequest");
+  export const isa = (o: any): o is PostTextRequest => __isa(o, "PostTextRequest");
 }
 
 export interface PostTextResponse {
@@ -1233,10 +1198,9 @@ export namespace PostTextResponse {
     ...obj,
     ...(obj.message && { message: SENSITIVE_STRING }),
     ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
-    ...(obj.slots && { slots: SENSITIVE_STRING })
+    ...(obj.slots && { slots: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PostTextResponse =>
-    __isa(o, "PostTextResponse");
+  export const isa = (o: any): o is PostTextResponse => __isa(o, "PostTextResponse");
 }
 
 export interface PutSessionRequest {
@@ -1352,18 +1316,13 @@ export interface PutSessionRequest {
 export namespace PutSessionRequest {
   export const filterSensitiveLog = (obj: PutSessionRequest): any => ({
     ...obj,
-    ...(obj.dialogAction && {
-      dialogAction: DialogAction.filterSensitiveLog(obj.dialogAction)
-    }),
+    ...(obj.dialogAction && { dialogAction: DialogAction.filterSensitiveLog(obj.dialogAction) }),
     ...(obj.recentIntentSummaryView && {
-      recentIntentSummaryView: obj.recentIntentSummaryView.map(item =>
-        IntentSummary.filterSensitiveLog(item)
-      )
+      recentIntentSummaryView: obj.recentIntentSummaryView.map((item) => IntentSummary.filterSensitiveLog(item)),
     }),
-    ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING })
+    ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PutSessionRequest =>
-    __isa(o, "PutSessionRequest");
+  export const isa = (o: any): o is PutSessionRequest => __isa(o, "PutSessionRequest");
 }
 
 export interface PutSessionResponse {
@@ -1484,18 +1443,15 @@ export interface PutSessionResponse {
 export namespace PutSessionResponse {
   export const filterSensitiveLog = (obj: PutSessionResponse): any => ({
     ...obj,
-    ...(obj.message && { message: SENSITIVE_STRING })
+    ...(obj.message && { message: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PutSessionResponse =>
-    __isa(o, "PutSessionResponse");
+  export const isa = (o: any): o is PutSessionResponse => __isa(o, "PutSessionResponse");
 }
 
 /**
  * <p>The input speech is too long.</p>
  */
-export interface RequestTimeoutException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RequestTimeoutException extends __SmithyException, $MetadataBearer {
   name: "RequestTimeoutException";
   $fault: "client";
   message?: string;
@@ -1503,10 +1459,9 @@ export interface RequestTimeoutException
 
 export namespace RequestTimeoutException {
   export const filterSensitiveLog = (obj: RequestTimeoutException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RequestTimeoutException =>
-    __isa(o, "RequestTimeoutException");
+  export const isa = (o: any): o is RequestTimeoutException => __isa(o, "RequestTimeoutException");
 }
 
 /**
@@ -1535,7 +1490,7 @@ export interface ResponseCard {
 
 export namespace ResponseCard {
   export const filterSensitiveLog = (obj: ResponseCard): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ResponseCard => __isa(o, "ResponseCard");
 }
@@ -1560,29 +1515,23 @@ export interface SentimentResponse {
 
 export namespace SentimentResponse {
   export const filterSensitiveLog = (obj: SentimentResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SentimentResponse =>
-    __isa(o, "SentimentResponse");
+  export const isa = (o: any): o is SentimentResponse => __isa(o, "SentimentResponse");
 }
 
 /**
  * <p>The Content-Type header (<code>PostContent</code> API) has an invalid value. </p>
  */
-export interface UnsupportedMediaTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedMediaTypeException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedMediaTypeException";
   $fault: "client";
   message?: string;
 }
 
 export namespace UnsupportedMediaTypeException {
-  export const filterSensitiveLog = (
-    obj: UnsupportedMediaTypeException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UnsupportedMediaTypeException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UnsupportedMediaTypeException =>
-    __isa(o, "UnsupportedMediaTypeException");
+  export const isa = (o: any): o is UnsupportedMediaTypeException => __isa(o, "UnsupportedMediaTypeException");
 }

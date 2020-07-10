@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient";
-import {
-  ListRegexPatternSetsRequest,
-  ListRegexPatternSetsResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
+import { ListRegexPatternSetsRequest, ListRegexPatternSetsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListRegexPatternSetsCommand,
-  serializeAws_json1_1ListRegexPatternSetsCommand
+  serializeAws_json1_1ListRegexPatternSetsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListRegexPatternSetsCommandInput = ListRegexPatternSetsRequest;
-export type ListRegexPatternSetsCommandOutput = ListRegexPatternSetsResponse &
-  __MetadataBearer;
+export type ListRegexPatternSetsCommandOutput = ListRegexPatternSetsResponse & __MetadataBearer;
 
 export class ListRegexPatternSetsCommand extends $Command<
   ListRegexPatternSetsCommandInput,
@@ -49,18 +38,13 @@ export class ListRegexPatternSetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListRegexPatternSetsCommandInput,
-    ListRegexPatternSetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListRegexPatternSetsCommandInput, ListRegexPatternSetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class ListRegexPatternSetsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListRegexPatternSetsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListRegexPatternSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListRegexPatternSetsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListRegexPatternSetsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRegexPatternSetsCommandOutput> {
     return deserializeAws_json1_1ListRegexPatternSetsCommand(output, context);
   }
 

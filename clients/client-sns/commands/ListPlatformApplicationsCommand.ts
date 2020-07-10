@@ -1,21 +1,11 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
-import {
-  ListPlatformApplicationsInput,
-  ListPlatformApplicationsResponse
-} from "../models/index";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
+import { ListPlatformApplicationsInput, ListPlatformApplicationsResponse } from "../models/index";
 import {
   deserializeAws_queryListPlatformApplicationsCommand,
-  serializeAws_queryListPlatformApplicationsCommand
+  serializeAws_queryListPlatformApplicationsCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListPlatformApplicationsCommandInput = ListPlatformApplicationsInput;
-export type ListPlatformApplicationsCommandOutput = ListPlatformApplicationsResponse &
-  __MetadataBearer;
+export type ListPlatformApplicationsCommandOutput = ListPlatformApplicationsResponse & __MetadataBearer;
 
 export class ListPlatformApplicationsCommand extends $Command<
   ListPlatformApplicationsCommandInput,
@@ -49,18 +38,13 @@ export class ListPlatformApplicationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListPlatformApplicationsCommandInput,
-    ListPlatformApplicationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListPlatformApplicationsCommandInput, ListPlatformApplicationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class ListPlatformApplicationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListPlatformApplicationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListPlatformApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListPlatformApplicationsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListPlatformApplicationsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPlatformApplicationsCommandOutput> {
     return deserializeAws_queryListPlatformApplicationsCommand(output, context);
   }
 

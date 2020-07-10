@@ -1,21 +1,11 @@
-import {
-  EBSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EBSClient";
-import {
-  ListSnapshotBlocksRequest,
-  ListSnapshotBlocksResponse
-} from "../models/index";
+import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
+import { ListSnapshotBlocksRequest, ListSnapshotBlocksResponse } from "../models/index";
 import {
   deserializeAws_restJson1ListSnapshotBlocksCommand,
-  serializeAws_restJson1ListSnapshotBlocksCommand
+  serializeAws_restJson1ListSnapshotBlocksCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListSnapshotBlocksCommandInput = ListSnapshotBlocksRequest;
-export type ListSnapshotBlocksCommandOutput = ListSnapshotBlocksResponse &
-  __MetadataBearer;
+export type ListSnapshotBlocksCommandOutput = ListSnapshotBlocksResponse & __MetadataBearer;
 
 export class ListSnapshotBlocksCommand extends $Command<
   ListSnapshotBlocksCommandInput,
@@ -50,14 +39,12 @@ export class ListSnapshotBlocksCommand extends $Command<
     configuration: EBSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListSnapshotBlocksCommandInput, ListSnapshotBlocksCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class ListSnapshotBlocksCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListSnapshotBlocksCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListSnapshotBlocksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSnapshotBlocksCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListSnapshotBlocksCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSnapshotBlocksCommandOutput> {
     return deserializeAws_restJson1ListSnapshotBlocksCommand(output, context);
   }
 

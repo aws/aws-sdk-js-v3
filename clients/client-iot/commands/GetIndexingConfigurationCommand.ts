@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  GetIndexingConfigurationRequest,
-  GetIndexingConfigurationResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { GetIndexingConfigurationRequest, GetIndexingConfigurationResponse } from "../models/index";
 import {
   deserializeAws_restJson1GetIndexingConfigurationCommand,
-  serializeAws_restJson1GetIndexingConfigurationCommand
+  serializeAws_restJson1GetIndexingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetIndexingConfigurationCommandInput = GetIndexingConfigurationRequest;
-export type GetIndexingConfigurationCommandOutput = GetIndexingConfigurationResponse &
-  __MetadataBearer;
+export type GetIndexingConfigurationCommandOutput = GetIndexingConfigurationResponse & __MetadataBearer;
 
 export class GetIndexingConfigurationCommand extends $Command<
   GetIndexingConfigurationCommandInput,
@@ -49,18 +38,13 @@ export class GetIndexingConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetIndexingConfigurationCommandInput,
-    GetIndexingConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetIndexingConfigurationCommandInput, GetIndexingConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,12 @@ export class GetIndexingConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetIndexingConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIndexingConfigurationCommand(
-      input,
-      context
-    );
+  private serialize(input: GetIndexingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1GetIndexingConfigurationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetIndexingConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetIndexingConfigurationCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIndexingConfigurationCommandOutput> {
+    return deserializeAws_restJson1GetIndexingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

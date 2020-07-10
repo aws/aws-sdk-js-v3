@@ -2,82 +2,78 @@ import { IoT1ClickProjectsClient } from "./IoT1ClickProjectsClient";
 import {
   AssociateDeviceWithPlacementCommand,
   AssociateDeviceWithPlacementCommandInput,
-  AssociateDeviceWithPlacementCommandOutput
+  AssociateDeviceWithPlacementCommandOutput,
 } from "./commands/AssociateDeviceWithPlacementCommand";
 import {
   CreatePlacementCommand,
   CreatePlacementCommandInput,
-  CreatePlacementCommandOutput
+  CreatePlacementCommandOutput,
 } from "./commands/CreatePlacementCommand";
 import {
   CreateProjectCommand,
   CreateProjectCommandInput,
-  CreateProjectCommandOutput
+  CreateProjectCommandOutput,
 } from "./commands/CreateProjectCommand";
 import {
   DeletePlacementCommand,
   DeletePlacementCommandInput,
-  DeletePlacementCommandOutput
+  DeletePlacementCommandOutput,
 } from "./commands/DeletePlacementCommand";
 import {
   DeleteProjectCommand,
   DeleteProjectCommandInput,
-  DeleteProjectCommandOutput
+  DeleteProjectCommandOutput,
 } from "./commands/DeleteProjectCommand";
 import {
   DescribePlacementCommand,
   DescribePlacementCommandInput,
-  DescribePlacementCommandOutput
+  DescribePlacementCommandOutput,
 } from "./commands/DescribePlacementCommand";
 import {
   DescribeProjectCommand,
   DescribeProjectCommandInput,
-  DescribeProjectCommandOutput
+  DescribeProjectCommandOutput,
 } from "./commands/DescribeProjectCommand";
 import {
   DisassociateDeviceFromPlacementCommand,
   DisassociateDeviceFromPlacementCommandInput,
-  DisassociateDeviceFromPlacementCommandOutput
+  DisassociateDeviceFromPlacementCommandOutput,
 } from "./commands/DisassociateDeviceFromPlacementCommand";
 import {
   GetDevicesInPlacementCommand,
   GetDevicesInPlacementCommandInput,
-  GetDevicesInPlacementCommandOutput
+  GetDevicesInPlacementCommandOutput,
 } from "./commands/GetDevicesInPlacementCommand";
 import {
   ListPlacementsCommand,
   ListPlacementsCommandInput,
-  ListPlacementsCommandOutput
+  ListPlacementsCommandOutput,
 } from "./commands/ListPlacementsCommand";
 import {
   ListProjectsCommand,
   ListProjectsCommandInput,
-  ListProjectsCommandOutput
+  ListProjectsCommandOutput,
 } from "./commands/ListProjectsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdatePlacementCommand,
   UpdatePlacementCommandInput,
-  UpdatePlacementCommandOutput
+  UpdatePlacementCommandOutput,
 } from "./commands/UpdatePlacementCommand";
 import {
   UpdateProjectCommand,
   UpdateProjectCommandInput,
-  UpdateProjectCommandOutput
+  UpdateProjectCommandOutput,
 } from "./commands/UpdateProjectCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -103,17 +99,14 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public associateDeviceWithPlacement(
     args: AssociateDeviceWithPlacementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateDeviceWithPlacementCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateDeviceWithPlacementCommandOutput) => void),
     cb?: (err: any, data?: AssociateDeviceWithPlacementCommandOutput) => void
   ): Promise<AssociateDeviceWithPlacementCommandOutput> | void {
     const command = new AssociateDeviceWithPlacementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -138,17 +131,14 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public createPlacement(
     args: CreatePlacementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePlacementCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePlacementCommandOutput) => void),
     cb?: (err: any, data?: CreatePlacementCommandOutput) => void
   ): Promise<CreatePlacementCommandOutput> | void {
     const command = new CreatePlacementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -174,17 +164,14 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public createProject(
     args: CreateProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProjectCommandOutput) => void),
     cb?: (err: any, data?: CreateProjectCommandOutput) => void
   ): Promise<CreateProjectCommandOutput> | void {
     const command = new CreateProjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -213,17 +200,14 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public deletePlacement(
     args: DeletePlacementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePlacementCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePlacementCommandOutput) => void),
     cb?: (err: any, data?: DeletePlacementCommandOutput) => void
   ): Promise<DeletePlacementCommandOutput> | void {
     const command = new DeletePlacementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -252,17 +236,14 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public deleteProject(
     args: DeleteProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProjectCommandOutput) => void),
     cb?: (err: any, data?: DeleteProjectCommandOutput) => void
   ): Promise<DeleteProjectCommandOutput> | void {
     const command = new DeleteProjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -287,17 +268,14 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public describePlacement(
     args: DescribePlacementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePlacementCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePlacementCommandOutput) => void),
     cb?: (err: any, data?: DescribePlacementCommandOutput) => void
   ): Promise<DescribePlacementCommandOutput> | void {
     const command = new DescribePlacementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -322,17 +300,14 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public describeProject(
     args: DescribeProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProjectCommandOutput) => void),
     cb?: (err: any, data?: DescribeProjectCommandOutput) => void
   ): Promise<DescribeProjectCommandOutput> | void {
     const command = new DescribeProjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -357,20 +332,14 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public disassociateDeviceFromPlacement(
     args: DisassociateDeviceFromPlacementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateDeviceFromPlacementCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateDeviceFromPlacementCommandOutput) => void),
     cb?: (err: any, data?: DisassociateDeviceFromPlacementCommandOutput) => void
   ): Promise<DisassociateDeviceFromPlacementCommandOutput> | void {
     const command = new DisassociateDeviceFromPlacementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -395,17 +364,14 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public getDevicesInPlacement(
     args: GetDevicesInPlacementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDevicesInPlacementCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDevicesInPlacementCommandOutput) => void),
     cb?: (err: any, data?: GetDevicesInPlacementCommandOutput) => void
   ): Promise<GetDevicesInPlacementCommandOutput> | void {
     const command = new GetDevicesInPlacementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -430,17 +396,14 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public listPlacements(
     args: ListPlacementsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPlacementsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPlacementsCommandOutput) => void),
     cb?: (err: any, data?: ListPlacementsCommandOutput) => void
   ): Promise<ListPlacementsCommandOutput> | void {
     const command = new ListPlacementsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -454,10 +417,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
     args: ListProjectsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListProjectsCommandOutput>;
-  public listProjects(
-    args: ListProjectsCommandInput,
-    cb: (err: any, data?: ListProjectsCommandOutput) => void
-  ): void;
+  public listProjects(args: ListProjectsCommandInput, cb: (err: any, data?: ListProjectsCommandOutput) => void): void;
   public listProjects(
     args: ListProjectsCommandInput,
     options: __HttpHandlerOptions,
@@ -465,17 +425,14 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public listProjects(
     args: ListProjectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProjectsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProjectsCommandOutput) => void),
     cb?: (err: any, data?: ListProjectsCommandOutput) => void
   ): Promise<ListProjectsCommandOutput> | void {
     const command = new ListProjectsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -500,17 +457,14 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -522,14 +476,8 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
    *       used to manage a resource. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS Tagging
    *         Strategies</a>.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -537,17 +485,14 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -572,17 +517,14 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -608,17 +550,14 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public updatePlacement(
     args: UpdatePlacementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePlacementCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePlacementCommandOutput) => void),
     cb?: (err: any, data?: UpdatePlacementCommandOutput) => void
   ): Promise<UpdatePlacementCommandOutput> | void {
     const command = new UpdatePlacementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -646,17 +585,14 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public updateProject(
     args: UpdateProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProjectCommandOutput) => void),
     cb?: (err: any, data?: UpdateProjectCommandOutput) => void
   ): Promise<UpdateProjectCommandOutput> | void {
     const command = new UpdateProjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

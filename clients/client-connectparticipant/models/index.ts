@@ -1,16 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   Message: string | undefined;
@@ -18,16 +12,15 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export enum ChatItemType {
   CONNECTION_ACK = "CONNECTION_ACK",
   EVENT = "EVENT",
-  MESSAGE = "MESSAGE"
+  MESSAGE = "MESSAGE",
 }
 
 /**
@@ -50,15 +43,14 @@ export interface ConnectionCredentials {
 
 export namespace ConnectionCredentials {
   export const filterSensitiveLog = (obj: ConnectionCredentials): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConnectionCredentials =>
-    __isa(o, "ConnectionCredentials");
+  export const isa = (o: any): o is ConnectionCredentials => __isa(o, "ConnectionCredentials");
 }
 
 export enum ConnectionType {
   CONNECTION_CREDENTIALS = "CONNECTION_CREDENTIALS",
-  WEBSOCKET = "WEBSOCKET"
+  WEBSOCKET = "WEBSOCKET",
 }
 
 export interface CreateParticipantConnectionRequest {
@@ -75,10 +67,8 @@ export interface CreateParticipantConnectionRequest {
 }
 
 export namespace CreateParticipantConnectionRequest {
-  export const filterSensitiveLog = (
-    obj: CreateParticipantConnectionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateParticipantConnectionRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateParticipantConnectionRequest =>
     __isa(o, "CreateParticipantConnectionRequest");
@@ -99,10 +89,8 @@ export interface CreateParticipantConnectionResponse {
 }
 
 export namespace CreateParticipantConnectionResponse {
-  export const filterSensitiveLog = (
-    obj: CreateParticipantConnectionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateParticipantConnectionResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateParticipantConnectionResponse =>
     __isa(o, "CreateParticipantConnectionResponse");
@@ -123,13 +111,10 @@ export interface DisconnectParticipantRequest {
 }
 
 export namespace DisconnectParticipantRequest {
-  export const filterSensitiveLog = (
-    obj: DisconnectParticipantRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisconnectParticipantRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisconnectParticipantRequest =>
-    __isa(o, "DisconnectParticipantRequest");
+  export const isa = (o: any): o is DisconnectParticipantRequest => __isa(o, "DisconnectParticipantRequest");
 }
 
 export interface DisconnectParticipantResponse {
@@ -137,13 +122,10 @@ export interface DisconnectParticipantResponse {
 }
 
 export namespace DisconnectParticipantResponse {
-  export const filterSensitiveLog = (
-    obj: DisconnectParticipantResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisconnectParticipantResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisconnectParticipantResponse =>
-    __isa(o, "DisconnectParticipantResponse");
+  export const isa = (o: any): o is DisconnectParticipantResponse => __isa(o, "DisconnectParticipantResponse");
 }
 
 export interface GetTranscriptRequest {
@@ -188,10 +170,9 @@ export interface GetTranscriptRequest {
 
 export namespace GetTranscriptRequest {
   export const filterSensitiveLog = (obj: GetTranscriptRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetTranscriptRequest =>
-    __isa(o, "GetTranscriptRequest");
+  export const isa = (o: any): o is GetTranscriptRequest => __isa(o, "GetTranscriptRequest");
 }
 
 export interface GetTranscriptResponse {
@@ -215,18 +196,15 @@ export interface GetTranscriptResponse {
 
 export namespace GetTranscriptResponse {
   export const filterSensitiveLog = (obj: GetTranscriptResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetTranscriptResponse =>
-    __isa(o, "GetTranscriptResponse");
+  export const isa = (o: any): o is GetTranscriptResponse => __isa(o, "GetTranscriptResponse");
 }
 
 /**
  * <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   Message: string | undefined;
@@ -234,10 +212,9 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
@@ -290,7 +267,7 @@ export interface Item {
 
 export namespace Item {
   export const filterSensitiveLog = (obj: Item): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Item => __isa(o, "Item");
 }
@@ -298,12 +275,12 @@ export namespace Item {
 export enum ParticipantRole {
   AGENT = "AGENT",
   CUSTOMER = "CUSTOMER",
-  SYSTEM = "SYSTEM"
+  SYSTEM = "SYSTEM",
 }
 
 export enum ScanDirection {
   BACKWARD = "BACKWARD",
-  FORWARD = "FORWARD"
+  FORWARD = "FORWARD",
 }
 
 export interface SendEventRequest {
@@ -342,10 +319,9 @@ export interface SendEventRequest {
 
 export namespace SendEventRequest {
   export const filterSensitiveLog = (obj: SendEventRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SendEventRequest =>
-    __isa(o, "SendEventRequest");
+  export const isa = (o: any): o is SendEventRequest => __isa(o, "SendEventRequest");
 }
 
 export interface SendEventResponse {
@@ -365,10 +341,9 @@ export interface SendEventResponse {
 
 export namespace SendEventResponse {
   export const filterSensitiveLog = (obj: SendEventResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SendEventResponse =>
-    __isa(o, "SendEventResponse");
+  export const isa = (o: any): o is SendEventResponse => __isa(o, "SendEventResponse");
 }
 
 export interface SendMessageRequest {
@@ -397,10 +372,9 @@ export interface SendMessageRequest {
 
 export namespace SendMessageRequest {
   export const filterSensitiveLog = (obj: SendMessageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SendMessageRequest =>
-    __isa(o, "SendMessageRequest");
+  export const isa = (o: any): o is SendMessageRequest => __isa(o, "SendMessageRequest");
 }
 
 export interface SendMessageResponse {
@@ -420,15 +394,14 @@ export interface SendMessageResponse {
 
 export namespace SendMessageResponse {
   export const filterSensitiveLog = (obj: SendMessageResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SendMessageResponse =>
-    __isa(o, "SendMessageResponse");
+  export const isa = (o: any): o is SendMessageResponse => __isa(o, "SendMessageResponse");
 }
 
 export enum SortKey {
   ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING"
+  DESCENDING = "DESCENDING",
 }
 
 /**
@@ -457,7 +430,7 @@ export interface StartPosition {
 
 export namespace StartPosition {
   export const filterSensitiveLog = (obj: StartPosition): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is StartPosition => __isa(o, "StartPosition");
 }
@@ -465,9 +438,7 @@ export namespace StartPosition {
 /**
  * <p>The request was denied due to request throttling.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   Message: string | undefined;
@@ -475,18 +446,15 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
  * <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   Message: string | undefined;
@@ -494,10 +462,9 @@ export interface ValidationException
 
 export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }
 
 /**
@@ -520,7 +487,7 @@ export interface Websocket {
 
 export namespace Websocket {
   export const filterSensitiveLog = (obj: Websocket): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Websocket => __isa(o, "Websocket");
 }

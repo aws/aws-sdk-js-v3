@@ -1,383 +1,327 @@
 import { GameLiftClient } from "./GameLiftClient";
-import {
-  AcceptMatchCommand,
-  AcceptMatchCommandInput,
-  AcceptMatchCommandOutput
-} from "./commands/AcceptMatchCommand";
-import {
-  CreateAliasCommand,
-  CreateAliasCommandInput,
-  CreateAliasCommandOutput
-} from "./commands/CreateAliasCommand";
-import {
-  CreateBuildCommand,
-  CreateBuildCommandInput,
-  CreateBuildCommandOutput
-} from "./commands/CreateBuildCommand";
-import {
-  CreateFleetCommand,
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput
-} from "./commands/CreateFleetCommand";
+import { AcceptMatchCommand, AcceptMatchCommandInput, AcceptMatchCommandOutput } from "./commands/AcceptMatchCommand";
+import { CreateAliasCommand, CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
+import { CreateBuildCommand, CreateBuildCommandInput, CreateBuildCommandOutput } from "./commands/CreateBuildCommand";
+import { CreateFleetCommand, CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
 import {
   CreateGameSessionCommand,
   CreateGameSessionCommandInput,
-  CreateGameSessionCommandOutput
+  CreateGameSessionCommandOutput,
 } from "./commands/CreateGameSessionCommand";
 import {
   CreateGameSessionQueueCommand,
   CreateGameSessionQueueCommandInput,
-  CreateGameSessionQueueCommandOutput
+  CreateGameSessionQueueCommandOutput,
 } from "./commands/CreateGameSessionQueueCommand";
 import {
   CreateMatchmakingConfigurationCommand,
   CreateMatchmakingConfigurationCommandInput,
-  CreateMatchmakingConfigurationCommandOutput
+  CreateMatchmakingConfigurationCommandOutput,
 } from "./commands/CreateMatchmakingConfigurationCommand";
 import {
   CreateMatchmakingRuleSetCommand,
   CreateMatchmakingRuleSetCommandInput,
-  CreateMatchmakingRuleSetCommandOutput
+  CreateMatchmakingRuleSetCommandOutput,
 } from "./commands/CreateMatchmakingRuleSetCommand";
 import {
   CreatePlayerSessionCommand,
   CreatePlayerSessionCommandInput,
-  CreatePlayerSessionCommandOutput
+  CreatePlayerSessionCommandOutput,
 } from "./commands/CreatePlayerSessionCommand";
 import {
   CreatePlayerSessionsCommand,
   CreatePlayerSessionsCommandInput,
-  CreatePlayerSessionsCommandOutput
+  CreatePlayerSessionsCommandOutput,
 } from "./commands/CreatePlayerSessionsCommand";
 import {
   CreateScriptCommand,
   CreateScriptCommandInput,
-  CreateScriptCommandOutput
+  CreateScriptCommandOutput,
 } from "./commands/CreateScriptCommand";
 import {
   CreateVpcPeeringAuthorizationCommand,
   CreateVpcPeeringAuthorizationCommandInput,
-  CreateVpcPeeringAuthorizationCommandOutput
+  CreateVpcPeeringAuthorizationCommandOutput,
 } from "./commands/CreateVpcPeeringAuthorizationCommand";
 import {
   CreateVpcPeeringConnectionCommand,
   CreateVpcPeeringConnectionCommandInput,
-  CreateVpcPeeringConnectionCommandOutput
+  CreateVpcPeeringConnectionCommandOutput,
 } from "./commands/CreateVpcPeeringConnectionCommand";
-import {
-  DeleteAliasCommand,
-  DeleteAliasCommandInput,
-  DeleteAliasCommandOutput
-} from "./commands/DeleteAliasCommand";
-import {
-  DeleteBuildCommand,
-  DeleteBuildCommandInput,
-  DeleteBuildCommandOutput
-} from "./commands/DeleteBuildCommand";
-import {
-  DeleteFleetCommand,
-  DeleteFleetCommandInput,
-  DeleteFleetCommandOutput
-} from "./commands/DeleteFleetCommand";
+import { DeleteAliasCommand, DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
+import { DeleteBuildCommand, DeleteBuildCommandInput, DeleteBuildCommandOutput } from "./commands/DeleteBuildCommand";
+import { DeleteFleetCommand, DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
 import {
   DeleteGameSessionQueueCommand,
   DeleteGameSessionQueueCommandInput,
-  DeleteGameSessionQueueCommandOutput
+  DeleteGameSessionQueueCommandOutput,
 } from "./commands/DeleteGameSessionQueueCommand";
 import {
   DeleteMatchmakingConfigurationCommand,
   DeleteMatchmakingConfigurationCommandInput,
-  DeleteMatchmakingConfigurationCommandOutput
+  DeleteMatchmakingConfigurationCommandOutput,
 } from "./commands/DeleteMatchmakingConfigurationCommand";
 import {
   DeleteMatchmakingRuleSetCommand,
   DeleteMatchmakingRuleSetCommandInput,
-  DeleteMatchmakingRuleSetCommandOutput
+  DeleteMatchmakingRuleSetCommandOutput,
 } from "./commands/DeleteMatchmakingRuleSetCommand";
 import {
   DeleteScalingPolicyCommand,
   DeleteScalingPolicyCommandInput,
-  DeleteScalingPolicyCommandOutput
+  DeleteScalingPolicyCommandOutput,
 } from "./commands/DeleteScalingPolicyCommand";
 import {
   DeleteScriptCommand,
   DeleteScriptCommandInput,
-  DeleteScriptCommandOutput
+  DeleteScriptCommandOutput,
 } from "./commands/DeleteScriptCommand";
 import {
   DeleteVpcPeeringAuthorizationCommand,
   DeleteVpcPeeringAuthorizationCommandInput,
-  DeleteVpcPeeringAuthorizationCommandOutput
+  DeleteVpcPeeringAuthorizationCommandOutput,
 } from "./commands/DeleteVpcPeeringAuthorizationCommand";
 import {
   DeleteVpcPeeringConnectionCommand,
   DeleteVpcPeeringConnectionCommandInput,
-  DeleteVpcPeeringConnectionCommandOutput
+  DeleteVpcPeeringConnectionCommandOutput,
 } from "./commands/DeleteVpcPeeringConnectionCommand";
 import {
   DescribeAliasCommand,
   DescribeAliasCommandInput,
-  DescribeAliasCommandOutput
+  DescribeAliasCommandOutput,
 } from "./commands/DescribeAliasCommand";
 import {
   DescribeBuildCommand,
   DescribeBuildCommandInput,
-  DescribeBuildCommandOutput
+  DescribeBuildCommandOutput,
 } from "./commands/DescribeBuildCommand";
 import {
   DescribeEC2InstanceLimitsCommand,
   DescribeEC2InstanceLimitsCommandInput,
-  DescribeEC2InstanceLimitsCommandOutput
+  DescribeEC2InstanceLimitsCommandOutput,
 } from "./commands/DescribeEC2InstanceLimitsCommand";
 import {
   DescribeFleetAttributesCommand,
   DescribeFleetAttributesCommandInput,
-  DescribeFleetAttributesCommandOutput
+  DescribeFleetAttributesCommandOutput,
 } from "./commands/DescribeFleetAttributesCommand";
 import {
   DescribeFleetCapacityCommand,
   DescribeFleetCapacityCommandInput,
-  DescribeFleetCapacityCommandOutput
+  DescribeFleetCapacityCommandOutput,
 } from "./commands/DescribeFleetCapacityCommand";
 import {
   DescribeFleetEventsCommand,
   DescribeFleetEventsCommandInput,
-  DescribeFleetEventsCommandOutput
+  DescribeFleetEventsCommandOutput,
 } from "./commands/DescribeFleetEventsCommand";
 import {
   DescribeFleetPortSettingsCommand,
   DescribeFleetPortSettingsCommandInput,
-  DescribeFleetPortSettingsCommandOutput
+  DescribeFleetPortSettingsCommandOutput,
 } from "./commands/DescribeFleetPortSettingsCommand";
 import {
   DescribeFleetUtilizationCommand,
   DescribeFleetUtilizationCommandInput,
-  DescribeFleetUtilizationCommandOutput
+  DescribeFleetUtilizationCommandOutput,
 } from "./commands/DescribeFleetUtilizationCommand";
 import {
   DescribeGameSessionDetailsCommand,
   DescribeGameSessionDetailsCommandInput,
-  DescribeGameSessionDetailsCommandOutput
+  DescribeGameSessionDetailsCommandOutput,
 } from "./commands/DescribeGameSessionDetailsCommand";
 import {
   DescribeGameSessionPlacementCommand,
   DescribeGameSessionPlacementCommandInput,
-  DescribeGameSessionPlacementCommandOutput
+  DescribeGameSessionPlacementCommandOutput,
 } from "./commands/DescribeGameSessionPlacementCommand";
 import {
   DescribeGameSessionQueuesCommand,
   DescribeGameSessionQueuesCommandInput,
-  DescribeGameSessionQueuesCommandOutput
+  DescribeGameSessionQueuesCommandOutput,
 } from "./commands/DescribeGameSessionQueuesCommand";
 import {
   DescribeGameSessionsCommand,
   DescribeGameSessionsCommandInput,
-  DescribeGameSessionsCommandOutput
+  DescribeGameSessionsCommandOutput,
 } from "./commands/DescribeGameSessionsCommand";
 import {
   DescribeInstancesCommand,
   DescribeInstancesCommandInput,
-  DescribeInstancesCommandOutput
+  DescribeInstancesCommandOutput,
 } from "./commands/DescribeInstancesCommand";
 import {
   DescribeMatchmakingCommand,
   DescribeMatchmakingCommandInput,
-  DescribeMatchmakingCommandOutput
+  DescribeMatchmakingCommandOutput,
 } from "./commands/DescribeMatchmakingCommand";
 import {
   DescribeMatchmakingConfigurationsCommand,
   DescribeMatchmakingConfigurationsCommandInput,
-  DescribeMatchmakingConfigurationsCommandOutput
+  DescribeMatchmakingConfigurationsCommandOutput,
 } from "./commands/DescribeMatchmakingConfigurationsCommand";
 import {
   DescribeMatchmakingRuleSetsCommand,
   DescribeMatchmakingRuleSetsCommandInput,
-  DescribeMatchmakingRuleSetsCommandOutput
+  DescribeMatchmakingRuleSetsCommandOutput,
 } from "./commands/DescribeMatchmakingRuleSetsCommand";
 import {
   DescribePlayerSessionsCommand,
   DescribePlayerSessionsCommandInput,
-  DescribePlayerSessionsCommandOutput
+  DescribePlayerSessionsCommandOutput,
 } from "./commands/DescribePlayerSessionsCommand";
 import {
   DescribeRuntimeConfigurationCommand,
   DescribeRuntimeConfigurationCommandInput,
-  DescribeRuntimeConfigurationCommandOutput
+  DescribeRuntimeConfigurationCommandOutput,
 } from "./commands/DescribeRuntimeConfigurationCommand";
 import {
   DescribeScalingPoliciesCommand,
   DescribeScalingPoliciesCommandInput,
-  DescribeScalingPoliciesCommandOutput
+  DescribeScalingPoliciesCommandOutput,
 } from "./commands/DescribeScalingPoliciesCommand";
 import {
   DescribeScriptCommand,
   DescribeScriptCommandInput,
-  DescribeScriptCommandOutput
+  DescribeScriptCommandOutput,
 } from "./commands/DescribeScriptCommand";
 import {
   DescribeVpcPeeringAuthorizationsCommand,
   DescribeVpcPeeringAuthorizationsCommandInput,
-  DescribeVpcPeeringAuthorizationsCommandOutput
+  DescribeVpcPeeringAuthorizationsCommandOutput,
 } from "./commands/DescribeVpcPeeringAuthorizationsCommand";
 import {
   DescribeVpcPeeringConnectionsCommand,
   DescribeVpcPeeringConnectionsCommandInput,
-  DescribeVpcPeeringConnectionsCommandOutput
+  DescribeVpcPeeringConnectionsCommandOutput,
 } from "./commands/DescribeVpcPeeringConnectionsCommand";
 import {
   GetGameSessionLogUrlCommand,
   GetGameSessionLogUrlCommandInput,
-  GetGameSessionLogUrlCommandOutput
+  GetGameSessionLogUrlCommandOutput,
 } from "./commands/GetGameSessionLogUrlCommand";
 import {
   GetInstanceAccessCommand,
   GetInstanceAccessCommandInput,
-  GetInstanceAccessCommandOutput
+  GetInstanceAccessCommandOutput,
 } from "./commands/GetInstanceAccessCommand";
-import {
-  ListAliasesCommand,
-  ListAliasesCommandInput,
-  ListAliasesCommandOutput
-} from "./commands/ListAliasesCommand";
-import {
-  ListBuildsCommand,
-  ListBuildsCommandInput,
-  ListBuildsCommandOutput
-} from "./commands/ListBuildsCommand";
-import {
-  ListFleetsCommand,
-  ListFleetsCommandInput,
-  ListFleetsCommandOutput
-} from "./commands/ListFleetsCommand";
-import {
-  ListScriptsCommand,
-  ListScriptsCommandInput,
-  ListScriptsCommandOutput
-} from "./commands/ListScriptsCommand";
+import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
+import { ListBuildsCommand, ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand";
+import { ListFleetsCommand, ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
+import { ListScriptsCommand, ListScriptsCommandInput, ListScriptsCommandOutput } from "./commands/ListScriptsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   PutScalingPolicyCommand,
   PutScalingPolicyCommandInput,
-  PutScalingPolicyCommandOutput
+  PutScalingPolicyCommandOutput,
 } from "./commands/PutScalingPolicyCommand";
 import {
   RequestUploadCredentialsCommand,
   RequestUploadCredentialsCommandInput,
-  RequestUploadCredentialsCommandOutput
+  RequestUploadCredentialsCommandOutput,
 } from "./commands/RequestUploadCredentialsCommand";
 import {
   ResolveAliasCommand,
   ResolveAliasCommandInput,
-  ResolveAliasCommandOutput
+  ResolveAliasCommandOutput,
 } from "./commands/ResolveAliasCommand";
 import {
   SearchGameSessionsCommand,
   SearchGameSessionsCommandInput,
-  SearchGameSessionsCommandOutput
+  SearchGameSessionsCommandOutput,
 } from "./commands/SearchGameSessionsCommand";
 import {
   StartFleetActionsCommand,
   StartFleetActionsCommandInput,
-  StartFleetActionsCommandOutput
+  StartFleetActionsCommandOutput,
 } from "./commands/StartFleetActionsCommand";
 import {
   StartGameSessionPlacementCommand,
   StartGameSessionPlacementCommandInput,
-  StartGameSessionPlacementCommandOutput
+  StartGameSessionPlacementCommandOutput,
 } from "./commands/StartGameSessionPlacementCommand";
 import {
   StartMatchBackfillCommand,
   StartMatchBackfillCommandInput,
-  StartMatchBackfillCommandOutput
+  StartMatchBackfillCommandOutput,
 } from "./commands/StartMatchBackfillCommand";
 import {
   StartMatchmakingCommand,
   StartMatchmakingCommandInput,
-  StartMatchmakingCommandOutput
+  StartMatchmakingCommandOutput,
 } from "./commands/StartMatchmakingCommand";
 import {
   StopFleetActionsCommand,
   StopFleetActionsCommandInput,
-  StopFleetActionsCommandOutput
+  StopFleetActionsCommandOutput,
 } from "./commands/StopFleetActionsCommand";
 import {
   StopGameSessionPlacementCommand,
   StopGameSessionPlacementCommandInput,
-  StopGameSessionPlacementCommandOutput
+  StopGameSessionPlacementCommandOutput,
 } from "./commands/StopGameSessionPlacementCommand";
 import {
   StopMatchmakingCommand,
   StopMatchmakingCommandInput,
-  StopMatchmakingCommandOutput
+  StopMatchmakingCommandOutput,
 } from "./commands/StopMatchmakingCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import {
-  UpdateAliasCommand,
-  UpdateAliasCommandInput,
-  UpdateAliasCommandOutput
-} from "./commands/UpdateAliasCommand";
-import {
-  UpdateBuildCommand,
-  UpdateBuildCommandInput,
-  UpdateBuildCommandOutput
-} from "./commands/UpdateBuildCommand";
+import { UpdateAliasCommand, UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
+import { UpdateBuildCommand, UpdateBuildCommandInput, UpdateBuildCommandOutput } from "./commands/UpdateBuildCommand";
 import {
   UpdateFleetAttributesCommand,
   UpdateFleetAttributesCommandInput,
-  UpdateFleetAttributesCommandOutput
+  UpdateFleetAttributesCommandOutput,
 } from "./commands/UpdateFleetAttributesCommand";
 import {
   UpdateFleetCapacityCommand,
   UpdateFleetCapacityCommandInput,
-  UpdateFleetCapacityCommandOutput
+  UpdateFleetCapacityCommandOutput,
 } from "./commands/UpdateFleetCapacityCommand";
 import {
   UpdateFleetPortSettingsCommand,
   UpdateFleetPortSettingsCommandInput,
-  UpdateFleetPortSettingsCommandOutput
+  UpdateFleetPortSettingsCommandOutput,
 } from "./commands/UpdateFleetPortSettingsCommand";
 import {
   UpdateGameSessionCommand,
   UpdateGameSessionCommandInput,
-  UpdateGameSessionCommandOutput
+  UpdateGameSessionCommandOutput,
 } from "./commands/UpdateGameSessionCommand";
 import {
   UpdateGameSessionQueueCommand,
   UpdateGameSessionQueueCommandInput,
-  UpdateGameSessionQueueCommandOutput
+  UpdateGameSessionQueueCommandOutput,
 } from "./commands/UpdateGameSessionQueueCommand";
 import {
   UpdateMatchmakingConfigurationCommand,
   UpdateMatchmakingConfigurationCommandInput,
-  UpdateMatchmakingConfigurationCommandOutput
+  UpdateMatchmakingConfigurationCommandOutput,
 } from "./commands/UpdateMatchmakingConfigurationCommand";
 import {
   UpdateRuntimeConfigurationCommand,
   UpdateRuntimeConfigurationCommandInput,
-  UpdateRuntimeConfigurationCommandOutput
+  UpdateRuntimeConfigurationCommandOutput,
 } from "./commands/UpdateRuntimeConfigurationCommand";
 import {
   UpdateScriptCommand,
   UpdateScriptCommandInput,
-  UpdateScriptCommandOutput
+  UpdateScriptCommandOutput,
 } from "./commands/UpdateScriptCommand";
 import {
   ValidateMatchmakingRuleSetCommand,
   ValidateMatchmakingRuleSetCommandInput,
-  ValidateMatchmakingRuleSetCommandOutput
+  ValidateMatchmakingRuleSetCommandOutput,
 } from "./commands/ValidateMatchmakingRuleSetCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -487,14 +431,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public acceptMatch(
-    args: AcceptMatchCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AcceptMatchCommandOutput>;
-  public acceptMatch(
-    args: AcceptMatchCommandInput,
-    cb: (err: any, data?: AcceptMatchCommandOutput) => void
-  ): void;
+  public acceptMatch(args: AcceptMatchCommandInput, options?: __HttpHandlerOptions): Promise<AcceptMatchCommandOutput>;
+  public acceptMatch(args: AcceptMatchCommandInput, cb: (err: any, data?: AcceptMatchCommandOutput) => void): void;
   public acceptMatch(
     args: AcceptMatchCommandInput,
     options: __HttpHandlerOptions,
@@ -502,17 +440,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public acceptMatch(
     args: AcceptMatchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AcceptMatchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptMatchCommandOutput) => void),
     cb?: (err: any, data?: AcceptMatchCommandOutput) => void
   ): Promise<AcceptMatchCommandOutput> | void {
     const command = new AcceptMatchCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -567,14 +502,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public createAlias(
-    args: CreateAliasCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateAliasCommandOutput>;
-  public createAlias(
-    args: CreateAliasCommandInput,
-    cb: (err: any, data?: CreateAliasCommandOutput) => void
-  ): void;
+  public createAlias(args: CreateAliasCommandInput, options?: __HttpHandlerOptions): Promise<CreateAliasCommandOutput>;
+  public createAlias(args: CreateAliasCommandInput, cb: (err: any, data?: CreateAliasCommandOutput) => void): void;
   public createAlias(
     args: CreateAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -582,17 +511,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createAlias(
     args: CreateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAliasCommandOutput) => void),
     cb?: (err: any, data?: CreateAliasCommandOutput) => void
   ): Promise<CreateAliasCommandOutput> | void {
     const command = new CreateAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -675,14 +601,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public createBuild(
-    args: CreateBuildCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateBuildCommandOutput>;
-  public createBuild(
-    args: CreateBuildCommandInput,
-    cb: (err: any, data?: CreateBuildCommandOutput) => void
-  ): void;
+  public createBuild(args: CreateBuildCommandInput, options?: __HttpHandlerOptions): Promise<CreateBuildCommandOutput>;
+  public createBuild(args: CreateBuildCommandInput, cb: (err: any, data?: CreateBuildCommandOutput) => void): void;
   public createBuild(
     args: CreateBuildCommandInput,
     options: __HttpHandlerOptions,
@@ -690,17 +610,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createBuild(
     args: CreateBuildCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBuildCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBuildCommandOutput) => void),
     cb?: (err: any, data?: CreateBuildCommandOutput) => void
   ): Promise<CreateBuildCommandOutput> | void {
     const command = new CreateBuildCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -805,14 +722,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public createFleet(
-    args: CreateFleetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateFleetCommandOutput>;
-  public createFleet(
-    args: CreateFleetCommandInput,
-    cb: (err: any, data?: CreateFleetCommandOutput) => void
-  ): void;
+  public createFleet(args: CreateFleetCommandInput, options?: __HttpHandlerOptions): Promise<CreateFleetCommandOutput>;
+  public createFleet(args: CreateFleetCommandInput, cb: (err: any, data?: CreateFleetCommandOutput) => void): void;
   public createFleet(
     args: CreateFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -820,17 +731,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createFleet(
     args: CreateFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFleetCommandOutput) => void),
     cb?: (err: any, data?: CreateFleetCommandOutput) => void
   ): Promise<CreateFleetCommandOutput> | void {
     const command = new CreateFleetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -935,17 +843,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createGameSession(
     args: CreateGameSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGameSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGameSessionCommandOutput) => void),
     cb?: (err: any, data?: CreateGameSessionCommandOutput) => void
   ): Promise<CreateGameSessionCommandOutput> | void {
     const command = new CreateGameSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1019,17 +924,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createGameSessionQueue(
     args: CreateGameSessionQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGameSessionQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGameSessionQueueCommandOutput) => void),
     cb?: (err: any, data?: CreateGameSessionQueueCommandOutput) => void
   ): Promise<CreateGameSessionQueueCommandOutput> | void {
     const command = new CreateGameSessionQueueCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1125,20 +1027,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createMatchmakingConfiguration(
     args: CreateMatchmakingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateMatchmakingConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMatchmakingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: CreateMatchmakingConfigurationCommandOutput) => void
   ): Promise<CreateMatchmakingConfigurationCommandOutput> | void {
     const command = new CreateMatchmakingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1240,17 +1136,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createMatchmakingRuleSet(
     args: CreateMatchmakingRuleSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMatchmakingRuleSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMatchmakingRuleSetCommandOutput) => void),
     cb?: (err: any, data?: CreateMatchmakingRuleSetCommandOutput) => void
   ): Promise<CreateMatchmakingRuleSetCommandOutput> | void {
     const command = new CreateMatchmakingRuleSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1324,17 +1217,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createPlayerSession(
     args: CreatePlayerSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePlayerSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePlayerSessionCommandOutput) => void),
     cb?: (err: any, data?: CreatePlayerSessionCommandOutput) => void
   ): Promise<CreatePlayerSessionCommandOutput> | void {
     const command = new CreatePlayerSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1408,17 +1298,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createPlayerSessions(
     args: CreatePlayerSessionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePlayerSessionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePlayerSessionsCommandOutput) => void),
     cb?: (err: any, data?: CreatePlayerSessionsCommandOutput) => void
   ): Promise<CreatePlayerSessionsCommandOutput> | void {
     const command = new CreatePlayerSessionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1494,10 +1381,7 @@ export class GameLift extends GameLiftClient {
     args: CreateScriptCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateScriptCommandOutput>;
-  public createScript(
-    args: CreateScriptCommandInput,
-    cb: (err: any, data?: CreateScriptCommandOutput) => void
-  ): void;
+  public createScript(args: CreateScriptCommandInput, cb: (err: any, data?: CreateScriptCommandOutput) => void): void;
   public createScript(
     args: CreateScriptCommandInput,
     options: __HttpHandlerOptions,
@@ -1505,17 +1389,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createScript(
     args: CreateScriptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateScriptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateScriptCommandOutput) => void),
     cb?: (err: any, data?: CreateScriptCommandOutput) => void
   ): Promise<CreateScriptCommandOutput> | void {
     const command = new CreateScriptCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1593,17 +1474,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createVpcPeeringAuthorization(
     args: CreateVpcPeeringAuthorizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVpcPeeringAuthorizationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVpcPeeringAuthorizationCommandOutput) => void),
     cb?: (err: any, data?: CreateVpcPeeringAuthorizationCommandOutput) => void
   ): Promise<CreateVpcPeeringAuthorizationCommandOutput> | void {
     const command = new CreateVpcPeeringAuthorizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1678,17 +1556,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createVpcPeeringConnection(
     args: CreateVpcPeeringConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVpcPeeringConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVpcPeeringConnectionCommandOutput) => void),
     cb?: (err: any, data?: CreateVpcPeeringConnectionCommandOutput) => void
   ): Promise<CreateVpcPeeringConnectionCommandOutput> | void {
     const command = new CreateVpcPeeringConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1732,14 +1607,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public deleteAlias(
-    args: DeleteAliasCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteAliasCommandOutput>;
-  public deleteAlias(
-    args: DeleteAliasCommandInput,
-    cb: (err: any, data?: DeleteAliasCommandOutput) => void
-  ): void;
+  public deleteAlias(args: DeleteAliasCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAliasCommandOutput>;
+  public deleteAlias(args: DeleteAliasCommandInput, cb: (err: any, data?: DeleteAliasCommandOutput) => void): void;
   public deleteAlias(
     args: DeleteAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -1747,17 +1616,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteAlias(
     args: DeleteAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAliasCommandOutput) => void),
     cb?: (err: any, data?: DeleteAliasCommandOutput) => void
   ): Promise<DeleteAliasCommandOutput> | void {
     const command = new DeleteAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1808,14 +1674,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public deleteBuild(
-    args: DeleteBuildCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteBuildCommandOutput>;
-  public deleteBuild(
-    args: DeleteBuildCommandInput,
-    cb: (err: any, data?: DeleteBuildCommandOutput) => void
-  ): void;
+  public deleteBuild(args: DeleteBuildCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBuildCommandOutput>;
+  public deleteBuild(args: DeleteBuildCommandInput, cb: (err: any, data?: DeleteBuildCommandOutput) => void): void;
   public deleteBuild(
     args: DeleteBuildCommandInput,
     options: __HttpHandlerOptions,
@@ -1823,17 +1683,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteBuild(
     args: DeleteBuildCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBuildCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBuildCommandOutput) => void),
     cb?: (err: any, data?: DeleteBuildCommandOutput) => void
   ): Promise<DeleteBuildCommandOutput> | void {
     const command = new DeleteBuildCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1901,14 +1758,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public deleteFleet(
-    args: DeleteFleetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteFleetCommandOutput>;
-  public deleteFleet(
-    args: DeleteFleetCommandInput,
-    cb: (err: any, data?: DeleteFleetCommandOutput) => void
-  ): void;
+  public deleteFleet(args: DeleteFleetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFleetCommandOutput>;
+  public deleteFleet(args: DeleteFleetCommandInput, cb: (err: any, data?: DeleteFleetCommandOutput) => void): void;
   public deleteFleet(
     args: DeleteFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -1916,17 +1767,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteFleet(
     args: DeleteFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFleetCommandOutput) => void),
     cb?: (err: any, data?: DeleteFleetCommandOutput) => void
   ): Promise<DeleteFleetCommandOutput> | void {
     const command = new DeleteFleetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1974,17 +1822,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteGameSessionQueue(
     args: DeleteGameSessionQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGameSessionQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGameSessionQueueCommandOutput) => void),
     cb?: (err: any, data?: DeleteGameSessionQueueCommandOutput) => void
   ): Promise<DeleteGameSessionQueueCommandOutput> | void {
     const command = new DeleteGameSessionQueueCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2056,20 +1901,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteMatchmakingConfiguration(
     args: DeleteMatchmakingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteMatchmakingConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMatchmakingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteMatchmakingConfigurationCommandOutput) => void
   ): Promise<DeleteMatchmakingConfigurationCommandOutput> | void {
     const command = new DeleteMatchmakingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2152,17 +1991,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteMatchmakingRuleSet(
     args: DeleteMatchmakingRuleSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMatchmakingRuleSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMatchmakingRuleSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteMatchmakingRuleSetCommandOutput) => void
   ): Promise<DeleteMatchmakingRuleSetCommandOutput> | void {
     const command = new DeleteMatchmakingRuleSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2240,17 +2076,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteScalingPolicy(
     args: DeleteScalingPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteScalingPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteScalingPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteScalingPolicyCommandOutput) => void
   ): Promise<DeleteScalingPolicyCommandOutput> | void {
     const command = new DeleteScalingPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2306,10 +2139,7 @@ export class GameLift extends GameLiftClient {
     args: DeleteScriptCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteScriptCommandOutput>;
-  public deleteScript(
-    args: DeleteScriptCommandInput,
-    cb: (err: any, data?: DeleteScriptCommandOutput) => void
-  ): void;
+  public deleteScript(args: DeleteScriptCommandInput, cb: (err: any, data?: DeleteScriptCommandOutput) => void): void;
   public deleteScript(
     args: DeleteScriptCommandInput,
     options: __HttpHandlerOptions,
@@ -2317,17 +2147,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteScript(
     args: DeleteScriptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteScriptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteScriptCommandOutput) => void),
     cb?: (err: any, data?: DeleteScriptCommandOutput) => void
   ): Promise<DeleteScriptCommandOutput> | void {
     const command = new DeleteScriptCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2385,17 +2212,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteVpcPeeringAuthorization(
     args: DeleteVpcPeeringAuthorizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVpcPeeringAuthorizationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVpcPeeringAuthorizationCommandOutput) => void),
     cb?: (err: any, data?: DeleteVpcPeeringAuthorizationCommandOutput) => void
   ): Promise<DeleteVpcPeeringAuthorizationCommandOutput> | void {
     const command = new DeleteVpcPeeringAuthorizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2458,17 +2282,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteVpcPeeringConnection(
     args: DeleteVpcPeeringConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVpcPeeringConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVpcPeeringConnectionCommandOutput) => void),
     cb?: (err: any, data?: DeleteVpcPeeringConnectionCommandOutput) => void
   ): Promise<DeleteVpcPeeringConnectionCommandOutput> | void {
     const command = new DeleteVpcPeeringConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2528,17 +2349,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeAlias(
     args: DescribeAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAliasCommandOutput) => void),
     cb?: (err: any, data?: DescribeAliasCommandOutput) => void
   ): Promise<DescribeAliasCommandOutput> | void {
     const command = new DescribeAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2601,17 +2419,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeBuild(
     args: DescribeBuildCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBuildCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBuildCommandOutput) => void),
     cb?: (err: any, data?: DescribeBuildCommandOutput) => void
   ): Promise<DescribeBuildCommandOutput> | void {
     const command = new DescribeBuildCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2755,17 +2570,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeEC2InstanceLimits(
     args: DescribeEC2InstanceLimitsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEC2InstanceLimitsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEC2InstanceLimitsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEC2InstanceLimitsCommandOutput) => void
   ): Promise<DescribeEC2InstanceLimitsCommandOutput> | void {
     const command = new DescribeEC2InstanceLimitsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2886,17 +2698,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeFleetAttributes(
     args: DescribeFleetAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFleetAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetAttributesCommandOutput) => void),
     cb?: (err: any, data?: DescribeFleetAttributesCommandOutput) => void
   ): Promise<DescribeFleetAttributesCommandOutput> | void {
     const command = new DescribeFleetAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3018,17 +2827,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeFleetCapacity(
     args: DescribeFleetCapacityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFleetCapacityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetCapacityCommandOutput) => void),
     cb?: (err: any, data?: DescribeFleetCapacityCommandOutput) => void
   ): Promise<DescribeFleetCapacityCommandOutput> | void {
     const command = new DescribeFleetCapacityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3142,17 +2948,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeFleetEvents(
     args: DescribeFleetEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFleetEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetEventsCommandOutput) => void),
     cb?: (err: any, data?: DescribeFleetEventsCommandOutput) => void
   ): Promise<DescribeFleetEventsCommandOutput> | void {
     const command = new DescribeFleetEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3268,17 +3071,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeFleetPortSettings(
     args: DescribeFleetPortSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFleetPortSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetPortSettingsCommandOutput) => void),
     cb?: (err: any, data?: DescribeFleetPortSettingsCommandOutput) => void
   ): Promise<DescribeFleetPortSettingsCommandOutput> | void {
     const command = new DescribeFleetPortSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3399,17 +3199,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeFleetUtilization(
     args: DescribeFleetUtilizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFleetUtilizationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetUtilizationCommandOutput) => void),
     cb?: (err: any, data?: DescribeFleetUtilizationCommandOutput) => void
   ): Promise<DescribeFleetUtilizationCommandOutput> | void {
     const command = new DescribeFleetUtilizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3495,17 +3292,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeGameSessionDetails(
     args: DescribeGameSessionDetailsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGameSessionDetailsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGameSessionDetailsCommandOutput) => void),
     cb?: (err: any, data?: DescribeGameSessionDetailsCommandOutput) => void
   ): Promise<DescribeGameSessionDetailsCommandOutput> | void {
     const command = new DescribeGameSessionDetailsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3583,17 +3377,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeGameSessionPlacement(
     args: DescribeGameSessionPlacementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGameSessionPlacementCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGameSessionPlacementCommandOutput) => void),
     cb?: (err: any, data?: DescribeGameSessionPlacementCommandOutput) => void
   ): Promise<DescribeGameSessionPlacementCommandOutput> | void {
     const command = new DescribeGameSessionPlacementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3644,17 +3435,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeGameSessionQueues(
     args: DescribeGameSessionQueuesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGameSessionQueuesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGameSessionQueuesCommandOutput) => void),
     cb?: (err: any, data?: DescribeGameSessionQueuesCommandOutput) => void
   ): Promise<DescribeGameSessionQueuesCommandOutput> | void {
     const command = new DescribeGameSessionQueuesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3741,17 +3529,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeGameSessions(
     args: DescribeGameSessionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGameSessionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGameSessionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeGameSessionsCommandOutput) => void
   ): Promise<DescribeGameSessionsCommandOutput> | void {
     const command = new DescribeGameSessionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3782,17 +3567,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeInstances(
     args: DescribeInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstancesCommandOutput) => void),
     cb?: (err: any, data?: DescribeInstancesCommandOutput) => void
   ): Promise<DescribeInstancesCommandOutput> | void {
     const command = new DescribeInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3867,17 +3649,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeMatchmaking(
     args: DescribeMatchmakingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMatchmakingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMatchmakingCommandOutput) => void),
     cb?: (err: any, data?: DescribeMatchmakingCommandOutput) => void
   ): Promise<DescribeMatchmakingCommandOutput> | void {
     const command = new DescribeMatchmakingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3951,38 +3730,23 @@ export class GameLift extends GameLiftClient {
   ): Promise<DescribeMatchmakingConfigurationsCommandOutput>;
   public describeMatchmakingConfigurations(
     args: DescribeMatchmakingConfigurationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeMatchmakingConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMatchmakingConfigurationsCommandOutput) => void
   ): void;
   public describeMatchmakingConfigurations(
     args: DescribeMatchmakingConfigurationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeMatchmakingConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMatchmakingConfigurationsCommandOutput) => void
   ): void;
   public describeMatchmakingConfigurations(
     args: DescribeMatchmakingConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMatchmakingConfigurationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeMatchmakingConfigurationsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMatchmakingConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMatchmakingConfigurationsCommandOutput) => void
   ): Promise<DescribeMatchmakingConfigurationsCommandOutput> | void {
     const command = new DescribeMatchmakingConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4066,17 +3830,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeMatchmakingRuleSets(
     args: DescribeMatchmakingRuleSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMatchmakingRuleSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMatchmakingRuleSetsCommandOutput) => void),
     cb?: (err: any, data?: DescribeMatchmakingRuleSetsCommandOutput) => void
   ): Promise<DescribeMatchmakingRuleSetsCommandOutput> | void {
     const command = new DescribeMatchmakingRuleSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4151,17 +3912,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describePlayerSessions(
     args: DescribePlayerSessionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePlayerSessionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePlayerSessionsCommandOutput) => void),
     cb?: (err: any, data?: DescribePlayerSessionsCommandOutput) => void
   ): Promise<DescribePlayerSessionsCommandOutput> | void {
     const command = new DescribePlayerSessionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4274,17 +4032,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeRuntimeConfiguration(
     args: DescribeRuntimeConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRuntimeConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRuntimeConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DescribeRuntimeConfigurationCommandOutput) => void
   ): Promise<DescribeRuntimeConfigurationCommandOutput> | void {
     const command = new DescribeRuntimeConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4366,17 +4121,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeScalingPolicies(
     args: DescribeScalingPoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScalingPoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScalingPoliciesCommandOutput) => void),
     cb?: (err: any, data?: DescribeScalingPoliciesCommandOutput) => void
   ): Promise<DescribeScalingPoliciesCommandOutput> | void {
     const command = new DescribeScalingPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4439,17 +4191,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeScript(
     args: DescribeScriptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScriptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScriptCommandOutput) => void),
     cb?: (err: any, data?: DescribeScriptCommandOutput) => void
   ): Promise<DescribeScriptCommandOutput> | void {
     const command = new DescribeScriptCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4508,23 +4257,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeVpcPeeringAuthorizations(
     args: DescribeVpcPeeringAuthorizationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeVpcPeeringAuthorizationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeVpcPeeringAuthorizationsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVpcPeeringAuthorizationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVpcPeeringAuthorizationsCommandOutput) => void
   ): Promise<DescribeVpcPeeringAuthorizationsCommandOutput> | void {
     const command = new DescribeVpcPeeringAuthorizationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4587,17 +4327,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeVpcPeeringConnections(
     args: DescribeVpcPeeringConnectionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVpcPeeringConnectionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVpcPeeringConnectionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeVpcPeeringConnectionsCommandOutput) => void
   ): Promise<DescribeVpcPeeringConnectionsCommandOutput> | void {
     const command = new DescribeVpcPeeringConnectionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4681,17 +4418,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public getGameSessionLogUrl(
     args: GetGameSessionLogUrlCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGameSessionLogUrlCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGameSessionLogUrlCommandOutput) => void),
     cb?: (err: any, data?: GetGameSessionLogUrlCommandOutput) => void
   ): Promise<GetGameSessionLogUrlCommandOutput> | void {
     const command = new GetGameSessionLogUrlCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4730,17 +4464,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public getInstanceAccess(
     args: GetInstanceAccessCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInstanceAccessCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInstanceAccessCommandOutput) => void),
     cb?: (err: any, data?: GetInstanceAccessCommandOutput) => void
   ): Promise<GetInstanceAccessCommandOutput> | void {
     const command = new GetInstanceAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4787,14 +4518,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public listAliases(
-    args: ListAliasesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAliasesCommandOutput>;
-  public listAliases(
-    args: ListAliasesCommandInput,
-    cb: (err: any, data?: ListAliasesCommandOutput) => void
-  ): void;
+  public listAliases(args: ListAliasesCommandInput, options?: __HttpHandlerOptions): Promise<ListAliasesCommandOutput>;
+  public listAliases(args: ListAliasesCommandInput, cb: (err: any, data?: ListAliasesCommandOutput) => void): void;
   public listAliases(
     args: ListAliasesCommandInput,
     options: __HttpHandlerOptions,
@@ -4802,17 +4527,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public listAliases(
     args: ListAliasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAliasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAliasesCommandOutput) => void),
     cb?: (err: any, data?: ListAliasesCommandOutput) => void
   ): Promise<ListAliasesCommandOutput> | void {
     const command = new ListAliasesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4865,14 +4587,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public listBuilds(
-    args: ListBuildsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListBuildsCommandOutput>;
-  public listBuilds(
-    args: ListBuildsCommandInput,
-    cb: (err: any, data?: ListBuildsCommandOutput) => void
-  ): void;
+  public listBuilds(args: ListBuildsCommandInput, options?: __HttpHandlerOptions): Promise<ListBuildsCommandOutput>;
+  public listBuilds(args: ListBuildsCommandInput, cb: (err: any, data?: ListBuildsCommandOutput) => void): void;
   public listBuilds(
     args: ListBuildsCommandInput,
     options: __HttpHandlerOptions,
@@ -4880,17 +4596,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public listBuilds(
     args: ListBuildsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBuildsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBuildsCommandOutput) => void),
     cb?: (err: any, data?: ListBuildsCommandOutput) => void
   ): Promise<ListBuildsCommandOutput> | void {
     const command = new ListBuildsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4957,14 +4670,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public listFleets(
-    args: ListFleetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListFleetsCommandOutput>;
-  public listFleets(
-    args: ListFleetsCommandInput,
-    cb: (err: any, data?: ListFleetsCommandOutput) => void
-  ): void;
+  public listFleets(args: ListFleetsCommandInput, options?: __HttpHandlerOptions): Promise<ListFleetsCommandOutput>;
+  public listFleets(args: ListFleetsCommandInput, cb: (err: any, data?: ListFleetsCommandOutput) => void): void;
   public listFleets(
     args: ListFleetsCommandInput,
     options: __HttpHandlerOptions,
@@ -4972,17 +4679,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public listFleets(
     args: ListFleetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFleetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFleetsCommandOutput) => void),
     cb?: (err: any, data?: ListFleetsCommandOutput) => void
   ): Promise<ListFleetsCommandOutput> | void {
     const command = new ListFleetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5028,14 +4732,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public listScripts(
-    args: ListScriptsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListScriptsCommandOutput>;
-  public listScripts(
-    args: ListScriptsCommandInput,
-    cb: (err: any, data?: ListScriptsCommandOutput) => void
-  ): void;
+  public listScripts(args: ListScriptsCommandInput, options?: __HttpHandlerOptions): Promise<ListScriptsCommandOutput>;
+  public listScripts(args: ListScriptsCommandInput, cb: (err: any, data?: ListScriptsCommandOutput) => void): void;
   public listScripts(
     args: ListScriptsCommandInput,
     options: __HttpHandlerOptions,
@@ -5043,17 +4741,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public listScripts(
     args: ListScriptsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListScriptsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListScriptsCommandOutput) => void),
     cb?: (err: any, data?: ListScriptsCommandOutput) => void
   ): Promise<ListScriptsCommandOutput> | void {
     const command = new ListScriptsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5137,17 +4832,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5283,17 +4975,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public putScalingPolicy(
     args: PutScalingPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutScalingPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutScalingPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutScalingPolicyCommandOutput) => void
   ): Promise<PutScalingPolicyCommandOutput> | void {
     const command = new PutScalingPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5360,17 +5049,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public requestUploadCredentials(
     args: RequestUploadCredentialsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RequestUploadCredentialsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RequestUploadCredentialsCommandOutput) => void),
     cb?: (err: any, data?: RequestUploadCredentialsCommandOutput) => void
   ): Promise<RequestUploadCredentialsCommandOutput> | void {
     const command = new RequestUploadCredentialsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5416,10 +5102,7 @@ export class GameLift extends GameLiftClient {
     args: ResolveAliasCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ResolveAliasCommandOutput>;
-  public resolveAlias(
-    args: ResolveAliasCommandInput,
-    cb: (err: any, data?: ResolveAliasCommandOutput) => void
-  ): void;
+  public resolveAlias(args: ResolveAliasCommandInput, cb: (err: any, data?: ResolveAliasCommandOutput) => void): void;
   public resolveAlias(
     args: ResolveAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -5427,17 +5110,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public resolveAlias(
     args: ResolveAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResolveAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResolveAliasCommandOutput) => void),
     cb?: (err: any, data?: ResolveAliasCommandOutput) => void
   ): Promise<ResolveAliasCommandOutput> | void {
     const command = new ResolveAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5581,17 +5261,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public searchGameSessions(
     args: SearchGameSessionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchGameSessionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchGameSessionsCommandOutput) => void),
     cb?: (err: any, data?: SearchGameSessionsCommandOutput) => void
   ): Promise<SearchGameSessionsCommandOutput> | void {
     const command = new SearchGameSessionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5728,17 +5405,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public startFleetActions(
     args: StartFleetActionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartFleetActionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartFleetActionsCommandOutput) => void),
     cb?: (err: any, data?: StartFleetActionsCommandOutput) => void
   ): Promise<StartFleetActionsCommandOutput> | void {
     const command = new StartFleetActionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5854,17 +5528,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public startGameSessionPlacement(
     args: StartGameSessionPlacementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartGameSessionPlacementCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartGameSessionPlacementCommandOutput) => void),
     cb?: (err: any, data?: StartGameSessionPlacementCommandOutput) => void
   ): Promise<StartGameSessionPlacementCommandOutput> | void {
     const command = new StartGameSessionPlacementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5948,17 +5619,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public startMatchBackfill(
     args: StartMatchBackfillCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartMatchBackfillCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMatchBackfillCommandOutput) => void),
     cb?: (err: any, data?: StartMatchBackfillCommandOutput) => void
   ): Promise<StartMatchBackfillCommandOutput> | void {
     const command = new StartMatchBackfillCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6100,17 +5768,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public startMatchmaking(
     args: StartMatchmakingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartMatchmakingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMatchmakingCommandOutput) => void),
     cb?: (err: any, data?: StartMatchmakingCommandOutput) => void
   ): Promise<StartMatchmakingCommandOutput> | void {
     const command = new StartMatchmakingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6248,17 +5913,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public stopFleetActions(
     args: StopFleetActionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopFleetActionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopFleetActionsCommandOutput) => void),
     cb?: (err: any, data?: StopFleetActionsCommandOutput) => void
   ): Promise<StopFleetActionsCommandOutput> | void {
     const command = new StopFleetActionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6337,17 +5999,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public stopGameSessionPlacement(
     args: StopGameSessionPlacementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopGameSessionPlacementCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopGameSessionPlacementCommandOutput) => void),
     cb?: (err: any, data?: StopGameSessionPlacementCommandOutput) => void
   ): Promise<StopGameSessionPlacementCommandOutput> | void {
     const command = new StopGameSessionPlacementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6420,17 +6079,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public stopMatchmaking(
     args: StopMatchmakingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopMatchmakingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopMatchmakingCommandOutput) => void),
     cb?: (err: any, data?: StopMatchmakingCommandOutput) => void
   ): Promise<StopMatchmakingCommandOutput> | void {
     const command = new StopMatchmakingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6501,14 +6157,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -6516,17 +6166,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6612,17 +6259,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6667,14 +6311,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public updateAlias(
-    args: UpdateAliasCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAliasCommandOutput>;
-  public updateAlias(
-    args: UpdateAliasCommandInput,
-    cb: (err: any, data?: UpdateAliasCommandOutput) => void
-  ): void;
+  public updateAlias(args: UpdateAliasCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAliasCommandOutput>;
+  public updateAlias(args: UpdateAliasCommandInput, cb: (err: any, data?: UpdateAliasCommandOutput) => void): void;
   public updateAlias(
     args: UpdateAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -6682,17 +6320,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateAlias(
     args: UpdateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAliasCommandOutput) => void),
     cb?: (err: any, data?: UpdateAliasCommandOutput) => void
   ): Promise<UpdateAliasCommandOutput> | void {
     const command = new UpdateAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6741,14 +6376,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public updateBuild(
-    args: UpdateBuildCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateBuildCommandOutput>;
-  public updateBuild(
-    args: UpdateBuildCommandInput,
-    cb: (err: any, data?: UpdateBuildCommandOutput) => void
-  ): void;
+  public updateBuild(args: UpdateBuildCommandInput, options?: __HttpHandlerOptions): Promise<UpdateBuildCommandOutput>;
+  public updateBuild(args: UpdateBuildCommandInput, cb: (err: any, data?: UpdateBuildCommandOutput) => void): void;
   public updateBuild(
     args: UpdateBuildCommandInput,
     options: __HttpHandlerOptions,
@@ -6756,17 +6385,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateBuild(
     args: UpdateBuildCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateBuildCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBuildCommandOutput) => void),
     cb?: (err: any, data?: UpdateBuildCommandOutput) => void
   ): Promise<UpdateBuildCommandOutput> | void {
     const command = new UpdateBuildCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6864,17 +6490,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateFleetAttributes(
     args: UpdateFleetAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFleetAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFleetAttributesCommandOutput) => void),
     cb?: (err: any, data?: UpdateFleetAttributesCommandOutput) => void
   ): Promise<UpdateFleetAttributesCommandOutput> | void {
     const command = new UpdateFleetAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6983,17 +6606,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateFleetCapacity(
     args: UpdateFleetCapacityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFleetCapacityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFleetCapacityCommandOutput) => void),
     cb?: (err: any, data?: UpdateFleetCapacityCommandOutput) => void
   ): Promise<UpdateFleetCapacityCommandOutput> | void {
     const command = new UpdateFleetCapacityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7094,17 +6714,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateFleetPortSettings(
     args: UpdateFleetPortSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFleetPortSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFleetPortSettingsCommandOutput) => void),
     cb?: (err: any, data?: UpdateFleetPortSettingsCommandOutput) => void
   ): Promise<UpdateFleetPortSettingsCommandOutput> | void {
     const command = new UpdateFleetPortSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7186,17 +6803,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateGameSession(
     args: UpdateGameSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGameSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGameSessionCommandOutput) => void),
     cb?: (err: any, data?: UpdateGameSessionCommandOutput) => void
   ): Promise<UpdateGameSessionCommandOutput> | void {
     const command = new UpdateGameSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7246,17 +6860,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateGameSessionQueue(
     args: UpdateGameSessionQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGameSessionQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGameSessionQueueCommandOutput) => void),
     cb?: (err: any, data?: UpdateGameSessionQueueCommandOutput) => void
   ): Promise<UpdateGameSessionQueueCommandOutput> | void {
     const command = new UpdateGameSessionQueueCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7335,20 +6946,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateMatchmakingConfiguration(
     args: UpdateMatchmakingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateMatchmakingConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMatchmakingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: UpdateMatchmakingConfigurationCommandOutput) => void
   ): Promise<UpdateMatchmakingConfigurationCommandOutput> | void {
     const command = new UpdateMatchmakingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7455,17 +7060,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateRuntimeConfiguration(
     args: UpdateRuntimeConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRuntimeConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRuntimeConfigurationCommandOutput) => void),
     cb?: (err: any, data?: UpdateRuntimeConfigurationCommandOutput) => void
   ): Promise<UpdateRuntimeConfigurationCommandOutput> | void {
     const command = new UpdateRuntimeConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7524,10 +7126,7 @@ export class GameLift extends GameLiftClient {
     args: UpdateScriptCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateScriptCommandOutput>;
-  public updateScript(
-    args: UpdateScriptCommandInput,
-    cb: (err: any, data?: UpdateScriptCommandOutput) => void
-  ): void;
+  public updateScript(args: UpdateScriptCommandInput, cb: (err: any, data?: UpdateScriptCommandOutput) => void): void;
   public updateScript(
     args: UpdateScriptCommandInput,
     options: __HttpHandlerOptions,
@@ -7535,17 +7134,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateScript(
     args: UpdateScriptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateScriptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateScriptCommandOutput) => void),
     cb?: (err: any, data?: UpdateScriptCommandOutput) => void
   ): Promise<UpdateScriptCommandOutput> | void {
     const command = new UpdateScriptCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7628,17 +7224,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public validateMatchmakingRuleSet(
     args: ValidateMatchmakingRuleSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ValidateMatchmakingRuleSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ValidateMatchmakingRuleSetCommandOutput) => void),
     cb?: (err: any, data?: ValidateMatchmakingRuleSetCommandOutput) => void
   ): Promise<ValidateMatchmakingRuleSetCommandOutput> | void {
     const command = new ValidateMatchmakingRuleSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

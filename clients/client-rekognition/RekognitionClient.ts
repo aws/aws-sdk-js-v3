@@ -1,166 +1,94 @@
-import {
-  CompareFacesCommandInput,
-  CompareFacesCommandOutput
-} from "./commands/CompareFacesCommand";
-import {
-  CreateCollectionCommandInput,
-  CreateCollectionCommandOutput
-} from "./commands/CreateCollectionCommand";
-import {
-  CreateProjectCommandInput,
-  CreateProjectCommandOutput
-} from "./commands/CreateProjectCommand";
+import { CompareFacesCommandInput, CompareFacesCommandOutput } from "./commands/CompareFacesCommand";
+import { CreateCollectionCommandInput, CreateCollectionCommandOutput } from "./commands/CreateCollectionCommand";
+import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
 import {
   CreateProjectVersionCommandInput,
-  CreateProjectVersionCommandOutput
+  CreateProjectVersionCommandOutput,
 } from "./commands/CreateProjectVersionCommand";
 import {
   CreateStreamProcessorCommandInput,
-  CreateStreamProcessorCommandOutput
+  CreateStreamProcessorCommandOutput,
 } from "./commands/CreateStreamProcessorCommand";
-import {
-  DeleteCollectionCommandInput,
-  DeleteCollectionCommandOutput
-} from "./commands/DeleteCollectionCommand";
-import {
-  DeleteFacesCommandInput,
-  DeleteFacesCommandOutput
-} from "./commands/DeleteFacesCommand";
+import { DeleteCollectionCommandInput, DeleteCollectionCommandOutput } from "./commands/DeleteCollectionCommand";
+import { DeleteFacesCommandInput, DeleteFacesCommandOutput } from "./commands/DeleteFacesCommand";
 import {
   DeleteStreamProcessorCommandInput,
-  DeleteStreamProcessorCommandOutput
+  DeleteStreamProcessorCommandOutput,
 } from "./commands/DeleteStreamProcessorCommand";
-import {
-  DescribeCollectionCommandInput,
-  DescribeCollectionCommandOutput
-} from "./commands/DescribeCollectionCommand";
+import { DescribeCollectionCommandInput, DescribeCollectionCommandOutput } from "./commands/DescribeCollectionCommand";
 import {
   DescribeProjectVersionsCommandInput,
-  DescribeProjectVersionsCommandOutput
+  DescribeProjectVersionsCommandOutput,
 } from "./commands/DescribeProjectVersionsCommand";
-import {
-  DescribeProjectsCommandInput,
-  DescribeProjectsCommandOutput
-} from "./commands/DescribeProjectsCommand";
+import { DescribeProjectsCommandInput, DescribeProjectsCommandOutput } from "./commands/DescribeProjectsCommand";
 import {
   DescribeStreamProcessorCommandInput,
-  DescribeStreamProcessorCommandOutput
+  DescribeStreamProcessorCommandOutput,
 } from "./commands/DescribeStreamProcessorCommand";
-import {
-  DetectCustomLabelsCommandInput,
-  DetectCustomLabelsCommandOutput
-} from "./commands/DetectCustomLabelsCommand";
-import {
-  DetectFacesCommandInput,
-  DetectFacesCommandOutput
-} from "./commands/DetectFacesCommand";
-import {
-  DetectLabelsCommandInput,
-  DetectLabelsCommandOutput
-} from "./commands/DetectLabelsCommand";
+import { DetectCustomLabelsCommandInput, DetectCustomLabelsCommandOutput } from "./commands/DetectCustomLabelsCommand";
+import { DetectFacesCommandInput, DetectFacesCommandOutput } from "./commands/DetectFacesCommand";
+import { DetectLabelsCommandInput, DetectLabelsCommandOutput } from "./commands/DetectLabelsCommand";
 import {
   DetectModerationLabelsCommandInput,
-  DetectModerationLabelsCommandOutput
+  DetectModerationLabelsCommandOutput,
 } from "./commands/DetectModerationLabelsCommand";
-import {
-  DetectTextCommandInput,
-  DetectTextCommandOutput
-} from "./commands/DetectTextCommand";
-import {
-  GetCelebrityInfoCommandInput,
-  GetCelebrityInfoCommandOutput
-} from "./commands/GetCelebrityInfoCommand";
+import { DetectTextCommandInput, DetectTextCommandOutput } from "./commands/DetectTextCommand";
+import { GetCelebrityInfoCommandInput, GetCelebrityInfoCommandOutput } from "./commands/GetCelebrityInfoCommand";
 import {
   GetCelebrityRecognitionCommandInput,
-  GetCelebrityRecognitionCommandOutput
+  GetCelebrityRecognitionCommandOutput,
 } from "./commands/GetCelebrityRecognitionCommand";
 import {
   GetContentModerationCommandInput,
-  GetContentModerationCommandOutput
+  GetContentModerationCommandOutput,
 } from "./commands/GetContentModerationCommand";
-import {
-  GetFaceDetectionCommandInput,
-  GetFaceDetectionCommandOutput
-} from "./commands/GetFaceDetectionCommand";
-import {
-  GetFaceSearchCommandInput,
-  GetFaceSearchCommandOutput
-} from "./commands/GetFaceSearchCommand";
-import {
-  GetLabelDetectionCommandInput,
-  GetLabelDetectionCommandOutput
-} from "./commands/GetLabelDetectionCommand";
-import {
-  GetPersonTrackingCommandInput,
-  GetPersonTrackingCommandOutput
-} from "./commands/GetPersonTrackingCommand";
-import {
-  IndexFacesCommandInput,
-  IndexFacesCommandOutput
-} from "./commands/IndexFacesCommand";
-import {
-  ListCollectionsCommandInput,
-  ListCollectionsCommandOutput
-} from "./commands/ListCollectionsCommand";
-import {
-  ListFacesCommandInput,
-  ListFacesCommandOutput
-} from "./commands/ListFacesCommand";
+import { GetFaceDetectionCommandInput, GetFaceDetectionCommandOutput } from "./commands/GetFaceDetectionCommand";
+import { GetFaceSearchCommandInput, GetFaceSearchCommandOutput } from "./commands/GetFaceSearchCommand";
+import { GetLabelDetectionCommandInput, GetLabelDetectionCommandOutput } from "./commands/GetLabelDetectionCommand";
+import { GetPersonTrackingCommandInput, GetPersonTrackingCommandOutput } from "./commands/GetPersonTrackingCommand";
+import { IndexFacesCommandInput, IndexFacesCommandOutput } from "./commands/IndexFacesCommand";
+import { ListCollectionsCommandInput, ListCollectionsCommandOutput } from "./commands/ListCollectionsCommand";
+import { ListFacesCommandInput, ListFacesCommandOutput } from "./commands/ListFacesCommand";
 import {
   ListStreamProcessorsCommandInput,
-  ListStreamProcessorsCommandOutput
+  ListStreamProcessorsCommandOutput,
 } from "./commands/ListStreamProcessorsCommand";
 import {
   RecognizeCelebritiesCommandInput,
-  RecognizeCelebritiesCommandOutput
+  RecognizeCelebritiesCommandOutput,
 } from "./commands/RecognizeCelebritiesCommand";
-import {
-  SearchFacesByImageCommandInput,
-  SearchFacesByImageCommandOutput
-} from "./commands/SearchFacesByImageCommand";
-import {
-  SearchFacesCommandInput,
-  SearchFacesCommandOutput
-} from "./commands/SearchFacesCommand";
+import { SearchFacesByImageCommandInput, SearchFacesByImageCommandOutput } from "./commands/SearchFacesByImageCommand";
+import { SearchFacesCommandInput, SearchFacesCommandOutput } from "./commands/SearchFacesCommand";
 import {
   StartCelebrityRecognitionCommandInput,
-  StartCelebrityRecognitionCommandOutput
+  StartCelebrityRecognitionCommandOutput,
 } from "./commands/StartCelebrityRecognitionCommand";
 import {
   StartContentModerationCommandInput,
-  StartContentModerationCommandOutput
+  StartContentModerationCommandOutput,
 } from "./commands/StartContentModerationCommand";
-import {
-  StartFaceDetectionCommandInput,
-  StartFaceDetectionCommandOutput
-} from "./commands/StartFaceDetectionCommand";
-import {
-  StartFaceSearchCommandInput,
-  StartFaceSearchCommandOutput
-} from "./commands/StartFaceSearchCommand";
+import { StartFaceDetectionCommandInput, StartFaceDetectionCommandOutput } from "./commands/StartFaceDetectionCommand";
+import { StartFaceSearchCommandInput, StartFaceSearchCommandOutput } from "./commands/StartFaceSearchCommand";
 import {
   StartLabelDetectionCommandInput,
-  StartLabelDetectionCommandOutput
+  StartLabelDetectionCommandOutput,
 } from "./commands/StartLabelDetectionCommand";
 import {
   StartPersonTrackingCommandInput,
-  StartPersonTrackingCommandOutput
+  StartPersonTrackingCommandOutput,
 } from "./commands/StartPersonTrackingCommand";
 import {
   StartProjectVersionCommandInput,
-  StartProjectVersionCommandOutput
+  StartProjectVersionCommandOutput,
 } from "./commands/StartProjectVersionCommand";
 import {
   StartStreamProcessorCommandInput,
-  StartStreamProcessorCommandOutput
+  StartStreamProcessorCommandOutput,
 } from "./commands/StartStreamProcessorCommand";
-import {
-  StopProjectVersionCommandInput,
-  StopProjectVersionCommandOutput
-} from "./commands/StopProjectVersionCommand";
+import { StopProjectVersionCommandInput, StopProjectVersionCommandOutput } from "./commands/StopProjectVersionCommand";
 import {
   StopStreamProcessorCommandInput,
-  StopStreamProcessorCommandOutput
+  StopStreamProcessorCommandOutput,
 } from "./commands/StopStreamProcessorCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -169,38 +97,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -211,7 +134,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -300,8 +223,7 @@ export type ServiceOutputTypes =
   | StopProjectVersionCommandOutput
   | StopStreamProcessorCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -390,9 +312,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type RekognitionClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type RekognitionClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -401,9 +321,7 @@ export type RekognitionClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type RekognitionClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type RekognitionClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -426,7 +344,7 @@ export class RekognitionClient extends __Client<
   constructor(configuration: RekognitionClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

@@ -1,21 +1,15 @@
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  UpdateDeviceStatusRequest,
-  UpdateDeviceStatusResponse
-} from "../models/index";
+import { UpdateDeviceStatusRequest, UpdateDeviceStatusResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateDeviceStatusCommand,
-  serializeAws_json1_1UpdateDeviceStatusCommand
+  serializeAws_json1_1UpdateDeviceStatusCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateDeviceStatusCommandInput = UpdateDeviceStatusRequest;
-export type UpdateDeviceStatusCommandOutput = UpdateDeviceStatusResponse &
-  __MetadataBearer;
+export type UpdateDeviceStatusCommandOutput = UpdateDeviceStatusResponse & __MetadataBearer;
 
 export class UpdateDeviceStatusCommand extends $Command<
   UpdateDeviceStatusCommandInput,
@@ -50,14 +43,12 @@ export class UpdateDeviceStatusCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDeviceStatusCommandInput, UpdateDeviceStatusCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +58,11 @@ export class UpdateDeviceStatusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateDeviceStatusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateDeviceStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDeviceStatusCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateDeviceStatusCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeviceStatusCommandOutput> {
     return deserializeAws_json1_1UpdateDeviceStatusCommand(output, context);
   }
 

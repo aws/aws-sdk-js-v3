@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  UpdateCrawlerScheduleRequest,
-  UpdateCrawlerScheduleResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { UpdateCrawlerScheduleRequest, UpdateCrawlerScheduleResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateCrawlerScheduleCommand,
-  serializeAws_json1_1UpdateCrawlerScheduleCommand
+  serializeAws_json1_1UpdateCrawlerScheduleCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateCrawlerScheduleCommandInput = UpdateCrawlerScheduleRequest;
-export type UpdateCrawlerScheduleCommandOutput = UpdateCrawlerScheduleResponse &
-  __MetadataBearer;
+export type UpdateCrawlerScheduleCommandOutput = UpdateCrawlerScheduleResponse & __MetadataBearer;
 
 export class UpdateCrawlerScheduleCommand extends $Command<
   UpdateCrawlerScheduleCommandInput,
@@ -49,18 +38,13 @@ export class UpdateCrawlerScheduleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateCrawlerScheduleCommandInput,
-    UpdateCrawlerScheduleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateCrawlerScheduleCommandInput, UpdateCrawlerScheduleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class UpdateCrawlerScheduleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateCrawlerScheduleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateCrawlerScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateCrawlerScheduleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateCrawlerScheduleCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCrawlerScheduleCommandOutput> {
     return deserializeAws_json1_1UpdateCrawlerScheduleCommand(output, context);
   }
 

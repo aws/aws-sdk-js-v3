@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  ModifyInstancePlacementRequest,
-  ModifyInstancePlacementResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ModifyInstancePlacementRequest, ModifyInstancePlacementResult } from "../models/index";
 import {
   deserializeAws_ec2ModifyInstancePlacementCommand,
-  serializeAws_ec2ModifyInstancePlacementCommand
+  serializeAws_ec2ModifyInstancePlacementCommand,
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ModifyInstancePlacementCommandInput = ModifyInstancePlacementRequest;
-export type ModifyInstancePlacementCommandOutput = ModifyInstancePlacementResult &
-  __MetadataBearer;
+export type ModifyInstancePlacementCommandOutput = ModifyInstancePlacementResult & __MetadataBearer;
 
 export class ModifyInstancePlacementCommand extends $Command<
   ModifyInstancePlacementCommandInput,
@@ -49,18 +38,13 @@ export class ModifyInstancePlacementCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyInstancePlacementCommandInput,
-    ModifyInstancePlacementCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyInstancePlacementCommandInput, ModifyInstancePlacementCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class ModifyInstancePlacementCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyInstancePlacementCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyInstancePlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyInstancePlacementCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyInstancePlacementCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyInstancePlacementCommandOutput> {
     return deserializeAws_ec2ModifyInstancePlacementCommand(output, context);
   }
 

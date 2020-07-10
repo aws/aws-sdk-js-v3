@@ -2,22 +2,22 @@ import { CostandUsageReportServiceClient } from "./CostandUsageReportServiceClie
 import {
   DeleteReportDefinitionCommand,
   DeleteReportDefinitionCommandInput,
-  DeleteReportDefinitionCommandOutput
+  DeleteReportDefinitionCommandOutput,
 } from "./commands/DeleteReportDefinitionCommand";
 import {
   DescribeReportDefinitionsCommand,
   DescribeReportDefinitionsCommandInput,
-  DescribeReportDefinitionsCommandOutput
+  DescribeReportDefinitionsCommandOutput,
 } from "./commands/DescribeReportDefinitionsCommand";
 import {
   ModifyReportDefinitionCommand,
   ModifyReportDefinitionCommandInput,
-  ModifyReportDefinitionCommandOutput
+  ModifyReportDefinitionCommandOutput,
 } from "./commands/ModifyReportDefinitionCommand";
 import {
   PutReportDefinitionCommand,
   PutReportDefinitionCommandInput,
-  PutReportDefinitionCommandOutput
+  PutReportDefinitionCommandOutput,
 } from "./commands/PutReportDefinitionCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -61,17 +61,14 @@ export class CostandUsageReportService extends CostandUsageReportServiceClient {
   ): void;
   public deleteReportDefinition(
     args: DeleteReportDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteReportDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteReportDefinitionCommandOutput) => void),
     cb?: (err: any, data?: DeleteReportDefinitionCommandOutput) => void
   ): Promise<DeleteReportDefinitionCommandOutput> | void {
     const command = new DeleteReportDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -96,17 +93,14 @@ export class CostandUsageReportService extends CostandUsageReportServiceClient {
   ): void;
   public describeReportDefinitions(
     args: DescribeReportDefinitionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeReportDefinitionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReportDefinitionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeReportDefinitionsCommandOutput) => void
   ): Promise<DescribeReportDefinitionsCommandOutput> | void {
     const command = new DescribeReportDefinitionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -131,17 +125,14 @@ export class CostandUsageReportService extends CostandUsageReportServiceClient {
   ): void;
   public modifyReportDefinition(
     args: ModifyReportDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyReportDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyReportDefinitionCommandOutput) => void),
     cb?: (err: any, data?: ModifyReportDefinitionCommandOutput) => void
   ): Promise<ModifyReportDefinitionCommandOutput> | void {
     const command = new ModifyReportDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -166,17 +157,14 @@ export class CostandUsageReportService extends CostandUsageReportServiceClient {
   ): void;
   public putReportDefinition(
     args: PutReportDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutReportDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutReportDefinitionCommandOutput) => void),
     cb?: (err: any, data?: PutReportDefinitionCommandOutput) => void
   ): Promise<PutReportDefinitionCommandOutput> | void {
     const command = new PutReportDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

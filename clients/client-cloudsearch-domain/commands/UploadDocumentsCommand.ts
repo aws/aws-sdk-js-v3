@@ -1,21 +1,15 @@
 import {
   CloudSearchDomainClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CloudSearchDomainClient";
-import {
-  UploadDocumentsRequest,
-  UploadDocumentsResponse
-} from "../models/index";
+import { UploadDocumentsRequest, UploadDocumentsResponse } from "../models/index";
 import {
   deserializeAws_restJson1UploadDocumentsCommand,
-  serializeAws_restJson1UploadDocumentsCommand
+  serializeAws_restJson1UploadDocumentsCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,17 +18,13 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UploadDocumentsCommandInput = Omit<
-  UploadDocumentsRequest,
-  "documents"
-> & {
+export type UploadDocumentsCommandInput = Omit<UploadDocumentsRequest, "documents"> & {
   documents: UploadDocumentsRequest["documents"] | string | Uint8Array | Buffer;
 };
-export type UploadDocumentsCommandOutput = UploadDocumentsResponse &
-  __MetadataBearer;
+export type UploadDocumentsCommandOutput = UploadDocumentsResponse & __MetadataBearer;
 
 export class UploadDocumentsCommand extends $Command<
   UploadDocumentsCommandInput,
@@ -55,14 +45,12 @@ export class UploadDocumentsCommand extends $Command<
     configuration: CloudSearchDomainClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UploadDocumentsCommandInput, UploadDocumentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,17 +60,11 @@ export class UploadDocumentsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UploadDocumentsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UploadDocumentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UploadDocumentsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UploadDocumentsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadDocumentsCommandOutput> {
     return deserializeAws_restJson1UploadDocumentsCommand(output, context);
   }
 

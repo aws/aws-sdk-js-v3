@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient";
-import {
-  GetPermissionPolicyRequest,
-  GetPermissionPolicyResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
+import { GetPermissionPolicyRequest, GetPermissionPolicyResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetPermissionPolicyCommand,
-  serializeAws_json1_1GetPermissionPolicyCommand
+  serializeAws_json1_1GetPermissionPolicyCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetPermissionPolicyCommandInput = GetPermissionPolicyRequest;
-export type GetPermissionPolicyCommandOutput = GetPermissionPolicyResponse &
-  __MetadataBearer;
+export type GetPermissionPolicyCommandOutput = GetPermissionPolicyResponse & __MetadataBearer;
 
 export class GetPermissionPolicyCommand extends $Command<
   GetPermissionPolicyCommandInput,
@@ -49,18 +38,13 @@ export class GetPermissionPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetPermissionPolicyCommandInput,
-    GetPermissionPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetPermissionPolicyCommandInput, GetPermissionPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class GetPermissionPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetPermissionPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetPermissionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPermissionPolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetPermissionPolicyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPermissionPolicyCommandOutput> {
     return deserializeAws_json1_1GetPermissionPolicyCommand(output, context);
   }
 

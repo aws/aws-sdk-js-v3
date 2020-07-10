@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -29,10 +25,9 @@ export interface AppliedTerminology {
 
 export namespace AppliedTerminology {
   export const filterSensitiveLog = (obj: AppliedTerminology): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AppliedTerminology =>
-    __isa(o, "AppliedTerminology");
+  export const isa = (o: any): o is AppliedTerminology => __isa(o, "AppliedTerminology");
 }
 
 export interface DeleteTerminologyRequest {
@@ -45,10 +40,9 @@ export interface DeleteTerminologyRequest {
 
 export namespace DeleteTerminologyRequest {
   export const filterSensitiveLog = (obj: DeleteTerminologyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteTerminologyRequest =>
-    __isa(o, "DeleteTerminologyRequest");
+  export const isa = (o: any): o is DeleteTerminologyRequest => __isa(o, "DeleteTerminologyRequest");
 }
 
 export interface DescribeTextTranslationJobRequest {
@@ -61,13 +55,10 @@ export interface DescribeTextTranslationJobRequest {
 }
 
 export namespace DescribeTextTranslationJobRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeTextTranslationJobRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTextTranslationJobRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeTextTranslationJobRequest =>
-    __isa(o, "DescribeTextTranslationJobRequest");
+  export const isa = (o: any): o is DescribeTextTranslationJobRequest => __isa(o, "DescribeTextTranslationJobRequest");
 }
 
 export interface DescribeTextTranslationJobResponse {
@@ -80,10 +71,8 @@ export interface DescribeTextTranslationJobResponse {
 }
 
 export namespace DescribeTextTranslationJobResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeTextTranslationJobResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTextTranslationJobResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeTextTranslationJobResponse =>
     __isa(o, "DescribeTextTranslationJobResponse");
@@ -95,9 +84,7 @@ export namespace DescribeTextTranslationJobResponse {
  *       exception to call Amazon Translate again. For more information, see the <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectDominantLanguage.html">DetectDominantLanguage</a> operation in the <i>Amazon Comprehend Developer
  *         Guide</i>. </p>
  */
-export interface DetectedLanguageLowConfidenceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DetectedLanguageLowConfidenceException extends __SmithyException, $MetadataBearer {
   name: "DetectedLanguageLowConfidenceException";
   $fault: "client";
   /**
@@ -109,10 +96,8 @@ export interface DetectedLanguageLowConfidenceException
 }
 
 export namespace DetectedLanguageLowConfidenceException {
-  export const filterSensitiveLog = (
-    obj: DetectedLanguageLowConfidenceException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DetectedLanguageLowConfidenceException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DetectedLanguageLowConfidenceException =>
     __isa(o, "DetectedLanguageLowConfidenceException");
@@ -137,13 +122,13 @@ export interface EncryptionKey {
 
 export namespace EncryptionKey {
   export const filterSensitiveLog = (obj: EncryptionKey): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is EncryptionKey => __isa(o, "EncryptionKey");
 }
 
 export enum EncryptionKeyType {
-  KMS = "KMS"
+  KMS = "KMS",
 }
 
 export interface GetTerminologyRequest {
@@ -161,10 +146,9 @@ export interface GetTerminologyRequest {
 
 export namespace GetTerminologyRequest {
   export const filterSensitiveLog = (obj: GetTerminologyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetTerminologyRequest =>
-    __isa(o, "GetTerminologyRequest");
+  export const isa = (o: any): o is GetTerminologyRequest => __isa(o, "GetTerminologyRequest");
 }
 
 export interface GetTerminologyResponse {
@@ -183,10 +167,9 @@ export interface GetTerminologyResponse {
 
 export namespace GetTerminologyResponse {
   export const filterSensitiveLog = (obj: GetTerminologyResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetTerminologyResponse =>
-    __isa(o, "GetTerminologyResponse");
+  export const isa = (o: any): o is GetTerminologyResponse => __isa(o, "GetTerminologyResponse");
 }
 
 export interface ImportTerminologyRequest {
@@ -222,12 +205,9 @@ export interface ImportTerminologyRequest {
 export namespace ImportTerminologyRequest {
   export const filterSensitiveLog = (obj: ImportTerminologyRequest): any => ({
     ...obj,
-    ...(obj.TerminologyData && {
-      TerminologyData: TerminologyData.filterSensitiveLog(obj.TerminologyData)
-    })
+    ...(obj.TerminologyData && { TerminologyData: TerminologyData.filterSensitiveLog(obj.TerminologyData) }),
   });
-  export const isa = (o: any): o is ImportTerminologyRequest =>
-    __isa(o, "ImportTerminologyRequest");
+  export const isa = (o: any): o is ImportTerminologyRequest => __isa(o, "ImportTerminologyRequest");
 }
 
 export interface ImportTerminologyResponse {
@@ -240,10 +220,9 @@ export interface ImportTerminologyResponse {
 
 export namespace ImportTerminologyResponse {
   export const filterSensitiveLog = (obj: ImportTerminologyResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImportTerminologyResponse =>
-    __isa(o, "ImportTerminologyResponse");
+  export const isa = (o: any): o is ImportTerminologyResponse => __isa(o, "ImportTerminologyResponse");
 }
 
 /**
@@ -267,18 +246,15 @@ export interface InputDataConfig {
 
 export namespace InputDataConfig {
   export const filterSensitiveLog = (obj: InputDataConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InputDataConfig =>
-    __isa(o, "InputDataConfig");
+  export const isa = (o: any): o is InputDataConfig => __isa(o, "InputDataConfig");
 }
 
 /**
  * <p>An internal server error occurred. Retry your request.</p>
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -286,18 +262,15 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
  * <p>The filter specified for the operation is invalid. Specify a different filter.</p>
  */
-export interface InvalidFilterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidFilterException extends __SmithyException, $MetadataBearer {
   name: "InvalidFilterException";
   $fault: "client";
   Message?: string;
@@ -305,41 +278,33 @@ export interface InvalidFilterException
 
 export namespace InvalidFilterException {
   export const filterSensitiveLog = (obj: InvalidFilterException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidFilterException =>
-    __isa(o, "InvalidFilterException");
+  export const isa = (o: any): o is InvalidFilterException => __isa(o, "InvalidFilterException");
 }
 
 /**
  * <p>The value of the parameter is invalid. Review the value of the parameter you are using to
  *       correct it, and then retry your operation.</p>
  */
-export interface InvalidParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidParameterValueException {
-  export const filterSensitiveLog = (
-    obj: InvalidParameterValueException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterValueException =>
-    __isa(o, "InvalidParameterValueException");
+  export const isa = (o: any): o is InvalidParameterValueException => __isa(o, "InvalidParameterValueException");
 }
 
 /**
  * <p> The request that you made is invalid. Check your request to determine why it's invalid
  *       and then retry the request. </p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
@@ -347,10 +312,9 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -377,7 +341,7 @@ export interface JobDetails {
 
 export namespace JobDetails {
   export const filterSensitiveLog = (obj: JobDetails): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is JobDetails => __isa(o, "JobDetails");
 }
@@ -389,16 +353,14 @@ export enum JobStatus {
   IN_PROGRESS = "IN_PROGRESS",
   STOPPED = "STOPPED",
   STOP_REQUESTED = "STOP_REQUESTED",
-  SUBMITTED = "SUBMITTED"
+  SUBMITTED = "SUBMITTED",
 }
 
 /**
  * <p>The specified limit has been exceeded. Review your request and retry it with a quantity
  *       below the stated limit.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -406,10 +368,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListTerminologiesRequest {
@@ -428,10 +389,9 @@ export interface ListTerminologiesRequest {
 
 export namespace ListTerminologiesRequest {
   export const filterSensitiveLog = (obj: ListTerminologiesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTerminologiesRequest =>
-    __isa(o, "ListTerminologiesRequest");
+  export const isa = (o: any): o is ListTerminologiesRequest => __isa(o, "ListTerminologiesRequest");
 }
 
 export interface ListTerminologiesResponse {
@@ -450,10 +410,9 @@ export interface ListTerminologiesResponse {
 
 export namespace ListTerminologiesResponse {
   export const filterSensitiveLog = (obj: ListTerminologiesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTerminologiesResponse =>
-    __isa(o, "ListTerminologiesResponse");
+  export const isa = (o: any): o is ListTerminologiesResponse => __isa(o, "ListTerminologiesResponse");
 }
 
 export interface ListTextTranslationJobsRequest {
@@ -476,13 +435,10 @@ export interface ListTextTranslationJobsRequest {
 }
 
 export namespace ListTextTranslationJobsRequest {
-  export const filterSensitiveLog = (
-    obj: ListTextTranslationJobsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTextTranslationJobsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTextTranslationJobsRequest =>
-    __isa(o, "ListTextTranslationJobsRequest");
+  export const isa = (o: any): o is ListTextTranslationJobsRequest => __isa(o, "ListTextTranslationJobsRequest");
 }
 
 export interface ListTextTranslationJobsResponse {
@@ -500,17 +456,14 @@ export interface ListTextTranslationJobsResponse {
 }
 
 export namespace ListTextTranslationJobsResponse {
-  export const filterSensitiveLog = (
-    obj: ListTextTranslationJobsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTextTranslationJobsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTextTranslationJobsResponse =>
-    __isa(o, "ListTextTranslationJobsResponse");
+  export const isa = (o: any): o is ListTextTranslationJobsResponse => __isa(o, "ListTextTranslationJobsResponse");
 }
 
 export enum MergeStrategy {
-  OVERWRITE = "OVERWRITE"
+  OVERWRITE = "OVERWRITE",
 }
 
 /**
@@ -527,10 +480,9 @@ export interface OutputDataConfig {
 
 export namespace OutputDataConfig {
   export const filterSensitiveLog = (obj: OutputDataConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OutputDataConfig =>
-    __isa(o, "OutputDataConfig");
+  export const isa = (o: any): o is OutputDataConfig => __isa(o, "OutputDataConfig");
 }
 
 /**
@@ -538,9 +490,7 @@ export namespace OutputDataConfig {
  *       for and see if a different resource will accomplish your needs before retrying the revised
  *       request.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -548,32 +498,26 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>The Amazon Translate service is temporarily unavailable. Please wait a bit and then retry your
  *       request.</p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
 }
 
 export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (
-    obj: ServiceUnavailableException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException =>
-    __isa(o, "ServiceUnavailableException");
+  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 export interface StartTextTranslationJobRequest {
@@ -629,13 +573,10 @@ export interface StartTextTranslationJobRequest {
 }
 
 export namespace StartTextTranslationJobRequest {
-  export const filterSensitiveLog = (
-    obj: StartTextTranslationJobRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartTextTranslationJobRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StartTextTranslationJobRequest =>
-    __isa(o, "StartTextTranslationJobRequest");
+  export const isa = (o: any): o is StartTextTranslationJobRequest => __isa(o, "StartTextTranslationJobRequest");
 }
 
 export interface StartTextTranslationJobResponse {
@@ -687,13 +628,10 @@ export interface StartTextTranslationJobResponse {
 }
 
 export namespace StartTextTranslationJobResponse {
-  export const filterSensitiveLog = (
-    obj: StartTextTranslationJobResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartTextTranslationJobResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StartTextTranslationJobResponse =>
-    __isa(o, "StartTextTranslationJobResponse");
+  export const isa = (o: any): o is StartTextTranslationJobResponse => __isa(o, "StartTextTranslationJobResponse");
 }
 
 export interface StopTextTranslationJobRequest {
@@ -705,13 +643,10 @@ export interface StopTextTranslationJobRequest {
 }
 
 export namespace StopTextTranslationJobRequest {
-  export const filterSensitiveLog = (
-    obj: StopTextTranslationJobRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StopTextTranslationJobRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StopTextTranslationJobRequest =>
-    __isa(o, "StopTextTranslationJobRequest");
+  export const isa = (o: any): o is StopTextTranslationJobRequest => __isa(o, "StopTextTranslationJobRequest");
 }
 
 export interface StopTextTranslationJobResponse {
@@ -729,13 +664,10 @@ export interface StopTextTranslationJobResponse {
 }
 
 export namespace StopTextTranslationJobResponse {
-  export const filterSensitiveLog = (
-    obj: StopTextTranslationJobResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StopTextTranslationJobResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StopTextTranslationJobResponse =>
-    __isa(o, "StopTextTranslationJobResponse");
+  export const isa = (o: any): o is StopTextTranslationJobResponse => __isa(o, "StopTextTranslationJobResponse");
 }
 
 /**
@@ -756,7 +688,7 @@ export interface Term {
 
 export namespace Term {
   export const filterSensitiveLog = (obj: Term): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Term => __isa(o, "Term");
 }
@@ -782,15 +714,14 @@ export interface TerminologyData {
 export namespace TerminologyData {
   export const filterSensitiveLog = (obj: TerminologyData): any => ({
     ...obj,
-    ...(obj.File && { File: SENSITIVE_STRING })
+    ...(obj.File && { File: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is TerminologyData =>
-    __isa(o, "TerminologyData");
+  export const isa = (o: any): o is TerminologyData => __isa(o, "TerminologyData");
 }
 
 export enum TerminologyDataFormat {
   CSV = "CSV",
-  TMX = "TMX"
+  TMX = "TMX",
 }
 
 /**
@@ -811,10 +742,9 @@ export interface TerminologyDataLocation {
 
 export namespace TerminologyDataLocation {
   export const filterSensitiveLog = (obj: TerminologyDataLocation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TerminologyDataLocation =>
-    __isa(o, "TerminologyDataLocation");
+  export const isa = (o: any): o is TerminologyDataLocation => __isa(o, "TerminologyDataLocation");
 }
 
 /**
@@ -877,32 +807,26 @@ export interface TerminologyProperties {
 
 export namespace TerminologyProperties {
   export const filterSensitiveLog = (obj: TerminologyProperties): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TerminologyProperties =>
-    __isa(o, "TerminologyProperties");
+  export const isa = (o: any): o is TerminologyProperties => __isa(o, "TerminologyProperties");
 }
 
 /**
  * <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or
  *       use a smaller document and then retry your request. </p>
  */
-export interface TextSizeLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TextSizeLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "TextSizeLimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace TextSizeLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: TextSizeLimitExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TextSizeLimitExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TextSizeLimitExceededException =>
-    __isa(o, "TextSizeLimitExceededException");
+  export const isa = (o: any): o is TextSizeLimitExceededException => __isa(o, "TextSizeLimitExceededException");
 }
 
 /**
@@ -938,10 +862,9 @@ export interface TextTranslationJobFilter {
 
 export namespace TextTranslationJobFilter {
   export const filterSensitiveLog = (obj: TextTranslationJobFilter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TextTranslationJobFilter =>
-    __isa(o, "TextTranslationJobFilter");
+  export const isa = (o: any): o is TextTranslationJobFilter => __isa(o, "TextTranslationJobFilter");
 }
 
 /**
@@ -1022,22 +945,17 @@ export interface TextTranslationJobProperties {
 }
 
 export namespace TextTranslationJobProperties {
-  export const filterSensitiveLog = (
-    obj: TextTranslationJobProperties
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TextTranslationJobProperties): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TextTranslationJobProperties =>
-    __isa(o, "TextTranslationJobProperties");
+  export const isa = (o: any): o is TextTranslationJobProperties => __isa(o, "TextTranslationJobProperties");
 }
 
 /**
  * <p> You have made too many requests within a short period of time. Wait for a short time and
  *       then try your request again.</p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -1045,10 +963,9 @@ export interface TooManyRequestsException
 
 export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException =>
-    __isa(o, "TooManyRequestsException");
+  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 export interface TranslateTextRequest {
@@ -1085,10 +1002,9 @@ export interface TranslateTextRequest {
 
 export namespace TranslateTextRequest {
   export const filterSensitiveLog = (obj: TranslateTextRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TranslateTextRequest =>
-    __isa(o, "TranslateTextRequest");
+  export const isa = (o: any): o is TranslateTextRequest => __isa(o, "TranslateTextRequest");
 }
 
 export interface TranslateTextResponse {
@@ -1117,19 +1033,16 @@ export interface TranslateTextResponse {
 
 export namespace TranslateTextResponse {
   export const filterSensitiveLog = (obj: TranslateTextResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TranslateTextResponse =>
-    __isa(o, "TranslateTextResponse");
+  export const isa = (o: any): o is TranslateTextResponse => __isa(o, "TranslateTextResponse");
 }
 
 /**
  * <p>Amazon Translate does not support translation from the language of the source text into the requested
  *       target language. For more information, see <a>how-to-error-msg</a>. </p>
  */
-export interface UnsupportedLanguagePairException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedLanguagePairException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedLanguagePairException";
   $fault: "client";
   Message?: string;
@@ -1145,11 +1058,8 @@ export interface UnsupportedLanguagePairException
 }
 
 export namespace UnsupportedLanguagePairException {
-  export const filterSensitiveLog = (
-    obj: UnsupportedLanguagePairException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UnsupportedLanguagePairException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UnsupportedLanguagePairException =>
-    __isa(o, "UnsupportedLanguagePairException");
+  export const isa = (o: any): o is UnsupportedLanguagePairException => __isa(o, "UnsupportedLanguagePairException");
 }

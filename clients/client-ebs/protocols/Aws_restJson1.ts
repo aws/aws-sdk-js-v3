@@ -1,34 +1,17 @@
-import {
-  GetSnapshotBlockCommandInput,
-  GetSnapshotBlockCommandOutput
-} from "../commands/GetSnapshotBlockCommand";
-import {
-  ListChangedBlocksCommandInput,
-  ListChangedBlocksCommandOutput
-} from "../commands/ListChangedBlocksCommand";
-import {
-  ListSnapshotBlocksCommandInput,
-  ListSnapshotBlocksCommandOutput
-} from "../commands/ListSnapshotBlocksCommand";
-import {
-  Block,
-  ChangedBlock,
-  ResourceNotFoundException,
-  ValidationException
-} from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { GetSnapshotBlockCommandInput, GetSnapshotBlockCommandOutput } from "../commands/GetSnapshotBlockCommand";
+import { ListChangedBlocksCommandInput, ListChangedBlocksCommandOutput } from "../commands/ListChangedBlocksCommand";
+import { ListSnapshotBlocksCommandInput, ListSnapshotBlocksCommandOutput } from "../commands/ListSnapshotBlocksCommand";
+import { Block, ChangedBlock, ResourceNotFoundException, ValidationException } from "../models/index";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export const serializeAws_restJson1GetSnapshotBlockCommand = async (
@@ -36,7 +19,7 @@ export const serializeAws_restJson1GetSnapshotBlockCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/snapshots/{SnapshotId}/blocks/{BlockIndex}";
   if (input.BlockIndex !== undefined) {
@@ -44,10 +27,7 @@ export const serializeAws_restJson1GetSnapshotBlockCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: BlockIndex.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BlockIndex}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BlockIndex}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BlockIndex.");
   }
@@ -56,15 +36,12 @@ export const serializeAws_restJson1GetSnapshotBlockCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SnapshotId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{SnapshotId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{SnapshotId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: SnapshotId.");
   }
   const query: any = {
-    ...(input.BlockToken !== undefined && { blockToken: input.BlockToken })
+    ...(input.BlockToken !== undefined && { blockToken: input.BlockToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -76,7 +53,7 @@ export const serializeAws_restJson1GetSnapshotBlockCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -85,36 +62,23 @@ export const serializeAws_restJson1ListChangedBlocksCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/snapshots/{SecondSnapshotId}/changedblocks";
   if (input.SecondSnapshotId !== undefined) {
     const labelValue: string = input.SecondSnapshotId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: SecondSnapshotId."
-      );
+      throw new Error("Empty value provided for input HTTP label: SecondSnapshotId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{SecondSnapshotId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{SecondSnapshotId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: SecondSnapshotId."
-    );
+    throw new Error("No value provided for input HTTP label: SecondSnapshotId.");
   }
   const query: any = {
-    ...(input.FirstSnapshotId !== undefined && {
-      firstSnapshotId: input.FirstSnapshotId
-    }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString()
-    }),
+    ...(input.FirstSnapshotId !== undefined && { firstSnapshotId: input.FirstSnapshotId }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { pageToken: input.NextToken }),
-    ...(input.StartingBlockIndex !== undefined && {
-      startingBlockIndex: input.StartingBlockIndex.toString()
-    })
+    ...(input.StartingBlockIndex !== undefined && { startingBlockIndex: input.StartingBlockIndex.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -126,7 +90,7 @@ export const serializeAws_restJson1ListChangedBlocksCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -135,7 +99,7 @@ export const serializeAws_restJson1ListSnapshotBlocksCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/snapshots/{SnapshotId}/blocks";
   if (input.SnapshotId !== undefined) {
@@ -143,21 +107,14 @@ export const serializeAws_restJson1ListSnapshotBlocksCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SnapshotId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{SnapshotId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{SnapshotId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: SnapshotId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString()
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { pageToken: input.NextToken }),
-    ...(input.StartingBlockIndex !== undefined && {
-      startingBlockIndex: input.StartingBlockIndex.toString()
-    })
+    ...(input.StartingBlockIndex !== undefined && { startingBlockIndex: input.StartingBlockIndex.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -169,7 +126,7 @@ export const serializeAws_restJson1ListSnapshotBlocksCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -178,10 +135,7 @@ export const deserializeAws_restJson1GetSnapshotBlockCommand = async (
   context: __SerdeContext
 ): Promise<GetSnapshotBlockCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetSnapshotBlockCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetSnapshotBlockCommandError(output, context);
   }
   const contents: GetSnapshotBlockCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -189,7 +143,7 @@ export const deserializeAws_restJson1GetSnapshotBlockCommand = async (
     BlockData: undefined,
     Checksum: undefined,
     ChecksumAlgorithm: undefined,
-    DataLength: undefined
+    DataLength: undefined,
   };
   if (output.headers["x-amz-checksum"] !== undefined) {
     contents.Checksum = output.headers["x-amz-checksum"];
@@ -211,7 +165,7 @@ const deserializeAws_restJson1GetSnapshotBlockCommandError = async (
 ): Promise<GetSnapshotBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -220,23 +174,17 @@ const deserializeAws_restJson1GetSnapshotBlockCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ebs#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.ebs#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -247,7 +195,7 @@ const deserializeAws_restJson1GetSnapshotBlockCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -261,10 +209,7 @@ export const deserializeAws_restJson1ListChangedBlocksCommand = async (
   context: __SerdeContext
 ): Promise<ListChangedBlocksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListChangedBlocksCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListChangedBlocksCommandError(output, context);
   }
   const contents: ListChangedBlocksCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -273,17 +218,14 @@ export const deserializeAws_restJson1ListChangedBlocksCommand = async (
     ChangedBlocks: undefined,
     ExpiryTime: undefined,
     NextToken: undefined,
-    VolumeSize: undefined
+    VolumeSize: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.BlockSize !== undefined && data.BlockSize !== null) {
     contents.BlockSize = data.BlockSize;
   }
   if (data.ChangedBlocks !== undefined && data.ChangedBlocks !== null) {
-    contents.ChangedBlocks = deserializeAws_restJson1ChangedBlocks(
-      data.ChangedBlocks,
-      context
-    );
+    contents.ChangedBlocks = deserializeAws_restJson1ChangedBlocks(data.ChangedBlocks, context);
   }
   if (data.ExpiryTime !== undefined && data.ExpiryTime !== null) {
     contents.ExpiryTime = new Date(Math.round(data.ExpiryTime * 1000));
@@ -303,7 +245,7 @@ const deserializeAws_restJson1ListChangedBlocksCommandError = async (
 ): Promise<ListChangedBlocksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -312,23 +254,17 @@ const deserializeAws_restJson1ListChangedBlocksCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ebs#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.ebs#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -339,7 +275,7 @@ const deserializeAws_restJson1ListChangedBlocksCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -353,10 +289,7 @@ export const deserializeAws_restJson1ListSnapshotBlocksCommand = async (
   context: __SerdeContext
 ): Promise<ListSnapshotBlocksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListSnapshotBlocksCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListSnapshotBlocksCommandError(output, context);
   }
   const contents: ListSnapshotBlocksCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -365,7 +298,7 @@ export const deserializeAws_restJson1ListSnapshotBlocksCommand = async (
     Blocks: undefined,
     ExpiryTime: undefined,
     NextToken: undefined,
-    VolumeSize: undefined
+    VolumeSize: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.BlockSize !== undefined && data.BlockSize !== null) {
@@ -392,7 +325,7 @@ const deserializeAws_restJson1ListSnapshotBlocksCommandError = async (
 ): Promise<ListSnapshotBlocksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -401,23 +334,17 @@ const deserializeAws_restJson1ListSnapshotBlocksCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ebs#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.ebs#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -428,7 +355,7 @@ const deserializeAws_restJson1ListSnapshotBlocksCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -445,7 +372,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
     name: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -463,7 +390,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
-    Reason: undefined
+    Reason: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -475,97 +402,59 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return contents;
 };
 
-const deserializeAws_restJson1Block = (
-  output: any,
-  context: __SerdeContext
-): Block => {
+const deserializeAws_restJson1Block = (output: any, context: __SerdeContext): Block => {
   return {
     __type: "Block",
-    BlockIndex:
-      output.BlockIndex !== undefined && output.BlockIndex !== null
-        ? output.BlockIndex
-        : undefined,
-    BlockToken:
-      output.BlockToken !== undefined && output.BlockToken !== null
-        ? output.BlockToken
-        : undefined
+    BlockIndex: output.BlockIndex !== undefined && output.BlockIndex !== null ? output.BlockIndex : undefined,
+    BlockToken: output.BlockToken !== undefined && output.BlockToken !== null ? output.BlockToken : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Blocks = (
-  output: any,
-  context: __SerdeContext
-): Block[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1Block(entry, context)
-  );
+const deserializeAws_restJson1Blocks = (output: any, context: __SerdeContext): Block[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Block(entry, context));
 };
 
-const deserializeAws_restJson1ChangedBlock = (
-  output: any,
-  context: __SerdeContext
-): ChangedBlock => {
+const deserializeAws_restJson1ChangedBlock = (output: any, context: __SerdeContext): ChangedBlock => {
   return {
     __type: "ChangedBlock",
-    BlockIndex:
-      output.BlockIndex !== undefined && output.BlockIndex !== null
-        ? output.BlockIndex
-        : undefined,
+    BlockIndex: output.BlockIndex !== undefined && output.BlockIndex !== null ? output.BlockIndex : undefined,
     FirstBlockToken:
-      output.FirstBlockToken !== undefined && output.FirstBlockToken !== null
-        ? output.FirstBlockToken
-        : undefined,
+      output.FirstBlockToken !== undefined && output.FirstBlockToken !== null ? output.FirstBlockToken : undefined,
     SecondBlockToken:
-      output.SecondBlockToken !== undefined && output.SecondBlockToken !== null
-        ? output.SecondBlockToken
-        : undefined
+      output.SecondBlockToken !== undefined && output.SecondBlockToken !== null ? output.SecondBlockToken : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ChangedBlocks = (
-  output: any,
-  context: __SerdeContext
-): ChangedBlock[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1ChangedBlock(entry, context)
-  );
+const deserializeAws_restJson1ChangedBlocks = (output: any, context: __SerdeContext): ChangedBlock[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1ChangedBlock(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"]
+  requestId: output.headers["x-amzn-requestid"],
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
-  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then(encoded => {
+  collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
@@ -576,8 +465,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

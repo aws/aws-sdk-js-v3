@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient";
-import {
-  ListSqlInjectionMatchSetsRequest,
-  ListSqlInjectionMatchSetsResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
+import { ListSqlInjectionMatchSetsRequest, ListSqlInjectionMatchSetsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListSqlInjectionMatchSetsCommand,
-  serializeAws_json1_1ListSqlInjectionMatchSetsCommand
+  serializeAws_json1_1ListSqlInjectionMatchSetsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListSqlInjectionMatchSetsCommandInput = ListSqlInjectionMatchSetsRequest;
-export type ListSqlInjectionMatchSetsCommandOutput = ListSqlInjectionMatchSetsResponse &
-  __MetadataBearer;
+export type ListSqlInjectionMatchSetsCommandOutput = ListSqlInjectionMatchSetsResponse & __MetadataBearer;
 
 export class ListSqlInjectionMatchSetsCommand extends $Command<
   ListSqlInjectionMatchSetsCommandInput,
@@ -49,18 +38,13 @@ export class ListSqlInjectionMatchSetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListSqlInjectionMatchSetsCommandInput,
-    ListSqlInjectionMatchSetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListSqlInjectionMatchSetsCommandInput, ListSqlInjectionMatchSetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +54,7 @@ export class ListSqlInjectionMatchSetsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListSqlInjectionMatchSetsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListSqlInjectionMatchSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSqlInjectionMatchSetsCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class ListSqlInjectionMatchSetsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSqlInjectionMatchSetsCommandOutput> {
-    return deserializeAws_json1_1ListSqlInjectionMatchSetsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListSqlInjectionMatchSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

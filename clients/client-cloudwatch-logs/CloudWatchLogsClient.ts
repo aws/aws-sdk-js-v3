@@ -1,159 +1,72 @@
-import {
-  AssociateKmsKeyCommandInput,
-  AssociateKmsKeyCommandOutput
-} from "./commands/AssociateKmsKeyCommand";
-import {
-  CancelExportTaskCommandInput,
-  CancelExportTaskCommandOutput
-} from "./commands/CancelExportTaskCommand";
-import {
-  CreateExportTaskCommandInput,
-  CreateExportTaskCommandOutput
-} from "./commands/CreateExportTaskCommand";
-import {
-  CreateLogGroupCommandInput,
-  CreateLogGroupCommandOutput
-} from "./commands/CreateLogGroupCommand";
-import {
-  CreateLogStreamCommandInput,
-  CreateLogStreamCommandOutput
-} from "./commands/CreateLogStreamCommand";
-import {
-  DeleteDestinationCommandInput,
-  DeleteDestinationCommandOutput
-} from "./commands/DeleteDestinationCommand";
-import {
-  DeleteLogGroupCommandInput,
-  DeleteLogGroupCommandOutput
-} from "./commands/DeleteLogGroupCommand";
-import {
-  DeleteLogStreamCommandInput,
-  DeleteLogStreamCommandOutput
-} from "./commands/DeleteLogStreamCommand";
-import {
-  DeleteMetricFilterCommandInput,
-  DeleteMetricFilterCommandOutput
-} from "./commands/DeleteMetricFilterCommand";
+import { AssociateKmsKeyCommandInput, AssociateKmsKeyCommandOutput } from "./commands/AssociateKmsKeyCommand";
+import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "./commands/CancelExportTaskCommand";
+import { CreateExportTaskCommandInput, CreateExportTaskCommandOutput } from "./commands/CreateExportTaskCommand";
+import { CreateLogGroupCommandInput, CreateLogGroupCommandOutput } from "./commands/CreateLogGroupCommand";
+import { CreateLogStreamCommandInput, CreateLogStreamCommandOutput } from "./commands/CreateLogStreamCommand";
+import { DeleteDestinationCommandInput, DeleteDestinationCommandOutput } from "./commands/DeleteDestinationCommand";
+import { DeleteLogGroupCommandInput, DeleteLogGroupCommandOutput } from "./commands/DeleteLogGroupCommand";
+import { DeleteLogStreamCommandInput, DeleteLogStreamCommandOutput } from "./commands/DeleteLogStreamCommand";
+import { DeleteMetricFilterCommandInput, DeleteMetricFilterCommandOutput } from "./commands/DeleteMetricFilterCommand";
 import {
   DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput
+  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
   DeleteRetentionPolicyCommandInput,
-  DeleteRetentionPolicyCommandOutput
+  DeleteRetentionPolicyCommandOutput,
 } from "./commands/DeleteRetentionPolicyCommand";
 import {
   DeleteSubscriptionFilterCommandInput,
-  DeleteSubscriptionFilterCommandOutput
+  DeleteSubscriptionFilterCommandOutput,
 } from "./commands/DeleteSubscriptionFilterCommand";
 import {
   DescribeDestinationsCommandInput,
-  DescribeDestinationsCommandOutput
+  DescribeDestinationsCommandOutput,
 } from "./commands/DescribeDestinationsCommand";
 import {
   DescribeExportTasksCommandInput,
-  DescribeExportTasksCommandOutput
+  DescribeExportTasksCommandOutput,
 } from "./commands/DescribeExportTasksCommand";
-import {
-  DescribeLogGroupsCommandInput,
-  DescribeLogGroupsCommandOutput
-} from "./commands/DescribeLogGroupsCommand";
-import {
-  DescribeLogStreamsCommandInput,
-  DescribeLogStreamsCommandOutput
-} from "./commands/DescribeLogStreamsCommand";
+import { DescribeLogGroupsCommandInput, DescribeLogGroupsCommandOutput } from "./commands/DescribeLogGroupsCommand";
+import { DescribeLogStreamsCommandInput, DescribeLogStreamsCommandOutput } from "./commands/DescribeLogStreamsCommand";
 import {
   DescribeMetricFiltersCommandInput,
-  DescribeMetricFiltersCommandOutput
+  DescribeMetricFiltersCommandOutput,
 } from "./commands/DescribeMetricFiltersCommand";
-import {
-  DescribeQueriesCommandInput,
-  DescribeQueriesCommandOutput
-} from "./commands/DescribeQueriesCommand";
+import { DescribeQueriesCommandInput, DescribeQueriesCommandOutput } from "./commands/DescribeQueriesCommand";
 import {
   DescribeResourcePoliciesCommandInput,
-  DescribeResourcePoliciesCommandOutput
+  DescribeResourcePoliciesCommandOutput,
 } from "./commands/DescribeResourcePoliciesCommand";
 import {
   DescribeSubscriptionFiltersCommandInput,
-  DescribeSubscriptionFiltersCommandOutput
+  DescribeSubscriptionFiltersCommandOutput,
 } from "./commands/DescribeSubscriptionFiltersCommand";
-import {
-  DisassociateKmsKeyCommandInput,
-  DisassociateKmsKeyCommandOutput
-} from "./commands/DisassociateKmsKeyCommand";
-import {
-  FilterLogEventsCommandInput,
-  FilterLogEventsCommandOutput
-} from "./commands/FilterLogEventsCommand";
-import {
-  GetLogEventsCommandInput,
-  GetLogEventsCommandOutput
-} from "./commands/GetLogEventsCommand";
-import {
-  GetLogGroupFieldsCommandInput,
-  GetLogGroupFieldsCommandOutput
-} from "./commands/GetLogGroupFieldsCommand";
-import {
-  GetLogRecordCommandInput,
-  GetLogRecordCommandOutput
-} from "./commands/GetLogRecordCommand";
-import {
-  GetQueryResultsCommandInput,
-  GetQueryResultsCommandOutput
-} from "./commands/GetQueryResultsCommand";
-import {
-  ListTagsLogGroupCommandInput,
-  ListTagsLogGroupCommandOutput
-} from "./commands/ListTagsLogGroupCommand";
-import {
-  PutDestinationCommandInput,
-  PutDestinationCommandOutput
-} from "./commands/PutDestinationCommand";
+import { DisassociateKmsKeyCommandInput, DisassociateKmsKeyCommandOutput } from "./commands/DisassociateKmsKeyCommand";
+import { FilterLogEventsCommandInput, FilterLogEventsCommandOutput } from "./commands/FilterLogEventsCommand";
+import { GetLogEventsCommandInput, GetLogEventsCommandOutput } from "./commands/GetLogEventsCommand";
+import { GetLogGroupFieldsCommandInput, GetLogGroupFieldsCommandOutput } from "./commands/GetLogGroupFieldsCommand";
+import { GetLogRecordCommandInput, GetLogRecordCommandOutput } from "./commands/GetLogRecordCommand";
+import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand";
+import { ListTagsLogGroupCommandInput, ListTagsLogGroupCommandOutput } from "./commands/ListTagsLogGroupCommand";
+import { PutDestinationCommandInput, PutDestinationCommandOutput } from "./commands/PutDestinationCommand";
 import {
   PutDestinationPolicyCommandInput,
-  PutDestinationPolicyCommandOutput
+  PutDestinationPolicyCommandOutput,
 } from "./commands/PutDestinationPolicyCommand";
-import {
-  PutLogEventsCommandInput,
-  PutLogEventsCommandOutput
-} from "./commands/PutLogEventsCommand";
-import {
-  PutMetricFilterCommandInput,
-  PutMetricFilterCommandOutput
-} from "./commands/PutMetricFilterCommand";
-import {
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput
-} from "./commands/PutResourcePolicyCommand";
-import {
-  PutRetentionPolicyCommandInput,
-  PutRetentionPolicyCommandOutput
-} from "./commands/PutRetentionPolicyCommand";
+import { PutLogEventsCommandInput, PutLogEventsCommandOutput } from "./commands/PutLogEventsCommand";
+import { PutMetricFilterCommandInput, PutMetricFilterCommandOutput } from "./commands/PutMetricFilterCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
+import { PutRetentionPolicyCommandInput, PutRetentionPolicyCommandOutput } from "./commands/PutRetentionPolicyCommand";
 import {
   PutSubscriptionFilterCommandInput,
-  PutSubscriptionFilterCommandOutput
+  PutSubscriptionFilterCommandOutput,
 } from "./commands/PutSubscriptionFilterCommand";
-import {
-  StartQueryCommandInput,
-  StartQueryCommandOutput
-} from "./commands/StartQueryCommand";
-import {
-  StopQueryCommandInput,
-  StopQueryCommandOutput
-} from "./commands/StopQueryCommand";
-import {
-  TagLogGroupCommandInput,
-  TagLogGroupCommandOutput
-} from "./commands/TagLogGroupCommand";
-import {
-  TestMetricFilterCommandInput,
-  TestMetricFilterCommandOutput
-} from "./commands/TestMetricFilterCommand";
-import {
-  UntagLogGroupCommandInput,
-  UntagLogGroupCommandOutput
-} from "./commands/UntagLogGroupCommand";
+import { StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
+import { StopQueryCommandInput, StopQueryCommandOutput } from "./commands/StopQueryCommand";
+import { TagLogGroupCommandInput, TagLogGroupCommandOutput } from "./commands/TagLogGroupCommand";
+import { TestMetricFilterCommandInput, TestMetricFilterCommandOutput } from "./commands/TestMetricFilterCommand";
+import { UntagLogGroupCommandInput, UntagLogGroupCommandOutput } from "./commands/UntagLogGroupCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -161,38 +74,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -203,7 +111,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -288,8 +196,7 @@ export type ServiceOutputTypes =
   | TestMetricFilterCommandOutput
   | UntagLogGroupCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -378,9 +285,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CloudWatchLogsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CloudWatchLogsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -389,9 +294,7 @@ export type CloudWatchLogsClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CloudWatchLogsClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CloudWatchLogsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -447,7 +350,7 @@ export class CloudWatchLogsClient extends __Client<
   constructor(configuration: CloudWatchLogsClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

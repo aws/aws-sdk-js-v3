@@ -1,54 +1,33 @@
 import {
   CreateNotificationRuleCommandInput,
-  CreateNotificationRuleCommandOutput
+  CreateNotificationRuleCommandOutput,
 } from "../commands/CreateNotificationRuleCommand";
 import {
   DeleteNotificationRuleCommandInput,
-  DeleteNotificationRuleCommandOutput
+  DeleteNotificationRuleCommandOutput,
 } from "../commands/DeleteNotificationRuleCommand";
-import {
-  DeleteTargetCommandInput,
-  DeleteTargetCommandOutput
-} from "../commands/DeleteTargetCommand";
+import { DeleteTargetCommandInput, DeleteTargetCommandOutput } from "../commands/DeleteTargetCommand";
 import {
   DescribeNotificationRuleCommandInput,
-  DescribeNotificationRuleCommandOutput
+  DescribeNotificationRuleCommandOutput,
 } from "../commands/DescribeNotificationRuleCommand";
-import {
-  ListEventTypesCommandInput,
-  ListEventTypesCommandOutput
-} from "../commands/ListEventTypesCommand";
+import { ListEventTypesCommandInput, ListEventTypesCommandOutput } from "../commands/ListEventTypesCommand";
 import {
   ListNotificationRulesCommandInput,
-  ListNotificationRulesCommandOutput
+  ListNotificationRulesCommandOutput,
 } from "../commands/ListNotificationRulesCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
-import {
-  ListTargetsCommandInput,
-  ListTargetsCommandOutput
-} from "../commands/ListTargetsCommand";
-import {
-  SubscribeCommandInput,
-  SubscribeCommandOutput
-} from "../commands/SubscribeCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
-import {
-  UnsubscribeCommandInput,
-  UnsubscribeCommandOutput
-} from "../commands/UnsubscribeCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "../commands/UntagResourceCommand";
+import { ListTargetsCommandInput, ListTargetsCommandOutput } from "../commands/ListTargetsCommand";
+import { SubscribeCommandInput, SubscribeCommandOutput } from "../commands/SubscribeCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UnsubscribeCommandInput, UnsubscribeCommandOutput } from "../commands/UnsubscribeCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   UpdateNotificationRuleCommandInput,
-  UpdateNotificationRuleCommandOutput
+  UpdateNotificationRuleCommandOutput,
 } from "../commands/UpdateNotificationRuleCommand";
 import {
   AccessDeniedException,
@@ -65,18 +44,15 @@ import {
   ResourceNotFoundException,
   Target,
   TargetSummary,
-  ValidationException
+  ValidationException,
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
@@ -85,7 +61,7 @@ export const serializeAws_restJson1CreateNotificationRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/createNotificationRule";
   let body: any;
@@ -93,20 +69,13 @@ export const serializeAws_restJson1CreateNotificationRuleCommand = async (
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.DetailType !== undefined && { DetailType: input.DetailType }),
     ...(input.EventTypeIds !== undefined && {
-      EventTypeIds: serializeAws_restJson1EventTypeIds(
-        input.EventTypeIds,
-        context
-      )
+      EventTypeIds: serializeAws_restJson1EventTypeIds(input.EventTypeIds, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Resource !== undefined && { Resource: input.Resource }),
     ...(input.Status !== undefined && { Status: input.Status }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1Tags(input.Tags, context)
-    }),
-    ...(input.Targets !== undefined && {
-      Targets: serializeAws_restJson1Targets(input.Targets, context)
-    })
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Targets !== undefined && { Targets: serializeAws_restJson1Targets(input.Targets, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -116,7 +85,7 @@ export const serializeAws_restJson1CreateNotificationRuleCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -125,12 +94,12 @@ export const serializeAws_restJson1DeleteNotificationRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/deleteNotificationRule";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && { Arn: input.Arn })
+    ...(input.Arn !== undefined && { Arn: input.Arn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -140,7 +109,7 @@ export const serializeAws_restJson1DeleteNotificationRuleCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -149,17 +118,13 @@ export const serializeAws_restJson1DeleteTargetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/deleteTarget";
   let body: any;
   body = JSON.stringify({
-    ...(input.ForceUnsubscribeAll !== undefined && {
-      ForceUnsubscribeAll: input.ForceUnsubscribeAll
-    }),
-    ...(input.TargetAddress !== undefined && {
-      TargetAddress: input.TargetAddress
-    })
+    ...(input.ForceUnsubscribeAll !== undefined && { ForceUnsubscribeAll: input.ForceUnsubscribeAll }),
+    ...(input.TargetAddress !== undefined && { TargetAddress: input.TargetAddress }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -169,7 +134,7 @@ export const serializeAws_restJson1DeleteTargetCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -178,12 +143,12 @@ export const serializeAws_restJson1DescribeNotificationRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/describeNotificationRule";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && { Arn: input.Arn })
+    ...(input.Arn !== undefined && { Arn: input.Arn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -193,7 +158,7 @@ export const serializeAws_restJson1DescribeNotificationRuleCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -202,19 +167,16 @@ export const serializeAws_restJson1ListEventTypesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/listEventTypes";
   let body: any;
   body = JSON.stringify({
     ...(input.Filters !== undefined && {
-      Filters: serializeAws_restJson1ListEventTypesFilters(
-        input.Filters,
-        context
-      )
+      Filters: serializeAws_restJson1ListEventTypesFilters(input.Filters, context),
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -224,7 +186,7 @@ export const serializeAws_restJson1ListEventTypesCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -233,19 +195,16 @@ export const serializeAws_restJson1ListNotificationRulesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/listNotificationRules";
   let body: any;
   body = JSON.stringify({
     ...(input.Filters !== undefined && {
-      Filters: serializeAws_restJson1ListNotificationRulesFilters(
-        input.Filters,
-        context
-      )
+      Filters: serializeAws_restJson1ListNotificationRulesFilters(input.Filters, context),
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -255,7 +214,7 @@ export const serializeAws_restJson1ListNotificationRulesCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -264,12 +223,12 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/listTagsForResource";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && { Arn: input.Arn })
+    ...(input.Arn !== undefined && { Arn: input.Arn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -279,7 +238,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -288,16 +247,14 @@ export const serializeAws_restJson1ListTargetsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/listTargets";
   let body: any;
   body = JSON.stringify({
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_restJson1ListTargetsFilters(input.Filters, context)
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_restJson1ListTargetsFilters(input.Filters, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -307,7 +264,7 @@ export const serializeAws_restJson1ListTargetsCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -316,18 +273,14 @@ export const serializeAws_restJson1SubscribeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/subscribe";
   let body: any;
   body = JSON.stringify({
     ...(input.Arn !== undefined && { Arn: input.Arn }),
-    ...(input.ClientRequestToken !== undefined && {
-      ClientRequestToken: input.ClientRequestToken
-    }),
-    ...(input.Target !== undefined && {
-      Target: serializeAws_restJson1Target(input.Target, context)
-    })
+    ...(input.ClientRequestToken !== undefined && { ClientRequestToken: input.ClientRequestToken }),
+    ...(input.Target !== undefined && { Target: serializeAws_restJson1Target(input.Target, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -337,7 +290,7 @@ export const serializeAws_restJson1SubscribeCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -346,15 +299,13 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/tagResource";
   let body: any;
   body = JSON.stringify({
     ...(input.Arn !== undefined && { Arn: input.Arn }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1Tags(input.Tags, context)
-    })
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -364,7 +315,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -373,15 +324,13 @@ export const serializeAws_restJson1UnsubscribeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/unsubscribe";
   let body: any;
   body = JSON.stringify({
     ...(input.Arn !== undefined && { Arn: input.Arn }),
-    ...(input.TargetAddress !== undefined && {
-      TargetAddress: input.TargetAddress
-    })
+    ...(input.TargetAddress !== undefined && { TargetAddress: input.TargetAddress }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -391,7 +340,7 @@ export const serializeAws_restJson1UnsubscribeCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -400,15 +349,13 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/untagResource";
   let body: any;
   body = JSON.stringify({
     ...(input.Arn !== undefined && { Arn: input.Arn }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_restJson1TagKeys(input.TagKeys, context)
-    })
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_restJson1TagKeys(input.TagKeys, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -418,7 +365,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -427,7 +374,7 @@ export const serializeAws_restJson1UpdateNotificationRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/updateNotificationRule";
   let body: any;
@@ -435,16 +382,11 @@ export const serializeAws_restJson1UpdateNotificationRuleCommand = async (
     ...(input.Arn !== undefined && { Arn: input.Arn }),
     ...(input.DetailType !== undefined && { DetailType: input.DetailType }),
     ...(input.EventTypeIds !== undefined && {
-      EventTypeIds: serializeAws_restJson1EventTypeIds(
-        input.EventTypeIds,
-        context
-      )
+      EventTypeIds: serializeAws_restJson1EventTypeIds(input.EventTypeIds, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Status !== undefined && { Status: input.Status }),
-    ...(input.Targets !== undefined && {
-      Targets: serializeAws_restJson1Targets(input.Targets, context)
-    })
+    ...(input.Targets !== undefined && { Targets: serializeAws_restJson1Targets(input.Targets, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -454,7 +396,7 @@ export const serializeAws_restJson1UpdateNotificationRuleCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -463,15 +405,12 @@ export const deserializeAws_restJson1CreateNotificationRuleCommand = async (
   context: __SerdeContext
 ): Promise<CreateNotificationRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateNotificationRuleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateNotificationRuleCommandError(output, context);
   }
   const contents: CreateNotificationRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateNotificationRuleResult",
-    Arn: undefined
+    Arn: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -486,7 +425,7 @@ const deserializeAws_restJson1CreateNotificationRuleCommandError = async (
 ): Promise<CreateNotificationRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -495,67 +434,49 @@ const deserializeAws_restJson1CreateNotificationRuleCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.codestarnotifications#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.codestarnotifications#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ConfigurationException":
     case "com.amazonaws.codestarnotifications#ConfigurationException":
       response = {
-        ...(await deserializeAws_restJson1ConfigurationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ConfigurationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.codestarnotifications#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.codestarnotifications#ResourceAlreadyExistsException":
       response = {
-        ...(await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -566,7 +487,7 @@ const deserializeAws_restJson1CreateNotificationRuleCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -580,15 +501,12 @@ export const deserializeAws_restJson1DeleteNotificationRuleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNotificationRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DeleteNotificationRuleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteNotificationRuleCommandError(output, context);
   }
   const contents: DeleteNotificationRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteNotificationRuleResult",
-    Arn: undefined
+    Arn: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -603,7 +521,7 @@ const deserializeAws_restJson1DeleteNotificationRuleCommandError = async (
 ): Promise<DeleteNotificationRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -612,34 +530,25 @@ const deserializeAws_restJson1DeleteNotificationRuleCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.codestarnotifications#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.codestarnotifications#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -650,7 +559,7 @@ const deserializeAws_restJson1DeleteNotificationRuleCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -668,7 +577,7 @@ export const deserializeAws_restJson1DeleteTargetCommand = async (
   }
   const contents: DeleteTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTargetResult"
+    __type: "DeleteTargetResult",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -680,7 +589,7 @@ const deserializeAws_restJson1DeleteTargetCommandError = async (
 ): Promise<DeleteTargetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -689,12 +598,9 @@ const deserializeAws_restJson1DeleteTargetCommandError = async (
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -705,7 +611,7 @@ const deserializeAws_restJson1DeleteTargetCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -719,10 +625,7 @@ export const deserializeAws_restJson1DescribeNotificationRuleCommand = async (
   context: __SerdeContext
 ): Promise<DescribeNotificationRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DescribeNotificationRuleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DescribeNotificationRuleCommandError(output, context);
   }
   const contents: DescribeNotificationRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -737,7 +640,7 @@ export const deserializeAws_restJson1DescribeNotificationRuleCommand = async (
     Resource: undefined,
     Status: undefined,
     Tags: undefined,
-    Targets: undefined
+    Targets: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -747,26 +650,16 @@ export const deserializeAws_restJson1DescribeNotificationRuleCommand = async (
     contents.CreatedBy = data.CreatedBy;
   }
   if (data.CreatedTimestamp !== undefined && data.CreatedTimestamp !== null) {
-    contents.CreatedTimestamp = new Date(
-      Math.round(data.CreatedTimestamp * 1000)
-    );
+    contents.CreatedTimestamp = new Date(Math.round(data.CreatedTimestamp * 1000));
   }
   if (data.DetailType !== undefined && data.DetailType !== null) {
     contents.DetailType = data.DetailType;
   }
   if (data.EventTypes !== undefined && data.EventTypes !== null) {
-    contents.EventTypes = deserializeAws_restJson1EventTypeBatch(
-      data.EventTypes,
-      context
-    );
+    contents.EventTypes = deserializeAws_restJson1EventTypeBatch(data.EventTypes, context);
   }
-  if (
-    data.LastModifiedTimestamp !== undefined &&
-    data.LastModifiedTimestamp !== null
-  ) {
-    contents.LastModifiedTimestamp = new Date(
-      Math.round(data.LastModifiedTimestamp * 1000)
-    );
+  if (data.LastModifiedTimestamp !== undefined && data.LastModifiedTimestamp !== null) {
+    contents.LastModifiedTimestamp = new Date(Math.round(data.LastModifiedTimestamp * 1000));
   }
   if (data.Name !== undefined && data.Name !== null) {
     contents.Name = data.Name;
@@ -781,10 +674,7 @@ export const deserializeAws_restJson1DescribeNotificationRuleCommand = async (
     contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
   }
   if (data.Targets !== undefined && data.Targets !== null) {
-    contents.Targets = deserializeAws_restJson1TargetsBatch(
-      data.Targets,
-      context
-    );
+    contents.Targets = deserializeAws_restJson1TargetsBatch(data.Targets, context);
   }
   return Promise.resolve(contents);
 };
@@ -795,7 +685,7 @@ const deserializeAws_restJson1DescribeNotificationRuleCommandError = async (
 ): Promise<DescribeNotificationRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -804,23 +694,17 @@ const deserializeAws_restJson1DescribeNotificationRuleCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -831,7 +715,7 @@ const deserializeAws_restJson1DescribeNotificationRuleCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -851,14 +735,11 @@ export const deserializeAws_restJson1ListEventTypesCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "ListEventTypesResult",
     EventTypes: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.EventTypes !== undefined && data.EventTypes !== null) {
-    contents.EventTypes = deserializeAws_restJson1EventTypeBatch(
-      data.EventTypes,
-      context
-    );
+    contents.EventTypes = deserializeAws_restJson1EventTypeBatch(data.EventTypes, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -872,7 +753,7 @@ const deserializeAws_restJson1ListEventTypesCommandError = async (
 ): Promise<ListEventTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -881,23 +762,17 @@ const deserializeAws_restJson1ListEventTypesCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.codestarnotifications#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -908,7 +783,7 @@ const deserializeAws_restJson1ListEventTypesCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -922,26 +797,20 @@ export const deserializeAws_restJson1ListNotificationRulesCommand = async (
   context: __SerdeContext
 ): Promise<ListNotificationRulesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListNotificationRulesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListNotificationRulesCommandError(output, context);
   }
   const contents: ListNotificationRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListNotificationRulesResult",
     NextToken: undefined,
-    NotificationRules: undefined
+    NotificationRules: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   if (data.NotificationRules !== undefined && data.NotificationRules !== null) {
-    contents.NotificationRules = deserializeAws_restJson1NotificationRuleBatch(
-      data.NotificationRules,
-      context
-    );
+    contents.NotificationRules = deserializeAws_restJson1NotificationRuleBatch(data.NotificationRules, context);
   }
   return Promise.resolve(contents);
 };
@@ -952,7 +821,7 @@ const deserializeAws_restJson1ListNotificationRulesCommandError = async (
 ): Promise<ListNotificationRulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -961,23 +830,17 @@ const deserializeAws_restJson1ListNotificationRulesCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.codestarnotifications#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -988,7 +851,7 @@ const deserializeAws_restJson1ListNotificationRulesCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1002,15 +865,12 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResult",
-    Tags: undefined
+    Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Tags !== undefined && data.Tags !== null) {
@@ -1025,7 +885,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1034,23 +894,17 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1061,7 +915,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1081,17 +935,14 @@ export const deserializeAws_restJson1ListTargetsCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "ListTargetsResult",
     NextToken: undefined,
-    Targets: undefined
+    Targets: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   if (data.Targets !== undefined && data.Targets !== null) {
-    contents.Targets = deserializeAws_restJson1TargetsBatch(
-      data.Targets,
-      context
-    );
+    contents.Targets = deserializeAws_restJson1TargetsBatch(data.Targets, context);
   }
   return Promise.resolve(contents);
 };
@@ -1102,7 +953,7 @@ const deserializeAws_restJson1ListTargetsCommandError = async (
 ): Promise<ListTargetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1111,23 +962,17 @@ const deserializeAws_restJson1ListTargetsCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.codestarnotifications#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1138,7 +983,7 @@ const deserializeAws_restJson1ListTargetsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1157,7 +1002,7 @@ export const deserializeAws_restJson1SubscribeCommand = async (
   const contents: SubscribeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SubscribeResult",
-    Arn: undefined
+    Arn: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -1172,7 +1017,7 @@ const deserializeAws_restJson1SubscribeCommandError = async (
 ): Promise<SubscribeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1181,23 +1026,17 @@ const deserializeAws_restJson1SubscribeCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1208,7 +1047,7 @@ const deserializeAws_restJson1SubscribeCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1227,7 +1066,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResult",
-    Tags: undefined
+    Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Tags !== undefined && data.Tags !== null) {
@@ -1242,7 +1081,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1251,34 +1090,25 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.codestarnotifications#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1289,7 +1119,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1308,7 +1138,7 @@ export const deserializeAws_restJson1UnsubscribeCommand = async (
   const contents: UnsubscribeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UnsubscribeResult",
-    Arn: undefined
+    Arn: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -1323,7 +1153,7 @@ const deserializeAws_restJson1UnsubscribeCommandError = async (
 ): Promise<UnsubscribeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1332,12 +1162,9 @@ const deserializeAws_restJson1UnsubscribeCommandError = async (
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1348,7 +1175,7 @@ const deserializeAws_restJson1UnsubscribeCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1366,7 +1193,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResult"
+    __type: "UntagResourceResult",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1378,7 +1205,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1387,34 +1214,25 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.codestarnotifications#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1425,7 +1243,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1439,14 +1257,11 @@ export const deserializeAws_restJson1UpdateNotificationRuleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateNotificationRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1UpdateNotificationRuleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateNotificationRuleCommandError(output, context);
   }
   const contents: UpdateNotificationRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateNotificationRuleResult"
+    __type: "UpdateNotificationRuleResult",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1458,7 +1273,7 @@ const deserializeAws_restJson1UpdateNotificationRuleCommandError = async (
 ): Promise<UpdateNotificationRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1467,23 +1282,17 @@ const deserializeAws_restJson1UpdateNotificationRuleCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1494,7 +1303,7 @@ const deserializeAws_restJson1UpdateNotificationRuleCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1511,7 +1320,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
     name: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -1528,7 +1337,7 @@ const deserializeAws_restJson1ConcurrentModificationExceptionResponse = async (
     name: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -1545,7 +1354,7 @@ const deserializeAws_restJson1ConfigurationExceptionResponse = async (
     name: "ConfigurationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -1562,7 +1371,7 @@ const deserializeAws_restJson1InvalidNextTokenExceptionResponse = async (
     name: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -1579,7 +1388,7 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
     name: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -1596,7 +1405,7 @@ const deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse = async (
     name: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -1613,7 +1422,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
     name: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -1630,7 +1439,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
     name: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -1639,30 +1448,19 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1EventTypeIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
+const serializeAws_restJson1EventTypeIds = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
-const serializeAws_restJson1ListEventTypesFilter = (
-  input: ListEventTypesFilter,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1ListEventTypesFilter = (input: ListEventTypesFilter, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Value !== undefined && { Value: input.Value })
+    ...(input.Value !== undefined && { Value: input.Value }),
   };
 };
 
-const serializeAws_restJson1ListEventTypesFilters = (
-  input: ListEventTypesFilter[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1ListEventTypesFilter(entry, context)
-  );
+const serializeAws_restJson1ListEventTypesFilters = (input: ListEventTypesFilter[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1ListEventTypesFilter(entry, context));
 };
 
 const serializeAws_restJson1ListNotificationRulesFilter = (
@@ -1671,7 +1469,7 @@ const serializeAws_restJson1ListNotificationRulesFilter = (
 ): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Value !== undefined && { Value: input.Value })
+    ...(input.Value !== undefined && { Value: input.Value }),
   };
 };
 
@@ -1679,100 +1477,57 @@ const serializeAws_restJson1ListNotificationRulesFilters = (
   input: ListNotificationRulesFilter[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1ListNotificationRulesFilter(entry, context)
-  );
+  return input.map((entry) => serializeAws_restJson1ListNotificationRulesFilter(entry, context));
 };
 
-const serializeAws_restJson1ListTargetsFilter = (
-  input: ListTargetsFilter,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1ListTargetsFilter = (input: ListTargetsFilter, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Value !== undefined && { Value: input.Value })
+    ...(input.Value !== undefined && { Value: input.Value }),
   };
 };
 
-const serializeAws_restJson1ListTargetsFilters = (
-  input: ListTargetsFilter[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1ListTargetsFilter(entry, context)
-  );
+const serializeAws_restJson1ListTargetsFilters = (input: ListTargetsFilter[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1ListTargetsFilter(entry, context));
 };
 
-const serializeAws_restJson1TagKeys = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
+const serializeAws_restJson1TagKeys = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
-const serializeAws_restJson1Tags = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
 };
 
-const serializeAws_restJson1Target = (
-  input: Target,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1Target = (input: Target, context: __SerdeContext): any => {
   return {
-    ...(input.TargetAddress !== undefined && {
-      TargetAddress: input.TargetAddress
-    }),
-    ...(input.TargetType !== undefined && { TargetType: input.TargetType })
+    ...(input.TargetAddress !== undefined && { TargetAddress: input.TargetAddress }),
+    ...(input.TargetType !== undefined && { TargetType: input.TargetType }),
   };
 };
 
-const serializeAws_restJson1Targets = (
-  input: Target[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_restJson1Target(entry, context));
+const serializeAws_restJson1Targets = (input: Target[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1Target(entry, context));
 };
 
-const deserializeAws_restJson1EventTypeBatch = (
-  output: any,
-  context: __SerdeContext
-): EventTypeSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1EventTypeSummary(entry, context)
-  );
+const deserializeAws_restJson1EventTypeBatch = (output: any, context: __SerdeContext): EventTypeSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1EventTypeSummary(entry, context));
 };
 
-const deserializeAws_restJson1EventTypeSummary = (
-  output: any,
-  context: __SerdeContext
-): EventTypeSummary => {
+const deserializeAws_restJson1EventTypeSummary = (output: any, context: __SerdeContext): EventTypeSummary => {
   return {
     __type: "EventTypeSummary",
-    EventTypeId:
-      output.EventTypeId !== undefined && output.EventTypeId !== null
-        ? output.EventTypeId
-        : undefined,
+    EventTypeId: output.EventTypeId !== undefined && output.EventTypeId !== null ? output.EventTypeId : undefined,
     EventTypeName:
-      output.EventTypeName !== undefined && output.EventTypeName !== null
-        ? output.EventTypeName
-        : undefined,
-    ResourceType:
-      output.ResourceType !== undefined && output.ResourceType !== null
-        ? output.ResourceType
-        : undefined,
-    ServiceName:
-      output.ServiceName !== undefined && output.ServiceName !== null
-        ? output.ServiceName
-        : undefined
+      output.EventTypeName !== undefined && output.EventTypeName !== null ? output.EventTypeName : undefined,
+    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
+    ServiceName: output.ServiceName !== undefined && output.ServiceName !== null ? output.ServiceName : undefined,
   } as any;
 };
 
@@ -1780,9 +1535,7 @@ const deserializeAws_restJson1NotificationRuleBatch = (
   output: any,
   context: __SerdeContext
 ): NotificationRuleSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1NotificationRuleSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1NotificationRuleSummary(entry, context));
 };
 
 const deserializeAws_restJson1NotificationRuleSummary = (
@@ -1791,90 +1544,61 @@ const deserializeAws_restJson1NotificationRuleSummary = (
 ): NotificationRuleSummary => {
   return {
     __type: "NotificationRuleSummary",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Tags = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
 };
 
-const deserializeAws_restJson1TargetsBatch = (
-  output: any,
-  context: __SerdeContext
-): TargetSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1TargetSummary(entry, context)
-  );
+const deserializeAws_restJson1TargetsBatch = (output: any, context: __SerdeContext): TargetSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1TargetSummary(entry, context));
 };
 
-const deserializeAws_restJson1TargetSummary = (
-  output: any,
-  context: __SerdeContext
-): TargetSummary => {
+const deserializeAws_restJson1TargetSummary = (output: any, context: __SerdeContext): TargetSummary => {
   return {
     __type: "TargetSummary",
     TargetAddress:
-      output.TargetAddress !== undefined && output.TargetAddress !== null
-        ? output.TargetAddress
-        : undefined,
-    TargetStatus:
-      output.TargetStatus !== undefined && output.TargetStatus !== null
-        ? output.TargetStatus
-        : undefined,
-    TargetType:
-      output.TargetType !== undefined && output.TargetType !== null
-        ? output.TargetType
-        : undefined
+      output.TargetAddress !== undefined && output.TargetAddress !== null ? output.TargetAddress : undefined,
+    TargetStatus: output.TargetStatus !== undefined && output.TargetStatus !== null ? output.TargetStatus : undefined,
+    TargetType: output.TargetType !== undefined && output.TargetType !== null ? output.TargetType : undefined,
   } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"]
+  requestId: output.headers["x-amzn-requestid"],
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
-  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then(encoded => {
+  collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
@@ -1885,8 +1609,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

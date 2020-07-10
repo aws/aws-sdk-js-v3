@@ -1,21 +1,11 @@
-import {
-  FraudDetectorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FraudDetectorClient";
-import {
-  PutExternalModelRequest,
-  PutExternalModelResult
-} from "../models/index";
+import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
+import { PutExternalModelRequest, PutExternalModelResult } from "../models/index";
 import {
   deserializeAws_json1_1PutExternalModelCommand,
-  serializeAws_json1_1PutExternalModelCommand
+  serializeAws_json1_1PutExternalModelCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type PutExternalModelCommandInput = PutExternalModelRequest;
-export type PutExternalModelCommandOutput = PutExternalModelResult &
-  __MetadataBearer;
+export type PutExternalModelCommandOutput = PutExternalModelResult & __MetadataBearer;
 
 export class PutExternalModelCommand extends $Command<
   PutExternalModelCommandInput,
@@ -50,14 +39,12 @@ export class PutExternalModelCommand extends $Command<
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutExternalModelCommandInput, PutExternalModelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class PutExternalModelCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutExternalModelCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutExternalModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutExternalModelCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutExternalModelCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutExternalModelCommandOutput> {
     return deserializeAws_json1_1PutExternalModelCommand(output, context);
   }
 

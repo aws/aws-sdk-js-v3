@@ -1,21 +1,11 @@
-import {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DirectoryServiceClient";
-import {
-  ListLogSubscriptionsRequest,
-  ListLogSubscriptionsResult
-} from "../models/index";
+import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
+import { ListLogSubscriptionsRequest, ListLogSubscriptionsResult } from "../models/index";
 import {
   deserializeAws_json1_1ListLogSubscriptionsCommand,
-  serializeAws_json1_1ListLogSubscriptionsCommand
+  serializeAws_json1_1ListLogSubscriptionsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListLogSubscriptionsCommandInput = ListLogSubscriptionsRequest;
-export type ListLogSubscriptionsCommandOutput = ListLogSubscriptionsResult &
-  __MetadataBearer;
+export type ListLogSubscriptionsCommandOutput = ListLogSubscriptionsResult & __MetadataBearer;
 
 export class ListLogSubscriptionsCommand extends $Command<
   ListLogSubscriptionsCommandInput,
@@ -49,18 +38,13 @@ export class ListLogSubscriptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListLogSubscriptionsCommandInput,
-    ListLogSubscriptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListLogSubscriptionsCommandInput, ListLogSubscriptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class ListLogSubscriptionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListLogSubscriptionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListLogSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListLogSubscriptionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListLogSubscriptionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLogSubscriptionsCommandOutput> {
     return deserializeAws_json1_1ListLogSubscriptionsCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
-import {
-  GetDedicatedIpsRequest,
-  GetDedicatedIpsResponse
-} from "../models/index";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
+import { GetDedicatedIpsRequest, GetDedicatedIpsResponse } from "../models/index";
 import {
   deserializeAws_restJson1GetDedicatedIpsCommand,
-  serializeAws_restJson1GetDedicatedIpsCommand
+  serializeAws_restJson1GetDedicatedIpsCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetDedicatedIpsCommandInput = GetDedicatedIpsRequest;
-export type GetDedicatedIpsCommandOutput = GetDedicatedIpsResponse &
-  __MetadataBearer;
+export type GetDedicatedIpsCommandOutput = GetDedicatedIpsResponse & __MetadataBearer;
 
 export class GetDedicatedIpsCommand extends $Command<
   GetDedicatedIpsCommandInput,
@@ -50,14 +39,12 @@ export class GetDedicatedIpsCommand extends $Command<
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDedicatedIpsCommandInput, GetDedicatedIpsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class GetDedicatedIpsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDedicatedIpsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDedicatedIpsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDedicatedIpsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDedicatedIpsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDedicatedIpsCommandOutput> {
     return deserializeAws_restJson1GetDedicatedIpsCommand(output, context);
   }
 

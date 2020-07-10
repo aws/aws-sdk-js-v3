@@ -1,21 +1,11 @@
-import {
-  FMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FMSClient";
-import {
-  GetAdminAccountRequest,
-  GetAdminAccountResponse
-} from "../models/index";
+import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
+import { GetAdminAccountRequest, GetAdminAccountResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetAdminAccountCommand,
-  serializeAws_json1_1GetAdminAccountCommand
+  serializeAws_json1_1GetAdminAccountCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetAdminAccountCommandInput = GetAdminAccountRequest;
-export type GetAdminAccountCommandOutput = GetAdminAccountResponse &
-  __MetadataBearer;
+export type GetAdminAccountCommandOutput = GetAdminAccountResponse & __MetadataBearer;
 
 export class GetAdminAccountCommand extends $Command<
   GetAdminAccountCommandInput,
@@ -50,14 +39,12 @@ export class GetAdminAccountCommand extends $Command<
     configuration: FMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAdminAccountCommandInput, GetAdminAccountCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class GetAdminAccountCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetAdminAccountCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetAdminAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAdminAccountCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetAdminAccountCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAdminAccountCommandOutput> {
     return deserializeAws_json1_1GetAdminAccountCommand(output, context);
   }
 

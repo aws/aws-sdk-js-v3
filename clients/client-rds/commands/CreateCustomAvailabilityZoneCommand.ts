@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  CreateCustomAvailabilityZoneMessage,
-  CreateCustomAvailabilityZoneResult
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { CreateCustomAvailabilityZoneMessage, CreateCustomAvailabilityZoneResult } from "../models/index";
 import {
   deserializeAws_queryCreateCustomAvailabilityZoneCommand,
-  serializeAws_queryCreateCustomAvailabilityZoneCommand
+  serializeAws_queryCreateCustomAvailabilityZoneCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateCustomAvailabilityZoneCommandInput = CreateCustomAvailabilityZoneMessage;
-export type CreateCustomAvailabilityZoneCommandOutput = CreateCustomAvailabilityZoneResult &
-  __MetadataBearer;
+export type CreateCustomAvailabilityZoneCommandOutput = CreateCustomAvailabilityZoneResult & __MetadataBearer;
 
 export class CreateCustomAvailabilityZoneCommand extends $Command<
   CreateCustomAvailabilityZoneCommandInput,
@@ -49,18 +38,13 @@ export class CreateCustomAvailabilityZoneCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateCustomAvailabilityZoneCommandInput,
-    CreateCustomAvailabilityZoneCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateCustomAvailabilityZoneCommandInput, CreateCustomAvailabilityZoneCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class CreateCustomAvailabilityZoneCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateCustomAvailabilityZoneCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_queryCreateCustomAvailabilityZoneCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateCustomAvailabilityZoneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryCreateCustomAvailabilityZoneCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCustomAvailabilityZoneCommandOutput> {
-    return deserializeAws_queryCreateCustomAvailabilityZoneCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryCreateCustomAvailabilityZoneCommand(output, context);
   }
 
   // Start section: command_body_extra

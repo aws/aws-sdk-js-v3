@@ -1,21 +1,11 @@
-import {
-  PutSigningProfileRequest,
-  PutSigningProfileResponse
-} from "../models/index";
+import { PutSigningProfileRequest, PutSigningProfileResponse } from "../models/index";
 import {
   deserializeAws_restJson1PutSigningProfileCommand,
-  serializeAws_restJson1PutSigningProfileCommand
+  serializeAws_restJson1PutSigningProfileCommand,
 } from "../protocols/Aws_restJson1";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  signerClientResolvedConfig
-} from "../signerClient";
+import { ServiceInputTypes, ServiceOutputTypes, signerClientResolvedConfig } from "../signerClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type PutSigningProfileCommandInput = PutSigningProfileRequest;
-export type PutSigningProfileCommandOutput = PutSigningProfileResponse &
-  __MetadataBearer;
+export type PutSigningProfileCommandOutput = PutSigningProfileResponse & __MetadataBearer;
 
 export class PutSigningProfileCommand extends $Command<
   PutSigningProfileCommandInput,
@@ -50,14 +39,12 @@ export class PutSigningProfileCommand extends $Command<
     configuration: signerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutSigningProfileCommandInput, PutSigningProfileCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class PutSigningProfileCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutSigningProfileCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutSigningProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutSigningProfileCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutSigningProfileCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSigningProfileCommandOutput> {
     return deserializeAws_restJson1PutSigningProfileCommand(output, context);
   }
 

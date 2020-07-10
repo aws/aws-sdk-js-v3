@@ -1,21 +1,11 @@
-import {
-  MediaConvertClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaConvertClient";
-import {
-  AssociateCertificateRequest,
-  AssociateCertificateResponse
-} from "../models/index";
+import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
+import { AssociateCertificateRequest, AssociateCertificateResponse } from "../models/index";
 import {
   deserializeAws_restJson1AssociateCertificateCommand,
-  serializeAws_restJson1AssociateCertificateCommand
+  serializeAws_restJson1AssociateCertificateCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type AssociateCertificateCommandInput = AssociateCertificateRequest;
-export type AssociateCertificateCommandOutput = AssociateCertificateResponse &
-  __MetadataBearer;
+export type AssociateCertificateCommandOutput = AssociateCertificateResponse & __MetadataBearer;
 
 export class AssociateCertificateCommand extends $Command<
   AssociateCertificateCommandInput,
@@ -49,18 +38,13 @@ export class AssociateCertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateCertificateCommandInput,
-    AssociateCertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateCertificateCommandInput, AssociateCertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class AssociateCertificateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AssociateCertificateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AssociateCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateCertificateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AssociateCertificateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateCertificateCommandOutput> {
     return deserializeAws_restJson1AssociateCertificateCommand(output, context);
   }
 

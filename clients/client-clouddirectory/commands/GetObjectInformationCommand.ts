@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient";
-import {
-  GetObjectInformationRequest,
-  GetObjectInformationResponse
-} from "../models/index";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
+import { GetObjectInformationRequest, GetObjectInformationResponse } from "../models/index";
 import {
   deserializeAws_restJson1GetObjectInformationCommand,
-  serializeAws_restJson1GetObjectInformationCommand
+  serializeAws_restJson1GetObjectInformationCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetObjectInformationCommandInput = GetObjectInformationRequest;
-export type GetObjectInformationCommandOutput = GetObjectInformationResponse &
-  __MetadataBearer;
+export type GetObjectInformationCommandOutput = GetObjectInformationResponse & __MetadataBearer;
 
 export class GetObjectInformationCommand extends $Command<
   GetObjectInformationCommandInput,
@@ -49,18 +38,13 @@ export class GetObjectInformationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetObjectInformationCommandInput,
-    GetObjectInformationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetObjectInformationCommandInput, GetObjectInformationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class GetObjectInformationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetObjectInformationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetObjectInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetObjectInformationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetObjectInformationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectInformationCommandOutput> {
     return deserializeAws_restJson1GetObjectInformationCommand(output, context);
   }
 

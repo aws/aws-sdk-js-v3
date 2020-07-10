@@ -1,21 +1,11 @@
-import {
-  MediaConnectClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaConnectClient";
-import {
-  RevokeFlowEntitlementRequest,
-  RevokeFlowEntitlementResponse
-} from "../models/index";
+import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import { RevokeFlowEntitlementRequest, RevokeFlowEntitlementResponse } from "../models/index";
 import {
   deserializeAws_restJson1RevokeFlowEntitlementCommand,
-  serializeAws_restJson1RevokeFlowEntitlementCommand
+  serializeAws_restJson1RevokeFlowEntitlementCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type RevokeFlowEntitlementCommandInput = RevokeFlowEntitlementRequest;
-export type RevokeFlowEntitlementCommandOutput = RevokeFlowEntitlementResponse &
-  __MetadataBearer;
+export type RevokeFlowEntitlementCommandOutput = RevokeFlowEntitlementResponse & __MetadataBearer;
 
 export class RevokeFlowEntitlementCommand extends $Command<
   RevokeFlowEntitlementCommandInput,
@@ -49,18 +38,13 @@ export class RevokeFlowEntitlementCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RevokeFlowEntitlementCommandInput,
-    RevokeFlowEntitlementCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RevokeFlowEntitlementCommandInput, RevokeFlowEntitlementCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class RevokeFlowEntitlementCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RevokeFlowEntitlementCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RevokeFlowEntitlementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RevokeFlowEntitlementCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RevokeFlowEntitlementCommandOutput> {
-    return deserializeAws_restJson1RevokeFlowEntitlementCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeFlowEntitlementCommandOutput> {
+    return deserializeAws_restJson1RevokeFlowEntitlementCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,18 +1,11 @@
-import {
-  MediaStoreDataClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaStoreDataClient";
+import { MediaStoreDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreDataClient";
 import { DescribeObjectRequest, DescribeObjectResponse } from "../models/index";
 import {
   deserializeAws_restJson1DescribeObjectCommand,
-  serializeAws_restJson1DescribeObjectCommand
+  serializeAws_restJson1DescribeObjectCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeObjectCommandInput = DescribeObjectRequest;
-export type DescribeObjectCommandOutput = DescribeObjectResponse &
-  __MetadataBearer;
+export type DescribeObjectCommandOutput = DescribeObjectResponse & __MetadataBearer;
 
 export class DescribeObjectCommand extends $Command<
   DescribeObjectCommandInput,
@@ -47,14 +39,12 @@ export class DescribeObjectCommand extends $Command<
     configuration: MediaStoreDataClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeObjectCommandInput, DescribeObjectCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class DescribeObjectCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeObjectCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeObjectCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeObjectCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeObjectCommandOutput> {
     return deserializeAws_restJson1DescribeObjectCommand(output, context);
   }
 

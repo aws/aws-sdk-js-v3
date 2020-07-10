@@ -1,21 +1,11 @@
-import {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchLogsClient";
-import {
-  ListTagsLogGroupRequest,
-  ListTagsLogGroupResponse
-} from "../models/index";
+import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
+import { ListTagsLogGroupRequest, ListTagsLogGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListTagsLogGroupCommand,
-  serializeAws_json1_1ListTagsLogGroupCommand
+  serializeAws_json1_1ListTagsLogGroupCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListTagsLogGroupCommandInput = ListTagsLogGroupRequest;
-export type ListTagsLogGroupCommandOutput = ListTagsLogGroupResponse &
-  __MetadataBearer;
+export type ListTagsLogGroupCommandOutput = ListTagsLogGroupResponse & __MetadataBearer;
 
 export class ListTagsLogGroupCommand extends $Command<
   ListTagsLogGroupCommandInput,
@@ -50,14 +39,12 @@ export class ListTagsLogGroupCommand extends $Command<
     configuration: CloudWatchLogsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListTagsLogGroupCommandInput, ListTagsLogGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class ListTagsLogGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListTagsLogGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListTagsLogGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTagsLogGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListTagsLogGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsLogGroupCommandOutput> {
     return deserializeAws_json1_1ListTagsLogGroupCommand(output, context);
   }
 

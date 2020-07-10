@@ -2,37 +2,37 @@ import { MacieClient } from "./MacieClient";
 import {
   AssociateMemberAccountCommand,
   AssociateMemberAccountCommandInput,
-  AssociateMemberAccountCommandOutput
+  AssociateMemberAccountCommandOutput,
 } from "./commands/AssociateMemberAccountCommand";
 import {
   AssociateS3ResourcesCommand,
   AssociateS3ResourcesCommandInput,
-  AssociateS3ResourcesCommandOutput
+  AssociateS3ResourcesCommandOutput,
 } from "./commands/AssociateS3ResourcesCommand";
 import {
   DisassociateMemberAccountCommand,
   DisassociateMemberAccountCommandInput,
-  DisassociateMemberAccountCommandOutput
+  DisassociateMemberAccountCommandOutput,
 } from "./commands/DisassociateMemberAccountCommand";
 import {
   DisassociateS3ResourcesCommand,
   DisassociateS3ResourcesCommandInput,
-  DisassociateS3ResourcesCommandOutput
+  DisassociateS3ResourcesCommandOutput,
 } from "./commands/DisassociateS3ResourcesCommand";
 import {
   ListMemberAccountsCommand,
   ListMemberAccountsCommandInput,
-  ListMemberAccountsCommandOutput
+  ListMemberAccountsCommandOutput,
 } from "./commands/ListMemberAccountsCommand";
 import {
   ListS3ResourcesCommand,
   ListS3ResourcesCommandInput,
-  ListS3ResourcesCommandOutput
+  ListS3ResourcesCommandOutput,
 } from "./commands/ListS3ResourcesCommand";
 import {
   UpdateS3ResourcesCommand,
   UpdateS3ResourcesCommandInput,
-  UpdateS3ResourcesCommandOutput
+  UpdateS3ResourcesCommandOutput,
 } from "./commands/UpdateS3ResourcesCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -64,17 +64,14 @@ export class Macie extends MacieClient {
   ): void;
   public associateMemberAccount(
     args: AssociateMemberAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateMemberAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateMemberAccountCommandOutput) => void),
     cb?: (err: any, data?: AssociateMemberAccountCommandOutput) => void
   ): Promise<AssociateMemberAccountCommandOutput> | void {
     const command = new AssociateMemberAccountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -103,17 +100,14 @@ export class Macie extends MacieClient {
   ): void;
   public associateS3Resources(
     args: AssociateS3ResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateS3ResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateS3ResourcesCommandOutput) => void),
     cb?: (err: any, data?: AssociateS3ResourcesCommandOutput) => void
   ): Promise<AssociateS3ResourcesCommandOutput> | void {
     const command = new AssociateS3ResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -138,17 +132,14 @@ export class Macie extends MacieClient {
   ): void;
   public disassociateMemberAccount(
     args: DisassociateMemberAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateMemberAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateMemberAccountCommandOutput) => void),
     cb?: (err: any, data?: DisassociateMemberAccountCommandOutput) => void
   ): Promise<DisassociateMemberAccountCommandOutput> | void {
     const command = new DisassociateMemberAccountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -176,17 +167,14 @@ export class Macie extends MacieClient {
   ): void;
   public disassociateS3Resources(
     args: DisassociateS3ResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateS3ResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateS3ResourcesCommandOutput) => void),
     cb?: (err: any, data?: DisassociateS3ResourcesCommandOutput) => void
   ): Promise<DisassociateS3ResourcesCommandOutput> | void {
     const command = new DisassociateS3ResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -212,17 +200,14 @@ export class Macie extends MacieClient {
   ): void;
   public listMemberAccounts(
     args: ListMemberAccountsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMemberAccountsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMemberAccountsCommandOutput) => void),
     cb?: (err: any, data?: ListMemberAccountsCommandOutput) => void
   ): Promise<ListMemberAccountsCommandOutput> | void {
     const command = new ListMemberAccountsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -250,17 +235,14 @@ export class Macie extends MacieClient {
   ): void;
   public listS3Resources(
     args: ListS3ResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListS3ResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListS3ResourcesCommandOutput) => void),
     cb?: (err: any, data?: ListS3ResourcesCommandOutput) => void
   ): Promise<ListS3ResourcesCommandOutput> | void {
     const command = new ListS3ResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -289,17 +271,14 @@ export class Macie extends MacieClient {
   ): void;
   public updateS3Resources(
     args: UpdateS3ResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateS3ResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateS3ResourcesCommandOutput) => void),
     cb?: (err: any, data?: UpdateS3ResourcesCommandOutput) => void
   ): Promise<UpdateS3ResourcesCommandOutput> | void {
     const command = new UpdateS3ResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

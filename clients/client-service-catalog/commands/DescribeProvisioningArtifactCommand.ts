@@ -1,21 +1,11 @@
-import {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ServiceCatalogClient";
-import {
-  DescribeProvisioningArtifactInput,
-  DescribeProvisioningArtifactOutput
-} from "../models/index";
+import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
+import { DescribeProvisioningArtifactInput, DescribeProvisioningArtifactOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeProvisioningArtifactCommand,
-  serializeAws_json1_1DescribeProvisioningArtifactCommand
+  serializeAws_json1_1DescribeProvisioningArtifactCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeProvisioningArtifactCommandInput = DescribeProvisioningArtifactInput;
-export type DescribeProvisioningArtifactCommandOutput = DescribeProvisioningArtifactOutput &
-  __MetadataBearer;
+export type DescribeProvisioningArtifactCommandOutput = DescribeProvisioningArtifactOutput & __MetadataBearer;
 
 export class DescribeProvisioningArtifactCommand extends $Command<
   DescribeProvisioningArtifactCommandInput,
@@ -49,18 +38,13 @@ export class DescribeProvisioningArtifactCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeProvisioningArtifactCommandInput,
-    DescribeProvisioningArtifactCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeProvisioningArtifactCommandInput, DescribeProvisioningArtifactCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class DescribeProvisioningArtifactCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeProvisioningArtifactCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProvisioningArtifactCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeProvisioningArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeProvisioningArtifactCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1DescribeProvisioningArtifactCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

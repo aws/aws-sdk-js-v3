@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -43,7 +39,7 @@ export interface ActivityTask {
 
 export namespace ActivityTask {
   export const filterSensitiveLog = (obj: ActivityTask): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ActivityTask => __isa(o, "ActivityTask");
 }
@@ -77,10 +73,8 @@ export interface ActivityTaskCanceledEventAttributes {
 }
 
 export namespace ActivityTaskCanceledEventAttributes {
-  export const filterSensitiveLog = (
-    obj: ActivityTaskCanceledEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ActivityTaskCanceledEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ActivityTaskCanceledEventAttributes =>
     __isa(o, "ActivityTaskCanceledEventAttributes");
@@ -104,14 +98,10 @@ export interface ActivityTaskCancelRequestedEventAttributes {
 }
 
 export namespace ActivityTaskCancelRequestedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: ActivityTaskCancelRequestedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ActivityTaskCancelRequestedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ActivityTaskCancelRequestedEventAttributes =>
+  export const isa = (o: any): o is ActivityTaskCancelRequestedEventAttributes =>
     __isa(o, "ActivityTaskCancelRequestedEventAttributes");
 }
 
@@ -139,10 +129,8 @@ export interface ActivityTaskCompletedEventAttributes {
 }
 
 export namespace ActivityTaskCompletedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: ActivityTaskCompletedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ActivityTaskCompletedEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ActivityTaskCompletedEventAttributes =>
     __isa(o, "ActivityTaskCompletedEventAttributes");
@@ -177,13 +165,10 @@ export interface ActivityTaskFailedEventAttributes {
 }
 
 export namespace ActivityTaskFailedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: ActivityTaskFailedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ActivityTaskFailedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ActivityTaskFailedEventAttributes =>
-    __isa(o, "ActivityTaskFailedEventAttributes");
+  export const isa = (o: any): o is ActivityTaskFailedEventAttributes => __isa(o, "ActivityTaskFailedEventAttributes");
 }
 
 /**
@@ -255,10 +240,8 @@ export interface ActivityTaskScheduledEventAttributes {
 }
 
 export namespace ActivityTaskScheduledEventAttributes {
-  export const filterSensitiveLog = (
-    obj: ActivityTaskScheduledEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ActivityTaskScheduledEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ActivityTaskScheduledEventAttributes =>
     __isa(o, "ActivityTaskScheduledEventAttributes");
@@ -281,10 +264,8 @@ export interface ActivityTaskStartedEventAttributes {
 }
 
 export namespace ActivityTaskStartedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: ActivityTaskStartedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ActivityTaskStartedEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ActivityTaskStartedEventAttributes =>
     __isa(o, "ActivityTaskStartedEventAttributes");
@@ -303,10 +284,9 @@ export interface ActivityTaskStatus {
 
 export namespace ActivityTaskStatus {
   export const filterSensitiveLog = (obj: ActivityTaskStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ActivityTaskStatus =>
-    __isa(o, "ActivityTaskStatus");
+  export const isa = (o: any): o is ActivityTaskStatus => __isa(o, "ActivityTaskStatus");
 }
 
 /**
@@ -339,20 +319,14 @@ export interface ActivityTaskTimedOutEventAttributes {
 }
 
 export namespace ActivityTaskTimedOutEventAttributes {
-  export const filterSensitiveLog = (
-    obj: ActivityTaskTimedOutEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ActivityTaskTimedOutEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ActivityTaskTimedOutEventAttributes =>
     __isa(o, "ActivityTaskTimedOutEventAttributes");
 }
 
-export type ActivityTaskTimeoutType =
-  | "HEARTBEAT"
-  | "SCHEDULE_TO_CLOSE"
-  | "SCHEDULE_TO_START"
-  | "START_TO_CLOSE";
+export type ActivityTaskTimeoutType = "HEARTBEAT" | "SCHEDULE_TO_CLOSE" | "SCHEDULE_TO_START" | "START_TO_CLOSE";
 
 /**
  * <p>Represents an activity type.</p>
@@ -378,7 +352,7 @@ export interface ActivityType {
 
 export namespace ActivityType {
   export const filterSensitiveLog = (obj: ActivityType): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ActivityType => __isa(o, "ActivityType");
 }
@@ -454,10 +428,9 @@ export interface ActivityTypeConfiguration {
 
 export namespace ActivityTypeConfiguration {
   export const filterSensitiveLog = (obj: ActivityTypeConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ActivityTypeConfiguration =>
-    __isa(o, "ActivityTypeConfiguration");
+  export const isa = (o: any): o is ActivityTypeConfiguration => __isa(o, "ActivityTypeConfiguration");
 }
 
 /**
@@ -494,10 +467,9 @@ export interface ActivityTypeDetail {
 
 export namespace ActivityTypeDetail {
   export const filterSensitiveLog = (obj: ActivityTypeDetail): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ActivityTypeDetail =>
-    __isa(o, "ActivityTypeDetail");
+  export const isa = (o: any): o is ActivityTypeDetail => __isa(o, "ActivityTypeDetail");
 }
 
 /**
@@ -533,10 +505,9 @@ export interface ActivityTypeInfo {
 
 export namespace ActivityTypeInfo {
   export const filterSensitiveLog = (obj: ActivityTypeInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ActivityTypeInfo =>
-    __isa(o, "ActivityTypeInfo");
+  export const isa = (o: any): o is ActivityTypeInfo => __isa(o, "ActivityTypeInfo");
 }
 
 /**
@@ -560,10 +531,9 @@ export interface ActivityTypeInfos {
 
 export namespace ActivityTypeInfos {
   export const filterSensitiveLog = (obj: ActivityTypeInfos): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ActivityTypeInfos =>
-    __isa(o, "ActivityTypeInfos");
+  export const isa = (o: any): o is ActivityTypeInfos => __isa(o, "ActivityTypeInfos");
 }
 
 /**
@@ -599,18 +569,13 @@ export interface CancelTimerDecisionAttributes {
 }
 
 export namespace CancelTimerDecisionAttributes {
-  export const filterSensitiveLog = (
-    obj: CancelTimerDecisionAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CancelTimerDecisionAttributes): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CancelTimerDecisionAttributes =>
-    __isa(o, "CancelTimerDecisionAttributes");
+  export const isa = (o: any): o is CancelTimerDecisionAttributes => __isa(o, "CancelTimerDecisionAttributes");
 }
 
-export type CancelTimerFailedCause =
-  | "OPERATION_NOT_PERMITTED"
-  | "TIMER_ID_UNKNOWN";
+export type CancelTimerFailedCause = "OPERATION_NOT_PERMITTED" | "TIMER_ID_UNKNOWN";
 
 /**
  * <p>Provides the details of the <code>CancelTimerFailed</code> event.</p>
@@ -639,13 +604,10 @@ export interface CancelTimerFailedEventAttributes {
 }
 
 export namespace CancelTimerFailedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: CancelTimerFailedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CancelTimerFailedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CancelTimerFailedEventAttributes =>
-    __isa(o, "CancelTimerFailedEventAttributes");
+  export const isa = (o: any): o is CancelTimerFailedEventAttributes => __isa(o, "CancelTimerFailedEventAttributes");
 }
 
 /**
@@ -681,18 +643,14 @@ export interface CancelWorkflowExecutionDecisionAttributes {
 }
 
 export namespace CancelWorkflowExecutionDecisionAttributes {
-  export const filterSensitiveLog = (
-    obj: CancelWorkflowExecutionDecisionAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CancelWorkflowExecutionDecisionAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CancelWorkflowExecutionDecisionAttributes =>
     __isa(o, "CancelWorkflowExecutionDecisionAttributes");
 }
 
-export type CancelWorkflowExecutionFailedCause =
-  | "OPERATION_NOT_PERMITTED"
-  | "UNHANDLED_DECISION";
+export type CancelWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "UNHANDLED_DECISION";
 
 /**
  * <p>Provides the details of the <code>CancelWorkflowExecutionFailed</code> event.</p>
@@ -716,14 +674,10 @@ export interface CancelWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace CancelWorkflowExecutionFailedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: CancelWorkflowExecutionFailedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CancelWorkflowExecutionFailedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CancelWorkflowExecutionFailedEventAttributes =>
+  export const isa = (o: any): o is CancelWorkflowExecutionFailedEventAttributes =>
     __isa(o, "CancelWorkflowExecutionFailedEventAttributes");
 }
 
@@ -767,14 +721,10 @@ export interface ChildWorkflowExecutionCanceledEventAttributes {
 }
 
 export namespace ChildWorkflowExecutionCanceledEventAttributes {
-  export const filterSensitiveLog = (
-    obj: ChildWorkflowExecutionCanceledEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ChildWorkflowExecutionCanceledEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ChildWorkflowExecutionCanceledEventAttributes =>
+  export const isa = (o: any): o is ChildWorkflowExecutionCanceledEventAttributes =>
     __isa(o, "ChildWorkflowExecutionCanceledEventAttributes");
 }
 
@@ -813,14 +763,10 @@ export interface ChildWorkflowExecutionCompletedEventAttributes {
 }
 
 export namespace ChildWorkflowExecutionCompletedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: ChildWorkflowExecutionCompletedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ChildWorkflowExecutionCompletedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ChildWorkflowExecutionCompletedEventAttributes =>
+  export const isa = (o: any): o is ChildWorkflowExecutionCompletedEventAttributes =>
     __isa(o, "ChildWorkflowExecutionCompletedEventAttributes");
 }
 
@@ -867,14 +813,10 @@ export interface ChildWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace ChildWorkflowExecutionFailedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: ChildWorkflowExecutionFailedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ChildWorkflowExecutionFailedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ChildWorkflowExecutionFailedEventAttributes =>
+  export const isa = (o: any): o is ChildWorkflowExecutionFailedEventAttributes =>
     __isa(o, "ChildWorkflowExecutionFailedEventAttributes");
 }
 
@@ -904,14 +846,10 @@ export interface ChildWorkflowExecutionStartedEventAttributes {
 }
 
 export namespace ChildWorkflowExecutionStartedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: ChildWorkflowExecutionStartedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ChildWorkflowExecutionStartedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ChildWorkflowExecutionStartedEventAttributes =>
+  export const isa = (o: any): o is ChildWorkflowExecutionStartedEventAttributes =>
     __isa(o, "ChildWorkflowExecutionStartedEventAttributes");
 }
 
@@ -948,14 +886,10 @@ export interface ChildWorkflowExecutionTerminatedEventAttributes {
 }
 
 export namespace ChildWorkflowExecutionTerminatedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: ChildWorkflowExecutionTerminatedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ChildWorkflowExecutionTerminatedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ChildWorkflowExecutionTerminatedEventAttributes =>
+  export const isa = (o: any): o is ChildWorkflowExecutionTerminatedEventAttributes =>
     __isa(o, "ChildWorkflowExecutionTerminatedEventAttributes");
 }
 
@@ -996,24 +930,14 @@ export interface ChildWorkflowExecutionTimedOutEventAttributes {
 }
 
 export namespace ChildWorkflowExecutionTimedOutEventAttributes {
-  export const filterSensitiveLog = (
-    obj: ChildWorkflowExecutionTimedOutEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ChildWorkflowExecutionTimedOutEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ChildWorkflowExecutionTimedOutEventAttributes =>
+  export const isa = (o: any): o is ChildWorkflowExecutionTimedOutEventAttributes =>
     __isa(o, "ChildWorkflowExecutionTimedOutEventAttributes");
 }
 
-export type CloseStatus =
-  | "CANCELED"
-  | "COMPLETED"
-  | "CONTINUED_AS_NEW"
-  | "FAILED"
-  | "TERMINATED"
-  | "TIMED_OUT";
+export type CloseStatus = "CANCELED" | "COMPLETED" | "CONTINUED_AS_NEW" | "FAILED" | "TERMINATED" | "TIMED_OUT";
 
 /**
  * <p>Used to filter the closed workflow executions in visibility APIs by their close status.</p>
@@ -1030,10 +954,9 @@ export interface CloseStatusFilter {
 
 export namespace CloseStatusFilter {
   export const filterSensitiveLog = (obj: CloseStatusFilter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CloseStatusFilter =>
-    __isa(o, "CloseStatusFilter");
+  export const isa = (o: any): o is CloseStatusFilter => __isa(o, "CloseStatusFilter");
 }
 
 /**
@@ -1068,20 +991,14 @@ export interface CompleteWorkflowExecutionDecisionAttributes {
 }
 
 export namespace CompleteWorkflowExecutionDecisionAttributes {
-  export const filterSensitiveLog = (
-    obj: CompleteWorkflowExecutionDecisionAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CompleteWorkflowExecutionDecisionAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CompleteWorkflowExecutionDecisionAttributes =>
+  export const isa = (o: any): o is CompleteWorkflowExecutionDecisionAttributes =>
     __isa(o, "CompleteWorkflowExecutionDecisionAttributes");
 }
 
-export type CompleteWorkflowExecutionFailedCause =
-  | "OPERATION_NOT_PERMITTED"
-  | "UNHANDLED_DECISION";
+export type CompleteWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "UNHANDLED_DECISION";
 
 /**
  * <p>Provides the details of the <code>CompleteWorkflowExecutionFailed</code> event.</p>
@@ -1107,14 +1024,10 @@ export interface CompleteWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace CompleteWorkflowExecutionFailedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: CompleteWorkflowExecutionFailedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CompleteWorkflowExecutionFailedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CompleteWorkflowExecutionFailedEventAttributes =>
+  export const isa = (o: any): o is CompleteWorkflowExecutionFailedEventAttributes =>
     __isa(o, "CompleteWorkflowExecutionFailedEventAttributes");
 }
 
@@ -1247,14 +1160,10 @@ export interface ContinueAsNewWorkflowExecutionDecisionAttributes {
 }
 
 export namespace ContinueAsNewWorkflowExecutionDecisionAttributes {
-  export const filterSensitiveLog = (
-    obj: ContinueAsNewWorkflowExecutionDecisionAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ContinueAsNewWorkflowExecutionDecisionAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ContinueAsNewWorkflowExecutionDecisionAttributes =>
+  export const isa = (o: any): o is ContinueAsNewWorkflowExecutionDecisionAttributes =>
     __isa(o, "ContinueAsNewWorkflowExecutionDecisionAttributes");
 }
 
@@ -1293,14 +1202,10 @@ export interface ContinueAsNewWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace ContinueAsNewWorkflowExecutionFailedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: ContinueAsNewWorkflowExecutionFailedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ContinueAsNewWorkflowExecutionFailedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ContinueAsNewWorkflowExecutionFailedEventAttributes =>
+  export const isa = (o: any): o is ContinueAsNewWorkflowExecutionFailedEventAttributes =>
     __isa(o, "ContinueAsNewWorkflowExecutionFailedEventAttributes");
 }
 
@@ -1383,10 +1288,8 @@ export interface CountClosedWorkflowExecutionsInput {
 }
 
 export namespace CountClosedWorkflowExecutionsInput {
-  export const filterSensitiveLog = (
-    obj: CountClosedWorkflowExecutionsInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CountClosedWorkflowExecutionsInput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CountClosedWorkflowExecutionsInput =>
     __isa(o, "CountClosedWorkflowExecutionsInput");
@@ -1439,13 +1342,10 @@ export interface CountOpenWorkflowExecutionsInput {
 }
 
 export namespace CountOpenWorkflowExecutionsInput {
-  export const filterSensitiveLog = (
-    obj: CountOpenWorkflowExecutionsInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CountOpenWorkflowExecutionsInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CountOpenWorkflowExecutionsInput =>
-    __isa(o, "CountOpenWorkflowExecutionsInput");
+  export const isa = (o: any): o is CountOpenWorkflowExecutionsInput => __isa(o, "CountOpenWorkflowExecutionsInput");
 }
 
 export interface CountPendingActivityTasksInput {
@@ -1462,13 +1362,10 @@ export interface CountPendingActivityTasksInput {
 }
 
 export namespace CountPendingActivityTasksInput {
-  export const filterSensitiveLog = (
-    obj: CountPendingActivityTasksInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CountPendingActivityTasksInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CountPendingActivityTasksInput =>
-    __isa(o, "CountPendingActivityTasksInput");
+  export const isa = (o: any): o is CountPendingActivityTasksInput => __isa(o, "CountPendingActivityTasksInput");
 }
 
 export interface CountPendingDecisionTasksInput {
@@ -1485,13 +1382,10 @@ export interface CountPendingDecisionTasksInput {
 }
 
 export namespace CountPendingDecisionTasksInput {
-  export const filterSensitiveLog = (
-    obj: CountPendingDecisionTasksInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CountPendingDecisionTasksInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CountPendingDecisionTasksInput =>
-    __isa(o, "CountPendingDecisionTasksInput");
+  export const isa = (o: any): o is CountPendingDecisionTasksInput => __isa(o, "CountPendingDecisionTasksInput");
 }
 
 /**
@@ -1847,7 +1741,7 @@ export interface Decision {
 
 export namespace Decision {
   export const filterSensitiveLog = (obj: Decision): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Decision => __isa(o, "Decision");
 }
@@ -1898,7 +1792,7 @@ export interface DecisionTask {
 
 export namespace DecisionTask {
   export const filterSensitiveLog = (obj: DecisionTask): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DecisionTask => __isa(o, "DecisionTask");
 }
@@ -1929,10 +1823,8 @@ export interface DecisionTaskCompletedEventAttributes {
 }
 
 export namespace DecisionTaskCompletedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: DecisionTaskCompletedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DecisionTaskCompletedEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DecisionTaskCompletedEventAttributes =>
     __isa(o, "DecisionTaskCompletedEventAttributes");
@@ -1965,10 +1857,8 @@ export interface DecisionTaskScheduledEventAttributes {
 }
 
 export namespace DecisionTaskScheduledEventAttributes {
-  export const filterSensitiveLog = (
-    obj: DecisionTaskScheduledEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DecisionTaskScheduledEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DecisionTaskScheduledEventAttributes =>
     __isa(o, "DecisionTaskScheduledEventAttributes");
@@ -1993,10 +1883,8 @@ export interface DecisionTaskStartedEventAttributes {
 }
 
 export namespace DecisionTaskStartedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: DecisionTaskStartedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DecisionTaskStartedEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DecisionTaskStartedEventAttributes =>
     __isa(o, "DecisionTaskStartedEventAttributes");
@@ -2028,10 +1916,8 @@ export interface DecisionTaskTimedOutEventAttributes {
 }
 
 export namespace DecisionTaskTimedOutEventAttributes {
-  export const filterSensitiveLog = (
-    obj: DecisionTaskTimedOutEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DecisionTaskTimedOutEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DecisionTaskTimedOutEventAttributes =>
     __isa(o, "DecisionTaskTimedOutEventAttributes");
@@ -2067,9 +1953,7 @@ export type DecisionType =
  *         type, this error is displayed.</p>
  *          </note>
  */
-export interface DefaultUndefinedFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DefaultUndefinedFault extends __SmithyException, $MetadataBearer {
   name: "DefaultUndefinedFault";
   $fault: "client";
   message?: string;
@@ -2077,10 +1961,9 @@ export interface DefaultUndefinedFault
 
 export namespace DefaultUndefinedFault {
   export const filterSensitiveLog = (obj: DefaultUndefinedFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DefaultUndefinedFault =>
-    __isa(o, "DefaultUndefinedFault");
+  export const isa = (o: any): o is DefaultUndefinedFault => __isa(o, "DefaultUndefinedFault");
 }
 
 export interface DeprecateActivityTypeInput {
@@ -2098,10 +1981,9 @@ export interface DeprecateActivityTypeInput {
 
 export namespace DeprecateActivityTypeInput {
   export const filterSensitiveLog = (obj: DeprecateActivityTypeInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeprecateActivityTypeInput =>
-    __isa(o, "DeprecateActivityTypeInput");
+  export const isa = (o: any): o is DeprecateActivityTypeInput => __isa(o, "DeprecateActivityTypeInput");
 }
 
 export interface DeprecateDomainInput {
@@ -2114,10 +1996,9 @@ export interface DeprecateDomainInput {
 
 export namespace DeprecateDomainInput {
   export const filterSensitiveLog = (obj: DeprecateDomainInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeprecateDomainInput =>
-    __isa(o, "DeprecateDomainInput");
+  export const isa = (o: any): o is DeprecateDomainInput => __isa(o, "DeprecateDomainInput");
 }
 
 export interface DeprecateWorkflowTypeInput {
@@ -2135,10 +2016,9 @@ export interface DeprecateWorkflowTypeInput {
 
 export namespace DeprecateWorkflowTypeInput {
   export const filterSensitiveLog = (obj: DeprecateWorkflowTypeInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeprecateWorkflowTypeInput =>
-    __isa(o, "DeprecateWorkflowTypeInput");
+  export const isa = (o: any): o is DeprecateWorkflowTypeInput => __isa(o, "DeprecateWorkflowTypeInput");
 }
 
 export interface DescribeActivityTypeInput {
@@ -2158,10 +2038,9 @@ export interface DescribeActivityTypeInput {
 
 export namespace DescribeActivityTypeInput {
   export const filterSensitiveLog = (obj: DescribeActivityTypeInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeActivityTypeInput =>
-    __isa(o, "DescribeActivityTypeInput");
+  export const isa = (o: any): o is DescribeActivityTypeInput => __isa(o, "DescribeActivityTypeInput");
 }
 
 export interface DescribeDomainInput {
@@ -2174,10 +2053,9 @@ export interface DescribeDomainInput {
 
 export namespace DescribeDomainInput {
   export const filterSensitiveLog = (obj: DescribeDomainInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDomainInput =>
-    __isa(o, "DescribeDomainInput");
+  export const isa = (o: any): o is DescribeDomainInput => __isa(o, "DescribeDomainInput");
 }
 
 export interface DescribeWorkflowExecutionInput {
@@ -2194,13 +2072,10 @@ export interface DescribeWorkflowExecutionInput {
 }
 
 export namespace DescribeWorkflowExecutionInput {
-  export const filterSensitiveLog = (
-    obj: DescribeWorkflowExecutionInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeWorkflowExecutionInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkflowExecutionInput =>
-    __isa(o, "DescribeWorkflowExecutionInput");
+  export const isa = (o: any): o is DescribeWorkflowExecutionInput => __isa(o, "DescribeWorkflowExecutionInput");
 }
 
 export interface DescribeWorkflowTypeInput {
@@ -2218,18 +2093,15 @@ export interface DescribeWorkflowTypeInput {
 
 export namespace DescribeWorkflowTypeInput {
   export const filterSensitiveLog = (obj: DescribeWorkflowTypeInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkflowTypeInput =>
-    __isa(o, "DescribeWorkflowTypeInput");
+  export const isa = (o: any): o is DescribeWorkflowTypeInput => __isa(o, "DescribeWorkflowTypeInput");
 }
 
 /**
  * <p>Returned if the domain already exists. You may get this fault if you are registering a domain that is either already registered or deprecated, or if you undeprecate a domain that is currently registered.</p>
  */
-export interface DomainAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DomainAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "DomainAlreadyExistsFault";
   $fault: "client";
   /**
@@ -2240,10 +2112,9 @@ export interface DomainAlreadyExistsFault
 
 export namespace DomainAlreadyExistsFault {
   export const filterSensitiveLog = (obj: DomainAlreadyExistsFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DomainAlreadyExistsFault =>
-    __isa(o, "DomainAlreadyExistsFault");
+  export const isa = (o: any): o is DomainAlreadyExistsFault => __isa(o, "DomainAlreadyExistsFault");
 }
 
 /**
@@ -2259,18 +2130,15 @@ export interface DomainConfiguration {
 
 export namespace DomainConfiguration {
   export const filterSensitiveLog = (obj: DomainConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DomainConfiguration =>
-    __isa(o, "DomainConfiguration");
+  export const isa = (o: any): o is DomainConfiguration => __isa(o, "DomainConfiguration");
 }
 
 /**
  * <p>Returned when the specified domain has been deprecated.</p>
  */
-export interface DomainDeprecatedFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DomainDeprecatedFault extends __SmithyException, $MetadataBearer {
   name: "DomainDeprecatedFault";
   $fault: "client";
   /**
@@ -2281,10 +2149,9 @@ export interface DomainDeprecatedFault
 
 export namespace DomainDeprecatedFault {
   export const filterSensitiveLog = (obj: DomainDeprecatedFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DomainDeprecatedFault =>
-    __isa(o, "DomainDeprecatedFault");
+  export const isa = (o: any): o is DomainDeprecatedFault => __isa(o, "DomainDeprecatedFault");
 }
 
 /**
@@ -2307,7 +2174,7 @@ export interface DomainDetail {
 
 export namespace DomainDetail {
   export const filterSensitiveLog = (obj: DomainDetail): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DomainDetail => __isa(o, "DomainDetail");
 }
@@ -2354,7 +2221,7 @@ export interface DomainInfo {
 
 export namespace DomainInfo {
   export const filterSensitiveLog = (obj: DomainInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DomainInfo => __isa(o, "DomainInfo");
 }
@@ -2380,7 +2247,7 @@ export interface DomainInfos {
 
 export namespace DomainInfos {
   export const filterSensitiveLog = (obj: DomainInfos): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DomainInfos => __isa(o, "DomainInfos");
 }
@@ -2464,10 +2331,9 @@ export interface ExecutionTimeFilter {
 
 export namespace ExecutionTimeFilter {
   export const filterSensitiveLog = (obj: ExecutionTimeFilter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExecutionTimeFilter =>
-    __isa(o, "ExecutionTimeFilter");
+  export const isa = (o: any): o is ExecutionTimeFilter => __isa(o, "ExecutionTimeFilter");
 }
 
 /**
@@ -2490,14 +2356,10 @@ export interface ExternalWorkflowExecutionCancelRequestedEventAttributes {
 }
 
 export namespace ExternalWorkflowExecutionCancelRequestedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: ExternalWorkflowExecutionCancelRequestedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ExternalWorkflowExecutionCancelRequestedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ExternalWorkflowExecutionCancelRequestedEventAttributes =>
+  export const isa = (o: any): o is ExternalWorkflowExecutionCancelRequestedEventAttributes =>
     __isa(o, "ExternalWorkflowExecutionCancelRequestedEventAttributes");
 }
 
@@ -2520,14 +2382,10 @@ export interface ExternalWorkflowExecutionSignaledEventAttributes {
 }
 
 export namespace ExternalWorkflowExecutionSignaledEventAttributes {
-  export const filterSensitiveLog = (
-    obj: ExternalWorkflowExecutionSignaledEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ExternalWorkflowExecutionSignaledEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ExternalWorkflowExecutionSignaledEventAttributes =>
+  export const isa = (o: any): o is ExternalWorkflowExecutionSignaledEventAttributes =>
     __isa(o, "ExternalWorkflowExecutionSignaledEventAttributes");
 }
 
@@ -2570,18 +2428,14 @@ export interface FailWorkflowExecutionDecisionAttributes {
 }
 
 export namespace FailWorkflowExecutionDecisionAttributes {
-  export const filterSensitiveLog = (
-    obj: FailWorkflowExecutionDecisionAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: FailWorkflowExecutionDecisionAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is FailWorkflowExecutionDecisionAttributes =>
     __isa(o, "FailWorkflowExecutionDecisionAttributes");
 }
 
-export type FailWorkflowExecutionFailedCause =
-  | "OPERATION_NOT_PERMITTED"
-  | "UNHANDLED_DECISION";
+export type FailWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "UNHANDLED_DECISION";
 
 /**
  * <p>Provides the details of the <code>FailWorkflowExecutionFailed</code> event.</p>
@@ -2607,14 +2461,10 @@ export interface FailWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace FailWorkflowExecutionFailedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: FailWorkflowExecutionFailedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: FailWorkflowExecutionFailedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is FailWorkflowExecutionFailedEventAttributes =>
+  export const isa = (o: any): o is FailWorkflowExecutionFailedEventAttributes =>
     __isa(o, "FailWorkflowExecutionFailedEventAttributes");
 }
 
@@ -2657,13 +2507,10 @@ export interface GetWorkflowExecutionHistoryInput {
 }
 
 export namespace GetWorkflowExecutionHistoryInput {
-  export const filterSensitiveLog = (
-    obj: GetWorkflowExecutionHistoryInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetWorkflowExecutionHistoryInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetWorkflowExecutionHistoryInput =>
-    __isa(o, "GetWorkflowExecutionHistoryInput");
+  export const isa = (o: any): o is GetWorkflowExecutionHistoryInput => __isa(o, "GetWorkflowExecutionHistoryInput");
 }
 
 /**
@@ -2687,7 +2534,7 @@ export interface History {
 
 export namespace History {
   export const filterSensitiveLog = (obj: History): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is History => __isa(o, "History");
 }
@@ -3256,7 +3103,7 @@ export interface HistoryEvent {
 
 export namespace HistoryEvent {
   export const filterSensitiveLog = (obj: HistoryEvent): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is HistoryEvent => __isa(o, "HistoryEvent");
 }
@@ -3286,10 +3133,8 @@ export interface LambdaFunctionCompletedEventAttributes {
 }
 
 export namespace LambdaFunctionCompletedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: LambdaFunctionCompletedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LambdaFunctionCompletedEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is LambdaFunctionCompletedEventAttributes =>
     __isa(o, "LambdaFunctionCompletedEventAttributes");
@@ -3325,10 +3170,8 @@ export interface LambdaFunctionFailedEventAttributes {
 }
 
 export namespace LambdaFunctionFailedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: LambdaFunctionFailedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LambdaFunctionFailedEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is LambdaFunctionFailedEventAttributes =>
     __isa(o, "LambdaFunctionFailedEventAttributes");
@@ -3374,10 +3217,8 @@ export interface LambdaFunctionScheduledEventAttributes {
 }
 
 export namespace LambdaFunctionScheduledEventAttributes {
-  export const filterSensitiveLog = (
-    obj: LambdaFunctionScheduledEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LambdaFunctionScheduledEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is LambdaFunctionScheduledEventAttributes =>
     __isa(o, "LambdaFunctionScheduledEventAttributes");
@@ -3397,10 +3238,8 @@ export interface LambdaFunctionStartedEventAttributes {
 }
 
 export namespace LambdaFunctionStartedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: LambdaFunctionStartedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LambdaFunctionStartedEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is LambdaFunctionStartedEventAttributes =>
     __isa(o, "LambdaFunctionStartedEventAttributes");
@@ -3430,10 +3269,8 @@ export interface LambdaFunctionTimedOutEventAttributes {
 }
 
 export namespace LambdaFunctionTimedOutEventAttributes {
-  export const filterSensitiveLog = (
-    obj: LambdaFunctionTimedOutEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LambdaFunctionTimedOutEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is LambdaFunctionTimedOutEventAttributes =>
     __isa(o, "LambdaFunctionTimedOutEventAttributes");
@@ -3455,10 +3292,9 @@ export interface LimitExceededFault extends __SmithyException, $MetadataBearer {
 
 export namespace LimitExceededFault {
   export const filterSensitiveLog = (obj: LimitExceededFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededFault =>
-    __isa(o, "LimitExceededFault");
+  export const isa = (o: any): o is LimitExceededFault => __isa(o, "LimitExceededFault");
 }
 
 export interface ListActivityTypesInput {
@@ -3506,10 +3342,9 @@ export interface ListActivityTypesInput {
 
 export namespace ListActivityTypesInput {
   export const filterSensitiveLog = (obj: ListActivityTypesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListActivityTypesInput =>
-    __isa(o, "ListActivityTypesInput");
+  export const isa = (o: any): o is ListActivityTypesInput => __isa(o, "ListActivityTypesInput");
 }
 
 export interface ListClosedWorkflowExecutionsInput {
@@ -3618,13 +3453,10 @@ export interface ListClosedWorkflowExecutionsInput {
 }
 
 export namespace ListClosedWorkflowExecutionsInput {
-  export const filterSensitiveLog = (
-    obj: ListClosedWorkflowExecutionsInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListClosedWorkflowExecutionsInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListClosedWorkflowExecutionsInput =>
-    __isa(o, "ListClosedWorkflowExecutionsInput");
+  export const isa = (o: any): o is ListClosedWorkflowExecutionsInput => __isa(o, "ListClosedWorkflowExecutionsInput");
 }
 
 export interface ListDomainsInput {
@@ -3662,10 +3494,9 @@ export interface ListDomainsInput {
 
 export namespace ListDomainsInput {
   export const filterSensitiveLog = (obj: ListDomainsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListDomainsInput =>
-    __isa(o, "ListDomainsInput");
+  export const isa = (o: any): o is ListDomainsInput => __isa(o, "ListDomainsInput");
 }
 
 export interface ListOpenWorkflowExecutionsInput {
@@ -3739,13 +3570,10 @@ export interface ListOpenWorkflowExecutionsInput {
 }
 
 export namespace ListOpenWorkflowExecutionsInput {
-  export const filterSensitiveLog = (
-    obj: ListOpenWorkflowExecutionsInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListOpenWorkflowExecutionsInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListOpenWorkflowExecutionsInput =>
-    __isa(o, "ListOpenWorkflowExecutionsInput");
+  export const isa = (o: any): o is ListOpenWorkflowExecutionsInput => __isa(o, "ListOpenWorkflowExecutionsInput");
 }
 
 export interface ListTagsForResourceInput {
@@ -3758,10 +3586,9 @@ export interface ListTagsForResourceInput {
 
 export namespace ListTagsForResourceInput {
   export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceInput =>
-    __isa(o, "ListTagsForResourceInput");
+  export const isa = (o: any): o is ListTagsForResourceInput => __isa(o, "ListTagsForResourceInput");
 }
 
 export interface ListTagsForResourceOutput {
@@ -3774,10 +3601,9 @@ export interface ListTagsForResourceOutput {
 
 export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceOutput =>
-    __isa(o, "ListTagsForResourceOutput");
+  export const isa = (o: any): o is ListTagsForResourceOutput => __isa(o, "ListTagsForResourceOutput");
 }
 
 export interface ListWorkflowTypesInput {
@@ -3825,10 +3651,9 @@ export interface ListWorkflowTypesInput {
 
 export namespace ListWorkflowTypesInput {
   export const filterSensitiveLog = (obj: ListWorkflowTypesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListWorkflowTypesInput =>
-    __isa(o, "ListWorkflowTypesInput");
+  export const isa = (o: any): o is ListWorkflowTypesInput => __isa(o, "ListWorkflowTypesInput");
 }
 
 /**
@@ -3855,21 +3680,16 @@ export interface MarkerRecordedEventAttributes {
 }
 
 export namespace MarkerRecordedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: MarkerRecordedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MarkerRecordedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MarkerRecordedEventAttributes =>
-    __isa(o, "MarkerRecordedEventAttributes");
+  export const isa = (o: any): o is MarkerRecordedEventAttributes => __isa(o, "MarkerRecordedEventAttributes");
 }
 
 /**
  * <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
  */
-export interface OperationNotPermittedFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OperationNotPermittedFault extends __SmithyException, $MetadataBearer {
   name: "OperationNotPermittedFault";
   $fault: "client";
   /**
@@ -3880,10 +3700,9 @@ export interface OperationNotPermittedFault
 
 export namespace OperationNotPermittedFault {
   export const filterSensitiveLog = (obj: OperationNotPermittedFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OperationNotPermittedFault =>
-    __isa(o, "OperationNotPermittedFault");
+  export const isa = (o: any): o is OperationNotPermittedFault => __isa(o, "OperationNotPermittedFault");
 }
 
 /**
@@ -3904,10 +3723,9 @@ export interface PendingTaskCount {
 
 export namespace PendingTaskCount {
   export const filterSensitiveLog = (obj: PendingTaskCount): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PendingTaskCount =>
-    __isa(o, "PendingTaskCount");
+  export const isa = (o: any): o is PendingTaskCount => __isa(o, "PendingTaskCount");
 }
 
 export interface PollForActivityTaskInput {
@@ -3937,10 +3755,9 @@ export interface PollForActivityTaskInput {
 
 export namespace PollForActivityTaskInput {
   export const filterSensitiveLog = (obj: PollForActivityTaskInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PollForActivityTaskInput =>
-    __isa(o, "PollForActivityTaskInput");
+  export const isa = (o: any): o is PollForActivityTaskInput => __isa(o, "PollForActivityTaskInput");
 }
 
 export interface PollForDecisionTaskInput {
@@ -4003,10 +3820,9 @@ export interface PollForDecisionTaskInput {
 
 export namespace PollForDecisionTaskInput {
   export const filterSensitiveLog = (obj: PollForDecisionTaskInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PollForDecisionTaskInput =>
-    __isa(o, "PollForDecisionTaskInput");
+  export const isa = (o: any): o is PollForDecisionTaskInput => __isa(o, "PollForDecisionTaskInput");
 }
 
 export interface RecordActivityTaskHeartbeatInput {
@@ -4029,13 +3845,10 @@ export interface RecordActivityTaskHeartbeatInput {
 }
 
 export namespace RecordActivityTaskHeartbeatInput {
-  export const filterSensitiveLog = (
-    obj: RecordActivityTaskHeartbeatInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RecordActivityTaskHeartbeatInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RecordActivityTaskHeartbeatInput =>
-    __isa(o, "RecordActivityTaskHeartbeatInput");
+  export const isa = (o: any): o is RecordActivityTaskHeartbeatInput => __isa(o, "RecordActivityTaskHeartbeatInput");
 }
 
 /**
@@ -4077,13 +3890,10 @@ export interface RecordMarkerDecisionAttributes {
 }
 
 export namespace RecordMarkerDecisionAttributes {
-  export const filterSensitiveLog = (
-    obj: RecordMarkerDecisionAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RecordMarkerDecisionAttributes): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RecordMarkerDecisionAttributes =>
-    __isa(o, "RecordMarkerDecisionAttributes");
+  export const isa = (o: any): o is RecordMarkerDecisionAttributes => __isa(o, "RecordMarkerDecisionAttributes");
 }
 
 export type RecordMarkerFailedCause = "OPERATION_NOT_PERMITTED";
@@ -4117,13 +3927,10 @@ export interface RecordMarkerFailedEventAttributes {
 }
 
 export namespace RecordMarkerFailedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: RecordMarkerFailedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RecordMarkerFailedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RecordMarkerFailedEventAttributes =>
-    __isa(o, "RecordMarkerFailedEventAttributes");
+  export const isa = (o: any): o is RecordMarkerFailedEventAttributes => __isa(o, "RecordMarkerFailedEventAttributes");
 }
 
 export interface RegisterActivityTypeInput {
@@ -4228,10 +4035,9 @@ export interface RegisterActivityTypeInput {
 
 export namespace RegisterActivityTypeInput {
   export const filterSensitiveLog = (obj: RegisterActivityTypeInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RegisterActivityTypeInput =>
-    __isa(o, "RegisterActivityTypeInput");
+  export const isa = (o: any): o is RegisterActivityTypeInput => __isa(o, "RegisterActivityTypeInput");
 }
 
 export interface RegisterDomainInput {
@@ -4274,10 +4080,9 @@ export interface RegisterDomainInput {
 
 export namespace RegisterDomainInput {
   export const filterSensitiveLog = (obj: RegisterDomainInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RegisterDomainInput =>
-    __isa(o, "RegisterDomainInput");
+  export const isa = (o: any): o is RegisterDomainInput => __isa(o, "RegisterDomainInput");
 }
 
 export interface RegisterWorkflowTypeInput {
@@ -4399,10 +4204,9 @@ export interface RegisterWorkflowTypeInput {
 
 export namespace RegisterWorkflowTypeInput {
   export const filterSensitiveLog = (obj: RegisterWorkflowTypeInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RegisterWorkflowTypeInput =>
-    __isa(o, "RegisterWorkflowTypeInput");
+  export const isa = (o: any): o is RegisterWorkflowTypeInput => __isa(o, "RegisterWorkflowTypeInput");
 }
 
 export type RegistrationStatus = "DEPRECATED" | "REGISTERED";
@@ -4440,20 +4244,14 @@ export interface RequestCancelActivityTaskDecisionAttributes {
 }
 
 export namespace RequestCancelActivityTaskDecisionAttributes {
-  export const filterSensitiveLog = (
-    obj: RequestCancelActivityTaskDecisionAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RequestCancelActivityTaskDecisionAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is RequestCancelActivityTaskDecisionAttributes =>
+  export const isa = (o: any): o is RequestCancelActivityTaskDecisionAttributes =>
     __isa(o, "RequestCancelActivityTaskDecisionAttributes");
 }
 
-export type RequestCancelActivityTaskFailedCause =
-  | "ACTIVITY_ID_UNKNOWN"
-  | "OPERATION_NOT_PERMITTED";
+export type RequestCancelActivityTaskFailedCause = "ACTIVITY_ID_UNKNOWN" | "OPERATION_NOT_PERMITTED";
 
 /**
  * <p>Provides the details of the <code>RequestCancelActivityTaskFailed</code> event.</p>
@@ -4484,14 +4282,10 @@ export interface RequestCancelActivityTaskFailedEventAttributes {
 }
 
 export namespace RequestCancelActivityTaskFailedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: RequestCancelActivityTaskFailedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RequestCancelActivityTaskFailedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is RequestCancelActivityTaskFailedEventAttributes =>
+  export const isa = (o: any): o is RequestCancelActivityTaskFailedEventAttributes =>
     __isa(o, "RequestCancelActivityTaskFailedEventAttributes");
 }
 
@@ -4538,14 +4332,10 @@ export interface RequestCancelExternalWorkflowExecutionDecisionAttributes {
 }
 
 export namespace RequestCancelExternalWorkflowExecutionDecisionAttributes {
-  export const filterSensitiveLog = (
-    obj: RequestCancelExternalWorkflowExecutionDecisionAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RequestCancelExternalWorkflowExecutionDecisionAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is RequestCancelExternalWorkflowExecutionDecisionAttributes =>
+  export const isa = (o: any): o is RequestCancelExternalWorkflowExecutionDecisionAttributes =>
     __isa(o, "RequestCancelExternalWorkflowExecutionDecisionAttributes");
 }
 
@@ -4602,14 +4392,10 @@ export interface RequestCancelExternalWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace RequestCancelExternalWorkflowExecutionFailedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: RequestCancelExternalWorkflowExecutionFailedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RequestCancelExternalWorkflowExecutionFailedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is RequestCancelExternalWorkflowExecutionFailedEventAttributes =>
+  export const isa = (o: any): o is RequestCancelExternalWorkflowExecutionFailedEventAttributes =>
     __isa(o, "RequestCancelExternalWorkflowExecutionFailedEventAttributes");
 }
 
@@ -4643,14 +4429,10 @@ export interface RequestCancelExternalWorkflowExecutionInitiatedEventAttributes 
 }
 
 export namespace RequestCancelExternalWorkflowExecutionInitiatedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RequestCancelExternalWorkflowExecutionInitiatedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is RequestCancelExternalWorkflowExecutionInitiatedEventAttributes =>
+  export const isa = (o: any): o is RequestCancelExternalWorkflowExecutionInitiatedEventAttributes =>
     __isa(o, "RequestCancelExternalWorkflowExecutionInitiatedEventAttributes");
 }
 
@@ -4673,10 +4455,8 @@ export interface RequestCancelWorkflowExecutionInput {
 }
 
 export namespace RequestCancelWorkflowExecutionInput {
-  export const filterSensitiveLog = (
-    obj: RequestCancelWorkflowExecutionInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RequestCancelWorkflowExecutionInput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RequestCancelWorkflowExecutionInput =>
     __isa(o, "RequestCancelWorkflowExecutionInput");
@@ -4702,7 +4482,7 @@ export interface ResourceTag {
 
 export namespace ResourceTag {
   export const filterSensitiveLog = (obj: ResourceTag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ResourceTag => __isa(o, "ResourceTag");
 }
@@ -4727,13 +4507,10 @@ export interface RespondActivityTaskCanceledInput {
 }
 
 export namespace RespondActivityTaskCanceledInput {
-  export const filterSensitiveLog = (
-    obj: RespondActivityTaskCanceledInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RespondActivityTaskCanceledInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RespondActivityTaskCanceledInput =>
-    __isa(o, "RespondActivityTaskCanceledInput");
+  export const isa = (o: any): o is RespondActivityTaskCanceledInput => __isa(o, "RespondActivityTaskCanceledInput");
 }
 
 export interface RespondActivityTaskCompletedInput {
@@ -4757,13 +4534,10 @@ export interface RespondActivityTaskCompletedInput {
 }
 
 export namespace RespondActivityTaskCompletedInput {
-  export const filterSensitiveLog = (
-    obj: RespondActivityTaskCompletedInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RespondActivityTaskCompletedInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RespondActivityTaskCompletedInput =>
-    __isa(o, "RespondActivityTaskCompletedInput");
+  export const isa = (o: any): o is RespondActivityTaskCompletedInput => __isa(o, "RespondActivityTaskCompletedInput");
 }
 
 export interface RespondActivityTaskFailedInput {
@@ -4792,13 +4566,10 @@ export interface RespondActivityTaskFailedInput {
 }
 
 export namespace RespondActivityTaskFailedInput {
-  export const filterSensitiveLog = (
-    obj: RespondActivityTaskFailedInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RespondActivityTaskFailedInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RespondActivityTaskFailedInput =>
-    __isa(o, "RespondActivityTaskFailedInput");
+  export const isa = (o: any): o is RespondActivityTaskFailedInput => __isa(o, "RespondActivityTaskFailedInput");
 }
 
 /**
@@ -4831,13 +4602,10 @@ export interface RespondDecisionTaskCompletedInput {
 }
 
 export namespace RespondDecisionTaskCompletedInput {
-  export const filterSensitiveLog = (
-    obj: RespondDecisionTaskCompletedInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RespondDecisionTaskCompletedInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RespondDecisionTaskCompletedInput =>
-    __isa(o, "RespondDecisionTaskCompletedInput");
+  export const isa = (o: any): o is RespondDecisionTaskCompletedInput => __isa(o, "RespondDecisionTaskCompletedInput");
 }
 
 /**
@@ -4854,7 +4622,7 @@ export interface Run {
 
 export namespace Run {
   export const filterSensitiveLog = (obj: Run): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Run => __isa(o, "Run");
 }
@@ -4988,10 +4756,8 @@ export interface ScheduleActivityTaskDecisionAttributes {
 }
 
 export namespace ScheduleActivityTaskDecisionAttributes {
-  export const filterSensitiveLog = (
-    obj: ScheduleActivityTaskDecisionAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ScheduleActivityTaskDecisionAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ScheduleActivityTaskDecisionAttributes =>
     __isa(o, "ScheduleActivityTaskDecisionAttributes");
@@ -5044,10 +4810,8 @@ export interface ScheduleActivityTaskFailedEventAttributes {
 }
 
 export namespace ScheduleActivityTaskFailedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: ScheduleActivityTaskFailedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ScheduleActivityTaskFailedEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ScheduleActivityTaskFailedEventAttributes =>
     __isa(o, "ScheduleActivityTaskFailedEventAttributes");
@@ -5087,10 +4851,8 @@ export interface ScheduleLambdaFunctionDecisionAttributes {
 }
 
 export namespace ScheduleLambdaFunctionDecisionAttributes {
-  export const filterSensitiveLog = (
-    obj: ScheduleLambdaFunctionDecisionAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ScheduleLambdaFunctionDecisionAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ScheduleLambdaFunctionDecisionAttributes =>
     __isa(o, "ScheduleLambdaFunctionDecisionAttributes");
@@ -5139,14 +4901,10 @@ export interface ScheduleLambdaFunctionFailedEventAttributes {
 }
 
 export namespace ScheduleLambdaFunctionFailedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: ScheduleLambdaFunctionFailedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ScheduleLambdaFunctionFailedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ScheduleLambdaFunctionFailedEventAttributes =>
+  export const isa = (o: any): o is ScheduleLambdaFunctionFailedEventAttributes =>
     __isa(o, "ScheduleLambdaFunctionFailedEventAttributes");
 }
 
@@ -5207,14 +4965,10 @@ export interface SignalExternalWorkflowExecutionDecisionAttributes {
 }
 
 export namespace SignalExternalWorkflowExecutionDecisionAttributes {
-  export const filterSensitiveLog = (
-    obj: SignalExternalWorkflowExecutionDecisionAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SignalExternalWorkflowExecutionDecisionAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is SignalExternalWorkflowExecutionDecisionAttributes =>
+  export const isa = (o: any): o is SignalExternalWorkflowExecutionDecisionAttributes =>
     __isa(o, "SignalExternalWorkflowExecutionDecisionAttributes");
 }
 
@@ -5270,14 +5024,10 @@ export interface SignalExternalWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace SignalExternalWorkflowExecutionFailedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: SignalExternalWorkflowExecutionFailedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SignalExternalWorkflowExecutionFailedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is SignalExternalWorkflowExecutionFailedEventAttributes =>
+  export const isa = (o: any): o is SignalExternalWorkflowExecutionFailedEventAttributes =>
     __isa(o, "SignalExternalWorkflowExecutionFailedEventAttributes");
 }
 
@@ -5320,14 +5070,10 @@ export interface SignalExternalWorkflowExecutionInitiatedEventAttributes {
 }
 
 export namespace SignalExternalWorkflowExecutionInitiatedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: SignalExternalWorkflowExecutionInitiatedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SignalExternalWorkflowExecutionInitiatedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is SignalExternalWorkflowExecutionInitiatedEventAttributes =>
+  export const isa = (o: any): o is SignalExternalWorkflowExecutionInitiatedEventAttributes =>
     __isa(o, "SignalExternalWorkflowExecutionInitiatedEventAttributes");
 }
 
@@ -5361,13 +5107,10 @@ export interface SignalWorkflowExecutionInput {
 }
 
 export namespace SignalWorkflowExecutionInput {
-  export const filterSensitiveLog = (
-    obj: SignalWorkflowExecutionInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SignalWorkflowExecutionInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SignalWorkflowExecutionInput =>
-    __isa(o, "SignalWorkflowExecutionInput");
+  export const isa = (o: any): o is SignalWorkflowExecutionInput => __isa(o, "SignalWorkflowExecutionInput");
 }
 
 /**
@@ -5522,14 +5265,10 @@ export interface StartChildWorkflowExecutionDecisionAttributes {
 }
 
 export namespace StartChildWorkflowExecutionDecisionAttributes {
-  export const filterSensitiveLog = (
-    obj: StartChildWorkflowExecutionDecisionAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartChildWorkflowExecutionDecisionAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is StartChildWorkflowExecutionDecisionAttributes =>
+  export const isa = (o: any): o is StartChildWorkflowExecutionDecisionAttributes =>
     __isa(o, "StartChildWorkflowExecutionDecisionAttributes");
 }
 
@@ -5596,14 +5335,10 @@ export interface StartChildWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace StartChildWorkflowExecutionFailedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: StartChildWorkflowExecutionFailedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartChildWorkflowExecutionFailedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is StartChildWorkflowExecutionFailedEventAttributes =>
+  export const isa = (o: any): o is StartChildWorkflowExecutionFailedEventAttributes =>
     __isa(o, "StartChildWorkflowExecutionFailedEventAttributes");
 }
 
@@ -5701,14 +5436,10 @@ export interface StartChildWorkflowExecutionInitiatedEventAttributes {
 }
 
 export namespace StartChildWorkflowExecutionInitiatedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: StartChildWorkflowExecutionInitiatedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartChildWorkflowExecutionInitiatedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is StartChildWorkflowExecutionInitiatedEventAttributes =>
+  export const isa = (o: any): o is StartChildWorkflowExecutionInitiatedEventAttributes =>
     __isa(o, "StartChildWorkflowExecutionInitiatedEventAttributes");
 }
 
@@ -5744,10 +5475,8 @@ export interface StartLambdaFunctionFailedEventAttributes {
 }
 
 export namespace StartLambdaFunctionFailedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: StartLambdaFunctionFailedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartLambdaFunctionFailedEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is StartLambdaFunctionFailedEventAttributes =>
     __isa(o, "StartLambdaFunctionFailedEventAttributes");
@@ -5800,13 +5529,10 @@ export interface StartTimerDecisionAttributes {
 }
 
 export namespace StartTimerDecisionAttributes {
-  export const filterSensitiveLog = (
-    obj: StartTimerDecisionAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartTimerDecisionAttributes): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StartTimerDecisionAttributes =>
-    __isa(o, "StartTimerDecisionAttributes");
+  export const isa = (o: any): o is StartTimerDecisionAttributes => __isa(o, "StartTimerDecisionAttributes");
 }
 
 export type StartTimerFailedCause =
@@ -5844,13 +5570,10 @@ export interface StartTimerFailedEventAttributes {
 }
 
 export namespace StartTimerFailedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: StartTimerFailedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartTimerFailedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StartTimerFailedEventAttributes =>
-    __isa(o, "StartTimerFailedEventAttributes");
+  export const isa = (o: any): o is StartTimerFailedEventAttributes => __isa(o, "StartTimerFailedEventAttributes");
 }
 
 export interface StartWorkflowExecutionInput {
@@ -5999,13 +5722,10 @@ export interface StartWorkflowExecutionInput {
 }
 
 export namespace StartWorkflowExecutionInput {
-  export const filterSensitiveLog = (
-    obj: StartWorkflowExecutionInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartWorkflowExecutionInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StartWorkflowExecutionInput =>
-    __isa(o, "StartWorkflowExecutionInput");
+  export const isa = (o: any): o is StartWorkflowExecutionInput => __isa(o, "StartWorkflowExecutionInput");
 }
 
 /**
@@ -6024,7 +5744,7 @@ export interface TagFilter {
 
 export namespace TagFilter {
   export const filterSensitiveLog = (obj: TagFilter): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TagFilter => __isa(o, "TagFilter");
 }
@@ -6045,10 +5765,9 @@ export interface TagResourceInput {
 
 export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceInput =>
-    __isa(o, "TagResourceInput");
+  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
 /**
@@ -6064,7 +5783,7 @@ export interface TaskList {
 
 export namespace TaskList {
   export const filterSensitiveLog = (obj: TaskList): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TaskList => __isa(o, "TaskList");
 }
@@ -6129,13 +5848,10 @@ export interface TerminateWorkflowExecutionInput {
 }
 
 export namespace TerminateWorkflowExecutionInput {
-  export const filterSensitiveLog = (
-    obj: TerminateWorkflowExecutionInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TerminateWorkflowExecutionInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TerminateWorkflowExecutionInput =>
-    __isa(o, "TerminateWorkflowExecutionInput");
+  export const isa = (o: any): o is TerminateWorkflowExecutionInput => __isa(o, "TerminateWorkflowExecutionInput");
 }
 
 /**
@@ -6166,13 +5882,10 @@ export interface TimerCanceledEventAttributes {
 }
 
 export namespace TimerCanceledEventAttributes {
-  export const filterSensitiveLog = (
-    obj: TimerCanceledEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TimerCanceledEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TimerCanceledEventAttributes =>
-    __isa(o, "TimerCanceledEventAttributes");
+  export const isa = (o: any): o is TimerCanceledEventAttributes => __isa(o, "TimerCanceledEventAttributes");
 }
 
 /**
@@ -6195,10 +5908,9 @@ export interface TimerFiredEventAttributes {
 
 export namespace TimerFiredEventAttributes {
   export const filterSensitiveLog = (obj: TimerFiredEventAttributes): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TimerFiredEventAttributes =>
-    __isa(o, "TimerFiredEventAttributes");
+  export const isa = (o: any): o is TimerFiredEventAttributes => __isa(o, "TimerFiredEventAttributes");
 }
 
 /**
@@ -6231,13 +5943,10 @@ export interface TimerStartedEventAttributes {
 }
 
 export namespace TimerStartedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: TimerStartedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TimerStartedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TimerStartedEventAttributes =>
-    __isa(o, "TimerStartedEventAttributes");
+  export const isa = (o: any): o is TimerStartedEventAttributes => __isa(o, "TimerStartedEventAttributes");
 }
 
 /**
@@ -6251,18 +5960,15 @@ export interface TooManyTagsFault extends __SmithyException, $MetadataBearer {
 
 export namespace TooManyTagsFault {
   export const filterSensitiveLog = (obj: TooManyTagsFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsFault =>
-    __isa(o, "TooManyTagsFault");
+  export const isa = (o: any): o is TooManyTagsFault => __isa(o, "TooManyTagsFault");
 }
 
 /**
  * <p>Returned if the type already exists in the specified domain. You may get this fault if you are registering a type that is either already registered or deprecated, or if you undeprecate a type that is currently registered.</p>
  */
-export interface TypeAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TypeAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "TypeAlreadyExistsFault";
   $fault: "client";
   /**
@@ -6273,18 +5979,15 @@ export interface TypeAlreadyExistsFault
 
 export namespace TypeAlreadyExistsFault {
   export const filterSensitiveLog = (obj: TypeAlreadyExistsFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TypeAlreadyExistsFault =>
-    __isa(o, "TypeAlreadyExistsFault");
+  export const isa = (o: any): o is TypeAlreadyExistsFault => __isa(o, "TypeAlreadyExistsFault");
 }
 
 /**
  * <p>Returned when the specified activity or workflow type was already deprecated.</p>
  */
-export interface TypeDeprecatedFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TypeDeprecatedFault extends __SmithyException, $MetadataBearer {
   name: "TypeDeprecatedFault";
   $fault: "client";
   /**
@@ -6295,10 +5998,9 @@ export interface TypeDeprecatedFault
 
 export namespace TypeDeprecatedFault {
   export const filterSensitiveLog = (obj: TypeDeprecatedFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TypeDeprecatedFault =>
-    __isa(o, "TypeDeprecatedFault");
+  export const isa = (o: any): o is TypeDeprecatedFault => __isa(o, "TypeDeprecatedFault");
 }
 
 export interface UndeprecateActivityTypeInput {
@@ -6315,13 +6017,10 @@ export interface UndeprecateActivityTypeInput {
 }
 
 export namespace UndeprecateActivityTypeInput {
-  export const filterSensitiveLog = (
-    obj: UndeprecateActivityTypeInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UndeprecateActivityTypeInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UndeprecateActivityTypeInput =>
-    __isa(o, "UndeprecateActivityTypeInput");
+  export const isa = (o: any): o is UndeprecateActivityTypeInput => __isa(o, "UndeprecateActivityTypeInput");
 }
 
 export interface UndeprecateDomainInput {
@@ -6334,10 +6033,9 @@ export interface UndeprecateDomainInput {
 
 export namespace UndeprecateDomainInput {
   export const filterSensitiveLog = (obj: UndeprecateDomainInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UndeprecateDomainInput =>
-    __isa(o, "UndeprecateDomainInput");
+  export const isa = (o: any): o is UndeprecateDomainInput => __isa(o, "UndeprecateDomainInput");
 }
 
 export interface UndeprecateWorkflowTypeInput {
@@ -6354,21 +6052,16 @@ export interface UndeprecateWorkflowTypeInput {
 }
 
 export namespace UndeprecateWorkflowTypeInput {
-  export const filterSensitiveLog = (
-    obj: UndeprecateWorkflowTypeInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UndeprecateWorkflowTypeInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UndeprecateWorkflowTypeInput =>
-    __isa(o, "UndeprecateWorkflowTypeInput");
+  export const isa = (o: any): o is UndeprecateWorkflowTypeInput => __isa(o, "UndeprecateWorkflowTypeInput");
 }
 
 /**
  * <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  */
-export interface UnknownResourceFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnknownResourceFault extends __SmithyException, $MetadataBearer {
   name: "UnknownResourceFault";
   $fault: "client";
   /**
@@ -6379,10 +6072,9 @@ export interface UnknownResourceFault
 
 export namespace UnknownResourceFault {
   export const filterSensitiveLog = (obj: UnknownResourceFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UnknownResourceFault =>
-    __isa(o, "UnknownResourceFault");
+  export const isa = (o: any): o is UnknownResourceFault => __isa(o, "UnknownResourceFault");
 }
 
 export interface UntagResourceInput {
@@ -6400,10 +6092,9 @@ export interface UntagResourceInput {
 
 export namespace UntagResourceInput {
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceInput =>
-    __isa(o, "UntagResourceInput");
+  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
 /**
@@ -6424,19 +6115,16 @@ export interface WorkflowExecution {
 
 export namespace WorkflowExecution {
   export const filterSensitiveLog = (obj: WorkflowExecution): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecution =>
-    __isa(o, "WorkflowExecution");
+  export const isa = (o: any): o is WorkflowExecution => __isa(o, "WorkflowExecution");
 }
 
 /**
  * <p>Returned by <a>StartWorkflowExecution</a> when an open execution with the same workflowId is already running in
  *       the specified domain.</p>
  */
-export interface WorkflowExecutionAlreadyStartedFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WorkflowExecutionAlreadyStartedFault extends __SmithyException, $MetadataBearer {
   name: "WorkflowExecutionAlreadyStartedFault";
   $fault: "client";
   /**
@@ -6446,10 +6134,8 @@ export interface WorkflowExecutionAlreadyStartedFault
 }
 
 export namespace WorkflowExecutionAlreadyStartedFault {
-  export const filterSensitiveLog = (
-    obj: WorkflowExecutionAlreadyStartedFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: WorkflowExecutionAlreadyStartedFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is WorkflowExecutionAlreadyStartedFault =>
     __isa(o, "WorkflowExecutionAlreadyStartedFault");
@@ -6474,10 +6160,8 @@ export interface WorkflowExecutionCanceledEventAttributes {
 }
 
 export namespace WorkflowExecutionCanceledEventAttributes {
-  export const filterSensitiveLog = (
-    obj: WorkflowExecutionCanceledEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: WorkflowExecutionCanceledEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is WorkflowExecutionCanceledEventAttributes =>
     __isa(o, "WorkflowExecutionCanceledEventAttributes");
@@ -6510,14 +6194,10 @@ export interface WorkflowExecutionCancelRequestedEventAttributes {
 }
 
 export namespace WorkflowExecutionCancelRequestedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: WorkflowExecutionCancelRequestedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: WorkflowExecutionCancelRequestedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is WorkflowExecutionCancelRequestedEventAttributes =>
+  export const isa = (o: any): o is WorkflowExecutionCancelRequestedEventAttributes =>
     __isa(o, "WorkflowExecutionCancelRequestedEventAttributes");
 }
 
@@ -6540,10 +6220,8 @@ export interface WorkflowExecutionCompletedEventAttributes {
 }
 
 export namespace WorkflowExecutionCompletedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: WorkflowExecutionCompletedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: WorkflowExecutionCompletedEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is WorkflowExecutionCompletedEventAttributes =>
     __isa(o, "WorkflowExecutionCompletedEventAttributes");
@@ -6608,13 +6286,10 @@ export interface WorkflowExecutionConfiguration {
 }
 
 export namespace WorkflowExecutionConfiguration {
-  export const filterSensitiveLog = (
-    obj: WorkflowExecutionConfiguration
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: WorkflowExecutionConfiguration): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionConfiguration =>
-    __isa(o, "WorkflowExecutionConfiguration");
+  export const isa = (o: any): o is WorkflowExecutionConfiguration => __isa(o, "WorkflowExecutionConfiguration");
 }
 
 /**
@@ -6703,14 +6378,10 @@ export interface WorkflowExecutionContinuedAsNewEventAttributes {
 }
 
 export namespace WorkflowExecutionContinuedAsNewEventAttributes {
-  export const filterSensitiveLog = (
-    obj: WorkflowExecutionContinuedAsNewEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: WorkflowExecutionContinuedAsNewEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is WorkflowExecutionContinuedAsNewEventAttributes =>
+  export const isa = (o: any): o is WorkflowExecutionContinuedAsNewEventAttributes =>
     __isa(o, "WorkflowExecutionContinuedAsNewEventAttributes");
 }
 
@@ -6734,10 +6405,9 @@ export interface WorkflowExecutionCount {
 
 export namespace WorkflowExecutionCount {
   export const filterSensitiveLog = (obj: WorkflowExecutionCount): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionCount =>
-    __isa(o, "WorkflowExecutionCount");
+  export const isa = (o: any): o is WorkflowExecutionCount => __isa(o, "WorkflowExecutionCount");
 }
 
 /**
@@ -6774,10 +6444,9 @@ export interface WorkflowExecutionDetail {
 
 export namespace WorkflowExecutionDetail {
   export const filterSensitiveLog = (obj: WorkflowExecutionDetail): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionDetail =>
-    __isa(o, "WorkflowExecutionDetail");
+  export const isa = (o: any): o is WorkflowExecutionDetail => __isa(o, "WorkflowExecutionDetail");
 }
 
 /**
@@ -6804,10 +6473,8 @@ export interface WorkflowExecutionFailedEventAttributes {
 }
 
 export namespace WorkflowExecutionFailedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: WorkflowExecutionFailedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: WorkflowExecutionFailedEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is WorkflowExecutionFailedEventAttributes =>
     __isa(o, "WorkflowExecutionFailedEventAttributes");
@@ -6826,10 +6493,9 @@ export interface WorkflowExecutionFilter {
 
 export namespace WorkflowExecutionFilter {
   export const filterSensitiveLog = (obj: WorkflowExecutionFilter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionFilter =>
-    __isa(o, "WorkflowExecutionFilter");
+  export const isa = (o: any): o is WorkflowExecutionFilter => __isa(o, "WorkflowExecutionFilter");
 }
 
 /**
@@ -6914,10 +6580,9 @@ export interface WorkflowExecutionInfo {
 
 export namespace WorkflowExecutionInfo {
   export const filterSensitiveLog = (obj: WorkflowExecutionInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionInfo =>
-    __isa(o, "WorkflowExecutionInfo");
+  export const isa = (o: any): o is WorkflowExecutionInfo => __isa(o, "WorkflowExecutionInfo");
 }
 
 /**
@@ -6941,10 +6606,9 @@ export interface WorkflowExecutionInfos {
 
 export namespace WorkflowExecutionInfos {
   export const filterSensitiveLog = (obj: WorkflowExecutionInfos): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionInfos =>
-    __isa(o, "WorkflowExecutionInfos");
+  export const isa = (o: any): o is WorkflowExecutionInfos => __isa(o, "WorkflowExecutionInfos");
 }
 
 /**
@@ -6979,13 +6643,10 @@ export interface WorkflowExecutionOpenCounts {
 }
 
 export namespace WorkflowExecutionOpenCounts {
-  export const filterSensitiveLog = (
-    obj: WorkflowExecutionOpenCounts
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: WorkflowExecutionOpenCounts): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionOpenCounts =>
-    __isa(o, "WorkflowExecutionOpenCounts");
+  export const isa = (o: any): o is WorkflowExecutionOpenCounts => __isa(o, "WorkflowExecutionOpenCounts");
 }
 
 /**
@@ -7019,10 +6680,8 @@ export interface WorkflowExecutionSignaledEventAttributes {
 }
 
 export namespace WorkflowExecutionSignaledEventAttributes {
-  export const filterSensitiveLog = (
-    obj: WorkflowExecutionSignaledEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: WorkflowExecutionSignaledEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is WorkflowExecutionSignaledEventAttributes =>
     __isa(o, "WorkflowExecutionSignaledEventAttributes");
@@ -7121,19 +6780,14 @@ export interface WorkflowExecutionStartedEventAttributes {
 }
 
 export namespace WorkflowExecutionStartedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: WorkflowExecutionStartedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: WorkflowExecutionStartedEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is WorkflowExecutionStartedEventAttributes =>
     __isa(o, "WorkflowExecutionStartedEventAttributes");
 }
 
-export type WorkflowExecutionTerminatedCause =
-  | "CHILD_POLICY_APPLIED"
-  | "EVENT_LIMIT_EXCEEDED"
-  | "OPERATOR_INITIATED";
+export type WorkflowExecutionTerminatedCause = "CHILD_POLICY_APPLIED" | "EVENT_LIMIT_EXCEEDED" | "OPERATOR_INITIATED";
 
 /**
  * <p>Provides the details of the <code>WorkflowExecutionTerminated</code> event.</p>
@@ -7179,14 +6833,10 @@ export interface WorkflowExecutionTerminatedEventAttributes {
 }
 
 export namespace WorkflowExecutionTerminatedEventAttributes {
-  export const filterSensitiveLog = (
-    obj: WorkflowExecutionTerminatedEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: WorkflowExecutionTerminatedEventAttributes): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is WorkflowExecutionTerminatedEventAttributes =>
+  export const isa = (o: any): o is WorkflowExecutionTerminatedEventAttributes =>
     __isa(o, "WorkflowExecutionTerminatedEventAttributes");
 }
 
@@ -7224,10 +6874,8 @@ export interface WorkflowExecutionTimedOutEventAttributes {
 }
 
 export namespace WorkflowExecutionTimedOutEventAttributes {
-  export const filterSensitiveLog = (
-    obj: WorkflowExecutionTimedOutEventAttributes
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: WorkflowExecutionTimedOutEventAttributes): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is WorkflowExecutionTimedOutEventAttributes =>
     __isa(o, "WorkflowExecutionTimedOutEventAttributes");
@@ -7261,7 +6909,7 @@ export interface WorkflowType {
 
 export namespace WorkflowType {
   export const filterSensitiveLog = (obj: WorkflowType): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is WorkflowType => __isa(o, "WorkflowType");
 }
@@ -7354,10 +7002,9 @@ export interface WorkflowTypeConfiguration {
 
 export namespace WorkflowTypeConfiguration {
   export const filterSensitiveLog = (obj: WorkflowTypeConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is WorkflowTypeConfiguration =>
-    __isa(o, "WorkflowTypeConfiguration");
+  export const isa = (o: any): o is WorkflowTypeConfiguration => __isa(o, "WorkflowTypeConfiguration");
 }
 
 /**
@@ -7391,10 +7038,9 @@ export interface WorkflowTypeDetail {
 
 export namespace WorkflowTypeDetail {
   export const filterSensitiveLog = (obj: WorkflowTypeDetail): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is WorkflowTypeDetail =>
-    __isa(o, "WorkflowTypeDetail");
+  export const isa = (o: any): o is WorkflowTypeDetail => __isa(o, "WorkflowTypeDetail");
 }
 
 /**
@@ -7416,10 +7062,9 @@ export interface WorkflowTypeFilter {
 
 export namespace WorkflowTypeFilter {
   export const filterSensitiveLog = (obj: WorkflowTypeFilter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is WorkflowTypeFilter =>
-    __isa(o, "WorkflowTypeFilter");
+  export const isa = (o: any): o is WorkflowTypeFilter => __isa(o, "WorkflowTypeFilter");
 }
 
 /**
@@ -7455,10 +7100,9 @@ export interface WorkflowTypeInfo {
 
 export namespace WorkflowTypeInfo {
   export const filterSensitiveLog = (obj: WorkflowTypeInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is WorkflowTypeInfo =>
-    __isa(o, "WorkflowTypeInfo");
+  export const isa = (o: any): o is WorkflowTypeInfo => __isa(o, "WorkflowTypeInfo");
 }
 
 /**
@@ -7482,8 +7126,7 @@ export interface WorkflowTypeInfos {
 
 export namespace WorkflowTypeInfos {
   export const filterSensitiveLog = (obj: WorkflowTypeInfos): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is WorkflowTypeInfos =>
-    __isa(o, "WorkflowTypeInfos");
+  export const isa = (o: any): o is WorkflowTypeInfos => __isa(o, "WorkflowTypeInfos");
 }

@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DescribePendingMaintenanceActionsMessage,
-  PendingMaintenanceActionsMessage
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DescribePendingMaintenanceActionsMessage, PendingMaintenanceActionsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribePendingMaintenanceActionsCommand,
-  serializeAws_queryDescribePendingMaintenanceActionsCommand
+  serializeAws_queryDescribePendingMaintenanceActionsCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribePendingMaintenanceActionsCommandInput = DescribePendingMaintenanceActionsMessage;
-export type DescribePendingMaintenanceActionsCommandOutput = PendingMaintenanceActionsMessage &
-  __MetadataBearer;
+export type DescribePendingMaintenanceActionsCommandOutput = PendingMaintenanceActionsMessage & __MetadataBearer;
 
 export class DescribePendingMaintenanceActionsCommand extends $Command<
   DescribePendingMaintenanceActionsCommandInput,
@@ -49,18 +38,13 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribePendingMaintenanceActionsCommandInput,
-    DescribePendingMaintenanceActionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribePendingMaintenanceActionsCommandInput, DescribePendingMaintenanceActionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +58,14 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
     input: DescribePendingMaintenanceActionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribePendingMaintenanceActionsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribePendingMaintenanceActionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePendingMaintenanceActionsCommandOutput> {
-    return deserializeAws_queryDescribePendingMaintenanceActionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribePendingMaintenanceActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

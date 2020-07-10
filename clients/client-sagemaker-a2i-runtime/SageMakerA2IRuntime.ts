@@ -2,27 +2,27 @@ import { SageMakerA2IRuntimeClient } from "./SageMakerA2IRuntimeClient";
 import {
   DeleteHumanLoopCommand,
   DeleteHumanLoopCommandInput,
-  DeleteHumanLoopCommandOutput
+  DeleteHumanLoopCommandOutput,
 } from "./commands/DeleteHumanLoopCommand";
 import {
   DescribeHumanLoopCommand,
   DescribeHumanLoopCommandInput,
-  DescribeHumanLoopCommandOutput
+  DescribeHumanLoopCommandOutput,
 } from "./commands/DescribeHumanLoopCommand";
 import {
   ListHumanLoopsCommand,
   ListHumanLoopsCommandInput,
-  ListHumanLoopsCommandOutput
+  ListHumanLoopsCommandOutput,
 } from "./commands/ListHumanLoopsCommand";
 import {
   StartHumanLoopCommand,
   StartHumanLoopCommandInput,
-  StartHumanLoopCommandOutput
+  StartHumanLoopCommandOutput,
 } from "./commands/StartHumanLoopCommand";
 import {
   StopHumanLoopCommand,
   StopHumanLoopCommandInput,
-  StopHumanLoopCommandOutput
+  StopHumanLoopCommandOutput,
 } from "./commands/StopHumanLoopCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -56,17 +56,14 @@ export class SageMakerA2IRuntime extends SageMakerA2IRuntimeClient {
   ): void;
   public deleteHumanLoop(
     args: DeleteHumanLoopCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteHumanLoopCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHumanLoopCommandOutput) => void),
     cb?: (err: any, data?: DeleteHumanLoopCommandOutput) => void
   ): Promise<DeleteHumanLoopCommandOutput> | void {
     const command = new DeleteHumanLoopCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -91,17 +88,14 @@ export class SageMakerA2IRuntime extends SageMakerA2IRuntimeClient {
   ): void;
   public describeHumanLoop(
     args: DescribeHumanLoopCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeHumanLoopCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHumanLoopCommandOutput) => void),
     cb?: (err: any, data?: DescribeHumanLoopCommandOutput) => void
   ): Promise<DescribeHumanLoopCommandOutput> | void {
     const command = new DescribeHumanLoopCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -126,17 +120,14 @@ export class SageMakerA2IRuntime extends SageMakerA2IRuntimeClient {
   ): void;
   public listHumanLoops(
     args: ListHumanLoopsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListHumanLoopsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHumanLoopsCommandOutput) => void),
     cb?: (err: any, data?: ListHumanLoopsCommandOutput) => void
   ): Promise<ListHumanLoopsCommandOutput> | void {
     const command = new ListHumanLoopsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -161,17 +152,14 @@ export class SageMakerA2IRuntime extends SageMakerA2IRuntimeClient {
   ): void;
   public startHumanLoop(
     args: StartHumanLoopCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartHumanLoopCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartHumanLoopCommandOutput) => void),
     cb?: (err: any, data?: StartHumanLoopCommandOutput) => void
   ): Promise<StartHumanLoopCommandOutput> | void {
     const command = new StartHumanLoopCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -196,17 +184,14 @@ export class SageMakerA2IRuntime extends SageMakerA2IRuntimeClient {
   ): void;
   public stopHumanLoop(
     args: StopHumanLoopCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopHumanLoopCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopHumanLoopCommandOutput) => void),
     cb?: (err: any, data?: StopHumanLoopCommandOutput) => void
   ): Promise<StopHumanLoopCommandOutput> | void {
     const command = new StopHumanLoopCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

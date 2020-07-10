@@ -1,21 +1,11 @@
-import {
-  BudgetsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BudgetsClient";
-import {
-  DescribeBudgetPerformanceHistoryRequest,
-  DescribeBudgetPerformanceHistoryResponse
-} from "../models/index";
+import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
+import { DescribeBudgetPerformanceHistoryRequest, DescribeBudgetPerformanceHistoryResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommand,
-  serializeAws_json1_1DescribeBudgetPerformanceHistoryCommand
+  serializeAws_json1_1DescribeBudgetPerformanceHistoryCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeBudgetPerformanceHistoryCommandInput = DescribeBudgetPerformanceHistoryRequest;
-export type DescribeBudgetPerformanceHistoryCommandOutput = DescribeBudgetPerformanceHistoryResponse &
-  __MetadataBearer;
+export type DescribeBudgetPerformanceHistoryCommandOutput = DescribeBudgetPerformanceHistoryResponse & __MetadataBearer;
 
 export class DescribeBudgetPerformanceHistoryCommand extends $Command<
   DescribeBudgetPerformanceHistoryCommandInput,
@@ -49,18 +38,13 @@ export class DescribeBudgetPerformanceHistoryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BudgetsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeBudgetPerformanceHistoryCommandInput,
-    DescribeBudgetPerformanceHistoryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeBudgetPerformanceHistoryCommandInput, DescribeBudgetPerformanceHistoryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +58,14 @@ export class DescribeBudgetPerformanceHistoryCommand extends $Command<
     input: DescribeBudgetPerformanceHistoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBudgetPerformanceHistoryCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeBudgetPerformanceHistoryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBudgetPerformanceHistoryCommandOutput> {
-    return deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

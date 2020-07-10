@@ -1,21 +1,11 @@
-import {
-  DataSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DataSyncClient";
-import {
-  DescribeLocationEfsRequest,
-  DescribeLocationEfsResponse
-} from "../models/index";
+import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
+import { DescribeLocationEfsRequest, DescribeLocationEfsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeLocationEfsCommand,
-  serializeAws_json1_1DescribeLocationEfsCommand
+  serializeAws_json1_1DescribeLocationEfsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeLocationEfsCommandInput = DescribeLocationEfsRequest;
-export type DescribeLocationEfsCommandOutput = DescribeLocationEfsResponse &
-  __MetadataBearer;
+export type DescribeLocationEfsCommandOutput = DescribeLocationEfsResponse & __MetadataBearer;
 
 export class DescribeLocationEfsCommand extends $Command<
   DescribeLocationEfsCommandInput,
@@ -49,18 +38,13 @@ export class DescribeLocationEfsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeLocationEfsCommandInput,
-    DescribeLocationEfsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeLocationEfsCommandInput, DescribeLocationEfsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DescribeLocationEfsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeLocationEfsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeLocationEfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLocationEfsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeLocationEfsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLocationEfsCommandOutput> {
     return deserializeAws_json1_1DescribeLocationEfsCommand(output, context);
   }
 

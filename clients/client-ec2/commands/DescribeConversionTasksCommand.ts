@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeConversionTasksRequest,
-  DescribeConversionTasksResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeConversionTasksRequest, DescribeConversionTasksResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeConversionTasksCommand,
-  serializeAws_ec2DescribeConversionTasksCommand
+  serializeAws_ec2DescribeConversionTasksCommand,
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeConversionTasksCommandInput = DescribeConversionTasksRequest;
-export type DescribeConversionTasksCommandOutput = DescribeConversionTasksResult &
-  __MetadataBearer;
+export type DescribeConversionTasksCommandOutput = DescribeConversionTasksResult & __MetadataBearer;
 
 export class DescribeConversionTasksCommand extends $Command<
   DescribeConversionTasksCommandInput,
@@ -49,18 +38,13 @@ export class DescribeConversionTasksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeConversionTasksCommandInput,
-    DescribeConversionTasksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeConversionTasksCommandInput, DescribeConversionTasksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DescribeConversionTasksCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeConversionTasksCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeConversionTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeConversionTasksCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeConversionTasksCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConversionTasksCommandOutput> {
     return deserializeAws_ec2DescribeConversionTasksCommand(output, context);
   }
 

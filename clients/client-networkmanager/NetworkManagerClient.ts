@@ -1,115 +1,67 @@
 import {
   AssociateCustomerGatewayCommandInput,
-  AssociateCustomerGatewayCommandOutput
+  AssociateCustomerGatewayCommandOutput,
 } from "./commands/AssociateCustomerGatewayCommand";
-import {
-  AssociateLinkCommandInput,
-  AssociateLinkCommandOutput
-} from "./commands/AssociateLinkCommand";
-import {
-  CreateDeviceCommandInput,
-  CreateDeviceCommandOutput
-} from "./commands/CreateDeviceCommand";
+import { AssociateLinkCommandInput, AssociateLinkCommandOutput } from "./commands/AssociateLinkCommand";
+import { CreateDeviceCommandInput, CreateDeviceCommandOutput } from "./commands/CreateDeviceCommand";
 import {
   CreateGlobalNetworkCommandInput,
-  CreateGlobalNetworkCommandOutput
+  CreateGlobalNetworkCommandOutput,
 } from "./commands/CreateGlobalNetworkCommand";
-import {
-  CreateLinkCommandInput,
-  CreateLinkCommandOutput
-} from "./commands/CreateLinkCommand";
-import {
-  CreateSiteCommandInput,
-  CreateSiteCommandOutput
-} from "./commands/CreateSiteCommand";
-import {
-  DeleteDeviceCommandInput,
-  DeleteDeviceCommandOutput
-} from "./commands/DeleteDeviceCommand";
+import { CreateLinkCommandInput, CreateLinkCommandOutput } from "./commands/CreateLinkCommand";
+import { CreateSiteCommandInput, CreateSiteCommandOutput } from "./commands/CreateSiteCommand";
+import { DeleteDeviceCommandInput, DeleteDeviceCommandOutput } from "./commands/DeleteDeviceCommand";
 import {
   DeleteGlobalNetworkCommandInput,
-  DeleteGlobalNetworkCommandOutput
+  DeleteGlobalNetworkCommandOutput,
 } from "./commands/DeleteGlobalNetworkCommand";
-import {
-  DeleteLinkCommandInput,
-  DeleteLinkCommandOutput
-} from "./commands/DeleteLinkCommand";
-import {
-  DeleteSiteCommandInput,
-  DeleteSiteCommandOutput
-} from "./commands/DeleteSiteCommand";
+import { DeleteLinkCommandInput, DeleteLinkCommandOutput } from "./commands/DeleteLinkCommand";
+import { DeleteSiteCommandInput, DeleteSiteCommandOutput } from "./commands/DeleteSiteCommand";
 import {
   DeregisterTransitGatewayCommandInput,
-  DeregisterTransitGatewayCommandOutput
+  DeregisterTransitGatewayCommandOutput,
 } from "./commands/DeregisterTransitGatewayCommand";
 import {
   DescribeGlobalNetworksCommandInput,
-  DescribeGlobalNetworksCommandOutput
+  DescribeGlobalNetworksCommandOutput,
 } from "./commands/DescribeGlobalNetworksCommand";
 import {
   DisassociateCustomerGatewayCommandInput,
-  DisassociateCustomerGatewayCommandOutput
+  DisassociateCustomerGatewayCommandOutput,
 } from "./commands/DisassociateCustomerGatewayCommand";
-import {
-  DisassociateLinkCommandInput,
-  DisassociateLinkCommandOutput
-} from "./commands/DisassociateLinkCommand";
+import { DisassociateLinkCommandInput, DisassociateLinkCommandOutput } from "./commands/DisassociateLinkCommand";
 import {
   GetCustomerGatewayAssociationsCommandInput,
-  GetCustomerGatewayAssociationsCommandOutput
+  GetCustomerGatewayAssociationsCommandOutput,
 } from "./commands/GetCustomerGatewayAssociationsCommand";
-import {
-  GetDevicesCommandInput,
-  GetDevicesCommandOutput
-} from "./commands/GetDevicesCommand";
+import { GetDevicesCommandInput, GetDevicesCommandOutput } from "./commands/GetDevicesCommand";
 import {
   GetLinkAssociationsCommandInput,
-  GetLinkAssociationsCommandOutput
+  GetLinkAssociationsCommandOutput,
 } from "./commands/GetLinkAssociationsCommand";
-import {
-  GetLinksCommandInput,
-  GetLinksCommandOutput
-} from "./commands/GetLinksCommand";
-import {
-  GetSitesCommandInput,
-  GetSitesCommandOutput
-} from "./commands/GetSitesCommand";
+import { GetLinksCommandInput, GetLinksCommandOutput } from "./commands/GetLinksCommand";
+import { GetSitesCommandInput, GetSitesCommandOutput } from "./commands/GetSitesCommand";
 import {
   GetTransitGatewayRegistrationsCommandInput,
-  GetTransitGatewayRegistrationsCommandOutput
+  GetTransitGatewayRegistrationsCommandOutput,
 } from "./commands/GetTransitGatewayRegistrationsCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   RegisterTransitGatewayCommandInput,
-  RegisterTransitGatewayCommandOutput
+  RegisterTransitGatewayCommandOutput,
 } from "./commands/RegisterTransitGatewayCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateDeviceCommandInput,
-  UpdateDeviceCommandOutput
-} from "./commands/UpdateDeviceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateDeviceCommandInput, UpdateDeviceCommandOutput } from "./commands/UpdateDeviceCommand";
 import {
   UpdateGlobalNetworkCommandInput,
-  UpdateGlobalNetworkCommandOutput
+  UpdateGlobalNetworkCommandOutput,
 } from "./commands/UpdateGlobalNetworkCommand";
-import {
-  UpdateLinkCommandInput,
-  UpdateLinkCommandOutput
-} from "./commands/UpdateLinkCommand";
-import {
-  UpdateSiteCommandInput,
-  UpdateSiteCommandOutput
-} from "./commands/UpdateSiteCommand";
+import { UpdateLinkCommandInput, UpdateLinkCommandOutput } from "./commands/UpdateLinkCommand";
+import { UpdateSiteCommandInput, UpdateSiteCommandOutput } from "./commands/UpdateSiteCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -117,38 +69,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -159,7 +106,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -222,8 +169,7 @@ export type ServiceOutputTypes =
   | UpdateLinkCommandOutput
   | UpdateSiteCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -312,9 +258,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type NetworkManagerClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type NetworkManagerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -323,9 +267,7 @@ export type NetworkManagerClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type NetworkManagerClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type NetworkManagerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -349,7 +291,7 @@ export class NetworkManagerClient extends __Client<
   constructor(configuration: NetworkManagerClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

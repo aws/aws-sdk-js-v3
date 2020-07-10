@@ -1,21 +1,11 @@
-import {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ServiceCatalogClient";
-import {
-  ListProvisionedProductPlansInput,
-  ListProvisionedProductPlansOutput
-} from "../models/index";
+import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
+import { ListProvisionedProductPlansInput, ListProvisionedProductPlansOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListProvisionedProductPlansCommand,
-  serializeAws_json1_1ListProvisionedProductPlansCommand
+  serializeAws_json1_1ListProvisionedProductPlansCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListProvisionedProductPlansCommandInput = ListProvisionedProductPlansInput;
-export type ListProvisionedProductPlansCommandOutput = ListProvisionedProductPlansOutput &
-  __MetadataBearer;
+export type ListProvisionedProductPlansCommandOutput = ListProvisionedProductPlansOutput & __MetadataBearer;
 
 export class ListProvisionedProductPlansCommand extends $Command<
   ListProvisionedProductPlansCommandInput,
@@ -49,18 +38,13 @@ export class ListProvisionedProductPlansCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListProvisionedProductPlansCommandInput,
-    ListProvisionedProductPlansCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListProvisionedProductPlansCommandInput, ListProvisionedProductPlansCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class ListProvisionedProductPlansCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListProvisionedProductPlansCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListProvisionedProductPlansCommand(
-      input,
-      context
-    );
+  private serialize(input: ListProvisionedProductPlansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListProvisionedProductPlansCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProvisionedProductPlansCommandOutput> {
-    return deserializeAws_json1_1ListProvisionedProductPlansCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListProvisionedProductPlansCommand(output, context);
   }
 
   // Start section: command_body_extra

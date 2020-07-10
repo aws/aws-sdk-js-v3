@@ -1,21 +1,11 @@
-import {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../NetworkManagerClient";
-import {
-  DescribeGlobalNetworksRequest,
-  DescribeGlobalNetworksResponse
-} from "../models/index";
+import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
+import { DescribeGlobalNetworksRequest, DescribeGlobalNetworksResponse } from "../models/index";
 import {
   deserializeAws_restJson1DescribeGlobalNetworksCommand,
-  serializeAws_restJson1DescribeGlobalNetworksCommand
+  serializeAws_restJson1DescribeGlobalNetworksCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeGlobalNetworksCommandInput = DescribeGlobalNetworksRequest;
-export type DescribeGlobalNetworksCommandOutput = DescribeGlobalNetworksResponse &
-  __MetadataBearer;
+export type DescribeGlobalNetworksCommandOutput = DescribeGlobalNetworksResponse & __MetadataBearer;
 
 export class DescribeGlobalNetworksCommand extends $Command<
   DescribeGlobalNetworksCommandInput,
@@ -49,18 +38,13 @@ export class DescribeGlobalNetworksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeGlobalNetworksCommandInput,
-    DescribeGlobalNetworksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeGlobalNetworksCommandInput, DescribeGlobalNetworksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class DescribeGlobalNetworksCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeGlobalNetworksCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeGlobalNetworksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeGlobalNetworksCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeGlobalNetworksCommandOutput> {
-    return deserializeAws_restJson1DescribeGlobalNetworksCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGlobalNetworksCommandOutput> {
+    return deserializeAws_restJson1DescribeGlobalNetworksCommand(output, context);
   }
 
   // Start section: command_body_extra

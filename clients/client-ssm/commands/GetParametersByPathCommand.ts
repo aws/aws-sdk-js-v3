@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  GetParametersByPathRequest,
-  GetParametersByPathResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { GetParametersByPathRequest, GetParametersByPathResult } from "../models/index";
 import {
   deserializeAws_json1_1GetParametersByPathCommand,
-  serializeAws_json1_1GetParametersByPathCommand
+  serializeAws_json1_1GetParametersByPathCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetParametersByPathCommandInput = GetParametersByPathRequest;
-export type GetParametersByPathCommandOutput = GetParametersByPathResult &
-  __MetadataBearer;
+export type GetParametersByPathCommandOutput = GetParametersByPathResult & __MetadataBearer;
 
 export class GetParametersByPathCommand extends $Command<
   GetParametersByPathCommandInput,
@@ -49,18 +38,13 @@ export class GetParametersByPathCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetParametersByPathCommandInput,
-    GetParametersByPathCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetParametersByPathCommandInput, GetParametersByPathCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class GetParametersByPathCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetParametersByPathCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetParametersByPathCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetParametersByPathCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetParametersByPathCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetParametersByPathCommandOutput> {
     return deserializeAws_json1_1GetParametersByPathCommand(output, context);
   }
 

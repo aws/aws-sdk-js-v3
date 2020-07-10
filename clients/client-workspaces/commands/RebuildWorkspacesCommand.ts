@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkSpacesClientResolvedConfig
-} from "../WorkSpacesClient";
-import {
-  RebuildWorkspacesRequest,
-  RebuildWorkspacesResult
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
+import { RebuildWorkspacesRequest, RebuildWorkspacesResult } from "../models/index";
 import {
   deserializeAws_json1_1RebuildWorkspacesCommand,
-  serializeAws_json1_1RebuildWorkspacesCommand
+  serializeAws_json1_1RebuildWorkspacesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type RebuildWorkspacesCommandInput = RebuildWorkspacesRequest;
-export type RebuildWorkspacesCommandOutput = RebuildWorkspacesResult &
-  __MetadataBearer;
+export type RebuildWorkspacesCommandOutput = RebuildWorkspacesResult & __MetadataBearer;
 
 export class RebuildWorkspacesCommand extends $Command<
   RebuildWorkspacesCommandInput,
@@ -50,14 +39,12 @@ export class RebuildWorkspacesCommand extends $Command<
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RebuildWorkspacesCommandInput, RebuildWorkspacesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class RebuildWorkspacesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RebuildWorkspacesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RebuildWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RebuildWorkspacesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RebuildWorkspacesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebuildWorkspacesCommandOutput> {
     return deserializeAws_json1_1RebuildWorkspacesCommand(output, context);
   }
 

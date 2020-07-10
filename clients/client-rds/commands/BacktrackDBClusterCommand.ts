@@ -1,18 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { BacktrackDBClusterMessage, DBClusterBacktrack } from "../models/index";
 import {
   deserializeAws_queryBacktrackDBClusterCommand,
-  serializeAws_queryBacktrackDBClusterCommand
+  serializeAws_queryBacktrackDBClusterCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type BacktrackDBClusterCommandInput = BacktrackDBClusterMessage;
-export type BacktrackDBClusterCommandOutput = DBClusterBacktrack &
-  __MetadataBearer;
+export type BacktrackDBClusterCommandOutput = DBClusterBacktrack & __MetadataBearer;
 
 export class BacktrackDBClusterCommand extends $Command<
   BacktrackDBClusterCommandInput,
@@ -47,14 +39,12 @@ export class BacktrackDBClusterCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BacktrackDBClusterCommandInput, BacktrackDBClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class BacktrackDBClusterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BacktrackDBClusterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BacktrackDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryBacktrackDBClusterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BacktrackDBClusterCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BacktrackDBClusterCommandOutput> {
     return deserializeAws_queryBacktrackDBClusterCommand(output, context);
   }
 

@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -28,7 +24,7 @@ export interface AccountInfo {
 
 export namespace AccountInfo {
   export const filterSensitiveLog = (obj: AccountInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is AccountInfo => __isa(o, "AccountInfo");
 }
@@ -55,10 +51,9 @@ export interface GetRoleCredentialsRequest {
 export namespace GetRoleCredentialsRequest {
   export const filterSensitiveLog = (obj: GetRoleCredentialsRequest): any => ({
     ...obj,
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING })
+    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetRoleCredentialsRequest =>
-    __isa(o, "GetRoleCredentialsRequest");
+  export const isa = (o: any): o is GetRoleCredentialsRequest => __isa(o, "GetRoleCredentialsRequest");
 }
 
 export interface GetRoleCredentialsResponse {
@@ -72,21 +67,16 @@ export interface GetRoleCredentialsResponse {
 export namespace GetRoleCredentialsResponse {
   export const filterSensitiveLog = (obj: GetRoleCredentialsResponse): any => ({
     ...obj,
-    ...(obj.roleCredentials && {
-      roleCredentials: RoleCredentials.filterSensitiveLog(obj.roleCredentials)
-    })
+    ...(obj.roleCredentials && { roleCredentials: RoleCredentials.filterSensitiveLog(obj.roleCredentials) }),
   });
-  export const isa = (o: any): o is GetRoleCredentialsResponse =>
-    __isa(o, "GetRoleCredentialsResponse");
+  export const isa = (o: any): o is GetRoleCredentialsResponse => __isa(o, "GetRoleCredentialsResponse");
 }
 
 /**
  * <p>Indicates that a problem occurred with the input to the request. For example, a required
  *       parameter might be missing or out of range.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   message?: string;
@@ -94,10 +84,9 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 export interface ListAccountRolesRequest {
@@ -127,10 +116,9 @@ export interface ListAccountRolesRequest {
 export namespace ListAccountRolesRequest {
   export const filterSensitiveLog = (obj: ListAccountRolesRequest): any => ({
     ...obj,
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING })
+    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ListAccountRolesRequest =>
-    __isa(o, "ListAccountRolesRequest");
+  export const isa = (o: any): o is ListAccountRolesRequest => __isa(o, "ListAccountRolesRequest");
 }
 
 export interface ListAccountRolesResponse {
@@ -148,10 +136,9 @@ export interface ListAccountRolesResponse {
 
 export namespace ListAccountRolesResponse {
   export const filterSensitiveLog = (obj: ListAccountRolesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListAccountRolesResponse =>
-    __isa(o, "ListAccountRolesResponse");
+  export const isa = (o: any): o is ListAccountRolesResponse => __isa(o, "ListAccountRolesResponse");
 }
 
 export interface ListAccountsRequest {
@@ -176,10 +163,9 @@ export interface ListAccountsRequest {
 export namespace ListAccountsRequest {
   export const filterSensitiveLog = (obj: ListAccountsRequest): any => ({
     ...obj,
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING })
+    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ListAccountsRequest =>
-    __isa(o, "ListAccountsRequest");
+  export const isa = (o: any): o is ListAccountsRequest => __isa(o, "ListAccountsRequest");
 }
 
 export interface ListAccountsResponse {
@@ -197,10 +183,9 @@ export interface ListAccountsResponse {
 
 export namespace ListAccountsResponse {
   export const filterSensitiveLog = (obj: ListAccountsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListAccountsResponse =>
-    __isa(o, "ListAccountsResponse");
+  export const isa = (o: any): o is ListAccountsResponse => __isa(o, "ListAccountsResponse");
 }
 
 export interface LogoutRequest {
@@ -215,7 +200,7 @@ export interface LogoutRequest {
 export namespace LogoutRequest {
   export const filterSensitiveLog = (obj: LogoutRequest): any => ({
     ...obj,
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING })
+    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is LogoutRequest => __isa(o, "LogoutRequest");
 }
@@ -223,9 +208,7 @@ export namespace LogoutRequest {
 /**
  * <p>The specified resource doesn't exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -233,10 +216,9 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -273,10 +255,9 @@ export namespace RoleCredentials {
   export const filterSensitiveLog = (obj: RoleCredentials): any => ({
     ...obj,
     ...(obj.secretAccessKey && { secretAccessKey: SENSITIVE_STRING }),
-    ...(obj.sessionToken && { sessionToken: SENSITIVE_STRING })
+    ...(obj.sessionToken && { sessionToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is RoleCredentials =>
-    __isa(o, "RoleCredentials");
+  export const isa = (o: any): o is RoleCredentials => __isa(o, "RoleCredentials");
 }
 
 /**
@@ -297,7 +278,7 @@ export interface RoleInfo {
 
 export namespace RoleInfo {
   export const filterSensitiveLog = (obj: RoleInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is RoleInfo => __isa(o, "RoleInfo");
 }
@@ -305,9 +286,7 @@ export namespace RoleInfo {
 /**
  * <p>Indicates that the request is being made too frequently and is more than what the server can handle.</p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   message?: string;
@@ -315,18 +294,15 @@ export interface TooManyRequestsException
 
 export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException =>
-    __isa(o, "TooManyRequestsException");
+  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
  * <p>Indicates that the request is not authorized. This can happen due to an invalid access token in the request.</p>
  */
-export interface UnauthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
   name: "UnauthorizedException";
   $fault: "client";
   message?: string;
@@ -334,8 +310,7 @@ export interface UnauthorizedException
 
 export namespace UnauthorizedException {
   export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UnauthorizedException =>
-    __isa(o, "UnauthorizedException");
+  export const isa = (o: any): o is UnauthorizedException => __isa(o, "UnauthorizedException");
 }

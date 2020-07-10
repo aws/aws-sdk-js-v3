@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient";
-import {
-  ListXssMatchSetsRequest,
-  ListXssMatchSetsResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
+import { ListXssMatchSetsRequest, ListXssMatchSetsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListXssMatchSetsCommand,
-  serializeAws_json1_1ListXssMatchSetsCommand
+  serializeAws_json1_1ListXssMatchSetsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListXssMatchSetsCommandInput = ListXssMatchSetsRequest;
-export type ListXssMatchSetsCommandOutput = ListXssMatchSetsResponse &
-  __MetadataBearer;
+export type ListXssMatchSetsCommandOutput = ListXssMatchSetsResponse & __MetadataBearer;
 
 export class ListXssMatchSetsCommand extends $Command<
   ListXssMatchSetsCommandInput,
@@ -50,14 +39,12 @@ export class ListXssMatchSetsCommand extends $Command<
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListXssMatchSetsCommandInput, ListXssMatchSetsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class ListXssMatchSetsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListXssMatchSetsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListXssMatchSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListXssMatchSetsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListXssMatchSetsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListXssMatchSetsCommandOutput> {
     return deserializeAws_json1_1ListXssMatchSetsCommand(output, context);
   }
 

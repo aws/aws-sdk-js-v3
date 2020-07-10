@@ -1,21 +1,11 @@
-import {
-  IoTEventsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTEventsClient";
-import {
-  ListDetectorModelVersionsRequest,
-  ListDetectorModelVersionsResponse
-} from "../models/index";
+import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
+import { ListDetectorModelVersionsRequest, ListDetectorModelVersionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1ListDetectorModelVersionsCommand,
-  serializeAws_restJson1ListDetectorModelVersionsCommand
+  serializeAws_restJson1ListDetectorModelVersionsCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListDetectorModelVersionsCommandInput = ListDetectorModelVersionsRequest;
-export type ListDetectorModelVersionsCommandOutput = ListDetectorModelVersionsResponse &
-  __MetadataBearer;
+export type ListDetectorModelVersionsCommandOutput = ListDetectorModelVersionsResponse & __MetadataBearer;
 
 export class ListDetectorModelVersionsCommand extends $Command<
   ListDetectorModelVersionsCommandInput,
@@ -49,18 +38,13 @@ export class ListDetectorModelVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDetectorModelVersionsCommandInput,
-    ListDetectorModelVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDetectorModelVersionsCommandInput, ListDetectorModelVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class ListDetectorModelVersionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListDetectorModelVersionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDetectorModelVersionsCommand(
-      input,
-      context
-    );
+  private serialize(input: ListDetectorModelVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListDetectorModelVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDetectorModelVersionsCommandOutput> {
-    return deserializeAws_restJson1ListDetectorModelVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListDetectorModelVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

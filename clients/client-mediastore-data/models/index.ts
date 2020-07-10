@@ -1,17 +1,11 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
 /**
  * <p>The specified container was not found for the specified account.</p>
  */
-export interface ContainerNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ContainerNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ContainerNotFoundException";
   $fault: "client";
   Message?: string;
@@ -19,10 +13,9 @@ export interface ContainerNotFoundException
 
 export namespace ContainerNotFoundException {
   export const filterSensitiveLog = (obj: ContainerNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ContainerNotFoundException =>
-    __isa(o, "ContainerNotFoundException");
+  export const isa = (o: any): o is ContainerNotFoundException => __isa(o, "ContainerNotFoundException");
 }
 
 export interface DeleteObjectRequest {
@@ -36,10 +29,9 @@ export interface DeleteObjectRequest {
 
 export namespace DeleteObjectRequest {
   export const filterSensitiveLog = (obj: DeleteObjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteObjectRequest =>
-    __isa(o, "DeleteObjectRequest");
+  export const isa = (o: any): o is DeleteObjectRequest => __isa(o, "DeleteObjectRequest");
 }
 
 export interface DeleteObjectResponse {
@@ -48,10 +40,9 @@ export interface DeleteObjectResponse {
 
 export namespace DeleteObjectResponse {
   export const filterSensitiveLog = (obj: DeleteObjectResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteObjectResponse =>
-    __isa(o, "DeleteObjectResponse");
+  export const isa = (o: any): o is DeleteObjectResponse => __isa(o, "DeleteObjectResponse");
 }
 
 export interface DescribeObjectRequest {
@@ -65,10 +56,9 @@ export interface DescribeObjectRequest {
 
 export namespace DescribeObjectRequest {
   export const filterSensitiveLog = (obj: DescribeObjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeObjectRequest =>
-    __isa(o, "DescribeObjectRequest");
+  export const isa = (o: any): o is DescribeObjectRequest => __isa(o, "DescribeObjectRequest");
 }
 
 export interface DescribeObjectResponse {
@@ -103,10 +93,9 @@ export interface DescribeObjectResponse {
 
 export namespace DescribeObjectResponse {
   export const filterSensitiveLog = (obj: DescribeObjectResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeObjectResponse =>
-    __isa(o, "DescribeObjectResponse");
+  export const isa = (o: any): o is DescribeObjectResponse => __isa(o, "DescribeObjectResponse");
 }
 
 export interface GetObjectRequest {
@@ -142,10 +131,9 @@ export interface GetObjectRequest {
 
 export namespace GetObjectRequest {
   export const filterSensitiveLog = (obj: GetObjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetObjectRequest =>
-    __isa(o, "GetObjectRequest");
+  export const isa = (o: any): o is GetObjectRequest => __isa(o, "GetObjectRequest");
 }
 
 export interface GetObjectResponse {
@@ -190,18 +178,15 @@ export interface GetObjectResponse {
 
 export namespace GetObjectResponse {
   export const filterSensitiveLog = (obj: GetObjectResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetObjectResponse =>
-    __isa(o, "GetObjectResponse");
+  export const isa = (o: any): o is GetObjectResponse => __isa(o, "GetObjectResponse");
 }
 
 /**
  * <p>The service is temporarily unavailable.</p>
  */
-export interface InternalServerError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends __SmithyException, $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
   Message?: string;
@@ -209,10 +194,9 @@ export interface InternalServerError
 
 export namespace InternalServerError {
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServerError =>
-    __isa(o, "InternalServerError");
+  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
@@ -253,14 +237,14 @@ export interface Item {
 
 export namespace Item {
   export const filterSensitiveLog = (obj: Item): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Item => __isa(o, "Item");
 }
 
 export enum ItemType {
   FOLDER = "FOLDER",
-  OBJECT = "OBJECT"
+  OBJECT = "OBJECT",
 }
 
 export interface ListItemsRequest {
@@ -296,10 +280,9 @@ export interface ListItemsRequest {
 
 export namespace ListItemsRequest {
   export const filterSensitiveLog = (obj: ListItemsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListItemsRequest =>
-    __isa(o, "ListItemsRequest");
+  export const isa = (o: any): o is ListItemsRequest => __isa(o, "ListItemsRequest");
 }
 
 export interface ListItemsResponse {
@@ -321,18 +304,15 @@ export interface ListItemsResponse {
 
 export namespace ListItemsResponse {
   export const filterSensitiveLog = (obj: ListItemsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListItemsResponse =>
-    __isa(o, "ListItemsResponse");
+  export const isa = (o: any): o is ListItemsResponse => __isa(o, "ListItemsResponse");
 }
 
 /**
  * <p>Could not perform an operation on an object that does not exist.</p>
  */
-export interface ObjectNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ObjectNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ObjectNotFoundException";
   $fault: "client";
   Message?: string;
@@ -340,10 +320,9 @@ export interface ObjectNotFoundException
 
 export namespace ObjectNotFoundException {
   export const filterSensitiveLog = (obj: ObjectNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ObjectNotFoundException =>
-    __isa(o, "ObjectNotFoundException");
+  export const isa = (o: any): o is ObjectNotFoundException => __isa(o, "ObjectNotFoundException");
 }
 
 export interface PutObjectRequest {
@@ -397,10 +376,9 @@ export interface PutObjectRequest {
 
 export namespace PutObjectRequest {
   export const filterSensitiveLog = (obj: PutObjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutObjectRequest =>
-    __isa(o, "PutObjectRequest");
+  export const isa = (o: any): o is PutObjectRequest => __isa(o, "PutObjectRequest");
 }
 
 export interface PutObjectResponse {
@@ -424,33 +402,28 @@ export interface PutObjectResponse {
 
 export namespace PutObjectResponse {
   export const filterSensitiveLog = (obj: PutObjectResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutObjectResponse =>
-    __isa(o, "PutObjectResponse");
+  export const isa = (o: any): o is PutObjectResponse => __isa(o, "PutObjectResponse");
 }
 
 /**
  * <p>The requested content range is not valid.</p>
  */
-export interface RequestedRangeNotSatisfiableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RequestedRangeNotSatisfiableException extends __SmithyException, $MetadataBearer {
   name: "RequestedRangeNotSatisfiableException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace RequestedRangeNotSatisfiableException {
-  export const filterSensitiveLog = (
-    obj: RequestedRangeNotSatisfiableException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RequestedRangeNotSatisfiableException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RequestedRangeNotSatisfiableException =>
     __isa(o, "RequestedRangeNotSatisfiableException");
 }
 
 export enum StorageClass {
-  TEMPORAL = "TEMPORAL"
+  TEMPORAL = "TEMPORAL",
 }

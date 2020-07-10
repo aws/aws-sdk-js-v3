@@ -1,18 +1,15 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  codestarnotificationsClientResolvedConfig
+  codestarnotificationsClientResolvedConfig,
 } from "../codestarnotificationsClient";
 import { ListEventTypesRequest, ListEventTypesResult } from "../models/index";
 import {
   deserializeAws_restJson1ListEventTypesCommand,
-  serializeAws_restJson1ListEventTypesCommand
+  serializeAws_restJson1ListEventTypesCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListEventTypesCommandInput = ListEventTypesRequest;
-export type ListEventTypesCommandOutput = ListEventTypesResult &
-  __MetadataBearer;
+export type ListEventTypesCommandOutput = ListEventTypesResult & __MetadataBearer;
 
 export class ListEventTypesCommand extends $Command<
   ListEventTypesCommandInput,
@@ -47,14 +43,12 @@ export class ListEventTypesCommand extends $Command<
     configuration: codestarnotificationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListEventTypesCommandInput, ListEventTypesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +58,11 @@ export class ListEventTypesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListEventTypesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListEventTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListEventTypesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListEventTypesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventTypesCommandOutput> {
     return deserializeAws_restJson1ListEventTypesCommand(output, context);
   }
 

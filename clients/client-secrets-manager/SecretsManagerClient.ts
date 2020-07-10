@@ -1,74 +1,29 @@
-import {
-  CancelRotateSecretCommandInput,
-  CancelRotateSecretCommandOutput
-} from "./commands/CancelRotateSecretCommand";
-import {
-  CreateSecretCommandInput,
-  CreateSecretCommandOutput
-} from "./commands/CreateSecretCommand";
+import { CancelRotateSecretCommandInput, CancelRotateSecretCommandOutput } from "./commands/CancelRotateSecretCommand";
+import { CreateSecretCommandInput, CreateSecretCommandOutput } from "./commands/CreateSecretCommand";
 import {
   DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput
+  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
-import {
-  DeleteSecretCommandInput,
-  DeleteSecretCommandOutput
-} from "./commands/DeleteSecretCommand";
-import {
-  DescribeSecretCommandInput,
-  DescribeSecretCommandOutput
-} from "./commands/DescribeSecretCommand";
-import {
-  GetRandomPasswordCommandInput,
-  GetRandomPasswordCommandOutput
-} from "./commands/GetRandomPasswordCommand";
-import {
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput
-} from "./commands/GetResourcePolicyCommand";
-import {
-  GetSecretValueCommandInput,
-  GetSecretValueCommandOutput
-} from "./commands/GetSecretValueCommand";
+import { DeleteSecretCommandInput, DeleteSecretCommandOutput } from "./commands/DeleteSecretCommand";
+import { DescribeSecretCommandInput, DescribeSecretCommandOutput } from "./commands/DescribeSecretCommand";
+import { GetRandomPasswordCommandInput, GetRandomPasswordCommandOutput } from "./commands/GetRandomPasswordCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
+import { GetSecretValueCommandInput, GetSecretValueCommandOutput } from "./commands/GetSecretValueCommand";
 import {
   ListSecretVersionIdsCommandInput,
-  ListSecretVersionIdsCommandOutput
+  ListSecretVersionIdsCommandOutput,
 } from "./commands/ListSecretVersionIdsCommand";
-import {
-  ListSecretsCommandInput,
-  ListSecretsCommandOutput
-} from "./commands/ListSecretsCommand";
-import {
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput
-} from "./commands/PutResourcePolicyCommand";
-import {
-  PutSecretValueCommandInput,
-  PutSecretValueCommandOutput
-} from "./commands/PutSecretValueCommand";
-import {
-  RestoreSecretCommandInput,
-  RestoreSecretCommandOutput
-} from "./commands/RestoreSecretCommand";
-import {
-  RotateSecretCommandInput,
-  RotateSecretCommandOutput
-} from "./commands/RotateSecretCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateSecretCommandInput,
-  UpdateSecretCommandOutput
-} from "./commands/UpdateSecretCommand";
+import { ListSecretsCommandInput, ListSecretsCommandOutput } from "./commands/ListSecretsCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
+import { PutSecretValueCommandInput, PutSecretValueCommandOutput } from "./commands/PutSecretValueCommand";
+import { RestoreSecretCommandInput, RestoreSecretCommandOutput } from "./commands/RestoreSecretCommand";
+import { RotateSecretCommandInput, RotateSecretCommandOutput } from "./commands/RotateSecretCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateSecretCommandInput, UpdateSecretCommandOutput } from "./commands/UpdateSecretCommand";
 import {
   UpdateSecretVersionStageCommandInput,
-  UpdateSecretVersionStageCommandOutput
+  UpdateSecretVersionStageCommandOutput,
 } from "./commands/UpdateSecretVersionStageCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -77,38 +32,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -119,7 +69,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -162,8 +112,7 @@ export type ServiceOutputTypes =
   | UpdateSecretCommandOutput
   | UpdateSecretVersionStageCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -252,9 +201,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SecretsManagerClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SecretsManagerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -263,9 +210,7 @@ export type SecretsManagerClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SecretsManagerClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SecretsManagerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -353,7 +298,7 @@ export class SecretsManagerClient extends __Client<
   constructor(configuration: SecretsManagerClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

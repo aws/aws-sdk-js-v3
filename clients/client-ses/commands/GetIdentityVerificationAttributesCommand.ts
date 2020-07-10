@@ -1,21 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
-import {
-  GetIdentityVerificationAttributesRequest,
-  GetIdentityVerificationAttributesResponse
-} from "../models/index";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
+import { GetIdentityVerificationAttributesRequest, GetIdentityVerificationAttributesResponse } from "../models/index";
 import {
   deserializeAws_queryGetIdentityVerificationAttributesCommand,
-  serializeAws_queryGetIdentityVerificationAttributesCommand
+  serializeAws_queryGetIdentityVerificationAttributesCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetIdentityVerificationAttributesCommandInput = GetIdentityVerificationAttributesRequest;
@@ -49,18 +39,13 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetIdentityVerificationAttributesCommandInput,
-    GetIdentityVerificationAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetIdentityVerificationAttributesCommandInput, GetIdentityVerificationAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +59,14 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
     input: GetIdentityVerificationAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetIdentityVerificationAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryGetIdentityVerificationAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIdentityVerificationAttributesCommandOutput> {
-    return deserializeAws_queryGetIdentityVerificationAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryGetIdentityVerificationAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

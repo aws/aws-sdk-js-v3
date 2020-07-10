@@ -1,21 +1,11 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient";
-import {
-  CreateReplicationJobRequest,
-  CreateReplicationJobResponse
-} from "../models/index";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
+import { CreateReplicationJobRequest, CreateReplicationJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateReplicationJobCommand,
-  serializeAws_json1_1CreateReplicationJobCommand
+  serializeAws_json1_1CreateReplicationJobCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateReplicationJobCommandInput = CreateReplicationJobRequest;
-export type CreateReplicationJobCommandOutput = CreateReplicationJobResponse &
-  __MetadataBearer;
+export type CreateReplicationJobCommandOutput = CreateReplicationJobResponse & __MetadataBearer;
 
 export class CreateReplicationJobCommand extends $Command<
   CreateReplicationJobCommandInput,
@@ -49,18 +38,13 @@ export class CreateReplicationJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateReplicationJobCommandInput,
-    CreateReplicationJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateReplicationJobCommandInput, CreateReplicationJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class CreateReplicationJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateReplicationJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateReplicationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateReplicationJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateReplicationJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReplicationJobCommandOutput> {
     return deserializeAws_json1_1CreateReplicationJobCommand(output, context);
   }
 

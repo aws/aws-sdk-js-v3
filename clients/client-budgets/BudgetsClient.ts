@@ -1,59 +1,26 @@
-import {
-  CreateBudgetCommandInput,
-  CreateBudgetCommandOutput
-} from "./commands/CreateBudgetCommand";
-import {
-  CreateNotificationCommandInput,
-  CreateNotificationCommandOutput
-} from "./commands/CreateNotificationCommand";
-import {
-  CreateSubscriberCommandInput,
-  CreateSubscriberCommandOutput
-} from "./commands/CreateSubscriberCommand";
-import {
-  DeleteBudgetCommandInput,
-  DeleteBudgetCommandOutput
-} from "./commands/DeleteBudgetCommand";
-import {
-  DeleteNotificationCommandInput,
-  DeleteNotificationCommandOutput
-} from "./commands/DeleteNotificationCommand";
-import {
-  DeleteSubscriberCommandInput,
-  DeleteSubscriberCommandOutput
-} from "./commands/DeleteSubscriberCommand";
-import {
-  DescribeBudgetCommandInput,
-  DescribeBudgetCommandOutput
-} from "./commands/DescribeBudgetCommand";
+import { CreateBudgetCommandInput, CreateBudgetCommandOutput } from "./commands/CreateBudgetCommand";
+import { CreateNotificationCommandInput, CreateNotificationCommandOutput } from "./commands/CreateNotificationCommand";
+import { CreateSubscriberCommandInput, CreateSubscriberCommandOutput } from "./commands/CreateSubscriberCommand";
+import { DeleteBudgetCommandInput, DeleteBudgetCommandOutput } from "./commands/DeleteBudgetCommand";
+import { DeleteNotificationCommandInput, DeleteNotificationCommandOutput } from "./commands/DeleteNotificationCommand";
+import { DeleteSubscriberCommandInput, DeleteSubscriberCommandOutput } from "./commands/DeleteSubscriberCommand";
+import { DescribeBudgetCommandInput, DescribeBudgetCommandOutput } from "./commands/DescribeBudgetCommand";
 import {
   DescribeBudgetPerformanceHistoryCommandInput,
-  DescribeBudgetPerformanceHistoryCommandOutput
+  DescribeBudgetPerformanceHistoryCommandOutput,
 } from "./commands/DescribeBudgetPerformanceHistoryCommand";
-import {
-  DescribeBudgetsCommandInput,
-  DescribeBudgetsCommandOutput
-} from "./commands/DescribeBudgetsCommand";
+import { DescribeBudgetsCommandInput, DescribeBudgetsCommandOutput } from "./commands/DescribeBudgetsCommand";
 import {
   DescribeNotificationsForBudgetCommandInput,
-  DescribeNotificationsForBudgetCommandOutput
+  DescribeNotificationsForBudgetCommandOutput,
 } from "./commands/DescribeNotificationsForBudgetCommand";
 import {
   DescribeSubscribersForNotificationCommandInput,
-  DescribeSubscribersForNotificationCommandOutput
+  DescribeSubscribersForNotificationCommandOutput,
 } from "./commands/DescribeSubscribersForNotificationCommand";
-import {
-  UpdateBudgetCommandInput,
-  UpdateBudgetCommandOutput
-} from "./commands/UpdateBudgetCommand";
-import {
-  UpdateNotificationCommandInput,
-  UpdateNotificationCommandOutput
-} from "./commands/UpdateNotificationCommand";
-import {
-  UpdateSubscriberCommandInput,
-  UpdateSubscriberCommandOutput
-} from "./commands/UpdateSubscriberCommand";
+import { UpdateBudgetCommandInput, UpdateBudgetCommandOutput } from "./commands/UpdateBudgetCommand";
+import { UpdateNotificationCommandInput, UpdateNotificationCommandOutput } from "./commands/UpdateNotificationCommand";
+import { UpdateSubscriberCommandInput, UpdateSubscriberCommandOutput } from "./commands/UpdateSubscriberCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -61,38 +28,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -103,7 +65,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -138,8 +100,7 @@ export type ServiceOutputTypes =
   | UpdateNotificationCommandOutput
   | UpdateSubscriberCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -228,9 +189,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type BudgetsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type BudgetsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -239,9 +198,7 @@ export type BudgetsClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type BudgetsClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type BudgetsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -306,7 +263,7 @@ export class BudgetsClient extends __Client<
   constructor(configuration: BudgetsClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

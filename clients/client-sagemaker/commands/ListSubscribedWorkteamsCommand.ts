@@ -1,21 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient";
-import {
-  ListSubscribedWorkteamsRequest,
-  ListSubscribedWorkteamsResponse
-} from "../models/index";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { ListSubscribedWorkteamsRequest, ListSubscribedWorkteamsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListSubscribedWorkteamsCommand,
-  serializeAws_json1_1ListSubscribedWorkteamsCommand
+  serializeAws_json1_1ListSubscribedWorkteamsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListSubscribedWorkteamsCommandInput = ListSubscribedWorkteamsRequest;
-export type ListSubscribedWorkteamsCommandOutput = ListSubscribedWorkteamsResponse &
-  __MetadataBearer;
+export type ListSubscribedWorkteamsCommandOutput = ListSubscribedWorkteamsResponse & __MetadataBearer;
 
 export class ListSubscribedWorkteamsCommand extends $Command<
   ListSubscribedWorkteamsCommandInput,
@@ -49,18 +38,13 @@ export class ListSubscribedWorkteamsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListSubscribedWorkteamsCommandInput,
-    ListSubscribedWorkteamsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListSubscribedWorkteamsCommandInput, ListSubscribedWorkteamsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class ListSubscribedWorkteamsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListSubscribedWorkteamsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListSubscribedWorkteamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSubscribedWorkteamsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListSubscribedWorkteamsCommandOutput> {
-    return deserializeAws_json1_1ListSubscribedWorkteamsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSubscribedWorkteamsCommandOutput> {
+    return deserializeAws_json1_1ListSubscribedWorkteamsCommand(output, context);
   }
 
   // Start section: command_body_extra

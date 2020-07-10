@@ -1,21 +1,11 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient";
-import {
-  CreateCacheSecurityGroupMessage,
-  CreateCacheSecurityGroupResult
-} from "../models/index";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
+import { CreateCacheSecurityGroupMessage, CreateCacheSecurityGroupResult } from "../models/index";
 import {
   deserializeAws_queryCreateCacheSecurityGroupCommand,
-  serializeAws_queryCreateCacheSecurityGroupCommand
+  serializeAws_queryCreateCacheSecurityGroupCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateCacheSecurityGroupCommandInput = CreateCacheSecurityGroupMessage;
-export type CreateCacheSecurityGroupCommandOutput = CreateCacheSecurityGroupResult &
-  __MetadataBearer;
+export type CreateCacheSecurityGroupCommandOutput = CreateCacheSecurityGroupResult & __MetadataBearer;
 
 export class CreateCacheSecurityGroupCommand extends $Command<
   CreateCacheSecurityGroupCommandInput,
@@ -49,18 +38,13 @@ export class CreateCacheSecurityGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateCacheSecurityGroupCommandInput,
-    CreateCacheSecurityGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateCacheSecurityGroupCommandInput, CreateCacheSecurityGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class CreateCacheSecurityGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateCacheSecurityGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateCacheSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateCacheSecurityGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateCacheSecurityGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCacheSecurityGroupCommandOutput> {
     return deserializeAws_queryCreateCacheSecurityGroupCommand(output, context);
   }
 

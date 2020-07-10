@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -24,10 +20,9 @@ export interface AddTagsToResourceMessage {
 
 export namespace AddTagsToResourceMessage {
   export const filterSensitiveLog = (obj: AddTagsToResourceMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AddTagsToResourceMessage =>
-    __isa(o, "AddTagsToResourceMessage");
+  export const isa = (o: any): o is AddTagsToResourceMessage => __isa(o, "AddTagsToResourceMessage");
 }
 
 export type ApplyMethod = "immediate" | "pending-reboot";
@@ -75,10 +70,8 @@ export interface ApplyPendingMaintenanceActionMessage {
 }
 
 export namespace ApplyPendingMaintenanceActionMessage {
-  export const filterSensitiveLog = (
-    obj: ApplyPendingMaintenanceActionMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ApplyPendingMaintenanceActionMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ApplyPendingMaintenanceActionMessage =>
     __isa(o, "ApplyPendingMaintenanceActionMessage");
@@ -93,10 +86,8 @@ export interface ApplyPendingMaintenanceActionResult {
 }
 
 export namespace ApplyPendingMaintenanceActionResult {
-  export const filterSensitiveLog = (
-    obj: ApplyPendingMaintenanceActionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ApplyPendingMaintenanceActionResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ApplyPendingMaintenanceActionResult =>
     __isa(o, "ApplyPendingMaintenanceActionResult");
@@ -108,9 +99,7 @@ export namespace ApplyPendingMaintenanceActionResult {
  *         <p>Amazon DocumentDB also might not be authorized to perform necessary actions on your behalf
  *             using IAM.</p>
  */
-export interface AuthorizationNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AuthorizationNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "AuthorizationNotFoundFault";
   $fault: "client";
   message?: string;
@@ -118,10 +107,9 @@ export interface AuthorizationNotFoundFault
 
 export namespace AuthorizationNotFoundFault {
   export const filterSensitiveLog = (obj: AuthorizationNotFoundFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AuthorizationNotFoundFault =>
-    __isa(o, "AuthorizationNotFoundFault");
+  export const isa = (o: any): o is AuthorizationNotFoundFault => __isa(o, "AuthorizationNotFoundFault");
 }
 
 /**
@@ -137,10 +125,9 @@ export interface AvailabilityZone {
 
 export namespace AvailabilityZone {
   export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AvailabilityZone =>
-    __isa(o, "AvailabilityZone");
+  export const isa = (o: any): o is AvailabilityZone => __isa(o, "AvailabilityZone");
 }
 
 /**
@@ -191,7 +178,7 @@ export interface Certificate {
 
 export namespace Certificate {
   export const filterSensitiveLog = (obj: Certificate): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Certificate => __isa(o, "Certificate");
 }
@@ -214,19 +201,16 @@ export interface CertificateMessage {
 
 export namespace CertificateMessage {
   export const filterSensitiveLog = (obj: CertificateMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CertificateMessage =>
-    __isa(o, "CertificateMessage");
+  export const isa = (o: any): o is CertificateMessage => __isa(o, "CertificateMessage");
 }
 
 /**
  * <p>
  *             <code>CertificateIdentifier</code> doesn't refer to an existing certificate. </p>
  */
-export interface CertificateNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CertificateNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "CertificateNotFoundFault";
   $fault: "client";
   message?: string;
@@ -234,10 +218,9 @@ export interface CertificateNotFoundFault
 
 export namespace CertificateNotFoundFault {
   export const filterSensitiveLog = (obj: CertificateNotFoundFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CertificateNotFoundFault =>
-    __isa(o, "CertificateNotFoundFault");
+  export const isa = (o: any): o is CertificateNotFoundFault => __isa(o, "CertificateNotFoundFault");
 }
 
 /**
@@ -261,13 +244,10 @@ export interface CloudwatchLogsExportConfiguration {
 }
 
 export namespace CloudwatchLogsExportConfiguration {
-  export const filterSensitiveLog = (
-    obj: CloudwatchLogsExportConfiguration
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CloudwatchLogsExportConfiguration): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CloudwatchLogsExportConfiguration =>
-    __isa(o, "CloudwatchLogsExportConfiguration");
+  export const isa = (o: any): o is CloudwatchLogsExportConfiguration => __isa(o, "CloudwatchLogsExportConfiguration");
 }
 
 /**
@@ -331,10 +311,8 @@ export interface CopyDBClusterParameterGroupMessage {
 }
 
 export namespace CopyDBClusterParameterGroupMessage {
-  export const filterSensitiveLog = (
-    obj: CopyDBClusterParameterGroupMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CopyDBClusterParameterGroupMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CopyDBClusterParameterGroupMessage =>
     __isa(o, "CopyDBClusterParameterGroupMessage");
@@ -349,13 +327,10 @@ export interface CopyDBClusterParameterGroupResult {
 }
 
 export namespace CopyDBClusterParameterGroupResult {
-  export const filterSensitiveLog = (
-    obj: CopyDBClusterParameterGroupResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CopyDBClusterParameterGroupResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CopyDBClusterParameterGroupResult =>
-    __isa(o, "CopyDBClusterParameterGroupResult");
+  export const isa = (o: any): o is CopyDBClusterParameterGroupResult => __isa(o, "CopyDBClusterParameterGroupResult");
 }
 
 /**
@@ -478,13 +453,10 @@ export interface CopyDBClusterSnapshotMessage {
 }
 
 export namespace CopyDBClusterSnapshotMessage {
-  export const filterSensitiveLog = (
-    obj: CopyDBClusterSnapshotMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CopyDBClusterSnapshotMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CopyDBClusterSnapshotMessage =>
-    __isa(o, "CopyDBClusterSnapshotMessage");
+  export const isa = (o: any): o is CopyDBClusterSnapshotMessage => __isa(o, "CopyDBClusterSnapshotMessage");
 }
 
 export interface CopyDBClusterSnapshotResult {
@@ -496,13 +468,10 @@ export interface CopyDBClusterSnapshotResult {
 }
 
 export namespace CopyDBClusterSnapshotResult {
-  export const filterSensitiveLog = (
-    obj: CopyDBClusterSnapshotResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CopyDBClusterSnapshotResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CopyDBClusterSnapshotResult =>
-    __isa(o, "CopyDBClusterSnapshotResult");
+  export const isa = (o: any): o is CopyDBClusterSnapshotResult => __isa(o, "CopyDBClusterSnapshotResult");
 }
 
 /**
@@ -698,10 +667,9 @@ export interface CreateDBClusterMessage {
 
 export namespace CreateDBClusterMessage {
   export const filterSensitiveLog = (obj: CreateDBClusterMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDBClusterMessage =>
-    __isa(o, "CreateDBClusterMessage");
+  export const isa = (o: any): o is CreateDBClusterMessage => __isa(o, "CreateDBClusterMessage");
 }
 
 /**
@@ -741,10 +709,8 @@ export interface CreateDBClusterParameterGroupMessage {
 }
 
 export namespace CreateDBClusterParameterGroupMessage {
-  export const filterSensitiveLog = (
-    obj: CreateDBClusterParameterGroupMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateDBClusterParameterGroupMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateDBClusterParameterGroupMessage =>
     __isa(o, "CreateDBClusterParameterGroupMessage");
@@ -759,10 +725,8 @@ export interface CreateDBClusterParameterGroupResult {
 }
 
 export namespace CreateDBClusterParameterGroupResult {
-  export const filterSensitiveLog = (
-    obj: CreateDBClusterParameterGroupResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateDBClusterParameterGroupResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateDBClusterParameterGroupResult =>
     __isa(o, "CreateDBClusterParameterGroupResult");
@@ -778,10 +742,9 @@ export interface CreateDBClusterResult {
 
 export namespace CreateDBClusterResult {
   export const filterSensitiveLog = (obj: CreateDBClusterResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDBClusterResult =>
-    __isa(o, "CreateDBClusterResult");
+  export const isa = (o: any): o is CreateDBClusterResult => __isa(o, "CreateDBClusterResult");
 }
 
 /**
@@ -830,13 +793,10 @@ export interface CreateDBClusterSnapshotMessage {
 }
 
 export namespace CreateDBClusterSnapshotMessage {
-  export const filterSensitiveLog = (
-    obj: CreateDBClusterSnapshotMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateDBClusterSnapshotMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDBClusterSnapshotMessage =>
-    __isa(o, "CreateDBClusterSnapshotMessage");
+  export const isa = (o: any): o is CreateDBClusterSnapshotMessage => __isa(o, "CreateDBClusterSnapshotMessage");
 }
 
 export interface CreateDBClusterSnapshotResult {
@@ -848,13 +808,10 @@ export interface CreateDBClusterSnapshotResult {
 }
 
 export namespace CreateDBClusterSnapshotResult {
-  export const filterSensitiveLog = (
-    obj: CreateDBClusterSnapshotResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateDBClusterSnapshotResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDBClusterSnapshotResult =>
-    __isa(o, "CreateDBClusterSnapshotResult");
+  export const isa = (o: any): o is CreateDBClusterSnapshotResult => __isa(o, "CreateDBClusterSnapshotResult");
 }
 
 /**
@@ -948,10 +905,9 @@ export interface CreateDBInstanceMessage {
 
 export namespace CreateDBInstanceMessage {
   export const filterSensitiveLog = (obj: CreateDBInstanceMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDBInstanceMessage =>
-    __isa(o, "CreateDBInstanceMessage");
+  export const isa = (o: any): o is CreateDBInstanceMessage => __isa(o, "CreateDBInstanceMessage");
 }
 
 export interface CreateDBInstanceResult {
@@ -964,10 +920,9 @@ export interface CreateDBInstanceResult {
 
 export namespace CreateDBInstanceResult {
   export const filterSensitiveLog = (obj: CreateDBInstanceResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDBInstanceResult =>
-    __isa(o, "CreateDBInstanceResult");
+  export const isa = (o: any): o is CreateDBInstanceResult => __isa(o, "CreateDBInstanceResult");
 }
 
 /**
@@ -1002,10 +957,9 @@ export interface CreateDBSubnetGroupMessage {
 
 export namespace CreateDBSubnetGroupMessage {
   export const filterSensitiveLog = (obj: CreateDBSubnetGroupMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDBSubnetGroupMessage =>
-    __isa(o, "CreateDBSubnetGroupMessage");
+  export const isa = (o: any): o is CreateDBSubnetGroupMessage => __isa(o, "CreateDBSubnetGroupMessage");
 }
 
 export interface CreateDBSubnetGroupResult {
@@ -1018,10 +972,9 @@ export interface CreateDBSubnetGroupResult {
 
 export namespace CreateDBSubnetGroupResult {
   export const filterSensitiveLog = (obj: CreateDBSubnetGroupResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDBSubnetGroupResult =>
-    __isa(o, "CreateDBSubnetGroupResult");
+  export const isa = (o: any): o is CreateDBSubnetGroupResult => __isa(o, "CreateDBSubnetGroupResult");
 }
 
 /**
@@ -1203,7 +1156,7 @@ export interface DBCluster {
 
 export namespace DBCluster {
   export const filterSensitiveLog = (obj: DBCluster): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DBCluster => __isa(o, "DBCluster");
 }
@@ -1211,22 +1164,17 @@ export namespace DBCluster {
 /**
  * <p>You already have a DB cluster with the given identifier.</p>
  */
-export interface DBClusterAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBClusterAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "DBClusterAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace DBClusterAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: DBClusterAlreadyExistsFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DBClusterAlreadyExistsFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DBClusterAlreadyExistsFault =>
-    __isa(o, "DBClusterAlreadyExistsFault");
+  export const isa = (o: any): o is DBClusterAlreadyExistsFault => __isa(o, "DBClusterAlreadyExistsFault");
 }
 
 /**
@@ -1260,10 +1208,9 @@ export interface DBClusterMember {
 
 export namespace DBClusterMember {
   export const filterSensitiveLog = (obj: DBClusterMember): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DBClusterMember =>
-    __isa(o, "DBClusterMember");
+  export const isa = (o: any): o is DBClusterMember => __isa(o, "DBClusterMember");
 }
 
 /**
@@ -1286,19 +1233,16 @@ export interface DBClusterMessage {
 
 export namespace DBClusterMessage {
   export const filterSensitiveLog = (obj: DBClusterMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DBClusterMessage =>
-    __isa(o, "DBClusterMessage");
+  export const isa = (o: any): o is DBClusterMessage => __isa(o, "DBClusterMessage");
 }
 
 /**
  * <p>
  *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster. </p>
  */
-export interface DBClusterNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBClusterNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBClusterNotFoundFault";
   $fault: "client";
   message?: string;
@@ -1306,10 +1250,9 @@ export interface DBClusterNotFoundFault
 
 export namespace DBClusterNotFoundFault {
   export const filterSensitiveLog = (obj: DBClusterNotFoundFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DBClusterNotFoundFault =>
-    __isa(o, "DBClusterNotFoundFault");
+  export const isa = (o: any): o is DBClusterNotFoundFault => __isa(o, "DBClusterNotFoundFault");
 }
 
 /**
@@ -1342,10 +1285,9 @@ export interface DBClusterParameterGroup {
 
 export namespace DBClusterParameterGroup {
   export const filterSensitiveLog = (obj: DBClusterParameterGroup): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DBClusterParameterGroup =>
-    __isa(o, "DBClusterParameterGroup");
+  export const isa = (o: any): o is DBClusterParameterGroup => __isa(o, "DBClusterParameterGroup");
 }
 
 /**
@@ -1367,13 +1309,10 @@ export interface DBClusterParameterGroupDetails {
 }
 
 export namespace DBClusterParameterGroupDetails {
-  export const filterSensitiveLog = (
-    obj: DBClusterParameterGroupDetails
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DBClusterParameterGroupDetails): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DBClusterParameterGroupDetails =>
-    __isa(o, "DBClusterParameterGroupDetails");
+  export const isa = (o: any): o is DBClusterParameterGroupDetails => __isa(o, "DBClusterParameterGroupDetails");
 }
 
 /**
@@ -1403,10 +1342,8 @@ export interface DBClusterParameterGroupNameMessage {
 }
 
 export namespace DBClusterParameterGroupNameMessage {
-  export const filterSensitiveLog = (
-    obj: DBClusterParameterGroupNameMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DBClusterParameterGroupNameMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DBClusterParameterGroupNameMessage =>
     __isa(o, "DBClusterParameterGroupNameMessage");
@@ -1417,19 +1354,15 @@ export namespace DBClusterParameterGroupNameMessage {
  *             <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB cluster
  *             parameter group. </p>
  */
-export interface DBClusterParameterGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBClusterParameterGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBClusterParameterGroupNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace DBClusterParameterGroupNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: DBClusterParameterGroupNotFoundFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DBClusterParameterGroupNotFoundFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DBClusterParameterGroupNotFoundFault =>
     __isa(o, "DBClusterParameterGroupNotFoundFault");
@@ -1454,35 +1387,27 @@ export interface DBClusterParameterGroupsMessage {
 }
 
 export namespace DBClusterParameterGroupsMessage {
-  export const filterSensitiveLog = (
-    obj: DBClusterParameterGroupsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DBClusterParameterGroupsMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DBClusterParameterGroupsMessage =>
-    __isa(o, "DBClusterParameterGroupsMessage");
+  export const isa = (o: any): o is DBClusterParameterGroupsMessage => __isa(o, "DBClusterParameterGroupsMessage");
 }
 
 /**
  * <p>The DB cluster can't be created because you have reached the maximum allowed quota of
  *             DB clusters.</p>
  */
-export interface DBClusterQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBClusterQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "DBClusterQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace DBClusterQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: DBClusterQuotaExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DBClusterQuotaExceededFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DBClusterQuotaExceededFault =>
-    __isa(o, "DBClusterQuotaExceededFault");
+  export const isa = (o: any): o is DBClusterQuotaExceededFault => __isa(o, "DBClusterQuotaExceededFault");
 }
 
 /**
@@ -1524,7 +1449,7 @@ export interface DBClusterRole {
 
 export namespace DBClusterRole {
   export const filterSensitiveLog = (obj: DBClusterRole): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DBClusterRole => __isa(o, "DBClusterRole");
 }
@@ -1629,28 +1554,23 @@ export interface DBClusterSnapshot {
 
 export namespace DBClusterSnapshot {
   export const filterSensitiveLog = (obj: DBClusterSnapshot): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DBClusterSnapshot =>
-    __isa(o, "DBClusterSnapshot");
+  export const isa = (o: any): o is DBClusterSnapshot => __isa(o, "DBClusterSnapshot");
 }
 
 /**
  * <p>You already have a DB cluster snapshot with the given identifier.</p>
  */
-export interface DBClusterSnapshotAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBClusterSnapshotAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "DBClusterSnapshotAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace DBClusterSnapshotAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: DBClusterSnapshotAlreadyExistsFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DBClusterSnapshotAlreadyExistsFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DBClusterSnapshotAlreadyExistsFault =>
     __isa(o, "DBClusterSnapshotAlreadyExistsFault");
@@ -1683,10 +1603,9 @@ export interface DBClusterSnapshotAttribute {
 
 export namespace DBClusterSnapshotAttribute {
   export const filterSensitiveLog = (obj: DBClusterSnapshotAttribute): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DBClusterSnapshotAttribute =>
-    __isa(o, "DBClusterSnapshotAttribute");
+  export const isa = (o: any): o is DBClusterSnapshotAttribute => __isa(o, "DBClusterSnapshotAttribute");
 }
 
 /**
@@ -1707,13 +1626,10 @@ export interface DBClusterSnapshotAttributesResult {
 }
 
 export namespace DBClusterSnapshotAttributesResult {
-  export const filterSensitiveLog = (
-    obj: DBClusterSnapshotAttributesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DBClusterSnapshotAttributesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DBClusterSnapshotAttributesResult =>
-    __isa(o, "DBClusterSnapshotAttributesResult");
+  export const isa = (o: any): o is DBClusterSnapshotAttributesResult => __isa(o, "DBClusterSnapshotAttributesResult");
 }
 
 /**
@@ -1736,10 +1652,9 @@ export interface DBClusterSnapshotMessage {
 
 export namespace DBClusterSnapshotMessage {
   export const filterSensitiveLog = (obj: DBClusterSnapshotMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DBClusterSnapshotMessage =>
-    __isa(o, "DBClusterSnapshotMessage");
+  export const isa = (o: any): o is DBClusterSnapshotMessage => __isa(o, "DBClusterSnapshotMessage");
 }
 
 /**
@@ -1747,22 +1662,17 @@ export namespace DBClusterSnapshotMessage {
  *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster
  *             snapshot. </p>
  */
-export interface DBClusterSnapshotNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBClusterSnapshotNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBClusterSnapshotNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace DBClusterSnapshotNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: DBClusterSnapshotNotFoundFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DBClusterSnapshotNotFoundFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DBClusterSnapshotNotFoundFault =>
-    __isa(o, "DBClusterSnapshotNotFoundFault");
+  export const isa = (o: any): o is DBClusterSnapshotNotFoundFault => __isa(o, "DBClusterSnapshotNotFoundFault");
 }
 
 /**
@@ -1815,10 +1725,9 @@ export interface DBEngineVersion {
 
 export namespace DBEngineVersion {
   export const filterSensitiveLog = (obj: DBEngineVersion): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DBEngineVersion =>
-    __isa(o, "DBEngineVersion");
+  export const isa = (o: any): o is DBEngineVersion => __isa(o, "DBEngineVersion");
 }
 
 /**
@@ -1841,10 +1750,9 @@ export interface DBEngineVersionMessage {
 
 export namespace DBEngineVersionMessage {
   export const filterSensitiveLog = (obj: DBEngineVersionMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DBEngineVersionMessage =>
-    __isa(o, "DBEngineVersionMessage");
+  export const isa = (o: any): o is DBEngineVersionMessage => __isa(o, "DBEngineVersionMessage");
 }
 
 /**
@@ -2000,7 +1908,7 @@ export interface DBInstance {
 
 export namespace DBInstance {
   export const filterSensitiveLog = (obj: DBInstance): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DBInstance => __isa(o, "DBInstance");
 }
@@ -2008,22 +1916,17 @@ export namespace DBInstance {
 /**
  * <p>You already have a DB instance with the given identifier.</p>
  */
-export interface DBInstanceAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBInstanceAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "DBInstanceAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace DBInstanceAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: DBInstanceAlreadyExistsFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DBInstanceAlreadyExistsFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DBInstanceAlreadyExistsFault =>
-    __isa(o, "DBInstanceAlreadyExistsFault");
+  export const isa = (o: any): o is DBInstanceAlreadyExistsFault => __isa(o, "DBInstanceAlreadyExistsFault");
 }
 
 /**
@@ -2046,19 +1949,16 @@ export interface DBInstanceMessage {
 
 export namespace DBInstanceMessage {
   export const filterSensitiveLog = (obj: DBInstanceMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DBInstanceMessage =>
-    __isa(o, "DBInstanceMessage");
+  export const isa = (o: any): o is DBInstanceMessage => __isa(o, "DBInstanceMessage");
 }
 
 /**
  * <p>
  *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance. </p>
  */
-export interface DBInstanceNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBInstanceNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBInstanceNotFoundFault";
   $fault: "client";
   message?: string;
@@ -2066,10 +1966,9 @@ export interface DBInstanceNotFoundFault
 
 export namespace DBInstanceNotFoundFault {
   export const filterSensitiveLog = (obj: DBInstanceNotFoundFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DBInstanceNotFoundFault =>
-    __isa(o, "DBInstanceNotFoundFault");
+  export const isa = (o: any): o is DBInstanceNotFoundFault => __isa(o, "DBInstanceNotFoundFault");
 }
 
 /**
@@ -2104,28 +2003,23 @@ export interface DBInstanceStatusInfo {
 
 export namespace DBInstanceStatusInfo {
   export const filterSensitiveLog = (obj: DBInstanceStatusInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DBInstanceStatusInfo =>
-    __isa(o, "DBInstanceStatusInfo");
+  export const isa = (o: any): o is DBInstanceStatusInfo => __isa(o, "DBInstanceStatusInfo");
 }
 
 /**
  * <p>A DB parameter group with the same name already exists.</p>
  */
-export interface DBParameterGroupAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBParameterGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "DBParameterGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace DBParameterGroupAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: DBParameterGroupAlreadyExistsFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DBParameterGroupAlreadyExistsFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DBParameterGroupAlreadyExistsFault =>
     __isa(o, "DBParameterGroupAlreadyExistsFault");
@@ -2136,41 +2030,32 @@ export namespace DBParameterGroupAlreadyExistsFault {
  *             <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter
  *             group. </p>
  */
-export interface DBParameterGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBParameterGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBParameterGroupNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace DBParameterGroupNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: DBParameterGroupNotFoundFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DBParameterGroupNotFoundFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DBParameterGroupNotFoundFault =>
-    __isa(o, "DBParameterGroupNotFoundFault");
+  export const isa = (o: any): o is DBParameterGroupNotFoundFault => __isa(o, "DBParameterGroupNotFoundFault");
 }
 
 /**
  * <p>This request would cause you to exceed the allowed number of DB parameter
  *             groups.</p>
  */
-export interface DBParameterGroupQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBParameterGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "DBParameterGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace DBParameterGroupQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: DBParameterGroupQuotaExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DBParameterGroupQuotaExceededFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DBParameterGroupQuotaExceededFault =>
     __isa(o, "DBParameterGroupQuotaExceededFault");
@@ -2180,53 +2065,41 @@ export namespace DBParameterGroupQuotaExceededFault {
  * <p>
  *             <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group. </p>
  */
-export interface DBSecurityGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBSecurityGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBSecurityGroupNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace DBSecurityGroupNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: DBSecurityGroupNotFoundFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DBSecurityGroupNotFoundFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DBSecurityGroupNotFoundFault =>
-    __isa(o, "DBSecurityGroupNotFoundFault");
+  export const isa = (o: any): o is DBSecurityGroupNotFoundFault => __isa(o, "DBSecurityGroupNotFoundFault");
 }
 
 /**
  * <p>
  *             <code>DBSnapshotIdentifier</code> is already being used by an existing snapshot. </p>
  */
-export interface DBSnapshotAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBSnapshotAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "DBSnapshotAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace DBSnapshotAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: DBSnapshotAlreadyExistsFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DBSnapshotAlreadyExistsFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DBSnapshotAlreadyExistsFault =>
-    __isa(o, "DBSnapshotAlreadyExistsFault");
+  export const isa = (o: any): o is DBSnapshotAlreadyExistsFault => __isa(o, "DBSnapshotAlreadyExistsFault");
 }
 
 /**
  * <p>
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot. </p>
  */
-export interface DBSnapshotNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBSnapshotNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBSnapshotNotFoundFault";
   $fault: "client";
   message?: string;
@@ -2234,10 +2107,9 @@ export interface DBSnapshotNotFoundFault
 
 export namespace DBSnapshotNotFoundFault {
   export const filterSensitiveLog = (obj: DBSnapshotNotFoundFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DBSnapshotNotFoundFault =>
-    __isa(o, "DBSnapshotNotFoundFault");
+  export const isa = (o: any): o is DBSnapshotNotFoundFault => __isa(o, "DBSnapshotNotFoundFault");
 }
 
 /**
@@ -2278,7 +2150,7 @@ export interface DBSubnetGroup {
 
 export namespace DBSubnetGroup {
   export const filterSensitiveLog = (obj: DBSubnetGroup): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DBSubnetGroup => __isa(o, "DBSubnetGroup");
 }
@@ -2287,41 +2159,32 @@ export namespace DBSubnetGroup {
  * <p>
  *             <code>DBSubnetGroupName</code> is already being used by an existing DB subnet group. </p>
  */
-export interface DBSubnetGroupAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBSubnetGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "DBSubnetGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace DBSubnetGroupAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: DBSubnetGroupAlreadyExistsFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DBSubnetGroupAlreadyExistsFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DBSubnetGroupAlreadyExistsFault =>
-    __isa(o, "DBSubnetGroupAlreadyExistsFault");
+  export const isa = (o: any): o is DBSubnetGroupAlreadyExistsFault => __isa(o, "DBSubnetGroupAlreadyExistsFault");
 }
 
 /**
  * <p>Subnets in the DB subnet group should cover at least two Availability Zones unless
  *             there is only one Availability Zone.</p>
  */
-export interface DBSubnetGroupDoesNotCoverEnoughAZs
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBSubnetGroupDoesNotCoverEnoughAZs extends __SmithyException, $MetadataBearer {
   name: "DBSubnetGroupDoesNotCoverEnoughAZs";
   $fault: "client";
   message?: string;
 }
 
 export namespace DBSubnetGroupDoesNotCoverEnoughAZs {
-  export const filterSensitiveLog = (
-    obj: DBSubnetGroupDoesNotCoverEnoughAZs
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DBSubnetGroupDoesNotCoverEnoughAZs): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DBSubnetGroupDoesNotCoverEnoughAZs =>
     __isa(o, "DBSubnetGroupDoesNotCoverEnoughAZs");
@@ -2347,19 +2210,16 @@ export interface DBSubnetGroupMessage {
 
 export namespace DBSubnetGroupMessage {
   export const filterSensitiveLog = (obj: DBSubnetGroupMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DBSubnetGroupMessage =>
-    __isa(o, "DBSubnetGroupMessage");
+  export const isa = (o: any): o is DBSubnetGroupMessage => __isa(o, "DBSubnetGroupMessage");
 }
 
 /**
  * <p>
  *             <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group. </p>
  */
-export interface DBSubnetGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBSubnetGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBSubnetGroupNotFoundFault";
   $fault: "client";
   message?: string;
@@ -2367,40 +2227,32 @@ export interface DBSubnetGroupNotFoundFault
 
 export namespace DBSubnetGroupNotFoundFault {
   export const filterSensitiveLog = (obj: DBSubnetGroupNotFoundFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DBSubnetGroupNotFoundFault =>
-    __isa(o, "DBSubnetGroupNotFoundFault");
+  export const isa = (o: any): o is DBSubnetGroupNotFoundFault => __isa(o, "DBSubnetGroupNotFoundFault");
 }
 
 /**
  * <p>The request would cause you to exceed the allowed number of DB subnet groups.</p>
  */
-export interface DBSubnetGroupQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBSubnetGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "DBSubnetGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace DBSubnetGroupQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: DBSubnetGroupQuotaExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DBSubnetGroupQuotaExceededFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DBSubnetGroupQuotaExceededFault =>
-    __isa(o, "DBSubnetGroupQuotaExceededFault");
+  export const isa = (o: any): o is DBSubnetGroupQuotaExceededFault => __isa(o, "DBSubnetGroupQuotaExceededFault");
 }
 
 /**
  * <p>The request would cause you to exceed the allowed number of subnets in a DB subnet
  *             group.</p>
  */
-export interface DBSubnetQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBSubnetQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "DBSubnetQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -2408,32 +2260,26 @@ export interface DBSubnetQuotaExceededFault
 
 export namespace DBSubnetQuotaExceededFault {
   export const filterSensitiveLog = (obj: DBSubnetQuotaExceededFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DBSubnetQuotaExceededFault =>
-    __isa(o, "DBSubnetQuotaExceededFault");
+  export const isa = (o: any): o is DBSubnetQuotaExceededFault => __isa(o, "DBSubnetQuotaExceededFault");
 }
 
 /**
  * <p>The DB upgrade failed because a resource that the DB depends on can't be
  *             modified.</p>
  */
-export interface DBUpgradeDependencyFailureFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBUpgradeDependencyFailureFault extends __SmithyException, $MetadataBearer {
   name: "DBUpgradeDependencyFailureFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace DBUpgradeDependencyFailureFault {
-  export const filterSensitiveLog = (
-    obj: DBUpgradeDependencyFailureFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DBUpgradeDependencyFailureFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DBUpgradeDependencyFailureFault =>
-    __isa(o, "DBUpgradeDependencyFailureFault");
+  export const isa = (o: any): o is DBUpgradeDependencyFailureFault => __isa(o, "DBUpgradeDependencyFailureFault");
 }
 
 /**
@@ -2492,10 +2338,9 @@ export interface DeleteDBClusterMessage {
 
 export namespace DeleteDBClusterMessage {
   export const filterSensitiveLog = (obj: DeleteDBClusterMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDBClusterMessage =>
-    __isa(o, "DeleteDBClusterMessage");
+  export const isa = (o: any): o is DeleteDBClusterMessage => __isa(o, "DeleteDBClusterMessage");
 }
 
 /**
@@ -2522,10 +2367,8 @@ export interface DeleteDBClusterParameterGroupMessage {
 }
 
 export namespace DeleteDBClusterParameterGroupMessage {
-  export const filterSensitiveLog = (
-    obj: DeleteDBClusterParameterGroupMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteDBClusterParameterGroupMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteDBClusterParameterGroupMessage =>
     __isa(o, "DeleteDBClusterParameterGroupMessage");
@@ -2541,10 +2384,9 @@ export interface DeleteDBClusterResult {
 
 export namespace DeleteDBClusterResult {
   export const filterSensitiveLog = (obj: DeleteDBClusterResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDBClusterResult =>
-    __isa(o, "DeleteDBClusterResult");
+  export const isa = (o: any): o is DeleteDBClusterResult => __isa(o, "DeleteDBClusterResult");
 }
 
 /**
@@ -2561,13 +2403,10 @@ export interface DeleteDBClusterSnapshotMessage {
 }
 
 export namespace DeleteDBClusterSnapshotMessage {
-  export const filterSensitiveLog = (
-    obj: DeleteDBClusterSnapshotMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteDBClusterSnapshotMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDBClusterSnapshotMessage =>
-    __isa(o, "DeleteDBClusterSnapshotMessage");
+  export const isa = (o: any): o is DeleteDBClusterSnapshotMessage => __isa(o, "DeleteDBClusterSnapshotMessage");
 }
 
 export interface DeleteDBClusterSnapshotResult {
@@ -2579,13 +2418,10 @@ export interface DeleteDBClusterSnapshotResult {
 }
 
 export namespace DeleteDBClusterSnapshotResult {
-  export const filterSensitiveLog = (
-    obj: DeleteDBClusterSnapshotResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteDBClusterSnapshotResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDBClusterSnapshotResult =>
-    __isa(o, "DeleteDBClusterSnapshotResult");
+  export const isa = (o: any): o is DeleteDBClusterSnapshotResult => __isa(o, "DeleteDBClusterSnapshotResult");
 }
 
 /**
@@ -2608,10 +2444,9 @@ export interface DeleteDBInstanceMessage {
 
 export namespace DeleteDBInstanceMessage {
   export const filterSensitiveLog = (obj: DeleteDBInstanceMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDBInstanceMessage =>
-    __isa(o, "DeleteDBInstanceMessage");
+  export const isa = (o: any): o is DeleteDBInstanceMessage => __isa(o, "DeleteDBInstanceMessage");
 }
 
 export interface DeleteDBInstanceResult {
@@ -2624,10 +2459,9 @@ export interface DeleteDBInstanceResult {
 
 export namespace DeleteDBInstanceResult {
   export const filterSensitiveLog = (obj: DeleteDBInstanceResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDBInstanceResult =>
-    __isa(o, "DeleteDBInstanceResult");
+  export const isa = (o: any): o is DeleteDBInstanceResult => __isa(o, "DeleteDBInstanceResult");
 }
 
 /**
@@ -2651,10 +2485,9 @@ export interface DeleteDBSubnetGroupMessage {
 
 export namespace DeleteDBSubnetGroupMessage {
   export const filterSensitiveLog = (obj: DeleteDBSubnetGroupMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDBSubnetGroupMessage =>
-    __isa(o, "DeleteDBSubnetGroupMessage");
+  export const isa = (o: any): o is DeleteDBSubnetGroupMessage => __isa(o, "DeleteDBSubnetGroupMessage");
 }
 
 export interface DescribeCertificatesMessage {
@@ -2705,13 +2538,10 @@ export interface DescribeCertificatesMessage {
 }
 
 export namespace DescribeCertificatesMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeCertificatesMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeCertificatesMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeCertificatesMessage =>
-    __isa(o, "DescribeCertificatesMessage");
+  export const isa = (o: any): o is DescribeCertificatesMessage => __isa(o, "DescribeCertificatesMessage");
 }
 
 /**
@@ -2754,10 +2584,8 @@ export interface DescribeDBClusterParameterGroupsMessage {
 }
 
 export namespace DescribeDBClusterParameterGroupsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeDBClusterParameterGroupsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDBClusterParameterGroupsMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeDBClusterParameterGroupsMessage =>
     __isa(o, "DescribeDBClusterParameterGroupsMessage");
@@ -2811,10 +2639,8 @@ export interface DescribeDBClusterParametersMessage {
 }
 
 export namespace DescribeDBClusterParametersMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeDBClusterParametersMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDBClusterParametersMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeDBClusterParametersMessage =>
     __isa(o, "DescribeDBClusterParametersMessage");
@@ -2871,10 +2697,9 @@ export interface DescribeDBClustersMessage {
 
 export namespace DescribeDBClustersMessage {
   export const filterSensitiveLog = (obj: DescribeDBClustersMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDBClustersMessage =>
-    __isa(o, "DescribeDBClustersMessage");
+  export const isa = (o: any): o is DescribeDBClustersMessage => __isa(o, "DescribeDBClustersMessage");
 }
 
 /**
@@ -2889,14 +2714,10 @@ export interface DescribeDBClusterSnapshotAttributesMessage {
 }
 
 export namespace DescribeDBClusterSnapshotAttributesMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeDBClusterSnapshotAttributesMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDBClusterSnapshotAttributesMessage): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeDBClusterSnapshotAttributesMessage =>
+  export const isa = (o: any): o is DescribeDBClusterSnapshotAttributesMessage =>
     __isa(o, "DescribeDBClusterSnapshotAttributesMessage");
 }
 
@@ -2910,10 +2731,8 @@ export interface DescribeDBClusterSnapshotAttributesResult {
 }
 
 export namespace DescribeDBClusterSnapshotAttributesResult {
-  export const filterSensitiveLog = (
-    obj: DescribeDBClusterSnapshotAttributesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDBClusterSnapshotAttributesResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeDBClusterSnapshotAttributesResult =>
     __isa(o, "DescribeDBClusterSnapshotAttributesResult");
@@ -3031,13 +2850,10 @@ export interface DescribeDBClusterSnapshotsMessage {
 }
 
 export namespace DescribeDBClusterSnapshotsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeDBClusterSnapshotsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDBClusterSnapshotsMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDBClusterSnapshotsMessage =>
-    __isa(o, "DescribeDBClusterSnapshotsMessage");
+  export const isa = (o: any): o is DescribeDBClusterSnapshotsMessage => __isa(o, "DescribeDBClusterSnapshotsMessage");
 }
 
 /**
@@ -3112,13 +2928,10 @@ export interface DescribeDBEngineVersionsMessage {
 }
 
 export namespace DescribeDBEngineVersionsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeDBEngineVersionsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDBEngineVersionsMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDBEngineVersionsMessage =>
-    __isa(o, "DescribeDBEngineVersionsMessage");
+  export const isa = (o: any): o is DescribeDBEngineVersionsMessage => __isa(o, "DescribeDBEngineVersionsMessage");
 }
 
 /**
@@ -3180,10 +2993,9 @@ export interface DescribeDBInstancesMessage {
 
 export namespace DescribeDBInstancesMessage {
   export const filterSensitiveLog = (obj: DescribeDBInstancesMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDBInstancesMessage =>
-    __isa(o, "DescribeDBInstancesMessage");
+  export const isa = (o: any): o is DescribeDBInstancesMessage => __isa(o, "DescribeDBInstancesMessage");
 }
 
 /**
@@ -3219,13 +3031,10 @@ export interface DescribeDBSubnetGroupsMessage {
 }
 
 export namespace DescribeDBSubnetGroupsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeDBSubnetGroupsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDBSubnetGroupsMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDBSubnetGroupsMessage =>
-    __isa(o, "DescribeDBSubnetGroupsMessage");
+  export const isa = (o: any): o is DescribeDBSubnetGroupsMessage => __isa(o, "DescribeDBSubnetGroupsMessage");
 }
 
 /**
@@ -3262,14 +3071,10 @@ export interface DescribeEngineDefaultClusterParametersMessage {
 }
 
 export namespace DescribeEngineDefaultClusterParametersMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeEngineDefaultClusterParametersMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeEngineDefaultClusterParametersMessage): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeEngineDefaultClusterParametersMessage =>
+  export const isa = (o: any): o is DescribeEngineDefaultClusterParametersMessage =>
     __isa(o, "DescribeEngineDefaultClusterParametersMessage");
 }
 
@@ -3283,14 +3088,10 @@ export interface DescribeEngineDefaultClusterParametersResult {
 }
 
 export namespace DescribeEngineDefaultClusterParametersResult {
-  export const filterSensitiveLog = (
-    obj: DescribeEngineDefaultClusterParametersResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeEngineDefaultClusterParametersResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeEngineDefaultClusterParametersResult =>
+  export const isa = (o: any): o is DescribeEngineDefaultClusterParametersResult =>
     __isa(o, "DescribeEngineDefaultClusterParametersResult");
 }
 
@@ -3314,13 +3115,10 @@ export interface DescribeEventCategoriesMessage {
 }
 
 export namespace DescribeEventCategoriesMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeEventCategoriesMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeEventCategoriesMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeEventCategoriesMessage =>
-    __isa(o, "DescribeEventCategoriesMessage");
+  export const isa = (o: any): o is DescribeEventCategoriesMessage => __isa(o, "DescribeEventCategoriesMessage");
 }
 
 /**
@@ -3416,10 +3214,9 @@ export interface DescribeEventsMessage {
 
 export namespace DescribeEventsMessage {
   export const filterSensitiveLog = (obj: DescribeEventsMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeEventsMessage =>
-    __isa(o, "DescribeEventsMessage");
+  export const isa = (o: any): o is DescribeEventsMessage => __isa(o, "DescribeEventsMessage");
 }
 
 /**
@@ -3479,10 +3276,8 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
 }
 
 export namespace DescribeOrderableDBInstanceOptionsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeOrderableDBInstanceOptionsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeOrderableDBInstanceOptionsMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeOrderableDBInstanceOptionsMessage =>
     __isa(o, "DescribeOrderableDBInstanceOptionsMessage");
@@ -3537,10 +3332,8 @@ export interface DescribePendingMaintenanceActionsMessage {
 }
 
 export namespace DescribePendingMaintenanceActionsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribePendingMaintenanceActionsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribePendingMaintenanceActionsMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribePendingMaintenanceActionsMessage =>
     __isa(o, "DescribePendingMaintenanceActionsMessage");
@@ -3570,7 +3363,7 @@ export interface Endpoint {
 
 export namespace Endpoint {
   export const filterSensitiveLog = (obj: Endpoint): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Endpoint => __isa(o, "Endpoint");
 }
@@ -3602,10 +3395,9 @@ export interface EngineDefaults {
 
 export namespace EngineDefaults {
   export const filterSensitiveLog = (obj: EngineDefaults): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EngineDefaults =>
-    __isa(o, "EngineDefaults");
+  export const isa = (o: any): o is EngineDefaults => __isa(o, "EngineDefaults");
 }
 
 /**
@@ -3646,7 +3438,7 @@ export interface Event {
 
 export namespace Event {
   export const filterSensitiveLog = (obj: Event): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Event => __isa(o, "Event");
 }
@@ -3669,10 +3461,9 @@ export interface EventCategoriesMap {
 
 export namespace EventCategoriesMap {
   export const filterSensitiveLog = (obj: EventCategoriesMap): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EventCategoriesMap =>
-    __isa(o, "EventCategoriesMap");
+  export const isa = (o: any): o is EventCategoriesMap => __isa(o, "EventCategoriesMap");
 }
 
 /**
@@ -3688,10 +3479,9 @@ export interface EventCategoriesMessage {
 
 export namespace EventCategoriesMessage {
   export const filterSensitiveLog = (obj: EventCategoriesMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EventCategoriesMessage =>
-    __isa(o, "EventCategoriesMessage");
+  export const isa = (o: any): o is EventCategoriesMessage => __isa(o, "EventCategoriesMessage");
 }
 
 /**
@@ -3714,7 +3504,7 @@ export interface EventsMessage {
 
 export namespace EventsMessage {
   export const filterSensitiveLog = (obj: EventsMessage): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is EventsMessage => __isa(o, "EventsMessage");
 }
@@ -3746,10 +3536,9 @@ export interface FailoverDBClusterMessage {
 
 export namespace FailoverDBClusterMessage {
   export const filterSensitiveLog = (obj: FailoverDBClusterMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FailoverDBClusterMessage =>
-    __isa(o, "FailoverDBClusterMessage");
+  export const isa = (o: any): o is FailoverDBClusterMessage => __isa(o, "FailoverDBClusterMessage");
 }
 
 export interface FailoverDBClusterResult {
@@ -3762,10 +3551,9 @@ export interface FailoverDBClusterResult {
 
 export namespace FailoverDBClusterResult {
   export const filterSensitiveLog = (obj: FailoverDBClusterResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FailoverDBClusterResult =>
-    __isa(o, "FailoverDBClusterResult");
+  export const isa = (o: any): o is FailoverDBClusterResult => __isa(o, "FailoverDBClusterResult");
 }
 
 /**
@@ -3788,7 +3576,7 @@ export interface Filter {
 
 export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
@@ -3796,9 +3584,7 @@ export namespace Filter {
 /**
  * <p>The request would cause you to exceed the allowed number of DB instances.</p>
  */
-export interface InstanceQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InstanceQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "InstanceQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -3806,28 +3592,23 @@ export interface InstanceQuotaExceededFault
 
 export namespace InstanceQuotaExceededFault {
   export const filterSensitiveLog = (obj: InstanceQuotaExceededFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceQuotaExceededFault =>
-    __isa(o, "InstanceQuotaExceededFault");
+  export const isa = (o: any): o is InstanceQuotaExceededFault => __isa(o, "InstanceQuotaExceededFault");
 }
 
 /**
  * <p>The DB cluster doesn't have enough capacity for the current operation.</p>
  */
-export interface InsufficientDBClusterCapacityFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientDBClusterCapacityFault extends __SmithyException, $MetadataBearer {
   name: "InsufficientDBClusterCapacityFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InsufficientDBClusterCapacityFault {
-  export const filterSensitiveLog = (
-    obj: InsufficientDBClusterCapacityFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InsufficientDBClusterCapacityFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InsufficientDBClusterCapacityFault =>
     __isa(o, "InsufficientDBClusterCapacityFault");
@@ -3837,19 +3618,15 @@ export namespace InsufficientDBClusterCapacityFault {
  * <p>The specified DB instance class isn't available in the specified Availability
  *             Zone.</p>
  */
-export interface InsufficientDBInstanceCapacityFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientDBInstanceCapacityFault extends __SmithyException, $MetadataBearer {
   name: "InsufficientDBInstanceCapacityFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InsufficientDBInstanceCapacityFault {
-  export const filterSensitiveLog = (
-    obj: InsufficientDBInstanceCapacityFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InsufficientDBInstanceCapacityFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InsufficientDBInstanceCapacityFault =>
     __isa(o, "InsufficientDBInstanceCapacityFault");
@@ -3860,19 +3637,15 @@ export namespace InsufficientDBInstanceCapacityFault {
  *             resolve this error by updating your subnet group to use different Availability Zones
  *             that have more storage available. </p>
  */
-export interface InsufficientStorageClusterCapacityFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientStorageClusterCapacityFault extends __SmithyException, $MetadataBearer {
   name: "InsufficientStorageClusterCapacityFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InsufficientStorageClusterCapacityFault {
-  export const filterSensitiveLog = (
-    obj: InsufficientStorageClusterCapacityFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InsufficientStorageClusterCapacityFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InsufficientStorageClusterCapacityFault =>
     __isa(o, "InsufficientStorageClusterCapacityFault");
@@ -3881,19 +3654,15 @@ export namespace InsufficientStorageClusterCapacityFault {
 /**
  * <p>The provided value isn't a valid DB cluster snapshot state.</p>
  */
-export interface InvalidDBClusterSnapshotStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDBClusterSnapshotStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidDBClusterSnapshotStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidDBClusterSnapshotStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidDBClusterSnapshotStateFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidDBClusterSnapshotStateFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidDBClusterSnapshotStateFault =>
     __isa(o, "InvalidDBClusterSnapshotStateFault");
@@ -3902,9 +3671,7 @@ export namespace InvalidDBClusterSnapshotStateFault {
 /**
  * <p>The DB cluster isn't in a valid state.</p>
  */
-export interface InvalidDBClusterStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDBClusterStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidDBClusterStateFault";
   $fault: "client";
   message?: string;
@@ -3912,32 +3679,26 @@ export interface InvalidDBClusterStateFault
 
 export namespace InvalidDBClusterStateFault {
   export const filterSensitiveLog = (obj: InvalidDBClusterStateFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidDBClusterStateFault =>
-    __isa(o, "InvalidDBClusterStateFault");
+  export const isa = (o: any): o is InvalidDBClusterStateFault => __isa(o, "InvalidDBClusterStateFault");
 }
 
 /**
  * <p> The specified DB instance isn't in the <i>available</i> state.
  *         </p>
  */
-export interface InvalidDBInstanceStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDBInstanceStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidDBInstanceStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidDBInstanceStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidDBInstanceStateFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidDBInstanceStateFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidDBInstanceStateFault =>
-    __isa(o, "InvalidDBInstanceStateFault");
+  export const isa = (o: any): o is InvalidDBInstanceStateFault => __isa(o, "InvalidDBInstanceStateFault");
 }
 
 /**
@@ -3945,93 +3706,71 @@ export namespace InvalidDBInstanceStateFault {
  *             trying to delete the parameter group, you can't delete it when the parameter group
  *             is in this state.</p>
  */
-export interface InvalidDBParameterGroupStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDBParameterGroupStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidDBParameterGroupStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidDBParameterGroupStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidDBParameterGroupStateFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidDBParameterGroupStateFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidDBParameterGroupStateFault =>
-    __isa(o, "InvalidDBParameterGroupStateFault");
+  export const isa = (o: any): o is InvalidDBParameterGroupStateFault => __isa(o, "InvalidDBParameterGroupStateFault");
 }
 
 /**
  * <p>The state of the DB security group doesn't allow deletion.</p>
  */
-export interface InvalidDBSecurityGroupStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDBSecurityGroupStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidDBSecurityGroupStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidDBSecurityGroupStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidDBSecurityGroupStateFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidDBSecurityGroupStateFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidDBSecurityGroupStateFault =>
-    __isa(o, "InvalidDBSecurityGroupStateFault");
+  export const isa = (o: any): o is InvalidDBSecurityGroupStateFault => __isa(o, "InvalidDBSecurityGroupStateFault");
 }
 
 /**
  * <p>The state of the DB snapshot doesn't allow deletion.</p>
  */
-export interface InvalidDBSnapshotStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDBSnapshotStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidDBSnapshotStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidDBSnapshotStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidDBSnapshotStateFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidDBSnapshotStateFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidDBSnapshotStateFault =>
-    __isa(o, "InvalidDBSnapshotStateFault");
+  export const isa = (o: any): o is InvalidDBSnapshotStateFault => __isa(o, "InvalidDBSnapshotStateFault");
 }
 
 /**
  * <p>The DB subnet group can't be deleted because it's in use.</p>
  */
-export interface InvalidDBSubnetGroupStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDBSubnetGroupStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidDBSubnetGroupStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidDBSubnetGroupStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidDBSubnetGroupStateFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidDBSubnetGroupStateFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidDBSubnetGroupStateFault =>
-    __isa(o, "InvalidDBSubnetGroupStateFault");
+  export const isa = (o: any): o is InvalidDBSubnetGroupStateFault => __isa(o, "InvalidDBSubnetGroupStateFault");
 }
 
 /**
  * <p> The DB subnet isn't in the <i>available</i> state. </p>
  */
-export interface InvalidDBSubnetStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDBSubnetStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidDBSubnetStateFault";
   $fault: "client";
   message?: string;
@@ -4039,19 +3778,16 @@ export interface InvalidDBSubnetStateFault
 
 export namespace InvalidDBSubnetStateFault {
   export const filterSensitiveLog = (obj: InvalidDBSubnetStateFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidDBSubnetStateFault =>
-    __isa(o, "InvalidDBSubnetStateFault");
+  export const isa = (o: any): o is InvalidDBSubnetStateFault => __isa(o, "InvalidDBSubnetStateFault");
 }
 
 /**
  * <p>You cannot restore from a virtual private cloud (VPC) backup to a non-VPC DB
  *             instance.</p>
  */
-export interface InvalidRestoreFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRestoreFault extends __SmithyException, $MetadataBearer {
   name: "InvalidRestoreFault";
   $fault: "client";
   message?: string;
@@ -4059,10 +3795,9 @@ export interface InvalidRestoreFault
 
 export namespace InvalidRestoreFault {
   export const filterSensitiveLog = (obj: InvalidRestoreFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRestoreFault =>
-    __isa(o, "InvalidRestoreFault");
+  export const isa = (o: any): o is InvalidRestoreFault => __isa(o, "InvalidRestoreFault");
 }
 
 /**
@@ -4077,7 +3812,7 @@ export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
 
 export namespace InvalidSubnet {
   export const filterSensitiveLog = (obj: InvalidSubnet): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is InvalidSubnet => __isa(o, "InvalidSubnet");
 }
@@ -4086,30 +3821,23 @@ export namespace InvalidSubnet {
  * <p>The DB subnet group doesn't cover all Availability Zones after it is created
  *             because of changes that were made.</p>
  */
-export interface InvalidVPCNetworkStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidVPCNetworkStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidVPCNetworkStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidVPCNetworkStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidVPCNetworkStateFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidVPCNetworkStateFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidVPCNetworkStateFault =>
-    __isa(o, "InvalidVPCNetworkStateFault");
+  export const isa = (o: any): o is InvalidVPCNetworkStateFault => __isa(o, "InvalidVPCNetworkStateFault");
 }
 
 /**
  * <p>An error occurred when accessing an AWS KMS key.</p>
  */
-export interface KMSKeyNotAccessibleFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSKeyNotAccessibleFault extends __SmithyException, $MetadataBearer {
   name: "KMSKeyNotAccessibleFault";
   $fault: "client";
   message?: string;
@@ -4117,10 +3845,9 @@ export interface KMSKeyNotAccessibleFault
 
 export namespace KMSKeyNotAccessibleFault {
   export const filterSensitiveLog = (obj: KMSKeyNotAccessibleFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KMSKeyNotAccessibleFault =>
-    __isa(o, "KMSKeyNotAccessibleFault");
+  export const isa = (o: any): o is KMSKeyNotAccessibleFault => __isa(o, "KMSKeyNotAccessibleFault");
 }
 
 /**
@@ -4142,10 +3869,9 @@ export interface ListTagsForResourceMessage {
 
 export namespace ListTagsForResourceMessage {
   export const filterSensitiveLog = (obj: ListTagsForResourceMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceMessage =>
-    __isa(o, "ListTagsForResourceMessage");
+  export const isa = (o: any): o is ListTagsForResourceMessage => __isa(o, "ListTagsForResourceMessage");
 }
 
 /**
@@ -4302,10 +4028,9 @@ export interface ModifyDBClusterMessage {
 
 export namespace ModifyDBClusterMessage {
   export const filterSensitiveLog = (obj: ModifyDBClusterMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyDBClusterMessage =>
-    __isa(o, "ModifyDBClusterMessage");
+  export const isa = (o: any): o is ModifyDBClusterMessage => __isa(o, "ModifyDBClusterMessage");
 }
 
 /**
@@ -4325,10 +4050,8 @@ export interface ModifyDBClusterParameterGroupMessage {
 }
 
 export namespace ModifyDBClusterParameterGroupMessage {
-  export const filterSensitiveLog = (
-    obj: ModifyDBClusterParameterGroupMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyDBClusterParameterGroupMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyDBClusterParameterGroupMessage =>
     __isa(o, "ModifyDBClusterParameterGroupMessage");
@@ -4344,10 +4067,9 @@ export interface ModifyDBClusterResult {
 
 export namespace ModifyDBClusterResult {
   export const filterSensitiveLog = (obj: ModifyDBClusterResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyDBClusterResult =>
-    __isa(o, "ModifyDBClusterResult");
+  export const isa = (o: any): o is ModifyDBClusterResult => __isa(o, "ModifyDBClusterResult");
 }
 
 /**
@@ -4392,10 +4114,8 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
 }
 
 export namespace ModifyDBClusterSnapshotAttributeMessage {
-  export const filterSensitiveLog = (
-    obj: ModifyDBClusterSnapshotAttributeMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyDBClusterSnapshotAttributeMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyDBClusterSnapshotAttributeMessage =>
     __isa(o, "ModifyDBClusterSnapshotAttributeMessage");
@@ -4411,10 +4131,8 @@ export interface ModifyDBClusterSnapshotAttributeResult {
 }
 
 export namespace ModifyDBClusterSnapshotAttributeResult {
-  export const filterSensitiveLog = (
-    obj: ModifyDBClusterSnapshotAttributeResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyDBClusterSnapshotAttributeResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyDBClusterSnapshotAttributeResult =>
     __isa(o, "ModifyDBClusterSnapshotAttributeResult");
@@ -4525,10 +4243,9 @@ export interface ModifyDBInstanceMessage {
 
 export namespace ModifyDBInstanceMessage {
   export const filterSensitiveLog = (obj: ModifyDBInstanceMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyDBInstanceMessage =>
-    __isa(o, "ModifyDBInstanceMessage");
+  export const isa = (o: any): o is ModifyDBInstanceMessage => __isa(o, "ModifyDBInstanceMessage");
 }
 
 export interface ModifyDBInstanceResult {
@@ -4541,10 +4258,9 @@ export interface ModifyDBInstanceResult {
 
 export namespace ModifyDBInstanceResult {
   export const filterSensitiveLog = (obj: ModifyDBInstanceResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyDBInstanceResult =>
-    __isa(o, "ModifyDBInstanceResult");
+  export const isa = (o: any): o is ModifyDBInstanceResult => __isa(o, "ModifyDBInstanceResult");
 }
 
 /**
@@ -4575,10 +4291,9 @@ export interface ModifyDBSubnetGroupMessage {
 
 export namespace ModifyDBSubnetGroupMessage {
   export const filterSensitiveLog = (obj: ModifyDBSubnetGroupMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyDBSubnetGroupMessage =>
-    __isa(o, "ModifyDBSubnetGroupMessage");
+  export const isa = (o: any): o is ModifyDBSubnetGroupMessage => __isa(o, "ModifyDBSubnetGroupMessage");
 }
 
 export interface ModifyDBSubnetGroupResult {
@@ -4591,10 +4306,9 @@ export interface ModifyDBSubnetGroupResult {
 
 export namespace ModifyDBSubnetGroupResult {
   export const filterSensitiveLog = (obj: ModifyDBSubnetGroupResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyDBSubnetGroupResult =>
-    __isa(o, "ModifyDBSubnetGroupResult");
+  export const isa = (o: any): o is ModifyDBSubnetGroupResult => __isa(o, "ModifyDBSubnetGroupResult");
 }
 
 /**
@@ -4635,10 +4349,9 @@ export interface OrderableDBInstanceOption {
 
 export namespace OrderableDBInstanceOption {
   export const filterSensitiveLog = (obj: OrderableDBInstanceOption): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OrderableDBInstanceOption =>
-    __isa(o, "OrderableDBInstanceOption");
+  export const isa = (o: any): o is OrderableDBInstanceOption => __isa(o, "OrderableDBInstanceOption");
 }
 
 /**
@@ -4660,13 +4373,10 @@ export interface OrderableDBInstanceOptionsMessage {
 }
 
 export namespace OrderableDBInstanceOptionsMessage {
-  export const filterSensitiveLog = (
-    obj: OrderableDBInstanceOptionsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OrderableDBInstanceOptionsMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is OrderableDBInstanceOptionsMessage =>
-    __isa(o, "OrderableDBInstanceOptionsMessage");
+  export const isa = (o: any): o is OrderableDBInstanceOptionsMessage => __isa(o, "OrderableDBInstanceOptionsMessage");
 }
 
 /**
@@ -4729,7 +4439,7 @@ export interface Parameter {
 
 export namespace Parameter {
   export const filterSensitiveLog = (obj: Parameter): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Parameter => __isa(o, "Parameter");
 }
@@ -4754,13 +4464,10 @@ export interface PendingCloudwatchLogsExports {
 }
 
 export namespace PendingCloudwatchLogsExports {
-  export const filterSensitiveLog = (
-    obj: PendingCloudwatchLogsExports
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PendingCloudwatchLogsExports): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PendingCloudwatchLogsExports =>
-    __isa(o, "PendingCloudwatchLogsExports");
+  export const isa = (o: any): o is PendingCloudwatchLogsExports => __isa(o, "PendingCloudwatchLogsExports");
 }
 
 /**
@@ -4807,10 +4514,9 @@ export interface PendingMaintenanceAction {
 
 export namespace PendingMaintenanceAction {
   export const filterSensitiveLog = (obj: PendingMaintenanceAction): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PendingMaintenanceAction =>
-    __isa(o, "PendingMaintenanceAction");
+  export const isa = (o: any): o is PendingMaintenanceAction => __isa(o, "PendingMaintenanceAction");
 }
 
 /**
@@ -4832,13 +4538,10 @@ export interface PendingMaintenanceActionsMessage {
 }
 
 export namespace PendingMaintenanceActionsMessage {
-  export const filterSensitiveLog = (
-    obj: PendingMaintenanceActionsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PendingMaintenanceActionsMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PendingMaintenanceActionsMessage =>
-    __isa(o, "PendingMaintenanceActionsMessage");
+  export const isa = (o: any): o is PendingMaintenanceActionsMessage => __isa(o, "PendingMaintenanceActionsMessage");
 }
 
 /**
@@ -4930,10 +4633,9 @@ export interface PendingModifiedValues {
 
 export namespace PendingModifiedValues {
   export const filterSensitiveLog = (obj: PendingModifiedValues): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PendingModifiedValues =>
-    __isa(o, "PendingModifiedValues");
+  export const isa = (o: any): o is PendingModifiedValues => __isa(o, "PendingModifiedValues");
 }
 
 /**
@@ -4962,10 +4664,9 @@ export interface RebootDBInstanceMessage {
 
 export namespace RebootDBInstanceMessage {
   export const filterSensitiveLog = (obj: RebootDBInstanceMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RebootDBInstanceMessage =>
-    __isa(o, "RebootDBInstanceMessage");
+  export const isa = (o: any): o is RebootDBInstanceMessage => __isa(o, "RebootDBInstanceMessage");
 }
 
 export interface RebootDBInstanceResult {
@@ -4978,10 +4679,9 @@ export interface RebootDBInstanceResult {
 
 export namespace RebootDBInstanceResult {
   export const filterSensitiveLog = (obj: RebootDBInstanceResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RebootDBInstanceResult =>
-    __isa(o, "RebootDBInstanceResult");
+  export const isa = (o: any): o is RebootDBInstanceResult => __isa(o, "RebootDBInstanceResult");
 }
 
 /**
@@ -5002,13 +4702,10 @@ export interface RemoveTagsFromResourceMessage {
 }
 
 export namespace RemoveTagsFromResourceMessage {
-  export const filterSensitiveLog = (
-    obj: RemoveTagsFromResourceMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RemoveTagsFromResourceMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsFromResourceMessage =>
-    __isa(o, "RemoveTagsFromResourceMessage");
+  export const isa = (o: any): o is RemoveTagsFromResourceMessage => __isa(o, "RemoveTagsFromResourceMessage");
 }
 
 /**
@@ -5038,10 +4735,8 @@ export interface ResetDBClusterParameterGroupMessage {
 }
 
 export namespace ResetDBClusterParameterGroupMessage {
-  export const filterSensitiveLog = (
-    obj: ResetDBClusterParameterGroupMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResetDBClusterParameterGroupMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ResetDBClusterParameterGroupMessage =>
     __isa(o, "ResetDBClusterParameterGroupMessage");
@@ -5050,9 +4745,7 @@ export namespace ResetDBClusterParameterGroupMessage {
 /**
  * <p>The specified resource ID was not found.</p>
  */
-export interface ResourceNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundFault";
   $fault: "client";
   message?: string;
@@ -5060,10 +4753,9 @@ export interface ResourceNotFoundFault
 
 export namespace ResourceNotFoundFault {
   export const filterSensitiveLog = (obj: ResourceNotFoundFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundFault =>
-    __isa(o, "ResourceNotFoundFault");
+  export const isa = (o: any): o is ResourceNotFoundFault => __isa(o, "ResourceNotFoundFault");
 }
 
 /**
@@ -5085,13 +4777,10 @@ export interface ResourcePendingMaintenanceActions {
 }
 
 export namespace ResourcePendingMaintenanceActions {
-  export const filterSensitiveLog = (
-    obj: ResourcePendingMaintenanceActions
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourcePendingMaintenanceActions): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResourcePendingMaintenanceActions =>
-    __isa(o, "ResourcePendingMaintenanceActions");
+  export const isa = (o: any): o is ResourcePendingMaintenanceActions => __isa(o, "ResourcePendingMaintenanceActions");
 }
 
 /**
@@ -5217,10 +4906,8 @@ export interface RestoreDBClusterFromSnapshotMessage {
 }
 
 export namespace RestoreDBClusterFromSnapshotMessage {
-  export const filterSensitiveLog = (
-    obj: RestoreDBClusterFromSnapshotMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RestoreDBClusterFromSnapshotMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RestoreDBClusterFromSnapshotMessage =>
     __isa(o, "RestoreDBClusterFromSnapshotMessage");
@@ -5235,10 +4922,8 @@ export interface RestoreDBClusterFromSnapshotResult {
 }
 
 export namespace RestoreDBClusterFromSnapshotResult {
-  export const filterSensitiveLog = (
-    obj: RestoreDBClusterFromSnapshotResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RestoreDBClusterFromSnapshotResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RestoreDBClusterFromSnapshotResult =>
     __isa(o, "RestoreDBClusterFromSnapshotResult");
@@ -5383,10 +5068,8 @@ export interface RestoreDBClusterToPointInTimeMessage {
 }
 
 export namespace RestoreDBClusterToPointInTimeMessage {
-  export const filterSensitiveLog = (
-    obj: RestoreDBClusterToPointInTimeMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RestoreDBClusterToPointInTimeMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RestoreDBClusterToPointInTimeMessage =>
     __isa(o, "RestoreDBClusterToPointInTimeMessage");
@@ -5401,10 +5084,8 @@ export interface RestoreDBClusterToPointInTimeResult {
 }
 
 export namespace RestoreDBClusterToPointInTimeResult {
-  export const filterSensitiveLog = (
-    obj: RestoreDBClusterToPointInTimeResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RestoreDBClusterToPointInTimeResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RestoreDBClusterToPointInTimeResult =>
     __isa(o, "RestoreDBClusterToPointInTimeResult");
@@ -5414,30 +5095,23 @@ export namespace RestoreDBClusterToPointInTimeResult {
  * <p>You have exceeded the maximum number of accounts that you can share a manual DB
  *             snapshot with. </p>
  */
-export interface SharedSnapshotQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SharedSnapshotQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "SharedSnapshotQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SharedSnapshotQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: SharedSnapshotQuotaExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SharedSnapshotQuotaExceededFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SharedSnapshotQuotaExceededFault =>
-    __isa(o, "SharedSnapshotQuotaExceededFault");
+  export const isa = (o: any): o is SharedSnapshotQuotaExceededFault => __isa(o, "SharedSnapshotQuotaExceededFault");
 }
 
 /**
  * <p>The request would cause you to exceed the allowed number of DB snapshots.</p>
  */
-export interface SnapshotQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SnapshotQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "SnapshotQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -5445,10 +5119,9 @@ export interface SnapshotQuotaExceededFault
 
 export namespace SnapshotQuotaExceededFault {
   export const filterSensitiveLog = (obj: SnapshotQuotaExceededFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SnapshotQuotaExceededFault =>
-    __isa(o, "SnapshotQuotaExceededFault");
+  export const isa = (o: any): o is SnapshotQuotaExceededFault => __isa(o, "SnapshotQuotaExceededFault");
 }
 
 export type SourceType =
@@ -5471,10 +5144,9 @@ export interface StartDBClusterMessage {
 
 export namespace StartDBClusterMessage {
   export const filterSensitiveLog = (obj: StartDBClusterMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartDBClusterMessage =>
-    __isa(o, "StartDBClusterMessage");
+  export const isa = (o: any): o is StartDBClusterMessage => __isa(o, "StartDBClusterMessage");
 }
 
 export interface StartDBClusterResult {
@@ -5487,10 +5159,9 @@ export interface StartDBClusterResult {
 
 export namespace StartDBClusterResult {
   export const filterSensitiveLog = (obj: StartDBClusterResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartDBClusterResult =>
-    __isa(o, "StartDBClusterResult");
+  export const isa = (o: any): o is StartDBClusterResult => __isa(o, "StartDBClusterResult");
 }
 
 export interface StopDBClusterMessage {
@@ -5505,10 +5176,9 @@ export interface StopDBClusterMessage {
 
 export namespace StopDBClusterMessage {
   export const filterSensitiveLog = (obj: StopDBClusterMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StopDBClusterMessage =>
-    __isa(o, "StopDBClusterMessage");
+  export const isa = (o: any): o is StopDBClusterMessage => __isa(o, "StopDBClusterMessage");
 }
 
 export interface StopDBClusterResult {
@@ -5521,19 +5191,16 @@ export interface StopDBClusterResult {
 
 export namespace StopDBClusterResult {
   export const filterSensitiveLog = (obj: StopDBClusterResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StopDBClusterResult =>
-    __isa(o, "StopDBClusterResult");
+  export const isa = (o: any): o is StopDBClusterResult => __isa(o, "StopDBClusterResult");
 }
 
 /**
  * <p>The request would cause you to exceed the allowed amount of storage available across
  *             all DB instances.</p>
  */
-export interface StorageQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface StorageQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "StorageQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -5541,32 +5208,26 @@ export interface StorageQuotaExceededFault
 
 export namespace StorageQuotaExceededFault {
   export const filterSensitiveLog = (obj: StorageQuotaExceededFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StorageQuotaExceededFault =>
-    __isa(o, "StorageQuotaExceededFault");
+  export const isa = (o: any): o is StorageQuotaExceededFault => __isa(o, "StorageQuotaExceededFault");
 }
 
 /**
  * <p>Storage of the specified <code>StorageType</code> can't be associated with the DB
  *             instance. </p>
  */
-export interface StorageTypeNotSupportedFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface StorageTypeNotSupportedFault extends __SmithyException, $MetadataBearer {
   name: "StorageTypeNotSupportedFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace StorageTypeNotSupportedFault {
-  export const filterSensitiveLog = (
-    obj: StorageTypeNotSupportedFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StorageTypeNotSupportedFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StorageTypeNotSupportedFault =>
-    __isa(o, "StorageTypeNotSupportedFault");
+  export const isa = (o: any): o is StorageTypeNotSupportedFault => __isa(o, "StorageTypeNotSupportedFault");
 }
 
 /**
@@ -5592,7 +5253,7 @@ export interface Subnet {
 
 export namespace Subnet {
   export const filterSensitiveLog = (obj: Subnet): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Subnet => __isa(o, "Subnet");
 }
@@ -5608,10 +5269,9 @@ export interface SubnetAlreadyInUse extends __SmithyException, $MetadataBearer {
 
 export namespace SubnetAlreadyInUse {
   export const filterSensitiveLog = (obj: SubnetAlreadyInUse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SubnetAlreadyInUse =>
-    __isa(o, "SubnetAlreadyInUse");
+  export const isa = (o: any): o is SubnetAlreadyInUse => __isa(o, "SubnetAlreadyInUse");
 }
 
 /**
@@ -5638,7 +5298,7 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -5656,10 +5316,9 @@ export interface TagListMessage {
 
 export namespace TagListMessage {
   export const filterSensitiveLog = (obj: TagListMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagListMessage =>
-    __isa(o, "TagListMessage");
+  export const isa = (o: any): o is TagListMessage => __isa(o, "TagListMessage");
 }
 
 /**
@@ -5698,7 +5357,7 @@ export interface UpgradeTarget {
 
 export namespace UpgradeTarget {
   export const filterSensitiveLog = (obj: UpgradeTarget): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is UpgradeTarget => __isa(o, "UpgradeTarget");
 }
@@ -5722,8 +5381,7 @@ export interface VpcSecurityGroupMembership {
 
 export namespace VpcSecurityGroupMembership {
   export const filterSensitiveLog = (obj: VpcSecurityGroupMembership): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VpcSecurityGroupMembership =>
-    __isa(o, "VpcSecurityGroupMembership");
+  export const isa = (o: any): o is VpcSecurityGroupMembership => __isa(o, "VpcSecurityGroupMembership");
 }

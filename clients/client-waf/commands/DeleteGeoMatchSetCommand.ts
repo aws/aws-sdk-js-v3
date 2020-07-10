@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient";
-import {
-  DeleteGeoMatchSetRequest,
-  DeleteGeoMatchSetResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
+import { DeleteGeoMatchSetRequest, DeleteGeoMatchSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteGeoMatchSetCommand,
-  serializeAws_json1_1DeleteGeoMatchSetCommand
+  serializeAws_json1_1DeleteGeoMatchSetCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteGeoMatchSetCommandInput = DeleteGeoMatchSetRequest;
-export type DeleteGeoMatchSetCommandOutput = DeleteGeoMatchSetResponse &
-  __MetadataBearer;
+export type DeleteGeoMatchSetCommandOutput = DeleteGeoMatchSetResponse & __MetadataBearer;
 
 export class DeleteGeoMatchSetCommand extends $Command<
   DeleteGeoMatchSetCommandInput,
@@ -50,14 +39,12 @@ export class DeleteGeoMatchSetCommand extends $Command<
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteGeoMatchSetCommandInput, DeleteGeoMatchSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class DeleteGeoMatchSetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteGeoMatchSetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteGeoMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteGeoMatchSetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteGeoMatchSetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGeoMatchSetCommandOutput> {
     return deserializeAws_json1_1DeleteGeoMatchSetCommand(output, context);
   }
 

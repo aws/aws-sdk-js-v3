@@ -1,88 +1,80 @@
 import { CognitoSyncClient } from "./CognitoSyncClient";
-import {
-  BulkPublishCommand,
-  BulkPublishCommandInput,
-  BulkPublishCommandOutput
-} from "./commands/BulkPublishCommand";
+import { BulkPublishCommand, BulkPublishCommandInput, BulkPublishCommandOutput } from "./commands/BulkPublishCommand";
 import {
   DeleteDatasetCommand,
   DeleteDatasetCommandInput,
-  DeleteDatasetCommandOutput
+  DeleteDatasetCommandOutput,
 } from "./commands/DeleteDatasetCommand";
 import {
   DescribeDatasetCommand,
   DescribeDatasetCommandInput,
-  DescribeDatasetCommandOutput
+  DescribeDatasetCommandOutput,
 } from "./commands/DescribeDatasetCommand";
 import {
   DescribeIdentityPoolUsageCommand,
   DescribeIdentityPoolUsageCommandInput,
-  DescribeIdentityPoolUsageCommandOutput
+  DescribeIdentityPoolUsageCommandOutput,
 } from "./commands/DescribeIdentityPoolUsageCommand";
 import {
   DescribeIdentityUsageCommand,
   DescribeIdentityUsageCommandInput,
-  DescribeIdentityUsageCommandOutput
+  DescribeIdentityUsageCommandOutput,
 } from "./commands/DescribeIdentityUsageCommand";
 import {
   GetBulkPublishDetailsCommand,
   GetBulkPublishDetailsCommandInput,
-  GetBulkPublishDetailsCommandOutput
+  GetBulkPublishDetailsCommandOutput,
 } from "./commands/GetBulkPublishDetailsCommand";
 import {
   GetCognitoEventsCommand,
   GetCognitoEventsCommandInput,
-  GetCognitoEventsCommandOutput
+  GetCognitoEventsCommandOutput,
 } from "./commands/GetCognitoEventsCommand";
 import {
   GetIdentityPoolConfigurationCommand,
   GetIdentityPoolConfigurationCommandInput,
-  GetIdentityPoolConfigurationCommandOutput
+  GetIdentityPoolConfigurationCommandOutput,
 } from "./commands/GetIdentityPoolConfigurationCommand";
 import {
   ListDatasetsCommand,
   ListDatasetsCommandInput,
-  ListDatasetsCommandOutput
+  ListDatasetsCommandOutput,
 } from "./commands/ListDatasetsCommand";
 import {
   ListIdentityPoolUsageCommand,
   ListIdentityPoolUsageCommandInput,
-  ListIdentityPoolUsageCommandOutput
+  ListIdentityPoolUsageCommandOutput,
 } from "./commands/ListIdentityPoolUsageCommand";
-import {
-  ListRecordsCommand,
-  ListRecordsCommandInput,
-  ListRecordsCommandOutput
-} from "./commands/ListRecordsCommand";
+import { ListRecordsCommand, ListRecordsCommandInput, ListRecordsCommandOutput } from "./commands/ListRecordsCommand";
 import {
   RegisterDeviceCommand,
   RegisterDeviceCommandInput,
-  RegisterDeviceCommandOutput
+  RegisterDeviceCommandOutput,
 } from "./commands/RegisterDeviceCommand";
 import {
   SetCognitoEventsCommand,
   SetCognitoEventsCommandInput,
-  SetCognitoEventsCommandOutput
+  SetCognitoEventsCommandOutput,
 } from "./commands/SetCognitoEventsCommand";
 import {
   SetIdentityPoolConfigurationCommand,
   SetIdentityPoolConfigurationCommandInput,
-  SetIdentityPoolConfigurationCommandOutput
+  SetIdentityPoolConfigurationCommandOutput,
 } from "./commands/SetIdentityPoolConfigurationCommand";
 import {
   SubscribeToDatasetCommand,
   SubscribeToDatasetCommandInput,
-  SubscribeToDatasetCommandOutput
+  SubscribeToDatasetCommandOutput,
 } from "./commands/SubscribeToDatasetCommand";
 import {
   UnsubscribeFromDatasetCommand,
   UnsubscribeFromDatasetCommandInput,
-  UnsubscribeFromDatasetCommandOutput
+  UnsubscribeFromDatasetCommandOutput,
 } from "./commands/UnsubscribeFromDatasetCommand";
 import {
   UpdateRecordsCommand,
   UpdateRecordsCommandInput,
-  UpdateRecordsCommandOutput
+  UpdateRecordsCommandOutput,
 } from "./commands/UpdateRecordsCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -100,14 +92,8 @@ export class CognitoSync extends CognitoSyncClient {
    * <p>Initiates a bulk publish of all existing datasets for an Identity Pool to the configured stream. Customers are limited to one successful bulk publish per 24 hours. Bulk publish is an asynchronous request, customers can see the status of the request via the GetBulkPublishDetails operation.</p>
    *          <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
    */
-  public bulkPublish(
-    args: BulkPublishCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BulkPublishCommandOutput>;
-  public bulkPublish(
-    args: BulkPublishCommandInput,
-    cb: (err: any, data?: BulkPublishCommandOutput) => void
-  ): void;
+  public bulkPublish(args: BulkPublishCommandInput, options?: __HttpHandlerOptions): Promise<BulkPublishCommandOutput>;
+  public bulkPublish(args: BulkPublishCommandInput, cb: (err: any, data?: BulkPublishCommandOutput) => void): void;
   public bulkPublish(
     args: BulkPublishCommandInput,
     options: __HttpHandlerOptions,
@@ -115,17 +101,14 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public bulkPublish(
     args: BulkPublishCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BulkPublishCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BulkPublishCommandOutput) => void),
     cb?: (err: any, data?: BulkPublishCommandOutput) => void
   ): Promise<BulkPublishCommandOutput> | void {
     const command = new BulkPublishCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -151,17 +134,14 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public deleteDataset(
     args: DeleteDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDatasetCommandOutput) => void),
     cb?: (err: any, data?: DeleteDatasetCommandOutput) => void
   ): Promise<DeleteDatasetCommandOutput> | void {
     const command = new DeleteDatasetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -187,17 +167,14 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public describeDataset(
     args: DescribeDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDatasetCommandOutput) => void),
     cb?: (err: any, data?: DescribeDatasetCommandOutput) => void
   ): Promise<DescribeDatasetCommandOutput> | void {
     const command = new DescribeDatasetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -223,17 +200,14 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public describeIdentityPoolUsage(
     args: DescribeIdentityPoolUsageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeIdentityPoolUsageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIdentityPoolUsageCommandOutput) => void),
     cb?: (err: any, data?: DescribeIdentityPoolUsageCommandOutput) => void
   ): Promise<DescribeIdentityPoolUsageCommandOutput> | void {
     const command = new DescribeIdentityPoolUsageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -259,17 +233,14 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public describeIdentityUsage(
     args: DescribeIdentityUsageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeIdentityUsageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIdentityUsageCommandOutput) => void),
     cb?: (err: any, data?: DescribeIdentityUsageCommandOutput) => void
   ): Promise<DescribeIdentityUsageCommandOutput> | void {
     const command = new DescribeIdentityUsageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -295,17 +266,14 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public getBulkPublishDetails(
     args: GetBulkPublishDetailsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBulkPublishDetailsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBulkPublishDetailsCommandOutput) => void),
     cb?: (err: any, data?: GetBulkPublishDetailsCommandOutput) => void
   ): Promise<GetBulkPublishDetailsCommandOutput> | void {
     const command = new GetBulkPublishDetailsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -331,17 +299,14 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public getCognitoEvents(
     args: GetCognitoEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCognitoEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCognitoEventsCommandOutput) => void),
     cb?: (err: any, data?: GetCognitoEventsCommandOutput) => void
   ): Promise<GetCognitoEventsCommandOutput> | void {
     const command = new GetCognitoEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -367,17 +332,14 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public getIdentityPoolConfiguration(
     args: GetIdentityPoolConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIdentityPoolConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIdentityPoolConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetIdentityPoolConfigurationCommandOutput) => void
   ): Promise<GetIdentityPoolConfigurationCommandOutput> | void {
     const command = new GetIdentityPoolConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -392,10 +354,7 @@ export class CognitoSync extends CognitoSyncClient {
     args: ListDatasetsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDatasetsCommandOutput>;
-  public listDatasets(
-    args: ListDatasetsCommandInput,
-    cb: (err: any, data?: ListDatasetsCommandOutput) => void
-  ): void;
+  public listDatasets(args: ListDatasetsCommandInput, cb: (err: any, data?: ListDatasetsCommandOutput) => void): void;
   public listDatasets(
     args: ListDatasetsCommandInput,
     options: __HttpHandlerOptions,
@@ -403,17 +362,14 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public listDatasets(
     args: ListDatasetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDatasetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDatasetsCommandOutput) => void),
     cb?: (err: any, data?: ListDatasetsCommandOutput) => void
   ): Promise<ListDatasetsCommandOutput> | void {
     const command = new ListDatasetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -439,17 +395,14 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public listIdentityPoolUsage(
     args: ListIdentityPoolUsageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIdentityPoolUsageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIdentityPoolUsageCommandOutput) => void),
     cb?: (err: any, data?: ListIdentityPoolUsageCommandOutput) => void
   ): Promise<ListIdentityPoolUsageCommandOutput> | void {
     const command = new ListIdentityPoolUsageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -460,14 +413,8 @@ export class CognitoSync extends CognitoSyncClient {
    * <p>Gets paginated records, optionally changed after a particular sync count for a dataset and identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>
    *          <p>ListRecords can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.</p>
    */
-  public listRecords(
-    args: ListRecordsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListRecordsCommandOutput>;
-  public listRecords(
-    args: ListRecordsCommandInput,
-    cb: (err: any, data?: ListRecordsCommandOutput) => void
-  ): void;
+  public listRecords(args: ListRecordsCommandInput, options?: __HttpHandlerOptions): Promise<ListRecordsCommandOutput>;
+  public listRecords(args: ListRecordsCommandInput, cb: (err: any, data?: ListRecordsCommandOutput) => void): void;
   public listRecords(
     args: ListRecordsCommandInput,
     options: __HttpHandlerOptions,
@@ -475,17 +422,14 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public listRecords(
     args: ListRecordsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRecordsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRecordsCommandOutput) => void),
     cb?: (err: any, data?: ListRecordsCommandOutput) => void
   ): Promise<ListRecordsCommandOutput> | void {
     const command = new ListRecordsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -511,17 +455,14 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public registerDevice(
     args: RegisterDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterDeviceCommandOutput) => void),
     cb?: (err: any, data?: RegisterDeviceCommandOutput) => void
   ): Promise<RegisterDeviceCommandOutput> | void {
     const command = new RegisterDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -547,17 +488,14 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public setCognitoEvents(
     args: SetCognitoEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetCognitoEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetCognitoEventsCommandOutput) => void),
     cb?: (err: any, data?: SetCognitoEventsCommandOutput) => void
   ): Promise<SetCognitoEventsCommandOutput> | void {
     const command = new SetCognitoEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -583,17 +521,14 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public setIdentityPoolConfiguration(
     args: SetIdentityPoolConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetIdentityPoolConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetIdentityPoolConfigurationCommandOutput) => void),
     cb?: (err: any, data?: SetIdentityPoolConfigurationCommandOutput) => void
   ): Promise<SetIdentityPoolConfigurationCommandOutput> | void {
     const command = new SetIdentityPoolConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -619,17 +554,14 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public subscribeToDataset(
     args: SubscribeToDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SubscribeToDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SubscribeToDatasetCommandOutput) => void),
     cb?: (err: any, data?: SubscribeToDatasetCommandOutput) => void
   ): Promise<SubscribeToDatasetCommandOutput> | void {
     const command = new SubscribeToDatasetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -655,17 +587,14 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public unsubscribeFromDataset(
     args: UnsubscribeFromDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnsubscribeFromDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnsubscribeFromDatasetCommandOutput) => void),
     cb?: (err: any, data?: UnsubscribeFromDatasetCommandOutput) => void
   ): Promise<UnsubscribeFromDatasetCommandOutput> | void {
     const command = new UnsubscribeFromDatasetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -693,17 +622,14 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public updateRecords(
     args: UpdateRecordsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRecordsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRecordsCommandOutput) => void),
     cb?: (err: any, data?: UpdateRecordsCommandOutput) => void
   ): Promise<UpdateRecordsCommandOutput> | void {
     const command = new UpdateRecordsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

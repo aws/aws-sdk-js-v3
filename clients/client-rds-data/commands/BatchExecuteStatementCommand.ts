@@ -1,21 +1,11 @@
-import {
-  RDSDataClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSDataClient";
-import {
-  BatchExecuteStatementRequest,
-  BatchExecuteStatementResponse
-} from "../models/index";
+import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
+import { BatchExecuteStatementRequest, BatchExecuteStatementResponse } from "../models/index";
 import {
   deserializeAws_restJson1BatchExecuteStatementCommand,
-  serializeAws_restJson1BatchExecuteStatementCommand
+  serializeAws_restJson1BatchExecuteStatementCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type BatchExecuteStatementCommandInput = BatchExecuteStatementRequest;
-export type BatchExecuteStatementCommandOutput = BatchExecuteStatementResponse &
-  __MetadataBearer;
+export type BatchExecuteStatementCommandOutput = BatchExecuteStatementResponse & __MetadataBearer;
 
 export class BatchExecuteStatementCommand extends $Command<
   BatchExecuteStatementCommandInput,
@@ -49,18 +38,13 @@ export class BatchExecuteStatementCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSDataClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchExecuteStatementCommandInput,
-    BatchExecuteStatementCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchExecuteStatementCommandInput, BatchExecuteStatementCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class BatchExecuteStatementCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchExecuteStatementCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BatchExecuteStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchExecuteStatementCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchExecuteStatementCommandOutput> {
-    return deserializeAws_restJson1BatchExecuteStatementCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchExecuteStatementCommandOutput> {
+    return deserializeAws_restJson1BatchExecuteStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,362 +1,314 @@
 import {
   AssociateRoleToGroupCommandInput,
-  AssociateRoleToGroupCommandOutput
+  AssociateRoleToGroupCommandOutput,
 } from "../commands/AssociateRoleToGroupCommand";
 import {
   AssociateServiceRoleToAccountCommandInput,
-  AssociateServiceRoleToAccountCommandOutput
+  AssociateServiceRoleToAccountCommandOutput,
 } from "../commands/AssociateServiceRoleToAccountCommand";
 import {
   CreateConnectorDefinitionCommandInput,
-  CreateConnectorDefinitionCommandOutput
+  CreateConnectorDefinitionCommandOutput,
 } from "../commands/CreateConnectorDefinitionCommand";
 import {
   CreateConnectorDefinitionVersionCommandInput,
-  CreateConnectorDefinitionVersionCommandOutput
+  CreateConnectorDefinitionVersionCommandOutput,
 } from "../commands/CreateConnectorDefinitionVersionCommand";
 import {
   CreateCoreDefinitionCommandInput,
-  CreateCoreDefinitionCommandOutput
+  CreateCoreDefinitionCommandOutput,
 } from "../commands/CreateCoreDefinitionCommand";
 import {
   CreateCoreDefinitionVersionCommandInput,
-  CreateCoreDefinitionVersionCommandOutput
+  CreateCoreDefinitionVersionCommandOutput,
 } from "../commands/CreateCoreDefinitionVersionCommand";
-import {
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput
-} from "../commands/CreateDeploymentCommand";
+import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "../commands/CreateDeploymentCommand";
 import {
   CreateDeviceDefinitionCommandInput,
-  CreateDeviceDefinitionCommandOutput
+  CreateDeviceDefinitionCommandOutput,
 } from "../commands/CreateDeviceDefinitionCommand";
 import {
   CreateDeviceDefinitionVersionCommandInput,
-  CreateDeviceDefinitionVersionCommandOutput
+  CreateDeviceDefinitionVersionCommandOutput,
 } from "../commands/CreateDeviceDefinitionVersionCommand";
 import {
   CreateFunctionDefinitionCommandInput,
-  CreateFunctionDefinitionCommandOutput
+  CreateFunctionDefinitionCommandOutput,
 } from "../commands/CreateFunctionDefinitionCommand";
 import {
   CreateFunctionDefinitionVersionCommandInput,
-  CreateFunctionDefinitionVersionCommandOutput
+  CreateFunctionDefinitionVersionCommandOutput,
 } from "../commands/CreateFunctionDefinitionVersionCommand";
 import {
   CreateGroupCertificateAuthorityCommandInput,
-  CreateGroupCertificateAuthorityCommandOutput
+  CreateGroupCertificateAuthorityCommandOutput,
 } from "../commands/CreateGroupCertificateAuthorityCommand";
-import {
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput
-} from "../commands/CreateGroupCommand";
-import {
-  CreateGroupVersionCommandInput,
-  CreateGroupVersionCommandOutput
-} from "../commands/CreateGroupVersionCommand";
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "../commands/CreateGroupCommand";
+import { CreateGroupVersionCommandInput, CreateGroupVersionCommandOutput } from "../commands/CreateGroupVersionCommand";
 import {
   CreateLoggerDefinitionCommandInput,
-  CreateLoggerDefinitionCommandOutput
+  CreateLoggerDefinitionCommandOutput,
 } from "../commands/CreateLoggerDefinitionCommand";
 import {
   CreateLoggerDefinitionVersionCommandInput,
-  CreateLoggerDefinitionVersionCommandOutput
+  CreateLoggerDefinitionVersionCommandOutput,
 } from "../commands/CreateLoggerDefinitionVersionCommand";
 import {
   CreateResourceDefinitionCommandInput,
-  CreateResourceDefinitionCommandOutput
+  CreateResourceDefinitionCommandOutput,
 } from "../commands/CreateResourceDefinitionCommand";
 import {
   CreateResourceDefinitionVersionCommandInput,
-  CreateResourceDefinitionVersionCommandOutput
+  CreateResourceDefinitionVersionCommandOutput,
 } from "../commands/CreateResourceDefinitionVersionCommand";
 import {
   CreateSoftwareUpdateJobCommandInput,
-  CreateSoftwareUpdateJobCommandOutput
+  CreateSoftwareUpdateJobCommandOutput,
 } from "../commands/CreateSoftwareUpdateJobCommand";
 import {
   CreateSubscriptionDefinitionCommandInput,
-  CreateSubscriptionDefinitionCommandOutput
+  CreateSubscriptionDefinitionCommandOutput,
 } from "../commands/CreateSubscriptionDefinitionCommand";
 import {
   CreateSubscriptionDefinitionVersionCommandInput,
-  CreateSubscriptionDefinitionVersionCommandOutput
+  CreateSubscriptionDefinitionVersionCommandOutput,
 } from "../commands/CreateSubscriptionDefinitionVersionCommand";
 import {
   DeleteConnectorDefinitionCommandInput,
-  DeleteConnectorDefinitionCommandOutput
+  DeleteConnectorDefinitionCommandOutput,
 } from "../commands/DeleteConnectorDefinitionCommand";
 import {
   DeleteCoreDefinitionCommandInput,
-  DeleteCoreDefinitionCommandOutput
+  DeleteCoreDefinitionCommandOutput,
 } from "../commands/DeleteCoreDefinitionCommand";
 import {
   DeleteDeviceDefinitionCommandInput,
-  DeleteDeviceDefinitionCommandOutput
+  DeleteDeviceDefinitionCommandOutput,
 } from "../commands/DeleteDeviceDefinitionCommand";
 import {
   DeleteFunctionDefinitionCommandInput,
-  DeleteFunctionDefinitionCommandOutput
+  DeleteFunctionDefinitionCommandOutput,
 } from "../commands/DeleteFunctionDefinitionCommand";
-import {
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
-} from "../commands/DeleteGroupCommand";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "../commands/DeleteGroupCommand";
 import {
   DeleteLoggerDefinitionCommandInput,
-  DeleteLoggerDefinitionCommandOutput
+  DeleteLoggerDefinitionCommandOutput,
 } from "../commands/DeleteLoggerDefinitionCommand";
 import {
   DeleteResourceDefinitionCommandInput,
-  DeleteResourceDefinitionCommandOutput
+  DeleteResourceDefinitionCommandOutput,
 } from "../commands/DeleteResourceDefinitionCommand";
 import {
   DeleteSubscriptionDefinitionCommandInput,
-  DeleteSubscriptionDefinitionCommandOutput
+  DeleteSubscriptionDefinitionCommandOutput,
 } from "../commands/DeleteSubscriptionDefinitionCommand";
 import {
   DisassociateRoleFromGroupCommandInput,
-  DisassociateRoleFromGroupCommandOutput
+  DisassociateRoleFromGroupCommandOutput,
 } from "../commands/DisassociateRoleFromGroupCommand";
 import {
   DisassociateServiceRoleFromAccountCommandInput,
-  DisassociateServiceRoleFromAccountCommandOutput
+  DisassociateServiceRoleFromAccountCommandOutput,
 } from "../commands/DisassociateServiceRoleFromAccountCommand";
-import {
-  GetAssociatedRoleCommandInput,
-  GetAssociatedRoleCommandOutput
-} from "../commands/GetAssociatedRoleCommand";
+import { GetAssociatedRoleCommandInput, GetAssociatedRoleCommandOutput } from "../commands/GetAssociatedRoleCommand";
 import {
   GetBulkDeploymentStatusCommandInput,
-  GetBulkDeploymentStatusCommandOutput
+  GetBulkDeploymentStatusCommandOutput,
 } from "../commands/GetBulkDeploymentStatusCommand";
 import {
   GetConnectivityInfoCommandInput,
-  GetConnectivityInfoCommandOutput
+  GetConnectivityInfoCommandOutput,
 } from "../commands/GetConnectivityInfoCommand";
 import {
   GetConnectorDefinitionCommandInput,
-  GetConnectorDefinitionCommandOutput
+  GetConnectorDefinitionCommandOutput,
 } from "../commands/GetConnectorDefinitionCommand";
 import {
   GetConnectorDefinitionVersionCommandInput,
-  GetConnectorDefinitionVersionCommandOutput
+  GetConnectorDefinitionVersionCommandOutput,
 } from "../commands/GetConnectorDefinitionVersionCommand";
-import {
-  GetCoreDefinitionCommandInput,
-  GetCoreDefinitionCommandOutput
-} from "../commands/GetCoreDefinitionCommand";
+import { GetCoreDefinitionCommandInput, GetCoreDefinitionCommandOutput } from "../commands/GetCoreDefinitionCommand";
 import {
   GetCoreDefinitionVersionCommandInput,
-  GetCoreDefinitionVersionCommandOutput
+  GetCoreDefinitionVersionCommandOutput,
 } from "../commands/GetCoreDefinitionVersionCommand";
 import {
   GetDeploymentStatusCommandInput,
-  GetDeploymentStatusCommandOutput
+  GetDeploymentStatusCommandOutput,
 } from "../commands/GetDeploymentStatusCommand";
 import {
   GetDeviceDefinitionCommandInput,
-  GetDeviceDefinitionCommandOutput
+  GetDeviceDefinitionCommandOutput,
 } from "../commands/GetDeviceDefinitionCommand";
 import {
   GetDeviceDefinitionVersionCommandInput,
-  GetDeviceDefinitionVersionCommandOutput
+  GetDeviceDefinitionVersionCommandOutput,
 } from "../commands/GetDeviceDefinitionVersionCommand";
 import {
   GetFunctionDefinitionCommandInput,
-  GetFunctionDefinitionCommandOutput
+  GetFunctionDefinitionCommandOutput,
 } from "../commands/GetFunctionDefinitionCommand";
 import {
   GetFunctionDefinitionVersionCommandInput,
-  GetFunctionDefinitionVersionCommandOutput
+  GetFunctionDefinitionVersionCommandOutput,
 } from "../commands/GetFunctionDefinitionVersionCommand";
 import {
   GetGroupCertificateAuthorityCommandInput,
-  GetGroupCertificateAuthorityCommandOutput
+  GetGroupCertificateAuthorityCommandOutput,
 } from "../commands/GetGroupCertificateAuthorityCommand";
 import {
   GetGroupCertificateConfigurationCommandInput,
-  GetGroupCertificateConfigurationCommandOutput
+  GetGroupCertificateConfigurationCommandOutput,
 } from "../commands/GetGroupCertificateConfigurationCommand";
-import {
-  GetGroupCommandInput,
-  GetGroupCommandOutput
-} from "../commands/GetGroupCommand";
-import {
-  GetGroupVersionCommandInput,
-  GetGroupVersionCommandOutput
-} from "../commands/GetGroupVersionCommand";
+import { GetGroupCommandInput, GetGroupCommandOutput } from "../commands/GetGroupCommand";
+import { GetGroupVersionCommandInput, GetGroupVersionCommandOutput } from "../commands/GetGroupVersionCommand";
 import {
   GetLoggerDefinitionCommandInput,
-  GetLoggerDefinitionCommandOutput
+  GetLoggerDefinitionCommandOutput,
 } from "../commands/GetLoggerDefinitionCommand";
 import {
   GetLoggerDefinitionVersionCommandInput,
-  GetLoggerDefinitionVersionCommandOutput
+  GetLoggerDefinitionVersionCommandOutput,
 } from "../commands/GetLoggerDefinitionVersionCommand";
 import {
   GetResourceDefinitionCommandInput,
-  GetResourceDefinitionCommandOutput
+  GetResourceDefinitionCommandOutput,
 } from "../commands/GetResourceDefinitionCommand";
 import {
   GetResourceDefinitionVersionCommandInput,
-  GetResourceDefinitionVersionCommandOutput
+  GetResourceDefinitionVersionCommandOutput,
 } from "../commands/GetResourceDefinitionVersionCommand";
 import {
   GetServiceRoleForAccountCommandInput,
-  GetServiceRoleForAccountCommandOutput
+  GetServiceRoleForAccountCommandOutput,
 } from "../commands/GetServiceRoleForAccountCommand";
 import {
   GetSubscriptionDefinitionCommandInput,
-  GetSubscriptionDefinitionCommandOutput
+  GetSubscriptionDefinitionCommandOutput,
 } from "../commands/GetSubscriptionDefinitionCommand";
 import {
   GetSubscriptionDefinitionVersionCommandInput,
-  GetSubscriptionDefinitionVersionCommandOutput
+  GetSubscriptionDefinitionVersionCommandOutput,
 } from "../commands/GetSubscriptionDefinitionVersionCommand";
 import {
   ListBulkDeploymentDetailedReportsCommandInput,
-  ListBulkDeploymentDetailedReportsCommandOutput
+  ListBulkDeploymentDetailedReportsCommandOutput,
 } from "../commands/ListBulkDeploymentDetailedReportsCommand";
 import {
   ListBulkDeploymentsCommandInput,
-  ListBulkDeploymentsCommandOutput
+  ListBulkDeploymentsCommandOutput,
 } from "../commands/ListBulkDeploymentsCommand";
 import {
   ListConnectorDefinitionVersionsCommandInput,
-  ListConnectorDefinitionVersionsCommandOutput
+  ListConnectorDefinitionVersionsCommandOutput,
 } from "../commands/ListConnectorDefinitionVersionsCommand";
 import {
   ListConnectorDefinitionsCommandInput,
-  ListConnectorDefinitionsCommandOutput
+  ListConnectorDefinitionsCommandOutput,
 } from "../commands/ListConnectorDefinitionsCommand";
 import {
   ListCoreDefinitionVersionsCommandInput,
-  ListCoreDefinitionVersionsCommandOutput
+  ListCoreDefinitionVersionsCommandOutput,
 } from "../commands/ListCoreDefinitionVersionsCommand";
 import {
   ListCoreDefinitionsCommandInput,
-  ListCoreDefinitionsCommandOutput
+  ListCoreDefinitionsCommandOutput,
 } from "../commands/ListCoreDefinitionsCommand";
-import {
-  ListDeploymentsCommandInput,
-  ListDeploymentsCommandOutput
-} from "../commands/ListDeploymentsCommand";
+import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "../commands/ListDeploymentsCommand";
 import {
   ListDeviceDefinitionVersionsCommandInput,
-  ListDeviceDefinitionVersionsCommandOutput
+  ListDeviceDefinitionVersionsCommandOutput,
 } from "../commands/ListDeviceDefinitionVersionsCommand";
 import {
   ListDeviceDefinitionsCommandInput,
-  ListDeviceDefinitionsCommandOutput
+  ListDeviceDefinitionsCommandOutput,
 } from "../commands/ListDeviceDefinitionsCommand";
 import {
   ListFunctionDefinitionVersionsCommandInput,
-  ListFunctionDefinitionVersionsCommandOutput
+  ListFunctionDefinitionVersionsCommandOutput,
 } from "../commands/ListFunctionDefinitionVersionsCommand";
 import {
   ListFunctionDefinitionsCommandInput,
-  ListFunctionDefinitionsCommandOutput
+  ListFunctionDefinitionsCommandOutput,
 } from "../commands/ListFunctionDefinitionsCommand";
 import {
   ListGroupCertificateAuthoritiesCommandInput,
-  ListGroupCertificateAuthoritiesCommandOutput
+  ListGroupCertificateAuthoritiesCommandOutput,
 } from "../commands/ListGroupCertificateAuthoritiesCommand";
-import {
-  ListGroupVersionsCommandInput,
-  ListGroupVersionsCommandOutput
-} from "../commands/ListGroupVersionsCommand";
-import {
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput
-} from "../commands/ListGroupsCommand";
+import { ListGroupVersionsCommandInput, ListGroupVersionsCommandOutput } from "../commands/ListGroupVersionsCommand";
+import { ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand";
 import {
   ListLoggerDefinitionVersionsCommandInput,
-  ListLoggerDefinitionVersionsCommandOutput
+  ListLoggerDefinitionVersionsCommandOutput,
 } from "../commands/ListLoggerDefinitionVersionsCommand";
 import {
   ListLoggerDefinitionsCommandInput,
-  ListLoggerDefinitionsCommandOutput
+  ListLoggerDefinitionsCommandOutput,
 } from "../commands/ListLoggerDefinitionsCommand";
 import {
   ListResourceDefinitionVersionsCommandInput,
-  ListResourceDefinitionVersionsCommandOutput
+  ListResourceDefinitionVersionsCommandOutput,
 } from "../commands/ListResourceDefinitionVersionsCommand";
 import {
   ListResourceDefinitionsCommandInput,
-  ListResourceDefinitionsCommandOutput
+  ListResourceDefinitionsCommandOutput,
 } from "../commands/ListResourceDefinitionsCommand";
 import {
   ListSubscriptionDefinitionVersionsCommandInput,
-  ListSubscriptionDefinitionVersionsCommandOutput
+  ListSubscriptionDefinitionVersionsCommandOutput,
 } from "../commands/ListSubscriptionDefinitionVersionsCommand";
 import {
   ListSubscriptionDefinitionsCommandInput,
-  ListSubscriptionDefinitionsCommandOutput
+  ListSubscriptionDefinitionsCommandOutput,
 } from "../commands/ListSubscriptionDefinitionsCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
-import {
-  ResetDeploymentsCommandInput,
-  ResetDeploymentsCommandOutput
-} from "../commands/ResetDeploymentsCommand";
+import { ResetDeploymentsCommandInput, ResetDeploymentsCommandOutput } from "../commands/ResetDeploymentsCommand";
 import {
   StartBulkDeploymentCommandInput,
-  StartBulkDeploymentCommandOutput
+  StartBulkDeploymentCommandOutput,
 } from "../commands/StartBulkDeploymentCommand";
-import {
-  StopBulkDeploymentCommandInput,
-  StopBulkDeploymentCommandOutput
-} from "../commands/StopBulkDeploymentCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "../commands/UntagResourceCommand";
+import { StopBulkDeploymentCommandInput, StopBulkDeploymentCommandOutput } from "../commands/StopBulkDeploymentCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   UpdateConnectivityInfoCommandInput,
-  UpdateConnectivityInfoCommandOutput
+  UpdateConnectivityInfoCommandOutput,
 } from "../commands/UpdateConnectivityInfoCommand";
 import {
   UpdateConnectorDefinitionCommandInput,
-  UpdateConnectorDefinitionCommandOutput
+  UpdateConnectorDefinitionCommandOutput,
 } from "../commands/UpdateConnectorDefinitionCommand";
 import {
   UpdateCoreDefinitionCommandInput,
-  UpdateCoreDefinitionCommandOutput
+  UpdateCoreDefinitionCommandOutput,
 } from "../commands/UpdateCoreDefinitionCommand";
 import {
   UpdateDeviceDefinitionCommandInput,
-  UpdateDeviceDefinitionCommandOutput
+  UpdateDeviceDefinitionCommandOutput,
 } from "../commands/UpdateDeviceDefinitionCommand";
 import {
   UpdateFunctionDefinitionCommandInput,
-  UpdateFunctionDefinitionCommandOutput
+  UpdateFunctionDefinitionCommandOutput,
 } from "../commands/UpdateFunctionDefinitionCommand";
 import {
   UpdateGroupCertificateConfigurationCommandInput,
-  UpdateGroupCertificateConfigurationCommandOutput
+  UpdateGroupCertificateConfigurationCommandOutput,
 } from "../commands/UpdateGroupCertificateConfigurationCommand";
-import {
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
-} from "../commands/UpdateGroupCommand";
+import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "../commands/UpdateGroupCommand";
 import {
   UpdateLoggerDefinitionCommandInput,
-  UpdateLoggerDefinitionCommandOutput
+  UpdateLoggerDefinitionCommandOutput,
 } from "../commands/UpdateLoggerDefinitionCommand";
 import {
   UpdateResourceDefinitionCommandInput,
-  UpdateResourceDefinitionCommandOutput
+  UpdateResourceDefinitionCommandOutput,
 } from "../commands/UpdateResourceDefinitionCommand";
 import {
   UpdateSubscriptionDefinitionCommandInput,
-  UpdateSubscriptionDefinitionCommandOutput
+  UpdateSubscriptionDefinitionCommandOutput,
 } from "../commands/UpdateSubscriptionDefinitionCommand";
 import {
   BadRequestException,
@@ -400,21 +352,18 @@ import {
   SecretsManagerSecretResourceData,
   Subscription,
   SubscriptionDefinitionVersion,
-  VersionInformation
+  VersionInformation,
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export const serializeAws_restJson1AssociateRoleToGroupCommand = async (
@@ -422,7 +371,7 @@ export const serializeAws_restJson1AssociateRoleToGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/greengrass/groups/{GroupId}/role";
   if (input.GroupId !== undefined) {
@@ -430,16 +379,13 @@ export const serializeAws_restJson1AssociateRoleToGroupCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn })
+    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -449,7 +395,7 @@ export const serializeAws_restJson1AssociateRoleToGroupCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -458,12 +404,12 @@ export const serializeAws_restJson1AssociateServiceRoleToAccountCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/greengrass/servicerole";
   let body: any;
   body = JSON.stringify({
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn })
+    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -473,7 +419,7 @@ export const serializeAws_restJson1AssociateServiceRoleToAccountCommand = async 
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -483,23 +429,16 @@ export const serializeAws_restJson1CreateConnectorDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!
-    })
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/connectors";
   let body: any;
   body = JSON.stringify({
     ...(input.InitialVersion !== undefined && {
-      InitialVersion: serializeAws_restJson1ConnectorDefinitionVersion(
-        input.InitialVersion,
-        context
-      )
+      InitialVersion: serializeAws_restJson1ConnectorDefinitionVersion(input.InitialVersion, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1Tags(input.tags, context)
-    })
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -509,7 +448,7 @@ export const serializeAws_restJson1CreateConnectorDefinitionCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -519,36 +458,23 @@ export const serializeAws_restJson1CreateConnectorDefinitionVersionCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!
-    })
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
-  let resolvedPath =
-    "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions";
+  let resolvedPath = "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions";
   if (input.ConnectorDefinitionId !== undefined) {
     const labelValue: string = input.ConnectorDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConnectorDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConnectorDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ConnectorDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ConnectorDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConnectorDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: ConnectorDefinitionId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.Connectors !== undefined && {
-      Connectors: serializeAws_restJson1__listOfConnector(
-        input.Connectors,
-        context
-      )
-    })
+      Connectors: serializeAws_restJson1__listOfConnector(input.Connectors, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -558,7 +484,7 @@ export const serializeAws_restJson1CreateConnectorDefinitionVersionCommand = asy
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -568,23 +494,16 @@ export const serializeAws_restJson1CreateCoreDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!
-    })
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/cores";
   let body: any;
   body = JSON.stringify({
     ...(input.InitialVersion !== undefined && {
-      InitialVersion: serializeAws_restJson1CoreDefinitionVersion(
-        input.InitialVersion,
-        context
-      )
+      InitialVersion: serializeAws_restJson1CoreDefinitionVersion(input.InitialVersion, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1Tags(input.tags, context)
-    })
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -594,7 +513,7 @@ export const serializeAws_restJson1CreateCoreDefinitionCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -604,32 +523,21 @@ export const serializeAws_restJson1CreateCoreDefinitionVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!
-    })
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}/versions";
   if (input.CoreDefinitionId !== undefined) {
     const labelValue: string = input.CoreDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: CoreDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: CoreDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{CoreDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{CoreDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: CoreDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: CoreDefinitionId.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Cores !== undefined && {
-      Cores: serializeAws_restJson1__listOfCore(input.Cores, context)
-    })
+    ...(input.Cores !== undefined && { Cores: serializeAws_restJson1__listOfCore(input.Cores, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -639,7 +547,7 @@ export const serializeAws_restJson1CreateCoreDefinitionVersionCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -649,9 +557,7 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!
-    })
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/groups/{GroupId}/deployments";
   if (input.GroupId !== undefined) {
@@ -659,24 +565,15 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DeploymentId !== undefined && {
-      DeploymentId: input.DeploymentId
-    }),
-    ...(input.DeploymentType !== undefined && {
-      DeploymentType: input.DeploymentType
-    }),
-    ...(input.GroupVersionId !== undefined && {
-      GroupVersionId: input.GroupVersionId
-    })
+    ...(input.DeploymentId !== undefined && { DeploymentId: input.DeploymentId }),
+    ...(input.DeploymentType !== undefined && { DeploymentType: input.DeploymentType }),
+    ...(input.GroupVersionId !== undefined && { GroupVersionId: input.GroupVersionId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -686,7 +583,7 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -696,23 +593,16 @@ export const serializeAws_restJson1CreateDeviceDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!
-    })
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/devices";
   let body: any;
   body = JSON.stringify({
     ...(input.InitialVersion !== undefined && {
-      InitialVersion: serializeAws_restJson1DeviceDefinitionVersion(
-        input.InitialVersion,
-        context
-      )
+      InitialVersion: serializeAws_restJson1DeviceDefinitionVersion(input.InitialVersion, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1Tags(input.tags, context)
-    })
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -722,7 +612,7 @@ export const serializeAws_restJson1CreateDeviceDefinitionCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -732,33 +622,21 @@ export const serializeAws_restJson1CreateDeviceDefinitionVersionCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!
-    })
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
-  let resolvedPath =
-    "/greengrass/definition/devices/{DeviceDefinitionId}/versions";
+  let resolvedPath = "/greengrass/definition/devices/{DeviceDefinitionId}/versions";
   if (input.DeviceDefinitionId !== undefined) {
     const labelValue: string = input.DeviceDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DeviceDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DeviceDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DeviceDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DeviceDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: DeviceDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: DeviceDefinitionId.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Devices !== undefined && {
-      Devices: serializeAws_restJson1__listOfDevice(input.Devices, context)
-    })
+    ...(input.Devices !== undefined && { Devices: serializeAws_restJson1__listOfDevice(input.Devices, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -768,7 +646,7 @@ export const serializeAws_restJson1CreateDeviceDefinitionVersionCommand = async 
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -778,23 +656,16 @@ export const serializeAws_restJson1CreateFunctionDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!
-    })
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/functions";
   let body: any;
   body = JSON.stringify({
     ...(input.InitialVersion !== undefined && {
-      InitialVersion: serializeAws_restJson1FunctionDefinitionVersion(
-        input.InitialVersion,
-        context
-      )
+      InitialVersion: serializeAws_restJson1FunctionDefinitionVersion(input.InitialVersion, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1Tags(input.tags, context)
-    })
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -804,7 +675,7 @@ export const serializeAws_restJson1CreateFunctionDefinitionCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -814,42 +685,26 @@ export const serializeAws_restJson1CreateFunctionDefinitionVersionCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!
-    })
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
-  let resolvedPath =
-    "/greengrass/definition/functions/{FunctionDefinitionId}/versions";
+  let resolvedPath = "/greengrass/definition/functions/{FunctionDefinitionId}/versions";
   if (input.FunctionDefinitionId !== undefined) {
     const labelValue: string = input.FunctionDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: FunctionDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: FunctionDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FunctionDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FunctionDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: FunctionDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: FunctionDefinitionId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.DefaultConfig !== undefined && {
-      DefaultConfig: serializeAws_restJson1FunctionDefaultConfig(
-        input.DefaultConfig,
-        context
-      )
+      DefaultConfig: serializeAws_restJson1FunctionDefaultConfig(input.DefaultConfig, context),
     }),
     ...(input.Functions !== undefined && {
-      Functions: serializeAws_restJson1__listOfFunction(
-        input.Functions,
-        context
-      )
-    })
+      Functions: serializeAws_restJson1__listOfFunction(input.Functions, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -859,7 +714,7 @@ export const serializeAws_restJson1CreateFunctionDefinitionVersionCommand = asyn
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -869,23 +724,16 @@ export const serializeAws_restJson1CreateGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!
-    })
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/groups";
   let body: any;
   body = JSON.stringify({
     ...(input.InitialVersion !== undefined && {
-      InitialVersion: serializeAws_restJson1GroupVersion(
-        input.InitialVersion,
-        context
-      )
+      InitialVersion: serializeAws_restJson1GroupVersion(input.InitialVersion, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1Tags(input.tags, context)
-    })
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -895,7 +743,7 @@ export const serializeAws_restJson1CreateGroupCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -905,9 +753,7 @@ export const serializeAws_restJson1CreateGroupCertificateAuthorityCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!
-    })
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/groups/{GroupId}/certificateauthorities";
   if (input.GroupId !== undefined) {
@@ -915,10 +761,7 @@ export const serializeAws_restJson1CreateGroupCertificateAuthorityCommand = asyn
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -931,7 +774,7 @@ export const serializeAws_restJson1CreateGroupCertificateAuthorityCommand = asyn
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -941,9 +784,7 @@ export const serializeAws_restJson1CreateGroupVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!
-    })
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/groups/{GroupId}/versions";
   if (input.GroupId !== undefined) {
@@ -951,36 +792,31 @@ export const serializeAws_restJson1CreateGroupVersionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.ConnectorDefinitionVersionArn !== undefined && {
-      ConnectorDefinitionVersionArn: input.ConnectorDefinitionVersionArn
+      ConnectorDefinitionVersionArn: input.ConnectorDefinitionVersionArn,
     }),
-    ...(input.CoreDefinitionVersionArn !== undefined && {
-      CoreDefinitionVersionArn: input.CoreDefinitionVersionArn
-    }),
+    ...(input.CoreDefinitionVersionArn !== undefined && { CoreDefinitionVersionArn: input.CoreDefinitionVersionArn }),
     ...(input.DeviceDefinitionVersionArn !== undefined && {
-      DeviceDefinitionVersionArn: input.DeviceDefinitionVersionArn
+      DeviceDefinitionVersionArn: input.DeviceDefinitionVersionArn,
     }),
     ...(input.FunctionDefinitionVersionArn !== undefined && {
-      FunctionDefinitionVersionArn: input.FunctionDefinitionVersionArn
+      FunctionDefinitionVersionArn: input.FunctionDefinitionVersionArn,
     }),
     ...(input.LoggerDefinitionVersionArn !== undefined && {
-      LoggerDefinitionVersionArn: input.LoggerDefinitionVersionArn
+      LoggerDefinitionVersionArn: input.LoggerDefinitionVersionArn,
     }),
     ...(input.ResourceDefinitionVersionArn !== undefined && {
-      ResourceDefinitionVersionArn: input.ResourceDefinitionVersionArn
+      ResourceDefinitionVersionArn: input.ResourceDefinitionVersionArn,
     }),
     ...(input.SubscriptionDefinitionVersionArn !== undefined && {
-      SubscriptionDefinitionVersionArn: input.SubscriptionDefinitionVersionArn
-    })
+      SubscriptionDefinitionVersionArn: input.SubscriptionDefinitionVersionArn,
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -990,7 +826,7 @@ export const serializeAws_restJson1CreateGroupVersionCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1000,23 +836,16 @@ export const serializeAws_restJson1CreateLoggerDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!
-    })
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/loggers";
   let body: any;
   body = JSON.stringify({
     ...(input.InitialVersion !== undefined && {
-      InitialVersion: serializeAws_restJson1LoggerDefinitionVersion(
-        input.InitialVersion,
-        context
-      )
+      InitialVersion: serializeAws_restJson1LoggerDefinitionVersion(input.InitialVersion, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1Tags(input.tags, context)
-    })
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1026,7 +855,7 @@ export const serializeAws_restJson1CreateLoggerDefinitionCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1036,33 +865,21 @@ export const serializeAws_restJson1CreateLoggerDefinitionVersionCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!
-    })
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
-  let resolvedPath =
-    "/greengrass/definition/loggers/{LoggerDefinitionId}/versions";
+  let resolvedPath = "/greengrass/definition/loggers/{LoggerDefinitionId}/versions";
   if (input.LoggerDefinitionId !== undefined) {
     const labelValue: string = input.LoggerDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: LoggerDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: LoggerDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{LoggerDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{LoggerDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: LoggerDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: LoggerDefinitionId.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Loggers !== undefined && {
-      Loggers: serializeAws_restJson1__listOfLogger(input.Loggers, context)
-    })
+    ...(input.Loggers !== undefined && { Loggers: serializeAws_restJson1__listOfLogger(input.Loggers, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1072,7 +889,7 @@ export const serializeAws_restJson1CreateLoggerDefinitionVersionCommand = async 
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1082,23 +899,16 @@ export const serializeAws_restJson1CreateResourceDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!
-    })
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/resources";
   let body: any;
   body = JSON.stringify({
     ...(input.InitialVersion !== undefined && {
-      InitialVersion: serializeAws_restJson1ResourceDefinitionVersion(
-        input.InitialVersion,
-        context
-      )
+      InitialVersion: serializeAws_restJson1ResourceDefinitionVersion(input.InitialVersion, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1Tags(input.tags, context)
-    })
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1108,7 +918,7 @@ export const serializeAws_restJson1CreateResourceDefinitionCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1118,36 +928,23 @@ export const serializeAws_restJson1CreateResourceDefinitionVersionCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!
-    })
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
-  let resolvedPath =
-    "/greengrass/definition/resources/{ResourceDefinitionId}/versions";
+  let resolvedPath = "/greengrass/definition/resources/{ResourceDefinitionId}/versions";
   if (input.ResourceDefinitionId !== undefined) {
     const labelValue: string = input.ResourceDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ResourceDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: ResourceDefinitionId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.Resources !== undefined && {
-      Resources: serializeAws_restJson1__listOfResource(
-        input.Resources,
-        context
-      )
-    })
+      Resources: serializeAws_restJson1__listOfResource(input.Resources, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1157,7 +954,7 @@ export const serializeAws_restJson1CreateResourceDefinitionVersionCommand = asyn
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1167,34 +964,23 @@ export const serializeAws_restJson1CreateSoftwareUpdateJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!
-    })
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/updates";
   let body: any;
   body = JSON.stringify({
-    ...(input.S3UrlSignerRole !== undefined && {
-      S3UrlSignerRole: input.S3UrlSignerRole
-    }),
-    ...(input.SoftwareToUpdate !== undefined && {
-      SoftwareToUpdate: input.SoftwareToUpdate
-    }),
-    ...(input.UpdateAgentLogLevel !== undefined && {
-      UpdateAgentLogLevel: input.UpdateAgentLogLevel
-    }),
+    ...(input.S3UrlSignerRole !== undefined && { S3UrlSignerRole: input.S3UrlSignerRole }),
+    ...(input.SoftwareToUpdate !== undefined && { SoftwareToUpdate: input.SoftwareToUpdate }),
+    ...(input.UpdateAgentLogLevel !== undefined && { UpdateAgentLogLevel: input.UpdateAgentLogLevel }),
     ...(input.UpdateTargets !== undefined && {
-      UpdateTargets: serializeAws_restJson1UpdateTargets(
-        input.UpdateTargets,
-        context
-      )
+      UpdateTargets: serializeAws_restJson1UpdateTargets(input.UpdateTargets, context),
     }),
     ...(input.UpdateTargetsArchitecture !== undefined && {
-      UpdateTargetsArchitecture: input.UpdateTargetsArchitecture
+      UpdateTargetsArchitecture: input.UpdateTargetsArchitecture,
     }),
     ...(input.UpdateTargetsOperatingSystem !== undefined && {
-      UpdateTargetsOperatingSystem: input.UpdateTargetsOperatingSystem
-    })
+      UpdateTargetsOperatingSystem: input.UpdateTargetsOperatingSystem,
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1204,7 +990,7 @@ export const serializeAws_restJson1CreateSoftwareUpdateJobCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1214,23 +1000,16 @@ export const serializeAws_restJson1CreateSubscriptionDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!
-    })
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/subscriptions";
   let body: any;
   body = JSON.stringify({
     ...(input.InitialVersion !== undefined && {
-      InitialVersion: serializeAws_restJson1SubscriptionDefinitionVersion(
-        input.InitialVersion,
-        context
-      )
+      InitialVersion: serializeAws_restJson1SubscriptionDefinitionVersion(input.InitialVersion, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1Tags(input.tags, context)
-    })
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1240,7 +1019,7 @@ export const serializeAws_restJson1CreateSubscriptionDefinitionCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1250,36 +1029,23 @@ export const serializeAws_restJson1CreateSubscriptionDefinitionVersionCommand = 
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!
-    })
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
-  let resolvedPath =
-    "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions";
+  let resolvedPath = "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions";
   if (input.SubscriptionDefinitionId !== undefined) {
     const labelValue: string = input.SubscriptionDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: SubscriptionDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: SubscriptionDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{SubscriptionDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{SubscriptionDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: SubscriptionDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: SubscriptionDefinitionId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.Subscriptions !== undefined && {
-      Subscriptions: serializeAws_restJson1__listOfSubscription(
-        input.Subscriptions,
-        context
-      )
-    })
+      Subscriptions: serializeAws_restJson1__listOfSubscription(input.Subscriptions, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1289,7 +1055,7 @@ export const serializeAws_restJson1CreateSubscriptionDefinitionVersionCommand = 
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1298,25 +1064,17 @@ export const serializeAws_restJson1DeleteConnectorDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
-  let resolvedPath =
-    "/greengrass/definition/connectors/{ConnectorDefinitionId}";
+  let resolvedPath = "/greengrass/definition/connectors/{ConnectorDefinitionId}";
   if (input.ConnectorDefinitionId !== undefined) {
     const labelValue: string = input.ConnectorDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConnectorDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConnectorDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ConnectorDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ConnectorDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConnectorDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: ConnectorDefinitionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1327,7 +1085,7 @@ export const serializeAws_restJson1DeleteConnectorDefinitionCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1336,24 +1094,17 @@ export const serializeAws_restJson1DeleteCoreDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}";
   if (input.CoreDefinitionId !== undefined) {
     const labelValue: string = input.CoreDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: CoreDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: CoreDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{CoreDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{CoreDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: CoreDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: CoreDefinitionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1364,7 +1115,7 @@ export const serializeAws_restJson1DeleteCoreDefinitionCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1373,24 +1124,17 @@ export const serializeAws_restJson1DeleteDeviceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/definition/devices/{DeviceDefinitionId}";
   if (input.DeviceDefinitionId !== undefined) {
     const labelValue: string = input.DeviceDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DeviceDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DeviceDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DeviceDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DeviceDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: DeviceDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: DeviceDefinitionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1401,7 +1145,7 @@ export const serializeAws_restJson1DeleteDeviceDefinitionCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1410,24 +1154,17 @@ export const serializeAws_restJson1DeleteFunctionDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/definition/functions/{FunctionDefinitionId}";
   if (input.FunctionDefinitionId !== undefined) {
     const labelValue: string = input.FunctionDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: FunctionDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: FunctionDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FunctionDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FunctionDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: FunctionDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: FunctionDefinitionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1438,7 +1175,7 @@ export const serializeAws_restJson1DeleteFunctionDefinitionCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1447,7 +1184,7 @@ export const serializeAws_restJson1DeleteGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/groups/{GroupId}";
   if (input.GroupId !== undefined) {
@@ -1455,10 +1192,7 @@ export const serializeAws_restJson1DeleteGroupCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -1471,7 +1205,7 @@ export const serializeAws_restJson1DeleteGroupCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1480,24 +1214,17 @@ export const serializeAws_restJson1DeleteLoggerDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/definition/loggers/{LoggerDefinitionId}";
   if (input.LoggerDefinitionId !== undefined) {
     const labelValue: string = input.LoggerDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: LoggerDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: LoggerDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{LoggerDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{LoggerDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: LoggerDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: LoggerDefinitionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1508,7 +1235,7 @@ export const serializeAws_restJson1DeleteLoggerDefinitionCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1517,24 +1244,17 @@ export const serializeAws_restJson1DeleteResourceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/definition/resources/{ResourceDefinitionId}";
   if (input.ResourceDefinitionId !== undefined) {
     const labelValue: string = input.ResourceDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ResourceDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: ResourceDefinitionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1545,7 +1265,7 @@ export const serializeAws_restJson1DeleteResourceDefinitionCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1554,25 +1274,17 @@ export const serializeAws_restJson1DeleteSubscriptionDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
-  let resolvedPath =
-    "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}";
+  let resolvedPath = "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}";
   if (input.SubscriptionDefinitionId !== undefined) {
     const labelValue: string = input.SubscriptionDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: SubscriptionDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: SubscriptionDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{SubscriptionDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{SubscriptionDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: SubscriptionDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: SubscriptionDefinitionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1583,7 +1295,7 @@ export const serializeAws_restJson1DeleteSubscriptionDefinitionCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1592,7 +1304,7 @@ export const serializeAws_restJson1DisassociateRoleFromGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/groups/{GroupId}/role";
   if (input.GroupId !== undefined) {
@@ -1600,10 +1312,7 @@ export const serializeAws_restJson1DisassociateRoleFromGroupCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -1616,7 +1325,7 @@ export const serializeAws_restJson1DisassociateRoleFromGroupCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1625,7 +1334,7 @@ export const serializeAws_restJson1DisassociateServiceRoleFromAccountCommand = a
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/servicerole";
   let body: any;
@@ -1638,7 +1347,7 @@ export const serializeAws_restJson1DisassociateServiceRoleFromAccountCommand = a
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1647,7 +1356,7 @@ export const serializeAws_restJson1GetAssociatedRoleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/groups/{GroupId}/role";
   if (input.GroupId !== undefined) {
@@ -1655,10 +1364,7 @@ export const serializeAws_restJson1GetAssociatedRoleCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -1671,7 +1377,7 @@ export const serializeAws_restJson1GetAssociatedRoleCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1680,24 +1386,17 @@ export const serializeAws_restJson1GetBulkDeploymentStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/bulk/deployments/{BulkDeploymentId}/status";
   if (input.BulkDeploymentId !== undefined) {
     const labelValue: string = input.BulkDeploymentId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BulkDeploymentId."
-      );
+      throw new Error("Empty value provided for input HTTP label: BulkDeploymentId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BulkDeploymentId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BulkDeploymentId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: BulkDeploymentId."
-    );
+    throw new Error("No value provided for input HTTP label: BulkDeploymentId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1708,7 +1407,7 @@ export const serializeAws_restJson1GetBulkDeploymentStatusCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1717,7 +1416,7 @@ export const serializeAws_restJson1GetConnectivityInfoCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/things/{ThingName}/connectivityInfo";
   if (input.ThingName !== undefined) {
@@ -1725,10 +1424,7 @@ export const serializeAws_restJson1GetConnectivityInfoCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ThingName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ThingName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ThingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ThingName.");
   }
@@ -1741,7 +1437,7 @@ export const serializeAws_restJson1GetConnectivityInfoCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1750,25 +1446,17 @@ export const serializeAws_restJson1GetConnectorDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
-  let resolvedPath =
-    "/greengrass/definition/connectors/{ConnectorDefinitionId}";
+  let resolvedPath = "/greengrass/definition/connectors/{ConnectorDefinitionId}";
   if (input.ConnectorDefinitionId !== undefined) {
     const labelValue: string = input.ConnectorDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConnectorDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConnectorDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ConnectorDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ConnectorDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConnectorDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: ConnectorDefinitionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1779,7 +1467,7 @@ export const serializeAws_restJson1GetConnectorDefinitionCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1788,44 +1476,30 @@ export const serializeAws_restJson1GetConnectorDefinitionVersionCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath =
     "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions/{ConnectorDefinitionVersionId}";
   if (input.ConnectorDefinitionId !== undefined) {
     const labelValue: string = input.ConnectorDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConnectorDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConnectorDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ConnectorDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ConnectorDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConnectorDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: ConnectorDefinitionId.");
   }
   if (input.ConnectorDefinitionVersionId !== undefined) {
     const labelValue: string = input.ConnectorDefinitionVersionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConnectorDefinitionVersionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConnectorDefinitionVersionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ConnectorDefinitionVersionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ConnectorDefinitionVersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConnectorDefinitionVersionId."
-    );
+    throw new Error("No value provided for input HTTP label: ConnectorDefinitionVersionId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1837,7 +1511,7 @@ export const serializeAws_restJson1GetConnectorDefinitionVersionCommand = async 
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -1846,24 +1520,17 @@ export const serializeAws_restJson1GetCoreDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}";
   if (input.CoreDefinitionId !== undefined) {
     const labelValue: string = input.CoreDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: CoreDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: CoreDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{CoreDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{CoreDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: CoreDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: CoreDefinitionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1874,7 +1541,7 @@ export const serializeAws_restJson1GetCoreDefinitionCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1883,41 +1550,26 @@ export const serializeAws_restJson1GetCoreDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
-  let resolvedPath =
-    "/greengrass/definition/cores/{CoreDefinitionId}/versions/{CoreDefinitionVersionId}";
+  let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}/versions/{CoreDefinitionVersionId}";
   if (input.CoreDefinitionId !== undefined) {
     const labelValue: string = input.CoreDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: CoreDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: CoreDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{CoreDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{CoreDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: CoreDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: CoreDefinitionId.");
   }
   if (input.CoreDefinitionVersionId !== undefined) {
     const labelValue: string = input.CoreDefinitionVersionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: CoreDefinitionVersionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: CoreDefinitionVersionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{CoreDefinitionVersionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{CoreDefinitionVersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: CoreDefinitionVersionId."
-    );
+    throw new Error("No value provided for input HTTP label: CoreDefinitionVersionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1928,7 +1580,7 @@ export const serializeAws_restJson1GetCoreDefinitionVersionCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1937,21 +1589,15 @@ export const serializeAws_restJson1GetDeploymentStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
-  let resolvedPath =
-    "/greengrass/groups/{GroupId}/deployments/{DeploymentId}/status";
+  let resolvedPath = "/greengrass/groups/{GroupId}/deployments/{DeploymentId}/status";
   if (input.DeploymentId !== undefined) {
     const labelValue: string = input.DeploymentId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DeploymentId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DeploymentId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DeploymentId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DeploymentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DeploymentId.");
   }
@@ -1960,10 +1606,7 @@ export const serializeAws_restJson1GetDeploymentStatusCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -1976,7 +1619,7 @@ export const serializeAws_restJson1GetDeploymentStatusCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1985,24 +1628,17 @@ export const serializeAws_restJson1GetDeviceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/definition/devices/{DeviceDefinitionId}";
   if (input.DeviceDefinitionId !== undefined) {
     const labelValue: string = input.DeviceDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DeviceDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DeviceDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DeviceDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DeviceDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: DeviceDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: DeviceDefinitionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2013,7 +1649,7 @@ export const serializeAws_restJson1GetDeviceDefinitionCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -2022,44 +1658,29 @@ export const serializeAws_restJson1GetDeviceDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
-  let resolvedPath =
-    "/greengrass/definition/devices/{DeviceDefinitionId}/versions/{DeviceDefinitionVersionId}";
+  let resolvedPath = "/greengrass/definition/devices/{DeviceDefinitionId}/versions/{DeviceDefinitionVersionId}";
   if (input.DeviceDefinitionId !== undefined) {
     const labelValue: string = input.DeviceDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DeviceDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DeviceDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DeviceDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DeviceDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: DeviceDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: DeviceDefinitionId.");
   }
   if (input.DeviceDefinitionVersionId !== undefined) {
     const labelValue: string = input.DeviceDefinitionVersionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DeviceDefinitionVersionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DeviceDefinitionVersionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DeviceDefinitionVersionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DeviceDefinitionVersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: DeviceDefinitionVersionId."
-    );
+    throw new Error("No value provided for input HTTP label: DeviceDefinitionVersionId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2071,7 +1692,7 @@ export const serializeAws_restJson1GetDeviceDefinitionVersionCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -2080,24 +1701,17 @@ export const serializeAws_restJson1GetFunctionDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/definition/functions/{FunctionDefinitionId}";
   if (input.FunctionDefinitionId !== undefined) {
     const labelValue: string = input.FunctionDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: FunctionDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: FunctionDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FunctionDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FunctionDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: FunctionDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: FunctionDefinitionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2108,7 +1722,7 @@ export const serializeAws_restJson1GetFunctionDefinitionCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -2117,44 +1731,29 @@ export const serializeAws_restJson1GetFunctionDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
-  let resolvedPath =
-    "/greengrass/definition/functions/{FunctionDefinitionId}/versions/{FunctionDefinitionVersionId}";
+  let resolvedPath = "/greengrass/definition/functions/{FunctionDefinitionId}/versions/{FunctionDefinitionVersionId}";
   if (input.FunctionDefinitionId !== undefined) {
     const labelValue: string = input.FunctionDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: FunctionDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: FunctionDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FunctionDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FunctionDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: FunctionDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: FunctionDefinitionId.");
   }
   if (input.FunctionDefinitionVersionId !== undefined) {
     const labelValue: string = input.FunctionDefinitionVersionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: FunctionDefinitionVersionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: FunctionDefinitionVersionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FunctionDefinitionVersionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FunctionDefinitionVersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: FunctionDefinitionVersionId."
-    );
+    throw new Error("No value provided for input HTTP label: FunctionDefinitionVersionId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2166,7 +1765,7 @@ export const serializeAws_restJson1GetFunctionDefinitionVersionCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -2175,7 +1774,7 @@ export const serializeAws_restJson1GetGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/groups/{GroupId}";
   if (input.GroupId !== undefined) {
@@ -2183,10 +1782,7 @@ export const serializeAws_restJson1GetGroupCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -2199,7 +1795,7 @@ export const serializeAws_restJson1GetGroupCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -2208,35 +1804,24 @@ export const serializeAws_restJson1GetGroupCertificateAuthorityCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
-  let resolvedPath =
-    "/greengrass/groups/{GroupId}/certificateauthorities/{CertificateAuthorityId}";
+  let resolvedPath = "/greengrass/groups/{GroupId}/certificateauthorities/{CertificateAuthorityId}";
   if (input.CertificateAuthorityId !== undefined) {
     const labelValue: string = input.CertificateAuthorityId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: CertificateAuthorityId."
-      );
+      throw new Error("Empty value provided for input HTTP label: CertificateAuthorityId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{CertificateAuthorityId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{CertificateAuthorityId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: CertificateAuthorityId."
-    );
+    throw new Error("No value provided for input HTTP label: CertificateAuthorityId.");
   }
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -2249,7 +1834,7 @@ export const serializeAws_restJson1GetGroupCertificateAuthorityCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -2258,19 +1843,15 @@ export const serializeAws_restJson1GetGroupCertificateConfigurationCommand = asy
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
-  let resolvedPath =
-    "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry";
+  let resolvedPath = "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -2283,7 +1864,7 @@ export const serializeAws_restJson1GetGroupCertificateConfigurationCommand = asy
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -2292,7 +1873,7 @@ export const serializeAws_restJson1GetGroupVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/groups/{GroupId}/versions/{GroupVersionId}";
   if (input.GroupId !== undefined) {
@@ -2300,24 +1881,16 @@ export const serializeAws_restJson1GetGroupVersionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   if (input.GroupVersionId !== undefined) {
     const labelValue: string = input.GroupVersionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: GroupVersionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: GroupVersionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupVersionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupVersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupVersionId.");
   }
@@ -2330,7 +1903,7 @@ export const serializeAws_restJson1GetGroupVersionCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -2339,24 +1912,17 @@ export const serializeAws_restJson1GetLoggerDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/definition/loggers/{LoggerDefinitionId}";
   if (input.LoggerDefinitionId !== undefined) {
     const labelValue: string = input.LoggerDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: LoggerDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: LoggerDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{LoggerDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{LoggerDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: LoggerDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: LoggerDefinitionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2367,7 +1933,7 @@ export const serializeAws_restJson1GetLoggerDefinitionCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -2376,44 +1942,29 @@ export const serializeAws_restJson1GetLoggerDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
-  let resolvedPath =
-    "/greengrass/definition/loggers/{LoggerDefinitionId}/versions/{LoggerDefinitionVersionId}";
+  let resolvedPath = "/greengrass/definition/loggers/{LoggerDefinitionId}/versions/{LoggerDefinitionVersionId}";
   if (input.LoggerDefinitionId !== undefined) {
     const labelValue: string = input.LoggerDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: LoggerDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: LoggerDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{LoggerDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{LoggerDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: LoggerDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: LoggerDefinitionId.");
   }
   if (input.LoggerDefinitionVersionId !== undefined) {
     const labelValue: string = input.LoggerDefinitionVersionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: LoggerDefinitionVersionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: LoggerDefinitionVersionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{LoggerDefinitionVersionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{LoggerDefinitionVersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: LoggerDefinitionVersionId."
-    );
+    throw new Error("No value provided for input HTTP label: LoggerDefinitionVersionId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2425,7 +1976,7 @@ export const serializeAws_restJson1GetLoggerDefinitionVersionCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -2434,24 +1985,17 @@ export const serializeAws_restJson1GetResourceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/definition/resources/{ResourceDefinitionId}";
   if (input.ResourceDefinitionId !== undefined) {
     const labelValue: string = input.ResourceDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ResourceDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: ResourceDefinitionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2462,7 +2006,7 @@ export const serializeAws_restJson1GetResourceDefinitionCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -2471,41 +2015,26 @@ export const serializeAws_restJson1GetResourceDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
-  let resolvedPath =
-    "/greengrass/definition/resources/{ResourceDefinitionId}/versions/{ResourceDefinitionVersionId}";
+  let resolvedPath = "/greengrass/definition/resources/{ResourceDefinitionId}/versions/{ResourceDefinitionVersionId}";
   if (input.ResourceDefinitionId !== undefined) {
     const labelValue: string = input.ResourceDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ResourceDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: ResourceDefinitionId.");
   }
   if (input.ResourceDefinitionVersionId !== undefined) {
     const labelValue: string = input.ResourceDefinitionVersionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceDefinitionVersionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceDefinitionVersionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceDefinitionVersionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceDefinitionVersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ResourceDefinitionVersionId."
-    );
+    throw new Error("No value provided for input HTTP label: ResourceDefinitionVersionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2516,7 +2045,7 @@ export const serializeAws_restJson1GetResourceDefinitionVersionCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -2525,7 +2054,7 @@ export const serializeAws_restJson1GetServiceRoleForAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/servicerole";
   let body: any;
@@ -2538,7 +2067,7 @@ export const serializeAws_restJson1GetServiceRoleForAccountCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -2547,25 +2076,17 @@ export const serializeAws_restJson1GetSubscriptionDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
-  let resolvedPath =
-    "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}";
+  let resolvedPath = "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}";
   if (input.SubscriptionDefinitionId !== undefined) {
     const labelValue: string = input.SubscriptionDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: SubscriptionDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: SubscriptionDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{SubscriptionDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{SubscriptionDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: SubscriptionDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: SubscriptionDefinitionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2576,7 +2097,7 @@ export const serializeAws_restJson1GetSubscriptionDefinitionCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -2585,44 +2106,30 @@ export const serializeAws_restJson1GetSubscriptionDefinitionVersionCommand = asy
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath =
     "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions/{SubscriptionDefinitionVersionId}";
   if (input.SubscriptionDefinitionId !== undefined) {
     const labelValue: string = input.SubscriptionDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: SubscriptionDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: SubscriptionDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{SubscriptionDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{SubscriptionDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: SubscriptionDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: SubscriptionDefinitionId.");
   }
   if (input.SubscriptionDefinitionVersionId !== undefined) {
     const labelValue: string = input.SubscriptionDefinitionVersionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: SubscriptionDefinitionVersionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: SubscriptionDefinitionVersionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{SubscriptionDefinitionVersionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{SubscriptionDefinitionVersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: SubscriptionDefinitionVersionId."
-    );
+    throw new Error("No value provided for input HTTP label: SubscriptionDefinitionVersionId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2634,7 +2141,7 @@ export const serializeAws_restJson1GetSubscriptionDefinitionVersionCommand = asy
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -2643,29 +2150,21 @@ export const serializeAws_restJson1ListBulkDeploymentDetailedReportsCommand = as
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
-  let resolvedPath =
-    "/greengrass/bulk/deployments/{BulkDeploymentId}/detailed-reports";
+  let resolvedPath = "/greengrass/bulk/deployments/{BulkDeploymentId}/detailed-reports";
   if (input.BulkDeploymentId !== undefined) {
     const labelValue: string = input.BulkDeploymentId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BulkDeploymentId."
-      );
+      throw new Error("Empty value provided for input HTTP label: BulkDeploymentId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BulkDeploymentId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BulkDeploymentId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: BulkDeploymentId."
-    );
+    throw new Error("No value provided for input HTTP label: BulkDeploymentId.");
   }
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2677,7 +2176,7 @@ export const serializeAws_restJson1ListBulkDeploymentDetailedReportsCommand = as
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -2686,12 +2185,12 @@ export const serializeAws_restJson1ListBulkDeploymentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/bulk/deployments";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2703,7 +2202,7 @@ export const serializeAws_restJson1ListBulkDeploymentsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -2712,12 +2211,12 @@ export const serializeAws_restJson1ListConnectorDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/definition/connectors";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2729,7 +2228,7 @@ export const serializeAws_restJson1ListConnectorDefinitionsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -2738,29 +2237,21 @@ export const serializeAws_restJson1ListConnectorDefinitionVersionsCommand = asyn
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
-  let resolvedPath =
-    "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions";
+  let resolvedPath = "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions";
   if (input.ConnectorDefinitionId !== undefined) {
     const labelValue: string = input.ConnectorDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConnectorDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConnectorDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ConnectorDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ConnectorDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConnectorDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: ConnectorDefinitionId.");
   }
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2772,7 +2263,7 @@ export const serializeAws_restJson1ListConnectorDefinitionVersionsCommand = asyn
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -2781,12 +2272,12 @@ export const serializeAws_restJson1ListCoreDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/definition/cores";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2798,7 +2289,7 @@ export const serializeAws_restJson1ListCoreDefinitionsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -2807,28 +2298,21 @@ export const serializeAws_restJson1ListCoreDefinitionVersionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}/versions";
   if (input.CoreDefinitionId !== undefined) {
     const labelValue: string = input.CoreDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: CoreDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: CoreDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{CoreDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{CoreDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: CoreDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: CoreDefinitionId.");
   }
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2840,7 +2324,7 @@ export const serializeAws_restJson1ListCoreDefinitionVersionsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -2849,7 +2333,7 @@ export const serializeAws_restJson1ListDeploymentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/groups/{GroupId}/deployments";
   if (input.GroupId !== undefined) {
@@ -2857,16 +2341,13 @@ export const serializeAws_restJson1ListDeploymentsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2878,7 +2359,7 @@ export const serializeAws_restJson1ListDeploymentsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -2887,12 +2368,12 @@ export const serializeAws_restJson1ListDeviceDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/definition/devices";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2904,7 +2385,7 @@ export const serializeAws_restJson1ListDeviceDefinitionsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -2913,29 +2394,21 @@ export const serializeAws_restJson1ListDeviceDefinitionVersionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
-  let resolvedPath =
-    "/greengrass/definition/devices/{DeviceDefinitionId}/versions";
+  let resolvedPath = "/greengrass/definition/devices/{DeviceDefinitionId}/versions";
   if (input.DeviceDefinitionId !== undefined) {
     const labelValue: string = input.DeviceDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DeviceDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DeviceDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DeviceDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DeviceDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: DeviceDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: DeviceDefinitionId.");
   }
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2947,7 +2420,7 @@ export const serializeAws_restJson1ListDeviceDefinitionVersionsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -2956,12 +2429,12 @@ export const serializeAws_restJson1ListFunctionDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/definition/functions";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2973,7 +2446,7 @@ export const serializeAws_restJson1ListFunctionDefinitionsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -2982,29 +2455,21 @@ export const serializeAws_restJson1ListFunctionDefinitionVersionsCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
-  let resolvedPath =
-    "/greengrass/definition/functions/{FunctionDefinitionId}/versions";
+  let resolvedPath = "/greengrass/definition/functions/{FunctionDefinitionId}/versions";
   if (input.FunctionDefinitionId !== undefined) {
     const labelValue: string = input.FunctionDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: FunctionDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: FunctionDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FunctionDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FunctionDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: FunctionDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: FunctionDefinitionId.");
   }
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3016,7 +2481,7 @@ export const serializeAws_restJson1ListFunctionDefinitionVersionsCommand = async
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -3025,7 +2490,7 @@ export const serializeAws_restJson1ListGroupCertificateAuthoritiesCommand = asyn
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/groups/{GroupId}/certificateauthorities";
   if (input.GroupId !== undefined) {
@@ -3033,10 +2498,7 @@ export const serializeAws_restJson1ListGroupCertificateAuthoritiesCommand = asyn
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
@@ -3049,7 +2511,7 @@ export const serializeAws_restJson1ListGroupCertificateAuthoritiesCommand = asyn
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -3058,12 +2520,12 @@ export const serializeAws_restJson1ListGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/groups";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3075,7 +2537,7 @@ export const serializeAws_restJson1ListGroupsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -3084,7 +2546,7 @@ export const serializeAws_restJson1ListGroupVersionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/groups/{GroupId}/versions";
   if (input.GroupId !== undefined) {
@@ -3092,16 +2554,13 @@ export const serializeAws_restJson1ListGroupVersionsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3113,7 +2572,7 @@ export const serializeAws_restJson1ListGroupVersionsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -3122,12 +2581,12 @@ export const serializeAws_restJson1ListLoggerDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/definition/loggers";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3139,7 +2598,7 @@ export const serializeAws_restJson1ListLoggerDefinitionsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -3148,29 +2607,21 @@ export const serializeAws_restJson1ListLoggerDefinitionVersionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
-  let resolvedPath =
-    "/greengrass/definition/loggers/{LoggerDefinitionId}/versions";
+  let resolvedPath = "/greengrass/definition/loggers/{LoggerDefinitionId}/versions";
   if (input.LoggerDefinitionId !== undefined) {
     const labelValue: string = input.LoggerDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: LoggerDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: LoggerDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{LoggerDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{LoggerDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: LoggerDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: LoggerDefinitionId.");
   }
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3182,7 +2633,7 @@ export const serializeAws_restJson1ListLoggerDefinitionVersionsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -3191,12 +2642,12 @@ export const serializeAws_restJson1ListResourceDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/definition/resources";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3208,7 +2659,7 @@ export const serializeAws_restJson1ListResourceDefinitionsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -3217,29 +2668,21 @@ export const serializeAws_restJson1ListResourceDefinitionVersionsCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
-  let resolvedPath =
-    "/greengrass/definition/resources/{ResourceDefinitionId}/versions";
+  let resolvedPath = "/greengrass/definition/resources/{ResourceDefinitionId}/versions";
   if (input.ResourceDefinitionId !== undefined) {
     const labelValue: string = input.ResourceDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ResourceDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: ResourceDefinitionId.");
   }
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3251,7 +2694,7 @@ export const serializeAws_restJson1ListResourceDefinitionVersionsCommand = async
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -3260,12 +2703,12 @@ export const serializeAws_restJson1ListSubscriptionDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/definition/subscriptions";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3277,7 +2720,7 @@ export const serializeAws_restJson1ListSubscriptionDefinitionsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -3286,29 +2729,21 @@ export const serializeAws_restJson1ListSubscriptionDefinitionVersionsCommand = a
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
-  let resolvedPath =
-    "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions";
+  let resolvedPath = "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions";
   if (input.SubscriptionDefinitionId !== undefined) {
     const labelValue: string = input.SubscriptionDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: SubscriptionDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: SubscriptionDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{SubscriptionDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{SubscriptionDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: SubscriptionDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: SubscriptionDefinitionId.");
   }
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3320,7 +2755,7 @@ export const serializeAws_restJson1ListSubscriptionDefinitionVersionsCommand = a
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -3329,20 +2764,15 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -3355,7 +2785,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -3365,9 +2795,7 @@ export const serializeAws_restJson1ResetDeploymentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!
-    })
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/groups/{GroupId}/deployments/$reset";
   if (input.GroupId !== undefined) {
@@ -3375,16 +2803,13 @@ export const serializeAws_restJson1ResetDeploymentsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Force !== undefined && { Force: input.Force })
+    ...(input.Force !== undefined && { Force: input.Force }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3394,7 +2819,7 @@ export const serializeAws_restJson1ResetDeploymentsCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -3404,22 +2829,14 @@ export const serializeAws_restJson1StartBulkDeploymentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!
-    })
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/bulk/deployments";
   let body: any;
   body = JSON.stringify({
-    ...(input.ExecutionRoleArn !== undefined && {
-      ExecutionRoleArn: input.ExecutionRoleArn
-    }),
-    ...(input.InputFileUri !== undefined && {
-      InputFileUri: input.InputFileUri
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1Tags(input.tags, context)
-    })
+    ...(input.ExecutionRoleArn !== undefined && { ExecutionRoleArn: input.ExecutionRoleArn }),
+    ...(input.InputFileUri !== undefined && { InputFileUri: input.InputFileUri }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3429,7 +2846,7 @@ export const serializeAws_restJson1StartBulkDeploymentCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -3438,24 +2855,17 @@ export const serializeAws_restJson1StopBulkDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/greengrass/bulk/deployments/{BulkDeploymentId}/$stop";
   if (input.BulkDeploymentId !== undefined) {
     const labelValue: string = input.BulkDeploymentId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BulkDeploymentId."
-      );
+      throw new Error("Empty value provided for input HTTP label: BulkDeploymentId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BulkDeploymentId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BulkDeploymentId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: BulkDeploymentId."
-    );
+    throw new Error("No value provided for input HTTP label: BulkDeploymentId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3466,7 +2876,7 @@ export const serializeAws_restJson1StopBulkDeploymentCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -3475,28 +2885,21 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1Tags(input.tags, context)
-    })
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3506,7 +2909,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -3515,27 +2918,20 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && {
-      tagKeys: (input.TagKeys || []).map(_entry => _entry)
-    })
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3547,7 +2943,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -3556,7 +2952,7 @@ export const serializeAws_restJson1UpdateConnectivityInfoCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/greengrass/things/{ThingName}/connectivityInfo";
   if (input.ThingName !== undefined) {
@@ -3564,21 +2960,15 @@ export const serializeAws_restJson1UpdateConnectivityInfoCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ThingName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ThingName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ThingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ThingName.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.ConnectivityInfo !== undefined && {
-      ConnectivityInfo: serializeAws_restJson1__listOfConnectivityInfo(
-        input.ConnectivityInfo,
-        context
-      )
-    })
+      ConnectivityInfo: serializeAws_restJson1__listOfConnectivityInfo(input.ConnectivityInfo, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3588,7 +2978,7 @@ export const serializeAws_restJson1UpdateConnectivityInfoCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -3597,29 +2987,21 @@ export const serializeAws_restJson1UpdateConnectorDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
-  let resolvedPath =
-    "/greengrass/definition/connectors/{ConnectorDefinitionId}";
+  let resolvedPath = "/greengrass/definition/connectors/{ConnectorDefinitionId}";
   if (input.ConnectorDefinitionId !== undefined) {
     const labelValue: string = input.ConnectorDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConnectorDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConnectorDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ConnectorDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ConnectorDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConnectorDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: ConnectorDefinitionId.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && { Name: input.Name })
+    ...(input.Name !== undefined && { Name: input.Name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3629,7 +3011,7 @@ export const serializeAws_restJson1UpdateConnectorDefinitionCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -3638,28 +3020,21 @@ export const serializeAws_restJson1UpdateCoreDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}";
   if (input.CoreDefinitionId !== undefined) {
     const labelValue: string = input.CoreDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: CoreDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: CoreDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{CoreDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{CoreDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: CoreDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: CoreDefinitionId.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && { Name: input.Name })
+    ...(input.Name !== undefined && { Name: input.Name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3669,7 +3044,7 @@ export const serializeAws_restJson1UpdateCoreDefinitionCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -3678,28 +3053,21 @@ export const serializeAws_restJson1UpdateDeviceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/greengrass/definition/devices/{DeviceDefinitionId}";
   if (input.DeviceDefinitionId !== undefined) {
     const labelValue: string = input.DeviceDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DeviceDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DeviceDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DeviceDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DeviceDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: DeviceDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: DeviceDefinitionId.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && { Name: input.Name })
+    ...(input.Name !== undefined && { Name: input.Name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3709,7 +3077,7 @@ export const serializeAws_restJson1UpdateDeviceDefinitionCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -3718,28 +3086,21 @@ export const serializeAws_restJson1UpdateFunctionDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/greengrass/definition/functions/{FunctionDefinitionId}";
   if (input.FunctionDefinitionId !== undefined) {
     const labelValue: string = input.FunctionDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: FunctionDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: FunctionDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FunctionDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FunctionDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: FunctionDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: FunctionDefinitionId.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && { Name: input.Name })
+    ...(input.Name !== undefined && { Name: input.Name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3749,7 +3110,7 @@ export const serializeAws_restJson1UpdateFunctionDefinitionCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -3758,7 +3119,7 @@ export const serializeAws_restJson1UpdateGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/greengrass/groups/{GroupId}";
   if (input.GroupId !== undefined) {
@@ -3766,16 +3127,13 @@ export const serializeAws_restJson1UpdateGroupCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && { Name: input.Name })
+    ...(input.Name !== undefined && { Name: input.Name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3785,7 +3143,7 @@ export const serializeAws_restJson1UpdateGroupCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -3794,27 +3152,23 @@ export const serializeAws_restJson1UpdateGroupCertificateConfigurationCommand = 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
-  let resolvedPath =
-    "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry";
+  let resolvedPath = "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.CertificateExpiryInMilliseconds !== undefined && {
-      CertificateExpiryInMilliseconds: input.CertificateExpiryInMilliseconds
-    })
+      CertificateExpiryInMilliseconds: input.CertificateExpiryInMilliseconds,
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3824,7 +3178,7 @@ export const serializeAws_restJson1UpdateGroupCertificateConfigurationCommand = 
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -3833,28 +3187,21 @@ export const serializeAws_restJson1UpdateLoggerDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/greengrass/definition/loggers/{LoggerDefinitionId}";
   if (input.LoggerDefinitionId !== undefined) {
     const labelValue: string = input.LoggerDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: LoggerDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: LoggerDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{LoggerDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{LoggerDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: LoggerDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: LoggerDefinitionId.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && { Name: input.Name })
+    ...(input.Name !== undefined && { Name: input.Name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3864,7 +3211,7 @@ export const serializeAws_restJson1UpdateLoggerDefinitionCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -3873,28 +3220,21 @@ export const serializeAws_restJson1UpdateResourceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/greengrass/definition/resources/{ResourceDefinitionId}";
   if (input.ResourceDefinitionId !== undefined) {
     const labelValue: string = input.ResourceDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ResourceDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: ResourceDefinitionId.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && { Name: input.Name })
+    ...(input.Name !== undefined && { Name: input.Name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3904,7 +3244,7 @@ export const serializeAws_restJson1UpdateResourceDefinitionCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -3913,29 +3253,21 @@ export const serializeAws_restJson1UpdateSubscriptionDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
-  let resolvedPath =
-    "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}";
+  let resolvedPath = "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}";
   if (input.SubscriptionDefinitionId !== undefined) {
     const labelValue: string = input.SubscriptionDefinitionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: SubscriptionDefinitionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: SubscriptionDefinitionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{SubscriptionDefinitionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{SubscriptionDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: SubscriptionDefinitionId."
-    );
+    throw new Error("No value provided for input HTTP label: SubscriptionDefinitionId.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && { Name: input.Name })
+    ...(input.Name !== undefined && { Name: input.Name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3945,7 +3277,7 @@ export const serializeAws_restJson1UpdateSubscriptionDefinitionCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -3954,15 +3286,12 @@ export const deserializeAws_restJson1AssociateRoleToGroupCommand = async (
   context: __SerdeContext
 ): Promise<AssociateRoleToGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1AssociateRoleToGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1AssociateRoleToGroupCommandError(output, context);
   }
   const contents: AssociateRoleToGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssociateRoleToGroupResponse",
-    AssociatedAt: undefined
+    AssociatedAt: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AssociatedAt !== undefined && data.AssociatedAt !== null) {
@@ -3977,7 +3306,7 @@ const deserializeAws_restJson1AssociateRoleToGroupCommandError = async (
 ): Promise<AssociateRoleToGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3986,23 +3315,17 @@ const deserializeAws_restJson1AssociateRoleToGroupCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4013,7 +3336,7 @@ const deserializeAws_restJson1AssociateRoleToGroupCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4027,15 +3350,12 @@ export const deserializeAws_restJson1AssociateServiceRoleToAccountCommand = asyn
   context: __SerdeContext
 ): Promise<AssociateServiceRoleToAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1AssociateServiceRoleToAccountCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1AssociateServiceRoleToAccountCommandError(output, context);
   }
   const contents: AssociateServiceRoleToAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssociateServiceRoleToAccountResponse",
-    AssociatedAt: undefined
+    AssociatedAt: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AssociatedAt !== undefined && data.AssociatedAt !== null) {
@@ -4050,7 +3370,7 @@ const deserializeAws_restJson1AssociateServiceRoleToAccountCommandError = async 
 ): Promise<AssociateServiceRoleToAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4059,23 +3379,17 @@ const deserializeAws_restJson1AssociateServiceRoleToAccountCommandError = async 
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4086,7 +3400,7 @@ const deserializeAws_restJson1AssociateServiceRoleToAccountCommandError = async 
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4100,10 +3414,7 @@ export const deserializeAws_restJson1CreateConnectorDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<CreateConnectorDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateConnectorDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateConnectorDefinitionCommandError(output, context);
   }
   const contents: CreateConnectorDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4114,7 +3425,7 @@ export const deserializeAws_restJson1CreateConnectorDefinitionCommand = async (
     LastUpdatedTimestamp: undefined,
     LatestVersion: undefined,
     LatestVersionArn: undefined,
-    Name: undefined
+    Name: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -4126,10 +3437,7 @@ export const deserializeAws_restJson1CreateConnectorDefinitionCommand = async (
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
   }
-  if (
-    data.LastUpdatedTimestamp !== undefined &&
-    data.LastUpdatedTimestamp !== null
-  ) {
+  if (data.LastUpdatedTimestamp !== undefined && data.LastUpdatedTimestamp !== null) {
     contents.LastUpdatedTimestamp = data.LastUpdatedTimestamp;
   }
   if (data.LatestVersion !== undefined && data.LatestVersion !== null) {
@@ -4150,7 +3458,7 @@ const deserializeAws_restJson1CreateConnectorDefinitionCommandError = async (
 ): Promise<CreateConnectorDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4159,12 +3467,9 @@ const deserializeAws_restJson1CreateConnectorDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4175,7 +3480,7 @@ const deserializeAws_restJson1CreateConnectorDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4189,10 +3494,7 @@ export const deserializeAws_restJson1CreateConnectorDefinitionVersionCommand = a
   context: __SerdeContext
 ): Promise<CreateConnectorDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateConnectorDefinitionVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateConnectorDefinitionVersionCommandError(output, context);
   }
   const contents: CreateConnectorDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4200,7 +3502,7 @@ export const deserializeAws_restJson1CreateConnectorDefinitionVersionCommand = a
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
-    Version: undefined
+    Version: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -4224,7 +3526,7 @@ const deserializeAws_restJson1CreateConnectorDefinitionVersionCommandError = asy
 ): Promise<CreateConnectorDefinitionVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4233,12 +3535,9 @@ const deserializeAws_restJson1CreateConnectorDefinitionVersionCommandError = asy
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4249,7 +3548,7 @@ const deserializeAws_restJson1CreateConnectorDefinitionVersionCommandError = asy
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4263,10 +3562,7 @@ export const deserializeAws_restJson1CreateCoreDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<CreateCoreDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateCoreDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateCoreDefinitionCommandError(output, context);
   }
   const contents: CreateCoreDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4277,7 +3573,7 @@ export const deserializeAws_restJson1CreateCoreDefinitionCommand = async (
     LastUpdatedTimestamp: undefined,
     LatestVersion: undefined,
     LatestVersionArn: undefined,
-    Name: undefined
+    Name: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -4289,10 +3585,7 @@ export const deserializeAws_restJson1CreateCoreDefinitionCommand = async (
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
   }
-  if (
-    data.LastUpdatedTimestamp !== undefined &&
-    data.LastUpdatedTimestamp !== null
-  ) {
+  if (data.LastUpdatedTimestamp !== undefined && data.LastUpdatedTimestamp !== null) {
     contents.LastUpdatedTimestamp = data.LastUpdatedTimestamp;
   }
   if (data.LatestVersion !== undefined && data.LatestVersion !== null) {
@@ -4313,7 +3606,7 @@ const deserializeAws_restJson1CreateCoreDefinitionCommandError = async (
 ): Promise<CreateCoreDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4322,12 +3615,9 @@ const deserializeAws_restJson1CreateCoreDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4338,7 +3628,7 @@ const deserializeAws_restJson1CreateCoreDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4352,10 +3642,7 @@ export const deserializeAws_restJson1CreateCoreDefinitionVersionCommand = async 
   context: __SerdeContext
 ): Promise<CreateCoreDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateCoreDefinitionVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateCoreDefinitionVersionCommandError(output, context);
   }
   const contents: CreateCoreDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4363,7 +3650,7 @@ export const deserializeAws_restJson1CreateCoreDefinitionVersionCommand = async 
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
-    Version: undefined
+    Version: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -4387,7 +3674,7 @@ const deserializeAws_restJson1CreateCoreDefinitionVersionCommandError = async (
 ): Promise<CreateCoreDefinitionVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4396,12 +3683,9 @@ const deserializeAws_restJson1CreateCoreDefinitionVersionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4412,7 +3696,7 @@ const deserializeAws_restJson1CreateCoreDefinitionVersionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4426,16 +3710,13 @@ export const deserializeAws_restJson1CreateDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateDeploymentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateDeploymentCommandError(output, context);
   }
   const contents: CreateDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDeploymentResponse",
     DeploymentArn: undefined,
-    DeploymentId: undefined
+    DeploymentId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.DeploymentArn !== undefined && data.DeploymentArn !== null) {
@@ -4453,7 +3734,7 @@ const deserializeAws_restJson1CreateDeploymentCommandError = async (
 ): Promise<CreateDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4462,12 +3743,9 @@ const deserializeAws_restJson1CreateDeploymentCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4478,7 +3756,7 @@ const deserializeAws_restJson1CreateDeploymentCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4492,10 +3770,7 @@ export const deserializeAws_restJson1CreateDeviceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<CreateDeviceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateDeviceDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateDeviceDefinitionCommandError(output, context);
   }
   const contents: CreateDeviceDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4506,7 +3781,7 @@ export const deserializeAws_restJson1CreateDeviceDefinitionCommand = async (
     LastUpdatedTimestamp: undefined,
     LatestVersion: undefined,
     LatestVersionArn: undefined,
-    Name: undefined
+    Name: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -4518,10 +3793,7 @@ export const deserializeAws_restJson1CreateDeviceDefinitionCommand = async (
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
   }
-  if (
-    data.LastUpdatedTimestamp !== undefined &&
-    data.LastUpdatedTimestamp !== null
-  ) {
+  if (data.LastUpdatedTimestamp !== undefined && data.LastUpdatedTimestamp !== null) {
     contents.LastUpdatedTimestamp = data.LastUpdatedTimestamp;
   }
   if (data.LatestVersion !== undefined && data.LatestVersion !== null) {
@@ -4542,7 +3814,7 @@ const deserializeAws_restJson1CreateDeviceDefinitionCommandError = async (
 ): Promise<CreateDeviceDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4551,12 +3823,9 @@ const deserializeAws_restJson1CreateDeviceDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4567,7 +3836,7 @@ const deserializeAws_restJson1CreateDeviceDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4581,10 +3850,7 @@ export const deserializeAws_restJson1CreateDeviceDefinitionVersionCommand = asyn
   context: __SerdeContext
 ): Promise<CreateDeviceDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateDeviceDefinitionVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateDeviceDefinitionVersionCommandError(output, context);
   }
   const contents: CreateDeviceDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4592,7 +3858,7 @@ export const deserializeAws_restJson1CreateDeviceDefinitionVersionCommand = asyn
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
-    Version: undefined
+    Version: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -4616,7 +3882,7 @@ const deserializeAws_restJson1CreateDeviceDefinitionVersionCommandError = async 
 ): Promise<CreateDeviceDefinitionVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4625,12 +3891,9 @@ const deserializeAws_restJson1CreateDeviceDefinitionVersionCommandError = async 
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4641,7 +3904,7 @@ const deserializeAws_restJson1CreateDeviceDefinitionVersionCommandError = async 
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4655,10 +3918,7 @@ export const deserializeAws_restJson1CreateFunctionDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<CreateFunctionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateFunctionDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateFunctionDefinitionCommandError(output, context);
   }
   const contents: CreateFunctionDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4669,7 +3929,7 @@ export const deserializeAws_restJson1CreateFunctionDefinitionCommand = async (
     LastUpdatedTimestamp: undefined,
     LatestVersion: undefined,
     LatestVersionArn: undefined,
-    Name: undefined
+    Name: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -4681,10 +3941,7 @@ export const deserializeAws_restJson1CreateFunctionDefinitionCommand = async (
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
   }
-  if (
-    data.LastUpdatedTimestamp !== undefined &&
-    data.LastUpdatedTimestamp !== null
-  ) {
+  if (data.LastUpdatedTimestamp !== undefined && data.LastUpdatedTimestamp !== null) {
     contents.LastUpdatedTimestamp = data.LastUpdatedTimestamp;
   }
   if (data.LatestVersion !== undefined && data.LatestVersion !== null) {
@@ -4705,7 +3962,7 @@ const deserializeAws_restJson1CreateFunctionDefinitionCommandError = async (
 ): Promise<CreateFunctionDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4714,12 +3971,9 @@ const deserializeAws_restJson1CreateFunctionDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4730,7 +3984,7 @@ const deserializeAws_restJson1CreateFunctionDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4744,10 +3998,7 @@ export const deserializeAws_restJson1CreateFunctionDefinitionVersionCommand = as
   context: __SerdeContext
 ): Promise<CreateFunctionDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateFunctionDefinitionVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateFunctionDefinitionVersionCommandError(output, context);
   }
   const contents: CreateFunctionDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4755,7 +4006,7 @@ export const deserializeAws_restJson1CreateFunctionDefinitionVersionCommand = as
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
-    Version: undefined
+    Version: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -4779,7 +4030,7 @@ const deserializeAws_restJson1CreateFunctionDefinitionVersionCommandError = asyn
 ): Promise<CreateFunctionDefinitionVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4788,12 +4039,9 @@ const deserializeAws_restJson1CreateFunctionDefinitionVersionCommandError = asyn
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4804,7 +4052,7 @@ const deserializeAws_restJson1CreateFunctionDefinitionVersionCommandError = asyn
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4829,7 +4077,7 @@ export const deserializeAws_restJson1CreateGroupCommand = async (
     LastUpdatedTimestamp: undefined,
     LatestVersion: undefined,
     LatestVersionArn: undefined,
-    Name: undefined
+    Name: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -4841,10 +4089,7 @@ export const deserializeAws_restJson1CreateGroupCommand = async (
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
   }
-  if (
-    data.LastUpdatedTimestamp !== undefined &&
-    data.LastUpdatedTimestamp !== null
-  ) {
+  if (data.LastUpdatedTimestamp !== undefined && data.LastUpdatedTimestamp !== null) {
     contents.LastUpdatedTimestamp = data.LastUpdatedTimestamp;
   }
   if (data.LatestVersion !== undefined && data.LatestVersion !== null) {
@@ -4865,7 +4110,7 @@ const deserializeAws_restJson1CreateGroupCommandError = async (
 ): Promise<CreateGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4874,12 +4119,9 @@ const deserializeAws_restJson1CreateGroupCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4890,7 +4132,7 @@ const deserializeAws_restJson1CreateGroupCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4904,21 +4146,15 @@ export const deserializeAws_restJson1CreateGroupCertificateAuthorityCommand = as
   context: __SerdeContext
 ): Promise<CreateGroupCertificateAuthorityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateGroupCertificateAuthorityCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateGroupCertificateAuthorityCommandError(output, context);
   }
   const contents: CreateGroupCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateGroupCertificateAuthorityResponse",
-    GroupCertificateAuthorityArn: undefined
+    GroupCertificateAuthorityArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.GroupCertificateAuthorityArn !== undefined &&
-    data.GroupCertificateAuthorityArn !== null
-  ) {
+  if (data.GroupCertificateAuthorityArn !== undefined && data.GroupCertificateAuthorityArn !== null) {
     contents.GroupCertificateAuthorityArn = data.GroupCertificateAuthorityArn;
   }
   return Promise.resolve(contents);
@@ -4930,7 +4166,7 @@ const deserializeAws_restJson1CreateGroupCertificateAuthorityCommandError = asyn
 ): Promise<CreateGroupCertificateAuthorityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4939,23 +4175,17 @@ const deserializeAws_restJson1CreateGroupCertificateAuthorityCommandError = asyn
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4966,7 +4196,7 @@ const deserializeAws_restJson1CreateGroupCertificateAuthorityCommandError = asyn
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4980,10 +4210,7 @@ export const deserializeAws_restJson1CreateGroupVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateGroupVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateGroupVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateGroupVersionCommandError(output, context);
   }
   const contents: CreateGroupVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4991,7 +4218,7 @@ export const deserializeAws_restJson1CreateGroupVersionCommand = async (
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
-    Version: undefined
+    Version: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -5015,7 +4242,7 @@ const deserializeAws_restJson1CreateGroupVersionCommandError = async (
 ): Promise<CreateGroupVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5024,12 +4251,9 @@ const deserializeAws_restJson1CreateGroupVersionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5040,7 +4264,7 @@ const deserializeAws_restJson1CreateGroupVersionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5054,10 +4278,7 @@ export const deserializeAws_restJson1CreateLoggerDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<CreateLoggerDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateLoggerDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateLoggerDefinitionCommandError(output, context);
   }
   const contents: CreateLoggerDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5068,7 +4289,7 @@ export const deserializeAws_restJson1CreateLoggerDefinitionCommand = async (
     LastUpdatedTimestamp: undefined,
     LatestVersion: undefined,
     LatestVersionArn: undefined,
-    Name: undefined
+    Name: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -5080,10 +4301,7 @@ export const deserializeAws_restJson1CreateLoggerDefinitionCommand = async (
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
   }
-  if (
-    data.LastUpdatedTimestamp !== undefined &&
-    data.LastUpdatedTimestamp !== null
-  ) {
+  if (data.LastUpdatedTimestamp !== undefined && data.LastUpdatedTimestamp !== null) {
     contents.LastUpdatedTimestamp = data.LastUpdatedTimestamp;
   }
   if (data.LatestVersion !== undefined && data.LatestVersion !== null) {
@@ -5104,7 +4322,7 @@ const deserializeAws_restJson1CreateLoggerDefinitionCommandError = async (
 ): Promise<CreateLoggerDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5113,12 +4331,9 @@ const deserializeAws_restJson1CreateLoggerDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5129,7 +4344,7 @@ const deserializeAws_restJson1CreateLoggerDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5143,10 +4358,7 @@ export const deserializeAws_restJson1CreateLoggerDefinitionVersionCommand = asyn
   context: __SerdeContext
 ): Promise<CreateLoggerDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateLoggerDefinitionVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateLoggerDefinitionVersionCommandError(output, context);
   }
   const contents: CreateLoggerDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5154,7 +4366,7 @@ export const deserializeAws_restJson1CreateLoggerDefinitionVersionCommand = asyn
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
-    Version: undefined
+    Version: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -5178,7 +4390,7 @@ const deserializeAws_restJson1CreateLoggerDefinitionVersionCommandError = async 
 ): Promise<CreateLoggerDefinitionVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5187,12 +4399,9 @@ const deserializeAws_restJson1CreateLoggerDefinitionVersionCommandError = async 
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5203,7 +4412,7 @@ const deserializeAws_restJson1CreateLoggerDefinitionVersionCommandError = async 
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5217,10 +4426,7 @@ export const deserializeAws_restJson1CreateResourceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<CreateResourceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateResourceDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateResourceDefinitionCommandError(output, context);
   }
   const contents: CreateResourceDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5231,7 +4437,7 @@ export const deserializeAws_restJson1CreateResourceDefinitionCommand = async (
     LastUpdatedTimestamp: undefined,
     LatestVersion: undefined,
     LatestVersionArn: undefined,
-    Name: undefined
+    Name: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -5243,10 +4449,7 @@ export const deserializeAws_restJson1CreateResourceDefinitionCommand = async (
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
   }
-  if (
-    data.LastUpdatedTimestamp !== undefined &&
-    data.LastUpdatedTimestamp !== null
-  ) {
+  if (data.LastUpdatedTimestamp !== undefined && data.LastUpdatedTimestamp !== null) {
     contents.LastUpdatedTimestamp = data.LastUpdatedTimestamp;
   }
   if (data.LatestVersion !== undefined && data.LatestVersion !== null) {
@@ -5267,7 +4470,7 @@ const deserializeAws_restJson1CreateResourceDefinitionCommandError = async (
 ): Promise<CreateResourceDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5276,12 +4479,9 @@ const deserializeAws_restJson1CreateResourceDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5292,7 +4492,7 @@ const deserializeAws_restJson1CreateResourceDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5306,10 +4506,7 @@ export const deserializeAws_restJson1CreateResourceDefinitionVersionCommand = as
   context: __SerdeContext
 ): Promise<CreateResourceDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateResourceDefinitionVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateResourceDefinitionVersionCommandError(output, context);
   }
   const contents: CreateResourceDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5317,7 +4514,7 @@ export const deserializeAws_restJson1CreateResourceDefinitionVersionCommand = as
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
-    Version: undefined
+    Version: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -5341,7 +4538,7 @@ const deserializeAws_restJson1CreateResourceDefinitionVersionCommandError = asyn
 ): Promise<CreateResourceDefinitionVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5350,12 +4547,9 @@ const deserializeAws_restJson1CreateResourceDefinitionVersionCommandError = asyn
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5366,7 +4560,7 @@ const deserializeAws_restJson1CreateResourceDefinitionVersionCommandError = asyn
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5380,17 +4574,14 @@ export const deserializeAws_restJson1CreateSoftwareUpdateJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateSoftwareUpdateJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateSoftwareUpdateJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateSoftwareUpdateJobCommandError(output, context);
   }
   const contents: CreateSoftwareUpdateJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateSoftwareUpdateJobResponse",
     IotJobArn: undefined,
     IotJobId: undefined,
-    PlatformSoftwareVersion: undefined
+    PlatformSoftwareVersion: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.IotJobArn !== undefined && data.IotJobArn !== null) {
@@ -5399,10 +4590,7 @@ export const deserializeAws_restJson1CreateSoftwareUpdateJobCommand = async (
   if (data.IotJobId !== undefined && data.IotJobId !== null) {
     contents.IotJobId = data.IotJobId;
   }
-  if (
-    data.PlatformSoftwareVersion !== undefined &&
-    data.PlatformSoftwareVersion !== null
-  ) {
+  if (data.PlatformSoftwareVersion !== undefined && data.PlatformSoftwareVersion !== null) {
     contents.PlatformSoftwareVersion = data.PlatformSoftwareVersion;
   }
   return Promise.resolve(contents);
@@ -5414,7 +4602,7 @@ const deserializeAws_restJson1CreateSoftwareUpdateJobCommandError = async (
 ): Promise<CreateSoftwareUpdateJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5423,23 +4611,17 @@ const deserializeAws_restJson1CreateSoftwareUpdateJobCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5450,7 +4632,7 @@ const deserializeAws_restJson1CreateSoftwareUpdateJobCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5464,10 +4646,7 @@ export const deserializeAws_restJson1CreateSubscriptionDefinitionCommand = async
   context: __SerdeContext
 ): Promise<CreateSubscriptionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateSubscriptionDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateSubscriptionDefinitionCommandError(output, context);
   }
   const contents: CreateSubscriptionDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5478,7 +4657,7 @@ export const deserializeAws_restJson1CreateSubscriptionDefinitionCommand = async
     LastUpdatedTimestamp: undefined,
     LatestVersion: undefined,
     LatestVersionArn: undefined,
-    Name: undefined
+    Name: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -5490,10 +4669,7 @@ export const deserializeAws_restJson1CreateSubscriptionDefinitionCommand = async
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
   }
-  if (
-    data.LastUpdatedTimestamp !== undefined &&
-    data.LastUpdatedTimestamp !== null
-  ) {
+  if (data.LastUpdatedTimestamp !== undefined && data.LastUpdatedTimestamp !== null) {
     contents.LastUpdatedTimestamp = data.LastUpdatedTimestamp;
   }
   if (data.LatestVersion !== undefined && data.LatestVersion !== null) {
@@ -5514,7 +4690,7 @@ const deserializeAws_restJson1CreateSubscriptionDefinitionCommandError = async (
 ): Promise<CreateSubscriptionDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5523,12 +4699,9 @@ const deserializeAws_restJson1CreateSubscriptionDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5539,7 +4712,7 @@ const deserializeAws_restJson1CreateSubscriptionDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5553,10 +4726,7 @@ export const deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommand 
   context: __SerdeContext
 ): Promise<CreateSubscriptionDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommandError(output, context);
   }
   const contents: CreateSubscriptionDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5564,7 +4734,7 @@ export const deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommand 
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
-    Version: undefined
+    Version: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -5588,7 +4758,7 @@ const deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommandError = 
 ): Promise<CreateSubscriptionDefinitionVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5597,12 +4767,9 @@ const deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommandError = 
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5613,7 +4780,7 @@ const deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommandError = 
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5627,14 +4794,11 @@ export const deserializeAws_restJson1DeleteConnectorDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConnectorDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DeleteConnectorDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteConnectorDefinitionCommandError(output, context);
   }
   const contents: DeleteConnectorDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteConnectorDefinitionResponse"
+    __type: "DeleteConnectorDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5646,7 +4810,7 @@ const deserializeAws_restJson1DeleteConnectorDefinitionCommandError = async (
 ): Promise<DeleteConnectorDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5655,12 +4819,9 @@ const deserializeAws_restJson1DeleteConnectorDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5671,7 +4832,7 @@ const deserializeAws_restJson1DeleteConnectorDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5685,14 +4846,11 @@ export const deserializeAws_restJson1DeleteCoreDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCoreDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DeleteCoreDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteCoreDefinitionCommandError(output, context);
   }
   const contents: DeleteCoreDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteCoreDefinitionResponse"
+    __type: "DeleteCoreDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5704,7 +4862,7 @@ const deserializeAws_restJson1DeleteCoreDefinitionCommandError = async (
 ): Promise<DeleteCoreDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5713,12 +4871,9 @@ const deserializeAws_restJson1DeleteCoreDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5729,7 +4884,7 @@ const deserializeAws_restJson1DeleteCoreDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5743,14 +4898,11 @@ export const deserializeAws_restJson1DeleteDeviceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDeviceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DeleteDeviceDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteDeviceDefinitionCommandError(output, context);
   }
   const contents: DeleteDeviceDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDeviceDefinitionResponse"
+    __type: "DeleteDeviceDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5762,7 +4914,7 @@ const deserializeAws_restJson1DeleteDeviceDefinitionCommandError = async (
 ): Promise<DeleteDeviceDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5771,12 +4923,9 @@ const deserializeAws_restJson1DeleteDeviceDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5787,7 +4936,7 @@ const deserializeAws_restJson1DeleteDeviceDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5801,14 +4950,11 @@ export const deserializeAws_restJson1DeleteFunctionDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFunctionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DeleteFunctionDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteFunctionDefinitionCommandError(output, context);
   }
   const contents: DeleteFunctionDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteFunctionDefinitionResponse"
+    __type: "DeleteFunctionDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5820,7 +4966,7 @@ const deserializeAws_restJson1DeleteFunctionDefinitionCommandError = async (
 ): Promise<DeleteFunctionDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5829,12 +4975,9 @@ const deserializeAws_restJson1DeleteFunctionDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5845,7 +4988,7 @@ const deserializeAws_restJson1DeleteFunctionDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5863,7 +5006,7 @@ export const deserializeAws_restJson1DeleteGroupCommand = async (
   }
   const contents: DeleteGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteGroupResponse"
+    __type: "DeleteGroupResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5875,7 +5018,7 @@ const deserializeAws_restJson1DeleteGroupCommandError = async (
 ): Promise<DeleteGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5884,12 +5027,9 @@ const deserializeAws_restJson1DeleteGroupCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5900,7 +5040,7 @@ const deserializeAws_restJson1DeleteGroupCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5914,14 +5054,11 @@ export const deserializeAws_restJson1DeleteLoggerDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLoggerDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DeleteLoggerDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteLoggerDefinitionCommandError(output, context);
   }
   const contents: DeleteLoggerDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLoggerDefinitionResponse"
+    __type: "DeleteLoggerDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5933,7 +5070,7 @@ const deserializeAws_restJson1DeleteLoggerDefinitionCommandError = async (
 ): Promise<DeleteLoggerDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5942,12 +5079,9 @@ const deserializeAws_restJson1DeleteLoggerDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5958,7 +5092,7 @@ const deserializeAws_restJson1DeleteLoggerDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5972,14 +5106,11 @@ export const deserializeAws_restJson1DeleteResourceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DeleteResourceDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteResourceDefinitionCommandError(output, context);
   }
   const contents: DeleteResourceDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteResourceDefinitionResponse"
+    __type: "DeleteResourceDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5991,7 +5122,7 @@ const deserializeAws_restJson1DeleteResourceDefinitionCommandError = async (
 ): Promise<DeleteResourceDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -6000,12 +5131,9 @@ const deserializeAws_restJson1DeleteResourceDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -6016,7 +5144,7 @@ const deserializeAws_restJson1DeleteResourceDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -6030,14 +5158,11 @@ export const deserializeAws_restJson1DeleteSubscriptionDefinitionCommand = async
   context: __SerdeContext
 ): Promise<DeleteSubscriptionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DeleteSubscriptionDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteSubscriptionDefinitionCommandError(output, context);
   }
   const contents: DeleteSubscriptionDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSubscriptionDefinitionResponse"
+    __type: "DeleteSubscriptionDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -6049,7 +5174,7 @@ const deserializeAws_restJson1DeleteSubscriptionDefinitionCommandError = async (
 ): Promise<DeleteSubscriptionDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -6058,12 +5183,9 @@ const deserializeAws_restJson1DeleteSubscriptionDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -6074,7 +5196,7 @@ const deserializeAws_restJson1DeleteSubscriptionDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -6088,15 +5210,12 @@ export const deserializeAws_restJson1DisassociateRoleFromGroupCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateRoleFromGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DisassociateRoleFromGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DisassociateRoleFromGroupCommandError(output, context);
   }
   const contents: DisassociateRoleFromGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisassociateRoleFromGroupResponse",
-    DisassociatedAt: undefined
+    DisassociatedAt: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.DisassociatedAt !== undefined && data.DisassociatedAt !== null) {
@@ -6111,7 +5230,7 @@ const deserializeAws_restJson1DisassociateRoleFromGroupCommandError = async (
 ): Promise<DisassociateRoleFromGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -6120,23 +5239,17 @@ const deserializeAws_restJson1DisassociateRoleFromGroupCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -6147,7 +5260,7 @@ const deserializeAws_restJson1DisassociateRoleFromGroupCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -6161,15 +5274,12 @@ export const deserializeAws_restJson1DisassociateServiceRoleFromAccountCommand =
   context: __SerdeContext
 ): Promise<DisassociateServiceRoleFromAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DisassociateServiceRoleFromAccountCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DisassociateServiceRoleFromAccountCommandError(output, context);
   }
   const contents: DisassociateServiceRoleFromAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisassociateServiceRoleFromAccountResponse",
-    DisassociatedAt: undefined
+    DisassociatedAt: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.DisassociatedAt !== undefined && data.DisassociatedAt !== null) {
@@ -6184,7 +5294,7 @@ const deserializeAws_restJson1DisassociateServiceRoleFromAccountCommandError = a
 ): Promise<DisassociateServiceRoleFromAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -6193,12 +5303,9 @@ const deserializeAws_restJson1DisassociateServiceRoleFromAccountCommandError = a
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -6209,7 +5316,7 @@ const deserializeAws_restJson1DisassociateServiceRoleFromAccountCommandError = a
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -6223,16 +5330,13 @@ export const deserializeAws_restJson1GetAssociatedRoleCommand = async (
   context: __SerdeContext
 ): Promise<GetAssociatedRoleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetAssociatedRoleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetAssociatedRoleCommandError(output, context);
   }
   const contents: GetAssociatedRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetAssociatedRoleResponse",
     AssociatedAt: undefined,
-    RoleArn: undefined
+    RoleArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AssociatedAt !== undefined && data.AssociatedAt !== null) {
@@ -6250,7 +5354,7 @@ const deserializeAws_restJson1GetAssociatedRoleCommandError = async (
 ): Promise<GetAssociatedRoleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -6259,23 +5363,17 @@ const deserializeAws_restJson1GetAssociatedRoleCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -6286,7 +5384,7 @@ const deserializeAws_restJson1GetAssociatedRoleCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -6300,10 +5398,7 @@ export const deserializeAws_restJson1GetBulkDeploymentStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetBulkDeploymentStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetBulkDeploymentStatusCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetBulkDeploymentStatusCommandError(output, context);
   }
   const contents: GetBulkDeploymentStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6313,32 +5408,20 @@ export const deserializeAws_restJson1GetBulkDeploymentStatusCommand = async (
     CreatedAt: undefined,
     ErrorDetails: undefined,
     ErrorMessage: undefined,
-    tags: undefined
+    tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.BulkDeploymentMetrics !== undefined &&
-    data.BulkDeploymentMetrics !== null
-  ) {
-    contents.BulkDeploymentMetrics = deserializeAws_restJson1BulkDeploymentMetrics(
-      data.BulkDeploymentMetrics,
-      context
-    );
+  if (data.BulkDeploymentMetrics !== undefined && data.BulkDeploymentMetrics !== null) {
+    contents.BulkDeploymentMetrics = deserializeAws_restJson1BulkDeploymentMetrics(data.BulkDeploymentMetrics, context);
   }
-  if (
-    data.BulkDeploymentStatus !== undefined &&
-    data.BulkDeploymentStatus !== null
-  ) {
+  if (data.BulkDeploymentStatus !== undefined && data.BulkDeploymentStatus !== null) {
     contents.BulkDeploymentStatus = data.BulkDeploymentStatus;
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
     contents.CreatedAt = data.CreatedAt;
   }
   if (data.ErrorDetails !== undefined && data.ErrorDetails !== null) {
-    contents.ErrorDetails = deserializeAws_restJson1ErrorDetails(
-      data.ErrorDetails,
-      context
-    );
+    contents.ErrorDetails = deserializeAws_restJson1ErrorDetails(data.ErrorDetails, context);
   }
   if (data.ErrorMessage !== undefined && data.ErrorMessage !== null) {
     contents.ErrorMessage = data.ErrorMessage;
@@ -6355,7 +5438,7 @@ const deserializeAws_restJson1GetBulkDeploymentStatusCommandError = async (
 ): Promise<GetBulkDeploymentStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -6364,12 +5447,9 @@ const deserializeAws_restJson1GetBulkDeploymentStatusCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -6380,7 +5460,7 @@ const deserializeAws_restJson1GetBulkDeploymentStatusCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -6394,23 +5474,17 @@ export const deserializeAws_restJson1GetConnectivityInfoCommand = async (
   context: __SerdeContext
 ): Promise<GetConnectivityInfoCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetConnectivityInfoCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetConnectivityInfoCommandError(output, context);
   }
   const contents: GetConnectivityInfoCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetConnectivityInfoResponse",
     ConnectivityInfo: undefined,
-    Message: undefined
+    Message: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.ConnectivityInfo !== undefined && data.ConnectivityInfo !== null) {
-    contents.ConnectivityInfo = deserializeAws_restJson1__listOfConnectivityInfo(
-      data.ConnectivityInfo,
-      context
-    );
+    contents.ConnectivityInfo = deserializeAws_restJson1__listOfConnectivityInfo(data.ConnectivityInfo, context);
   }
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
@@ -6424,7 +5498,7 @@ const deserializeAws_restJson1GetConnectivityInfoCommandError = async (
 ): Promise<GetConnectivityInfoCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -6433,23 +5507,17 @@ const deserializeAws_restJson1GetConnectivityInfoCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -6460,7 +5528,7 @@ const deserializeAws_restJson1GetConnectivityInfoCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -6474,10 +5542,7 @@ export const deserializeAws_restJson1GetConnectorDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<GetConnectorDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetConnectorDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetConnectorDefinitionCommandError(output, context);
   }
   const contents: GetConnectorDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6489,7 +5554,7 @@ export const deserializeAws_restJson1GetConnectorDefinitionCommand = async (
     LatestVersion: undefined,
     LatestVersionArn: undefined,
     Name: undefined,
-    tags: undefined
+    tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -6501,10 +5566,7 @@ export const deserializeAws_restJson1GetConnectorDefinitionCommand = async (
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
   }
-  if (
-    data.LastUpdatedTimestamp !== undefined &&
-    data.LastUpdatedTimestamp !== null
-  ) {
+  if (data.LastUpdatedTimestamp !== undefined && data.LastUpdatedTimestamp !== null) {
     contents.LastUpdatedTimestamp = data.LastUpdatedTimestamp;
   }
   if (data.LatestVersion !== undefined && data.LatestVersion !== null) {
@@ -6528,7 +5590,7 @@ const deserializeAws_restJson1GetConnectorDefinitionCommandError = async (
 ): Promise<GetConnectorDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -6537,12 +5599,9 @@ const deserializeAws_restJson1GetConnectorDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -6553,7 +5612,7 @@ const deserializeAws_restJson1GetConnectorDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -6567,10 +5626,7 @@ export const deserializeAws_restJson1GetConnectorDefinitionVersionCommand = asyn
   context: __SerdeContext
 ): Promise<GetConnectorDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetConnectorDefinitionVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetConnectorDefinitionVersionCommandError(output, context);
   }
   const contents: GetConnectorDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6580,7 +5636,7 @@ export const deserializeAws_restJson1GetConnectorDefinitionVersionCommand = asyn
     Definition: undefined,
     Id: undefined,
     NextToken: undefined,
-    Version: undefined
+    Version: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -6590,10 +5646,7 @@ export const deserializeAws_restJson1GetConnectorDefinitionVersionCommand = asyn
     contents.CreationTimestamp = data.CreationTimestamp;
   }
   if (data.Definition !== undefined && data.Definition !== null) {
-    contents.Definition = deserializeAws_restJson1ConnectorDefinitionVersion(
-      data.Definition,
-      context
-    );
+    contents.Definition = deserializeAws_restJson1ConnectorDefinitionVersion(data.Definition, context);
   }
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
@@ -6613,7 +5666,7 @@ const deserializeAws_restJson1GetConnectorDefinitionVersionCommandError = async 
 ): Promise<GetConnectorDefinitionVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -6622,12 +5675,9 @@ const deserializeAws_restJson1GetConnectorDefinitionVersionCommandError = async 
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -6638,7 +5688,7 @@ const deserializeAws_restJson1GetConnectorDefinitionVersionCommandError = async 
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -6652,10 +5702,7 @@ export const deserializeAws_restJson1GetCoreDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<GetCoreDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetCoreDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetCoreDefinitionCommandError(output, context);
   }
   const contents: GetCoreDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6667,7 +5714,7 @@ export const deserializeAws_restJson1GetCoreDefinitionCommand = async (
     LatestVersion: undefined,
     LatestVersionArn: undefined,
     Name: undefined,
-    tags: undefined
+    tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -6679,10 +5726,7 @@ export const deserializeAws_restJson1GetCoreDefinitionCommand = async (
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
   }
-  if (
-    data.LastUpdatedTimestamp !== undefined &&
-    data.LastUpdatedTimestamp !== null
-  ) {
+  if (data.LastUpdatedTimestamp !== undefined && data.LastUpdatedTimestamp !== null) {
     contents.LastUpdatedTimestamp = data.LastUpdatedTimestamp;
   }
   if (data.LatestVersion !== undefined && data.LatestVersion !== null) {
@@ -6706,7 +5750,7 @@ const deserializeAws_restJson1GetCoreDefinitionCommandError = async (
 ): Promise<GetCoreDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -6715,12 +5759,9 @@ const deserializeAws_restJson1GetCoreDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -6731,7 +5772,7 @@ const deserializeAws_restJson1GetCoreDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -6745,10 +5786,7 @@ export const deserializeAws_restJson1GetCoreDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetCoreDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetCoreDefinitionVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetCoreDefinitionVersionCommandError(output, context);
   }
   const contents: GetCoreDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6758,7 +5796,7 @@ export const deserializeAws_restJson1GetCoreDefinitionVersionCommand = async (
     Definition: undefined,
     Id: undefined,
     NextToken: undefined,
-    Version: undefined
+    Version: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -6768,10 +5806,7 @@ export const deserializeAws_restJson1GetCoreDefinitionVersionCommand = async (
     contents.CreationTimestamp = data.CreationTimestamp;
   }
   if (data.Definition !== undefined && data.Definition !== null) {
-    contents.Definition = deserializeAws_restJson1CoreDefinitionVersion(
-      data.Definition,
-      context
-    );
+    contents.Definition = deserializeAws_restJson1CoreDefinitionVersion(data.Definition, context);
   }
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
@@ -6791,7 +5826,7 @@ const deserializeAws_restJson1GetCoreDefinitionVersionCommandError = async (
 ): Promise<GetCoreDefinitionVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -6800,12 +5835,9 @@ const deserializeAws_restJson1GetCoreDefinitionVersionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -6816,7 +5848,7 @@ const deserializeAws_restJson1GetCoreDefinitionVersionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -6830,10 +5862,7 @@ export const deserializeAws_restJson1GetDeploymentStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetDeploymentStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetDeploymentStatusCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetDeploymentStatusCommandError(output, context);
   }
   const contents: GetDeploymentStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6842,7 +5871,7 @@ export const deserializeAws_restJson1GetDeploymentStatusCommand = async (
     DeploymentType: undefined,
     ErrorDetails: undefined,
     ErrorMessage: undefined,
-    UpdatedAt: undefined
+    UpdatedAt: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.DeploymentStatus !== undefined && data.DeploymentStatus !== null) {
@@ -6852,10 +5881,7 @@ export const deserializeAws_restJson1GetDeploymentStatusCommand = async (
     contents.DeploymentType = data.DeploymentType;
   }
   if (data.ErrorDetails !== undefined && data.ErrorDetails !== null) {
-    contents.ErrorDetails = deserializeAws_restJson1ErrorDetails(
-      data.ErrorDetails,
-      context
-    );
+    contents.ErrorDetails = deserializeAws_restJson1ErrorDetails(data.ErrorDetails, context);
   }
   if (data.ErrorMessage !== undefined && data.ErrorMessage !== null) {
     contents.ErrorMessage = data.ErrorMessage;
@@ -6872,7 +5898,7 @@ const deserializeAws_restJson1GetDeploymentStatusCommandError = async (
 ): Promise<GetDeploymentStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -6881,12 +5907,9 @@ const deserializeAws_restJson1GetDeploymentStatusCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -6897,7 +5920,7 @@ const deserializeAws_restJson1GetDeploymentStatusCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -6911,10 +5934,7 @@ export const deserializeAws_restJson1GetDeviceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<GetDeviceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetDeviceDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetDeviceDefinitionCommandError(output, context);
   }
   const contents: GetDeviceDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6926,7 +5946,7 @@ export const deserializeAws_restJson1GetDeviceDefinitionCommand = async (
     LatestVersion: undefined,
     LatestVersionArn: undefined,
     Name: undefined,
-    tags: undefined
+    tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -6938,10 +5958,7 @@ export const deserializeAws_restJson1GetDeviceDefinitionCommand = async (
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
   }
-  if (
-    data.LastUpdatedTimestamp !== undefined &&
-    data.LastUpdatedTimestamp !== null
-  ) {
+  if (data.LastUpdatedTimestamp !== undefined && data.LastUpdatedTimestamp !== null) {
     contents.LastUpdatedTimestamp = data.LastUpdatedTimestamp;
   }
   if (data.LatestVersion !== undefined && data.LatestVersion !== null) {
@@ -6965,7 +5982,7 @@ const deserializeAws_restJson1GetDeviceDefinitionCommandError = async (
 ): Promise<GetDeviceDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -6974,12 +5991,9 @@ const deserializeAws_restJson1GetDeviceDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -6990,7 +6004,7 @@ const deserializeAws_restJson1GetDeviceDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -7004,10 +6018,7 @@ export const deserializeAws_restJson1GetDeviceDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetDeviceDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetDeviceDefinitionVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetDeviceDefinitionVersionCommandError(output, context);
   }
   const contents: GetDeviceDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7017,7 +6028,7 @@ export const deserializeAws_restJson1GetDeviceDefinitionVersionCommand = async (
     Definition: undefined,
     Id: undefined,
     NextToken: undefined,
-    Version: undefined
+    Version: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -7027,10 +6038,7 @@ export const deserializeAws_restJson1GetDeviceDefinitionVersionCommand = async (
     contents.CreationTimestamp = data.CreationTimestamp;
   }
   if (data.Definition !== undefined && data.Definition !== null) {
-    contents.Definition = deserializeAws_restJson1DeviceDefinitionVersion(
-      data.Definition,
-      context
-    );
+    contents.Definition = deserializeAws_restJson1DeviceDefinitionVersion(data.Definition, context);
   }
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
@@ -7050,7 +6058,7 @@ const deserializeAws_restJson1GetDeviceDefinitionVersionCommandError = async (
 ): Promise<GetDeviceDefinitionVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -7059,12 +6067,9 @@ const deserializeAws_restJson1GetDeviceDefinitionVersionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -7075,7 +6080,7 @@ const deserializeAws_restJson1GetDeviceDefinitionVersionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -7089,10 +6094,7 @@ export const deserializeAws_restJson1GetFunctionDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<GetFunctionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetFunctionDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetFunctionDefinitionCommandError(output, context);
   }
   const contents: GetFunctionDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7104,7 +6106,7 @@ export const deserializeAws_restJson1GetFunctionDefinitionCommand = async (
     LatestVersion: undefined,
     LatestVersionArn: undefined,
     Name: undefined,
-    tags: undefined
+    tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -7116,10 +6118,7 @@ export const deserializeAws_restJson1GetFunctionDefinitionCommand = async (
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
   }
-  if (
-    data.LastUpdatedTimestamp !== undefined &&
-    data.LastUpdatedTimestamp !== null
-  ) {
+  if (data.LastUpdatedTimestamp !== undefined && data.LastUpdatedTimestamp !== null) {
     contents.LastUpdatedTimestamp = data.LastUpdatedTimestamp;
   }
   if (data.LatestVersion !== undefined && data.LatestVersion !== null) {
@@ -7143,7 +6142,7 @@ const deserializeAws_restJson1GetFunctionDefinitionCommandError = async (
 ): Promise<GetFunctionDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -7152,12 +6151,9 @@ const deserializeAws_restJson1GetFunctionDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -7168,7 +6164,7 @@ const deserializeAws_restJson1GetFunctionDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -7182,10 +6178,7 @@ export const deserializeAws_restJson1GetFunctionDefinitionVersionCommand = async
   context: __SerdeContext
 ): Promise<GetFunctionDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetFunctionDefinitionVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetFunctionDefinitionVersionCommandError(output, context);
   }
   const contents: GetFunctionDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7195,7 +6188,7 @@ export const deserializeAws_restJson1GetFunctionDefinitionVersionCommand = async
     Definition: undefined,
     Id: undefined,
     NextToken: undefined,
-    Version: undefined
+    Version: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -7205,10 +6198,7 @@ export const deserializeAws_restJson1GetFunctionDefinitionVersionCommand = async
     contents.CreationTimestamp = data.CreationTimestamp;
   }
   if (data.Definition !== undefined && data.Definition !== null) {
-    contents.Definition = deserializeAws_restJson1FunctionDefinitionVersion(
-      data.Definition,
-      context
-    );
+    contents.Definition = deserializeAws_restJson1FunctionDefinitionVersion(data.Definition, context);
   }
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
@@ -7228,7 +6218,7 @@ const deserializeAws_restJson1GetFunctionDefinitionVersionCommandError = async (
 ): Promise<GetFunctionDefinitionVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -7237,12 +6227,9 @@ const deserializeAws_restJson1GetFunctionDefinitionVersionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -7253,7 +6240,7 @@ const deserializeAws_restJson1GetFunctionDefinitionVersionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -7279,7 +6266,7 @@ export const deserializeAws_restJson1GetGroupCommand = async (
     LatestVersion: undefined,
     LatestVersionArn: undefined,
     Name: undefined,
-    tags: undefined
+    tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -7291,10 +6278,7 @@ export const deserializeAws_restJson1GetGroupCommand = async (
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
   }
-  if (
-    data.LastUpdatedTimestamp !== undefined &&
-    data.LastUpdatedTimestamp !== null
-  ) {
+  if (data.LastUpdatedTimestamp !== undefined && data.LastUpdatedTimestamp !== null) {
     contents.LastUpdatedTimestamp = data.LastUpdatedTimestamp;
   }
   if (data.LatestVersion !== undefined && data.LatestVersion !== null) {
@@ -7318,7 +6302,7 @@ const deserializeAws_restJson1GetGroupCommandError = async (
 ): Promise<GetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -7327,12 +6311,9 @@ const deserializeAws_restJson1GetGroupCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -7343,7 +6324,7 @@ const deserializeAws_restJson1GetGroupCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -7357,35 +6338,23 @@ export const deserializeAws_restJson1GetGroupCertificateAuthorityCommand = async
   context: __SerdeContext
 ): Promise<GetGroupCertificateAuthorityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetGroupCertificateAuthorityCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetGroupCertificateAuthorityCommandError(output, context);
   }
   const contents: GetGroupCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetGroupCertificateAuthorityResponse",
     GroupCertificateAuthorityArn: undefined,
     GroupCertificateAuthorityId: undefined,
-    PemEncodedCertificate: undefined
+    PemEncodedCertificate: undefined,
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.GroupCertificateAuthorityArn !== undefined &&
-    data.GroupCertificateAuthorityArn !== null
-  ) {
+  if (data.GroupCertificateAuthorityArn !== undefined && data.GroupCertificateAuthorityArn !== null) {
     contents.GroupCertificateAuthorityArn = data.GroupCertificateAuthorityArn;
   }
-  if (
-    data.GroupCertificateAuthorityId !== undefined &&
-    data.GroupCertificateAuthorityId !== null
-  ) {
+  if (data.GroupCertificateAuthorityId !== undefined && data.GroupCertificateAuthorityId !== null) {
     contents.GroupCertificateAuthorityId = data.GroupCertificateAuthorityId;
   }
-  if (
-    data.PemEncodedCertificate !== undefined &&
-    data.PemEncodedCertificate !== null
-  ) {
+  if (data.PemEncodedCertificate !== undefined && data.PemEncodedCertificate !== null) {
     contents.PemEncodedCertificate = data.PemEncodedCertificate;
   }
   return Promise.resolve(contents);
@@ -7397,7 +6366,7 @@ const deserializeAws_restJson1GetGroupCertificateAuthorityCommandError = async (
 ): Promise<GetGroupCertificateAuthorityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -7406,23 +6375,17 @@ const deserializeAws_restJson1GetGroupCertificateAuthorityCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -7433,7 +6396,7 @@ const deserializeAws_restJson1GetGroupCertificateAuthorityCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -7447,32 +6410,24 @@ export const deserializeAws_restJson1GetGroupCertificateConfigurationCommand = a
   context: __SerdeContext
 ): Promise<GetGroupCertificateConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetGroupCertificateConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetGroupCertificateConfigurationCommandError(output, context);
   }
   const contents: GetGroupCertificateConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetGroupCertificateConfigurationResponse",
     CertificateAuthorityExpiryInMilliseconds: undefined,
     CertificateExpiryInMilliseconds: undefined,
-    GroupId: undefined
+    GroupId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (
     data.CertificateAuthorityExpiryInMilliseconds !== undefined &&
     data.CertificateAuthorityExpiryInMilliseconds !== null
   ) {
-    contents.CertificateAuthorityExpiryInMilliseconds =
-      data.CertificateAuthorityExpiryInMilliseconds;
+    contents.CertificateAuthorityExpiryInMilliseconds = data.CertificateAuthorityExpiryInMilliseconds;
   }
-  if (
-    data.CertificateExpiryInMilliseconds !== undefined &&
-    data.CertificateExpiryInMilliseconds !== null
-  ) {
-    contents.CertificateExpiryInMilliseconds =
-      data.CertificateExpiryInMilliseconds;
+  if (data.CertificateExpiryInMilliseconds !== undefined && data.CertificateExpiryInMilliseconds !== null) {
+    contents.CertificateExpiryInMilliseconds = data.CertificateExpiryInMilliseconds;
   }
   if (data.GroupId !== undefined && data.GroupId !== null) {
     contents.GroupId = data.GroupId;
@@ -7486,7 +6441,7 @@ const deserializeAws_restJson1GetGroupCertificateConfigurationCommandError = asy
 ): Promise<GetGroupCertificateConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -7495,23 +6450,17 @@ const deserializeAws_restJson1GetGroupCertificateConfigurationCommandError = asy
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -7522,7 +6471,7 @@ const deserializeAws_restJson1GetGroupCertificateConfigurationCommandError = asy
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -7545,7 +6494,7 @@ export const deserializeAws_restJson1GetGroupVersionCommand = async (
     CreationTimestamp: undefined,
     Definition: undefined,
     Id: undefined,
-    Version: undefined
+    Version: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -7555,10 +6504,7 @@ export const deserializeAws_restJson1GetGroupVersionCommand = async (
     contents.CreationTimestamp = data.CreationTimestamp;
   }
   if (data.Definition !== undefined && data.Definition !== null) {
-    contents.Definition = deserializeAws_restJson1GroupVersion(
-      data.Definition,
-      context
-    );
+    contents.Definition = deserializeAws_restJson1GroupVersion(data.Definition, context);
   }
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
@@ -7575,7 +6521,7 @@ const deserializeAws_restJson1GetGroupVersionCommandError = async (
 ): Promise<GetGroupVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -7584,12 +6530,9 @@ const deserializeAws_restJson1GetGroupVersionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -7600,7 +6543,7 @@ const deserializeAws_restJson1GetGroupVersionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -7614,10 +6557,7 @@ export const deserializeAws_restJson1GetLoggerDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<GetLoggerDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetLoggerDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetLoggerDefinitionCommandError(output, context);
   }
   const contents: GetLoggerDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7629,7 +6569,7 @@ export const deserializeAws_restJson1GetLoggerDefinitionCommand = async (
     LatestVersion: undefined,
     LatestVersionArn: undefined,
     Name: undefined,
-    tags: undefined
+    tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -7641,10 +6581,7 @@ export const deserializeAws_restJson1GetLoggerDefinitionCommand = async (
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
   }
-  if (
-    data.LastUpdatedTimestamp !== undefined &&
-    data.LastUpdatedTimestamp !== null
-  ) {
+  if (data.LastUpdatedTimestamp !== undefined && data.LastUpdatedTimestamp !== null) {
     contents.LastUpdatedTimestamp = data.LastUpdatedTimestamp;
   }
   if (data.LatestVersion !== undefined && data.LatestVersion !== null) {
@@ -7668,7 +6605,7 @@ const deserializeAws_restJson1GetLoggerDefinitionCommandError = async (
 ): Promise<GetLoggerDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -7677,12 +6614,9 @@ const deserializeAws_restJson1GetLoggerDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -7693,7 +6627,7 @@ const deserializeAws_restJson1GetLoggerDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -7707,10 +6641,7 @@ export const deserializeAws_restJson1GetLoggerDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetLoggerDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetLoggerDefinitionVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetLoggerDefinitionVersionCommandError(output, context);
   }
   const contents: GetLoggerDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7719,7 +6650,7 @@ export const deserializeAws_restJson1GetLoggerDefinitionVersionCommand = async (
     CreationTimestamp: undefined,
     Definition: undefined,
     Id: undefined,
-    Version: undefined
+    Version: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -7729,10 +6660,7 @@ export const deserializeAws_restJson1GetLoggerDefinitionVersionCommand = async (
     contents.CreationTimestamp = data.CreationTimestamp;
   }
   if (data.Definition !== undefined && data.Definition !== null) {
-    contents.Definition = deserializeAws_restJson1LoggerDefinitionVersion(
-      data.Definition,
-      context
-    );
+    contents.Definition = deserializeAws_restJson1LoggerDefinitionVersion(data.Definition, context);
   }
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
@@ -7749,7 +6677,7 @@ const deserializeAws_restJson1GetLoggerDefinitionVersionCommandError = async (
 ): Promise<GetLoggerDefinitionVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -7758,12 +6686,9 @@ const deserializeAws_restJson1GetLoggerDefinitionVersionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -7774,7 +6699,7 @@ const deserializeAws_restJson1GetLoggerDefinitionVersionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -7788,10 +6713,7 @@ export const deserializeAws_restJson1GetResourceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<GetResourceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetResourceDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetResourceDefinitionCommandError(output, context);
   }
   const contents: GetResourceDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7803,7 +6725,7 @@ export const deserializeAws_restJson1GetResourceDefinitionCommand = async (
     LatestVersion: undefined,
     LatestVersionArn: undefined,
     Name: undefined,
-    tags: undefined
+    tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -7815,10 +6737,7 @@ export const deserializeAws_restJson1GetResourceDefinitionCommand = async (
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
   }
-  if (
-    data.LastUpdatedTimestamp !== undefined &&
-    data.LastUpdatedTimestamp !== null
-  ) {
+  if (data.LastUpdatedTimestamp !== undefined && data.LastUpdatedTimestamp !== null) {
     contents.LastUpdatedTimestamp = data.LastUpdatedTimestamp;
   }
   if (data.LatestVersion !== undefined && data.LatestVersion !== null) {
@@ -7842,7 +6761,7 @@ const deserializeAws_restJson1GetResourceDefinitionCommandError = async (
 ): Promise<GetResourceDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -7851,12 +6770,9 @@ const deserializeAws_restJson1GetResourceDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -7867,7 +6783,7 @@ const deserializeAws_restJson1GetResourceDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -7881,10 +6797,7 @@ export const deserializeAws_restJson1GetResourceDefinitionVersionCommand = async
   context: __SerdeContext
 ): Promise<GetResourceDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetResourceDefinitionVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetResourceDefinitionVersionCommandError(output, context);
   }
   const contents: GetResourceDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7893,7 +6806,7 @@ export const deserializeAws_restJson1GetResourceDefinitionVersionCommand = async
     CreationTimestamp: undefined,
     Definition: undefined,
     Id: undefined,
-    Version: undefined
+    Version: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -7903,10 +6816,7 @@ export const deserializeAws_restJson1GetResourceDefinitionVersionCommand = async
     contents.CreationTimestamp = data.CreationTimestamp;
   }
   if (data.Definition !== undefined && data.Definition !== null) {
-    contents.Definition = deserializeAws_restJson1ResourceDefinitionVersion(
-      data.Definition,
-      context
-    );
+    contents.Definition = deserializeAws_restJson1ResourceDefinitionVersion(data.Definition, context);
   }
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
@@ -7923,7 +6833,7 @@ const deserializeAws_restJson1GetResourceDefinitionVersionCommandError = async (
 ): Promise<GetResourceDefinitionVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -7932,12 +6842,9 @@ const deserializeAws_restJson1GetResourceDefinitionVersionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -7948,7 +6855,7 @@ const deserializeAws_restJson1GetResourceDefinitionVersionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -7962,16 +6869,13 @@ export const deserializeAws_restJson1GetServiceRoleForAccountCommand = async (
   context: __SerdeContext
 ): Promise<GetServiceRoleForAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetServiceRoleForAccountCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetServiceRoleForAccountCommandError(output, context);
   }
   const contents: GetServiceRoleForAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetServiceRoleForAccountResponse",
     AssociatedAt: undefined,
-    RoleArn: undefined
+    RoleArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AssociatedAt !== undefined && data.AssociatedAt !== null) {
@@ -7989,7 +6893,7 @@ const deserializeAws_restJson1GetServiceRoleForAccountCommandError = async (
 ): Promise<GetServiceRoleForAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -7998,12 +6902,9 @@ const deserializeAws_restJson1GetServiceRoleForAccountCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -8014,7 +6915,7 @@ const deserializeAws_restJson1GetServiceRoleForAccountCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -8028,10 +6929,7 @@ export const deserializeAws_restJson1GetSubscriptionDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<GetSubscriptionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetSubscriptionDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetSubscriptionDefinitionCommandError(output, context);
   }
   const contents: GetSubscriptionDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -8043,7 +6941,7 @@ export const deserializeAws_restJson1GetSubscriptionDefinitionCommand = async (
     LatestVersion: undefined,
     LatestVersionArn: undefined,
     Name: undefined,
-    tags: undefined
+    tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -8055,10 +6953,7 @@ export const deserializeAws_restJson1GetSubscriptionDefinitionCommand = async (
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
   }
-  if (
-    data.LastUpdatedTimestamp !== undefined &&
-    data.LastUpdatedTimestamp !== null
-  ) {
+  if (data.LastUpdatedTimestamp !== undefined && data.LastUpdatedTimestamp !== null) {
     contents.LastUpdatedTimestamp = data.LastUpdatedTimestamp;
   }
   if (data.LatestVersion !== undefined && data.LatestVersion !== null) {
@@ -8082,7 +6977,7 @@ const deserializeAws_restJson1GetSubscriptionDefinitionCommandError = async (
 ): Promise<GetSubscriptionDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -8091,12 +6986,9 @@ const deserializeAws_restJson1GetSubscriptionDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -8107,7 +6999,7 @@ const deserializeAws_restJson1GetSubscriptionDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -8121,10 +7013,7 @@ export const deserializeAws_restJson1GetSubscriptionDefinitionVersionCommand = a
   context: __SerdeContext
 ): Promise<GetSubscriptionDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetSubscriptionDefinitionVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetSubscriptionDefinitionVersionCommandError(output, context);
   }
   const contents: GetSubscriptionDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -8134,7 +7023,7 @@ export const deserializeAws_restJson1GetSubscriptionDefinitionVersionCommand = a
     Definition: undefined,
     Id: undefined,
     NextToken: undefined,
-    Version: undefined
+    Version: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -8144,10 +7033,7 @@ export const deserializeAws_restJson1GetSubscriptionDefinitionVersionCommand = a
     contents.CreationTimestamp = data.CreationTimestamp;
   }
   if (data.Definition !== undefined && data.Definition !== null) {
-    contents.Definition = deserializeAws_restJson1SubscriptionDefinitionVersion(
-      data.Definition,
-      context
-    );
+    contents.Definition = deserializeAws_restJson1SubscriptionDefinitionVersion(data.Definition, context);
   }
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = data.Id;
@@ -8167,7 +7053,7 @@ const deserializeAws_restJson1GetSubscriptionDefinitionVersionCommandError = asy
 ): Promise<GetSubscriptionDefinitionVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -8176,12 +7062,9 @@ const deserializeAws_restJson1GetSubscriptionDefinitionVersionCommandError = asy
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -8192,7 +7075,7 @@ const deserializeAws_restJson1GetSubscriptionDefinitionVersionCommandError = asy
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -8206,23 +7089,17 @@ export const deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommand = 
   context: __SerdeContext
 ): Promise<ListBulkDeploymentDetailedReportsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommandError(output, context);
   }
   const contents: ListBulkDeploymentDetailedReportsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListBulkDeploymentDetailedReportsResponse",
     Deployments: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Deployments !== undefined && data.Deployments !== null) {
-    contents.Deployments = deserializeAws_restJson1BulkDeploymentResults(
-      data.Deployments,
-      context
-    );
+    contents.Deployments = deserializeAws_restJson1BulkDeploymentResults(data.Deployments, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -8236,7 +7113,7 @@ const deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommandError = as
 ): Promise<ListBulkDeploymentDetailedReportsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -8245,12 +7122,9 @@ const deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommandError = as
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -8261,7 +7135,7 @@ const deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommandError = as
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -8275,23 +7149,17 @@ export const deserializeAws_restJson1ListBulkDeploymentsCommand = async (
   context: __SerdeContext
 ): Promise<ListBulkDeploymentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListBulkDeploymentsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListBulkDeploymentsCommandError(output, context);
   }
   const contents: ListBulkDeploymentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListBulkDeploymentsResponse",
     BulkDeployments: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.BulkDeployments !== undefined && data.BulkDeployments !== null) {
-    contents.BulkDeployments = deserializeAws_restJson1BulkDeployments(
-      data.BulkDeployments,
-      context
-    );
+    contents.BulkDeployments = deserializeAws_restJson1BulkDeployments(data.BulkDeployments, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -8305,7 +7173,7 @@ const deserializeAws_restJson1ListBulkDeploymentsCommandError = async (
 ): Promise<ListBulkDeploymentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -8314,12 +7182,9 @@ const deserializeAws_restJson1ListBulkDeploymentsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -8330,7 +7195,7 @@ const deserializeAws_restJson1ListBulkDeploymentsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -8344,23 +7209,17 @@ export const deserializeAws_restJson1ListConnectorDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListConnectorDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListConnectorDefinitionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListConnectorDefinitionsCommandError(output, context);
   }
   const contents: ListConnectorDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListConnectorDefinitionsResponse",
     Definitions: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Definitions !== undefined && data.Definitions !== null) {
-    contents.Definitions = deserializeAws_restJson1__listOfDefinitionInformation(
-      data.Definitions,
-      context
-    );
+    contents.Definitions = deserializeAws_restJson1__listOfDefinitionInformation(data.Definitions, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -8374,7 +7233,7 @@ const deserializeAws_restJson1ListConnectorDefinitionsCommandError = async (
 ): Promise<ListConnectorDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -8388,7 +7247,7 @@ const deserializeAws_restJson1ListConnectorDefinitionsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -8402,26 +7261,20 @@ export const deserializeAws_restJson1ListConnectorDefinitionVersionsCommand = as
   context: __SerdeContext
 ): Promise<ListConnectorDefinitionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListConnectorDefinitionVersionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListConnectorDefinitionVersionsCommandError(output, context);
   }
   const contents: ListConnectorDefinitionVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListConnectorDefinitionVersionsResponse",
     NextToken: undefined,
-    Versions: undefined
+    Versions: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   if (data.Versions !== undefined && data.Versions !== null) {
-    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(
-      data.Versions,
-      context
-    );
+    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(data.Versions, context);
   }
   return Promise.resolve(contents);
 };
@@ -8432,7 +7285,7 @@ const deserializeAws_restJson1ListConnectorDefinitionVersionsCommandError = asyn
 ): Promise<ListConnectorDefinitionVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -8441,12 +7294,9 @@ const deserializeAws_restJson1ListConnectorDefinitionVersionsCommandError = asyn
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -8457,7 +7307,7 @@ const deserializeAws_restJson1ListConnectorDefinitionVersionsCommandError = asyn
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -8471,23 +7321,17 @@ export const deserializeAws_restJson1ListCoreDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListCoreDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListCoreDefinitionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListCoreDefinitionsCommandError(output, context);
   }
   const contents: ListCoreDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListCoreDefinitionsResponse",
     Definitions: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Definitions !== undefined && data.Definitions !== null) {
-    contents.Definitions = deserializeAws_restJson1__listOfDefinitionInformation(
-      data.Definitions,
-      context
-    );
+    contents.Definitions = deserializeAws_restJson1__listOfDefinitionInformation(data.Definitions, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -8501,7 +7345,7 @@ const deserializeAws_restJson1ListCoreDefinitionsCommandError = async (
 ): Promise<ListCoreDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -8515,7 +7359,7 @@ const deserializeAws_restJson1ListCoreDefinitionsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -8529,26 +7373,20 @@ export const deserializeAws_restJson1ListCoreDefinitionVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListCoreDefinitionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListCoreDefinitionVersionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListCoreDefinitionVersionsCommandError(output, context);
   }
   const contents: ListCoreDefinitionVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListCoreDefinitionVersionsResponse",
     NextToken: undefined,
-    Versions: undefined
+    Versions: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   if (data.Versions !== undefined && data.Versions !== null) {
-    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(
-      data.Versions,
-      context
-    );
+    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(data.Versions, context);
   }
   return Promise.resolve(contents);
 };
@@ -8559,7 +7397,7 @@ const deserializeAws_restJson1ListCoreDefinitionVersionsCommandError = async (
 ): Promise<ListCoreDefinitionVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -8568,12 +7406,9 @@ const deserializeAws_restJson1ListCoreDefinitionVersionsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -8584,7 +7419,7 @@ const deserializeAws_restJson1ListCoreDefinitionVersionsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -8604,14 +7439,11 @@ export const deserializeAws_restJson1ListDeploymentsCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "ListDeploymentsResponse",
     Deployments: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Deployments !== undefined && data.Deployments !== null) {
-    contents.Deployments = deserializeAws_restJson1Deployments(
-      data.Deployments,
-      context
-    );
+    contents.Deployments = deserializeAws_restJson1Deployments(data.Deployments, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -8625,7 +7457,7 @@ const deserializeAws_restJson1ListDeploymentsCommandError = async (
 ): Promise<ListDeploymentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -8634,12 +7466,9 @@ const deserializeAws_restJson1ListDeploymentsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -8650,7 +7479,7 @@ const deserializeAws_restJson1ListDeploymentsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -8664,23 +7493,17 @@ export const deserializeAws_restJson1ListDeviceDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListDeviceDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListDeviceDefinitionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListDeviceDefinitionsCommandError(output, context);
   }
   const contents: ListDeviceDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDeviceDefinitionsResponse",
     Definitions: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Definitions !== undefined && data.Definitions !== null) {
-    contents.Definitions = deserializeAws_restJson1__listOfDefinitionInformation(
-      data.Definitions,
-      context
-    );
+    contents.Definitions = deserializeAws_restJson1__listOfDefinitionInformation(data.Definitions, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -8694,7 +7517,7 @@ const deserializeAws_restJson1ListDeviceDefinitionsCommandError = async (
 ): Promise<ListDeviceDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -8708,7 +7531,7 @@ const deserializeAws_restJson1ListDeviceDefinitionsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -8722,26 +7545,20 @@ export const deserializeAws_restJson1ListDeviceDefinitionVersionsCommand = async
   context: __SerdeContext
 ): Promise<ListDeviceDefinitionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListDeviceDefinitionVersionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListDeviceDefinitionVersionsCommandError(output, context);
   }
   const contents: ListDeviceDefinitionVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDeviceDefinitionVersionsResponse",
     NextToken: undefined,
-    Versions: undefined
+    Versions: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   if (data.Versions !== undefined && data.Versions !== null) {
-    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(
-      data.Versions,
-      context
-    );
+    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(data.Versions, context);
   }
   return Promise.resolve(contents);
 };
@@ -8752,7 +7569,7 @@ const deserializeAws_restJson1ListDeviceDefinitionVersionsCommandError = async (
 ): Promise<ListDeviceDefinitionVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -8761,12 +7578,9 @@ const deserializeAws_restJson1ListDeviceDefinitionVersionsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -8777,7 +7591,7 @@ const deserializeAws_restJson1ListDeviceDefinitionVersionsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -8791,23 +7605,17 @@ export const deserializeAws_restJson1ListFunctionDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListFunctionDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListFunctionDefinitionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListFunctionDefinitionsCommandError(output, context);
   }
   const contents: ListFunctionDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListFunctionDefinitionsResponse",
     Definitions: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Definitions !== undefined && data.Definitions !== null) {
-    contents.Definitions = deserializeAws_restJson1__listOfDefinitionInformation(
-      data.Definitions,
-      context
-    );
+    contents.Definitions = deserializeAws_restJson1__listOfDefinitionInformation(data.Definitions, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -8821,7 +7629,7 @@ const deserializeAws_restJson1ListFunctionDefinitionsCommandError = async (
 ): Promise<ListFunctionDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -8835,7 +7643,7 @@ const deserializeAws_restJson1ListFunctionDefinitionsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -8849,26 +7657,20 @@ export const deserializeAws_restJson1ListFunctionDefinitionVersionsCommand = asy
   context: __SerdeContext
 ): Promise<ListFunctionDefinitionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListFunctionDefinitionVersionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListFunctionDefinitionVersionsCommandError(output, context);
   }
   const contents: ListFunctionDefinitionVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListFunctionDefinitionVersionsResponse",
     NextToken: undefined,
-    Versions: undefined
+    Versions: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   if (data.Versions !== undefined && data.Versions !== null) {
-    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(
-      data.Versions,
-      context
-    );
+    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(data.Versions, context);
   }
   return Promise.resolve(contents);
 };
@@ -8879,7 +7681,7 @@ const deserializeAws_restJson1ListFunctionDefinitionVersionsCommandError = async
 ): Promise<ListFunctionDefinitionVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -8888,12 +7690,9 @@ const deserializeAws_restJson1ListFunctionDefinitionVersionsCommandError = async
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -8904,7 +7703,7 @@ const deserializeAws_restJson1ListFunctionDefinitionVersionsCommandError = async
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -8918,21 +7717,15 @@ export const deserializeAws_restJson1ListGroupCertificateAuthoritiesCommand = as
   context: __SerdeContext
 ): Promise<ListGroupCertificateAuthoritiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListGroupCertificateAuthoritiesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListGroupCertificateAuthoritiesCommandError(output, context);
   }
   const contents: ListGroupCertificateAuthoritiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListGroupCertificateAuthoritiesResponse",
-    GroupCertificateAuthorities: undefined
+    GroupCertificateAuthorities: undefined,
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.GroupCertificateAuthorities !== undefined &&
-    data.GroupCertificateAuthorities !== null
-  ) {
+  if (data.GroupCertificateAuthorities !== undefined && data.GroupCertificateAuthorities !== null) {
     contents.GroupCertificateAuthorities = deserializeAws_restJson1__listOfGroupCertificateAuthorityProperties(
       data.GroupCertificateAuthorities,
       context
@@ -8947,7 +7740,7 @@ const deserializeAws_restJson1ListGroupCertificateAuthoritiesCommandError = asyn
 ): Promise<ListGroupCertificateAuthoritiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -8956,23 +7749,17 @@ const deserializeAws_restJson1ListGroupCertificateAuthoritiesCommandError = asyn
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -8983,7 +7770,7 @@ const deserializeAws_restJson1ListGroupCertificateAuthoritiesCommandError = asyn
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -9003,14 +7790,11 @@ export const deserializeAws_restJson1ListGroupsCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "ListGroupsResponse",
     Groups: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Groups !== undefined && data.Groups !== null) {
-    contents.Groups = deserializeAws_restJson1__listOfGroupInformation(
-      data.Groups,
-      context
-    );
+    contents.Groups = deserializeAws_restJson1__listOfGroupInformation(data.Groups, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -9024,7 +7808,7 @@ const deserializeAws_restJson1ListGroupsCommandError = async (
 ): Promise<ListGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -9038,7 +7822,7 @@ const deserializeAws_restJson1ListGroupsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -9052,26 +7836,20 @@ export const deserializeAws_restJson1ListGroupVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListGroupVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListGroupVersionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListGroupVersionsCommandError(output, context);
   }
   const contents: ListGroupVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListGroupVersionsResponse",
     NextToken: undefined,
-    Versions: undefined
+    Versions: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   if (data.Versions !== undefined && data.Versions !== null) {
-    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(
-      data.Versions,
-      context
-    );
+    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(data.Versions, context);
   }
   return Promise.resolve(contents);
 };
@@ -9082,7 +7860,7 @@ const deserializeAws_restJson1ListGroupVersionsCommandError = async (
 ): Promise<ListGroupVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -9091,12 +7869,9 @@ const deserializeAws_restJson1ListGroupVersionsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -9107,7 +7882,7 @@ const deserializeAws_restJson1ListGroupVersionsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -9121,23 +7896,17 @@ export const deserializeAws_restJson1ListLoggerDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListLoggerDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListLoggerDefinitionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListLoggerDefinitionsCommandError(output, context);
   }
   const contents: ListLoggerDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListLoggerDefinitionsResponse",
     Definitions: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Definitions !== undefined && data.Definitions !== null) {
-    contents.Definitions = deserializeAws_restJson1__listOfDefinitionInformation(
-      data.Definitions,
-      context
-    );
+    contents.Definitions = deserializeAws_restJson1__listOfDefinitionInformation(data.Definitions, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -9151,7 +7920,7 @@ const deserializeAws_restJson1ListLoggerDefinitionsCommandError = async (
 ): Promise<ListLoggerDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -9165,7 +7934,7 @@ const deserializeAws_restJson1ListLoggerDefinitionsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -9179,26 +7948,20 @@ export const deserializeAws_restJson1ListLoggerDefinitionVersionsCommand = async
   context: __SerdeContext
 ): Promise<ListLoggerDefinitionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListLoggerDefinitionVersionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListLoggerDefinitionVersionsCommandError(output, context);
   }
   const contents: ListLoggerDefinitionVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListLoggerDefinitionVersionsResponse",
     NextToken: undefined,
-    Versions: undefined
+    Versions: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   if (data.Versions !== undefined && data.Versions !== null) {
-    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(
-      data.Versions,
-      context
-    );
+    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(data.Versions, context);
   }
   return Promise.resolve(contents);
 };
@@ -9209,7 +7972,7 @@ const deserializeAws_restJson1ListLoggerDefinitionVersionsCommandError = async (
 ): Promise<ListLoggerDefinitionVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -9218,12 +7981,9 @@ const deserializeAws_restJson1ListLoggerDefinitionVersionsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -9234,7 +7994,7 @@ const deserializeAws_restJson1ListLoggerDefinitionVersionsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -9248,23 +8008,17 @@ export const deserializeAws_restJson1ListResourceDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListResourceDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListResourceDefinitionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListResourceDefinitionsCommandError(output, context);
   }
   const contents: ListResourceDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListResourceDefinitionsResponse",
     Definitions: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Definitions !== undefined && data.Definitions !== null) {
-    contents.Definitions = deserializeAws_restJson1__listOfDefinitionInformation(
-      data.Definitions,
-      context
-    );
+    contents.Definitions = deserializeAws_restJson1__listOfDefinitionInformation(data.Definitions, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -9278,7 +8032,7 @@ const deserializeAws_restJson1ListResourceDefinitionsCommandError = async (
 ): Promise<ListResourceDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -9292,7 +8046,7 @@ const deserializeAws_restJson1ListResourceDefinitionsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -9306,26 +8060,20 @@ export const deserializeAws_restJson1ListResourceDefinitionVersionsCommand = asy
   context: __SerdeContext
 ): Promise<ListResourceDefinitionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListResourceDefinitionVersionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListResourceDefinitionVersionsCommandError(output, context);
   }
   const contents: ListResourceDefinitionVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListResourceDefinitionVersionsResponse",
     NextToken: undefined,
-    Versions: undefined
+    Versions: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   if (data.Versions !== undefined && data.Versions !== null) {
-    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(
-      data.Versions,
-      context
-    );
+    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(data.Versions, context);
   }
   return Promise.resolve(contents);
 };
@@ -9336,7 +8084,7 @@ const deserializeAws_restJson1ListResourceDefinitionVersionsCommandError = async
 ): Promise<ListResourceDefinitionVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -9345,12 +8093,9 @@ const deserializeAws_restJson1ListResourceDefinitionVersionsCommandError = async
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -9361,7 +8106,7 @@ const deserializeAws_restJson1ListResourceDefinitionVersionsCommandError = async
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -9375,23 +8120,17 @@ export const deserializeAws_restJson1ListSubscriptionDefinitionsCommand = async 
   context: __SerdeContext
 ): Promise<ListSubscriptionDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListSubscriptionDefinitionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListSubscriptionDefinitionsCommandError(output, context);
   }
   const contents: ListSubscriptionDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListSubscriptionDefinitionsResponse",
     Definitions: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Definitions !== undefined && data.Definitions !== null) {
-    contents.Definitions = deserializeAws_restJson1__listOfDefinitionInformation(
-      data.Definitions,
-      context
-    );
+    contents.Definitions = deserializeAws_restJson1__listOfDefinitionInformation(data.Definitions, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -9405,7 +8144,7 @@ const deserializeAws_restJson1ListSubscriptionDefinitionsCommandError = async (
 ): Promise<ListSubscriptionDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -9419,7 +8158,7 @@ const deserializeAws_restJson1ListSubscriptionDefinitionsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -9433,26 +8172,20 @@ export const deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommand =
   context: __SerdeContext
 ): Promise<ListSubscriptionDefinitionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommandError(output, context);
   }
   const contents: ListSubscriptionDefinitionVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListSubscriptionDefinitionVersionsResponse",
     NextToken: undefined,
-    Versions: undefined
+    Versions: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   if (data.Versions !== undefined && data.Versions !== null) {
-    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(
-      data.Versions,
-      context
-    );
+    contents.Versions = deserializeAws_restJson1__listOfVersionInformation(data.Versions, context);
   }
   return Promise.resolve(contents);
 };
@@ -9463,7 +8196,7 @@ const deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommandError = a
 ): Promise<ListSubscriptionDefinitionVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -9472,12 +8205,9 @@ const deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommandError = a
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -9488,7 +8218,7 @@ const deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommandError = a
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -9502,15 +8232,12 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
-    tags: undefined
+    tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.tags !== undefined && data.tags !== null) {
@@ -9525,7 +8252,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -9534,12 +8261,9 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -9550,7 +8274,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -9564,16 +8288,13 @@ export const deserializeAws_restJson1ResetDeploymentsCommand = async (
   context: __SerdeContext
 ): Promise<ResetDeploymentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ResetDeploymentsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ResetDeploymentsCommandError(output, context);
   }
   const contents: ResetDeploymentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ResetDeploymentsResponse",
     DeploymentArn: undefined,
-    DeploymentId: undefined
+    DeploymentId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.DeploymentArn !== undefined && data.DeploymentArn !== null) {
@@ -9591,7 +8312,7 @@ const deserializeAws_restJson1ResetDeploymentsCommandError = async (
 ): Promise<ResetDeploymentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -9600,12 +8321,9 @@ const deserializeAws_restJson1ResetDeploymentsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -9616,7 +8334,7 @@ const deserializeAws_restJson1ResetDeploymentsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -9630,16 +8348,13 @@ export const deserializeAws_restJson1StartBulkDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<StartBulkDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1StartBulkDeploymentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1StartBulkDeploymentCommandError(output, context);
   }
   const contents: StartBulkDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartBulkDeploymentResponse",
     BulkDeploymentArn: undefined,
-    BulkDeploymentId: undefined
+    BulkDeploymentId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.BulkDeploymentArn !== undefined && data.BulkDeploymentArn !== null) {
@@ -9657,7 +8372,7 @@ const deserializeAws_restJson1StartBulkDeploymentCommandError = async (
 ): Promise<StartBulkDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -9666,12 +8381,9 @@ const deserializeAws_restJson1StartBulkDeploymentCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -9682,7 +8394,7 @@ const deserializeAws_restJson1StartBulkDeploymentCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -9696,14 +8408,11 @@ export const deserializeAws_restJson1StopBulkDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<StopBulkDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1StopBulkDeploymentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1StopBulkDeploymentCommandError(output, context);
   }
   const contents: StopBulkDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopBulkDeploymentResponse"
+    __type: "StopBulkDeploymentResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -9715,7 +8424,7 @@ const deserializeAws_restJson1StopBulkDeploymentCommandError = async (
 ): Promise<StopBulkDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -9724,12 +8433,9 @@ const deserializeAws_restJson1StopBulkDeploymentCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -9740,7 +8446,7 @@ const deserializeAws_restJson1StopBulkDeploymentCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -9757,7 +8463,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -9769,7 +8475,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -9778,12 +8484,9 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -9794,7 +8497,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -9811,7 +8514,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -9823,7 +8526,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -9832,12 +8535,9 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -9848,7 +8548,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -9862,16 +8562,13 @@ export const deserializeAws_restJson1UpdateConnectivityInfoCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConnectivityInfoCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1UpdateConnectivityInfoCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateConnectivityInfoCommandError(output, context);
   }
   const contents: UpdateConnectivityInfoCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateConnectivityInfoResponse",
     Message: undefined,
-    Version: undefined
+    Version: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.message !== undefined && data.message !== null) {
@@ -9889,7 +8586,7 @@ const deserializeAws_restJson1UpdateConnectivityInfoCommandError = async (
 ): Promise<UpdateConnectivityInfoCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -9898,23 +8595,17 @@ const deserializeAws_restJson1UpdateConnectivityInfoCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -9925,7 +8616,7 @@ const deserializeAws_restJson1UpdateConnectivityInfoCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -9939,14 +8630,11 @@ export const deserializeAws_restJson1UpdateConnectorDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConnectorDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1UpdateConnectorDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateConnectorDefinitionCommandError(output, context);
   }
   const contents: UpdateConnectorDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateConnectorDefinitionResponse"
+    __type: "UpdateConnectorDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -9958,7 +8646,7 @@ const deserializeAws_restJson1UpdateConnectorDefinitionCommandError = async (
 ): Promise<UpdateConnectorDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -9967,12 +8655,9 @@ const deserializeAws_restJson1UpdateConnectorDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -9983,7 +8668,7 @@ const deserializeAws_restJson1UpdateConnectorDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -9997,14 +8682,11 @@ export const deserializeAws_restJson1UpdateCoreDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCoreDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1UpdateCoreDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateCoreDefinitionCommandError(output, context);
   }
   const contents: UpdateCoreDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateCoreDefinitionResponse"
+    __type: "UpdateCoreDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -10016,7 +8698,7 @@ const deserializeAws_restJson1UpdateCoreDefinitionCommandError = async (
 ): Promise<UpdateCoreDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -10025,12 +8707,9 @@ const deserializeAws_restJson1UpdateCoreDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -10041,7 +8720,7 @@ const deserializeAws_restJson1UpdateCoreDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -10055,14 +8734,11 @@ export const deserializeAws_restJson1UpdateDeviceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDeviceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1UpdateDeviceDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateDeviceDefinitionCommandError(output, context);
   }
   const contents: UpdateDeviceDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDeviceDefinitionResponse"
+    __type: "UpdateDeviceDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -10074,7 +8750,7 @@ const deserializeAws_restJson1UpdateDeviceDefinitionCommandError = async (
 ): Promise<UpdateDeviceDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -10083,12 +8759,9 @@ const deserializeAws_restJson1UpdateDeviceDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -10099,7 +8772,7 @@ const deserializeAws_restJson1UpdateDeviceDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -10113,14 +8786,11 @@ export const deserializeAws_restJson1UpdateFunctionDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFunctionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1UpdateFunctionDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateFunctionDefinitionCommandError(output, context);
   }
   const contents: UpdateFunctionDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateFunctionDefinitionResponse"
+    __type: "UpdateFunctionDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -10132,7 +8802,7 @@ const deserializeAws_restJson1UpdateFunctionDefinitionCommandError = async (
 ): Promise<UpdateFunctionDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -10141,12 +8811,9 @@ const deserializeAws_restJson1UpdateFunctionDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -10157,7 +8824,7 @@ const deserializeAws_restJson1UpdateFunctionDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -10175,7 +8842,7 @@ export const deserializeAws_restJson1UpdateGroupCommand = async (
   }
   const contents: UpdateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateGroupResponse"
+    __type: "UpdateGroupResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -10187,7 +8854,7 @@ const deserializeAws_restJson1UpdateGroupCommandError = async (
 ): Promise<UpdateGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -10196,12 +8863,9 @@ const deserializeAws_restJson1UpdateGroupCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -10212,7 +8876,7 @@ const deserializeAws_restJson1UpdateGroupCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -10226,32 +8890,24 @@ export const deserializeAws_restJson1UpdateGroupCertificateConfigurationCommand 
   context: __SerdeContext
 ): Promise<UpdateGroupCertificateConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1UpdateGroupCertificateConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateGroupCertificateConfigurationCommandError(output, context);
   }
   const contents: UpdateGroupCertificateConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateGroupCertificateConfigurationResponse",
     CertificateAuthorityExpiryInMilliseconds: undefined,
     CertificateExpiryInMilliseconds: undefined,
-    GroupId: undefined
+    GroupId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (
     data.CertificateAuthorityExpiryInMilliseconds !== undefined &&
     data.CertificateAuthorityExpiryInMilliseconds !== null
   ) {
-    contents.CertificateAuthorityExpiryInMilliseconds =
-      data.CertificateAuthorityExpiryInMilliseconds;
+    contents.CertificateAuthorityExpiryInMilliseconds = data.CertificateAuthorityExpiryInMilliseconds;
   }
-  if (
-    data.CertificateExpiryInMilliseconds !== undefined &&
-    data.CertificateExpiryInMilliseconds !== null
-  ) {
-    contents.CertificateExpiryInMilliseconds =
-      data.CertificateExpiryInMilliseconds;
+  if (data.CertificateExpiryInMilliseconds !== undefined && data.CertificateExpiryInMilliseconds !== null) {
+    contents.CertificateExpiryInMilliseconds = data.CertificateExpiryInMilliseconds;
   }
   if (data.GroupId !== undefined && data.GroupId !== null) {
     contents.GroupId = data.GroupId;
@@ -10265,7 +8921,7 @@ const deserializeAws_restJson1UpdateGroupCertificateConfigurationCommandError = 
 ): Promise<UpdateGroupCertificateConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -10274,23 +8930,17 @@ const deserializeAws_restJson1UpdateGroupCertificateConfigurationCommandError = 
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -10301,7 +8951,7 @@ const deserializeAws_restJson1UpdateGroupCertificateConfigurationCommandError = 
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -10315,14 +8965,11 @@ export const deserializeAws_restJson1UpdateLoggerDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateLoggerDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1UpdateLoggerDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateLoggerDefinitionCommandError(output, context);
   }
   const contents: UpdateLoggerDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateLoggerDefinitionResponse"
+    __type: "UpdateLoggerDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -10334,7 +8981,7 @@ const deserializeAws_restJson1UpdateLoggerDefinitionCommandError = async (
 ): Promise<UpdateLoggerDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -10343,12 +8990,9 @@ const deserializeAws_restJson1UpdateLoggerDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -10359,7 +9003,7 @@ const deserializeAws_restJson1UpdateLoggerDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -10373,14 +9017,11 @@ export const deserializeAws_restJson1UpdateResourceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateResourceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1UpdateResourceDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateResourceDefinitionCommandError(output, context);
   }
   const contents: UpdateResourceDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateResourceDefinitionResponse"
+    __type: "UpdateResourceDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -10392,7 +9033,7 @@ const deserializeAws_restJson1UpdateResourceDefinitionCommandError = async (
 ): Promise<UpdateResourceDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -10401,12 +9042,9 @@ const deserializeAws_restJson1UpdateResourceDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -10417,7 +9055,7 @@ const deserializeAws_restJson1UpdateResourceDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -10431,14 +9069,11 @@ export const deserializeAws_restJson1UpdateSubscriptionDefinitionCommand = async
   context: __SerdeContext
 ): Promise<UpdateSubscriptionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1UpdateSubscriptionDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateSubscriptionDefinitionCommandError(output, context);
   }
   const contents: UpdateSubscriptionDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSubscriptionDefinitionResponse"
+    __type: "UpdateSubscriptionDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -10450,7 +9085,7 @@ const deserializeAws_restJson1UpdateSubscriptionDefinitionCommandError = async (
 ): Promise<UpdateSubscriptionDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -10459,12 +9094,9 @@ const deserializeAws_restJson1UpdateSubscriptionDefinitionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -10475,7 +9107,7 @@ const deserializeAws_restJson1UpdateSubscriptionDefinitionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -10493,14 +9125,11 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ErrorDetails: undefined,
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.ErrorDetails !== undefined && data.ErrorDetails !== null) {
-    contents.ErrorDetails = deserializeAws_restJson1ErrorDetails(
-      data.ErrorDetails,
-      context
-    );
+    contents.ErrorDetails = deserializeAws_restJson1ErrorDetails(data.ErrorDetails, context);
   }
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
@@ -10517,14 +9146,11 @@ const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ErrorDetails: undefined,
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.ErrorDetails !== undefined && data.ErrorDetails !== null) {
-    contents.ErrorDetails = deserializeAws_restJson1ErrorDetails(
-      data.ErrorDetails,
-      context
-    );
+    contents.ErrorDetails = deserializeAws_restJson1ErrorDetails(data.ErrorDetails, context);
   }
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
@@ -10532,120 +9158,75 @@ const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1__listOf__string = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
+const serializeAws_restJson1__listOf__string = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
-const serializeAws_restJson1__listOfConnectivityInfo = (
-  input: ConnectivityInfo[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1ConnectivityInfo(entry, context)
-  );
+const serializeAws_restJson1__listOfConnectivityInfo = (input: ConnectivityInfo[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1ConnectivityInfo(entry, context));
 };
 
-const serializeAws_restJson1__listOfConnector = (
-  input: Connector[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_restJson1Connector(entry, context));
+const serializeAws_restJson1__listOfConnector = (input: Connector[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1Connector(entry, context));
 };
 
-const serializeAws_restJson1__listOfCore = (
-  input: Core[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_restJson1Core(entry, context));
+const serializeAws_restJson1__listOfCore = (input: Core[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1Core(entry, context));
 };
 
-const serializeAws_restJson1__listOfDevice = (
-  input: Device[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_restJson1Device(entry, context));
+const serializeAws_restJson1__listOfDevice = (input: Device[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1Device(entry, context));
 };
 
-const serializeAws_restJson1__listOfFunction = (
-  input: Function[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_restJson1Function(entry, context));
+const serializeAws_restJson1__listOfFunction = (input: Function[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1Function(entry, context));
 };
 
-const serializeAws_restJson1__listOfLogger = (
-  input: Logger[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_restJson1Logger(entry, context));
+const serializeAws_restJson1__listOfLogger = (input: Logger[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1Logger(entry, context));
 };
 
-const serializeAws_restJson1__listOfResource = (
-  input: Resource[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_restJson1Resource(entry, context));
+const serializeAws_restJson1__listOfResource = (input: Resource[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1Resource(entry, context));
 };
 
 const serializeAws_restJson1__listOfResourceAccessPolicy = (
   input: ResourceAccessPolicy[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1ResourceAccessPolicy(entry, context)
-  );
+  return input.map((entry) => serializeAws_restJson1ResourceAccessPolicy(entry, context));
 };
 
-const serializeAws_restJson1__listOfSubscription = (
-  input: Subscription[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_restJson1Subscription(entry, context));
+const serializeAws_restJson1__listOfSubscription = (input: Subscription[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1Subscription(entry, context));
 };
 
-const serializeAws_restJson1__mapOf__string = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1__mapOf__string = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
 };
 
-const serializeAws_restJson1ConnectivityInfo = (
-  input: ConnectivityInfo,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1ConnectivityInfo = (input: ConnectivityInfo, context: __SerdeContext): any => {
   return {
     ...(input.HostAddress !== undefined && { HostAddress: input.HostAddress }),
     ...(input.Id !== undefined && { Id: input.Id }),
     ...(input.Metadata !== undefined && { Metadata: input.Metadata }),
-    ...(input.PortNumber !== undefined && { PortNumber: input.PortNumber })
+    ...(input.PortNumber !== undefined && { PortNumber: input.PortNumber }),
   };
 };
 
-const serializeAws_restJson1Connector = (
-  input: Connector,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1Connector = (input: Connector, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectorArn !== undefined && {
-      ConnectorArn: input.ConnectorArn
-    }),
+    ...(input.ConnectorArn !== undefined && { ConnectorArn: input.ConnectorArn }),
     ...(input.Id !== undefined && { Id: input.Id }),
     ...(input.Parameters !== undefined && {
-      Parameters: serializeAws_restJson1__mapOf__string(
-        input.Parameters,
-        context
-      )
-    })
+      Parameters: serializeAws_restJson1__mapOf__string(input.Parameters, context),
+    }),
   };
 };
 
@@ -10655,50 +9236,32 @@ const serializeAws_restJson1ConnectorDefinitionVersion = (
 ): any => {
   return {
     ...(input.Connectors !== undefined && {
-      Connectors: serializeAws_restJson1__listOfConnector(
-        input.Connectors,
-        context
-      )
-    })
+      Connectors: serializeAws_restJson1__listOfConnector(input.Connectors, context),
+    }),
   };
 };
 
-const serializeAws_restJson1Core = (
-  input: Core,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1Core = (input: Core, context: __SerdeContext): any => {
   return {
-    ...(input.CertificateArn !== undefined && {
-      CertificateArn: input.CertificateArn
-    }),
+    ...(input.CertificateArn !== undefined && { CertificateArn: input.CertificateArn }),
     ...(input.Id !== undefined && { Id: input.Id }),
     ...(input.SyncShadow !== undefined && { SyncShadow: input.SyncShadow }),
-    ...(input.ThingArn !== undefined && { ThingArn: input.ThingArn })
+    ...(input.ThingArn !== undefined && { ThingArn: input.ThingArn }),
   };
 };
 
-const serializeAws_restJson1CoreDefinitionVersion = (
-  input: CoreDefinitionVersion,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1CoreDefinitionVersion = (input: CoreDefinitionVersion, context: __SerdeContext): any => {
   return {
-    ...(input.Cores !== undefined && {
-      Cores: serializeAws_restJson1__listOfCore(input.Cores, context)
-    })
+    ...(input.Cores !== undefined && { Cores: serializeAws_restJson1__listOfCore(input.Cores, context) }),
   };
 };
 
-const serializeAws_restJson1Device = (
-  input: Device,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1Device = (input: Device, context: __SerdeContext): any => {
   return {
-    ...(input.CertificateArn !== undefined && {
-      CertificateArn: input.CertificateArn
-    }),
+    ...(input.CertificateArn !== undefined && { CertificateArn: input.CertificateArn }),
     ...(input.Id !== undefined && { Id: input.Id }),
     ...(input.SyncShadow !== undefined && { SyncShadow: input.SyncShadow }),
-    ...(input.ThingArn !== undefined && { ThingArn: input.ThingArn })
+    ...(input.ThingArn !== undefined && { ThingArn: input.ThingArn }),
   };
 };
 
@@ -10707,47 +9270,31 @@ const serializeAws_restJson1DeviceDefinitionVersion = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Devices !== undefined && {
-      Devices: serializeAws_restJson1__listOfDevice(input.Devices, context)
-    })
+    ...(input.Devices !== undefined && { Devices: serializeAws_restJson1__listOfDevice(input.Devices, context) }),
   };
 };
 
-const serializeAws_restJson1Function = (
-  input: Function,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1Function = (input: Function, context: __SerdeContext): any => {
   return {
     ...(input.FunctionArn !== undefined && { FunctionArn: input.FunctionArn }),
     ...(input.FunctionConfiguration !== undefined && {
-      FunctionConfiguration: serializeAws_restJson1FunctionConfiguration(
-        input.FunctionConfiguration,
-        context
-      )
+      FunctionConfiguration: serializeAws_restJson1FunctionConfiguration(input.FunctionConfiguration, context),
     }),
-    ...(input.Id !== undefined && { Id: input.Id })
+    ...(input.Id !== undefined && { Id: input.Id }),
   };
 };
 
-const serializeAws_restJson1FunctionConfiguration = (
-  input: FunctionConfiguration,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1FunctionConfiguration = (input: FunctionConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.EncodingType !== undefined && {
-      EncodingType: input.EncodingType
-    }),
+    ...(input.EncodingType !== undefined && { EncodingType: input.EncodingType }),
     ...(input.Environment !== undefined && {
-      Environment: serializeAws_restJson1FunctionConfigurationEnvironment(
-        input.Environment,
-        context
-      )
+      Environment: serializeAws_restJson1FunctionConfigurationEnvironment(input.Environment, context),
     }),
     ...(input.ExecArgs !== undefined && { ExecArgs: input.ExecArgs }),
     ...(input.Executable !== undefined && { Executable: input.Executable }),
     ...(input.MemorySize !== undefined && { MemorySize: input.MemorySize }),
     ...(input.Pinned !== undefined && { Pinned: input.Pinned }),
-    ...(input.Timeout !== undefined && { Timeout: input.Timeout })
+    ...(input.Timeout !== undefined && { Timeout: input.Timeout }),
   };
 };
 
@@ -10758,34 +9305,22 @@ const serializeAws_restJson1FunctionConfigurationEnvironment = (
   return {
     ...(input.AccessSysfs !== undefined && { AccessSysfs: input.AccessSysfs }),
     ...(input.Execution !== undefined && {
-      Execution: serializeAws_restJson1FunctionExecutionConfig(
-        input.Execution,
-        context
-      )
+      Execution: serializeAws_restJson1FunctionExecutionConfig(input.Execution, context),
     }),
     ...(input.ResourceAccessPolicies !== undefined && {
-      ResourceAccessPolicies: serializeAws_restJson1__listOfResourceAccessPolicy(
-        input.ResourceAccessPolicies,
-        context
-      )
+      ResourceAccessPolicies: serializeAws_restJson1__listOfResourceAccessPolicy(input.ResourceAccessPolicies, context),
     }),
     ...(input.Variables !== undefined && {
-      Variables: serializeAws_restJson1__mapOf__string(input.Variables, context)
-    })
+      Variables: serializeAws_restJson1__mapOf__string(input.Variables, context),
+    }),
   };
 };
 
-const serializeAws_restJson1FunctionDefaultConfig = (
-  input: FunctionDefaultConfig,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1FunctionDefaultConfig = (input: FunctionDefaultConfig, context: __SerdeContext): any => {
   return {
     ...(input.Execution !== undefined && {
-      Execution: serializeAws_restJson1FunctionDefaultExecutionConfig(
-        input.Execution,
-        context
-      )
-    })
+      Execution: serializeAws_restJson1FunctionDefaultExecutionConfig(input.Execution, context),
+    }),
   };
 };
 
@@ -10794,12 +9329,8 @@ const serializeAws_restJson1FunctionDefaultExecutionConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IsolationMode !== undefined && {
-      IsolationMode: input.IsolationMode
-    }),
-    ...(input.RunAs !== undefined && {
-      RunAs: serializeAws_restJson1FunctionRunAsConfig(input.RunAs, context)
-    })
+    ...(input.IsolationMode !== undefined && { IsolationMode: input.IsolationMode }),
+    ...(input.RunAs !== undefined && { RunAs: serializeAws_restJson1FunctionRunAsConfig(input.RunAs, context) }),
   };
 };
 
@@ -10809,17 +9340,11 @@ const serializeAws_restJson1FunctionDefinitionVersion = (
 ): any => {
   return {
     ...(input.DefaultConfig !== undefined && {
-      DefaultConfig: serializeAws_restJson1FunctionDefaultConfig(
-        input.DefaultConfig,
-        context
-      )
+      DefaultConfig: serializeAws_restJson1FunctionDefaultConfig(input.DefaultConfig, context),
     }),
     ...(input.Functions !== undefined && {
-      Functions: serializeAws_restJson1__listOfFunction(
-        input.Functions,
-        context
-      )
-    })
+      Functions: serializeAws_restJson1__listOfFunction(input.Functions, context),
+    }),
   };
 };
 
@@ -10828,63 +9353,46 @@ const serializeAws_restJson1FunctionExecutionConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IsolationMode !== undefined && {
-      IsolationMode: input.IsolationMode
-    }),
-    ...(input.RunAs !== undefined && {
-      RunAs: serializeAws_restJson1FunctionRunAsConfig(input.RunAs, context)
-    })
+    ...(input.IsolationMode !== undefined && { IsolationMode: input.IsolationMode }),
+    ...(input.RunAs !== undefined && { RunAs: serializeAws_restJson1FunctionRunAsConfig(input.RunAs, context) }),
   };
 };
 
-const serializeAws_restJson1FunctionRunAsConfig = (
-  input: FunctionRunAsConfig,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1FunctionRunAsConfig = (input: FunctionRunAsConfig, context: __SerdeContext): any => {
   return {
     ...(input.Gid !== undefined && { Gid: input.Gid }),
-    ...(input.Uid !== undefined && { Uid: input.Uid })
+    ...(input.Uid !== undefined && { Uid: input.Uid }),
   };
 };
 
-const serializeAws_restJson1GroupOwnerSetting = (
-  input: GroupOwnerSetting,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1GroupOwnerSetting = (input: GroupOwnerSetting, context: __SerdeContext): any => {
   return {
-    ...(input.AutoAddGroupOwner !== undefined && {
-      AutoAddGroupOwner: input.AutoAddGroupOwner
-    }),
-    ...(input.GroupOwner !== undefined && { GroupOwner: input.GroupOwner })
+    ...(input.AutoAddGroupOwner !== undefined && { AutoAddGroupOwner: input.AutoAddGroupOwner }),
+    ...(input.GroupOwner !== undefined && { GroupOwner: input.GroupOwner }),
   };
 };
 
-const serializeAws_restJson1GroupVersion = (
-  input: GroupVersion,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1GroupVersion = (input: GroupVersion, context: __SerdeContext): any => {
   return {
     ...(input.ConnectorDefinitionVersionArn !== undefined && {
-      ConnectorDefinitionVersionArn: input.ConnectorDefinitionVersionArn
+      ConnectorDefinitionVersionArn: input.ConnectorDefinitionVersionArn,
     }),
-    ...(input.CoreDefinitionVersionArn !== undefined && {
-      CoreDefinitionVersionArn: input.CoreDefinitionVersionArn
-    }),
+    ...(input.CoreDefinitionVersionArn !== undefined && { CoreDefinitionVersionArn: input.CoreDefinitionVersionArn }),
     ...(input.DeviceDefinitionVersionArn !== undefined && {
-      DeviceDefinitionVersionArn: input.DeviceDefinitionVersionArn
+      DeviceDefinitionVersionArn: input.DeviceDefinitionVersionArn,
     }),
     ...(input.FunctionDefinitionVersionArn !== undefined && {
-      FunctionDefinitionVersionArn: input.FunctionDefinitionVersionArn
+      FunctionDefinitionVersionArn: input.FunctionDefinitionVersionArn,
     }),
     ...(input.LoggerDefinitionVersionArn !== undefined && {
-      LoggerDefinitionVersionArn: input.LoggerDefinitionVersionArn
+      LoggerDefinitionVersionArn: input.LoggerDefinitionVersionArn,
     }),
     ...(input.ResourceDefinitionVersionArn !== undefined && {
-      ResourceDefinitionVersionArn: input.ResourceDefinitionVersionArn
+      ResourceDefinitionVersionArn: input.ResourceDefinitionVersionArn,
     }),
     ...(input.SubscriptionDefinitionVersionArn !== undefined && {
-      SubscriptionDefinitionVersionArn: input.SubscriptionDefinitionVersionArn
-    })
+      SubscriptionDefinitionVersionArn: input.SubscriptionDefinitionVersionArn,
+    }),
   };
 };
 
@@ -10894,12 +9402,9 @@ const serializeAws_restJson1LocalDeviceResourceData = (
 ): any => {
   return {
     ...(input.GroupOwnerSetting !== undefined && {
-      GroupOwnerSetting: serializeAws_restJson1GroupOwnerSetting(
-        input.GroupOwnerSetting,
-        context
-      )
+      GroupOwnerSetting: serializeAws_restJson1GroupOwnerSetting(input.GroupOwnerSetting, context),
     }),
-    ...(input.SourcePath !== undefined && { SourcePath: input.SourcePath })
+    ...(input.SourcePath !== undefined && { SourcePath: input.SourcePath }),
   };
 };
 
@@ -10908,29 +9413,21 @@ const serializeAws_restJson1LocalVolumeResourceData = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationPath !== undefined && {
-      DestinationPath: input.DestinationPath
-    }),
+    ...(input.DestinationPath !== undefined && { DestinationPath: input.DestinationPath }),
     ...(input.GroupOwnerSetting !== undefined && {
-      GroupOwnerSetting: serializeAws_restJson1GroupOwnerSetting(
-        input.GroupOwnerSetting,
-        context
-      )
+      GroupOwnerSetting: serializeAws_restJson1GroupOwnerSetting(input.GroupOwnerSetting, context),
     }),
-    ...(input.SourcePath !== undefined && { SourcePath: input.SourcePath })
+    ...(input.SourcePath !== undefined && { SourcePath: input.SourcePath }),
   };
 };
 
-const serializeAws_restJson1Logger = (
-  input: Logger,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1Logger = (input: Logger, context: __SerdeContext): any => {
   return {
     ...(input.Component !== undefined && { Component: input.Component }),
     ...(input.Id !== undefined && { Id: input.Id }),
     ...(input.Level !== undefined && { Level: input.Level }),
     ...(input.Space !== undefined && { Space: input.Space }),
-    ...(input.Type !== undefined && { Type: input.Type })
+    ...(input.Type !== undefined && { Type: input.Type }),
   };
 };
 
@@ -10939,73 +9436,53 @@ const serializeAws_restJson1LoggerDefinitionVersion = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Loggers !== undefined && {
-      Loggers: serializeAws_restJson1__listOfLogger(input.Loggers, context)
-    })
+    ...(input.Loggers !== undefined && { Loggers: serializeAws_restJson1__listOfLogger(input.Loggers, context) }),
   };
 };
 
-const serializeAws_restJson1Resource = (
-  input: Resource,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1Resource = (input: Resource, context: __SerdeContext): any => {
   return {
     ...(input.Id !== undefined && { Id: input.Id }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.ResourceDataContainer !== undefined && {
-      ResourceDataContainer: serializeAws_restJson1ResourceDataContainer(
-        input.ResourceDataContainer,
-        context
-      )
-    })
+      ResourceDataContainer: serializeAws_restJson1ResourceDataContainer(input.ResourceDataContainer, context),
+    }),
   };
 };
 
-const serializeAws_restJson1ResourceAccessPolicy = (
-  input: ResourceAccessPolicy,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1ResourceAccessPolicy = (input: ResourceAccessPolicy, context: __SerdeContext): any => {
   return {
     ...(input.Permission !== undefined && { Permission: input.Permission }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId })
+    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
   };
 };
 
-const serializeAws_restJson1ResourceDataContainer = (
-  input: ResourceDataContainer,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1ResourceDataContainer = (input: ResourceDataContainer, context: __SerdeContext): any => {
   return {
     ...(input.LocalDeviceResourceData !== undefined && {
-      LocalDeviceResourceData: serializeAws_restJson1LocalDeviceResourceData(
-        input.LocalDeviceResourceData,
-        context
-      )
+      LocalDeviceResourceData: serializeAws_restJson1LocalDeviceResourceData(input.LocalDeviceResourceData, context),
     }),
     ...(input.LocalVolumeResourceData !== undefined && {
-      LocalVolumeResourceData: serializeAws_restJson1LocalVolumeResourceData(
-        input.LocalVolumeResourceData,
-        context
-      )
+      LocalVolumeResourceData: serializeAws_restJson1LocalVolumeResourceData(input.LocalVolumeResourceData, context),
     }),
     ...(input.S3MachineLearningModelResourceData !== undefined && {
       S3MachineLearningModelResourceData: serializeAws_restJson1S3MachineLearningModelResourceData(
         input.S3MachineLearningModelResourceData,
         context
-      )
+      ),
     }),
     ...(input.SageMakerMachineLearningModelResourceData !== undefined && {
       SageMakerMachineLearningModelResourceData: serializeAws_restJson1SageMakerMachineLearningModelResourceData(
         input.SageMakerMachineLearningModelResourceData,
         context
-      )
+      ),
     }),
     ...(input.SecretsManagerSecretResourceData !== undefined && {
       SecretsManagerSecretResourceData: serializeAws_restJson1SecretsManagerSecretResourceData(
         input.SecretsManagerSecretResourceData,
         context
-      )
-    })
+      ),
+    }),
   };
 };
 
@@ -11015,11 +9492,8 @@ const serializeAws_restJson1ResourceDefinitionVersion = (
 ): any => {
   return {
     ...(input.Resources !== undefined && {
-      Resources: serializeAws_restJson1__listOfResource(
-        input.Resources,
-        context
-      )
-    })
+      Resources: serializeAws_restJson1__listOfResource(input.Resources, context),
+    }),
   };
 };
 
@@ -11029,9 +9503,7 @@ const serializeAws_restJson1ResourceDownloadOwnerSetting = (
 ): any => {
   return {
     ...(input.GroupOwner !== undefined && { GroupOwner: input.GroupOwner }),
-    ...(input.GroupPermission !== undefined && {
-      GroupPermission: input.GroupPermission
-    })
+    ...(input.GroupPermission !== undefined && { GroupPermission: input.GroupPermission }),
   };
 };
 
@@ -11040,16 +9512,11 @@ const serializeAws_restJson1S3MachineLearningModelResourceData = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationPath !== undefined && {
-      DestinationPath: input.DestinationPath
-    }),
+    ...(input.DestinationPath !== undefined && { DestinationPath: input.DestinationPath }),
     ...(input.OwnerSetting !== undefined && {
-      OwnerSetting: serializeAws_restJson1ResourceDownloadOwnerSetting(
-        input.OwnerSetting,
-        context
-      )
+      OwnerSetting: serializeAws_restJson1ResourceDownloadOwnerSetting(input.OwnerSetting, context),
     }),
-    ...(input.S3Uri !== undefined && { S3Uri: input.S3Uri })
+    ...(input.S3Uri !== undefined && { S3Uri: input.S3Uri }),
   };
 };
 
@@ -11058,18 +9525,11 @@ const serializeAws_restJson1SageMakerMachineLearningModelResourceData = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationPath !== undefined && {
-      DestinationPath: input.DestinationPath
-    }),
+    ...(input.DestinationPath !== undefined && { DestinationPath: input.DestinationPath }),
     ...(input.OwnerSetting !== undefined && {
-      OwnerSetting: serializeAws_restJson1ResourceDownloadOwnerSetting(
-        input.OwnerSetting,
-        context
-      )
+      OwnerSetting: serializeAws_restJson1ResourceDownloadOwnerSetting(input.OwnerSetting, context),
     }),
-    ...(input.SageMakerJobArn !== undefined && {
-      SageMakerJobArn: input.SageMakerJobArn
-    })
+    ...(input.SageMakerJobArn !== undefined && { SageMakerJobArn: input.SageMakerJobArn }),
   };
 };
 
@@ -11083,20 +9543,17 @@ const serializeAws_restJson1SecretsManagerSecretResourceData = (
       AdditionalStagingLabelsToDownload: serializeAws_restJson1__listOf__string(
         input.AdditionalStagingLabelsToDownload,
         context
-      )
-    })
+      ),
+    }),
   };
 };
 
-const serializeAws_restJson1Subscription = (
-  input: Subscription,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1Subscription = (input: Subscription, context: __SerdeContext): any => {
   return {
     ...(input.Id !== undefined && { Id: input.Id }),
     ...(input.Source !== undefined && { Source: input.Source }),
     ...(input.Subject !== undefined && { Subject: input.Subject }),
-    ...(input.Target !== undefined && { Target: input.Target })
+    ...(input.Target !== undefined && { Target: input.Target }),
   };
 };
 
@@ -11106,93 +9563,54 @@ const serializeAws_restJson1SubscriptionDefinitionVersion = (
 ): any => {
   return {
     ...(input.Subscriptions !== undefined && {
-      Subscriptions: serializeAws_restJson1__listOfSubscription(
-        input.Subscriptions,
-        context
-      )
-    })
+      Subscriptions: serializeAws_restJson1__listOfSubscription(input.Subscriptions, context),
+    }),
   };
 };
 
-const serializeAws_restJson1Tags = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
 };
 
-const serializeAws_restJson1UpdateTargets = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
+const serializeAws_restJson1UpdateTargets = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
-const deserializeAws_restJson1__listOf__string = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1__listOfConnectivityInfo = (
-  output: any,
-  context: __SerdeContext
-): ConnectivityInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1ConnectivityInfo(entry, context)
-  );
+const deserializeAws_restJson1__listOfConnectivityInfo = (output: any, context: __SerdeContext): ConnectivityInfo[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1ConnectivityInfo(entry, context));
 };
 
-const deserializeAws_restJson1__listOfConnector = (
-  output: any,
-  context: __SerdeContext
-): Connector[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1Connector(entry, context)
-  );
+const deserializeAws_restJson1__listOfConnector = (output: any, context: __SerdeContext): Connector[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Connector(entry, context));
 };
 
-const deserializeAws_restJson1__listOfCore = (
-  output: any,
-  context: __SerdeContext
-): Core[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1Core(entry, context)
-  );
+const deserializeAws_restJson1__listOfCore = (output: any, context: __SerdeContext): Core[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Core(entry, context));
 };
 
 const deserializeAws_restJson1__listOfDefinitionInformation = (
   output: any,
   context: __SerdeContext
 ): DefinitionInformation[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1DefinitionInformation(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1DefinitionInformation(entry, context));
 };
 
-const deserializeAws_restJson1__listOfDevice = (
-  output: any,
-  context: __SerdeContext
-): Device[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1Device(entry, context)
-  );
+const deserializeAws_restJson1__listOfDevice = (output: any, context: __SerdeContext): Device[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Device(entry, context));
 };
 
-const deserializeAws_restJson1__listOfFunction = (
-  output: any,
-  context: __SerdeContext
-): Function[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1Function(entry, context)
-  );
+const deserializeAws_restJson1__listOfFunction = (output: any, context: __SerdeContext): Function[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Function(entry, context));
 };
 
 const deserializeAws_restJson1__listOfGroupCertificateAuthorityProperties = (
@@ -11204,155 +9622,90 @@ const deserializeAws_restJson1__listOfGroupCertificateAuthorityProperties = (
   );
 };
 
-const deserializeAws_restJson1__listOfGroupInformation = (
-  output: any,
-  context: __SerdeContext
-): GroupInformation[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1GroupInformation(entry, context)
-  );
+const deserializeAws_restJson1__listOfGroupInformation = (output: any, context: __SerdeContext): GroupInformation[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1GroupInformation(entry, context));
 };
 
-const deserializeAws_restJson1__listOfLogger = (
-  output: any,
-  context: __SerdeContext
-): Logger[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1Logger(entry, context)
-  );
+const deserializeAws_restJson1__listOfLogger = (output: any, context: __SerdeContext): Logger[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Logger(entry, context));
 };
 
-const deserializeAws_restJson1__listOfResource = (
-  output: any,
-  context: __SerdeContext
-): Resource[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1Resource(entry, context)
-  );
+const deserializeAws_restJson1__listOfResource = (output: any, context: __SerdeContext): Resource[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Resource(entry, context));
 };
 
 const deserializeAws_restJson1__listOfResourceAccessPolicy = (
   output: any,
   context: __SerdeContext
 ): ResourceAccessPolicy[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1ResourceAccessPolicy(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1ResourceAccessPolicy(entry, context));
 };
 
-const deserializeAws_restJson1__listOfSubscription = (
-  output: any,
-  context: __SerdeContext
-): Subscription[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1Subscription(entry, context)
-  );
+const deserializeAws_restJson1__listOfSubscription = (output: any, context: __SerdeContext): Subscription[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Subscription(entry, context));
 };
 
 const deserializeAws_restJson1__listOfVersionInformation = (
   output: any,
   context: __SerdeContext
 ): VersionInformation[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1VersionInformation(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1VersionInformation(entry, context));
 };
 
-const deserializeAws_restJson1__mapOf__string = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
 };
 
-const deserializeAws_restJson1BulkDeployment = (
-  output: any,
-  context: __SerdeContext
-): BulkDeployment => {
+const deserializeAws_restJson1BulkDeployment = (output: any, context: __SerdeContext): BulkDeployment => {
   return {
     __type: "BulkDeployment",
     BulkDeploymentArn:
-      output.BulkDeploymentArn !== undefined &&
-      output.BulkDeploymentArn !== null
+      output.BulkDeploymentArn !== undefined && output.BulkDeploymentArn !== null
         ? output.BulkDeploymentArn
         : undefined,
     BulkDeploymentId:
-      output.BulkDeploymentId !== undefined && output.BulkDeploymentId !== null
-        ? output.BulkDeploymentId
-        : undefined,
-    CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? output.CreatedAt
-        : undefined
+      output.BulkDeploymentId !== undefined && output.BulkDeploymentId !== null ? output.BulkDeploymentId : undefined,
+    CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? output.CreatedAt : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1BulkDeploymentMetrics = (
-  output: any,
-  context: __SerdeContext
-): BulkDeploymentMetrics => {
+const deserializeAws_restJson1BulkDeploymentMetrics = (output: any, context: __SerdeContext): BulkDeploymentMetrics => {
   return {
     __type: "BulkDeploymentMetrics",
     InvalidInputRecords:
-      output.InvalidInputRecords !== undefined &&
-      output.InvalidInputRecords !== null
+      output.InvalidInputRecords !== undefined && output.InvalidInputRecords !== null
         ? output.InvalidInputRecords
         : undefined,
     RecordsProcessed:
-      output.RecordsProcessed !== undefined && output.RecordsProcessed !== null
-        ? output.RecordsProcessed
-        : undefined,
+      output.RecordsProcessed !== undefined && output.RecordsProcessed !== null ? output.RecordsProcessed : undefined,
     RetryAttempts:
-      output.RetryAttempts !== undefined && output.RetryAttempts !== null
-        ? output.RetryAttempts
-        : undefined
+      output.RetryAttempts !== undefined && output.RetryAttempts !== null ? output.RetryAttempts : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1BulkDeploymentResult = (
-  output: any,
-  context: __SerdeContext
-): BulkDeploymentResult => {
+const deserializeAws_restJson1BulkDeploymentResult = (output: any, context: __SerdeContext): BulkDeploymentResult => {
   return {
     __type: "BulkDeploymentResult",
-    CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? output.CreatedAt
-        : undefined,
+    CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? output.CreatedAt : undefined,
     DeploymentArn:
-      output.DeploymentArn !== undefined && output.DeploymentArn !== null
-        ? output.DeploymentArn
-        : undefined,
-    DeploymentId:
-      output.DeploymentId !== undefined && output.DeploymentId !== null
-        ? output.DeploymentId
-        : undefined,
+      output.DeploymentArn !== undefined && output.DeploymentArn !== null ? output.DeploymentArn : undefined,
+    DeploymentId: output.DeploymentId !== undefined && output.DeploymentId !== null ? output.DeploymentId : undefined,
     DeploymentStatus:
-      output.DeploymentStatus !== undefined && output.DeploymentStatus !== null
-        ? output.DeploymentStatus
-        : undefined,
+      output.DeploymentStatus !== undefined && output.DeploymentStatus !== null ? output.DeploymentStatus : undefined,
     DeploymentType:
-      output.DeploymentType !== undefined && output.DeploymentType !== null
-        ? output.DeploymentType
-        : undefined,
+      output.DeploymentType !== undefined && output.DeploymentType !== null ? output.DeploymentType : undefined,
     ErrorDetails:
       output.ErrorDetails !== undefined && output.ErrorDetails !== null
         ? deserializeAws_restJson1ErrorDetails(output.ErrorDetails, context)
         : undefined,
-    ErrorMessage:
-      output.ErrorMessage !== undefined && output.ErrorMessage !== null
-        ? output.ErrorMessage
-        : undefined,
-    GroupArn:
-      output.GroupArn !== undefined && output.GroupArn !== null
-        ? output.GroupArn
-        : undefined
+    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
+    GroupArn: output.GroupArn !== undefined && output.GroupArn !== null ? output.GroupArn : undefined,
   } as any;
 };
 
@@ -11360,57 +9713,32 @@ const deserializeAws_restJson1BulkDeploymentResults = (
   output: any,
   context: __SerdeContext
 ): BulkDeploymentResult[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1BulkDeploymentResult(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1BulkDeploymentResult(entry, context));
 };
 
-const deserializeAws_restJson1BulkDeployments = (
-  output: any,
-  context: __SerdeContext
-): BulkDeployment[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1BulkDeployment(entry, context)
-  );
+const deserializeAws_restJson1BulkDeployments = (output: any, context: __SerdeContext): BulkDeployment[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1BulkDeployment(entry, context));
 };
 
-const deserializeAws_restJson1ConnectivityInfo = (
-  output: any,
-  context: __SerdeContext
-): ConnectivityInfo => {
+const deserializeAws_restJson1ConnectivityInfo = (output: any, context: __SerdeContext): ConnectivityInfo => {
   return {
     __type: "ConnectivityInfo",
-    HostAddress:
-      output.HostAddress !== undefined && output.HostAddress !== null
-        ? output.HostAddress
-        : undefined,
+    HostAddress: output.HostAddress !== undefined && output.HostAddress !== null ? output.HostAddress : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Metadata:
-      output.Metadata !== undefined && output.Metadata !== null
-        ? output.Metadata
-        : undefined,
-    PortNumber:
-      output.PortNumber !== undefined && output.PortNumber !== null
-        ? output.PortNumber
-        : undefined
+    Metadata: output.Metadata !== undefined && output.Metadata !== null ? output.Metadata : undefined,
+    PortNumber: output.PortNumber !== undefined && output.PortNumber !== null ? output.PortNumber : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Connector = (
-  output: any,
-  context: __SerdeContext
-): Connector => {
+const deserializeAws_restJson1Connector = (output: any, context: __SerdeContext): Connector => {
   return {
     __type: "Connector",
-    ConnectorArn:
-      output.ConnectorArn !== undefined && output.ConnectorArn !== null
-        ? output.ConnectorArn
-        : undefined,
+    ConnectorArn: output.ConnectorArn !== undefined && output.ConnectorArn !== null ? output.ConnectorArn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Parameters:
       output.Parameters !== undefined && output.Parameters !== null
         ? deserializeAws_restJson1__mapOf__string(output.Parameters, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -11423,140 +9751,81 @@ const deserializeAws_restJson1ConnectorDefinitionVersion = (
     Connectors:
       output.Connectors !== undefined && output.Connectors !== null
         ? deserializeAws_restJson1__listOfConnector(output.Connectors, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Core = (
-  output: any,
-  context: __SerdeContext
-): Core => {
+const deserializeAws_restJson1Core = (output: any, context: __SerdeContext): Core => {
   return {
     __type: "Core",
     CertificateArn:
-      output.CertificateArn !== undefined && output.CertificateArn !== null
-        ? output.CertificateArn
-        : undefined,
+      output.CertificateArn !== undefined && output.CertificateArn !== null ? output.CertificateArn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    SyncShadow:
-      output.SyncShadow !== undefined && output.SyncShadow !== null
-        ? output.SyncShadow
-        : undefined,
-    ThingArn:
-      output.ThingArn !== undefined && output.ThingArn !== null
-        ? output.ThingArn
-        : undefined
+    SyncShadow: output.SyncShadow !== undefined && output.SyncShadow !== null ? output.SyncShadow : undefined,
+    ThingArn: output.ThingArn !== undefined && output.ThingArn !== null ? output.ThingArn : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1CoreDefinitionVersion = (
-  output: any,
-  context: __SerdeContext
-): CoreDefinitionVersion => {
+const deserializeAws_restJson1CoreDefinitionVersion = (output: any, context: __SerdeContext): CoreDefinitionVersion => {
   return {
     __type: "CoreDefinitionVersion",
     Cores:
       output.Cores !== undefined && output.Cores !== null
         ? deserializeAws_restJson1__listOfCore(output.Cores, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1DefinitionInformation = (
-  output: any,
-  context: __SerdeContext
-): DefinitionInformation => {
+const deserializeAws_restJson1DefinitionInformation = (output: any, context: __SerdeContext): DefinitionInformation => {
   return {
     __type: "DefinitionInformation",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreationTimestamp:
-      output.CreationTimestamp !== undefined &&
-      output.CreationTimestamp !== null
+      output.CreationTimestamp !== undefined && output.CreationTimestamp !== null
         ? output.CreationTimestamp
         : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp !== undefined &&
-      output.LastUpdatedTimestamp !== null
+      output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
         ? output.LastUpdatedTimestamp
         : undefined,
     LatestVersion:
-      output.LatestVersion !== undefined && output.LatestVersion !== null
-        ? output.LatestVersion
-        : undefined,
+      output.LatestVersion !== undefined && output.LatestVersion !== null ? output.LatestVersion : undefined,
     LatestVersionArn:
-      output.LatestVersionArn !== undefined && output.LatestVersionArn !== null
-        ? output.LatestVersionArn
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+      output.LatestVersionArn !== undefined && output.LatestVersionArn !== null ? output.LatestVersionArn : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1Tags(output.tags, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Deployment = (
-  output: any,
-  context: __SerdeContext
-): Deployment => {
+const deserializeAws_restJson1Deployment = (output: any, context: __SerdeContext): Deployment => {
   return {
     __type: "Deployment",
-    CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? output.CreatedAt
-        : undefined,
+    CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? output.CreatedAt : undefined,
     DeploymentArn:
-      output.DeploymentArn !== undefined && output.DeploymentArn !== null
-        ? output.DeploymentArn
-        : undefined,
-    DeploymentId:
-      output.DeploymentId !== undefined && output.DeploymentId !== null
-        ? output.DeploymentId
-        : undefined,
+      output.DeploymentArn !== undefined && output.DeploymentArn !== null ? output.DeploymentArn : undefined,
+    DeploymentId: output.DeploymentId !== undefined && output.DeploymentId !== null ? output.DeploymentId : undefined,
     DeploymentType:
-      output.DeploymentType !== undefined && output.DeploymentType !== null
-        ? output.DeploymentType
-        : undefined,
-    GroupArn:
-      output.GroupArn !== undefined && output.GroupArn !== null
-        ? output.GroupArn
-        : undefined
+      output.DeploymentType !== undefined && output.DeploymentType !== null ? output.DeploymentType : undefined,
+    GroupArn: output.GroupArn !== undefined && output.GroupArn !== null ? output.GroupArn : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Deployments = (
-  output: any,
-  context: __SerdeContext
-): Deployment[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1Deployment(entry, context)
-  );
+const deserializeAws_restJson1Deployments = (output: any, context: __SerdeContext): Deployment[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Deployment(entry, context));
 };
 
-const deserializeAws_restJson1Device = (
-  output: any,
-  context: __SerdeContext
-): Device => {
+const deserializeAws_restJson1Device = (output: any, context: __SerdeContext): Device => {
   return {
     __type: "Device",
     CertificateArn:
-      output.CertificateArn !== undefined && output.CertificateArn !== null
-        ? output.CertificateArn
-        : undefined,
+      output.CertificateArn !== undefined && output.CertificateArn !== null ? output.CertificateArn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    SyncShadow:
-      output.SyncShadow !== undefined && output.SyncShadow !== null
-        ? output.SyncShadow
-        : undefined,
-    ThingArn:
-      output.ThingArn !== undefined && output.ThingArn !== null
-        ? output.ThingArn
-        : undefined
+    SyncShadow: output.SyncShadow !== undefined && output.SyncShadow !== null ? output.SyncShadow : undefined,
+    ThingArn: output.ThingArn !== undefined && output.ThingArn !== null ? output.ThingArn : undefined,
   } as any;
 };
 
@@ -11569,97 +9838,53 @@ const deserializeAws_restJson1DeviceDefinitionVersion = (
     Devices:
       output.Devices !== undefined && output.Devices !== null
         ? deserializeAws_restJson1__listOfDevice(output.Devices, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ErrorDetail = (
-  output: any,
-  context: __SerdeContext
-): ErrorDetail => {
+const deserializeAws_restJson1ErrorDetail = (output: any, context: __SerdeContext): ErrorDetail => {
   return {
     __type: "ErrorDetail",
     DetailedErrorCode:
-      output.DetailedErrorCode !== undefined &&
-      output.DetailedErrorCode !== null
+      output.DetailedErrorCode !== undefined && output.DetailedErrorCode !== null
         ? output.DetailedErrorCode
         : undefined,
     DetailedErrorMessage:
-      output.DetailedErrorMessage !== undefined &&
-      output.DetailedErrorMessage !== null
+      output.DetailedErrorMessage !== undefined && output.DetailedErrorMessage !== null
         ? output.DetailedErrorMessage
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ErrorDetails = (
-  output: any,
-  context: __SerdeContext
-): ErrorDetail[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1ErrorDetail(entry, context)
-  );
+const deserializeAws_restJson1ErrorDetails = (output: any, context: __SerdeContext): ErrorDetail[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1ErrorDetail(entry, context));
 };
 
-const deserializeAws_restJson1Function = (
-  output: any,
-  context: __SerdeContext
-): Function => {
+const deserializeAws_restJson1Function = (output: any, context: __SerdeContext): Function => {
   return {
     __type: "Function",
-    FunctionArn:
-      output.FunctionArn !== undefined && output.FunctionArn !== null
-        ? output.FunctionArn
-        : undefined,
+    FunctionArn: output.FunctionArn !== undefined && output.FunctionArn !== null ? output.FunctionArn : undefined,
     FunctionConfiguration:
-      output.FunctionConfiguration !== undefined &&
-      output.FunctionConfiguration !== null
-        ? deserializeAws_restJson1FunctionConfiguration(
-            output.FunctionConfiguration,
-            context
-          )
+      output.FunctionConfiguration !== undefined && output.FunctionConfiguration !== null
+        ? deserializeAws_restJson1FunctionConfiguration(output.FunctionConfiguration, context)
         : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1FunctionConfiguration = (
-  output: any,
-  context: __SerdeContext
-): FunctionConfiguration => {
+const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __SerdeContext): FunctionConfiguration => {
   return {
     __type: "FunctionConfiguration",
-    EncodingType:
-      output.EncodingType !== undefined && output.EncodingType !== null
-        ? output.EncodingType
-        : undefined,
+    EncodingType: output.EncodingType !== undefined && output.EncodingType !== null ? output.EncodingType : undefined,
     Environment:
       output.Environment !== undefined && output.Environment !== null
-        ? deserializeAws_restJson1FunctionConfigurationEnvironment(
-            output.Environment,
-            context
-          )
+        ? deserializeAws_restJson1FunctionConfigurationEnvironment(output.Environment, context)
         : undefined,
-    ExecArgs:
-      output.ExecArgs !== undefined && output.ExecArgs !== null
-        ? output.ExecArgs
-        : undefined,
-    Executable:
-      output.Executable !== undefined && output.Executable !== null
-        ? output.Executable
-        : undefined,
-    MemorySize:
-      output.MemorySize !== undefined && output.MemorySize !== null
-        ? output.MemorySize
-        : undefined,
-    Pinned:
-      output.Pinned !== undefined && output.Pinned !== null
-        ? output.Pinned
-        : undefined,
-    Timeout:
-      output.Timeout !== undefined && output.Timeout !== null
-        ? output.Timeout
-        : undefined
+    ExecArgs: output.ExecArgs !== undefined && output.ExecArgs !== null ? output.ExecArgs : undefined,
+    Executable: output.Executable !== undefined && output.Executable !== null ? output.Executable : undefined,
+    MemorySize: output.MemorySize !== undefined && output.MemorySize !== null ? output.MemorySize : undefined,
+    Pinned: output.Pinned !== undefined && output.Pinned !== null ? output.Pinned : undefined,
+    Timeout: output.Timeout !== undefined && output.Timeout !== null ? output.Timeout : undefined,
   } as any;
 };
 
@@ -11669,45 +9894,29 @@ const deserializeAws_restJson1FunctionConfigurationEnvironment = (
 ): FunctionConfigurationEnvironment => {
   return {
     __type: "FunctionConfigurationEnvironment",
-    AccessSysfs:
-      output.AccessSysfs !== undefined && output.AccessSysfs !== null
-        ? output.AccessSysfs
-        : undefined,
+    AccessSysfs: output.AccessSysfs !== undefined && output.AccessSysfs !== null ? output.AccessSysfs : undefined,
     Execution:
       output.Execution !== undefined && output.Execution !== null
-        ? deserializeAws_restJson1FunctionExecutionConfig(
-            output.Execution,
-            context
-          )
+        ? deserializeAws_restJson1FunctionExecutionConfig(output.Execution, context)
         : undefined,
     ResourceAccessPolicies:
-      output.ResourceAccessPolicies !== undefined &&
-      output.ResourceAccessPolicies !== null
-        ? deserializeAws_restJson1__listOfResourceAccessPolicy(
-            output.ResourceAccessPolicies,
-            context
-          )
+      output.ResourceAccessPolicies !== undefined && output.ResourceAccessPolicies !== null
+        ? deserializeAws_restJson1__listOfResourceAccessPolicy(output.ResourceAccessPolicies, context)
         : undefined,
     Variables:
       output.Variables !== undefined && output.Variables !== null
         ? deserializeAws_restJson1__mapOf__string(output.Variables, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1FunctionDefaultConfig = (
-  output: any,
-  context: __SerdeContext
-): FunctionDefaultConfig => {
+const deserializeAws_restJson1FunctionDefaultConfig = (output: any, context: __SerdeContext): FunctionDefaultConfig => {
   return {
     __type: "FunctionDefaultConfig",
     Execution:
       output.Execution !== undefined && output.Execution !== null
-        ? deserializeAws_restJson1FunctionDefaultExecutionConfig(
-            output.Execution,
-            context
-          )
-        : undefined
+        ? deserializeAws_restJson1FunctionDefaultExecutionConfig(output.Execution, context)
+        : undefined,
   } as any;
 };
 
@@ -11718,13 +9927,11 @@ const deserializeAws_restJson1FunctionDefaultExecutionConfig = (
   return {
     __type: "FunctionDefaultExecutionConfig",
     IsolationMode:
-      output.IsolationMode !== undefined && output.IsolationMode !== null
-        ? output.IsolationMode
-        : undefined,
+      output.IsolationMode !== undefined && output.IsolationMode !== null ? output.IsolationMode : undefined,
     RunAs:
       output.RunAs !== undefined && output.RunAs !== null
         ? deserializeAws_restJson1FunctionRunAsConfig(output.RunAs, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -11736,15 +9943,12 @@ const deserializeAws_restJson1FunctionDefinitionVersion = (
     __type: "FunctionDefinitionVersion",
     DefaultConfig:
       output.DefaultConfig !== undefined && output.DefaultConfig !== null
-        ? deserializeAws_restJson1FunctionDefaultConfig(
-            output.DefaultConfig,
-            context
-          )
+        ? deserializeAws_restJson1FunctionDefaultConfig(output.DefaultConfig, context)
         : undefined,
     Functions:
       output.Functions !== undefined && output.Functions !== null
         ? deserializeAws_restJson1__listOfFunction(output.Functions, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -11755,26 +9959,19 @@ const deserializeAws_restJson1FunctionExecutionConfig = (
   return {
     __type: "FunctionExecutionConfig",
     IsolationMode:
-      output.IsolationMode !== undefined && output.IsolationMode !== null
-        ? output.IsolationMode
-        : undefined,
+      output.IsolationMode !== undefined && output.IsolationMode !== null ? output.IsolationMode : undefined,
     RunAs:
       output.RunAs !== undefined && output.RunAs !== null
         ? deserializeAws_restJson1FunctionRunAsConfig(output.RunAs, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1FunctionRunAsConfig = (
-  output: any,
-  context: __SerdeContext
-): FunctionRunAsConfig => {
+const deserializeAws_restJson1FunctionRunAsConfig = (output: any, context: __SerdeContext): FunctionRunAsConfig => {
   return {
     __type: "FunctionRunAsConfig",
-    Gid:
-      output.Gid !== undefined && output.Gid !== null ? output.Gid : undefined,
-    Uid:
-      output.Uid !== undefined && output.Uid !== null ? output.Uid : undefined
+    Gid: output.Gid !== undefined && output.Gid !== null ? output.Gid : undefined,
+    Uid: output.Uid !== undefined && output.Uid !== null ? output.Uid : undefined,
   } as any;
 };
 
@@ -11785,111 +9982,79 @@ const deserializeAws_restJson1GroupCertificateAuthorityProperties = (
   return {
     __type: "GroupCertificateAuthorityProperties",
     GroupCertificateAuthorityArn:
-      output.GroupCertificateAuthorityArn !== undefined &&
-      output.GroupCertificateAuthorityArn !== null
+      output.GroupCertificateAuthorityArn !== undefined && output.GroupCertificateAuthorityArn !== null
         ? output.GroupCertificateAuthorityArn
         : undefined,
     GroupCertificateAuthorityId:
-      output.GroupCertificateAuthorityId !== undefined &&
-      output.GroupCertificateAuthorityId !== null
+      output.GroupCertificateAuthorityId !== undefined && output.GroupCertificateAuthorityId !== null
         ? output.GroupCertificateAuthorityId
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1GroupInformation = (
-  output: any,
-  context: __SerdeContext
-): GroupInformation => {
+const deserializeAws_restJson1GroupInformation = (output: any, context: __SerdeContext): GroupInformation => {
   return {
     __type: "GroupInformation",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreationTimestamp:
-      output.CreationTimestamp !== undefined &&
-      output.CreationTimestamp !== null
+      output.CreationTimestamp !== undefined && output.CreationTimestamp !== null
         ? output.CreationTimestamp
         : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp !== undefined &&
-      output.LastUpdatedTimestamp !== null
+      output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
         ? output.LastUpdatedTimestamp
         : undefined,
     LatestVersion:
-      output.LatestVersion !== undefined && output.LatestVersion !== null
-        ? output.LatestVersion
-        : undefined,
+      output.LatestVersion !== undefined && output.LatestVersion !== null ? output.LatestVersion : undefined,
     LatestVersionArn:
-      output.LatestVersionArn !== undefined && output.LatestVersionArn !== null
-        ? output.LatestVersionArn
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+      output.LatestVersionArn !== undefined && output.LatestVersionArn !== null ? output.LatestVersionArn : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1GroupOwnerSetting = (
-  output: any,
-  context: __SerdeContext
-): GroupOwnerSetting => {
+const deserializeAws_restJson1GroupOwnerSetting = (output: any, context: __SerdeContext): GroupOwnerSetting => {
   return {
     __type: "GroupOwnerSetting",
     AutoAddGroupOwner:
-      output.AutoAddGroupOwner !== undefined &&
-      output.AutoAddGroupOwner !== null
+      output.AutoAddGroupOwner !== undefined && output.AutoAddGroupOwner !== null
         ? output.AutoAddGroupOwner
         : undefined,
-    GroupOwner:
-      output.GroupOwner !== undefined && output.GroupOwner !== null
-        ? output.GroupOwner
-        : undefined
+    GroupOwner: output.GroupOwner !== undefined && output.GroupOwner !== null ? output.GroupOwner : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1GroupVersion = (
-  output: any,
-  context: __SerdeContext
-): GroupVersion => {
+const deserializeAws_restJson1GroupVersion = (output: any, context: __SerdeContext): GroupVersion => {
   return {
     __type: "GroupVersion",
     ConnectorDefinitionVersionArn:
-      output.ConnectorDefinitionVersionArn !== undefined &&
-      output.ConnectorDefinitionVersionArn !== null
+      output.ConnectorDefinitionVersionArn !== undefined && output.ConnectorDefinitionVersionArn !== null
         ? output.ConnectorDefinitionVersionArn
         : undefined,
     CoreDefinitionVersionArn:
-      output.CoreDefinitionVersionArn !== undefined &&
-      output.CoreDefinitionVersionArn !== null
+      output.CoreDefinitionVersionArn !== undefined && output.CoreDefinitionVersionArn !== null
         ? output.CoreDefinitionVersionArn
         : undefined,
     DeviceDefinitionVersionArn:
-      output.DeviceDefinitionVersionArn !== undefined &&
-      output.DeviceDefinitionVersionArn !== null
+      output.DeviceDefinitionVersionArn !== undefined && output.DeviceDefinitionVersionArn !== null
         ? output.DeviceDefinitionVersionArn
         : undefined,
     FunctionDefinitionVersionArn:
-      output.FunctionDefinitionVersionArn !== undefined &&
-      output.FunctionDefinitionVersionArn !== null
+      output.FunctionDefinitionVersionArn !== undefined && output.FunctionDefinitionVersionArn !== null
         ? output.FunctionDefinitionVersionArn
         : undefined,
     LoggerDefinitionVersionArn:
-      output.LoggerDefinitionVersionArn !== undefined &&
-      output.LoggerDefinitionVersionArn !== null
+      output.LoggerDefinitionVersionArn !== undefined && output.LoggerDefinitionVersionArn !== null
         ? output.LoggerDefinitionVersionArn
         : undefined,
     ResourceDefinitionVersionArn:
-      output.ResourceDefinitionVersionArn !== undefined &&
-      output.ResourceDefinitionVersionArn !== null
+      output.ResourceDefinitionVersionArn !== undefined && output.ResourceDefinitionVersionArn !== null
         ? output.ResourceDefinitionVersionArn
         : undefined,
     SubscriptionDefinitionVersionArn:
-      output.SubscriptionDefinitionVersionArn !== undefined &&
-      output.SubscriptionDefinitionVersionArn !== null
+      output.SubscriptionDefinitionVersionArn !== undefined && output.SubscriptionDefinitionVersionArn !== null
         ? output.SubscriptionDefinitionVersionArn
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -11900,17 +10065,10 @@ const deserializeAws_restJson1LocalDeviceResourceData = (
   return {
     __type: "LocalDeviceResourceData",
     GroupOwnerSetting:
-      output.GroupOwnerSetting !== undefined &&
-      output.GroupOwnerSetting !== null
-        ? deserializeAws_restJson1GroupOwnerSetting(
-            output.GroupOwnerSetting,
-            context
-          )
+      output.GroupOwnerSetting !== undefined && output.GroupOwnerSetting !== null
+        ? deserializeAws_restJson1GroupOwnerSetting(output.GroupOwnerSetting, context)
         : undefined,
-    SourcePath:
-      output.SourcePath !== undefined && output.SourcePath !== null
-        ? output.SourcePath
-        : undefined
+    SourcePath: output.SourcePath !== undefined && output.SourcePath !== null ? output.SourcePath : undefined,
   } as any;
 };
 
@@ -11921,47 +10079,23 @@ const deserializeAws_restJson1LocalVolumeResourceData = (
   return {
     __type: "LocalVolumeResourceData",
     DestinationPath:
-      output.DestinationPath !== undefined && output.DestinationPath !== null
-        ? output.DestinationPath
-        : undefined,
+      output.DestinationPath !== undefined && output.DestinationPath !== null ? output.DestinationPath : undefined,
     GroupOwnerSetting:
-      output.GroupOwnerSetting !== undefined &&
-      output.GroupOwnerSetting !== null
-        ? deserializeAws_restJson1GroupOwnerSetting(
-            output.GroupOwnerSetting,
-            context
-          )
+      output.GroupOwnerSetting !== undefined && output.GroupOwnerSetting !== null
+        ? deserializeAws_restJson1GroupOwnerSetting(output.GroupOwnerSetting, context)
         : undefined,
-    SourcePath:
-      output.SourcePath !== undefined && output.SourcePath !== null
-        ? output.SourcePath
-        : undefined
+    SourcePath: output.SourcePath !== undefined && output.SourcePath !== null ? output.SourcePath : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Logger = (
-  output: any,
-  context: __SerdeContext
-): Logger => {
+const deserializeAws_restJson1Logger = (output: any, context: __SerdeContext): Logger => {
   return {
     __type: "Logger",
-    Component:
-      output.Component !== undefined && output.Component !== null
-        ? output.Component
-        : undefined,
+    Component: output.Component !== undefined && output.Component !== null ? output.Component : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Level:
-      output.Level !== undefined && output.Level !== null
-        ? output.Level
-        : undefined,
-    Space:
-      output.Space !== undefined && output.Space !== null
-        ? output.Space
-        : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Level: output.Level !== undefined && output.Level !== null ? output.Level : undefined,
+    Space: output.Space !== undefined && output.Space !== null ? output.Space : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
 };
 
@@ -11974,78 +10108,44 @@ const deserializeAws_restJson1LoggerDefinitionVersion = (
     Loggers:
       output.Loggers !== undefined && output.Loggers !== null
         ? deserializeAws_restJson1__listOfLogger(output.Loggers, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Resource = (
-  output: any,
-  context: __SerdeContext
-): Resource => {
+const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext): Resource => {
   return {
     __type: "Resource",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ResourceDataContainer:
-      output.ResourceDataContainer !== undefined &&
-      output.ResourceDataContainer !== null
-        ? deserializeAws_restJson1ResourceDataContainer(
-            output.ResourceDataContainer,
-            context
-          )
-        : undefined
+      output.ResourceDataContainer !== undefined && output.ResourceDataContainer !== null
+        ? deserializeAws_restJson1ResourceDataContainer(output.ResourceDataContainer, context)
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ResourceAccessPolicy = (
-  output: any,
-  context: __SerdeContext
-): ResourceAccessPolicy => {
+const deserializeAws_restJson1ResourceAccessPolicy = (output: any, context: __SerdeContext): ResourceAccessPolicy => {
   return {
     __type: "ResourceAccessPolicy",
-    Permission:
-      output.Permission !== undefined && output.Permission !== null
-        ? output.Permission
-        : undefined,
-    ResourceId:
-      output.ResourceId !== undefined && output.ResourceId !== null
-        ? output.ResourceId
-        : undefined
+    Permission: output.Permission !== undefined && output.Permission !== null ? output.Permission : undefined,
+    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ResourceDataContainer = (
-  output: any,
-  context: __SerdeContext
-): ResourceDataContainer => {
+const deserializeAws_restJson1ResourceDataContainer = (output: any, context: __SerdeContext): ResourceDataContainer => {
   return {
     __type: "ResourceDataContainer",
     LocalDeviceResourceData:
-      output.LocalDeviceResourceData !== undefined &&
-      output.LocalDeviceResourceData !== null
-        ? deserializeAws_restJson1LocalDeviceResourceData(
-            output.LocalDeviceResourceData,
-            context
-          )
+      output.LocalDeviceResourceData !== undefined && output.LocalDeviceResourceData !== null
+        ? deserializeAws_restJson1LocalDeviceResourceData(output.LocalDeviceResourceData, context)
         : undefined,
     LocalVolumeResourceData:
-      output.LocalVolumeResourceData !== undefined &&
-      output.LocalVolumeResourceData !== null
-        ? deserializeAws_restJson1LocalVolumeResourceData(
-            output.LocalVolumeResourceData,
-            context
-          )
+      output.LocalVolumeResourceData !== undefined && output.LocalVolumeResourceData !== null
+        ? deserializeAws_restJson1LocalVolumeResourceData(output.LocalVolumeResourceData, context)
         : undefined,
     S3MachineLearningModelResourceData:
-      output.S3MachineLearningModelResourceData !== undefined &&
-      output.S3MachineLearningModelResourceData !== null
-        ? deserializeAws_restJson1S3MachineLearningModelResourceData(
-            output.S3MachineLearningModelResourceData,
-            context
-          )
+      output.S3MachineLearningModelResourceData !== undefined && output.S3MachineLearningModelResourceData !== null
+        ? deserializeAws_restJson1S3MachineLearningModelResourceData(output.S3MachineLearningModelResourceData, context)
         : undefined,
     SageMakerMachineLearningModelResourceData:
       output.SageMakerMachineLearningModelResourceData !== undefined &&
@@ -12056,13 +10156,9 @@ const deserializeAws_restJson1ResourceDataContainer = (
           )
         : undefined,
     SecretsManagerSecretResourceData:
-      output.SecretsManagerSecretResourceData !== undefined &&
-      output.SecretsManagerSecretResourceData !== null
-        ? deserializeAws_restJson1SecretsManagerSecretResourceData(
-            output.SecretsManagerSecretResourceData,
-            context
-          )
-        : undefined
+      output.SecretsManagerSecretResourceData !== undefined && output.SecretsManagerSecretResourceData !== null
+        ? deserializeAws_restJson1SecretsManagerSecretResourceData(output.SecretsManagerSecretResourceData, context)
+        : undefined,
   } as any;
 };
 
@@ -12075,7 +10171,7 @@ const deserializeAws_restJson1ResourceDefinitionVersion = (
     Resources:
       output.Resources !== undefined && output.Resources !== null
         ? deserializeAws_restJson1__listOfResource(output.Resources, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -12085,14 +10181,9 @@ const deserializeAws_restJson1ResourceDownloadOwnerSetting = (
 ): ResourceDownloadOwnerSetting => {
   return {
     __type: "ResourceDownloadOwnerSetting",
-    GroupOwner:
-      output.GroupOwner !== undefined && output.GroupOwner !== null
-        ? output.GroupOwner
-        : undefined,
+    GroupOwner: output.GroupOwner !== undefined && output.GroupOwner !== null ? output.GroupOwner : undefined,
     GroupPermission:
-      output.GroupPermission !== undefined && output.GroupPermission !== null
-        ? output.GroupPermission
-        : undefined
+      output.GroupPermission !== undefined && output.GroupPermission !== null ? output.GroupPermission : undefined,
   } as any;
 };
 
@@ -12103,20 +10194,12 @@ const deserializeAws_restJson1S3MachineLearningModelResourceData = (
   return {
     __type: "S3MachineLearningModelResourceData",
     DestinationPath:
-      output.DestinationPath !== undefined && output.DestinationPath !== null
-        ? output.DestinationPath
-        : undefined,
+      output.DestinationPath !== undefined && output.DestinationPath !== null ? output.DestinationPath : undefined,
     OwnerSetting:
       output.OwnerSetting !== undefined && output.OwnerSetting !== null
-        ? deserializeAws_restJson1ResourceDownloadOwnerSetting(
-            output.OwnerSetting,
-            context
-          )
+        ? deserializeAws_restJson1ResourceDownloadOwnerSetting(output.OwnerSetting, context)
         : undefined,
-    S3Uri:
-      output.S3Uri !== undefined && output.S3Uri !== null
-        ? output.S3Uri
-        : undefined
+    S3Uri: output.S3Uri !== undefined && output.S3Uri !== null ? output.S3Uri : undefined,
   } as any;
 };
 
@@ -12127,20 +10210,13 @@ const deserializeAws_restJson1SageMakerMachineLearningModelResourceData = (
   return {
     __type: "SageMakerMachineLearningModelResourceData",
     DestinationPath:
-      output.DestinationPath !== undefined && output.DestinationPath !== null
-        ? output.DestinationPath
-        : undefined,
+      output.DestinationPath !== undefined && output.DestinationPath !== null ? output.DestinationPath : undefined,
     OwnerSetting:
       output.OwnerSetting !== undefined && output.OwnerSetting !== null
-        ? deserializeAws_restJson1ResourceDownloadOwnerSetting(
-            output.OwnerSetting,
-            context
-          )
+        ? deserializeAws_restJson1ResourceDownloadOwnerSetting(output.OwnerSetting, context)
         : undefined,
     SageMakerJobArn:
-      output.SageMakerJobArn !== undefined && output.SageMakerJobArn !== null
-        ? output.SageMakerJobArn
-        : undefined
+      output.SageMakerJobArn !== undefined && output.SageMakerJobArn !== null ? output.SageMakerJobArn : undefined,
   } as any;
 };
 
@@ -12150,38 +10226,21 @@ const deserializeAws_restJson1SecretsManagerSecretResourceData = (
 ): SecretsManagerSecretResourceData => {
   return {
     __type: "SecretsManagerSecretResourceData",
-    ARN:
-      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     AdditionalStagingLabelsToDownload:
-      output.AdditionalStagingLabelsToDownload !== undefined &&
-      output.AdditionalStagingLabelsToDownload !== null
-        ? deserializeAws_restJson1__listOf__string(
-            output.AdditionalStagingLabelsToDownload,
-            context
-          )
-        : undefined
+      output.AdditionalStagingLabelsToDownload !== undefined && output.AdditionalStagingLabelsToDownload !== null
+        ? deserializeAws_restJson1__listOf__string(output.AdditionalStagingLabelsToDownload, context)
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Subscription = (
-  output: any,
-  context: __SerdeContext
-): Subscription => {
+const deserializeAws_restJson1Subscription = (output: any, context: __SerdeContext): Subscription => {
   return {
     __type: "Subscription",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Source:
-      output.Source !== undefined && output.Source !== null
-        ? output.Source
-        : undefined,
-    Subject:
-      output.Subject !== undefined && output.Subject !== null
-        ? output.Subject
-        : undefined,
-    Target:
-      output.Target !== undefined && output.Target !== null
-        ? output.Target
-        : undefined
+    Source: output.Source !== undefined && output.Source !== null ? output.Source : undefined,
+    Subject: output.Subject !== undefined && output.Subject !== null ? output.Subject : undefined,
+    Target: output.Target !== undefined && output.Target !== null ? output.Target : undefined,
   } as any;
 };
 
@@ -12193,83 +10252,60 @@ const deserializeAws_restJson1SubscriptionDefinitionVersion = (
     __type: "SubscriptionDefinitionVersion",
     Subscriptions:
       output.Subscriptions !== undefined && output.Subscriptions !== null
-        ? deserializeAws_restJson1__listOfSubscription(
-            output.Subscriptions,
-            context
-          )
-        : undefined
+        ? deserializeAws_restJson1__listOfSubscription(output.Subscriptions, context)
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Tags = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
 };
 
-const deserializeAws_restJson1VersionInformation = (
-  output: any,
-  context: __SerdeContext
-): VersionInformation => {
+const deserializeAws_restJson1VersionInformation = (output: any, context: __SerdeContext): VersionInformation => {
   return {
     __type: "VersionInformation",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreationTimestamp:
-      output.CreationTimestamp !== undefined &&
-      output.CreationTimestamp !== null
+      output.CreationTimestamp !== undefined && output.CreationTimestamp !== null
         ? output.CreationTimestamp
         : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Version:
-      output.Version !== undefined && output.Version !== null
-        ? output.Version
-        : undefined
+    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
   } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"]
+  requestId: output.headers["x-amzn-requestid"],
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
-  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then(encoded => {
+  collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
@@ -12280,8 +10316,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

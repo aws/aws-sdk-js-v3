@@ -2,57 +2,37 @@ import { DetectiveClient } from "./DetectiveClient";
 import {
   AcceptInvitationCommand,
   AcceptInvitationCommandInput,
-  AcceptInvitationCommandOutput
+  AcceptInvitationCommandOutput,
 } from "./commands/AcceptInvitationCommand";
-import {
-  CreateGraphCommand,
-  CreateGraphCommandInput,
-  CreateGraphCommandOutput
-} from "./commands/CreateGraphCommand";
+import { CreateGraphCommand, CreateGraphCommandInput, CreateGraphCommandOutput } from "./commands/CreateGraphCommand";
 import {
   CreateMembersCommand,
   CreateMembersCommandInput,
-  CreateMembersCommandOutput
+  CreateMembersCommandOutput,
 } from "./commands/CreateMembersCommand";
-import {
-  DeleteGraphCommand,
-  DeleteGraphCommandInput,
-  DeleteGraphCommandOutput
-} from "./commands/DeleteGraphCommand";
+import { DeleteGraphCommand, DeleteGraphCommandInput, DeleteGraphCommandOutput } from "./commands/DeleteGraphCommand";
 import {
   DeleteMembersCommand,
   DeleteMembersCommandInput,
-  DeleteMembersCommandOutput
+  DeleteMembersCommandOutput,
 } from "./commands/DeleteMembersCommand";
 import {
   DisassociateMembershipCommand,
   DisassociateMembershipCommandInput,
-  DisassociateMembershipCommandOutput
+  DisassociateMembershipCommandOutput,
 } from "./commands/DisassociateMembershipCommand";
-import {
-  GetMembersCommand,
-  GetMembersCommandInput,
-  GetMembersCommandOutput
-} from "./commands/GetMembersCommand";
-import {
-  ListGraphsCommand,
-  ListGraphsCommandInput,
-  ListGraphsCommandOutput
-} from "./commands/ListGraphsCommand";
+import { GetMembersCommand, GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
+import { ListGraphsCommand, ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/ListGraphsCommand";
 import {
   ListInvitationsCommand,
   ListInvitationsCommandInput,
-  ListInvitationsCommandOutput
+  ListInvitationsCommandOutput,
 } from "./commands/ListInvitationsCommand";
-import {
-  ListMembersCommand,
-  ListMembersCommandInput,
-  ListMembersCommandOutput
-} from "./commands/ListMembersCommand";
+import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import {
   RejectInvitationCommand,
   RejectInvitationCommandInput,
-  RejectInvitationCommandOutput
+  RejectInvitationCommandOutput,
 } from "./commands/RejectInvitationCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -127,17 +107,14 @@ export class Detective extends DetectiveClient {
   ): void;
   public acceptInvitation(
     args: AcceptInvitationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AcceptInvitationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptInvitationCommandOutput) => void),
     cb?: (err: any, data?: AcceptInvitationCommandOutput) => void
   ): Promise<AcceptInvitationCommandOutput> | void {
     const command = new AcceptInvitationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -159,14 +136,8 @@ export class Detective extends DetectiveClient {
    *          same account calls <code>CreateGraph</code> with the same master account, it always returns
    *          the same behavior graph ARN. It does not create a new behavior graph.</p>
    */
-  public createGraph(
-    args: CreateGraphCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateGraphCommandOutput>;
-  public createGraph(
-    args: CreateGraphCommandInput,
-    cb: (err: any, data?: CreateGraphCommandOutput) => void
-  ): void;
+  public createGraph(args: CreateGraphCommandInput, options?: __HttpHandlerOptions): Promise<CreateGraphCommandOutput>;
+  public createGraph(args: CreateGraphCommandInput, cb: (err: any, data?: CreateGraphCommandOutput) => void): void;
   public createGraph(
     args: CreateGraphCommandInput,
     options: __HttpHandlerOptions,
@@ -174,17 +145,14 @@ export class Detective extends DetectiveClient {
   ): void;
   public createGraph(
     args: CreateGraphCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGraphCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGraphCommandOutput) => void),
     cb?: (err: any, data?: CreateGraphCommandOutput) => void
   ): Promise<CreateGraphCommandOutput> | void {
     const command = new CreateGraphCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -231,17 +199,14 @@ export class Detective extends DetectiveClient {
   ): void;
   public createMembers(
     args: CreateMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMembersCommandOutput) => void),
     cb?: (err: any, data?: CreateMembersCommandOutput) => void
   ): Promise<CreateMembersCommandOutput> | void {
     const command = new CreateMembersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -257,14 +222,8 @@ export class Detective extends DetectiveClient {
    *             <code>DeleteGraph</code> can only be called by the master account for a behavior
    *          graph.</p>
    */
-  public deleteGraph(
-    args: DeleteGraphCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteGraphCommandOutput>;
-  public deleteGraph(
-    args: DeleteGraphCommandInput,
-    cb: (err: any, data?: DeleteGraphCommandOutput) => void
-  ): void;
+  public deleteGraph(args: DeleteGraphCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGraphCommandOutput>;
+  public deleteGraph(args: DeleteGraphCommandInput, cb: (err: any, data?: DeleteGraphCommandOutput) => void): void;
   public deleteGraph(
     args: DeleteGraphCommandInput,
     options: __HttpHandlerOptions,
@@ -272,17 +231,14 @@ export class Detective extends DetectiveClient {
   ): void;
   public deleteGraph(
     args: DeleteGraphCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGraphCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGraphCommandOutput) => void),
     cb?: (err: any, data?: DeleteGraphCommandOutput) => void
   ): Promise<DeleteGraphCommandOutput> | void {
     const command = new DeleteGraphCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -313,17 +269,14 @@ export class Detective extends DetectiveClient {
   ): void;
   public deleteMembers(
     args: DeleteMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMembersCommandOutput) => void),
     cb?: (err: any, data?: DeleteMembersCommandOutput) => void
   ): Promise<DeleteMembersCommandOutput> | void {
     const command = new DeleteMembersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -351,17 +304,14 @@ export class Detective extends DetectiveClient {
   ): void;
   public disassociateMembership(
     args: DisassociateMembershipCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateMembershipCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateMembershipCommandOutput) => void),
     cb?: (err: any, data?: DisassociateMembershipCommandOutput) => void
   ): Promise<DisassociateMembershipCommandOutput> | void {
     const command = new DisassociateMembershipCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -374,14 +324,8 @@ export class Detective extends DetectiveClient {
    *          <p>Returns the membership details for specified member accounts for a behavior
    *          graph.</p>
    */
-  public getMembers(
-    args: GetMembersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetMembersCommandOutput>;
-  public getMembers(
-    args: GetMembersCommandInput,
-    cb: (err: any, data?: GetMembersCommandOutput) => void
-  ): void;
+  public getMembers(args: GetMembersCommandInput, options?: __HttpHandlerOptions): Promise<GetMembersCommandOutput>;
+  public getMembers(args: GetMembersCommandInput, cb: (err: any, data?: GetMembersCommandOutput) => void): void;
   public getMembers(
     args: GetMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -389,17 +333,14 @@ export class Detective extends DetectiveClient {
   ): void;
   public getMembers(
     args: GetMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMembersCommandOutput) => void),
     cb?: (err: any, data?: GetMembersCommandOutput) => void
   ): Promise<GetMembersCommandOutput> | void {
     const command = new GetMembersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -414,14 +355,8 @@ export class Detective extends DetectiveClient {
    *          <p>Because an account can currently only be the master of one behavior graph within a
    *          Region, the results always contain a single graph.</p>
    */
-  public listGraphs(
-    args: ListGraphsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListGraphsCommandOutput>;
-  public listGraphs(
-    args: ListGraphsCommandInput,
-    cb: (err: any, data?: ListGraphsCommandOutput) => void
-  ): void;
+  public listGraphs(args: ListGraphsCommandInput, options?: __HttpHandlerOptions): Promise<ListGraphsCommandOutput>;
+  public listGraphs(args: ListGraphsCommandInput, cb: (err: any, data?: ListGraphsCommandOutput) => void): void;
   public listGraphs(
     args: ListGraphsCommandInput,
     options: __HttpHandlerOptions,
@@ -429,17 +364,14 @@ export class Detective extends DetectiveClient {
   ): void;
   public listGraphs(
     args: ListGraphsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGraphsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGraphsCommandOutput) => void),
     cb?: (err: any, data?: ListGraphsCommandOutput) => void
   ): Promise<ListGraphsCommandOutput> | void {
     const command = new ListGraphsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -471,17 +403,14 @@ export class Detective extends DetectiveClient {
   ): void;
   public listInvitations(
     args: ListInvitationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListInvitationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInvitationsCommandOutput) => void),
     cb?: (err: any, data?: ListInvitationsCommandOutput) => void
   ): Promise<ListInvitationsCommandOutput> | void {
     const command = new ListInvitationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -494,14 +423,8 @@ export class Detective extends DetectiveClient {
    *          <p>Retrieves the list of member accounts for a behavior graph.
    *          Does not return member accounts that were removed from the behavior graph.</p>
    */
-  public listMembers(
-    args: ListMembersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListMembersCommandOutput>;
-  public listMembers(
-    args: ListMembersCommandInput,
-    cb: (err: any, data?: ListMembersCommandOutput) => void
-  ): void;
+  public listMembers(args: ListMembersCommandInput, options?: __HttpHandlerOptions): Promise<ListMembersCommandOutput>;
+  public listMembers(args: ListMembersCommandInput, cb: (err: any, data?: ListMembersCommandOutput) => void): void;
   public listMembers(
     args: ListMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -509,17 +432,14 @@ export class Detective extends DetectiveClient {
   ): void;
   public listMembers(
     args: ListMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMembersCommandOutput) => void),
     cb?: (err: any, data?: ListMembersCommandOutput) => void
   ): Promise<ListMembersCommandOutput> | void {
     const command = new ListMembersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -547,17 +467,14 @@ export class Detective extends DetectiveClient {
   ): void;
   public rejectInvitation(
     args: RejectInvitationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RejectInvitationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RejectInvitationCommandOutput) => void),
     cb?: (err: any, data?: RejectInvitationCommandOutput) => void
   ): Promise<RejectInvitationCommandOutput> | void {
     const command = new RejectInvitationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

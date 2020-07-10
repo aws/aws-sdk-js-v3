@@ -4,5 +4,5 @@ export const ClientSharedValues = {
   apiVersion: "2018-10-26",
   disableHostPrefix: false,
   regionInfoProvider: defaultRegionInfoProvider,
-  signingName: "detective"
+  signingName: "detective",
 };

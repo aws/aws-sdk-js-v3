@@ -1,21 +1,11 @@
-import {
-  GuardDutyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GuardDutyClient";
-import {
-  CreateSampleFindingsRequest,
-  CreateSampleFindingsResponse
-} from "../models/index";
+import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { CreateSampleFindingsRequest, CreateSampleFindingsResponse } from "../models/index";
 import {
   deserializeAws_restJson1CreateSampleFindingsCommand,
-  serializeAws_restJson1CreateSampleFindingsCommand
+  serializeAws_restJson1CreateSampleFindingsCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateSampleFindingsCommandInput = CreateSampleFindingsRequest;
-export type CreateSampleFindingsCommandOutput = CreateSampleFindingsResponse &
-  __MetadataBearer;
+export type CreateSampleFindingsCommandOutput = CreateSampleFindingsResponse & __MetadataBearer;
 
 export class CreateSampleFindingsCommand extends $Command<
   CreateSampleFindingsCommandInput,
@@ -49,18 +38,13 @@ export class CreateSampleFindingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateSampleFindingsCommandInput,
-    CreateSampleFindingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateSampleFindingsCommandInput, CreateSampleFindingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class CreateSampleFindingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateSampleFindingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateSampleFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSampleFindingsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateSampleFindingsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSampleFindingsCommandOutput> {
     return deserializeAws_restJson1CreateSampleFindingsCommand(output, context);
   }
 

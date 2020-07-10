@@ -2,22 +2,18 @@ import { IoTDataPlaneClient } from "./IoTDataPlaneClient";
 import {
   DeleteThingShadowCommand,
   DeleteThingShadowCommandInput,
-  DeleteThingShadowCommandOutput
+  DeleteThingShadowCommandOutput,
 } from "./commands/DeleteThingShadowCommand";
 import {
   GetThingShadowCommand,
   GetThingShadowCommandInput,
-  GetThingShadowCommandOutput
+  GetThingShadowCommandOutput,
 } from "./commands/GetThingShadowCommand";
-import {
-  PublishCommand,
-  PublishCommandInput,
-  PublishCommandOutput
-} from "./commands/PublishCommand";
+import { PublishCommand, PublishCommandInput, PublishCommandOutput } from "./commands/PublishCommand";
 import {
   UpdateThingShadowCommand,
   UpdateThingShadowCommandInput,
-  UpdateThingShadowCommandOutput
+  UpdateThingShadowCommandOutput,
 } from "./commands/UpdateThingShadowCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -50,17 +46,14 @@ export class IoTDataPlane extends IoTDataPlaneClient {
   ): void;
   public deleteThingShadow(
     args: DeleteThingShadowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteThingShadowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteThingShadowCommandOutput) => void),
     cb?: (err: any, data?: DeleteThingShadowCommandOutput) => void
   ): Promise<DeleteThingShadowCommandOutput> | void {
     const command = new DeleteThingShadowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -87,17 +80,14 @@ export class IoTDataPlane extends IoTDataPlaneClient {
   ): void;
   public getThingShadow(
     args: GetThingShadowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetThingShadowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetThingShadowCommandOutput) => void),
     cb?: (err: any, data?: GetThingShadowCommandOutput) => void
   ): Promise<GetThingShadowCommandOutput> | void {
     const command = new GetThingShadowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -109,14 +99,8 @@ export class IoTDataPlane extends IoTDataPlaneClient {
    *      <p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http">HTTP Protocol</a> in the
    *         <i>AWS IoT Developer Guide</i>.</p>
    */
-  public publish(
-    args: PublishCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PublishCommandOutput>;
-  public publish(
-    args: PublishCommandInput,
-    cb: (err: any, data?: PublishCommandOutput) => void
-  ): void;
+  public publish(args: PublishCommandInput, options?: __HttpHandlerOptions): Promise<PublishCommandOutput>;
+  public publish(args: PublishCommandInput, cb: (err: any, data?: PublishCommandOutput) => void): void;
   public publish(
     args: PublishCommandInput,
     options: __HttpHandlerOptions,
@@ -124,17 +108,14 @@ export class IoTDataPlane extends IoTDataPlaneClient {
   ): void;
   public publish(
     args: PublishCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PublishCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PublishCommandOutput) => void),
     cb?: (err: any, data?: PublishCommandOutput) => void
   ): Promise<PublishCommandOutput> | void {
     const command = new PublishCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -161,17 +142,14 @@ export class IoTDataPlane extends IoTDataPlaneClient {
   ): void;
   public updateThingShadow(
     args: UpdateThingShadowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateThingShadowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateThingShadowCommandOutput) => void),
     cb?: (err: any, data?: UpdateThingShadowCommandOutput) => void
   ): Promise<UpdateThingShadowCommandOutput> | void {
     const command = new UpdateThingShadowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
