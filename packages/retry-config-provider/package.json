@@ -22,6 +22,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/middleware-retry": "1.0.0-gamma.2",
     "@aws-sdk/property-provider": "1.0.0-gamma.2",
     "@aws-sdk/shared-ini-file-loader": "1.0.0-gamma.2",
     "@aws-sdk/types": "1.0.0-gamma.2",

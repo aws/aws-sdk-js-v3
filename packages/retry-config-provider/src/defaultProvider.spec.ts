@@ -1,10 +1,9 @@
 import { chain, fromStatic, memoize } from "@aws-sdk/property-provider";
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/middleware-retry";
 
 import {
   CONFIG_MAX_ATTEMPTS,
   CONFIG_RETRY_MODE,
-  DEFAULT_MAX_ATTEMPTS,
-  DEFAULT_RETRY_MODE,
   ENV_MAX_ATTEMPTS,
   ENV_RETRY_MODE,
   maxAttemptsProvider,
