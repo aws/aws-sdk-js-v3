@@ -11,7 +11,7 @@ describe("fromStatic", () => {
     const provider = fromStatic("string");
     const result = provider();
 
-    Array.from({ length: 5 }).forEach((item) => {
+    Array.from({ length: 5 }).forEach(() => {
       expect(provider()).toStrictEqual(result);
     });
   });

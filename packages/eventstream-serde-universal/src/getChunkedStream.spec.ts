@@ -88,6 +88,7 @@ describe("getChunkedStream", () => {
     const chunkerStream = getChunkedStream(mockStream);
     let error: Error | undefined = undefined;
     try {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       for await (const msg of chunkerStream) {
         //Pass
       }

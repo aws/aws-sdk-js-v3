@@ -1,4 +1,4 @@
-import { Hash, HashConstructor, StreamHasher } from "@aws-sdk/types";
+import { HashConstructor, StreamHasher } from "@aws-sdk/types";
 import { createReadStream, ReadStream } from "fs";
 import { Readable } from "stream";
 

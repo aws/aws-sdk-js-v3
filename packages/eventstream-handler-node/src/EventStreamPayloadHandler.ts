@@ -40,6 +40,7 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
   async handle<T extends MetadataBearer>(
     next: FinalizeHandler<any, T>,
     args: FinalizeHandlerArguments<any>,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     context: HandlerExecutionContext = {} as any
   ): Promise<FinalizeHandlerOutput<T>> {
     const request = args.request as HttpRequest;

@@ -1,14 +1,8 @@
 import { ReferenceType } from "typedoc/dist/lib/models";
-import {
-  DeclarationReflection,
-  ProjectReflection,
-  Reflection,
-  ReflectionKind,
-} from "typedoc/dist/lib/models/reflections";
+import { DeclarationReflection, Reflection, ReflectionKind } from "typedoc/dist/lib/models/reflections";
 import { Component, RendererComponent } from "typedoc/dist/lib/output/components";
 import { PageEvent } from "typedoc/dist/lib/output/events";
 import { NavigationItem } from "typedoc/dist/lib/output/models/NavigationItem";
-import * as ts from "typescript";
 
 @Component({ name: "SdkClientTocPlugin" })
 export class SdkClientTocPlugin extends RendererComponent {
@@ -124,7 +118,7 @@ export class SdkClientTocPlugin extends RendererComponent {
             this.commandToNavigationItems.set(commandName, item);
           }
         } else if (this.isException(child)) {
-          const item = NavigationItem.create(child, this.exceptionsNavigationItem, true);
+          NavigationItem.create(child, this.exceptionsNavigationItem, true);
         } else if (
           this.isUnion(child) &&
           (child as any).type.types.every((type: ReferenceType) => {
@@ -133,11 +127,11 @@ export class SdkClientTocPlugin extends RendererComponent {
         ) {
           // get command from name
           const commandName = child.name.replace("ExceptionsUnion", "").toLowerCase() + "command";
-          const item = NavigationItem.create(child, this.commandToNavigationItems.get(commandName), true);
+          NavigationItem.create(child, this.commandToNavigationItems.get(commandName), true);
         } else if (this.isInputOrOutput(child)) {
           // get command from name
           const commandName = child.name.replace(/Input|Output/, "").toLowerCase() + "command";
-          const item = NavigationItem.create(child, this.commandToNavigationItems.get(commandName), true);
+          NavigationItem.create(child, this.commandToNavigationItems.get(commandName), true);
         } else if (child.name.startsWith("_")) {
           return;
         } else {

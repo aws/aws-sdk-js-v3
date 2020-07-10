@@ -36,6 +36,7 @@ describe("WebSocketHandler", () => {
     await server.connected;
     payload.emit("error", new Error("FakeError"));
     try {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       for await (const chunk of responsePayload) {
         /** pass */
       }

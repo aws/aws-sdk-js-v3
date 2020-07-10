@@ -1,7 +1,9 @@
 import { SourceData } from "@aws-sdk/types";
 
 export class MockSha256 {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   constructor(secret?: string | ArrayBuffer | ArrayBufferView) {}
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   update(data?: SourceData) {}
   digest() {
     return Promise.resolve(new Uint8Array(5));

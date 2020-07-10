@@ -1,4 +1,3 @@
-import { ConverterComponent } from "typedoc/dist/lib/converter/components";
 import { PluginHost } from "typedoc/dist/lib/utils";
 
 import { SdkClientRenameGlobalPlugin } from "./sdk-client-rename-global";

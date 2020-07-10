@@ -1,5 +1,5 @@
 import { AbortController } from "@aws-sdk/abort-controller";
-import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import { Server as HttpServer } from "http";
 import * as http from "http";
 import { Server as HttpsServer } from "https";
@@ -7,7 +7,6 @@ import * as https from "https";
 import { AddressInfo } from "net";
 
 import { NodeHttpHandler } from "./node-http-handler";
-import { ReadFromBuffers } from "./readable.mock";
 import { createMockHttpServer, createMockHttpsServer, createResponseFunction } from "./server.mock";
 
 describe("NodeHttpHandler", () => {
@@ -70,7 +69,6 @@ describe("NodeHttpHandler", () => {
 
   describe("https", () => {
     const mockHttpsServer: HttpsServer = createMockHttpsServer().listen(54322);
-    const rejectUnauthorizedEnv = process.env.NODE_TLS_REJECT_UNAUTHORIZED;
 
     /*beforeEach(() => {
       // Setting the NODE_TLS_REJECT_UNAUTHORIZED will allow the unconfigurable

@@ -1,11 +1,5 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import {
-  BuildHandlerOptions,
-  BuildMiddleware,
-  FinalizeRequestHandlerOptions,
-  FinalizeRequestMiddleware,
-  RelativeLocation,
-} from "@aws-sdk/types";
+import { FinalizeRequestHandlerOptions, FinalizeRequestMiddleware, RelativeLocation } from "@aws-sdk/types";
 
 import { EventStreamResolvedConfig } from "./configuration";
 

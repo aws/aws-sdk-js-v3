@@ -48,6 +48,7 @@ export const prependAccountIdMiddlewareOptions: BuildHandlerOptions & RelativeLo
   toMiddleware: "hostHeaderMiddleware",
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getPrependAccountIdPlugin = (unused: any): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.addRelativeTo(prependAccountIdMiddleware(), prependAccountIdMiddlewareOptions);

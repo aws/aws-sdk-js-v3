@@ -69,6 +69,7 @@ export const changeResourceRecordSetsMiddlewareOptions: InitializeHandlerOptions
   name: "changeResourceRecordSetsMiddleware",
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getChangeResourceRecordSetsPlugin = (unused: any): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.add(changeResourceRecordSetsMiddleware(), changeResourceRecordSetsMiddlewareOptions);
