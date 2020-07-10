@@ -7,7 +7,6 @@ import { FinalizeHandler, MetadataBearer, FinalizeHandlerArguments, RetryStrateg
 import { getDefaultRetryQuota } from "./defaultRetryQuota";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { v4 } from "uuid";
-import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/retry-config-provider";
 
 /**
  * Determines whether an error is retryable based on the number of retries
@@ -74,17 +73,6 @@ export class StandardRetryStrategy implements RetryStrategy {
     return attempts < maxAttempts && this.retryDecider(error) && this.retryQuota.hasRetryTokens(error);
   }
 
-  private async getMaxAttempts() {
-    let maxAttemptsStr: string;
-    try {
-      maxAttemptsStr = await this.maxAttemptsProvider();
-    } catch (error) {
-      maxAttemptsStr = DEFAULT_MAX_ATTEMPTS;
-    }
-    const maxAttempts = parseInt(maxAttemptsStr);
-    return Number.isNaN(maxAttempts) ? parseInt(DEFAULT_MAX_ATTEMPTS) : maxAttempts;
-  }
-
   async retry<Input extends object, Ouput extends MetadataBearer>(
     next: FinalizeHandler<Input, Ouput>,
     args: FinalizeHandlerArguments<Input>
@@ -93,7 +81,7 @@ export class StandardRetryStrategy implements RetryStrategy {
     let attempts = 0;
     let totalDelay = 0;
 
-    const maxAttempts = await this.getMaxAttempts();
+    const maxAttempts = parseInt(await this.maxAttemptsProvider());
 
     const { request } = args;
     if (HttpRequest.isInstance(request)) {

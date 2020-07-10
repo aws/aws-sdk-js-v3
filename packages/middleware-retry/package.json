@@ -18,7 +18,6 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/protocol-http": "1.0.0-gamma.2",
-    "@aws-sdk/retry-config-provider": "1.0.0-gamma.1",
     "@aws-sdk/service-error-classification": "1.0.0-gamma.2",
     "@aws-sdk/types": "1.0.0-gamma.2",
     "react-native-get-random-values": "^1.4.0",

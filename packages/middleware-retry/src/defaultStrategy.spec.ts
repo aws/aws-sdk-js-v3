@@ -6,7 +6,6 @@ import { StandardRetryStrategy, RetryQuota } from "./defaultStrategy";
 import { getDefaultRetryQuota } from "./defaultRetryQuota";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { v4 } from "uuid";
-import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/retry-config-provider";
 
 jest.mock("@aws-sdk/service-error-classification");
 jest.mock("./delayDecider");
@@ -474,46 +473,6 @@ describe("defaultStrategy", () => {
       }
 
       expect(next).toHaveBeenCalledTimes(maxAttempts);
-      ((isInstance as unknown) as jest.Mock).mockReturnValue(false);
-    });
-  });
-
-  describe("defaults maxAttempts to DEFAULT_MAX_ATTEMPTS", () => {
-    it("when maxAttemptsProvider throws error", async () => {
-      const { isInstance } = HttpRequest;
-      ((isInstance as unknown) as jest.Mock).mockReturnValue(true);
-
-      next = jest.fn((args) => {
-        expect(args.request.headers["amz-sdk-request"]).toBe(`attempt=1; max=${DEFAULT_MAX_ATTEMPTS}`);
-        return Promise.resolve({
-          response: "mockResponse",
-          output: { $metadata: {} },
-        });
-      });
-
-      const retryStrategy = new StandardRetryStrategy(() => Promise.reject("ERROR"));
-      await retryStrategy.retry(next, { request: { headers: {} } } as any);
-
-      expect(next).toHaveBeenCalledTimes(1);
-      ((isInstance as unknown) as jest.Mock).mockReturnValue(false);
-    });
-
-    it("when parseInt fails on maxAttemptsProvider", async () => {
-      const { isInstance } = HttpRequest;
-      ((isInstance as unknown) as jest.Mock).mockReturnValue(true);
-
-      next = jest.fn((args) => {
-        expect(args.request.headers["amz-sdk-request"]).toBe(`attempt=1; max=${DEFAULT_MAX_ATTEMPTS}`);
-        return Promise.resolve({
-          response: "mockResponse",
-          output: { $metadata: {} },
-        });
-      });
-
-      const retryStrategy = new StandardRetryStrategy(() => Promise.resolve("not-a-number"));
-      await retryStrategy.retry(next, { request: { headers: {} } } as any);
-
-      expect(next).toHaveBeenCalledTimes(1);
       ((isInstance as unknown) as jest.Mock).mockReturnValue(false);
     });
   });
