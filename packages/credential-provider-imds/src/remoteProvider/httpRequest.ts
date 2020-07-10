@@ -1,5 +1,5 @@
 import { Buffer } from "buffer";
-import { get, IncomingMessage, RequestOptions } from "http";
+import { request, IncomingMessage, RequestOptions } from "http";
 import { ProviderError } from "@aws-sdk/property-provider";
 
 /**
@@ -7,7 +7,7 @@ import { ProviderError } from "@aws-sdk/property-provider";
  */
 export function httpRequest(options: RequestOptions): Promise<Buffer> {
   return new Promise((resolve, reject) => {
-    const req = get(options);
+    const req = request({ method: "GET", ...options });
     req.on("error", err => {
       reject(
         new ProviderError("Unable to connect to instance metadata service")
@@ -32,5 +32,7 @@ export function httpRequest(options: RequestOptions): Promise<Buffer> {
         resolve(Buffer.concat(chunks));
       });
     });
+
+    req.end();
   });
 }
