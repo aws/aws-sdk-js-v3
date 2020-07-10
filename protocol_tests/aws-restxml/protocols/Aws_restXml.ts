@@ -145,9 +145,7 @@ export const serializeAws_restXmlAllQueryStringTypesCommand = async (
   };
   let resolvedPath = "/AllQueryStringTypesInput";
   const query: any = {
-    ...(input.queryBoolean !== undefined && {
-      Boolean: input.queryBoolean.toString(),
-    }),
+    ...(input.queryBoolean !== undefined && { Boolean: input.queryBoolean.toString() }),
     ...(input.queryBooleanList !== undefined && {
       BooleanList: (input.queryBooleanList || []).map((_entry) => _entry.toString()),
     }),
@@ -159,15 +157,11 @@ export const serializeAws_restXmlAllQueryStringTypesCommand = async (
       DoubleList: (input.queryDoubleList || []).map((_entry) => (_entry % 1 == 0 ? _entry + ".0" : _entry.toString())),
     }),
     ...(input.queryEnum !== undefined && { Enum: input.queryEnum }),
-    ...(input.queryEnumList !== undefined && {
-      EnumList: (input.queryEnumList || []).map((_entry) => _entry),
-    }),
+    ...(input.queryEnumList !== undefined && { EnumList: (input.queryEnumList || []).map((_entry) => _entry) }),
     ...(input.queryFloat !== undefined && {
       Float: input.queryFloat % 1 == 0 ? input.queryFloat + ".0" : input.queryFloat.toString(),
     }),
-    ...(input.queryInteger !== undefined && {
-      Integer: input.queryInteger.toString(),
-    }),
+    ...(input.queryInteger !== undefined && { Integer: input.queryInteger.toString() }),
     ...(input.queryIntegerList !== undefined && {
       IntegerList: (input.queryIntegerList || []).map((_entry) => _entry.toString()),
     }),
@@ -175,13 +169,9 @@ export const serializeAws_restXmlAllQueryStringTypesCommand = async (
       IntegerSet: (Array.from(input.queryIntegerSet.values()) || []).map((_entry) => _entry.toString()),
     }),
     ...(input.queryLong !== undefined && { Long: input.queryLong.toString() }),
-    ...(input.queryShort !== undefined && {
-      Short: input.queryShort.toString(),
-    }),
+    ...(input.queryShort !== undefined && { Short: input.queryShort.toString() }),
     ...(input.queryString !== undefined && { String: input.queryString }),
-    ...(input.queryStringList !== undefined && {
-      StringList: (input.queryStringList || []).map((_entry) => _entry),
-    }),
+    ...(input.queryStringList !== undefined && { StringList: (input.queryStringList || []).map((_entry) => _entry) }),
     ...(input.queryStringSet !== undefined && {
       StringSet: (Array.from(input.queryStringSet.values()) || []).map((_entry) => _entry),
     }),
@@ -821,39 +811,25 @@ export const serializeAws_restXmlInputAndOutputWithHeadersCommand = async (
     ...(isSerializableHeaderValue(input.headerBooleanList) && {
       "X-BooleanList": (input.headerBooleanList! || []).map((_entry) => _entry.toString()).join(", "),
     }),
-    ...(isSerializableHeaderValue(input.headerByte) && {
-      "X-Byte": input.headerByte!.toString(),
-    }),
+    ...(isSerializableHeaderValue(input.headerByte) && { "X-Byte": input.headerByte!.toString() }),
     ...(isSerializableHeaderValue(input.headerDouble) && {
       "X-Double": input.headerDouble! % 1 == 0 ? input.headerDouble! + ".0" : input.headerDouble!.toString(),
     }),
-    ...(isSerializableHeaderValue(input.headerEnum) && {
-      "X-Enum": input.headerEnum!,
-    }),
+    ...(isSerializableHeaderValue(input.headerEnum) && { "X-Enum": input.headerEnum! }),
     ...(isSerializableHeaderValue(input.headerEnumList) && {
       "X-EnumList": (input.headerEnumList! || []).map((_entry) => _entry).join(", "),
     }),
-    ...(isSerializableHeaderValue(input.headerFalseBool) && {
-      "X-Boolean2": input.headerFalseBool!.toString(),
-    }),
+    ...(isSerializableHeaderValue(input.headerFalseBool) && { "X-Boolean2": input.headerFalseBool!.toString() }),
     ...(isSerializableHeaderValue(input.headerFloat) && {
       "X-Float": input.headerFloat! % 1 == 0 ? input.headerFloat! + ".0" : input.headerFloat!.toString(),
     }),
-    ...(isSerializableHeaderValue(input.headerInteger) && {
-      "X-Integer": input.headerInteger!.toString(),
-    }),
+    ...(isSerializableHeaderValue(input.headerInteger) && { "X-Integer": input.headerInteger!.toString() }),
     ...(isSerializableHeaderValue(input.headerIntegerList) && {
       "X-IntegerList": (input.headerIntegerList! || []).map((_entry) => _entry.toString()).join(", "),
     }),
-    ...(isSerializableHeaderValue(input.headerLong) && {
-      "X-Long": input.headerLong!.toString(),
-    }),
-    ...(isSerializableHeaderValue(input.headerShort) && {
-      "X-Short": input.headerShort!.toString(),
-    }),
-    ...(isSerializableHeaderValue(input.headerString) && {
-      "X-String": input.headerString!,
-    }),
+    ...(isSerializableHeaderValue(input.headerLong) && { "X-Long": input.headerLong!.toString() }),
+    ...(isSerializableHeaderValue(input.headerShort) && { "X-Short": input.headerShort!.toString() }),
+    ...(isSerializableHeaderValue(input.headerString) && { "X-String": input.headerString! }),
     ...(isSerializableHeaderValue(input.headerStringList) && {
       "X-StringList": (input.headerStringList! || []).map((_entry) => _entry).join(", "),
     }),
@@ -865,9 +841,7 @@ export const serializeAws_restXmlInputAndOutputWithHeadersCommand = async (
         .map((_entry) => __dateToUtcString(_entry).toString())
         .join(", "),
     }),
-    ...(isSerializableHeaderValue(input.headerTrueBool) && {
-      "X-Boolean1": input.headerTrueBool!.toString(),
-    }),
+    ...(isSerializableHeaderValue(input.headerTrueBool) && { "X-Boolean1": input.headerTrueBool!.toString() }),
   };
   let resolvedPath = "/InputAndOutputWithHeaders";
   let body: any;
@@ -935,9 +909,7 @@ export const serializeAws_restXmlNullAndEmptyHeadersClientCommand = async (
     "Content-Type": "",
     ...(isSerializableHeaderValue(input.a) && { "X-A": input.a! }),
     ...(isSerializableHeaderValue(input.b) && { "X-B": input.b! }),
-    ...(isSerializableHeaderValue(input.c) && {
-      "X-C": (input.c! || []).map((_entry) => _entry).join(", "),
-    }),
+    ...(isSerializableHeaderValue(input.c) && { "X-C": (input.c! || []).map((_entry) => _entry).join(", ") }),
   };
   let resolvedPath = "/NullAndEmptyHeadersClient";
   let body: any;
@@ -961,9 +933,7 @@ export const serializeAws_restXmlNullAndEmptyHeadersServerCommand = async (
     "Content-Type": "",
     ...(isSerializableHeaderValue(input.a) && { "X-A": input.a! }),
     ...(isSerializableHeaderValue(input.b) && { "X-B": input.b! }),
-    ...(isSerializableHeaderValue(input.c) && {
-      "X-C": (input.c! || []).map((_entry) => _entry).join(", "),
-    }),
+    ...(isSerializableHeaderValue(input.c) && { "X-C": (input.c! || []).map((_entry) => _entry).join(", ") }),
   };
   let resolvedPath = "/NullAndEmptyHeadersServer";
   let body: any;

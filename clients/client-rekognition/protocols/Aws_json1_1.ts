@@ -5507,18 +5507,10 @@ const serializeAws_json1_1Attributes = (input: (Attribute | string)[], context: 
 
 const serializeAws_json1_1CompareFacesRequest = (input: CompareFacesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.QualityFilter !== undefined && {
-      QualityFilter: input.QualityFilter,
-    }),
-    ...(input.SimilarityThreshold !== undefined && {
-      SimilarityThreshold: input.SimilarityThreshold,
-    }),
-    ...(input.SourceImage !== undefined && {
-      SourceImage: serializeAws_json1_1Image(input.SourceImage, context),
-    }),
-    ...(input.TargetImage !== undefined && {
-      TargetImage: serializeAws_json1_1Image(input.TargetImage, context),
-    }),
+    ...(input.QualityFilter !== undefined && { QualityFilter: input.QualityFilter }),
+    ...(input.SimilarityThreshold !== undefined && { SimilarityThreshold: input.SimilarityThreshold }),
+    ...(input.SourceImage !== undefined && { SourceImage: serializeAws_json1_1Image(input.SourceImage, context) }),
+    ...(input.TargetImage !== undefined && { TargetImage: serializeAws_json1_1Image(input.TargetImage, context) }),
   };
 };
 
@@ -5531,9 +5523,7 @@ const serializeAws_json1_1ContentClassifiers = (
 
 const serializeAws_json1_1CreateCollectionRequest = (input: CreateCollectionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CollectionId !== undefined && {
-      CollectionId: input.CollectionId,
-    }),
+    ...(input.CollectionId !== undefined && { CollectionId: input.CollectionId }),
   };
 };
 
@@ -5567,13 +5557,9 @@ const serializeAws_json1_1CreateStreamProcessorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Input !== undefined && {
-      Input: serializeAws_json1_1StreamProcessorInput(input.Input, context),
-    }),
+    ...(input.Input !== undefined && { Input: serializeAws_json1_1StreamProcessorInput(input.Input, context) }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Output !== undefined && {
-      Output: serializeAws_json1_1StreamProcessorOutput(input.Output, context),
-    }),
+    ...(input.Output !== undefined && { Output: serializeAws_json1_1StreamProcessorOutput(input.Output, context) }),
     ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
     ...(input.Settings !== undefined && {
       Settings: serializeAws_json1_1StreamProcessorSettings(input.Settings, context),
@@ -5583,20 +5569,14 @@ const serializeAws_json1_1CreateStreamProcessorRequest = (
 
 const serializeAws_json1_1DeleteCollectionRequest = (input: DeleteCollectionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CollectionId !== undefined && {
-      CollectionId: input.CollectionId,
-    }),
+    ...(input.CollectionId !== undefined && { CollectionId: input.CollectionId }),
   };
 };
 
 const serializeAws_json1_1DeleteFacesRequest = (input: DeleteFacesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CollectionId !== undefined && {
-      CollectionId: input.CollectionId,
-    }),
-    ...(input.FaceIds !== undefined && {
-      FaceIds: serializeAws_json1_1FaceIdList(input.FaceIds, context),
-    }),
+    ...(input.CollectionId !== undefined && { CollectionId: input.CollectionId }),
+    ...(input.FaceIds !== undefined && { FaceIds: serializeAws_json1_1FaceIdList(input.FaceIds, context) }),
   };
 };
 
@@ -5614,9 +5594,7 @@ const serializeAws_json1_1DescribeCollectionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CollectionId !== undefined && {
-      CollectionId: input.CollectionId,
-    }),
+    ...(input.CollectionId !== undefined && { CollectionId: input.CollectionId }),
   };
 };
 
@@ -5655,39 +5633,25 @@ const serializeAws_json1_1DetectCustomLabelsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Image !== undefined && {
-      Image: serializeAws_json1_1Image(input.Image, context),
-    }),
+    ...(input.Image !== undefined && { Image: serializeAws_json1_1Image(input.Image, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.MinConfidence !== undefined && {
-      MinConfidence: input.MinConfidence,
-    }),
-    ...(input.ProjectVersionArn !== undefined && {
-      ProjectVersionArn: input.ProjectVersionArn,
-    }),
+    ...(input.MinConfidence !== undefined && { MinConfidence: input.MinConfidence }),
+    ...(input.ProjectVersionArn !== undefined && { ProjectVersionArn: input.ProjectVersionArn }),
   };
 };
 
 const serializeAws_json1_1DetectFacesRequest = (input: DetectFacesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Attributes !== undefined && {
-      Attributes: serializeAws_json1_1Attributes(input.Attributes, context),
-    }),
-    ...(input.Image !== undefined && {
-      Image: serializeAws_json1_1Image(input.Image, context),
-    }),
+    ...(input.Attributes !== undefined && { Attributes: serializeAws_json1_1Attributes(input.Attributes, context) }),
+    ...(input.Image !== undefined && { Image: serializeAws_json1_1Image(input.Image, context) }),
   };
 };
 
 const serializeAws_json1_1DetectLabelsRequest = (input: DetectLabelsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Image !== undefined && {
-      Image: serializeAws_json1_1Image(input.Image, context),
-    }),
+    ...(input.Image !== undefined && { Image: serializeAws_json1_1Image(input.Image, context) }),
     ...(input.MaxLabels !== undefined && { MaxLabels: input.MaxLabels }),
-    ...(input.MinConfidence !== undefined && {
-      MinConfidence: input.MinConfidence,
-    }),
+    ...(input.MinConfidence !== undefined && { MinConfidence: input.MinConfidence }),
   };
 };
 
@@ -5699,20 +5663,14 @@ const serializeAws_json1_1DetectModerationLabelsRequest = (
     ...(input.HumanLoopConfig !== undefined && {
       HumanLoopConfig: serializeAws_json1_1HumanLoopConfig(input.HumanLoopConfig, context),
     }),
-    ...(input.Image !== undefined && {
-      Image: serializeAws_json1_1Image(input.Image, context),
-    }),
-    ...(input.MinConfidence !== undefined && {
-      MinConfidence: input.MinConfidence,
-    }),
+    ...(input.Image !== undefined && { Image: serializeAws_json1_1Image(input.Image, context) }),
+    ...(input.MinConfidence !== undefined && { MinConfidence: input.MinConfidence }),
   };
 };
 
 const serializeAws_json1_1DetectTextRequest = (input: DetectTextRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Image !== undefined && {
-      Image: serializeAws_json1_1Image(input.Image, context),
-    }),
+    ...(input.Image !== undefined && { Image: serializeAws_json1_1Image(input.Image, context) }),
   };
 };
 
@@ -5722,12 +5680,8 @@ const serializeAws_json1_1FaceIdList = (input: string[], context: __SerdeContext
 
 const serializeAws_json1_1FaceSearchSettings = (input: FaceSearchSettings, context: __SerdeContext): any => {
   return {
-    ...(input.CollectionId !== undefined && {
-      CollectionId: input.CollectionId,
-    }),
-    ...(input.FaceMatchThreshold !== undefined && {
-      FaceMatchThreshold: input.FaceMatchThreshold,
-    }),
+    ...(input.CollectionId !== undefined && { CollectionId: input.CollectionId }),
+    ...(input.FaceMatchThreshold !== undefined && { FaceMatchThreshold: input.FaceMatchThreshold }),
   };
 };
 
@@ -5804,9 +5758,7 @@ const serializeAws_json1_1GetPersonTrackingRequest = (
 
 const serializeAws_json1_1GroundTruthManifest = (input: GroundTruthManifest, context: __SerdeContext): any => {
   return {
-    ...(input.S3Object !== undefined && {
-      S3Object: serializeAws_json1_1S3Object(input.S3Object, context),
-    }),
+    ...(input.S3Object !== undefined && { S3Object: serializeAws_json1_1S3Object(input.S3Object, context) }),
   };
 };
 
@@ -5815,12 +5767,8 @@ const serializeAws_json1_1HumanLoopConfig = (input: HumanLoopConfig, context: __
     ...(input.DataAttributes !== undefined && {
       DataAttributes: serializeAws_json1_1HumanLoopDataAttributes(input.DataAttributes, context),
     }),
-    ...(input.FlowDefinitionArn !== undefined && {
-      FlowDefinitionArn: input.FlowDefinitionArn,
-    }),
-    ...(input.HumanLoopName !== undefined && {
-      HumanLoopName: input.HumanLoopName,
-    }),
+    ...(input.FlowDefinitionArn !== undefined && { FlowDefinitionArn: input.FlowDefinitionArn }),
+    ...(input.HumanLoopName !== undefined && { HumanLoopName: input.HumanLoopName }),
   };
 };
 
@@ -5834,33 +5782,21 @@ const serializeAws_json1_1HumanLoopDataAttributes = (input: HumanLoopDataAttribu
 
 const serializeAws_json1_1Image = (input: Image, context: __SerdeContext): any => {
   return {
-    ...(input.Bytes !== undefined && {
-      Bytes: context.base64Encoder(input.Bytes),
-    }),
-    ...(input.S3Object !== undefined && {
-      S3Object: serializeAws_json1_1S3Object(input.S3Object, context),
-    }),
+    ...(input.Bytes !== undefined && { Bytes: context.base64Encoder(input.Bytes) }),
+    ...(input.S3Object !== undefined && { S3Object: serializeAws_json1_1S3Object(input.S3Object, context) }),
   };
 };
 
 const serializeAws_json1_1IndexFacesRequest = (input: IndexFacesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CollectionId !== undefined && {
-      CollectionId: input.CollectionId,
-    }),
+    ...(input.CollectionId !== undefined && { CollectionId: input.CollectionId }),
     ...(input.DetectionAttributes !== undefined && {
       DetectionAttributes: serializeAws_json1_1Attributes(input.DetectionAttributes, context),
     }),
-    ...(input.ExternalImageId !== undefined && {
-      ExternalImageId: input.ExternalImageId,
-    }),
-    ...(input.Image !== undefined && {
-      Image: serializeAws_json1_1Image(input.Image, context),
-    }),
+    ...(input.ExternalImageId !== undefined && { ExternalImageId: input.ExternalImageId }),
+    ...(input.Image !== undefined && { Image: serializeAws_json1_1Image(input.Image, context) }),
     ...(input.MaxFaces !== undefined && { MaxFaces: input.MaxFaces }),
-    ...(input.QualityFilter !== undefined && {
-      QualityFilter: input.QualityFilter,
-    }),
+    ...(input.QualityFilter !== undefined && { QualityFilter: input.QualityFilter }),
   };
 };
 
@@ -5885,9 +5821,7 @@ const serializeAws_json1_1ListCollectionsRequest = (input: ListCollectionsReques
 
 const serializeAws_json1_1ListFacesRequest = (input: ListFacesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CollectionId !== undefined && {
-      CollectionId: input.CollectionId,
-    }),
+    ...(input.CollectionId !== undefined && { CollectionId: input.CollectionId }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -5922,9 +5856,7 @@ const serializeAws_json1_1RecognizeCelebritiesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Image !== undefined && {
-      Image: serializeAws_json1_1Image(input.Image, context),
-    }),
+    ...(input.Image !== undefined && { Image: serializeAws_json1_1Image(input.Image, context) }),
   };
 };
 
@@ -5941,31 +5873,19 @@ const serializeAws_json1_1SearchFacesByImageRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CollectionId !== undefined && {
-      CollectionId: input.CollectionId,
-    }),
-    ...(input.FaceMatchThreshold !== undefined && {
-      FaceMatchThreshold: input.FaceMatchThreshold,
-    }),
-    ...(input.Image !== undefined && {
-      Image: serializeAws_json1_1Image(input.Image, context),
-    }),
+    ...(input.CollectionId !== undefined && { CollectionId: input.CollectionId }),
+    ...(input.FaceMatchThreshold !== undefined && { FaceMatchThreshold: input.FaceMatchThreshold }),
+    ...(input.Image !== undefined && { Image: serializeAws_json1_1Image(input.Image, context) }),
     ...(input.MaxFaces !== undefined && { MaxFaces: input.MaxFaces }),
-    ...(input.QualityFilter !== undefined && {
-      QualityFilter: input.QualityFilter,
-    }),
+    ...(input.QualityFilter !== undefined && { QualityFilter: input.QualityFilter }),
   };
 };
 
 const serializeAws_json1_1SearchFacesRequest = (input: SearchFacesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CollectionId !== undefined && {
-      CollectionId: input.CollectionId,
-    }),
+    ...(input.CollectionId !== undefined && { CollectionId: input.CollectionId }),
     ...(input.FaceId !== undefined && { FaceId: input.FaceId }),
-    ...(input.FaceMatchThreshold !== undefined && {
-      FaceMatchThreshold: input.FaceMatchThreshold,
-    }),
+    ...(input.FaceMatchThreshold !== undefined && { FaceMatchThreshold: input.FaceMatchThreshold }),
     ...(input.MaxFaces !== undefined && { MaxFaces: input.MaxFaces }),
   };
 };
@@ -5975,16 +5895,12 @@ const serializeAws_json1_1StartCelebrityRecognitionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClientRequestToken !== undefined && {
-      ClientRequestToken: input.ClientRequestToken,
-    }),
+    ...(input.ClientRequestToken !== undefined && { ClientRequestToken: input.ClientRequestToken }),
     ...(input.JobTag !== undefined && { JobTag: input.JobTag }),
     ...(input.NotificationChannel !== undefined && {
       NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
     }),
-    ...(input.Video !== undefined && {
-      Video: serializeAws_json1_1Video(input.Video, context),
-    }),
+    ...(input.Video !== undefined && { Video: serializeAws_json1_1Video(input.Video, context) }),
   };
 };
 
@@ -5993,19 +5909,13 @@ const serializeAws_json1_1StartContentModerationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClientRequestToken !== undefined && {
-      ClientRequestToken: input.ClientRequestToken,
-    }),
+    ...(input.ClientRequestToken !== undefined && { ClientRequestToken: input.ClientRequestToken }),
     ...(input.JobTag !== undefined && { JobTag: input.JobTag }),
-    ...(input.MinConfidence !== undefined && {
-      MinConfidence: input.MinConfidence,
-    }),
+    ...(input.MinConfidence !== undefined && { MinConfidence: input.MinConfidence }),
     ...(input.NotificationChannel !== undefined && {
       NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
     }),
-    ...(input.Video !== undefined && {
-      Video: serializeAws_json1_1Video(input.Video, context),
-    }),
+    ...(input.Video !== undefined && { Video: serializeAws_json1_1Video(input.Video, context) }),
   };
 };
 
@@ -6014,40 +5924,26 @@ const serializeAws_json1_1StartFaceDetectionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClientRequestToken !== undefined && {
-      ClientRequestToken: input.ClientRequestToken,
-    }),
-    ...(input.FaceAttributes !== undefined && {
-      FaceAttributes: input.FaceAttributes,
-    }),
+    ...(input.ClientRequestToken !== undefined && { ClientRequestToken: input.ClientRequestToken }),
+    ...(input.FaceAttributes !== undefined && { FaceAttributes: input.FaceAttributes }),
     ...(input.JobTag !== undefined && { JobTag: input.JobTag }),
     ...(input.NotificationChannel !== undefined && {
       NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
     }),
-    ...(input.Video !== undefined && {
-      Video: serializeAws_json1_1Video(input.Video, context),
-    }),
+    ...(input.Video !== undefined && { Video: serializeAws_json1_1Video(input.Video, context) }),
   };
 };
 
 const serializeAws_json1_1StartFaceSearchRequest = (input: StartFaceSearchRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClientRequestToken !== undefined && {
-      ClientRequestToken: input.ClientRequestToken,
-    }),
-    ...(input.CollectionId !== undefined && {
-      CollectionId: input.CollectionId,
-    }),
-    ...(input.FaceMatchThreshold !== undefined && {
-      FaceMatchThreshold: input.FaceMatchThreshold,
-    }),
+    ...(input.ClientRequestToken !== undefined && { ClientRequestToken: input.ClientRequestToken }),
+    ...(input.CollectionId !== undefined && { CollectionId: input.CollectionId }),
+    ...(input.FaceMatchThreshold !== undefined && { FaceMatchThreshold: input.FaceMatchThreshold }),
     ...(input.JobTag !== undefined && { JobTag: input.JobTag }),
     ...(input.NotificationChannel !== undefined && {
       NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
     }),
-    ...(input.Video !== undefined && {
-      Video: serializeAws_json1_1Video(input.Video, context),
-    }),
+    ...(input.Video !== undefined && { Video: serializeAws_json1_1Video(input.Video, context) }),
   };
 };
 
@@ -6056,19 +5952,13 @@ const serializeAws_json1_1StartLabelDetectionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClientRequestToken !== undefined && {
-      ClientRequestToken: input.ClientRequestToken,
-    }),
+    ...(input.ClientRequestToken !== undefined && { ClientRequestToken: input.ClientRequestToken }),
     ...(input.JobTag !== undefined && { JobTag: input.JobTag }),
-    ...(input.MinConfidence !== undefined && {
-      MinConfidence: input.MinConfidence,
-    }),
+    ...(input.MinConfidence !== undefined && { MinConfidence: input.MinConfidence }),
     ...(input.NotificationChannel !== undefined && {
       NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
     }),
-    ...(input.Video !== undefined && {
-      Video: serializeAws_json1_1Video(input.Video, context),
-    }),
+    ...(input.Video !== undefined && { Video: serializeAws_json1_1Video(input.Video, context) }),
   };
 };
 
@@ -6077,16 +5967,12 @@ const serializeAws_json1_1StartPersonTrackingRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClientRequestToken !== undefined && {
-      ClientRequestToken: input.ClientRequestToken,
-    }),
+    ...(input.ClientRequestToken !== undefined && { ClientRequestToken: input.ClientRequestToken }),
     ...(input.JobTag !== undefined && { JobTag: input.JobTag }),
     ...(input.NotificationChannel !== undefined && {
       NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
     }),
-    ...(input.Video !== undefined && {
-      Video: serializeAws_json1_1Video(input.Video, context),
-    }),
+    ...(input.Video !== undefined && { Video: serializeAws_json1_1Video(input.Video, context) }),
   };
 };
 
@@ -6095,12 +5981,8 @@ const serializeAws_json1_1StartProjectVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MinInferenceUnits !== undefined && {
-      MinInferenceUnits: input.MinInferenceUnits,
-    }),
-    ...(input.ProjectVersionArn !== undefined && {
-      ProjectVersionArn: input.ProjectVersionArn,
-    }),
+    ...(input.MinInferenceUnits !== undefined && { MinInferenceUnits: input.MinInferenceUnits }),
+    ...(input.ProjectVersionArn !== undefined && { ProjectVersionArn: input.ProjectVersionArn }),
   };
 };
 
@@ -6118,9 +6000,7 @@ const serializeAws_json1_1StopProjectVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ProjectVersionArn !== undefined && {
-      ProjectVersionArn: input.ProjectVersionArn,
-    }),
+    ...(input.ProjectVersionArn !== undefined && { ProjectVersionArn: input.ProjectVersionArn }),
   };
 };
 
@@ -6159,18 +6039,14 @@ const serializeAws_json1_1StreamProcessorSettings = (input: StreamProcessorSetti
 
 const serializeAws_json1_1TestingData = (input: TestingData, context: __SerdeContext): any => {
   return {
-    ...(input.Assets !== undefined && {
-      Assets: serializeAws_json1_1Assets(input.Assets, context),
-    }),
+    ...(input.Assets !== undefined && { Assets: serializeAws_json1_1Assets(input.Assets, context) }),
     ...(input.AutoCreate !== undefined && { AutoCreate: input.AutoCreate }),
   };
 };
 
 const serializeAws_json1_1TrainingData = (input: TrainingData, context: __SerdeContext): any => {
   return {
-    ...(input.Assets !== undefined && {
-      Assets: serializeAws_json1_1Assets(input.Assets, context),
-    }),
+    ...(input.Assets !== undefined && { Assets: serializeAws_json1_1Assets(input.Assets, context) }),
   };
 };
 
@@ -6180,9 +6056,7 @@ const serializeAws_json1_1VersionNames = (input: string[], context: __SerdeConte
 
 const serializeAws_json1_1Video = (input: Video, context: __SerdeContext): any => {
   return {
-    ...(input.S3Object !== undefined && {
-      S3Object: serializeAws_json1_1S3Object(input.S3Object, context),
-    }),
+    ...(input.S3Object !== undefined && { S3Object: serializeAws_json1_1S3Object(input.S3Object, context) }),
   };
 };
 

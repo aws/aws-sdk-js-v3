@@ -19,15 +19,11 @@ export const serializeAws_restJson1InvokeEndpointCommand = async (
   const headers: any = {
     "Content-Type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.Accept) && { Accept: input.Accept! }),
-    ...(isSerializableHeaderValue(input.ContentType) && {
-      "Content-Type": input.ContentType!,
-    }),
+    ...(isSerializableHeaderValue(input.ContentType) && { "Content-Type": input.ContentType! }),
     ...(isSerializableHeaderValue(input.CustomAttributes) && {
       "X-Amzn-SageMaker-Custom-Attributes": input.CustomAttributes!,
     }),
-    ...(isSerializableHeaderValue(input.TargetModel) && {
-      "X-Amzn-SageMaker-Target-Model": input.TargetModel!,
-    }),
+    ...(isSerializableHeaderValue(input.TargetModel) && { "X-Amzn-SageMaker-Target-Model": input.TargetModel! }),
   };
   let resolvedPath = "/endpoints/{EndpointName}/invocations";
   if (input.EndpointName !== undefined) {

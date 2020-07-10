@@ -4426,9 +4426,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
 
 const serializeAws_json1_1AccessEndpoint = (input: AccessEndpoint, context: __SerdeContext): any => {
   return {
-    ...(input.EndpointType !== undefined && {
-      EndpointType: input.EndpointType,
-    }),
+    ...(input.EndpointType !== undefined && { EndpointType: input.EndpointType }),
     ...(input.VpceId !== undefined && { VpceId: input.VpceId }),
   };
 };
@@ -4440,9 +4438,7 @@ const serializeAws_json1_1AccessEndpointList = (input: AccessEndpoint[], context
 const serializeAws_json1_1ApplicationSettings = (input: ApplicationSettings, context: __SerdeContext): any => {
   return {
     ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
-    ...(input.SettingsGroup !== undefined && {
-      SettingsGroup: input.SettingsGroup,
-    }),
+    ...(input.SettingsGroup !== undefined && { SettingsGroup: input.SettingsGroup }),
   };
 };
 
@@ -4485,9 +4481,7 @@ const serializeAws_json1_1BatchDisassociateUserStackRequest = (
 
 const serializeAws_json1_1ComputeCapacity = (input: ComputeCapacity, context: __SerdeContext): any => {
   return {
-    ...(input.DesiredInstances !== undefined && {
-      DesiredInstances: input.DesiredInstances,
-    }),
+    ...(input.DesiredInstances !== undefined && { DesiredInstances: input.DesiredInstances }),
   };
 };
 
@@ -4496,15 +4490,9 @@ const serializeAws_json1_1CopyImageRequest = (input: CopyImageRequest, context: 
     ...(input.DestinationImageDescription !== undefined && {
       DestinationImageDescription: input.DestinationImageDescription,
     }),
-    ...(input.DestinationImageName !== undefined && {
-      DestinationImageName: input.DestinationImageName,
-    }),
-    ...(input.DestinationRegion !== undefined && {
-      DestinationRegion: input.DestinationRegion,
-    }),
-    ...(input.SourceImageName !== undefined && {
-      SourceImageName: input.SourceImageName,
-    }),
+    ...(input.DestinationImageName !== undefined && { DestinationImageName: input.DestinationImageName }),
+    ...(input.DestinationRegion !== undefined && { DestinationRegion: input.DestinationRegion }),
+    ...(input.SourceImageName !== undefined && { SourceImageName: input.SourceImageName }),
   };
 };
 
@@ -4513,9 +4501,7 @@ const serializeAws_json1_1CreateDirectoryConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryName !== undefined && {
-      DirectoryName: input.DirectoryName,
-    }),
+    ...(input.DirectoryName !== undefined && { DirectoryName: input.DirectoryName }),
     ...(input.OrganizationalUnitDistinguishedNames !== undefined && {
       OrganizationalUnitDistinguishedNames: serializeAws_json1_1OrganizationalUnitDistinguishedNamesList(
         input.OrganizationalUnitDistinguishedNames,
@@ -4554,19 +4540,11 @@ const serializeAws_json1_1CreateFleetRequest = (input: CreateFleetRequest, conte
     }),
     ...(input.ImageArn !== undefined && { ImageArn: input.ImageArn }),
     ...(input.ImageName !== undefined && { ImageName: input.ImageName }),
-    ...(input.InstanceType !== undefined && {
-      InstanceType: input.InstanceType,
-    }),
-    ...(input.MaxUserDurationInSeconds !== undefined && {
-      MaxUserDurationInSeconds: input.MaxUserDurationInSeconds,
-    }),
+    ...(input.InstanceType !== undefined && { InstanceType: input.InstanceType }),
+    ...(input.MaxUserDurationInSeconds !== undefined && { MaxUserDurationInSeconds: input.MaxUserDurationInSeconds }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
-    ...(input.VpcConfig !== undefined && {
-      VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.VpcConfig !== undefined && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
 };
 
@@ -4578,9 +4556,7 @@ const serializeAws_json1_1CreateImageBuilderRequest = (
     ...(input.AccessEndpoints !== undefined && {
       AccessEndpoints: serializeAws_json1_1AccessEndpointList(input.AccessEndpoints, context),
     }),
-    ...(input.AppstreamAgentVersion !== undefined && {
-      AppstreamAgentVersion: input.AppstreamAgentVersion,
-    }),
+    ...(input.AppstreamAgentVersion !== undefined && { AppstreamAgentVersion: input.AppstreamAgentVersion }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
     ...(input.DomainJoinInfo !== undefined && {
@@ -4592,16 +4568,10 @@ const serializeAws_json1_1CreateImageBuilderRequest = (
     ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
     ...(input.ImageArn !== undefined && { ImageArn: input.ImageArn }),
     ...(input.ImageName !== undefined && { ImageName: input.ImageName }),
-    ...(input.InstanceType !== undefined && {
-      InstanceType: input.InstanceType,
-    }),
+    ...(input.InstanceType !== undefined && { InstanceType: input.InstanceType }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
-    ...(input.VpcConfig !== undefined && {
-      VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.VpcConfig !== undefined && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
 };
 
@@ -4634,9 +4604,7 @@ const serializeAws_json1_1CreateStackRequest = (input: CreateStackRequest, conte
     ...(input.StorageConnectors !== undefined && {
       StorageConnectors: serializeAws_json1_1StorageConnectorList(input.StorageConnectors, context),
     }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.UserSettings !== undefined && {
       UserSettings: serializeAws_json1_1UserSettingList(input.UserSettings, context),
     }),
@@ -4648,13 +4616,9 @@ const serializeAws_json1_1CreateStreamingURLRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ApplicationId !== undefined && {
-      ApplicationId: input.ApplicationId,
-    }),
+    ...(input.ApplicationId !== undefined && { ApplicationId: input.ApplicationId }),
     ...(input.FleetName !== undefined && { FleetName: input.FleetName }),
-    ...(input.SessionContext !== undefined && {
-      SessionContext: input.SessionContext,
-    }),
+    ...(input.SessionContext !== undefined && { SessionContext: input.SessionContext }),
     ...(input.StackName !== undefined && { StackName: input.StackName }),
     ...(input.UserId !== undefined && { UserId: input.UserId }),
     ...(input.Validity !== undefined && { Validity: input.Validity }),
@@ -4670,14 +4634,10 @@ const serializeAws_json1_1CreateUsageReportSubscriptionRequest = (
 
 const serializeAws_json1_1CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AuthenticationType !== undefined && {
-      AuthenticationType: input.AuthenticationType,
-    }),
+    ...(input.AuthenticationType !== undefined && { AuthenticationType: input.AuthenticationType }),
     ...(input.FirstName !== undefined && { FirstName: input.FirstName }),
     ...(input.LastName !== undefined && { LastName: input.LastName }),
-    ...(input.MessageAction !== undefined && {
-      MessageAction: input.MessageAction,
-    }),
+    ...(input.MessageAction !== undefined && { MessageAction: input.MessageAction }),
     ...(input.UserName !== undefined && { UserName: input.UserName }),
   };
 };
@@ -4687,9 +4647,7 @@ const serializeAws_json1_1DeleteDirectoryConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryName !== undefined && {
-      DirectoryName: input.DirectoryName,
-    }),
+    ...(input.DirectoryName !== undefined && { DirectoryName: input.DirectoryName }),
   };
 };
 
@@ -4714,9 +4672,7 @@ const serializeAws_json1_1DeleteImagePermissionsRequest = (
 ): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.SharedAccountId !== undefined && {
-      SharedAccountId: input.SharedAccountId,
-    }),
+    ...(input.SharedAccountId !== undefined && { SharedAccountId: input.SharedAccountId }),
   };
 };
 
@@ -4741,9 +4697,7 @@ const serializeAws_json1_1DeleteUsageReportSubscriptionRequest = (
 
 const serializeAws_json1_1DeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AuthenticationType !== undefined && {
-      AuthenticationType: input.AuthenticationType,
-    }),
+    ...(input.AuthenticationType !== undefined && { AuthenticationType: input.AuthenticationType }),
     ...(input.UserName !== undefined && { UserName: input.UserName }),
   };
 };
@@ -4763,9 +4717,7 @@ const serializeAws_json1_1DescribeDirectoryConfigsRequest = (
 
 const serializeAws_json1_1DescribeFleetsRequest = (input: DescribeFleetsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Names !== undefined && {
-      Names: serializeAws_json1_1StringList(input.Names, context),
-    }),
+    ...(input.Names !== undefined && { Names: serializeAws_json1_1StringList(input.Names, context) }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
 };
@@ -4776,9 +4728,7 @@ const serializeAws_json1_1DescribeImageBuildersRequest = (
 ): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.Names !== undefined && {
-      Names: serializeAws_json1_1StringList(input.Names, context),
-    }),
+    ...(input.Names !== undefined && { Names: serializeAws_json1_1StringList(input.Names, context) }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
 };
@@ -4799,13 +4749,9 @@ const serializeAws_json1_1DescribeImagePermissionsRequest = (
 
 const serializeAws_json1_1DescribeImagesRequest = (input: DescribeImagesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Arns !== undefined && {
-      Arns: serializeAws_json1_1ArnList(input.Arns, context),
-    }),
+    ...(input.Arns !== undefined && { Arns: serializeAws_json1_1ArnList(input.Arns, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.Names !== undefined && {
-      Names: serializeAws_json1_1StringList(input.Names, context),
-    }),
+    ...(input.Names !== undefined && { Names: serializeAws_json1_1StringList(input.Names, context) }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.Type !== undefined && { Type: input.Type }),
   };
@@ -4813,9 +4759,7 @@ const serializeAws_json1_1DescribeImagesRequest = (input: DescribeImagesRequest,
 
 const serializeAws_json1_1DescribeSessionsRequest = (input: DescribeSessionsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AuthenticationType !== undefined && {
-      AuthenticationType: input.AuthenticationType,
-    }),
+    ...(input.AuthenticationType !== undefined && { AuthenticationType: input.AuthenticationType }),
     ...(input.FleetName !== undefined && { FleetName: input.FleetName }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -4826,9 +4770,7 @@ const serializeAws_json1_1DescribeSessionsRequest = (input: DescribeSessionsRequ
 
 const serializeAws_json1_1DescribeStacksRequest = (input: DescribeStacksRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Names !== undefined && {
-      Names: serializeAws_json1_1StringList(input.Names, context),
-    }),
+    ...(input.Names !== undefined && { Names: serializeAws_json1_1StringList(input.Names, context) }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
 };
@@ -4845,9 +4787,7 @@ const serializeAws_json1_1DescribeUsageReportSubscriptionsRequest = (
 
 const serializeAws_json1_1DescribeUsersRequest = (input: DescribeUsersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AuthenticationType !== undefined && {
-      AuthenticationType: input.AuthenticationType,
-    }),
+    ...(input.AuthenticationType !== undefined && { AuthenticationType: input.AuthenticationType }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -4858,9 +4798,7 @@ const serializeAws_json1_1DescribeUserStackAssociationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AuthenticationType !== undefined && {
-      AuthenticationType: input.AuthenticationType,
-    }),
+    ...(input.AuthenticationType !== undefined && { AuthenticationType: input.AuthenticationType }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.StackName !== undefined && { StackName: input.StackName }),
@@ -4874,9 +4812,7 @@ const serializeAws_json1_1DirectoryNameList = (input: string[], context: __Serde
 
 const serializeAws_json1_1DisableUserRequest = (input: DisableUserRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AuthenticationType !== undefined && {
-      AuthenticationType: input.AuthenticationType,
-    }),
+    ...(input.AuthenticationType !== undefined && { AuthenticationType: input.AuthenticationType }),
     ...(input.UserName !== undefined && { UserName: input.UserName }),
   };
 };
@@ -4893,9 +4829,7 @@ const serializeAws_json1_1DisassociateFleetRequest = (
 
 const serializeAws_json1_1DomainJoinInfo = (input: DomainJoinInfo, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryName !== undefined && {
-      DirectoryName: input.DirectoryName,
-    }),
+    ...(input.DirectoryName !== undefined && { DirectoryName: input.DirectoryName }),
     ...(input.OrganizationalUnitDistinguishedName !== undefined && {
       OrganizationalUnitDistinguishedName: input.OrganizationalUnitDistinguishedName,
     }),
@@ -4912,9 +4846,7 @@ const serializeAws_json1_1EmbedHostDomains = (input: string[], context: __SerdeC
 
 const serializeAws_json1_1EnableUserRequest = (input: EnableUserRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AuthenticationType !== undefined && {
-      AuthenticationType: input.AuthenticationType,
-    }),
+    ...(input.AuthenticationType !== undefined && { AuthenticationType: input.AuthenticationType }),
     ...(input.UserName !== undefined && { UserName: input.UserName }),
   };
 };
@@ -4932,9 +4864,7 @@ const serializeAws_json1_1FleetAttributes = (input: (FleetAttribute | string)[],
 const serializeAws_json1_1ImagePermissions = (input: ImagePermissions, context: __SerdeContext): any => {
   return {
     ...(input.allowFleet !== undefined && { allowFleet: input.allowFleet }),
-    ...(input.allowImageBuilder !== undefined && {
-      allowImageBuilder: input.allowImageBuilder,
-    }),
+    ...(input.allowImageBuilder !== undefined && { allowImageBuilder: input.allowImageBuilder }),
   };
 };
 
@@ -4984,9 +4914,7 @@ const serializeAws_json1_1ServiceAccountCredentials = (
 ): any => {
   return {
     ...(input.AccountName !== undefined && { AccountName: input.AccountName }),
-    ...(input.AccountPassword !== undefined && {
-      AccountPassword: input.AccountPassword,
-    }),
+    ...(input.AccountPassword !== undefined && { AccountPassword: input.AccountPassword }),
   };
 };
 
@@ -5005,9 +4933,7 @@ const serializeAws_json1_1StartImageBuilderRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AppstreamAgentVersion !== undefined && {
-      AppstreamAgentVersion: input.AppstreamAgentVersion,
-    }),
+    ...(input.AppstreamAgentVersion !== undefined && { AppstreamAgentVersion: input.AppstreamAgentVersion }),
     ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
@@ -5026,15 +4952,9 @@ const serializeAws_json1_1StopImageBuilderRequest = (input: StopImageBuilderRequ
 
 const serializeAws_json1_1StorageConnector = (input: StorageConnector, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectorType !== undefined && {
-      ConnectorType: input.ConnectorType,
-    }),
-    ...(input.Domains !== undefined && {
-      Domains: serializeAws_json1_1DomainList(input.Domains, context),
-    }),
-    ...(input.ResourceIdentifier !== undefined && {
-      ResourceIdentifier: input.ResourceIdentifier,
-    }),
+    ...(input.ConnectorType !== undefined && { ConnectorType: input.ConnectorType }),
+    ...(input.Domains !== undefined && { Domains: serializeAws_json1_1DomainList(input.Domains, context) }),
+    ...(input.ResourceIdentifier !== undefined && { ResourceIdentifier: input.ResourceIdentifier }),
   };
 };
 
@@ -5057,9 +4977,7 @@ const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -5076,9 +4994,7 @@ const serializeAws_json1_1Tags = (input: { [key: string]: string }, context: __S
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -5087,9 +5003,7 @@ const serializeAws_json1_1UpdateDirectoryConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryName !== undefined && {
-      DirectoryName: input.DirectoryName,
-    }),
+    ...(input.DirectoryName !== undefined && { DirectoryName: input.DirectoryName }),
     ...(input.OrganizationalUnitDistinguishedNames !== undefined && {
       OrganizationalUnitDistinguishedNames: serializeAws_json1_1OrganizationalUnitDistinguishedNamesList(
         input.OrganizationalUnitDistinguishedNames,
@@ -5113,9 +5027,7 @@ const serializeAws_json1_1UpdateFleetRequest = (input: UpdateFleetRequest, conte
     ...(input.ComputeCapacity !== undefined && {
       ComputeCapacity: serializeAws_json1_1ComputeCapacity(input.ComputeCapacity, context),
     }),
-    ...(input.DeleteVpcConfig !== undefined && {
-      DeleteVpcConfig: input.DeleteVpcConfig,
-    }),
+    ...(input.DeleteVpcConfig !== undefined && { DeleteVpcConfig: input.DeleteVpcConfig }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.DisconnectTimeoutInSeconds !== undefined && {
       DisconnectTimeoutInSeconds: input.DisconnectTimeoutInSeconds,
@@ -5133,16 +5045,10 @@ const serializeAws_json1_1UpdateFleetRequest = (input: UpdateFleetRequest, conte
     }),
     ...(input.ImageArn !== undefined && { ImageArn: input.ImageArn }),
     ...(input.ImageName !== undefined && { ImageName: input.ImageName }),
-    ...(input.InstanceType !== undefined && {
-      InstanceType: input.InstanceType,
-    }),
-    ...(input.MaxUserDurationInSeconds !== undefined && {
-      MaxUserDurationInSeconds: input.MaxUserDurationInSeconds,
-    }),
+    ...(input.InstanceType !== undefined && { InstanceType: input.InstanceType }),
+    ...(input.MaxUserDurationInSeconds !== undefined && { MaxUserDurationInSeconds: input.MaxUserDurationInSeconds }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.VpcConfig !== undefined && {
-      VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context),
-    }),
+    ...(input.VpcConfig !== undefined && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
 };
 
@@ -5155,9 +5061,7 @@ const serializeAws_json1_1UpdateImagePermissionsRequest = (
       ImagePermissions: serializeAws_json1_1ImagePermissions(input.ImagePermissions, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.SharedAccountId !== undefined && {
-      SharedAccountId: input.SharedAccountId,
-    }),
+    ...(input.SharedAccountId !== undefined && { SharedAccountId: input.SharedAccountId }),
   };
 };
 
@@ -5172,9 +5076,7 @@ const serializeAws_json1_1UpdateStackRequest = (input: UpdateStackRequest, conte
     ...(input.AttributesToDelete !== undefined && {
       AttributesToDelete: serializeAws_json1_1StackAttributes(input.AttributesToDelete, context),
     }),
-    ...(input.DeleteStorageConnectors !== undefined && {
-      DeleteStorageConnectors: input.DeleteStorageConnectors,
-    }),
+    ...(input.DeleteStorageConnectors !== undefined && { DeleteStorageConnectors: input.DeleteStorageConnectors }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
     ...(input.EmbedHostDomains !== undefined && {
@@ -5205,12 +5107,8 @@ const serializeAws_json1_1UserSettingList = (input: UserSetting[], context: __Se
 
 const serializeAws_json1_1UserStackAssociation = (input: UserStackAssociation, context: __SerdeContext): any => {
   return {
-    ...(input.AuthenticationType !== undefined && {
-      AuthenticationType: input.AuthenticationType,
-    }),
-    ...(input.SendEmailNotification !== undefined && {
-      SendEmailNotification: input.SendEmailNotification,
-    }),
+    ...(input.AuthenticationType !== undefined && { AuthenticationType: input.AuthenticationType }),
+    ...(input.SendEmailNotification !== undefined && { SendEmailNotification: input.SendEmailNotification }),
     ...(input.StackName !== undefined && { StackName: input.StackName }),
     ...(input.UserName !== undefined && { UserName: input.UserName }),
   };
@@ -5225,9 +5123,7 @@ const serializeAws_json1_1VpcConfig = (input: VpcConfig, context: __SerdeContext
     ...(input.SecurityGroupIds !== undefined && {
       SecurityGroupIds: serializeAws_json1_1SecurityGroupIdList(input.SecurityGroupIds, context),
     }),
-    ...(input.SubnetIds !== undefined && {
-      SubnetIds: serializeAws_json1_1SubnetIdList(input.SubnetIds, context),
-    }),
+    ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_1SubnetIdList(input.SubnetIds, context) }),
   };
 };
 

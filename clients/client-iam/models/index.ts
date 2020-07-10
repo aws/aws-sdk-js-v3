@@ -556,9 +556,7 @@ export interface CreateAccessKeyResponse {
 export namespace CreateAccessKeyResponse {
   export const filterSensitiveLog = (obj: CreateAccessKeyResponse): any => ({
     ...obj,
-    ...(obj.AccessKey && {
-      AccessKey: AccessKey.filterSensitiveLog(obj.AccessKey),
-    }),
+    ...(obj.AccessKey && { AccessKey: AccessKey.filterSensitiveLog(obj.AccessKey) }),
   });
   export const isa = (o: any): o is CreateAccessKeyResponse => __isa(o, "CreateAccessKeyResponse");
 }
@@ -1334,9 +1332,7 @@ export interface CreateVirtualMFADeviceResponse {
 export namespace CreateVirtualMFADeviceResponse {
   export const filterSensitiveLog = (obj: CreateVirtualMFADeviceResponse): any => ({
     ...obj,
-    ...(obj.VirtualMFADevice && {
-      VirtualMFADevice: VirtualMFADevice.filterSensitiveLog(obj.VirtualMFADevice),
-    }),
+    ...(obj.VirtualMFADevice && { VirtualMFADevice: VirtualMFADevice.filterSensitiveLog(obj.VirtualMFADevice) }),
   });
   export const isa = (o: any): o is CreateVirtualMFADeviceResponse => __isa(o, "CreateVirtualMFADeviceResponse");
 }
@@ -2261,9 +2257,7 @@ export interface EvaluationResult {
    *             Resource-based Policies</a>
    *          </p>
    */
-  EvalDecisionDetails?: {
-    [key: string]: PolicyEvaluationDecisionType | string;
-  };
+  EvalDecisionDetails?: { [key: string]: PolicyEvaluationDecisionType | string };
 
   /**
    * <p>The ARN of the resource that the indicated API operation was tested on.</p>
@@ -7216,9 +7210,7 @@ export interface ResourceSpecificResult {
    *          resource, both the resource-based policy and the caller's IAM policy must grant
    *          access.</p>
    */
-  EvalDecisionDetails?: {
-    [key: string]: PolicyEvaluationDecisionType | string;
-  };
+  EvalDecisionDetails?: { [key: string]: PolicyEvaluationDecisionType | string };
 
   /**
    * <p>The result of the simulation of the simulated API operation on the resource specified in

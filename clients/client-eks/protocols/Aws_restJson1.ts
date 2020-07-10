@@ -105,17 +105,13 @@ export const serializeAws_restJson1CreateClusterCommand = async (
   let body: any;
   body = JSON.stringify({
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.logging !== undefined && {
-      logging: serializeAws_restJson1Logging(input.logging, context),
-    }),
+    ...(input.logging !== undefined && { logging: serializeAws_restJson1Logging(input.logging, context) }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.resourcesVpcConfig !== undefined && {
       resourcesVpcConfig: serializeAws_restJson1VpcConfigRequest(input.resourcesVpcConfig, context),
     }),
     ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
     ...(input.version !== undefined && { version: input.version }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -150,21 +146,13 @@ export const serializeAws_restJson1CreateFargateProfileCommand = async (
   let body: any;
   body = JSON.stringify({
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.fargateProfileName !== undefined && {
-      fargateProfileName: input.fargateProfileName,
-    }),
-    ...(input.podExecutionRoleArn !== undefined && {
-      podExecutionRoleArn: input.podExecutionRoleArn,
-    }),
+    ...(input.fargateProfileName !== undefined && { fargateProfileName: input.fargateProfileName }),
+    ...(input.podExecutionRoleArn !== undefined && { podExecutionRoleArn: input.podExecutionRoleArn }),
     ...(input.selectors !== undefined && {
       selectors: serializeAws_restJson1FargateProfileSelectors(input.selectors, context),
     }),
-    ...(input.subnets !== undefined && {
-      subnets: serializeAws_restJson1StringList(input.subnets, context),
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.subnets !== undefined && { subnets: serializeAws_restJson1StringList(input.subnets, context) }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -203,28 +191,18 @@ export const serializeAws_restJson1CreateNodegroupCommand = async (
     ...(input.instanceTypes !== undefined && {
       instanceTypes: serializeAws_restJson1StringList(input.instanceTypes, context),
     }),
-    ...(input.labels !== undefined && {
-      labels: serializeAws_restJson1labelsMap(input.labels, context),
-    }),
+    ...(input.labels !== undefined && { labels: serializeAws_restJson1labelsMap(input.labels, context) }),
     ...(input.nodeRole !== undefined && { nodeRole: input.nodeRole }),
-    ...(input.nodegroupName !== undefined && {
-      nodegroupName: input.nodegroupName,
-    }),
-    ...(input.releaseVersion !== undefined && {
-      releaseVersion: input.releaseVersion,
-    }),
+    ...(input.nodegroupName !== undefined && { nodegroupName: input.nodegroupName }),
+    ...(input.releaseVersion !== undefined && { releaseVersion: input.releaseVersion }),
     ...(input.remoteAccess !== undefined && {
       remoteAccess: serializeAws_restJson1RemoteAccessConfig(input.remoteAccess, context),
     }),
     ...(input.scalingConfig !== undefined && {
       scalingConfig: serializeAws_restJson1NodegroupScalingConfig(input.scalingConfig, context),
     }),
-    ...(input.subnets !== undefined && {
-      subnets: serializeAws_restJson1StringList(input.subnets, context),
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.subnets !== undefined && { subnets: serializeAws_restJson1StringList(input.subnets, context) }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
     ...(input.version !== undefined && { version: input.version }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -482,9 +460,7 @@ export const serializeAws_restJson1DescribeUpdateCommand = async (
     throw new Error("No value provided for input HTTP label: updateId.");
   }
   const query: any = {
-    ...(input.nodegroupName !== undefined && {
-      nodegroupName: input.nodegroupName,
-    }),
+    ...(input.nodegroupName !== undefined && { nodegroupName: input.nodegroupName }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -509,9 +485,7 @@ export const serializeAws_restJson1ListClustersCommand = async (
   };
   let resolvedPath = "/clusters";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -546,9 +520,7 @@ export const serializeAws_restJson1ListFargateProfilesCommand = async (
     throw new Error("No value provided for input HTTP label: clusterName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -583,9 +555,7 @@ export const serializeAws_restJson1ListNodegroupsCommand = async (
     throw new Error("No value provided for input HTTP label: clusterName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -650,13 +620,9 @@ export const serializeAws_restJson1ListUpdatesCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.nodegroupName !== undefined && {
-      nodegroupName: input.nodegroupName,
-    }),
+    ...(input.nodegroupName !== undefined && { nodegroupName: input.nodegroupName }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -691,9 +657,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -725,9 +689,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && {
-      tagKeys: (input.tagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -763,9 +725,7 @@ export const serializeAws_restJson1UpdateClusterConfigCommand = async (
   let body: any;
   body = JSON.stringify({
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.logging !== undefined && {
-      logging: serializeAws_restJson1Logging(input.logging, context),
-    }),
+    ...(input.logging !== undefined && { logging: serializeAws_restJson1Logging(input.logging, context) }),
     ...(input.resourcesVpcConfig !== undefined && {
       resourcesVpcConfig: serializeAws_restJson1VpcConfigRequest(input.resourcesVpcConfig, context),
     }),
@@ -845,9 +805,7 @@ export const serializeAws_restJson1UpdateNodegroupConfigCommand = async (
   let body: any;
   body = JSON.stringify({
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.labels !== undefined && {
-      labels: serializeAws_restJson1UpdateLabelsPayload(input.labels, context),
-    }),
+    ...(input.labels !== undefined && { labels: serializeAws_restJson1UpdateLabelsPayload(input.labels, context) }),
     ...(input.scalingConfig !== undefined && {
       scalingConfig: serializeAws_restJson1NodegroupScalingConfig(input.scalingConfig, context),
     }),
@@ -894,9 +852,7 @@ export const serializeAws_restJson1UpdateNodegroupVersionCommand = async (
   body = JSON.stringify({
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
     ...(input.force !== undefined && { force: input.force }),
-    ...(input.releaseVersion !== undefined && {
-      releaseVersion: input.releaseVersion,
-    }),
+    ...(input.releaseVersion !== undefined && { releaseVersion: input.releaseVersion }),
     ...(input.version !== undefined && { version: input.version }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2994,9 +2950,7 @@ const serializeAws_restJson1FargateProfileLabel = (input: { [key: string]: strin
 
 const serializeAws_restJson1FargateProfileSelector = (input: FargateProfileSelector, context: __SerdeContext): any => {
   return {
-    ...(input.labels !== undefined && {
-      labels: serializeAws_restJson1FargateProfileLabel(input.labels, context),
-    }),
+    ...(input.labels !== undefined && { labels: serializeAws_restJson1FargateProfileLabel(input.labels, context) }),
     ...(input.namespace !== undefined && { namespace: input.namespace }),
   };
 };
@@ -3033,9 +2987,7 @@ const serializeAws_restJson1Logging = (input: Logging, context: __SerdeContext):
 const serializeAws_restJson1LogSetup = (input: LogSetup, context: __SerdeContext): any => {
   return {
     ...(input.enabled !== undefined && { enabled: input.enabled }),
-    ...(input.types !== undefined && {
-      types: serializeAws_restJson1LogTypes(input.types, context),
-    }),
+    ...(input.types !== undefined && { types: serializeAws_restJson1LogTypes(input.types, context) }),
   };
 };
 
@@ -3091,21 +3043,15 @@ const serializeAws_restJson1UpdateLabelsPayload = (input: UpdateLabelsPayload, c
 
 const serializeAws_restJson1VpcConfigRequest = (input: VpcConfigRequest, context: __SerdeContext): any => {
   return {
-    ...(input.endpointPrivateAccess !== undefined && {
-      endpointPrivateAccess: input.endpointPrivateAccess,
-    }),
-    ...(input.endpointPublicAccess !== undefined && {
-      endpointPublicAccess: input.endpointPublicAccess,
-    }),
+    ...(input.endpointPrivateAccess !== undefined && { endpointPrivateAccess: input.endpointPrivateAccess }),
+    ...(input.endpointPublicAccess !== undefined && { endpointPublicAccess: input.endpointPublicAccess }),
     ...(input.publicAccessCidrs !== undefined && {
       publicAccessCidrs: serializeAws_restJson1StringList(input.publicAccessCidrs, context),
     }),
     ...(input.securityGroupIds !== undefined && {
       securityGroupIds: serializeAws_restJson1StringList(input.securityGroupIds, context),
     }),
-    ...(input.subnetIds !== undefined && {
-      subnetIds: serializeAws_restJson1StringList(input.subnetIds, context),
-    }),
+    ...(input.subnetIds !== undefined && { subnetIds: serializeAws_restJson1StringList(input.subnetIds, context) }),
   };
 };
 

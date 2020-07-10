@@ -1897,18 +1897,14 @@ const serializeAws_json1_1ActivatePipelineInput = (input: ActivatePipelineInput,
       parameterValues: serializeAws_json1_1ParameterValueList(input.parameterValues, context),
     }),
     ...(input.pipelineId !== undefined && { pipelineId: input.pipelineId }),
-    ...(input.startTimestamp !== undefined && {
-      startTimestamp: Math.round(input.startTimestamp.getTime() / 1000),
-    }),
+    ...(input.startTimestamp !== undefined && { startTimestamp: Math.round(input.startTimestamp.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1AddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
   return {
     ...(input.pipelineId !== undefined && { pipelineId: input.pipelineId }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1tagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1tagList(input.tags, context) }),
   };
 };
 
@@ -1916,18 +1912,14 @@ const serializeAws_json1_1CreatePipelineInput = (input: CreatePipelineInput, con
   return {
     ...(input.description !== undefined && { description: input.description }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1tagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1tagList(input.tags, context) }),
     ...(input.uniqueId !== undefined && { uniqueId: input.uniqueId }),
   };
 };
 
 const serializeAws_json1_1DeactivatePipelineInput = (input: DeactivatePipelineInput, context: __SerdeContext): any => {
   return {
-    ...(input.cancelActive !== undefined && {
-      cancelActive: input.cancelActive,
-    }),
+    ...(input.cancelActive !== undefined && { cancelActive: input.cancelActive }),
     ...(input.pipelineId !== undefined && { pipelineId: input.pipelineId }),
   };
 };
@@ -1940,22 +1932,16 @@ const serializeAws_json1_1DeletePipelineInput = (input: DeletePipelineInput, con
 
 const serializeAws_json1_1DescribeObjectsInput = (input: DescribeObjectsInput, context: __SerdeContext): any => {
   return {
-    ...(input.evaluateExpressions !== undefined && {
-      evaluateExpressions: input.evaluateExpressions,
-    }),
+    ...(input.evaluateExpressions !== undefined && { evaluateExpressions: input.evaluateExpressions }),
     ...(input.marker !== undefined && { marker: input.marker }),
-    ...(input.objectIds !== undefined && {
-      objectIds: serializeAws_json1_1idList(input.objectIds, context),
-    }),
+    ...(input.objectIds !== undefined && { objectIds: serializeAws_json1_1idList(input.objectIds, context) }),
     ...(input.pipelineId !== undefined && { pipelineId: input.pipelineId }),
   };
 };
 
 const serializeAws_json1_1DescribePipelinesInput = (input: DescribePipelinesInput, context: __SerdeContext): any => {
   return {
-    ...(input.pipelineIds !== undefined && {
-      pipelineIds: serializeAws_json1_1idList(input.pipelineIds, context),
-    }),
+    ...(input.pipelineIds !== undefined && { pipelineIds: serializeAws_json1_1idList(input.pipelineIds, context) }),
   };
 };
 
@@ -2009,9 +1995,7 @@ const serializeAws_json1_1ListPipelinesInput = (input: ListPipelinesInput, conte
 const serializeAws_json1_1Operator = (input: Operator, context: __SerdeContext): any => {
   return {
     ...(input.type !== undefined && { type: input.type }),
-    ...(input.values !== undefined && {
-      values: serializeAws_json1_1stringList(input.values, context),
-    }),
+    ...(input.values !== undefined && { values: serializeAws_json1_1stringList(input.values, context) }),
   };
 };
 
@@ -2052,9 +2036,7 @@ const serializeAws_json1_1ParameterValueList = (input: ParameterValue[], context
 
 const serializeAws_json1_1PipelineObject = (input: PipelineObject, context: __SerdeContext): any => {
   return {
-    ...(input.fields !== undefined && {
-      fields: serializeAws_json1_1fieldList(input.fields, context),
-    }),
+    ...(input.fields !== undefined && { fields: serializeAws_json1_1fieldList(input.fields, context) }),
     ...(input.id !== undefined && { id: input.id }),
     ...(input.name !== undefined && { name: input.name }),
   };
@@ -2094,9 +2076,7 @@ const serializeAws_json1_1PutPipelineDefinitionInput = (
 
 const serializeAws_json1_1Query = (input: Query, context: __SerdeContext): any => {
   return {
-    ...(input.selectors !== undefined && {
-      selectors: serializeAws_json1_1SelectorList(input.selectors, context),
-    }),
+    ...(input.selectors !== undefined && { selectors: serializeAws_json1_1SelectorList(input.selectors, context) }),
   };
 };
 
@@ -2105,9 +2085,7 @@ const serializeAws_json1_1QueryObjectsInput = (input: QueryObjectsInput, context
     ...(input.limit !== undefined && { limit: input.limit }),
     ...(input.marker !== undefined && { marker: input.marker }),
     ...(input.pipelineId !== undefined && { pipelineId: input.pipelineId }),
-    ...(input.query !== undefined && {
-      query: serializeAws_json1_1Query(input.query, context),
-    }),
+    ...(input.query !== undefined && { query: serializeAws_json1_1Query(input.query, context) }),
     ...(input.sphere !== undefined && { sphere: input.sphere }),
   };
 };
@@ -2115,17 +2093,13 @@ const serializeAws_json1_1QueryObjectsInput = (input: QueryObjectsInput, context
 const serializeAws_json1_1RemoveTagsInput = (input: RemoveTagsInput, context: __SerdeContext): any => {
   return {
     ...(input.pipelineId !== undefined && { pipelineId: input.pipelineId }),
-    ...(input.tagKeys !== undefined && {
-      tagKeys: serializeAws_json1_1stringList(input.tagKeys, context),
-    }),
+    ...(input.tagKeys !== undefined && { tagKeys: serializeAws_json1_1stringList(input.tagKeys, context) }),
   };
 };
 
 const serializeAws_json1_1ReportTaskProgressInput = (input: ReportTaskProgressInput, context: __SerdeContext): any => {
   return {
-    ...(input.fields !== undefined && {
-      fields: serializeAws_json1_1fieldList(input.fields, context),
-    }),
+    ...(input.fields !== undefined && { fields: serializeAws_json1_1fieldList(input.fields, context) }),
     ...(input.taskId !== undefined && { taskId: input.taskId }),
   };
 };
@@ -2136,9 +2110,7 @@ const serializeAws_json1_1ReportTaskRunnerHeartbeatInput = (
 ): any => {
   return {
     ...(input.hostname !== undefined && { hostname: input.hostname }),
-    ...(input.taskrunnerId !== undefined && {
-      taskrunnerId: input.taskrunnerId,
-    }),
+    ...(input.taskrunnerId !== undefined && { taskrunnerId: input.taskrunnerId }),
     ...(input.workerGroup !== undefined && { workerGroup: input.workerGroup }),
   };
 };
@@ -2146,9 +2118,7 @@ const serializeAws_json1_1ReportTaskRunnerHeartbeatInput = (
 const serializeAws_json1_1Selector = (input: Selector, context: __SerdeContext): any => {
   return {
     ...(input.fieldName !== undefined && { fieldName: input.fieldName }),
-    ...(input.operator !== undefined && {
-      operator: serializeAws_json1_1Operator(input.operator, context),
-    }),
+    ...(input.operator !== undefined && { operator: serializeAws_json1_1Operator(input.operator, context) }),
   };
 };
 
@@ -2158,9 +2128,7 @@ const serializeAws_json1_1SelectorList = (input: Selector[], context: __SerdeCon
 
 const serializeAws_json1_1SetStatusInput = (input: SetStatusInput, context: __SerdeContext): any => {
   return {
-    ...(input.objectIds !== undefined && {
-      objectIds: serializeAws_json1_1idList(input.objectIds, context),
-    }),
+    ...(input.objectIds !== undefined && { objectIds: serializeAws_json1_1idList(input.objectIds, context) }),
     ...(input.pipelineId !== undefined && { pipelineId: input.pipelineId }),
     ...(input.status !== undefined && { status: input.status }),
   };
@@ -2169,12 +2137,8 @@ const serializeAws_json1_1SetStatusInput = (input: SetStatusInput, context: __Se
 const serializeAws_json1_1SetTaskStatusInput = (input: SetTaskStatusInput, context: __SerdeContext): any => {
   return {
     ...(input.errorId !== undefined && { errorId: input.errorId }),
-    ...(input.errorMessage !== undefined && {
-      errorMessage: input.errorMessage,
-    }),
-    ...(input.errorStackTrace !== undefined && {
-      errorStackTrace: input.errorStackTrace,
-    }),
+    ...(input.errorMessage !== undefined && { errorMessage: input.errorMessage }),
+    ...(input.errorStackTrace !== undefined && { errorStackTrace: input.errorStackTrace }),
     ...(input.taskId !== undefined && { taskId: input.taskId }),
     ...(input.taskStatus !== undefined && { taskStatus: input.taskStatus }),
   };

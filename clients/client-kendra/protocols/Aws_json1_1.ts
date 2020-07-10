@@ -2420,9 +2420,7 @@ const serializeAws_json1_1AccessControlListConfiguration = (
 
 const serializeAws_json1_1AclConfiguration = (input: AclConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.AllowedGroupsColumnName !== undefined && {
-      AllowedGroupsColumnName: input.AllowedGroupsColumnName,
-    }),
+    ...(input.AllowedGroupsColumnName !== undefined && { AllowedGroupsColumnName: input.AllowedGroupsColumnName }),
   };
 };
 
@@ -2437,24 +2435,18 @@ const serializeAws_json1_1AttributeFilter = (input: AttributeFilter, context: __
     ...(input.ContainsAny !== undefined && {
       ContainsAny: serializeAws_json1_1DocumentAttribute(input.ContainsAny, context),
     }),
-    ...(input.EqualsTo !== undefined && {
-      EqualsTo: serializeAws_json1_1DocumentAttribute(input.EqualsTo, context),
-    }),
+    ...(input.EqualsTo !== undefined && { EqualsTo: serializeAws_json1_1DocumentAttribute(input.EqualsTo, context) }),
     ...(input.GreaterThan !== undefined && {
       GreaterThan: serializeAws_json1_1DocumentAttribute(input.GreaterThan, context),
     }),
     ...(input.GreaterThanOrEquals !== undefined && {
       GreaterThanOrEquals: serializeAws_json1_1DocumentAttribute(input.GreaterThanOrEquals, context),
     }),
-    ...(input.LessThan !== undefined && {
-      LessThan: serializeAws_json1_1DocumentAttribute(input.LessThan, context),
-    }),
+    ...(input.LessThan !== undefined && { LessThan: serializeAws_json1_1DocumentAttribute(input.LessThan, context) }),
     ...(input.LessThanOrEquals !== undefined && {
       LessThanOrEquals: serializeAws_json1_1DocumentAttribute(input.LessThanOrEquals, context),
     }),
-    ...(input.NotFilter !== undefined && {
-      NotFilter: serializeAws_json1_1AttributeFilter(input.NotFilter, context),
-    }),
+    ...(input.NotFilter !== undefined && { NotFilter: serializeAws_json1_1AttributeFilter(input.NotFilter, context) }),
     ...(input.OrAllFilters !== undefined && {
       OrAllFilters: serializeAws_json1_1AttributeFilterList(input.OrAllFilters, context),
     }),
@@ -2479,9 +2471,7 @@ const serializeAws_json1_1BatchDeleteDocumentRequest = (
 
 const serializeAws_json1_1BatchPutDocumentRequest = (input: BatchPutDocumentRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Documents !== undefined && {
-      Documents: serializeAws_json1_1DocumentList(input.Documents, context),
-    }),
+    ...(input.Documents !== undefined && { Documents: serializeAws_json1_1DocumentList(input.Documents, context) }),
     ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
     ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
   };
@@ -2493,9 +2483,7 @@ const serializeAws_json1_1ChangeDetectingColumns = (input: string[], context: __
 
 const serializeAws_json1_1ClickFeedback = (input: ClickFeedback, context: __SerdeContext): any => {
   return {
-    ...(input.ClickTime !== undefined && {
-      ClickTime: Math.round(input.ClickTime.getTime() / 1000),
-    }),
+    ...(input.ClickTime !== undefined && { ClickTime: Math.round(input.ClickTime.getTime() / 1000) }),
     ...(input.ResultId !== undefined && { ResultId: input.ResultId }),
   };
 };
@@ -2509,15 +2497,9 @@ const serializeAws_json1_1ColumnConfiguration = (input: ColumnConfiguration, con
     ...(input.ChangeDetectingColumns !== undefined && {
       ChangeDetectingColumns: serializeAws_json1_1ChangeDetectingColumns(input.ChangeDetectingColumns, context),
     }),
-    ...(input.DocumentDataColumnName !== undefined && {
-      DocumentDataColumnName: input.DocumentDataColumnName,
-    }),
-    ...(input.DocumentIdColumnName !== undefined && {
-      DocumentIdColumnName: input.DocumentIdColumnName,
-    }),
-    ...(input.DocumentTitleColumnName !== undefined && {
-      DocumentTitleColumnName: input.DocumentTitleColumnName,
-    }),
+    ...(input.DocumentDataColumnName !== undefined && { DocumentDataColumnName: input.DocumentDataColumnName }),
+    ...(input.DocumentIdColumnName !== undefined && { DocumentIdColumnName: input.DocumentIdColumnName }),
+    ...(input.DocumentTitleColumnName !== undefined && { DocumentTitleColumnName: input.DocumentTitleColumnName }),
     ...(input.FieldMappings !== undefined && {
       FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
     }),
@@ -2526,15 +2508,9 @@ const serializeAws_json1_1ColumnConfiguration = (input: ColumnConfiguration, con
 
 const serializeAws_json1_1ConnectionConfiguration = (input: ConnectionConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.DatabaseHost !== undefined && {
-      DatabaseHost: input.DatabaseHost,
-    }),
-    ...(input.DatabaseName !== undefined && {
-      DatabaseName: input.DatabaseName,
-    }),
-    ...(input.DatabasePort !== undefined && {
-      DatabasePort: input.DatabasePort,
-    }),
+    ...(input.DatabaseHost !== undefined && { DatabaseHost: input.DatabaseHost }),
+    ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
+    ...(input.DatabasePort !== undefined && { DatabasePort: input.DatabasePort }),
     ...(input.SecretArn !== undefined && { SecretArn: input.SecretArn }),
     ...(input.TableName !== undefined && { TableName: input.TableName }),
   };
@@ -2560,9 +2536,7 @@ const serializeAws_json1_1CreateFaqRequest = (input: CreateFaqRequest, context: 
     ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
-    ...(input.S3Path !== undefined && {
-      S3Path: serializeAws_json1_1S3Path(input.S3Path, context),
-    }),
+    ...(input.S3Path !== undefined && { S3Path: serializeAws_json1_1S3Path(input.S3Path, context) }),
   };
 };
 
@@ -2591,9 +2565,7 @@ const serializeAws_json1_1DatabaseConfiguration = (input: DatabaseConfiguration,
     ...(input.ConnectionConfiguration !== undefined && {
       ConnectionConfiguration: serializeAws_json1_1ConnectionConfiguration(input.ConnectionConfiguration, context),
     }),
-    ...(input.DatabaseEngineType !== undefined && {
-      DatabaseEngineType: input.DatabaseEngineType,
-    }),
+    ...(input.DatabaseEngineType !== undefined && { DatabaseEngineType: input.DatabaseEngineType }),
     ...(input.VpcConfiguration !== undefined && {
       VpcConfiguration: serializeAws_json1_1DataSourceVpcConfiguration(input.VpcConfiguration, context),
     }),
@@ -2623,15 +2595,9 @@ const serializeAws_json1_1DataSourceToIndexFieldMapping = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DataSourceFieldName !== undefined && {
-      DataSourceFieldName: input.DataSourceFieldName,
-    }),
-    ...(input.DateFieldFormat !== undefined && {
-      DateFieldFormat: input.DateFieldFormat,
-    }),
-    ...(input.IndexFieldName !== undefined && {
-      IndexFieldName: input.IndexFieldName,
-    }),
+    ...(input.DataSourceFieldName !== undefined && { DataSourceFieldName: input.DataSourceFieldName }),
+    ...(input.DateFieldFormat !== undefined && { DateFieldFormat: input.DateFieldFormat }),
+    ...(input.IndexFieldName !== undefined && { IndexFieldName: input.IndexFieldName }),
   };
 };
 
@@ -2650,9 +2616,7 @@ const serializeAws_json1_1DataSourceVpcConfiguration = (
     ...(input.SecurityGroupIds !== undefined && {
       SecurityGroupIds: serializeAws_json1_1SecurityGroupIdList(input.SecurityGroupIds, context),
     }),
-    ...(input.SubnetIds !== undefined && {
-      SubnetIds: serializeAws_json1_1SubnetIdList(input.SubnetIds, context),
-    }),
+    ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_1SubnetIdList(input.SubnetIds, context) }),
   };
 };
 
@@ -2700,14 +2664,10 @@ const serializeAws_json1_1Document = (input: Document, context: __SerdeContext):
     ...(input.Attributes !== undefined && {
       Attributes: serializeAws_json1_1DocumentAttributeList(input.Attributes, context),
     }),
-    ...(input.Blob !== undefined && {
-      Blob: context.base64Encoder(input.Blob),
-    }),
+    ...(input.Blob !== undefined && { Blob: context.base64Encoder(input.Blob) }),
     ...(input.ContentType !== undefined && { ContentType: input.ContentType }),
     ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.S3Path !== undefined && {
-      S3Path: serializeAws_json1_1S3Path(input.S3Path, context),
-    }),
+    ...(input.S3Path !== undefined && { S3Path: serializeAws_json1_1S3Path(input.S3Path, context) }),
     ...(input.Title !== undefined && { Title: input.Title }),
   };
 };
@@ -2715,9 +2675,7 @@ const serializeAws_json1_1Document = (input: Document, context: __SerdeContext):
 const serializeAws_json1_1DocumentAttribute = (input: DocumentAttribute, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && {
-      Value: serializeAws_json1_1DocumentAttributeValue(input.Value, context),
-    }),
+    ...(input.Value !== undefined && { Value: serializeAws_json1_1DocumentAttributeValue(input.Value, context) }),
   };
 };
 
@@ -2735,9 +2693,7 @@ const serializeAws_json1_1DocumentAttributeStringListValue = (input: string[], c
 
 const serializeAws_json1_1DocumentAttributeValue = (input: DocumentAttributeValue, context: __SerdeContext): any => {
   return {
-    ...(input.DateValue !== undefined && {
-      DateValue: Math.round(input.DateValue.getTime() / 1000),
-    }),
+    ...(input.DateValue !== undefined && { DateValue: Math.round(input.DateValue.getTime() / 1000) }),
     ...(input.LongValue !== undefined && { LongValue: input.LongValue }),
     ...(input.StringListValue !== undefined && {
       StringListValue: serializeAws_json1_1DocumentAttributeStringListValue(input.StringListValue, context),
@@ -2760,12 +2716,8 @@ const serializeAws_json1_1DocumentMetadataConfiguration = (
 ): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Relevance !== undefined && {
-      Relevance: serializeAws_json1_1Relevance(input.Relevance, context),
-    }),
-    ...(input.Search !== undefined && {
-      Search: serializeAws_json1_1Search(input.Search, context),
-    }),
+    ...(input.Relevance !== undefined && { Relevance: serializeAws_json1_1Relevance(input.Relevance, context) }),
+    ...(input.Search !== undefined && { Search: serializeAws_json1_1Search(input.Search, context) }),
     ...(input.Type !== undefined && { Type: input.Type }),
   };
 };
@@ -2788,9 +2740,7 @@ const serializeAws_json1_1DocumentsMetadataConfiguration = (
 
 const serializeAws_json1_1Facet = (input: Facet, context: __SerdeContext): any => {
   return {
-    ...(input.DocumentAttributeKey !== undefined && {
-      DocumentAttributeKey: input.DocumentAttributeKey,
-    }),
+    ...(input.DocumentAttributeKey !== undefined && { DocumentAttributeKey: input.DocumentAttributeKey }),
   };
 };
 
@@ -2818,9 +2768,7 @@ const serializeAws_json1_1ListDataSourceSyncJobsRequest = (
     ...(input.StartTimeFilter !== undefined && {
       StartTimeFilter: serializeAws_json1_1TimeRange(input.StartTimeFilter, context),
     }),
-    ...(input.StatusFilter !== undefined && {
-      StatusFilter: input.StatusFilter,
-    }),
+    ...(input.StatusFilter !== undefined && { StatusFilter: input.StatusFilter }),
   };
 };
 
@@ -2856,15 +2804,11 @@ const serializeAws_json1_1QueryRequest = (input: QueryRequest, context: __SerdeC
     ...(input.AttributeFilter !== undefined && {
       AttributeFilter: serializeAws_json1_1AttributeFilter(input.AttributeFilter, context),
     }),
-    ...(input.Facets !== undefined && {
-      Facets: serializeAws_json1_1FacetList(input.Facets, context),
-    }),
+    ...(input.Facets !== undefined && { Facets: serializeAws_json1_1FacetList(input.Facets, context) }),
     ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
     ...(input.PageNumber !== undefined && { PageNumber: input.PageNumber }),
     ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
-    ...(input.QueryResultTypeFilter !== undefined && {
-      QueryResultTypeFilter: input.QueryResultTypeFilter,
-    }),
+    ...(input.QueryResultTypeFilter !== undefined && { QueryResultTypeFilter: input.QueryResultTypeFilter }),
     ...(input.QueryText !== undefined && { QueryText: input.QueryText }),
     ...(input.RequestedDocumentAttributes !== undefined && {
       RequestedDocumentAttributes: serializeAws_json1_1DocumentAttributeKeyList(
@@ -2889,9 +2833,7 @@ const serializeAws_json1_1Relevance = (input: Relevance, context: __SerdeContext
 
 const serializeAws_json1_1RelevanceFeedback = (input: RelevanceFeedback, context: __SerdeContext): any => {
   return {
-    ...(input.RelevanceValue !== undefined && {
-      RelevanceValue: input.RelevanceValue,
-    }),
+    ...(input.RelevanceValue !== undefined && { RelevanceValue: input.RelevanceValue }),
     ...(input.ResultId !== undefined && { ResultId: input.ResultId }),
   };
 };
@@ -2957,22 +2899,14 @@ const serializeAws_json1_1ServerSideEncryptionConfiguration = (
 
 const serializeAws_json1_1SharePointConfiguration = (input: SharePointConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.CrawlAttachments !== undefined && {
-      CrawlAttachments: input.CrawlAttachments,
-    }),
-    ...(input.DocumentTitleFieldName !== undefined && {
-      DocumentTitleFieldName: input.DocumentTitleFieldName,
-    }),
+    ...(input.CrawlAttachments !== undefined && { CrawlAttachments: input.CrawlAttachments }),
+    ...(input.DocumentTitleFieldName !== undefined && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
     ...(input.FieldMappings !== undefined && {
       FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
     }),
     ...(input.SecretArn !== undefined && { SecretArn: input.SecretArn }),
-    ...(input.SharePointVersion !== undefined && {
-      SharePointVersion: input.SharePointVersion,
-    }),
-    ...(input.Urls !== undefined && {
-      Urls: serializeAws_json1_1SharePointUrlList(input.Urls, context),
-    }),
+    ...(input.SharePointVersion !== undefined && { SharePointVersion: input.SharePointVersion }),
+    ...(input.Urls !== undefined && { Urls: serializeAws_json1_1SharePointUrlList(input.Urls, context) }),
     ...(input.VpcConfiguration !== undefined && {
       VpcConfiguration: serializeAws_json1_1DataSourceVpcConfiguration(input.VpcConfiguration, context),
     }),
@@ -3022,12 +2956,8 @@ const serializeAws_json1_1SubnetIdList = (input: string[], context: __SerdeConte
 
 const serializeAws_json1_1TimeRange = (input: TimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime !== undefined && {
-      EndTime: Math.round(input.EndTime.getTime() / 1000),
-    }),
-    ...(input.StartTime !== undefined && {
-      StartTime: Math.round(input.StartTime.getTime() / 1000),
-    }),
+    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 

@@ -1676,9 +1676,7 @@ const serializeAws_json1_1AssociateAdminAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdminAccount !== undefined && {
-      AdminAccount: input.AdminAccount,
-    }),
+    ...(input.AdminAccount !== undefined && { AdminAccount: input.AdminAccount }),
   };
 };
 
@@ -1708,9 +1706,7 @@ const serializeAws_json1_1DeleteNotificationChannelRequest = (
 
 const serializeAws_json1_1DeletePolicyRequest = (input: DeletePolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DeleteAllPolicyResources !== undefined && {
-      DeleteAllPolicyResources: input.DeleteAllPolicyResources,
-    }),
+    ...(input.DeleteAllPolicyResources !== undefined && { DeleteAllPolicyResources: input.DeleteAllPolicyResources }),
     ...(input.PolicyId !== undefined && { PolicyId: input.PolicyId }),
   };
 };
@@ -1731,9 +1727,7 @@ const serializeAws_json1_1GetComplianceDetailRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MemberAccount !== undefined && {
-      MemberAccount: input.MemberAccount,
-    }),
+    ...(input.MemberAccount !== undefined && { MemberAccount: input.MemberAccount }),
     ...(input.PolicyId !== undefined && { PolicyId: input.PolicyId }),
   };
 };
@@ -1756,18 +1750,12 @@ const serializeAws_json1_1GetProtectionStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndTime !== undefined && {
-      EndTime: Math.round(input.EndTime.getTime() / 1000),
-    }),
+    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.MemberAccountId !== undefined && {
-      MemberAccountId: input.MemberAccountId,
-    }),
+    ...(input.MemberAccountId !== undefined && { MemberAccountId: input.MemberAccountId }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.PolicyId !== undefined && { PolicyId: input.PolicyId }),
-    ...(input.StartTime !== undefined && {
-      StartTime: Math.round(input.StartTime.getTime() / 1000),
-    }),
+    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
@@ -1813,26 +1801,18 @@ const serializeAws_json1_1Policy = (input: Policy, context: __SerdeContext): any
     ...(input.ExcludeMap !== undefined && {
       ExcludeMap: serializeAws_json1_1CustomerPolicyScopeMap(input.ExcludeMap, context),
     }),
-    ...(input.ExcludeResourceTags !== undefined && {
-      ExcludeResourceTags: input.ExcludeResourceTags,
-    }),
+    ...(input.ExcludeResourceTags !== undefined && { ExcludeResourceTags: input.ExcludeResourceTags }),
     ...(input.IncludeMap !== undefined && {
       IncludeMap: serializeAws_json1_1CustomerPolicyScopeMap(input.IncludeMap, context),
     }),
     ...(input.PolicyId !== undefined && { PolicyId: input.PolicyId }),
     ...(input.PolicyName !== undefined && { PolicyName: input.PolicyName }),
-    ...(input.PolicyUpdateToken !== undefined && {
-      PolicyUpdateToken: input.PolicyUpdateToken,
-    }),
-    ...(input.RemediationEnabled !== undefined && {
-      RemediationEnabled: input.RemediationEnabled,
-    }),
+    ...(input.PolicyUpdateToken !== undefined && { PolicyUpdateToken: input.PolicyUpdateToken }),
+    ...(input.RemediationEnabled !== undefined && { RemediationEnabled: input.RemediationEnabled }),
     ...(input.ResourceTags !== undefined && {
       ResourceTags: serializeAws_json1_1ResourceTags(input.ResourceTags, context),
     }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
     ...(input.ResourceTypeList !== undefined && {
       ResourceTypeList: serializeAws_json1_1ResourceTypeList(input.ResourceTypeList, context),
     }),
@@ -1857,12 +1837,8 @@ const serializeAws_json1_1PutNotificationChannelRequest = (
 
 const serializeAws_json1_1PutPolicyRequest = (input: PutPolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Policy !== undefined && {
-      Policy: serializeAws_json1_1Policy(input.Policy, context),
-    }),
-    ...(input.TagList !== undefined && {
-      TagList: serializeAws_json1_1TagList(input.TagList, context),
-    }),
+    ...(input.Policy !== undefined && { Policy: serializeAws_json1_1Policy(input.Policy, context) }),
+    ...(input.TagList !== undefined && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
   };
 };
 
@@ -1886,9 +1862,7 @@ const serializeAws_json1_1SecurityServicePolicyData = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ManagedServiceData !== undefined && {
-      ManagedServiceData: input.ManagedServiceData,
-    }),
+    ...(input.ManagedServiceData !== undefined && { ManagedServiceData: input.ManagedServiceData }),
     ...(input.Type !== undefined && { Type: input.Type }),
   };
 };
@@ -1911,18 +1885,14 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagList !== undefined && {
-      TagList: serializeAws_json1_1TagList(input.TagList, context),
-    }),
+    ...(input.TagList !== undefined && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 

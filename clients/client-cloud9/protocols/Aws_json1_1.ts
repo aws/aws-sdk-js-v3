@@ -1356,16 +1356,10 @@ const serializeAws_json1_1CreateEnvironmentEC2Request = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.automaticStopTimeMinutes !== undefined && {
-      automaticStopTimeMinutes: input.automaticStopTimeMinutes,
-    }),
-    ...(input.clientRequestToken !== undefined && {
-      clientRequestToken: input.clientRequestToken,
-    }),
+    ...(input.automaticStopTimeMinutes !== undefined && { automaticStopTimeMinutes: input.automaticStopTimeMinutes }),
+    ...(input.clientRequestToken !== undefined && { clientRequestToken: input.clientRequestToken }),
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.instanceType !== undefined && {
-      instanceType: input.instanceType,
-    }),
+    ...(input.instanceType !== undefined && { instanceType: input.instanceType }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.ownerArn !== undefined && { ownerArn: input.ownerArn }),
     ...(input.subnetId !== undefined && { subnetId: input.subnetId }),
@@ -1377,9 +1371,7 @@ const serializeAws_json1_1CreateEnvironmentMembershipRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentId !== undefined && {
-      environmentId: input.environmentId,
-    }),
+    ...(input.environmentId !== undefined && { environmentId: input.environmentId }),
     ...(input.permissions !== undefined && { permissions: input.permissions }),
     ...(input.userArn !== undefined && { userArn: input.userArn }),
   };
@@ -1390,9 +1382,7 @@ const serializeAws_json1_1DeleteEnvironmentMembershipRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentId !== undefined && {
-      environmentId: input.environmentId,
-    }),
+    ...(input.environmentId !== undefined && { environmentId: input.environmentId }),
     ...(input.userArn !== undefined && { userArn: input.userArn }),
   };
 };
@@ -1402,9 +1392,7 @@ const serializeAws_json1_1DeleteEnvironmentRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentId !== undefined && {
-      environmentId: input.environmentId,
-    }),
+    ...(input.environmentId !== undefined && { environmentId: input.environmentId }),
   };
 };
 
@@ -1413,9 +1401,7 @@ const serializeAws_json1_1DescribeEnvironmentMembershipsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentId !== undefined && {
-      environmentId: input.environmentId,
-    }),
+    ...(input.environmentId !== undefined && { environmentId: input.environmentId }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.permissions !== undefined && {
@@ -1441,9 +1427,7 @@ const serializeAws_json1_1DescribeEnvironmentStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentId !== undefined && {
-      environmentId: input.environmentId,
-    }),
+    ...(input.environmentId !== undefined && { environmentId: input.environmentId }),
   };
 };
 
@@ -1463,9 +1447,7 @@ const serializeAws_json1_1UpdateEnvironmentMembershipRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentId !== undefined && {
-      environmentId: input.environmentId,
-    }),
+    ...(input.environmentId !== undefined && { environmentId: input.environmentId }),
     ...(input.permissions !== undefined && { permissions: input.permissions }),
     ...(input.userArn !== undefined && { userArn: input.userArn }),
   };
@@ -1477,9 +1459,7 @@ const serializeAws_json1_1UpdateEnvironmentRequest = (
 ): any => {
   return {
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.environmentId !== undefined && {
-      environmentId: input.environmentId,
-    }),
+    ...(input.environmentId !== undefined && { environmentId: input.environmentId }),
     ...(input.name !== undefined && { name: input.name }),
   };
 };

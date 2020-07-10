@@ -3290,9 +3290,7 @@ export interface CreateUserPoolClientResponse {
 export namespace CreateUserPoolClientResponse {
   export const filterSensitiveLog = (obj: CreateUserPoolClientResponse): any => ({
     ...obj,
-    ...(obj.UserPoolClient && {
-      UserPoolClient: UserPoolClientType.filterSensitiveLog(obj.UserPoolClient),
-    }),
+    ...(obj.UserPoolClient && { UserPoolClient: UserPoolClientType.filterSensitiveLog(obj.UserPoolClient) }),
   });
   export const isa = (o: any): o is CreateUserPoolClientResponse => __isa(o, "CreateUserPoolClientResponse");
 }
@@ -3906,9 +3904,7 @@ export interface DescribeUserPoolClientResponse {
 export namespace DescribeUserPoolClientResponse {
   export const filterSensitiveLog = (obj: DescribeUserPoolClientResponse): any => ({
     ...obj,
-    ...(obj.UserPoolClient && {
-      UserPoolClient: UserPoolClientType.filterSensitiveLog(obj.UserPoolClient),
-    }),
+    ...(obj.UserPoolClient && { UserPoolClient: UserPoolClientType.filterSensitiveLog(obj.UserPoolClient) }),
   });
   export const isa = (o: any): o is DescribeUserPoolClientResponse => __isa(o, "DescribeUserPoolClientResponse");
 }
@@ -4763,9 +4759,7 @@ export interface GetUICustomizationResponse {
 export namespace GetUICustomizationResponse {
   export const filterSensitiveLog = (obj: GetUICustomizationResponse): any => ({
     ...obj,
-    ...(obj.UICustomization && {
-      UICustomization: UICustomizationType.filterSensitiveLog(obj.UICustomization),
-    }),
+    ...(obj.UICustomization && { UICustomization: UICustomizationType.filterSensitiveLog(obj.UICustomization) }),
   });
   export const isa = (o: any): o is GetUICustomizationResponse => __isa(o, "GetUICustomizationResponse");
 }
@@ -6150,9 +6144,7 @@ export interface ListUsersInGroupResponse {
 export namespace ListUsersInGroupResponse {
   export const filterSensitiveLog = (obj: ListUsersInGroupResponse): any => ({
     ...obj,
-    ...(obj.Users && {
-      Users: obj.Users.map((item) => UserType.filterSensitiveLog(item)),
-    }),
+    ...(obj.Users && { Users: obj.Users.map((item) => UserType.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is ListUsersInGroupResponse => __isa(o, "ListUsersInGroupResponse");
 }
@@ -6296,9 +6288,7 @@ export interface ListUsersResponse {
 export namespace ListUsersResponse {
   export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
     ...obj,
-    ...(obj.Users && {
-      Users: obj.Users.map((item) => UserType.filterSensitiveLog(item)),
-    }),
+    ...(obj.Users && { Users: obj.Users.map((item) => UserType.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is ListUsersResponse => __isa(o, "ListUsersResponse");
 }
@@ -7330,9 +7320,7 @@ export interface SetUICustomizationResponse {
 export namespace SetUICustomizationResponse {
   export const filterSensitiveLog = (obj: SetUICustomizationResponse): any => ({
     ...obj,
-    ...(obj.UICustomization && {
-      UICustomization: UICustomizationType.filterSensitiveLog(obj.UICustomization),
-    }),
+    ...(obj.UICustomization && { UICustomization: UICustomizationType.filterSensitiveLog(obj.UICustomization) }),
   });
   export const isa = (o: any): o is SetUICustomizationResponse => __isa(o, "SetUICustomizationResponse");
 }
@@ -8641,9 +8629,7 @@ export interface UpdateUserPoolClientResponse {
 export namespace UpdateUserPoolClientResponse {
   export const filterSensitiveLog = (obj: UpdateUserPoolClientResponse): any => ({
     ...obj,
-    ...(obj.UserPoolClient && {
-      UserPoolClient: UserPoolClientType.filterSensitiveLog(obj.UserPoolClient),
-    }),
+    ...(obj.UserPoolClient && { UserPoolClient: UserPoolClientType.filterSensitiveLog(obj.UserPoolClient) }),
   });
   export const isa = (o: any): o is UpdateUserPoolClientResponse => __isa(o, "UpdateUserPoolClientResponse");
 }
@@ -9740,9 +9726,7 @@ export interface UserType {
 export namespace UserType {
   export const filterSensitiveLog = (obj: UserType): any => ({
     ...obj,
-    ...(obj.Attributes && {
-      Attributes: obj.Attributes.map((item) => AttributeType.filterSensitiveLog(item)),
-    }),
+    ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => AttributeType.filterSensitiveLog(item)) }),
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is UserType => __isa(o, "UserType");

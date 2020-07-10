@@ -2244,17 +2244,13 @@ const serializeAws_json1_1CancelTaskExecutionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.TaskExecutionArn !== undefined && {
-      TaskExecutionArn: input.TaskExecutionArn,
-    }),
+    ...(input.TaskExecutionArn !== undefined && { TaskExecutionArn: input.TaskExecutionArn }),
   };
 };
 
 const serializeAws_json1_1CreateAgentRequest = (input: CreateAgentRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ActivationKey !== undefined && {
-      ActivationKey: input.ActivationKey,
-    }),
+    ...(input.ActivationKey !== undefined && { ActivationKey: input.ActivationKey }),
     ...(input.AgentName !== undefined && { AgentName: input.AgentName }),
     ...(input.SecurityGroupArns !== undefined && {
       SecurityGroupArns: serializeAws_json1_1PLSecurityGroupArnList(input.SecurityGroupArns, context),
@@ -2262,12 +2258,8 @@ const serializeAws_json1_1CreateAgentRequest = (input: CreateAgentRequest, conte
     ...(input.SubnetArns !== undefined && {
       SubnetArns: serializeAws_json1_1PLSubnetArnList(input.SubnetArns, context),
     }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
-    ...(input.VpcEndpointId !== undefined && {
-      VpcEndpointId: input.VpcEndpointId,
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.VpcEndpointId !== undefined && { VpcEndpointId: input.VpcEndpointId }),
   };
 };
 
@@ -2276,18 +2268,10 @@ const serializeAws_json1_1CreateLocationEfsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Ec2Config !== undefined && {
-      Ec2Config: serializeAws_json1_1Ec2Config(input.Ec2Config, context),
-    }),
-    ...(input.EfsFilesystemArn !== undefined && {
-      EfsFilesystemArn: input.EfsFilesystemArn,
-    }),
-    ...(input.Subdirectory !== undefined && {
-      Subdirectory: input.Subdirectory,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Ec2Config !== undefined && { Ec2Config: serializeAws_json1_1Ec2Config(input.Ec2Config, context) }),
+    ...(input.EfsFilesystemArn !== undefined && { EfsFilesystemArn: input.EfsFilesystemArn }),
+    ...(input.Subdirectory !== undefined && { Subdirectory: input.Subdirectory }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -2302,33 +2286,19 @@ const serializeAws_json1_1CreateLocationNfsRequest = (
     ...(input.OnPremConfig !== undefined && {
       OnPremConfig: serializeAws_json1_1OnPremConfig(input.OnPremConfig, context),
     }),
-    ...(input.ServerHostname !== undefined && {
-      ServerHostname: input.ServerHostname,
-    }),
-    ...(input.Subdirectory !== undefined && {
-      Subdirectory: input.Subdirectory,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.ServerHostname !== undefined && { ServerHostname: input.ServerHostname }),
+    ...(input.Subdirectory !== undefined && { Subdirectory: input.Subdirectory }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateLocationS3Request = (input: CreateLocationS3Request, context: __SerdeContext): any => {
   return {
     ...(input.S3BucketArn !== undefined && { S3BucketArn: input.S3BucketArn }),
-    ...(input.S3Config !== undefined && {
-      S3Config: serializeAws_json1_1S3Config(input.S3Config, context),
-    }),
-    ...(input.S3StorageClass !== undefined && {
-      S3StorageClass: input.S3StorageClass,
-    }),
-    ...(input.Subdirectory !== undefined && {
-      Subdirectory: input.Subdirectory,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.S3Config !== undefined && { S3Config: serializeAws_json1_1S3Config(input.S3Config, context) }),
+    ...(input.S3StorageClass !== undefined && { S3StorageClass: input.S3StorageClass }),
+    ...(input.Subdirectory !== undefined && { Subdirectory: input.Subdirectory }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -2337,51 +2307,29 @@ const serializeAws_json1_1CreateLocationSmbRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AgentArns !== undefined && {
-      AgentArns: serializeAws_json1_1AgentArnList(input.AgentArns, context),
-    }),
+    ...(input.AgentArns !== undefined && { AgentArns: serializeAws_json1_1AgentArnList(input.AgentArns, context) }),
     ...(input.Domain !== undefined && { Domain: input.Domain }),
     ...(input.MountOptions !== undefined && {
       MountOptions: serializeAws_json1_1SmbMountOptions(input.MountOptions, context),
     }),
     ...(input.Password !== undefined && { Password: input.Password }),
-    ...(input.ServerHostname !== undefined && {
-      ServerHostname: input.ServerHostname,
-    }),
-    ...(input.Subdirectory !== undefined && {
-      Subdirectory: input.Subdirectory,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.ServerHostname !== undefined && { ServerHostname: input.ServerHostname }),
+    ...(input.Subdirectory !== undefined && { Subdirectory: input.Subdirectory }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.User !== undefined && { User: input.User }),
   };
 };
 
 const serializeAws_json1_1CreateTaskRequest = (input: CreateTaskRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CloudWatchLogGroupArn !== undefined && {
-      CloudWatchLogGroupArn: input.CloudWatchLogGroupArn,
-    }),
-    ...(input.DestinationLocationArn !== undefined && {
-      DestinationLocationArn: input.DestinationLocationArn,
-    }),
-    ...(input.Excludes !== undefined && {
-      Excludes: serializeAws_json1_1FilterList(input.Excludes, context),
-    }),
+    ...(input.CloudWatchLogGroupArn !== undefined && { CloudWatchLogGroupArn: input.CloudWatchLogGroupArn }),
+    ...(input.DestinationLocationArn !== undefined && { DestinationLocationArn: input.DestinationLocationArn }),
+    ...(input.Excludes !== undefined && { Excludes: serializeAws_json1_1FilterList(input.Excludes, context) }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Options !== undefined && {
-      Options: serializeAws_json1_1Options(input.Options, context),
-    }),
-    ...(input.Schedule !== undefined && {
-      Schedule: serializeAws_json1_1TaskSchedule(input.Schedule, context),
-    }),
-    ...(input.SourceLocationArn !== undefined && {
-      SourceLocationArn: input.SourceLocationArn,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Options !== undefined && { Options: serializeAws_json1_1Options(input.Options, context) }),
+    ...(input.Schedule !== undefined && { Schedule: serializeAws_json1_1TaskSchedule(input.Schedule, context) }),
+    ...(input.SourceLocationArn !== undefined && { SourceLocationArn: input.SourceLocationArn }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -2450,9 +2398,7 @@ const serializeAws_json1_1DescribeTaskExecutionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.TaskExecutionArn !== undefined && {
-      TaskExecutionArn: input.TaskExecutionArn,
-    }),
+    ...(input.TaskExecutionArn !== undefined && { TaskExecutionArn: input.TaskExecutionArn }),
   };
 };
 
@@ -2537,35 +2483,21 @@ const serializeAws_json1_1NfsMountOptions = (input: NfsMountOptions, context: __
 
 const serializeAws_json1_1OnPremConfig = (input: OnPremConfig, context: __SerdeContext): any => {
   return {
-    ...(input.AgentArns !== undefined && {
-      AgentArns: serializeAws_json1_1AgentArnList(input.AgentArns, context),
-    }),
+    ...(input.AgentArns !== undefined && { AgentArns: serializeAws_json1_1AgentArnList(input.AgentArns, context) }),
   };
 };
 
 const serializeAws_json1_1Options = (input: Options, context: __SerdeContext): any => {
   return {
     ...(input.Atime !== undefined && { Atime: input.Atime }),
-    ...(input.BytesPerSecond !== undefined && {
-      BytesPerSecond: input.BytesPerSecond,
-    }),
+    ...(input.BytesPerSecond !== undefined && { BytesPerSecond: input.BytesPerSecond }),
     ...(input.Gid !== undefined && { Gid: input.Gid }),
     ...(input.Mtime !== undefined && { Mtime: input.Mtime }),
-    ...(input.OverwriteMode !== undefined && {
-      OverwriteMode: input.OverwriteMode,
-    }),
-    ...(input.PosixPermissions !== undefined && {
-      PosixPermissions: input.PosixPermissions,
-    }),
-    ...(input.PreserveDeletedFiles !== undefined && {
-      PreserveDeletedFiles: input.PreserveDeletedFiles,
-    }),
-    ...(input.PreserveDevices !== undefined && {
-      PreserveDevices: input.PreserveDevices,
-    }),
-    ...(input.TaskQueueing !== undefined && {
-      TaskQueueing: input.TaskQueueing,
-    }),
+    ...(input.OverwriteMode !== undefined && { OverwriteMode: input.OverwriteMode }),
+    ...(input.PosixPermissions !== undefined && { PosixPermissions: input.PosixPermissions }),
+    ...(input.PreserveDeletedFiles !== undefined && { PreserveDeletedFiles: input.PreserveDeletedFiles }),
+    ...(input.PreserveDevices !== undefined && { PreserveDevices: input.PreserveDevices }),
+    ...(input.TaskQueueing !== undefined && { TaskQueueing: input.TaskQueueing }),
     ...(input.Uid !== undefined && { Uid: input.Uid }),
     ...(input.VerifyMode !== undefined && { VerifyMode: input.VerifyMode }),
   };
@@ -2581,9 +2513,7 @@ const serializeAws_json1_1PLSubnetArnList = (input: string[], context: __SerdeCo
 
 const serializeAws_json1_1S3Config = (input: S3Config, context: __SerdeContext): any => {
   return {
-    ...(input.BucketAccessRoleArn !== undefined && {
-      BucketAccessRoleArn: input.BucketAccessRoleArn,
-    }),
+    ...(input.BucketAccessRoleArn !== undefined && { BucketAccessRoleArn: input.BucketAccessRoleArn }),
   };
 };
 
@@ -2598,9 +2528,7 @@ const serializeAws_json1_1StartTaskExecutionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Includes !== undefined && {
-      Includes: serializeAws_json1_1FilterList(input.Includes, context),
-    }),
+    ...(input.Includes !== undefined && { Includes: serializeAws_json1_1FilterList(input.Includes, context) }),
     ...(input.OverrideOptions !== undefined && {
       OverrideOptions: serializeAws_json1_1Options(input.OverrideOptions, context),
     }),
@@ -2626,25 +2554,19 @@ const serializeAws_json1_1TagListEntry = (input: TagListEntry, context: __SerdeC
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1TaskSchedule = (input: TaskSchedule, context: __SerdeContext): any => {
   return {
-    ...(input.ScheduleExpression !== undefined && {
-      ScheduleExpression: input.ScheduleExpression,
-    }),
+    ...(input.ScheduleExpression !== undefined && { ScheduleExpression: input.ScheduleExpression }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Keys !== undefined && {
-      Keys: serializeAws_json1_1TagKeyList(input.Keys, context),
-    }),
+    ...(input.Keys !== undefined && { Keys: serializeAws_json1_1TagKeyList(input.Keys, context) }),
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
   };
 };
@@ -2658,19 +2580,11 @@ const serializeAws_json1_1UpdateAgentRequest = (input: UpdateAgentRequest, conte
 
 const serializeAws_json1_1UpdateTaskRequest = (input: UpdateTaskRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CloudWatchLogGroupArn !== undefined && {
-      CloudWatchLogGroupArn: input.CloudWatchLogGroupArn,
-    }),
-    ...(input.Excludes !== undefined && {
-      Excludes: serializeAws_json1_1FilterList(input.Excludes, context),
-    }),
+    ...(input.CloudWatchLogGroupArn !== undefined && { CloudWatchLogGroupArn: input.CloudWatchLogGroupArn }),
+    ...(input.Excludes !== undefined && { Excludes: serializeAws_json1_1FilterList(input.Excludes, context) }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Options !== undefined && {
-      Options: serializeAws_json1_1Options(input.Options, context),
-    }),
-    ...(input.Schedule !== undefined && {
-      Schedule: serializeAws_json1_1TaskSchedule(input.Schedule, context),
-    }),
+    ...(input.Options !== undefined && { Options: serializeAws_json1_1Options(input.Options, context) }),
+    ...(input.Schedule !== undefined && { Schedule: serializeAws_json1_1TaskSchedule(input.Schedule, context) }),
     ...(input.TaskArn !== undefined && { TaskArn: input.TaskArn }),
   };
 };

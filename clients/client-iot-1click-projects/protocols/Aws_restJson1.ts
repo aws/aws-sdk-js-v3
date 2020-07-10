@@ -124,9 +124,7 @@ export const serializeAws_restJson1CreatePlacementCommand = async (
     ...(input.attributes !== undefined && {
       attributes: serializeAws_restJson1PlacementAttributeMap(input.attributes, context),
     }),
-    ...(input.placementName !== undefined && {
-      placementName: input.placementName,
-    }),
+    ...(input.placementName !== undefined && { placementName: input.placementName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -155,9 +153,7 @@ export const serializeAws_restJson1CreateProjectCommand = async (
       placementTemplate: serializeAws_restJson1PlacementTemplate(input.placementTemplate, context),
     }),
     ...(input.projectName !== undefined && { projectName: input.projectName }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -414,9 +410,7 @@ export const serializeAws_restJson1ListPlacementsCommand = async (
     throw new Error("No value provided for input HTTP label: projectName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -442,9 +436,7 @@ export const serializeAws_restJson1ListProjectsCommand = async (
   };
   let resolvedPath = "/projects";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -510,9 +502,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -544,9 +534,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && {
-      tagKeys: (input.tagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

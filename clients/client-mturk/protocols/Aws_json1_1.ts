@@ -3251,12 +3251,8 @@ const serializeAws_json1_1AcceptQualificationRequestRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IntegerValue !== undefined && {
-      IntegerValue: input.IntegerValue,
-    }),
-    ...(input.QualificationRequestId !== undefined && {
-      QualificationRequestId: input.QualificationRequestId,
-    }),
+    ...(input.IntegerValue !== undefined && { IntegerValue: input.IntegerValue }),
+    ...(input.QualificationRequestId !== undefined && { QualificationRequestId: input.QualificationRequestId }),
   };
 };
 
@@ -3265,15 +3261,9 @@ const serializeAws_json1_1ApproveAssignmentRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssignmentId !== undefined && {
-      AssignmentId: input.AssignmentId,
-    }),
-    ...(input.OverrideRejection !== undefined && {
-      OverrideRejection: input.OverrideRejection,
-    }),
-    ...(input.RequesterFeedback !== undefined && {
-      RequesterFeedback: input.RequesterFeedback,
-    }),
+    ...(input.AssignmentId !== undefined && { AssignmentId: input.AssignmentId }),
+    ...(input.OverrideRejection !== undefined && { OverrideRejection: input.OverrideRejection }),
+    ...(input.RequesterFeedback !== undefined && { RequesterFeedback: input.RequesterFeedback }),
   };
 };
 
@@ -3289,15 +3279,9 @@ const serializeAws_json1_1AssociateQualificationWithWorkerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IntegerValue !== undefined && {
-      IntegerValue: input.IntegerValue,
-    }),
-    ...(input.QualificationTypeId !== undefined && {
-      QualificationTypeId: input.QualificationTypeId,
-    }),
-    ...(input.SendNotification !== undefined && {
-      SendNotification: input.SendNotification,
-    }),
+    ...(input.IntegerValue !== undefined && { IntegerValue: input.IntegerValue }),
+    ...(input.QualificationTypeId !== undefined && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.SendNotification !== undefined && { SendNotification: input.SendNotification }),
     ...(input.WorkerId !== undefined && { WorkerId: input.WorkerId }),
   };
 };
@@ -3311,9 +3295,7 @@ const serializeAws_json1_1CreateAdditionalAssignmentsForHITRequest = (
     ...(input.NumberOfAdditionalAssignments !== undefined && {
       NumberOfAdditionalAssignments: input.NumberOfAdditionalAssignments,
     }),
-    ...(input.UniqueRequestToken !== undefined && {
-      UniqueRequestToken: input.UniqueRequestToken,
-    }),
+    ...(input.UniqueRequestToken !== undefined && { UniqueRequestToken: input.UniqueRequestToken }),
   };
 };
 
@@ -3337,12 +3319,8 @@ const serializeAws_json1_1CreateHITRequest = (input: CreateHITRequest, context: 
       HITReviewPolicy: serializeAws_json1_1ReviewPolicy(input.HITReviewPolicy, context),
     }),
     ...(input.Keywords !== undefined && { Keywords: input.Keywords }),
-    ...(input.LifetimeInSeconds !== undefined && {
-      LifetimeInSeconds: input.LifetimeInSeconds,
-    }),
-    ...(input.MaxAssignments !== undefined && {
-      MaxAssignments: input.MaxAssignments,
-    }),
+    ...(input.LifetimeInSeconds !== undefined && { LifetimeInSeconds: input.LifetimeInSeconds }),
+    ...(input.MaxAssignments !== undefined && { MaxAssignments: input.MaxAssignments }),
     ...(input.QualificationRequirements !== undefined && {
       QualificationRequirements: serializeAws_json1_1QualificationRequirementList(
         input.QualificationRequirements,
@@ -3350,14 +3328,10 @@ const serializeAws_json1_1CreateHITRequest = (input: CreateHITRequest, context: 
       ),
     }),
     ...(input.Question !== undefined && { Question: input.Question }),
-    ...(input.RequesterAnnotation !== undefined && {
-      RequesterAnnotation: input.RequesterAnnotation,
-    }),
+    ...(input.RequesterAnnotation !== undefined && { RequesterAnnotation: input.RequesterAnnotation }),
     ...(input.Reward !== undefined && { Reward: input.Reward }),
     ...(input.Title !== undefined && { Title: input.Title }),
-    ...(input.UniqueRequestToken !== undefined && {
-      UniqueRequestToken: input.UniqueRequestToken,
-    }),
+    ...(input.UniqueRequestToken !== undefined && { UniqueRequestToken: input.UniqueRequestToken }),
   };
 };
 
@@ -3398,19 +3372,11 @@ const serializeAws_json1_1CreateHITWithHITTypeRequest = (
       HITReviewPolicy: serializeAws_json1_1ReviewPolicy(input.HITReviewPolicy, context),
     }),
     ...(input.HITTypeId !== undefined && { HITTypeId: input.HITTypeId }),
-    ...(input.LifetimeInSeconds !== undefined && {
-      LifetimeInSeconds: input.LifetimeInSeconds,
-    }),
-    ...(input.MaxAssignments !== undefined && {
-      MaxAssignments: input.MaxAssignments,
-    }),
+    ...(input.LifetimeInSeconds !== undefined && { LifetimeInSeconds: input.LifetimeInSeconds }),
+    ...(input.MaxAssignments !== undefined && { MaxAssignments: input.MaxAssignments }),
     ...(input.Question !== undefined && { Question: input.Question }),
-    ...(input.RequesterAnnotation !== undefined && {
-      RequesterAnnotation: input.RequesterAnnotation,
-    }),
-    ...(input.UniqueRequestToken !== undefined && {
-      UniqueRequestToken: input.UniqueRequestToken,
-    }),
+    ...(input.RequesterAnnotation !== undefined && { RequesterAnnotation: input.RequesterAnnotation }),
+    ...(input.UniqueRequestToken !== undefined && { UniqueRequestToken: input.UniqueRequestToken }),
   };
 };
 
@@ -3421,22 +3387,14 @@ const serializeAws_json1_1CreateQualificationTypeRequest = (
   return {
     ...(input.AnswerKey !== undefined && { AnswerKey: input.AnswerKey }),
     ...(input.AutoGranted !== undefined && { AutoGranted: input.AutoGranted }),
-    ...(input.AutoGrantedValue !== undefined && {
-      AutoGrantedValue: input.AutoGrantedValue,
-    }),
+    ...(input.AutoGrantedValue !== undefined && { AutoGrantedValue: input.AutoGrantedValue }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.Keywords !== undefined && { Keywords: input.Keywords }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.QualificationTypeStatus !== undefined && {
-      QualificationTypeStatus: input.QualificationTypeStatus,
-    }),
-    ...(input.RetryDelayInSeconds !== undefined && {
-      RetryDelayInSeconds: input.RetryDelayInSeconds,
-    }),
+    ...(input.QualificationTypeStatus !== undefined && { QualificationTypeStatus: input.QualificationTypeStatus }),
+    ...(input.RetryDelayInSeconds !== undefined && { RetryDelayInSeconds: input.RetryDelayInSeconds }),
     ...(input.Test !== undefined && { Test: input.Test }),
-    ...(input.TestDurationInSeconds !== undefined && {
-      TestDurationInSeconds: input.TestDurationInSeconds,
-    }),
+    ...(input.TestDurationInSeconds !== undefined && { TestDurationInSeconds: input.TestDurationInSeconds }),
   };
 };
 
@@ -3465,9 +3423,7 @@ const serializeAws_json1_1DeleteQualificationTypeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.QualificationTypeId !== undefined && {
-      QualificationTypeId: input.QualificationTypeId,
-    }),
+    ...(input.QualificationTypeId !== undefined && { QualificationTypeId: input.QualificationTypeId }),
   };
 };
 
@@ -3486,9 +3442,7 @@ const serializeAws_json1_1DisassociateQualificationFromWorkerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.QualificationTypeId !== undefined && {
-      QualificationTypeId: input.QualificationTypeId,
-    }),
+    ...(input.QualificationTypeId !== undefined && { QualificationTypeId: input.QualificationTypeId }),
     ...(input.Reason !== undefined && { Reason: input.Reason }),
     ...(input.WorkerId !== undefined && { WorkerId: input.WorkerId }),
   };
@@ -3507,20 +3461,14 @@ const serializeAws_json1_1GetAccountBalanceRequest = (
 
 const serializeAws_json1_1GetAssignmentRequest = (input: GetAssignmentRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AssignmentId !== undefined && {
-      AssignmentId: input.AssignmentId,
-    }),
+    ...(input.AssignmentId !== undefined && { AssignmentId: input.AssignmentId }),
   };
 };
 
 const serializeAws_json1_1GetFileUploadURLRequest = (input: GetFileUploadURLRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AssignmentId !== undefined && {
-      AssignmentId: input.AssignmentId,
-    }),
-    ...(input.QuestionIdentifier !== undefined && {
-      QuestionIdentifier: input.QuestionIdentifier,
-    }),
+    ...(input.AssignmentId !== undefined && { AssignmentId: input.AssignmentId }),
+    ...(input.QuestionIdentifier !== undefined && { QuestionIdentifier: input.QuestionIdentifier }),
   };
 };
 
@@ -3535,9 +3483,7 @@ const serializeAws_json1_1GetQualificationScoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.QualificationTypeId !== undefined && {
-      QualificationTypeId: input.QualificationTypeId,
-    }),
+    ...(input.QualificationTypeId !== undefined && { QualificationTypeId: input.QualificationTypeId }),
     ...(input.WorkerId !== undefined && { WorkerId: input.WorkerId }),
   };
 };
@@ -3547,9 +3493,7 @@ const serializeAws_json1_1GetQualificationTypeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.QualificationTypeId !== undefined && {
-      QualificationTypeId: input.QualificationTypeId,
-    }),
+    ...(input.QualificationTypeId !== undefined && { QualificationTypeId: input.QualificationTypeId }),
   };
 };
 
@@ -3587,9 +3531,7 @@ const serializeAws_json1_1ListBonusPaymentsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssignmentId !== undefined && {
-      AssignmentId: input.AssignmentId,
-    }),
+    ...(input.AssignmentId !== undefined && { AssignmentId: input.AssignmentId }),
     ...(input.HITId !== undefined && { HITId: input.HITId }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -3603,9 +3545,7 @@ const serializeAws_json1_1ListHITsForQualificationTypeRequest = (
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.QualificationTypeId !== undefined && {
-      QualificationTypeId: input.QualificationTypeId,
-    }),
+    ...(input.QualificationTypeId !== undefined && { QualificationTypeId: input.QualificationTypeId }),
   };
 };
 
@@ -3623,9 +3563,7 @@ const serializeAws_json1_1ListQualificationRequestsRequest = (
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.QualificationTypeId !== undefined && {
-      QualificationTypeId: input.QualificationTypeId,
-    }),
+    ...(input.QualificationTypeId !== undefined && { QualificationTypeId: input.QualificationTypeId }),
   };
 };
 
@@ -3635,12 +3573,8 @@ const serializeAws_json1_1ListQualificationTypesRequest = (
 ): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.MustBeOwnedByCaller !== undefined && {
-      MustBeOwnedByCaller: input.MustBeOwnedByCaller,
-    }),
-    ...(input.MustBeRequestable !== undefined && {
-      MustBeRequestable: input.MustBeRequestable,
-    }),
+    ...(input.MustBeOwnedByCaller !== undefined && { MustBeOwnedByCaller: input.MustBeOwnedByCaller }),
+    ...(input.MustBeRequestable !== undefined && { MustBeRequestable: input.MustBeRequestable }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.Query !== undefined && { Query: input.Query }),
   };
@@ -3669,12 +3603,8 @@ const serializeAws_json1_1ListReviewPolicyResultsForHITRequest = (
     ...(input.PolicyLevels !== undefined && {
       PolicyLevels: serializeAws_json1_1ReviewPolicyLevelList(input.PolicyLevels, context),
     }),
-    ...(input.RetrieveActions !== undefined && {
-      RetrieveActions: input.RetrieveActions,
-    }),
-    ...(input.RetrieveResults !== undefined && {
-      RetrieveResults: input.RetrieveResults,
-    }),
+    ...(input.RetrieveActions !== undefined && { RetrieveActions: input.RetrieveActions }),
+    ...(input.RetrieveResults !== undefined && { RetrieveResults: input.RetrieveResults }),
   };
 };
 
@@ -3692,9 +3622,7 @@ const serializeAws_json1_1ListWorkersWithQualificationTypeRequest = (
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.QualificationTypeId !== undefined && {
-      QualificationTypeId: input.QualificationTypeId,
-    }),
+    ...(input.QualificationTypeId !== undefined && { QualificationTypeId: input.QualificationTypeId }),
     ...(input.Status !== undefined && { Status: input.Status }),
   };
 };
@@ -3716,9 +3644,7 @@ const serializeAws_json1_1NotificationSpecification = (
 ): any => {
   return {
     ...(input.Destination !== undefined && { Destination: input.Destination }),
-    ...(input.EventTypes !== undefined && {
-      EventTypes: serializeAws_json1_1EventTypeList(input.EventTypes, context),
-    }),
+    ...(input.EventTypes !== undefined && { EventTypes: serializeAws_json1_1EventTypeList(input.EventTypes, context) }),
     ...(input.Transport !== undefined && { Transport: input.Transport }),
     ...(input.Version !== undefined && { Version: input.Version }),
   };
@@ -3728,18 +3654,14 @@ const serializeAws_json1_1NotifyWorkersRequest = (input: NotifyWorkersRequest, c
   return {
     ...(input.MessageText !== undefined && { MessageText: input.MessageText }),
     ...(input.Subject !== undefined && { Subject: input.Subject }),
-    ...(input.WorkerIds !== undefined && {
-      WorkerIds: serializeAws_json1_1CustomerIdList(input.WorkerIds, context),
-    }),
+    ...(input.WorkerIds !== undefined && { WorkerIds: serializeAws_json1_1CustomerIdList(input.WorkerIds, context) }),
   };
 };
 
 const serializeAws_json1_1ParameterMapEntry = (input: ParameterMapEntry, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_json1_1StringList(input.Values, context),
-    }),
+    ...(input.Values !== undefined && { Values: serializeAws_json1_1StringList(input.Values, context) }),
   };
 };
 
@@ -3753,9 +3675,7 @@ const serializeAws_json1_1PolicyParameter = (input: PolicyParameter, context: __
     ...(input.MapEntries !== undefined && {
       MapEntries: serializeAws_json1_1ParameterMapEntryList(input.MapEntries, context),
     }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_json1_1StringList(input.Values, context),
-    }),
+    ...(input.Values !== undefined && { Values: serializeAws_json1_1StringList(input.Values, context) }),
   };
 };
 
@@ -3768,9 +3688,7 @@ const serializeAws_json1_1QualificationRequirement = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ActionsGuarded !== undefined && {
-      ActionsGuarded: input.ActionsGuarded,
-    }),
+    ...(input.ActionsGuarded !== undefined && { ActionsGuarded: input.ActionsGuarded }),
     ...(input.Comparator !== undefined && { Comparator: input.Comparator }),
     ...(input.IntegerValues !== undefined && {
       IntegerValues: serializeAws_json1_1IntegerList(input.IntegerValues, context),
@@ -3778,12 +3696,8 @@ const serializeAws_json1_1QualificationRequirement = (
     ...(input.LocaleValues !== undefined && {
       LocaleValues: serializeAws_json1_1LocaleList(input.LocaleValues, context),
     }),
-    ...(input.QualificationTypeId !== undefined && {
-      QualificationTypeId: input.QualificationTypeId,
-    }),
-    ...(input.RequiredToPreview !== undefined && {
-      RequiredToPreview: input.RequiredToPreview,
-    }),
+    ...(input.QualificationTypeId !== undefined && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.RequiredToPreview !== undefined && { RequiredToPreview: input.RequiredToPreview }),
   };
 };
 
@@ -3796,12 +3710,8 @@ const serializeAws_json1_1QualificationRequirementList = (
 
 const serializeAws_json1_1RejectAssignmentRequest = (input: RejectAssignmentRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AssignmentId !== undefined && {
-      AssignmentId: input.AssignmentId,
-    }),
-    ...(input.RequesterFeedback !== undefined && {
-      RequesterFeedback: input.RequesterFeedback,
-    }),
+    ...(input.AssignmentId !== undefined && { AssignmentId: input.AssignmentId }),
+    ...(input.RequesterFeedback !== undefined && { RequesterFeedback: input.RequesterFeedback }),
   };
 };
 
@@ -3810,9 +3720,7 @@ const serializeAws_json1_1RejectQualificationRequestRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.QualificationRequestId !== undefined && {
-      QualificationRequestId: input.QualificationRequestId,
-    }),
+    ...(input.QualificationRequestId !== undefined && { QualificationRequestId: input.QualificationRequestId }),
     ...(input.Reason !== undefined && { Reason: input.Reason }),
   };
 };
@@ -3835,14 +3743,10 @@ const serializeAws_json1_1ReviewPolicyLevelList = (
 
 const serializeAws_json1_1SendBonusRequest = (input: SendBonusRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AssignmentId !== undefined && {
-      AssignmentId: input.AssignmentId,
-    }),
+    ...(input.AssignmentId !== undefined && { AssignmentId: input.AssignmentId }),
     ...(input.BonusAmount !== undefined && { BonusAmount: input.BonusAmount }),
     ...(input.Reason !== undefined && { Reason: input.Reason }),
-    ...(input.UniqueRequestToken !== undefined && {
-      UniqueRequestToken: input.UniqueRequestToken,
-    }),
+    ...(input.UniqueRequestToken !== undefined && { UniqueRequestToken: input.UniqueRequestToken }),
     ...(input.WorkerId !== undefined && { WorkerId: input.WorkerId }),
   };
 };
@@ -3855,9 +3759,7 @@ const serializeAws_json1_1SendTestEventNotificationRequest = (
     ...(input.Notification !== undefined && {
       Notification: serializeAws_json1_1NotificationSpecification(input.Notification, context),
     }),
-    ...(input.TestEventType !== undefined && {
-      TestEventType: input.TestEventType,
-    }),
+    ...(input.TestEventType !== undefined && { TestEventType: input.TestEventType }),
   };
 };
 
@@ -3870,9 +3772,7 @@ const serializeAws_json1_1UpdateExpirationForHITRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ExpireAt !== undefined && {
-      ExpireAt: Math.round(input.ExpireAt.getTime() / 1000),
-    }),
+    ...(input.ExpireAt !== undefined && { ExpireAt: Math.round(input.ExpireAt.getTime() / 1000) }),
     ...(input.HITId !== undefined && { HITId: input.HITId }),
   };
 };
@@ -3917,23 +3817,13 @@ const serializeAws_json1_1UpdateQualificationTypeRequest = (
   return {
     ...(input.AnswerKey !== undefined && { AnswerKey: input.AnswerKey }),
     ...(input.AutoGranted !== undefined && { AutoGranted: input.AutoGranted }),
-    ...(input.AutoGrantedValue !== undefined && {
-      AutoGrantedValue: input.AutoGrantedValue,
-    }),
+    ...(input.AutoGrantedValue !== undefined && { AutoGrantedValue: input.AutoGrantedValue }),
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.QualificationTypeId !== undefined && {
-      QualificationTypeId: input.QualificationTypeId,
-    }),
-    ...(input.QualificationTypeStatus !== undefined && {
-      QualificationTypeStatus: input.QualificationTypeStatus,
-    }),
-    ...(input.RetryDelayInSeconds !== undefined && {
-      RetryDelayInSeconds: input.RetryDelayInSeconds,
-    }),
+    ...(input.QualificationTypeId !== undefined && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.QualificationTypeStatus !== undefined && { QualificationTypeStatus: input.QualificationTypeStatus }),
+    ...(input.RetryDelayInSeconds !== undefined && { RetryDelayInSeconds: input.RetryDelayInSeconds }),
     ...(input.Test !== undefined && { Test: input.Test }),
-    ...(input.TestDurationInSeconds !== undefined && {
-      TestDurationInSeconds: input.TestDurationInSeconds,
-    }),
+    ...(input.TestDurationInSeconds !== undefined && { TestDurationInSeconds: input.TestDurationInSeconds }),
   };
 };
 

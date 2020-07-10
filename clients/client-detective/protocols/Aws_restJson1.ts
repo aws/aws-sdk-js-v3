@@ -88,9 +88,7 @@ export const serializeAws_restJson1CreateMembersCommand = async (
   let resolvedPath = "/graph/members";
   let body: any;
   body = JSON.stringify({
-    ...(input.Accounts !== undefined && {
-      Accounts: serializeAws_restJson1AccountList(input.Accounts, context),
-    }),
+    ...(input.Accounts !== undefined && { Accounts: serializeAws_restJson1AccountList(input.Accounts, context) }),
     ...(input.GraphArn !== undefined && { GraphArn: input.GraphArn }),
     ...(input.Message !== undefined && { Message: input.Message }),
   });
@@ -1208,9 +1206,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 const serializeAws_restJson1Account = (input: Account, context: __SerdeContext): any => {
   return {
     ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.EmailAddress !== undefined && {
-      EmailAddress: input.EmailAddress,
-    }),
+    ...(input.EmailAddress !== undefined && { EmailAddress: input.EmailAddress }),
   };
 };
 

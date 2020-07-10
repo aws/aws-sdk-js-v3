@@ -289,9 +289,7 @@ export const serializeAws_restJson1AddFacetToObjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/facets";
   let body: any;
@@ -324,16 +322,12 @@ export const serializeAws_restJson1ApplySchemaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/apply";
   let body: any;
   body = JSON.stringify({
-    ...(input.PublishedSchemaArn !== undefined && {
-      PublishedSchemaArn: input.PublishedSchemaArn,
-    }),
+    ...(input.PublishedSchemaArn !== undefined && { PublishedSchemaArn: input.PublishedSchemaArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -353,9 +347,7 @@ export const serializeAws_restJson1AttachObjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attach";
   let body: any;
@@ -386,9 +378,7 @@ export const serializeAws_restJson1AttachPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/attach";
   let body: any;
@@ -418,9 +408,7 @@ export const serializeAws_restJson1AttachToIndexCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/index/attach";
   let body: any;
@@ -450,9 +438,7 @@ export const serializeAws_restJson1AttachTypedLinkCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/attach";
   let body: any;
@@ -488,12 +474,8 @@ export const serializeAws_restJson1BatchReadCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
-      "x-amz-consistency-level": input.ConsistencyLevel!,
-    }),
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/batchread";
   let body: any;
@@ -520,9 +502,7 @@ export const serializeAws_restJson1BatchWriteCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/batchwrite";
   let body: any;
@@ -549,9 +529,7 @@ export const serializeAws_restJson1CreateDirectoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && {
-      "x-amz-data-partition": input.SchemaArn!,
-    }),
+    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/create";
   let body: any;
@@ -576,9 +554,7 @@ export const serializeAws_restJson1CreateFacetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && {
-      "x-amz-data-partition": input.SchemaArn!,
-    }),
+    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/create";
   let body: any;
@@ -608,9 +584,7 @@ export const serializeAws_restJson1CreateIndexCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/index";
   let body: any;
@@ -642,9 +616,7 @@ export const serializeAws_restJson1CreateObjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object";
   let body: any;
@@ -702,16 +674,12 @@ export const serializeAws_restJson1CreateTypedLinkFacetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && {
-      "x-amz-data-partition": input.SchemaArn!,
-    }),
+    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/create";
   let body: any;
   body = JSON.stringify({
-    ...(input.Facet !== undefined && {
-      Facet: serializeAws_restJson1TypedLinkFacet(input.Facet, context),
-    }),
+    ...(input.Facet !== undefined && { Facet: serializeAws_restJson1TypedLinkFacet(input.Facet, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -731,9 +699,7 @@ export const serializeAws_restJson1DeleteDirectoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory";
   let body: any;
@@ -755,9 +721,7 @@ export const serializeAws_restJson1DeleteFacetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && {
-      "x-amz-data-partition": input.SchemaArn!,
-    }),
+    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/delete";
   let body: any;
@@ -782,9 +746,7 @@ export const serializeAws_restJson1DeleteObjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/delete";
   let body: any;
@@ -811,9 +773,7 @@ export const serializeAws_restJson1DeleteSchemaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.SchemaArn) && {
-      "x-amz-data-partition": input.SchemaArn!,
-    }),
+    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema";
   let body: any;
@@ -835,9 +795,7 @@ export const serializeAws_restJson1DeleteTypedLinkFacetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && {
-      "x-amz-data-partition": input.SchemaArn!,
-    }),
+    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/delete";
   let body: any;
@@ -862,9 +820,7 @@ export const serializeAws_restJson1DetachFromIndexCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/index/detach";
   let body: any;
@@ -894,9 +850,7 @@ export const serializeAws_restJson1DetachObjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/detach";
   let body: any;
@@ -924,9 +878,7 @@ export const serializeAws_restJson1DetachPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/detach";
   let body: any;
@@ -956,9 +908,7 @@ export const serializeAws_restJson1DetachTypedLinkCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/detach";
   let body: any;
@@ -985,9 +935,7 @@ export const serializeAws_restJson1DisableDirectoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/disable";
   let body: any;
@@ -1009,9 +957,7 @@ export const serializeAws_restJson1EnableDirectoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/enable";
   let body: any;
@@ -1057,9 +1003,7 @@ export const serializeAws_restJson1GetDirectoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/get";
   let body: any;
@@ -1081,9 +1025,7 @@ export const serializeAws_restJson1GetFacetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && {
-      "x-amz-data-partition": input.SchemaArn!,
-    }),
+    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet";
   let body: any;
@@ -1108,9 +1050,7 @@ export const serializeAws_restJson1GetLinkAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/attributes/get";
   let body: any;
@@ -1118,9 +1058,7 @@ export const serializeAws_restJson1GetLinkAttributesCommand = async (
     ...(input.AttributeNames !== undefined && {
       AttributeNames: serializeAws_restJson1AttributeNameList(input.AttributeNames, context),
     }),
-    ...(input.ConsistencyLevel !== undefined && {
-      ConsistencyLevel: input.ConsistencyLevel,
-    }),
+    ...(input.ConsistencyLevel !== undefined && { ConsistencyLevel: input.ConsistencyLevel }),
     ...(input.TypedLinkSpecifier !== undefined && {
       TypedLinkSpecifier: serializeAws_restJson1TypedLinkSpecifier(input.TypedLinkSpecifier, context),
     }),
@@ -1143,12 +1081,8 @@ export const serializeAws_restJson1GetObjectAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
-      "x-amz-consistency-level": input.ConsistencyLevel!,
-    }),
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attributes/get";
   let body: any;
@@ -1181,12 +1115,8 @@ export const serializeAws_restJson1GetObjectInformationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
-      "x-amz-consistency-level": input.ConsistencyLevel!,
-    }),
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/information";
   let body: any;
@@ -1213,9 +1143,7 @@ export const serializeAws_restJson1GetSchemaAsJsonCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.SchemaArn) && {
-      "x-amz-data-partition": input.SchemaArn!,
-    }),
+    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/json";
   let body: any;
@@ -1237,9 +1165,7 @@ export const serializeAws_restJson1GetTypedLinkFacetInformationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && {
-      "x-amz-data-partition": input.SchemaArn!,
-    }),
+    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/get";
   let body: any;
@@ -1268,9 +1194,7 @@ export const serializeAws_restJson1ListAppliedSchemaArnsCommand = async (
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/applied";
   let body: any;
   body = JSON.stringify({
-    ...(input.DirectoryArn !== undefined && {
-      DirectoryArn: input.DirectoryArn,
-    }),
+    ...(input.DirectoryArn !== undefined && { DirectoryArn: input.DirectoryArn }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.SchemaArn !== undefined && { SchemaArn: input.SchemaArn }),
@@ -1293,12 +1217,8 @@ export const serializeAws_restJson1ListAttachedIndicesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
-      "x-amz-consistency-level": input.ConsistencyLevel!,
-    }),
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/indices";
   let body: any;
@@ -1378,9 +1298,7 @@ export const serializeAws_restJson1ListFacetAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && {
-      "x-amz-data-partition": input.SchemaArn!,
-    }),
+    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/attributes";
   let body: any;
@@ -1407,9 +1325,7 @@ export const serializeAws_restJson1ListFacetNamesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && {
-      "x-amz-data-partition": input.SchemaArn!,
-    }),
+    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/list";
   let body: any;
@@ -1435,16 +1351,12 @@ export const serializeAws_restJson1ListIncomingTypedLinksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/incoming";
   let body: any;
   body = JSON.stringify({
-    ...(input.ConsistencyLevel !== undefined && {
-      ConsistencyLevel: input.ConsistencyLevel,
-    }),
+    ...(input.ConsistencyLevel !== undefined && { ConsistencyLevel: input.ConsistencyLevel }),
     ...(input.FilterAttributeRanges !== undefined && {
       FilterAttributeRanges: serializeAws_restJson1TypedLinkAttributeRangeList(input.FilterAttributeRanges, context),
     }),
@@ -1475,12 +1387,8 @@ export const serializeAws_restJson1ListIndexCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
-      "x-amz-consistency-level": input.ConsistencyLevel!,
-    }),
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/index/targets";
   let body: any;
@@ -1538,12 +1446,8 @@ export const serializeAws_restJson1ListObjectAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
-      "x-amz-consistency-level": input.ConsistencyLevel!,
-    }),
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attributes";
   let body: any;
@@ -1575,12 +1479,8 @@ export const serializeAws_restJson1ListObjectChildrenCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
-      "x-amz-consistency-level": input.ConsistencyLevel!,
-    }),
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/children";
   let body: any;
@@ -1609,9 +1509,7 @@ export const serializeAws_restJson1ListObjectParentPathsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/parentpaths";
   let body: any;
@@ -1640,12 +1538,8 @@ export const serializeAws_restJson1ListObjectParentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
-      "x-amz-consistency-level": input.ConsistencyLevel!,
-    }),
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/parent";
   let body: any;
@@ -1677,12 +1571,8 @@ export const serializeAws_restJson1ListObjectPoliciesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
-      "x-amz-consistency-level": input.ConsistencyLevel!,
-    }),
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/policy";
   let body: any;
@@ -1711,16 +1601,12 @@ export const serializeAws_restJson1ListOutgoingTypedLinksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/outgoing";
   let body: any;
   body = JSON.stringify({
-    ...(input.ConsistencyLevel !== undefined && {
-      ConsistencyLevel: input.ConsistencyLevel,
-    }),
+    ...(input.ConsistencyLevel !== undefined && { ConsistencyLevel: input.ConsistencyLevel }),
     ...(input.FilterAttributeRanges !== undefined && {
       FilterAttributeRanges: serializeAws_restJson1TypedLinkAttributeRangeList(input.FilterAttributeRanges, context),
     }),
@@ -1751,12 +1637,8 @@ export const serializeAws_restJson1ListPolicyAttachmentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
-      "x-amz-consistency-level": input.ConsistencyLevel!,
-    }),
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/attachment";
   let body: any;
@@ -1837,9 +1719,7 @@ export const serializeAws_restJson1ListTypedLinkFacetAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && {
-      "x-amz-data-partition": input.SchemaArn!,
-    }),
+    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes";
   let body: any;
@@ -1866,9 +1746,7 @@ export const serializeAws_restJson1ListTypedLinkFacetNamesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && {
-      "x-amz-data-partition": input.SchemaArn!,
-    }),
+    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/list";
   let body: any;
@@ -1894,9 +1772,7 @@ export const serializeAws_restJson1LookupPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/lookup";
   let body: any;
@@ -1932,9 +1808,7 @@ export const serializeAws_restJson1PublishSchemaCommand = async (
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/publish";
   let body: any;
   body = JSON.stringify({
-    ...(input.MinorVersion !== undefined && {
-      MinorVersion: input.MinorVersion,
-    }),
+    ...(input.MinorVersion !== undefined && { MinorVersion: input.MinorVersion }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Version !== undefined && { Version: input.Version }),
   });
@@ -1956,9 +1830,7 @@ export const serializeAws_restJson1PutSchemaFromJsonCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && {
-      "x-amz-data-partition": input.SchemaArn!,
-    }),
+    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/json";
   let body: any;
@@ -1983,9 +1855,7 @@ export const serializeAws_restJson1RemoveFacetFromObjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/facets/delete";
   let body: any;
@@ -2020,9 +1890,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2047,9 +1915,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2069,9 +1935,7 @@ export const serializeAws_restJson1UpdateFacetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && {
-      "x-amz-data-partition": input.SchemaArn!,
-    }),
+    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet";
   let body: any;
@@ -2100,9 +1964,7 @@ export const serializeAws_restJson1UpdateLinkAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/attributes/update";
   let body: any;
@@ -2132,9 +1994,7 @@ export const serializeAws_restJson1UpdateObjectAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && {
-      "x-amz-data-partition": input.DirectoryArn!,
-    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/update";
   let body: any;
@@ -2164,9 +2024,7 @@ export const serializeAws_restJson1UpdateSchemaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && {
-      "x-amz-data-partition": input.SchemaArn!,
-    }),
+    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/update";
   let body: any;
@@ -2191,9 +2049,7 @@ export const serializeAws_restJson1UpdateTypedLinkFacetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.SchemaArn) && {
-      "x-amz-data-partition": input.SchemaArn!,
-    }),
+    ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet";
   let body: any;
@@ -2228,13 +2084,9 @@ export const serializeAws_restJson1UpgradeAppliedSchemaCommand = async (
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/upgradeapplied";
   let body: any;
   body = JSON.stringify({
-    ...(input.DirectoryArn !== undefined && {
-      DirectoryArn: input.DirectoryArn,
-    }),
+    ...(input.DirectoryArn !== undefined && { DirectoryArn: input.DirectoryArn }),
     ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.PublishedSchemaArn !== undefined && {
-      PublishedSchemaArn: input.PublishedSchemaArn,
-    }),
+    ...(input.PublishedSchemaArn !== undefined && { PublishedSchemaArn: input.PublishedSchemaArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2258,16 +2110,10 @@ export const serializeAws_restJson1UpgradePublishedSchemaCommand = async (
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/upgradepublished";
   let body: any;
   body = JSON.stringify({
-    ...(input.DevelopmentSchemaArn !== undefined && {
-      DevelopmentSchemaArn: input.DevelopmentSchemaArn,
-    }),
+    ...(input.DevelopmentSchemaArn !== undefined && { DevelopmentSchemaArn: input.DevelopmentSchemaArn }),
     ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.MinorVersion !== undefined && {
-      MinorVersion: input.MinorVersion,
-    }),
-    ...(input.PublishedSchemaArn !== undefined && {
-      PublishedSchemaArn: input.PublishedSchemaArn,
-    }),
+    ...(input.MinorVersion !== undefined && { MinorVersion: input.MinorVersion }),
+    ...(input.PublishedSchemaArn !== undefined && { PublishedSchemaArn: input.PublishedSchemaArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -10784,12 +10630,8 @@ const serializeAws_restJson1AttributeKey = (input: AttributeKey, context: __Serd
 
 const serializeAws_restJson1AttributeKeyAndValue = (input: AttributeKeyAndValue, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && {
-      Key: serializeAws_restJson1AttributeKey(input.Key, context),
-    }),
-    ...(input.Value !== undefined && {
-      Value: serializeAws_restJson1TypedAttributeValue(input.Value, context),
-    }),
+    ...(input.Key !== undefined && { Key: serializeAws_restJson1AttributeKey(input.Key, context) }),
+    ...(input.Value !== undefined && { Value: serializeAws_restJson1TypedAttributeValue(input.Value, context) }),
   };
 };
 
@@ -10806,12 +10648,8 @@ const serializeAws_restJson1AttributeKeyList = (input: AttributeKey[], context: 
 
 const serializeAws_restJson1AttributeNameAndValue = (input: AttributeNameAndValue, context: __SerdeContext): any => {
   return {
-    ...(input.AttributeName !== undefined && {
-      AttributeName: input.AttributeName,
-    }),
-    ...(input.Value !== undefined && {
-      Value: serializeAws_restJson1TypedAttributeValue(input.Value, context),
-    }),
+    ...(input.AttributeName !== undefined && { AttributeName: input.AttributeName }),
+    ...(input.Value !== undefined && { Value: serializeAws_restJson1TypedAttributeValue(input.Value, context) }),
   };
 };
 
@@ -10893,9 +10731,7 @@ const serializeAws_restJson1BatchAttachTypedLink = (input: BatchAttachTypedLink,
 
 const serializeAws_restJson1BatchCreateIndex = (input: BatchCreateIndex, context: __SerdeContext): any => {
   return {
-    ...(input.BatchReferenceName !== undefined && {
-      BatchReferenceName: input.BatchReferenceName,
-    }),
+    ...(input.BatchReferenceName !== undefined && { BatchReferenceName: input.BatchReferenceName }),
     ...(input.IsUnique !== undefined && { IsUnique: input.IsUnique }),
     ...(input.LinkName !== undefined && { LinkName: input.LinkName }),
     ...(input.OrderedIndexedAttributeList !== undefined && {
@@ -10909,9 +10745,7 @@ const serializeAws_restJson1BatchCreateIndex = (input: BatchCreateIndex, context
 
 const serializeAws_restJson1BatchCreateObject = (input: BatchCreateObject, context: __SerdeContext): any => {
   return {
-    ...(input.BatchReferenceName !== undefined && {
-      BatchReferenceName: input.BatchReferenceName,
-    }),
+    ...(input.BatchReferenceName !== undefined && { BatchReferenceName: input.BatchReferenceName }),
     ...(input.LinkName !== undefined && { LinkName: input.LinkName }),
     ...(input.ObjectAttributeList !== undefined && {
       ObjectAttributeList: serializeAws_restJson1AttributeKeyAndValueList(input.ObjectAttributeList, context),
@@ -10946,9 +10780,7 @@ const serializeAws_restJson1BatchDetachFromIndex = (input: BatchDetachFromIndex,
 
 const serializeAws_restJson1BatchDetachObject = (input: BatchDetachObject, context: __SerdeContext): any => {
   return {
-    ...(input.BatchReferenceName !== undefined && {
-      BatchReferenceName: input.BatchReferenceName,
-    }),
+    ...(input.BatchReferenceName !== undefined && { BatchReferenceName: input.BatchReferenceName }),
     ...(input.LinkName !== undefined && { LinkName: input.LinkName }),
     ...(input.ParentReference !== undefined && {
       ParentReference: serializeAws_restJson1ObjectReference(input.ParentReference, context),
@@ -11183,9 +11015,7 @@ const serializeAws_restJson1BatchReadOperation = (input: BatchReadOperation, con
     ...(input.ListIncomingTypedLinks !== undefined && {
       ListIncomingTypedLinks: serializeAws_restJson1BatchListIncomingTypedLinks(input.ListIncomingTypedLinks, context),
     }),
-    ...(input.ListIndex !== undefined && {
-      ListIndex: serializeAws_restJson1BatchListIndex(input.ListIndex, context),
-    }),
+    ...(input.ListIndex !== undefined && { ListIndex: serializeAws_restJson1BatchListIndex(input.ListIndex, context) }),
     ...(input.ListObjectAttributes !== undefined && {
       ListObjectAttributes: serializeAws_restJson1BatchListObjectAttributes(input.ListObjectAttributes, context),
     }),
@@ -11322,9 +11152,7 @@ const serializeAws_restJson1FacetAttribute = (input: FacetAttribute, context: __
       AttributeReference: serializeAws_restJson1FacetAttributeReference(input.AttributeReference, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.RequiredBehavior !== undefined && {
-      RequiredBehavior: input.RequiredBehavior,
-    }),
+    ...(input.RequiredBehavior !== undefined && { RequiredBehavior: input.RequiredBehavior }),
   };
 };
 
@@ -11337,9 +11165,7 @@ const serializeAws_restJson1FacetAttributeDefinition = (
       DefaultValue: serializeAws_restJson1TypedAttributeValue(input.DefaultValue, context),
     }),
     ...(input.IsImmutable !== undefined && { IsImmutable: input.IsImmutable }),
-    ...(input.Rules !== undefined && {
-      Rules: serializeAws_restJson1RuleMap(input.Rules, context),
-    }),
+    ...(input.Rules !== undefined && { Rules: serializeAws_restJson1RuleMap(input.Rules, context) }),
     ...(input.Type !== undefined && { Type: input.Type }),
   };
 };
@@ -11353,21 +11179,15 @@ const serializeAws_restJson1FacetAttributeReference = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.TargetAttributeName !== undefined && {
-      TargetAttributeName: input.TargetAttributeName,
-    }),
-    ...(input.TargetFacetName !== undefined && {
-      TargetFacetName: input.TargetFacetName,
-    }),
+    ...(input.TargetAttributeName !== undefined && { TargetAttributeName: input.TargetAttributeName }),
+    ...(input.TargetFacetName !== undefined && { TargetFacetName: input.TargetFacetName }),
   };
 };
 
 const serializeAws_restJson1FacetAttributeUpdate = (input: FacetAttributeUpdate, context: __SerdeContext): any => {
   return {
     ...(input.Action !== undefined && { Action: input.Action }),
-    ...(input.Attribute !== undefined && {
-      Attribute: serializeAws_restJson1FacetAttribute(input.Attribute, context),
-    }),
+    ...(input.Attribute !== undefined && { Attribute: serializeAws_restJson1FacetAttribute(input.Attribute, context) }),
   };
 };
 
@@ -11380,9 +11200,7 @@ const serializeAws_restJson1FacetAttributeUpdateList = (
 
 const serializeAws_restJson1LinkAttributeAction = (input: LinkAttributeAction, context: __SerdeContext): any => {
   return {
-    ...(input.AttributeActionType !== undefined && {
-      AttributeActionType: input.AttributeActionType,
-    }),
+    ...(input.AttributeActionType !== undefined && { AttributeActionType: input.AttributeActionType }),
     ...(input.AttributeUpdateValue !== undefined && {
       AttributeUpdateValue: serializeAws_restJson1TypedAttributeValue(input.AttributeUpdateValue, context),
     }),
@@ -11420,9 +11238,7 @@ const serializeAws_restJson1ObjectAttributeRange = (input: ObjectAttributeRange,
     ...(input.AttributeKey !== undefined && {
       AttributeKey: serializeAws_restJson1AttributeKey(input.AttributeKey, context),
     }),
-    ...(input.Range !== undefined && {
-      Range: serializeAws_restJson1TypedAttributeValueRange(input.Range, context),
-    }),
+    ...(input.Range !== undefined && { Range: serializeAws_restJson1TypedAttributeValueRange(input.Range, context) }),
   };
 };
 
@@ -11514,15 +11330,9 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
 
 const serializeAws_restJson1TypedAttributeValue = (input: TypedAttributeValue, context: __SerdeContext): any => {
   return {
-    ...(input.BinaryValue !== undefined && {
-      BinaryValue: context.base64Encoder(input.BinaryValue),
-    }),
-    ...(input.BooleanValue !== undefined && {
-      BooleanValue: input.BooleanValue,
-    }),
-    ...(input.DatetimeValue !== undefined && {
-      DatetimeValue: Math.round(input.DatetimeValue.getTime() / 1000),
-    }),
+    ...(input.BinaryValue !== undefined && { BinaryValue: context.base64Encoder(input.BinaryValue) }),
+    ...(input.BooleanValue !== undefined && { BooleanValue: input.BooleanValue }),
+    ...(input.DatetimeValue !== undefined && { DatetimeValue: Math.round(input.DatetimeValue.getTime() / 1000) }),
     ...(input.NumberValue !== undefined && { NumberValue: input.NumberValue }),
     ...(input.StringValue !== undefined && { StringValue: input.StringValue }),
   };
@@ -11554,12 +11364,8 @@ const serializeAws_restJson1TypedLinkAttributeDefinition = (
     }),
     ...(input.IsImmutable !== undefined && { IsImmutable: input.IsImmutable }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.RequiredBehavior !== undefined && {
-      RequiredBehavior: input.RequiredBehavior,
-    }),
-    ...(input.Rules !== undefined && {
-      Rules: serializeAws_restJson1RuleMap(input.Rules, context),
-    }),
+    ...(input.RequiredBehavior !== undefined && { RequiredBehavior: input.RequiredBehavior }),
+    ...(input.Rules !== undefined && { Rules: serializeAws_restJson1RuleMap(input.Rules, context) }),
     ...(input.Type !== undefined && { Type: input.Type }),
   };
 };
@@ -11576,12 +11382,8 @@ const serializeAws_restJson1TypedLinkAttributeRange = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AttributeName !== undefined && {
-      AttributeName: input.AttributeName,
-    }),
-    ...(input.Range !== undefined && {
-      Range: serializeAws_restJson1TypedAttributeValueRange(input.Range, context),
-    }),
+    ...(input.AttributeName !== undefined && { AttributeName: input.AttributeName }),
+    ...(input.Range !== undefined && { Range: serializeAws_restJson1TypedAttributeValueRange(input.Range, context) }),
   };
 };
 
@@ -11629,9 +11431,7 @@ const serializeAws_restJson1TypedLinkSchemaAndFacetName = (
 ): any => {
   return {
     ...(input.SchemaArn !== undefined && { SchemaArn: input.SchemaArn }),
-    ...(input.TypedLinkName !== undefined && {
-      TypedLinkName: input.TypedLinkName,
-    }),
+    ...(input.TypedLinkName !== undefined && { TypedLinkName: input.TypedLinkName }),
   };
 };
 

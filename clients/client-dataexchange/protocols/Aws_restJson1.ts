@@ -112,9 +112,7 @@ export const serializeAws_restJson1CreateDataSetCommand = async (
     ...(input.AssetType !== undefined && { AssetType: input.AssetType }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1MapOf__string(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1MapOf__string(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -138,9 +136,7 @@ export const serializeAws_restJson1CreateJobCommand = async (
   let resolvedPath = "/v1/jobs";
   let body: any;
   body = JSON.stringify({
-    ...(input.Details !== undefined && {
-      Details: serializeAws_restJson1RequestDetails(input.Details, context),
-    }),
+    ...(input.Details !== undefined && { Details: serializeAws_restJson1RequestDetails(input.Details, context) }),
     ...(input.Type !== undefined && { Type: input.Type }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -175,9 +171,7 @@ export const serializeAws_restJson1CreateRevisionCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Comment !== undefined && { Comment: input.Comment }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1MapOf__string(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1MapOf__string(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -473,9 +467,7 @@ export const serializeAws_restJson1ListDataSetRevisionsCommand = async (
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -501,9 +493,7 @@ export const serializeAws_restJson1ListDataSetsCommand = async (
   };
   let resolvedPath = "/v1/data-sets";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.Origin !== undefined && { origin: input.Origin }),
   };
@@ -531,9 +521,7 @@ export const serializeAws_restJson1ListJobsCommand = async (
   let resolvedPath = "/v1/jobs";
   const query: any = {
     ...(input.DataSetId !== undefined && { dataSetId: input.DataSetId }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.RevisionId !== undefined && { revisionId: input.RevisionId }),
   };
@@ -578,9 +566,7 @@ export const serializeAws_restJson1ListRevisionAssetsCommand = async (
     throw new Error("No value provided for input HTTP label: RevisionId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -676,9 +662,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && {
-      tags: serializeAws_restJson1MapOf__string(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1MapOf__string(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -710,9 +694,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && {
-      tagKeys: (input.TagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

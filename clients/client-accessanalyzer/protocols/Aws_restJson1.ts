@@ -70,16 +70,12 @@ export const serializeAws_restJson1CreateAnalyzerCommand = async (
   let resolvedPath = "/analyzer";
   let body: any;
   body = JSON.stringify({
-    ...(input.analyzerName !== undefined && {
-      analyzerName: input.analyzerName,
-    }),
+    ...(input.analyzerName !== undefined && { analyzerName: input.analyzerName }),
     ...(input.archiveRules !== undefined && {
       archiveRules: serializeAws_restJson1InlineArchiveRulesList(input.archiveRules, context),
     }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagsMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
     ...(input.type !== undefined && { type: input.type }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -114,9 +110,7 @@ export const serializeAws_restJson1CreateArchiveRuleCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.filter !== undefined && {
-      filter: serializeAws_restJson1FilterCriteriaMap(input.filter, context),
-    }),
+    ...(input.filter !== undefined && { filter: serializeAws_restJson1FilterCriteriaMap(input.filter, context) }),
     ...(input.ruleName !== undefined && { ruleName: input.ruleName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -350,9 +344,7 @@ export const serializeAws_restJson1ListAnalyzedResourcesCommand = async (
     ...(input.analyzerArn !== undefined && { analyzerArn: input.analyzerArn }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.resourceType !== undefined && {
-      resourceType: input.resourceType,
-    }),
+    ...(input.resourceType !== undefined && { resourceType: input.resourceType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -375,9 +367,7 @@ export const serializeAws_restJson1ListAnalyzersCommand = async (
   };
   let resolvedPath = "/analyzer";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.type !== undefined && { type: input.type }),
   };
@@ -413,9 +403,7 @@ export const serializeAws_restJson1ListArchiveRulesCommand = async (
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -443,14 +431,10 @@ export const serializeAws_restJson1ListFindingsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.analyzerArn !== undefined && { analyzerArn: input.analyzerArn }),
-    ...(input.filter !== undefined && {
-      filter: serializeAws_restJson1FilterCriteriaMap(input.filter, context),
-    }),
+    ...(input.filter !== undefined && { filter: serializeAws_restJson1FilterCriteriaMap(input.filter, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.sort !== undefined && {
-      sort: serializeAws_restJson1SortCriteria(input.sort, context),
-    }),
+    ...(input.sort !== undefined && { sort: serializeAws_restJson1SortCriteria(input.sort, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -538,9 +522,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagsMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -572,9 +554,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && {
-      tagKeys: (input.tagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -619,9 +599,7 @@ export const serializeAws_restJson1UpdateArchiveRuleCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.filter !== undefined && {
-      filter: serializeAws_restJson1FilterCriteriaMap(input.filter, context),
-    }),
+    ...(input.filter !== undefined && { filter: serializeAws_restJson1FilterCriteriaMap(input.filter, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -647,9 +625,7 @@ export const serializeAws_restJson1UpdateFindingsCommand = async (
   body = JSON.stringify({
     ...(input.analyzerArn !== undefined && { analyzerArn: input.analyzerArn }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.ids !== undefined && {
-      ids: serializeAws_restJson1FindingIdList(input.ids, context),
-    }),
+    ...(input.ids !== undefined && { ids: serializeAws_restJson1FindingIdList(input.ids, context) }),
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
     ...(input.status !== undefined && { status: input.status }),
   });
@@ -2398,16 +2374,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1Criterion = (input: Criterion, context: __SerdeContext): any => {
   return {
-    ...(input.contains !== undefined && {
-      contains: serializeAws_restJson1ValueList(input.contains, context),
-    }),
-    ...(input.eq !== undefined && {
-      eq: serializeAws_restJson1ValueList(input.eq, context),
-    }),
+    ...(input.contains !== undefined && { contains: serializeAws_restJson1ValueList(input.contains, context) }),
+    ...(input.eq !== undefined && { eq: serializeAws_restJson1ValueList(input.eq, context) }),
     ...(input.exists !== undefined && { exists: input.exists }),
-    ...(input.neq !== undefined && {
-      neq: serializeAws_restJson1ValueList(input.neq, context),
-    }),
+    ...(input.neq !== undefined && { neq: serializeAws_restJson1ValueList(input.neq, context) }),
   };
 };
 
@@ -2427,9 +2397,7 @@ const serializeAws_restJson1FindingIdList = (input: string[], context: __SerdeCo
 
 const serializeAws_restJson1InlineArchiveRule = (input: InlineArchiveRule, context: __SerdeContext): any => {
   return {
-    ...(input.filter !== undefined && {
-      filter: serializeAws_restJson1FilterCriteriaMap(input.filter, context),
-    }),
+    ...(input.filter !== undefined && { filter: serializeAws_restJson1FilterCriteriaMap(input.filter, context) }),
     ...(input.ruleName !== undefined && { ruleName: input.ruleName }),
   };
 };
@@ -2440,9 +2408,7 @@ const serializeAws_restJson1InlineArchiveRulesList = (input: InlineArchiveRule[]
 
 const serializeAws_restJson1SortCriteria = (input: SortCriteria, context: __SerdeContext): any => {
   return {
-    ...(input.attributeName !== undefined && {
-      attributeName: input.attributeName,
-    }),
+    ...(input.attributeName !== undefined && { attributeName: input.attributeName }),
     ...(input.orderBy !== undefined && { orderBy: input.orderBy }),
   };
 };

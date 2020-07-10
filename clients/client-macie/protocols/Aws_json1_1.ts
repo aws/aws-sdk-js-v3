@@ -696,9 +696,7 @@ const serializeAws_json1_1AssociateMemberAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.memberAccountId !== undefined && {
-      memberAccountId: input.memberAccountId,
-    }),
+    ...(input.memberAccountId !== undefined && { memberAccountId: input.memberAccountId }),
   };
 };
 
@@ -707,9 +705,7 @@ const serializeAws_json1_1AssociateS3ResourcesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.memberAccountId !== undefined && {
-      memberAccountId: input.memberAccountId,
-    }),
+    ...(input.memberAccountId !== undefined && { memberAccountId: input.memberAccountId }),
     ...(input.s3Resources !== undefined && {
       s3Resources: serializeAws_json1_1S3ResourcesClassification(input.s3Resources, context),
     }),
@@ -738,9 +734,7 @@ const serializeAws_json1_1DisassociateMemberAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.memberAccountId !== undefined && {
-      memberAccountId: input.memberAccountId,
-    }),
+    ...(input.memberAccountId !== undefined && { memberAccountId: input.memberAccountId }),
   };
 };
 
@@ -752,9 +746,7 @@ const serializeAws_json1_1DisassociateS3ResourcesRequest = (
     ...(input.associatedS3Resources !== undefined && {
       associatedS3Resources: serializeAws_json1_1S3Resources(input.associatedS3Resources, context),
     }),
-    ...(input.memberAccountId !== undefined && {
-      memberAccountId: input.memberAccountId,
-    }),
+    ...(input.memberAccountId !== undefined && { memberAccountId: input.memberAccountId }),
   };
 };
 
@@ -771,9 +763,7 @@ const serializeAws_json1_1ListMemberAccountsRequest = (
 const serializeAws_json1_1ListS3ResourcesRequest = (input: ListS3ResourcesRequest, context: __SerdeContext): any => {
   return {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.memberAccountId !== undefined && {
-      memberAccountId: input.memberAccountId,
-    }),
+    ...(input.memberAccountId !== undefined && { memberAccountId: input.memberAccountId }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
 };
@@ -834,9 +824,7 @@ const serializeAws_json1_1UpdateS3ResourcesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.memberAccountId !== undefined && {
-      memberAccountId: input.memberAccountId,
-    }),
+    ...(input.memberAccountId !== undefined && { memberAccountId: input.memberAccountId }),
     ...(input.s3ResourcesUpdate !== undefined && {
       s3ResourcesUpdate: serializeAws_json1_1S3ResourcesClassificationUpdate(input.s3ResourcesUpdate, context),
     }),

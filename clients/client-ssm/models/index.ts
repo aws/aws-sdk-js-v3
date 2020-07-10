@@ -3204,9 +3204,7 @@ export interface CreatePatchBaselineRequest {
 export namespace CreatePatchBaselineRequest {
   export const filterSensitiveLog = (obj: CreatePatchBaselineRequest): any => ({
     ...obj,
-    ...(obj.Sources && {
-      Sources: obj.Sources.map((item) => PatchSource.filterSensitiveLog(item)),
-    }),
+    ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSource.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is CreatePatchBaselineRequest => __isa(o, "CreatePatchBaselineRequest");
 }
@@ -5102,9 +5100,7 @@ export interface DescribeMaintenanceWindowTargetsResult {
 export namespace DescribeMaintenanceWindowTargetsResult {
   export const filterSensitiveLog = (obj: DescribeMaintenanceWindowTargetsResult): any => ({
     ...obj,
-    ...(obj.Targets && {
-      Targets: obj.Targets.map((item) => MaintenanceWindowTarget.filterSensitiveLog(item)),
-    }),
+    ...(obj.Targets && { Targets: obj.Targets.map((item) => MaintenanceWindowTarget.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is DescribeMaintenanceWindowTargetsResult =>
     __isa(o, "DescribeMaintenanceWindowTargetsResult");
@@ -5161,9 +5157,7 @@ export interface DescribeMaintenanceWindowTasksResult {
 export namespace DescribeMaintenanceWindowTasksResult {
   export const filterSensitiveLog = (obj: DescribeMaintenanceWindowTasksResult): any => ({
     ...obj,
-    ...(obj.Tasks && {
-      Tasks: obj.Tasks.map((item) => MaintenanceWindowTask.filterSensitiveLog(item)),
-    }),
+    ...(obj.Tasks && { Tasks: obj.Tasks.map((item) => MaintenanceWindowTask.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is DescribeMaintenanceWindowTasksResult =>
     __isa(o, "DescribeMaintenanceWindowTasksResult");
@@ -7201,9 +7195,7 @@ export interface GetMaintenanceWindowExecutionTaskResult {
    *          <p>Key: string, between 1 and 255 characters</p>
    *          <p>Value: an array of strings, each string is between 1 and 255 characters</p>
    */
-  TaskParameters?: {
-    [key: string]: MaintenanceWindowTaskParameterValueExpression;
-  }[];
+  TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression }[];
 
   /**
    * <p>The type of task that was run.</p>
@@ -7422,9 +7414,7 @@ export interface GetMaintenanceWindowTaskResult {
    *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
    *          </note>
    */
-  TaskParameters?: {
-    [key: string]: MaintenanceWindowTaskParameterValueExpression;
-  };
+  TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
 
   /**
    * <p>The type of task to run.</p>
@@ -7900,9 +7890,7 @@ export interface GetPatchBaselineResult {
 export namespace GetPatchBaselineResult {
   export const filterSensitiveLog = (obj: GetPatchBaselineResult): any => ({
     ...obj,
-    ...(obj.Sources && {
-      Sources: obj.Sources.map((item) => PatchSource.filterSensitiveLog(item)),
-    }),
+    ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSource.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is GetPatchBaselineResult => __isa(o, "GetPatchBaselineResult");
 }
@@ -11212,9 +11200,7 @@ export interface MaintenanceWindowTask {
    *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
    *          </note>
    */
-  TaskParameters?: {
-    [key: string]: MaintenanceWindowTaskParameterValueExpression;
-  };
+  TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
 
   /**
    * <p>The type of task. The type can be one of the following: RUN_COMMAND, AUTOMATION, LAMBDA, or
@@ -11271,9 +11257,7 @@ export interface MaintenanceWindowTaskInvocationParameters {
 export namespace MaintenanceWindowTaskInvocationParameters {
   export const filterSensitiveLog = (obj: MaintenanceWindowTaskInvocationParameters): any => ({
     ...obj,
-    ...(obj.Lambda && {
-      Lambda: MaintenanceWindowLambdaParameters.filterSensitiveLog(obj.Lambda),
-    }),
+    ...(obj.Lambda && { Lambda: MaintenanceWindowLambdaParameters.filterSensitiveLog(obj.Lambda) }),
     ...(obj.StepFunctions && {
       StepFunctions: MaintenanceWindowStepFunctionsParameters.filterSensitiveLog(obj.StepFunctions),
     }),
@@ -13616,9 +13600,7 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
    *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
    *          </note>
    */
-  TaskParameters?: {
-    [key: string]: MaintenanceWindowTaskParameterValueExpression;
-  };
+  TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
 
   /**
    * <p>The type of task being registered.</p>
@@ -16377,9 +16359,7 @@ export interface UpdateMaintenanceWindowTaskRequest {
    *          <p>Key: string, between 1 and 255 characters</p>
    *          <p>Value: an array of strings, each string is between 1 and 255 characters</p>
    */
-  TaskParameters?: {
-    [key: string]: MaintenanceWindowTaskParameterValueExpression;
-  };
+  TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
 
   /**
    * <p>The maintenance window ID that contains the task to modify.</p>
@@ -16477,9 +16457,7 @@ export interface UpdateMaintenanceWindowTaskResult {
    *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
    *          </note>
    */
-  TaskParameters?: {
-    [key: string]: MaintenanceWindowTaskParameterValueExpression;
-  };
+  TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
 
   /**
    * <p>The ID of the maintenance window that was updated.</p>
@@ -16733,9 +16711,7 @@ export interface UpdatePatchBaselineRequest {
 export namespace UpdatePatchBaselineRequest {
   export const filterSensitiveLog = (obj: UpdatePatchBaselineRequest): any => ({
     ...obj,
-    ...(obj.Sources && {
-      Sources: obj.Sources.map((item) => PatchSource.filterSensitiveLog(item)),
-    }),
+    ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSource.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is UpdatePatchBaselineRequest => __isa(o, "UpdatePatchBaselineRequest");
 }
@@ -16821,9 +16797,7 @@ export interface UpdatePatchBaselineResult {
 export namespace UpdatePatchBaselineResult {
   export const filterSensitiveLog = (obj: UpdatePatchBaselineResult): any => ({
     ...obj,
-    ...(obj.Sources && {
-      Sources: obj.Sources.map((item) => PatchSource.filterSensitiveLog(item)),
-    }),
+    ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSource.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is UpdatePatchBaselineResult => __isa(o, "UpdatePatchBaselineResult");
 }

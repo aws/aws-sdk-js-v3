@@ -1330,9 +1330,7 @@ const serializeAws_json1_1AddAttachmentsToSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.attachmentSetId !== undefined && {
-      attachmentSetId: input.attachmentSetId,
-    }),
+    ...(input.attachmentSetId !== undefined && { attachmentSetId: input.attachmentSetId }),
     ...(input.attachments !== undefined && {
       attachments: serializeAws_json1_1Attachments(input.attachments, context),
     }),
@@ -1344,24 +1342,18 @@ const serializeAws_json1_1AddCommunicationToCaseRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.attachmentSetId !== undefined && {
-      attachmentSetId: input.attachmentSetId,
-    }),
+    ...(input.attachmentSetId !== undefined && { attachmentSetId: input.attachmentSetId }),
     ...(input.caseId !== undefined && { caseId: input.caseId }),
     ...(input.ccEmailAddresses !== undefined && {
       ccEmailAddresses: serializeAws_json1_1CcEmailAddressList(input.ccEmailAddresses, context),
     }),
-    ...(input.communicationBody !== undefined && {
-      communicationBody: input.communicationBody,
-    }),
+    ...(input.communicationBody !== undefined && { communicationBody: input.communicationBody }),
   };
 };
 
 const serializeAws_json1_1Attachment = (input: Attachment, context: __SerdeContext): any => {
   return {
-    ...(input.data !== undefined && {
-      data: context.base64Encoder(input.data),
-    }),
+    ...(input.data !== undefined && { data: context.base64Encoder(input.data) }),
     ...(input.fileName !== undefined && { fileName: input.fileName }),
   };
 };
@@ -1380,24 +1372,16 @@ const serializeAws_json1_1CcEmailAddressList = (input: string[], context: __Serd
 
 const serializeAws_json1_1CreateCaseRequest = (input: CreateCaseRequest, context: __SerdeContext): any => {
   return {
-    ...(input.attachmentSetId !== undefined && {
-      attachmentSetId: input.attachmentSetId,
-    }),
-    ...(input.categoryCode !== undefined && {
-      categoryCode: input.categoryCode,
-    }),
+    ...(input.attachmentSetId !== undefined && { attachmentSetId: input.attachmentSetId }),
+    ...(input.categoryCode !== undefined && { categoryCode: input.categoryCode }),
     ...(input.ccEmailAddresses !== undefined && {
       ccEmailAddresses: serializeAws_json1_1CcEmailAddressList(input.ccEmailAddresses, context),
     }),
-    ...(input.communicationBody !== undefined && {
-      communicationBody: input.communicationBody,
-    }),
+    ...(input.communicationBody !== undefined && { communicationBody: input.communicationBody }),
     ...(input.issueType !== undefined && { issueType: input.issueType }),
     ...(input.language !== undefined && { language: input.language }),
     ...(input.serviceCode !== undefined && { serviceCode: input.serviceCode }),
-    ...(input.severityCode !== undefined && {
-      severityCode: input.severityCode,
-    }),
+    ...(input.severityCode !== undefined && { severityCode: input.severityCode }),
     ...(input.subject !== undefined && { subject: input.subject }),
   };
 };
@@ -1407,9 +1391,7 @@ const serializeAws_json1_1DescribeAttachmentRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.attachmentId !== undefined && {
-      attachmentId: input.attachmentId,
-    }),
+    ...(input.attachmentId !== undefined && { attachmentId: input.attachmentId }),
   };
 };
 
@@ -1417,16 +1399,10 @@ const serializeAws_json1_1DescribeCasesRequest = (input: DescribeCasesRequest, c
   return {
     ...(input.afterTime !== undefined && { afterTime: input.afterTime }),
     ...(input.beforeTime !== undefined && { beforeTime: input.beforeTime }),
-    ...(input.caseIdList !== undefined && {
-      caseIdList: serializeAws_json1_1CaseIdList(input.caseIdList, context),
-    }),
+    ...(input.caseIdList !== undefined && { caseIdList: serializeAws_json1_1CaseIdList(input.caseIdList, context) }),
     ...(input.displayId !== undefined && { displayId: input.displayId }),
-    ...(input.includeCommunications !== undefined && {
-      includeCommunications: input.includeCommunications,
-    }),
-    ...(input.includeResolvedCases !== undefined && {
-      includeResolvedCases: input.includeResolvedCases,
-    }),
+    ...(input.includeCommunications !== undefined && { includeCommunications: input.includeCommunications }),
+    ...(input.includeResolvedCases !== undefined && { includeResolvedCases: input.includeResolvedCases }),
     ...(input.language !== undefined && { language: input.language }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -1469,9 +1445,7 @@ const serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.checkIds !== undefined && {
-      checkIds: serializeAws_json1_1StringList(input.checkIds, context),
-    }),
+    ...(input.checkIds !== undefined && { checkIds: serializeAws_json1_1StringList(input.checkIds, context) }),
   };
 };
 
@@ -1499,9 +1473,7 @@ const serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.checkIds !== undefined && {
-      checkIds: serializeAws_json1_1StringList(input.checkIds, context),
-    }),
+    ...(input.checkIds !== undefined && { checkIds: serializeAws_json1_1StringList(input.checkIds, context) }),
   };
 };
 

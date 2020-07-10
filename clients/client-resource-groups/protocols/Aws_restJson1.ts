@@ -54,9 +54,7 @@ export const serializeAws_restJson1CreateGroupCommand = async (
     ...(input.ResourceQuery !== undefined && {
       ResourceQuery: serializeAws_restJson1ResourceQuery(input.ResourceQuery, context),
     }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1Tags(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -208,16 +206,12 @@ export const serializeAws_restJson1ListGroupResourcesCommand = async (
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_restJson1ResourceFilterList(input.Filters, context),
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_restJson1ResourceFilterList(input.Filters, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -241,16 +235,12 @@ export const serializeAws_restJson1ListGroupsCommand = async (
   };
   let resolvedPath = "/groups-list";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_restJson1GroupFilterList(input.Filters, context),
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_restJson1GroupFilterList(input.Filters, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -312,9 +302,7 @@ export const serializeAws_restJson1TagCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1Tags(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -347,9 +335,7 @@ export const serializeAws_restJson1UntagCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Keys !== undefined && {
-      Keys: serializeAws_restJson1TagKeyList(input.Keys, context),
-    }),
+    ...(input.Keys !== undefined && { Keys: serializeAws_restJson1TagKeyList(input.Keys, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1741,9 +1727,7 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
 const serializeAws_restJson1GroupFilter = (input: GroupFilter, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_restJson1GroupFilterValues(input.Values, context),
-    }),
+    ...(input.Values !== undefined && { Values: serializeAws_restJson1GroupFilterValues(input.Values, context) }),
   };
 };
 
@@ -1758,9 +1742,7 @@ const serializeAws_restJson1GroupFilterValues = (input: string[], context: __Ser
 const serializeAws_restJson1ResourceFilter = (input: ResourceFilter, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_restJson1ResourceFilterValues(input.Values, context),
-    }),
+    ...(input.Values !== undefined && { Values: serializeAws_restJson1ResourceFilterValues(input.Values, context) }),
   };
 };
 

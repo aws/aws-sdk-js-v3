@@ -407,9 +407,7 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
 
 const serializeAws_json1_1DescribeServicesRequest = (input: DescribeServicesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.FormatVersion !== undefined && {
-      FormatVersion: input.FormatVersion,
-    }),
+    ...(input.FormatVersion !== undefined && { FormatVersion: input.FormatVersion }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode }),
@@ -433,9 +431,7 @@ const serializeAws_json1_1GetAttributeValuesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AttributeName !== undefined && {
-      AttributeName: input.AttributeName,
-    }),
+    ...(input.AttributeName !== undefined && { AttributeName: input.AttributeName }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode }),
@@ -444,12 +440,8 @@ const serializeAws_json1_1GetAttributeValuesRequest = (
 
 const serializeAws_json1_1GetProductsRequest = (input: GetProductsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1Filters(input.Filters, context),
-    }),
-    ...(input.FormatVersion !== undefined && {
-      FormatVersion: input.FormatVersion,
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.FormatVersion !== undefined && { FormatVersion: input.FormatVersion }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode }),

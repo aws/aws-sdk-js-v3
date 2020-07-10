@@ -114,9 +114,7 @@ export const serializeAws_restJson1AssociateCustomerGatewayCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.CustomerGatewayArn !== undefined && {
-      CustomerGatewayArn: input.CustomerGatewayArn,
-    }),
+    ...(input.CustomerGatewayArn !== undefined && { CustomerGatewayArn: input.CustomerGatewayArn }),
     ...(input.DeviceId !== undefined && { DeviceId: input.DeviceId }),
     ...(input.LinkId !== undefined && { LinkId: input.LinkId }),
   });
@@ -186,17 +184,11 @@ export const serializeAws_restJson1CreateDeviceCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Location !== undefined && {
-      Location: serializeAws_restJson1Location(input.Location, context),
-    }),
+    ...(input.Location !== undefined && { Location: serializeAws_restJson1Location(input.Location, context) }),
     ...(input.Model !== undefined && { Model: input.Model }),
-    ...(input.SerialNumber !== undefined && {
-      SerialNumber: input.SerialNumber,
-    }),
+    ...(input.SerialNumber !== undefined && { SerialNumber: input.SerialNumber }),
     ...(input.SiteId !== undefined && { SiteId: input.SiteId }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
     ...(input.Type !== undefined && { Type: input.Type }),
     ...(input.Vendor !== undefined && { Vendor: input.Vendor }),
   });
@@ -223,9 +215,7 @@ export const serializeAws_restJson1CreateGlobalNetworkCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -258,15 +248,11 @@ export const serializeAws_restJson1CreateLinkCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Bandwidth !== undefined && {
-      Bandwidth: serializeAws_restJson1Bandwidth(input.Bandwidth, context),
-    }),
+    ...(input.Bandwidth !== undefined && { Bandwidth: serializeAws_restJson1Bandwidth(input.Bandwidth, context) }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.Provider !== undefined && { Provider: input.Provider }),
     ...(input.SiteId !== undefined && { SiteId: input.SiteId }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
     ...(input.Type !== undefined && { Type: input.Type }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -301,12 +287,8 @@ export const serializeAws_restJson1CreateSiteCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Location !== undefined && {
-      Location: serializeAws_restJson1Location(input.Location, context),
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1TagList(input.Tags, context),
-    }),
+    ...(input.Location !== undefined && { Location: serializeAws_restJson1Location(input.Location, context) }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -518,9 +500,7 @@ export const serializeAws_restJson1DescribeGlobalNetworksCommand = async (
     ...(input.GlobalNetworkIds !== undefined && {
       globalNetworkIds: (input.GlobalNetworkIds || []).map((_entry) => _entry),
     }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -632,9 +612,7 @@ export const serializeAws_restJson1GetCustomerGatewayAssociationsCommand = async
     ...(input.CustomerGatewayArns !== undefined && {
       customerGatewayArns: (input.CustomerGatewayArns || []).map((_entry) => _entry),
     }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -669,12 +647,8 @@ export const serializeAws_restJson1GetDevicesCommand = async (
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
   const query: any = {
-    ...(input.DeviceIds !== undefined && {
-      deviceIds: (input.DeviceIds || []).map((_entry) => _entry),
-    }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.DeviceIds !== undefined && { deviceIds: (input.DeviceIds || []).map((_entry) => _entry) }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.SiteId !== undefined && { siteId: input.SiteId }),
   };
@@ -712,9 +686,7 @@ export const serializeAws_restJson1GetLinkAssociationsCommand = async (
   const query: any = {
     ...(input.DeviceId !== undefined && { deviceId: input.DeviceId }),
     ...(input.LinkId !== undefined && { linkId: input.LinkId }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -749,12 +721,8 @@ export const serializeAws_restJson1GetLinksCommand = async (
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
   const query: any = {
-    ...(input.LinkIds !== undefined && {
-      linkIds: (input.LinkIds || []).map((_entry) => _entry),
-    }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.LinkIds !== undefined && { linkIds: (input.LinkIds || []).map((_entry) => _entry) }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.Provider !== undefined && { provider: input.Provider }),
     ...(input.SiteId !== undefined && { siteId: input.SiteId }),
@@ -792,13 +760,9 @@ export const serializeAws_restJson1GetSitesCommand = async (
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.SiteIds !== undefined && {
-      siteIds: (input.SiteIds || []).map((_entry) => _entry),
-    }),
+    ...(input.SiteIds !== undefined && { siteIds: (input.SiteIds || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -832,9 +796,7 @@ export const serializeAws_restJson1GetTransitGatewayRegistrationsCommand = async
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.TransitGatewayArns !== undefined && {
       transitGatewayArns: (input.TransitGatewayArns || []).map((_entry) => _entry),
@@ -903,9 +865,7 @@ export const serializeAws_restJson1RegisterTransitGatewayCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.TransitGatewayArn !== undefined && {
-      TransitGatewayArn: input.TransitGatewayArn,
-    }),
+    ...(input.TransitGatewayArn !== undefined && { TransitGatewayArn: input.TransitGatewayArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -938,9 +898,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -972,9 +930,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && {
-      tagKeys: (input.TagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1019,13 +975,9 @@ export const serializeAws_restJson1UpdateDeviceCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Location !== undefined && {
-      Location: serializeAws_restJson1Location(input.Location, context),
-    }),
+    ...(input.Location !== undefined && { Location: serializeAws_restJson1Location(input.Location, context) }),
     ...(input.Model !== undefined && { Model: input.Model }),
-    ...(input.SerialNumber !== undefined && {
-      SerialNumber: input.SerialNumber,
-    }),
+    ...(input.SerialNumber !== undefined && { SerialNumber: input.SerialNumber }),
     ...(input.SiteId !== undefined && { SiteId: input.SiteId }),
     ...(input.Type !== undefined && { Type: input.Type }),
     ...(input.Vendor !== undefined && { Vendor: input.Vendor }),
@@ -1103,9 +1055,7 @@ export const serializeAws_restJson1UpdateLinkCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Bandwidth !== undefined && {
-      Bandwidth: serializeAws_restJson1Bandwidth(input.Bandwidth, context),
-    }),
+    ...(input.Bandwidth !== undefined && { Bandwidth: serializeAws_restJson1Bandwidth(input.Bandwidth, context) }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.Provider !== undefined && { Provider: input.Provider }),
     ...(input.Type !== undefined && { Type: input.Type }),
@@ -1151,9 +1101,7 @@ export const serializeAws_restJson1UpdateSiteCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Location !== undefined && {
-      Location: serializeAws_restJson1Location(input.Location, context),
-    }),
+    ...(input.Location !== undefined && { Location: serializeAws_restJson1Location(input.Location, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4062,9 +4010,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1Bandwidth = (input: Bandwidth, context: __SerdeContext): any => {
   return {
-    ...(input.DownloadSpeed !== undefined && {
-      DownloadSpeed: input.DownloadSpeed,
-    }),
+    ...(input.DownloadSpeed !== undefined && { DownloadSpeed: input.DownloadSpeed }),
     ...(input.UploadSpeed !== undefined && { UploadSpeed: input.UploadSpeed }),
   };
 };

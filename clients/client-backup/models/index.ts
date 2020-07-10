@@ -192,9 +192,7 @@ export interface BackupPlan {
 export namespace BackupPlan {
   export const filterSensitiveLog = (obj: BackupPlan): any => ({
     ...obj,
-    ...(obj.Rules && {
-      Rules: obj.Rules.map((item) => BackupRule.filterSensitiveLog(item)),
-    }),
+    ...(obj.Rules && { Rules: obj.Rules.map((item) => BackupRule.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is BackupPlan => __isa(o, "BackupPlan");
 }
@@ -221,9 +219,7 @@ export interface BackupPlanInput {
 export namespace BackupPlanInput {
   export const filterSensitiveLog = (obj: BackupPlanInput): any => ({
     ...obj,
-    ...(obj.Rules && {
-      Rules: obj.Rules.map((item) => BackupRuleInput.filterSensitiveLog(item)),
-    }),
+    ...(obj.Rules && { Rules: obj.Rules.map((item) => BackupRuleInput.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is BackupPlanInput => __isa(o, "BackupPlanInput");
 }
@@ -818,9 +814,7 @@ export interface CreateBackupPlanInput {
 export namespace CreateBackupPlanInput {
   export const filterSensitiveLog = (obj: CreateBackupPlanInput): any => ({
     ...obj,
-    ...(obj.BackupPlan && {
-      BackupPlan: BackupPlanInput.filterSensitiveLog(obj.BackupPlan),
-    }),
+    ...(obj.BackupPlan && { BackupPlan: BackupPlanInput.filterSensitiveLog(obj.BackupPlan) }),
     ...(obj.BackupPlanTags && { BackupPlanTags: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is CreateBackupPlanInput => __isa(o, "CreateBackupPlanInput");
@@ -1740,9 +1734,7 @@ export interface GetBackupPlanFromJSONOutput {
 export namespace GetBackupPlanFromJSONOutput {
   export const filterSensitiveLog = (obj: GetBackupPlanFromJSONOutput): any => ({
     ...obj,
-    ...(obj.BackupPlan && {
-      BackupPlan: BackupPlan.filterSensitiveLog(obj.BackupPlan),
-    }),
+    ...(obj.BackupPlan && { BackupPlan: BackupPlan.filterSensitiveLog(obj.BackupPlan) }),
   });
   export const isa = (o: any): o is GetBackupPlanFromJSONOutput => __isa(o, "GetBackupPlanFromJSONOutput");
 }
@@ -1774,9 +1766,7 @@ export interface GetBackupPlanFromTemplateOutput {
 export namespace GetBackupPlanFromTemplateOutput {
   export const filterSensitiveLog = (obj: GetBackupPlanFromTemplateOutput): any => ({
     ...obj,
-    ...(obj.BackupPlanDocument && {
-      BackupPlanDocument: BackupPlan.filterSensitiveLog(obj.BackupPlanDocument),
-    }),
+    ...(obj.BackupPlanDocument && { BackupPlanDocument: BackupPlan.filterSensitiveLog(obj.BackupPlanDocument) }),
   });
   export const isa = (o: any): o is GetBackupPlanFromTemplateOutput => __isa(o, "GetBackupPlanFromTemplateOutput");
 }
@@ -1861,9 +1851,7 @@ export interface GetBackupPlanOutput {
 export namespace GetBackupPlanOutput {
   export const filterSensitiveLog = (obj: GetBackupPlanOutput): any => ({
     ...obj,
-    ...(obj.BackupPlan && {
-      BackupPlan: BackupPlan.filterSensitiveLog(obj.BackupPlan),
-    }),
+    ...(obj.BackupPlan && { BackupPlan: BackupPlan.filterSensitiveLog(obj.BackupPlan) }),
   });
   export const isa = (o: any): o is GetBackupPlanOutput => __isa(o, "GetBackupPlanOutput");
 }
@@ -3787,9 +3775,7 @@ export interface UpdateBackupPlanInput {
 export namespace UpdateBackupPlanInput {
   export const filterSensitiveLog = (obj: UpdateBackupPlanInput): any => ({
     ...obj,
-    ...(obj.BackupPlan && {
-      BackupPlan: BackupPlanInput.filterSensitiveLog(obj.BackupPlan),
-    }),
+    ...(obj.BackupPlan && { BackupPlan: BackupPlanInput.filterSensitiveLog(obj.BackupPlan) }),
   });
   export const isa = (o: any): o is UpdateBackupPlanInput => __isa(o, "UpdateBackupPlanInput");
 }

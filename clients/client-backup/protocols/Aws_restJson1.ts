@@ -175,9 +175,7 @@ export const serializeAws_restJson1CreateBackupPlanCommand = async (
     ...(input.BackupPlanTags !== undefined && {
       BackupPlanTags: serializeAws_restJson1Tags(input.BackupPlanTags, context),
     }),
-    ...(input.CreatorRequestId !== undefined && {
-      CreatorRequestId: input.CreatorRequestId,
-    }),
+    ...(input.CreatorRequestId !== undefined && { CreatorRequestId: input.CreatorRequestId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -213,9 +211,7 @@ export const serializeAws_restJson1CreateBackupSelectionCommand = async (
     ...(input.BackupSelection !== undefined && {
       BackupSelection: serializeAws_restJson1BackupSelection(input.BackupSelection, context),
     }),
-    ...(input.CreatorRequestId !== undefined && {
-      CreatorRequestId: input.CreatorRequestId,
-    }),
+    ...(input.CreatorRequestId !== undefined && { CreatorRequestId: input.CreatorRequestId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -251,12 +247,8 @@ export const serializeAws_restJson1CreateBackupVaultCommand = async (
     ...(input.BackupVaultTags !== undefined && {
       BackupVaultTags: serializeAws_restJson1Tags(input.BackupVaultTags, context),
     }),
-    ...(input.CreatorRequestId !== undefined && {
-      CreatorRequestId: input.CreatorRequestId,
-    }),
-    ...(input.EncryptionKeyArn !== undefined && {
-      EncryptionKeyArn: input.EncryptionKeyArn,
-    }),
+    ...(input.CreatorRequestId !== undefined && { CreatorRequestId: input.CreatorRequestId }),
+    ...(input.EncryptionKeyArn !== undefined && { EncryptionKeyArn: input.EncryptionKeyArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -731,9 +723,7 @@ export const serializeAws_restJson1GetBackupPlanFromJSONCommand = async (
   let resolvedPath = "/backup/template/json/toPlan";
   let body: any;
   body = JSON.stringify({
-    ...(input.BackupPlanTemplateJson !== undefined && {
-      BackupPlanTemplateJson: input.BackupPlanTemplateJson,
-    }),
+    ...(input.BackupPlanTemplateJson !== undefined && { BackupPlanTemplateJson: input.BackupPlanTemplateJson }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -946,25 +936,17 @@ export const serializeAws_restJson1ListBackupJobsCommand = async (
   };
   let resolvedPath = "/backup-jobs";
   const query: any = {
-    ...(input.ByBackupVaultName !== undefined && {
-      backupVaultName: input.ByBackupVaultName,
-    }),
+    ...(input.ByBackupVaultName !== undefined && { backupVaultName: input.ByBackupVaultName }),
     ...(input.ByCreatedAfter !== undefined && {
       createdAfter: (input.ByCreatedAfter.toISOString().split(".")[0] + "Z").toString(),
     }),
     ...(input.ByCreatedBefore !== undefined && {
       createdBefore: (input.ByCreatedBefore.toISOString().split(".")[0] + "Z").toString(),
     }),
-    ...(input.ByResourceArn !== undefined && {
-      resourceArn: input.ByResourceArn,
-    }),
-    ...(input.ByResourceType !== undefined && {
-      resourceType: input.ByResourceType,
-    }),
+    ...(input.ByResourceArn !== undefined && { resourceArn: input.ByResourceArn }),
+    ...(input.ByResourceType !== undefined && { resourceType: input.ByResourceType }),
     ...(input.ByState !== undefined && { state: input.ByState }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -990,12 +972,8 @@ export const serializeAws_restJson1ListBackupPlansCommand = async (
   };
   let resolvedPath = "/backup/plans";
   const query: any = {
-    ...(input.IncludeDeleted !== undefined && {
-      includeDeleted: input.IncludeDeleted.toString(),
-    }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.IncludeDeleted !== undefined && { includeDeleted: input.IncludeDeleted.toString() }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -1021,9 +999,7 @@ export const serializeAws_restJson1ListBackupPlanTemplatesCommand = async (
   };
   let resolvedPath = "/backup/template/plans";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -1058,9 +1034,7 @@ export const serializeAws_restJson1ListBackupPlanVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -1095,9 +1069,7 @@ export const serializeAws_restJson1ListBackupSelectionsCommand = async (
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -1123,9 +1095,7 @@ export const serializeAws_restJson1ListBackupVaultsCommand = async (
   };
   let resolvedPath = "/backup-vaults";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -1157,19 +1127,11 @@ export const serializeAws_restJson1ListCopyJobsCommand = async (
     ...(input.ByCreatedBefore !== undefined && {
       createdBefore: (input.ByCreatedBefore.toISOString().split(".")[0] + "Z").toString(),
     }),
-    ...(input.ByDestinationVaultArn !== undefined && {
-      destinationVaultArn: input.ByDestinationVaultArn,
-    }),
-    ...(input.ByResourceArn !== undefined && {
-      resourceArn: input.ByResourceArn,
-    }),
-    ...(input.ByResourceType !== undefined && {
-      resourceType: input.ByResourceType,
-    }),
+    ...(input.ByDestinationVaultArn !== undefined && { destinationVaultArn: input.ByDestinationVaultArn }),
+    ...(input.ByResourceArn !== undefined && { resourceArn: input.ByResourceArn }),
+    ...(input.ByResourceType !== undefined && { resourceType: input.ByResourceType }),
     ...(input.ByState !== undefined && { state: input.ByState }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -1195,9 +1157,7 @@ export const serializeAws_restJson1ListProtectedResourcesCommand = async (
   };
   let resolvedPath = "/resources";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -1232,24 +1192,16 @@ export const serializeAws_restJson1ListRecoveryPointsByBackupVaultCommand = asyn
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
   const query: any = {
-    ...(input.ByBackupPlanId !== undefined && {
-      backupPlanId: input.ByBackupPlanId,
-    }),
+    ...(input.ByBackupPlanId !== undefined && { backupPlanId: input.ByBackupPlanId }),
     ...(input.ByCreatedAfter !== undefined && {
       createdAfter: (input.ByCreatedAfter.toISOString().split(".")[0] + "Z").toString(),
     }),
     ...(input.ByCreatedBefore !== undefined && {
       createdBefore: (input.ByCreatedBefore.toISOString().split(".")[0] + "Z").toString(),
     }),
-    ...(input.ByResourceArn !== undefined && {
-      resourceArn: input.ByResourceArn,
-    }),
-    ...(input.ByResourceType !== undefined && {
-      resourceType: input.ByResourceType,
-    }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.ByResourceArn !== undefined && { resourceArn: input.ByResourceArn }),
+    ...(input.ByResourceType !== undefined && { resourceType: input.ByResourceType }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -1284,9 +1236,7 @@ export const serializeAws_restJson1ListRecoveryPointsByResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -1312,9 +1262,7 @@ export const serializeAws_restJson1ListRestoreJobsCommand = async (
   };
   let resolvedPath = "/restore-jobs";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -1349,9 +1297,7 @@ export const serializeAws_restJson1ListTagsCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -1447,26 +1393,16 @@ export const serializeAws_restJson1StartBackupJobCommand = async (
   let resolvedPath = "/backup-jobs";
   let body: any;
   body = JSON.stringify({
-    ...(input.BackupVaultName !== undefined && {
-      BackupVaultName: input.BackupVaultName,
-    }),
-    ...(input.CompleteWindowMinutes !== undefined && {
-      CompleteWindowMinutes: input.CompleteWindowMinutes,
-    }),
+    ...(input.BackupVaultName !== undefined && { BackupVaultName: input.BackupVaultName }),
+    ...(input.CompleteWindowMinutes !== undefined && { CompleteWindowMinutes: input.CompleteWindowMinutes }),
     ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
-    ...(input.IdempotencyToken !== undefined && {
-      IdempotencyToken: input.IdempotencyToken,
-    }),
-    ...(input.Lifecycle !== undefined && {
-      Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context),
-    }),
+    ...(input.IdempotencyToken !== undefined && { IdempotencyToken: input.IdempotencyToken }),
+    ...(input.Lifecycle !== undefined && { Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context) }),
     ...(input.RecoveryPointTags !== undefined && {
       RecoveryPointTags: serializeAws_restJson1Tags(input.RecoveryPointTags, context),
     }),
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.StartWindowMinutes !== undefined && {
-      StartWindowMinutes: input.StartWindowMinutes,
-    }),
+    ...(input.StartWindowMinutes !== undefined && { StartWindowMinutes: input.StartWindowMinutes }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1494,18 +1430,10 @@ export const serializeAws_restJson1StartCopyJobCommand = async (
       DestinationBackupVaultArn: input.DestinationBackupVaultArn,
     }),
     ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
-    ...(input.IdempotencyToken !== undefined && {
-      IdempotencyToken: input.IdempotencyToken,
-    }),
-    ...(input.Lifecycle !== undefined && {
-      Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context),
-    }),
-    ...(input.RecoveryPointArn !== undefined && {
-      RecoveryPointArn: input.RecoveryPointArn,
-    }),
-    ...(input.SourceBackupVaultName !== undefined && {
-      SourceBackupVaultName: input.SourceBackupVaultName,
-    }),
+    ...(input.IdempotencyToken !== undefined && { IdempotencyToken: input.IdempotencyToken }),
+    ...(input.Lifecycle !== undefined && { Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context) }),
+    ...(input.RecoveryPointArn !== undefined && { RecoveryPointArn: input.RecoveryPointArn }),
+    ...(input.SourceBackupVaultName !== undefined && { SourceBackupVaultName: input.SourceBackupVaultName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1530,18 +1458,10 @@ export const serializeAws_restJson1StartRestoreJobCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
-    ...(input.IdempotencyToken !== undefined && {
-      IdempotencyToken: input.IdempotencyToken,
-    }),
-    ...(input.Metadata !== undefined && {
-      Metadata: serializeAws_restJson1Metadata(input.Metadata, context),
-    }),
-    ...(input.RecoveryPointArn !== undefined && {
-      RecoveryPointArn: input.RecoveryPointArn,
-    }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
+    ...(input.IdempotencyToken !== undefined && { IdempotencyToken: input.IdempotencyToken }),
+    ...(input.Metadata !== undefined && { Metadata: serializeAws_restJson1Metadata(input.Metadata, context) }),
+    ...(input.RecoveryPointArn !== undefined && { RecoveryPointArn: input.RecoveryPointArn }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1604,9 +1524,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1Tags(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1639,9 +1557,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.TagKeyList !== undefined && {
-      TagKeyList: serializeAws_restJson1TagKeyList(input.TagKeyList, context),
-    }),
+    ...(input.TagKeyList !== undefined && { TagKeyList: serializeAws_restJson1TagKeyList(input.TagKeyList, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1718,9 +1634,7 @@ export const serializeAws_restJson1UpdateRecoveryPointLifecycleCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Lifecycle !== undefined && {
-      Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context),
-    }),
+    ...(input.Lifecycle !== undefined && { Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -6044,39 +5958,25 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
 
 const serializeAws_restJson1BackupPlanInput = (input: BackupPlanInput, context: __SerdeContext): any => {
   return {
-    ...(input.BackupPlanName !== undefined && {
-      BackupPlanName: input.BackupPlanName,
-    }),
-    ...(input.Rules !== undefined && {
-      Rules: serializeAws_restJson1BackupRulesInput(input.Rules, context),
-    }),
+    ...(input.BackupPlanName !== undefined && { BackupPlanName: input.BackupPlanName }),
+    ...(input.Rules !== undefined && { Rules: serializeAws_restJson1BackupRulesInput(input.Rules, context) }),
   };
 };
 
 const serializeAws_restJson1BackupRuleInput = (input: BackupRuleInput, context: __SerdeContext): any => {
   return {
-    ...(input.CompletionWindowMinutes !== undefined && {
-      CompletionWindowMinutes: input.CompletionWindowMinutes,
-    }),
+    ...(input.CompletionWindowMinutes !== undefined && { CompletionWindowMinutes: input.CompletionWindowMinutes }),
     ...(input.CopyActions !== undefined && {
       CopyActions: serializeAws_restJson1CopyActions(input.CopyActions, context),
     }),
-    ...(input.Lifecycle !== undefined && {
-      Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context),
-    }),
+    ...(input.Lifecycle !== undefined && { Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context) }),
     ...(input.RecoveryPointTags !== undefined && {
       RecoveryPointTags: serializeAws_restJson1Tags(input.RecoveryPointTags, context),
     }),
     ...(input.RuleName !== undefined && { RuleName: input.RuleName }),
-    ...(input.ScheduleExpression !== undefined && {
-      ScheduleExpression: input.ScheduleExpression,
-    }),
-    ...(input.StartWindowMinutes !== undefined && {
-      StartWindowMinutes: input.StartWindowMinutes,
-    }),
-    ...(input.TargetBackupVaultName !== undefined && {
-      TargetBackupVaultName: input.TargetBackupVaultName,
-    }),
+    ...(input.ScheduleExpression !== undefined && { ScheduleExpression: input.ScheduleExpression }),
+    ...(input.StartWindowMinutes !== undefined && { StartWindowMinutes: input.StartWindowMinutes }),
+    ...(input.TargetBackupVaultName !== undefined && { TargetBackupVaultName: input.TargetBackupVaultName }),
   };
 };
 
@@ -6087,15 +5987,9 @@ const serializeAws_restJson1BackupRulesInput = (input: BackupRuleInput[], contex
 const serializeAws_restJson1BackupSelection = (input: BackupSelection, context: __SerdeContext): any => {
   return {
     ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
-    ...(input.ListOfTags !== undefined && {
-      ListOfTags: serializeAws_restJson1ListOfTags(input.ListOfTags, context),
-    }),
-    ...(input.Resources !== undefined && {
-      Resources: serializeAws_restJson1ResourceArns(input.Resources, context),
-    }),
-    ...(input.SelectionName !== undefined && {
-      SelectionName: input.SelectionName,
-    }),
+    ...(input.ListOfTags !== undefined && { ListOfTags: serializeAws_restJson1ListOfTags(input.ListOfTags, context) }),
+    ...(input.Resources !== undefined && { Resources: serializeAws_restJson1ResourceArns(input.Resources, context) }),
+    ...(input.SelectionName !== undefined && { SelectionName: input.SelectionName }),
   };
 };
 
@@ -6108,15 +6002,9 @@ const serializeAws_restJson1BackupVaultEvents = (
 
 const serializeAws_restJson1Condition = (input: Condition, context: __SerdeContext): any => {
   return {
-    ...(input.ConditionKey !== undefined && {
-      ConditionKey: input.ConditionKey,
-    }),
-    ...(input.ConditionType !== undefined && {
-      ConditionType: input.ConditionType,
-    }),
-    ...(input.ConditionValue !== undefined && {
-      ConditionValue: input.ConditionValue,
-    }),
+    ...(input.ConditionKey !== undefined && { ConditionKey: input.ConditionKey }),
+    ...(input.ConditionType !== undefined && { ConditionType: input.ConditionType }),
+    ...(input.ConditionValue !== undefined && { ConditionValue: input.ConditionValue }),
   };
 };
 
@@ -6125,9 +6013,7 @@ const serializeAws_restJson1CopyAction = (input: CopyAction, context: __SerdeCon
     ...(input.DestinationBackupVaultArn !== undefined && {
       DestinationBackupVaultArn: input.DestinationBackupVaultArn,
     }),
-    ...(input.Lifecycle !== undefined && {
-      Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context),
-    }),
+    ...(input.Lifecycle !== undefined && { Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context) }),
   };
 };
 
@@ -6137,9 +6023,7 @@ const serializeAws_restJson1CopyActions = (input: CopyAction[], context: __Serde
 
 const serializeAws_restJson1Lifecycle = (input: Lifecycle, context: __SerdeContext): any => {
   return {
-    ...(input.DeleteAfterDays !== undefined && {
-      DeleteAfterDays: input.DeleteAfterDays,
-    }),
+    ...(input.DeleteAfterDays !== undefined && { DeleteAfterDays: input.DeleteAfterDays }),
     ...(input.MoveToColdStorageAfterDays !== undefined && {
       MoveToColdStorageAfterDays: input.MoveToColdStorageAfterDays,
     }),

@@ -3064,9 +3064,7 @@ const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
 const serializeAws_json1_1AddTagsRequest = (input: AddTagsRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.TagsList !== undefined && {
-      TagsList: serializeAws_json1_1TagsList(input.TagsList, context),
-    }),
+    ...(input.TagsList !== undefined && { TagsList: serializeAws_json1_1TagsList(input.TagsList, context) }),
   };
 };
 
@@ -3075,42 +3073,26 @@ const serializeAws_json1_1CreateTrailRequest = (input: CreateTrailRequest, conte
     ...(input.CloudWatchLogsLogGroupArn !== undefined && {
       CloudWatchLogsLogGroupArn: input.CloudWatchLogsLogGroupArn,
     }),
-    ...(input.CloudWatchLogsRoleArn !== undefined && {
-      CloudWatchLogsRoleArn: input.CloudWatchLogsRoleArn,
-    }),
-    ...(input.EnableLogFileValidation !== undefined && {
-      EnableLogFileValidation: input.EnableLogFileValidation,
-    }),
+    ...(input.CloudWatchLogsRoleArn !== undefined && { CloudWatchLogsRoleArn: input.CloudWatchLogsRoleArn }),
+    ...(input.EnableLogFileValidation !== undefined && { EnableLogFileValidation: input.EnableLogFileValidation }),
     ...(input.IncludeGlobalServiceEvents !== undefined && {
       IncludeGlobalServiceEvents: input.IncludeGlobalServiceEvents,
     }),
-    ...(input.IsMultiRegionTrail !== undefined && {
-      IsMultiRegionTrail: input.IsMultiRegionTrail,
-    }),
-    ...(input.IsOrganizationTrail !== undefined && {
-      IsOrganizationTrail: input.IsOrganizationTrail,
-    }),
+    ...(input.IsMultiRegionTrail !== undefined && { IsMultiRegionTrail: input.IsMultiRegionTrail }),
+    ...(input.IsOrganizationTrail !== undefined && { IsOrganizationTrail: input.IsOrganizationTrail }),
     ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.S3BucketName !== undefined && {
-      S3BucketName: input.S3BucketName,
-    }),
+    ...(input.S3BucketName !== undefined && { S3BucketName: input.S3BucketName }),
     ...(input.S3KeyPrefix !== undefined && { S3KeyPrefix: input.S3KeyPrefix }),
-    ...(input.SnsTopicName !== undefined && {
-      SnsTopicName: input.SnsTopicName,
-    }),
-    ...(input.TagsList !== undefined && {
-      TagsList: serializeAws_json1_1TagsList(input.TagsList, context),
-    }),
+    ...(input.SnsTopicName !== undefined && { SnsTopicName: input.SnsTopicName }),
+    ...(input.TagsList !== undefined && { TagsList: serializeAws_json1_1TagsList(input.TagsList, context) }),
   };
 };
 
 const serializeAws_json1_1DataResource = (input: DataResource, context: __SerdeContext): any => {
   return {
     ...(input.Type !== undefined && { Type: input.Type }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_json1_1DataResourceValues(input.Values, context),
-    }),
+    ...(input.Values !== undefined && { Values: serializeAws_json1_1DataResourceValues(input.Values, context) }),
   };
 };
 
@@ -3130,9 +3112,7 @@ const serializeAws_json1_1DeleteTrailRequest = (input: DeleteTrailRequest, conte
 
 const serializeAws_json1_1DescribeTrailsRequest = (input: DescribeTrailsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.includeShadowTrails !== undefined && {
-      includeShadowTrails: input.includeShadowTrails,
-    }),
+    ...(input.includeShadowTrails !== undefined && { includeShadowTrails: input.includeShadowTrails }),
     ...(input.trailNameList !== undefined && {
       trailNameList: serializeAws_json1_1TrailNameList(input.trailNameList, context),
     }),
@@ -3150,12 +3130,8 @@ const serializeAws_json1_1EventSelector = (input: EventSelector, context: __Serd
         context
       ),
     }),
-    ...(input.IncludeManagementEvents !== undefined && {
-      IncludeManagementEvents: input.IncludeManagementEvents,
-    }),
-    ...(input.ReadWriteType !== undefined && {
-      ReadWriteType: input.ReadWriteType,
-    }),
+    ...(input.IncludeManagementEvents !== undefined && { IncludeManagementEvents: input.IncludeManagementEvents }),
+    ...(input.ReadWriteType !== undefined && { ReadWriteType: input.ReadWriteType }),
   };
 };
 
@@ -3209,13 +3185,9 @@ const serializeAws_json1_1InsightSelectors = (input: InsightSelector[], context:
 
 const serializeAws_json1_1ListPublicKeysRequest = (input: ListPublicKeysRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime !== undefined && {
-      EndTime: Math.round(input.EndTime.getTime() / 1000),
-    }),
+    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.StartTime !== undefined && {
-      StartTime: Math.round(input.StartTime.getTime() / 1000),
-    }),
+    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
@@ -3236,12 +3208,8 @@ const serializeAws_json1_1ListTrailsRequest = (input: ListTrailsRequest, context
 
 const serializeAws_json1_1LookupAttribute = (input: LookupAttribute, context: __SerdeContext): any => {
   return {
-    ...(input.AttributeKey !== undefined && {
-      AttributeKey: input.AttributeKey,
-    }),
-    ...(input.AttributeValue !== undefined && {
-      AttributeValue: input.AttributeValue,
-    }),
+    ...(input.AttributeKey !== undefined && { AttributeKey: input.AttributeKey }),
+    ...(input.AttributeValue !== undefined && { AttributeValue: input.AttributeValue }),
   };
 };
 
@@ -3251,20 +3219,14 @@ const serializeAws_json1_1LookupAttributesList = (input: LookupAttribute[], cont
 
 const serializeAws_json1_1LookupEventsRequest = (input: LookupEventsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime !== undefined && {
-      EndTime: Math.round(input.EndTime.getTime() / 1000),
-    }),
-    ...(input.EventCategory !== undefined && {
-      EventCategory: input.EventCategory,
-    }),
+    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.EventCategory !== undefined && { EventCategory: input.EventCategory }),
     ...(input.LookupAttributes !== undefined && {
       LookupAttributes: serializeAws_json1_1LookupAttributesList(input.LookupAttributes, context),
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.StartTime !== undefined && {
-      StartTime: Math.round(input.StartTime.getTime() / 1000),
-    }),
+    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
@@ -3295,9 +3257,7 @@ const serializeAws_json1_1PutInsightSelectorsRequest = (
 const serializeAws_json1_1RemoveTagsRequest = (input: RemoveTagsRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.TagsList !== undefined && {
-      TagsList: serializeAws_json1_1TagsList(input.TagsList, context),
-    }),
+    ...(input.TagsList !== undefined && { TagsList: serializeAws_json1_1TagsList(input.TagsList, context) }),
   };
 };
 
@@ -3337,30 +3297,18 @@ const serializeAws_json1_1UpdateTrailRequest = (input: UpdateTrailRequest, conte
     ...(input.CloudWatchLogsLogGroupArn !== undefined && {
       CloudWatchLogsLogGroupArn: input.CloudWatchLogsLogGroupArn,
     }),
-    ...(input.CloudWatchLogsRoleArn !== undefined && {
-      CloudWatchLogsRoleArn: input.CloudWatchLogsRoleArn,
-    }),
-    ...(input.EnableLogFileValidation !== undefined && {
-      EnableLogFileValidation: input.EnableLogFileValidation,
-    }),
+    ...(input.CloudWatchLogsRoleArn !== undefined && { CloudWatchLogsRoleArn: input.CloudWatchLogsRoleArn }),
+    ...(input.EnableLogFileValidation !== undefined && { EnableLogFileValidation: input.EnableLogFileValidation }),
     ...(input.IncludeGlobalServiceEvents !== undefined && {
       IncludeGlobalServiceEvents: input.IncludeGlobalServiceEvents,
     }),
-    ...(input.IsMultiRegionTrail !== undefined && {
-      IsMultiRegionTrail: input.IsMultiRegionTrail,
-    }),
-    ...(input.IsOrganizationTrail !== undefined && {
-      IsOrganizationTrail: input.IsOrganizationTrail,
-    }),
+    ...(input.IsMultiRegionTrail !== undefined && { IsMultiRegionTrail: input.IsMultiRegionTrail }),
+    ...(input.IsOrganizationTrail !== undefined && { IsOrganizationTrail: input.IsOrganizationTrail }),
     ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.S3BucketName !== undefined && {
-      S3BucketName: input.S3BucketName,
-    }),
+    ...(input.S3BucketName !== undefined && { S3BucketName: input.S3BucketName }),
     ...(input.S3KeyPrefix !== undefined && { S3KeyPrefix: input.S3KeyPrefix }),
-    ...(input.SnsTopicName !== undefined && {
-      SnsTopicName: input.SnsTopicName,
-    }),
+    ...(input.SnsTopicName !== undefined && { SnsTopicName: input.SnsTopicName }),
   };
 };
 

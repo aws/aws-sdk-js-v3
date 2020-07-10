@@ -6214,34 +6214,20 @@ const deserializeAws_json1_1ServiceUnavailableErrorResponse = async (
 
 const serializeAws_json1_1ActivateGatewayInput = (input: ActivateGatewayInput, context: __SerdeContext): any => {
   return {
-    ...(input.ActivationKey !== undefined && {
-      ActivationKey: input.ActivationKey,
-    }),
+    ...(input.ActivationKey !== undefined && { ActivationKey: input.ActivationKey }),
     ...(input.GatewayName !== undefined && { GatewayName: input.GatewayName }),
-    ...(input.GatewayRegion !== undefined && {
-      GatewayRegion: input.GatewayRegion,
-    }),
-    ...(input.GatewayTimezone !== undefined && {
-      GatewayTimezone: input.GatewayTimezone,
-    }),
+    ...(input.GatewayRegion !== undefined && { GatewayRegion: input.GatewayRegion }),
+    ...(input.GatewayTimezone !== undefined && { GatewayTimezone: input.GatewayTimezone }),
     ...(input.GatewayType !== undefined && { GatewayType: input.GatewayType }),
-    ...(input.MediumChangerType !== undefined && {
-      MediumChangerType: input.MediumChangerType,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
-    ...(input.TapeDriveType !== undefined && {
-      TapeDriveType: input.TapeDriveType,
-    }),
+    ...(input.MediumChangerType !== undefined && { MediumChangerType: input.MediumChangerType }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.TapeDriveType !== undefined && { TapeDriveType: input.TapeDriveType }),
   };
 };
 
 const serializeAws_json1_1AddCacheInput = (input: AddCacheInput, context: __SerdeContext): any => {
   return {
-    ...(input.DiskIds !== undefined && {
-      DiskIds: serializeAws_json1_1DiskIds(input.DiskIds, context),
-    }),
+    ...(input.DiskIds !== undefined && { DiskIds: serializeAws_json1_1DiskIds(input.DiskIds, context) }),
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
   };
 };
@@ -6249,26 +6235,20 @@ const serializeAws_json1_1AddCacheInput = (input: AddCacheInput, context: __Serd
 const serializeAws_json1_1AddTagsToResourceInput = (input: AddTagsToResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1AddUploadBufferInput = (input: AddUploadBufferInput, context: __SerdeContext): any => {
   return {
-    ...(input.DiskIds !== undefined && {
-      DiskIds: serializeAws_json1_1DiskIds(input.DiskIds, context),
-    }),
+    ...(input.DiskIds !== undefined && { DiskIds: serializeAws_json1_1DiskIds(input.DiskIds, context) }),
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
   };
 };
 
 const serializeAws_json1_1AddWorkingStorageInput = (input: AddWorkingStorageInput, context: __SerdeContext): any => {
   return {
-    ...(input.DiskIds !== undefined && {
-      DiskIds: serializeAws_json1_1DiskIds(input.DiskIds, context),
-    }),
+    ...(input.DiskIds !== undefined && { DiskIds: serializeAws_json1_1DiskIds(input.DiskIds, context) }),
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
   };
 };
@@ -6284,9 +6264,7 @@ const serializeAws_json1_1AttachVolumeInput = (input: AttachVolumeInput, context
   return {
     ...(input.DiskId !== undefined && { DiskId: input.DiskId }),
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.NetworkInterfaceId !== undefined && {
-      NetworkInterfaceId: input.NetworkInterfaceId,
-    }),
+    ...(input.NetworkInterfaceId !== undefined && { NetworkInterfaceId: input.NetworkInterfaceId }),
     ...(input.TargetName !== undefined && { TargetName: input.TargetName }),
     ...(input.VolumeARN !== undefined && { VolumeARN: input.VolumeARN }),
   };
@@ -6313,24 +6291,14 @@ const serializeAws_json1_1CreateCachediSCSIVolumeInput = (
   return {
     ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.KMSEncrypted !== undefined && {
-      KMSEncrypted: input.KMSEncrypted,
-    }),
+    ...(input.KMSEncrypted !== undefined && { KMSEncrypted: input.KMSEncrypted }),
     ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
-    ...(input.NetworkInterfaceId !== undefined && {
-      NetworkInterfaceId: input.NetworkInterfaceId,
-    }),
+    ...(input.NetworkInterfaceId !== undefined && { NetworkInterfaceId: input.NetworkInterfaceId }),
     ...(input.SnapshotId !== undefined && { SnapshotId: input.SnapshotId }),
-    ...(input.SourceVolumeARN !== undefined && {
-      SourceVolumeARN: input.SourceVolumeARN,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
+    ...(input.SourceVolumeARN !== undefined && { SourceVolumeARN: input.SourceVolumeARN }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.TargetName !== undefined && { TargetName: input.TargetName }),
-    ...(input.VolumeSizeInBytes !== undefined && {
-      VolumeSizeInBytes: input.VolumeSizeInBytes,
-    }),
+    ...(input.VolumeSizeInBytes !== undefined && { VolumeSizeInBytes: input.VolumeSizeInBytes }),
   };
 };
 
@@ -6340,16 +6308,10 @@ const serializeAws_json1_1CreateNFSFileShareInput = (input: CreateNFSFileShareIn
       ClientList: serializeAws_json1_1FileShareClientList(input.ClientList, context),
     }),
     ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
-    ...(input.DefaultStorageClass !== undefined && {
-      DefaultStorageClass: input.DefaultStorageClass,
-    }),
+    ...(input.DefaultStorageClass !== undefined && { DefaultStorageClass: input.DefaultStorageClass }),
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.GuessMIMETypeEnabled !== undefined && {
-      GuessMIMETypeEnabled: input.GuessMIMETypeEnabled,
-    }),
-    ...(input.KMSEncrypted !== undefined && {
-      KMSEncrypted: input.KMSEncrypted,
-    }),
+    ...(input.GuessMIMETypeEnabled !== undefined && { GuessMIMETypeEnabled: input.GuessMIMETypeEnabled }),
+    ...(input.KMSEncrypted !== undefined && { KMSEncrypted: input.KMSEncrypted }),
     ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
     ...(input.LocationARN !== undefined && { LocationARN: input.LocationARN }),
     ...(input.NFSFileShareDefaults !== undefined && {
@@ -6357,14 +6319,10 @@ const serializeAws_json1_1CreateNFSFileShareInput = (input: CreateNFSFileShareIn
     }),
     ...(input.ObjectACL !== undefined && { ObjectACL: input.ObjectACL }),
     ...(input.ReadOnly !== undefined && { ReadOnly: input.ReadOnly }),
-    ...(input.RequesterPays !== undefined && {
-      RequesterPays: input.RequesterPays,
-    }),
+    ...(input.RequesterPays !== undefined && { RequesterPays: input.RequesterPays }),
     ...(input.Role !== undefined && { Role: input.Role }),
     ...(input.Squash !== undefined && { Squash: input.Squash }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -6373,37 +6331,23 @@ const serializeAws_json1_1CreateSMBFileShareInput = (input: CreateSMBFileShareIn
     ...(input.AdminUserList !== undefined && {
       AdminUserList: serializeAws_json1_1FileShareUserList(input.AdminUserList, context),
     }),
-    ...(input.Authentication !== undefined && {
-      Authentication: input.Authentication,
-    }),
+    ...(input.Authentication !== undefined && { Authentication: input.Authentication }),
     ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
-    ...(input.DefaultStorageClass !== undefined && {
-      DefaultStorageClass: input.DefaultStorageClass,
-    }),
+    ...(input.DefaultStorageClass !== undefined && { DefaultStorageClass: input.DefaultStorageClass }),
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.GuessMIMETypeEnabled !== undefined && {
-      GuessMIMETypeEnabled: input.GuessMIMETypeEnabled,
-    }),
+    ...(input.GuessMIMETypeEnabled !== undefined && { GuessMIMETypeEnabled: input.GuessMIMETypeEnabled }),
     ...(input.InvalidUserList !== undefined && {
       InvalidUserList: serializeAws_json1_1FileShareUserList(input.InvalidUserList, context),
     }),
-    ...(input.KMSEncrypted !== undefined && {
-      KMSEncrypted: input.KMSEncrypted,
-    }),
+    ...(input.KMSEncrypted !== undefined && { KMSEncrypted: input.KMSEncrypted }),
     ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
     ...(input.LocationARN !== undefined && { LocationARN: input.LocationARN }),
     ...(input.ObjectACL !== undefined && { ObjectACL: input.ObjectACL }),
     ...(input.ReadOnly !== undefined && { ReadOnly: input.ReadOnly }),
-    ...(input.RequesterPays !== undefined && {
-      RequesterPays: input.RequesterPays,
-    }),
+    ...(input.RequesterPays !== undefined && { RequesterPays: input.RequesterPays }),
     ...(input.Role !== undefined && { Role: input.Role }),
-    ...(input.SMBACLEnabled !== undefined && {
-      SMBACLEnabled: input.SMBACLEnabled,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
+    ...(input.SMBACLEnabled !== undefined && { SMBACLEnabled: input.SMBACLEnabled }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.ValidUserList !== undefined && {
       ValidUserList: serializeAws_json1_1FileShareUserList(input.ValidUserList, context),
     }),
@@ -6415,24 +6359,16 @@ const serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SnapshotDescription !== undefined && {
-      SnapshotDescription: input.SnapshotDescription,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
+    ...(input.SnapshotDescription !== undefined && { SnapshotDescription: input.SnapshotDescription }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.VolumeARN !== undefined && { VolumeARN: input.VolumeARN }),
   };
 };
 
 const serializeAws_json1_1CreateSnapshotInput = (input: CreateSnapshotInput, context: __SerdeContext): any => {
   return {
-    ...(input.SnapshotDescription !== undefined && {
-      SnapshotDescription: input.SnapshotDescription,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
+    ...(input.SnapshotDescription !== undefined && { SnapshotDescription: input.SnapshotDescription }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.VolumeARN !== undefined && { VolumeARN: input.VolumeARN }),
   };
 };
@@ -6444,20 +6380,12 @@ const serializeAws_json1_1CreateStorediSCSIVolumeInput = (
   return {
     ...(input.DiskId !== undefined && { DiskId: input.DiskId }),
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.KMSEncrypted !== undefined && {
-      KMSEncrypted: input.KMSEncrypted,
-    }),
+    ...(input.KMSEncrypted !== undefined && { KMSEncrypted: input.KMSEncrypted }),
     ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
-    ...(input.NetworkInterfaceId !== undefined && {
-      NetworkInterfaceId: input.NetworkInterfaceId,
-    }),
-    ...(input.PreserveExistingData !== undefined && {
-      PreserveExistingData: input.PreserveExistingData,
-    }),
+    ...(input.NetworkInterfaceId !== undefined && { NetworkInterfaceId: input.NetworkInterfaceId }),
+    ...(input.PreserveExistingData !== undefined && { PreserveExistingData: input.PreserveExistingData }),
     ...(input.SnapshotId !== undefined && { SnapshotId: input.SnapshotId }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.TargetName !== undefined && { TargetName: input.TargetName }),
   };
 };
@@ -6466,23 +6394,13 @@ const serializeAws_json1_1CreateTapesInput = (input: CreateTapesInput, context: 
   return {
     ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.KMSEncrypted !== undefined && {
-      KMSEncrypted: input.KMSEncrypted,
-    }),
+    ...(input.KMSEncrypted !== undefined && { KMSEncrypted: input.KMSEncrypted }),
     ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
-    ...(input.NumTapesToCreate !== undefined && {
-      NumTapesToCreate: input.NumTapesToCreate,
-    }),
+    ...(input.NumTapesToCreate !== undefined && { NumTapesToCreate: input.NumTapesToCreate }),
     ...(input.PoolId !== undefined && { PoolId: input.PoolId }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
-    ...(input.TapeBarcodePrefix !== undefined && {
-      TapeBarcodePrefix: input.TapeBarcodePrefix,
-    }),
-    ...(input.TapeSizeInBytes !== undefined && {
-      TapeSizeInBytes: input.TapeSizeInBytes,
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.TapeBarcodePrefix !== undefined && { TapeBarcodePrefix: input.TapeBarcodePrefix }),
+    ...(input.TapeSizeInBytes !== undefined && { TapeSizeInBytes: input.TapeSizeInBytes }),
   };
 };
 
@@ -6492,18 +6410,12 @@ const serializeAws_json1_1CreateTapeWithBarcodeInput = (
 ): any => {
   return {
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.KMSEncrypted !== undefined && {
-      KMSEncrypted: input.KMSEncrypted,
-    }),
+    ...(input.KMSEncrypted !== undefined && { KMSEncrypted: input.KMSEncrypted }),
     ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
     ...(input.PoolId !== undefined && { PoolId: input.PoolId }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.TapeBarcode !== undefined && { TapeBarcode: input.TapeBarcode }),
-    ...(input.TapeSizeInBytes !== undefined && {
-      TapeSizeInBytes: input.TapeSizeInBytes,
-    }),
+    ...(input.TapeSizeInBytes !== undefined && { TapeSizeInBytes: input.TapeSizeInBytes }),
   };
 };
 
@@ -6512,9 +6424,7 @@ const serializeAws_json1_1DeleteBandwidthRateLimitInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BandwidthType !== undefined && {
-      BandwidthType: input.BandwidthType,
-    }),
+    ...(input.BandwidthType !== undefined && { BandwidthType: input.BandwidthType }),
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
   };
 };
@@ -6524,18 +6434,14 @@ const serializeAws_json1_1DeleteChapCredentialsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InitiatorName !== undefined && {
-      InitiatorName: input.InitiatorName,
-    }),
+    ...(input.InitiatorName !== undefined && { InitiatorName: input.InitiatorName }),
     ...(input.TargetARN !== undefined && { TargetARN: input.TargetARN }),
   };
 };
 
 const serializeAws_json1_1DeleteFileShareInput = (input: DeleteFileShareInput, context: __SerdeContext): any => {
   return {
-    ...(input.FileShareARN !== undefined && {
-      FileShareARN: input.FileShareARN,
-    }),
+    ...(input.FileShareARN !== undefined && { FileShareARN: input.FileShareARN }),
     ...(input.ForceDelete !== undefined && { ForceDelete: input.ForceDelete }),
   };
 };
@@ -6597,9 +6503,7 @@ const serializeAws_json1_1DescribeCachediSCSIVolumesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VolumeARNs !== undefined && {
-      VolumeARNs: serializeAws_json1_1VolumeARNs(input.VolumeARNs, context),
-    }),
+    ...(input.VolumeARNs !== undefined && { VolumeARNs: serializeAws_json1_1VolumeARNs(input.VolumeARNs, context) }),
   };
 };
 
@@ -6681,9 +6585,7 @@ const serializeAws_json1_1DescribeStorediSCSIVolumesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VolumeARNs !== undefined && {
-      VolumeARNs: serializeAws_json1_1VolumeARNs(input.VolumeARNs, context),
-    }),
+    ...(input.VolumeARNs !== undefined && { VolumeARNs: serializeAws_json1_1VolumeARNs(input.VolumeARNs, context) }),
   };
 };
 
@@ -6694,9 +6596,7 @@ const serializeAws_json1_1DescribeTapeArchivesInput = (
   return {
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.TapeARNs !== undefined && {
-      TapeARNs: serializeAws_json1_1TapeARNs(input.TapeARNs, context),
-    }),
+    ...(input.TapeARNs !== undefined && { TapeARNs: serializeAws_json1_1TapeARNs(input.TapeARNs, context) }),
   };
 };
 
@@ -6716,9 +6616,7 @@ const serializeAws_json1_1DescribeTapesInput = (input: DescribeTapesInput, conte
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.TapeARNs !== undefined && {
-      TapeARNs: serializeAws_json1_1TapeARNs(input.TapeARNs, context),
-    }),
+    ...(input.TapeARNs !== undefined && { TapeARNs: serializeAws_json1_1TapeARNs(input.TapeARNs, context) }),
   };
 };
 
@@ -6795,13 +6693,9 @@ const serializeAws_json1_1JoinDomainInput = (input: JoinDomainInput, context: __
     }),
     ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.OrganizationalUnit !== undefined && {
-      OrganizationalUnit: input.OrganizationalUnit,
-    }),
+    ...(input.OrganizationalUnit !== undefined && { OrganizationalUnit: input.OrganizationalUnit }),
     ...(input.Password !== undefined && { Password: input.Password }),
-    ...(input.TimeoutInSeconds !== undefined && {
-      TimeoutInSeconds: input.TimeoutInSeconds,
-    }),
+    ...(input.TimeoutInSeconds !== undefined && { TimeoutInSeconds: input.TimeoutInSeconds }),
     ...(input.UserName !== undefined && { UserName: input.UserName }),
   };
 };
@@ -6842,9 +6736,7 @@ const serializeAws_json1_1ListTapesInput = (input: ListTapesInput, context: __Se
   return {
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.TapeARNs !== undefined && {
-      TapeARNs: serializeAws_json1_1TapeARNs(input.TapeARNs, context),
-    }),
+    ...(input.TapeARNs !== undefined && { TapeARNs: serializeAws_json1_1TapeARNs(input.TapeARNs, context) }),
   };
 };
 
@@ -6876,9 +6768,7 @@ const serializeAws_json1_1ListVolumesInput = (input: ListVolumesInput, context: 
 
 const serializeAws_json1_1NFSFileShareDefaults = (input: NFSFileShareDefaults, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryMode !== undefined && {
-      DirectoryMode: input.DirectoryMode,
-    }),
+    ...(input.DirectoryMode !== undefined && { DirectoryMode: input.DirectoryMode }),
     ...(input.FileMode !== undefined && { FileMode: input.FileMode }),
     ...(input.GroupId !== undefined && { GroupId: input.GroupId }),
     ...(input.OwnerId !== undefined && { OwnerId: input.OwnerId }),
@@ -6887,20 +6777,14 @@ const serializeAws_json1_1NFSFileShareDefaults = (input: NFSFileShareDefaults, c
 
 const serializeAws_json1_1NotifyWhenUploadedInput = (input: NotifyWhenUploadedInput, context: __SerdeContext): any => {
   return {
-    ...(input.FileShareARN !== undefined && {
-      FileShareARN: input.FileShareARN,
-    }),
+    ...(input.FileShareARN !== undefined && { FileShareARN: input.FileShareARN }),
   };
 };
 
 const serializeAws_json1_1RefreshCacheInput = (input: RefreshCacheInput, context: __SerdeContext): any => {
   return {
-    ...(input.FileShareARN !== undefined && {
-      FileShareARN: input.FileShareARN,
-    }),
-    ...(input.FolderList !== undefined && {
-      FolderList: serializeAws_json1_1FolderList(input.FolderList, context),
-    }),
+    ...(input.FileShareARN !== undefined && { FileShareARN: input.FileShareARN }),
+    ...(input.FolderList !== undefined && { FolderList: serializeAws_json1_1FolderList(input.FolderList, context) }),
     ...(input.Recursive !== undefined && { Recursive: input.Recursive }),
   };
 };
@@ -6911,9 +6795,7 @@ const serializeAws_json1_1RemoveTagsFromResourceInput = (
 ): any => {
   return {
     ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
   };
 };
 
@@ -6949,9 +6831,7 @@ const serializeAws_json1_1SetLocalConsolePasswordInput = (
 ): any => {
   return {
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.LocalConsolePassword !== undefined && {
-      LocalConsolePassword: input.LocalConsolePassword,
-    }),
+    ...(input.LocalConsolePassword !== undefined && { LocalConsolePassword: input.LocalConsolePassword }),
   };
 };
 
@@ -7025,9 +6905,7 @@ const serializeAws_json1_1UpdateChapCredentialsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InitiatorName !== undefined && {
-      InitiatorName: input.InitiatorName,
-    }),
+    ...(input.InitiatorName !== undefined && { InitiatorName: input.InitiatorName }),
     ...(input.SecretToAuthenticateInitiator !== undefined && {
       SecretToAuthenticateInitiator: input.SecretToAuthenticateInitiator,
     }),
@@ -7043,14 +6921,10 @@ const serializeAws_json1_1UpdateGatewayInformationInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CloudWatchLogGroupARN !== undefined && {
-      CloudWatchLogGroupARN: input.CloudWatchLogGroupARN,
-    }),
+    ...(input.CloudWatchLogGroupARN !== undefined && { CloudWatchLogGroupARN: input.CloudWatchLogGroupARN }),
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
     ...(input.GatewayName !== undefined && { GatewayName: input.GatewayName }),
-    ...(input.GatewayTimezone !== undefined && {
-      GatewayTimezone: input.GatewayTimezone,
-    }),
+    ...(input.GatewayTimezone !== undefined && { GatewayTimezone: input.GatewayTimezone }),
   };
 };
 
@@ -7072,9 +6946,7 @@ const serializeAws_json1_1UpdateMaintenanceStartTimeInput = (
     ...(input.DayOfWeek !== undefined && { DayOfWeek: input.DayOfWeek }),
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
     ...(input.HourOfDay !== undefined && { HourOfDay: input.HourOfDay }),
-    ...(input.MinuteOfHour !== undefined && {
-      MinuteOfHour: input.MinuteOfHour,
-    }),
+    ...(input.MinuteOfHour !== undefined && { MinuteOfHour: input.MinuteOfHour }),
   };
 };
 
@@ -7083,27 +6955,17 @@ const serializeAws_json1_1UpdateNFSFileShareInput = (input: UpdateNFSFileShareIn
     ...(input.ClientList !== undefined && {
       ClientList: serializeAws_json1_1FileShareClientList(input.ClientList, context),
     }),
-    ...(input.DefaultStorageClass !== undefined && {
-      DefaultStorageClass: input.DefaultStorageClass,
-    }),
-    ...(input.FileShareARN !== undefined && {
-      FileShareARN: input.FileShareARN,
-    }),
-    ...(input.GuessMIMETypeEnabled !== undefined && {
-      GuessMIMETypeEnabled: input.GuessMIMETypeEnabled,
-    }),
-    ...(input.KMSEncrypted !== undefined && {
-      KMSEncrypted: input.KMSEncrypted,
-    }),
+    ...(input.DefaultStorageClass !== undefined && { DefaultStorageClass: input.DefaultStorageClass }),
+    ...(input.FileShareARN !== undefined && { FileShareARN: input.FileShareARN }),
+    ...(input.GuessMIMETypeEnabled !== undefined && { GuessMIMETypeEnabled: input.GuessMIMETypeEnabled }),
+    ...(input.KMSEncrypted !== undefined && { KMSEncrypted: input.KMSEncrypted }),
     ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
     ...(input.NFSFileShareDefaults !== undefined && {
       NFSFileShareDefaults: serializeAws_json1_1NFSFileShareDefaults(input.NFSFileShareDefaults, context),
     }),
     ...(input.ObjectACL !== undefined && { ObjectACL: input.ObjectACL }),
     ...(input.ReadOnly !== undefined && { ReadOnly: input.ReadOnly }),
-    ...(input.RequesterPays !== undefined && {
-      RequesterPays: input.RequesterPays,
-    }),
+    ...(input.RequesterPays !== undefined && { RequesterPays: input.RequesterPays }),
     ...(input.Squash !== undefined && { Squash: input.Squash }),
   };
 };
@@ -7113,30 +6975,18 @@ const serializeAws_json1_1UpdateSMBFileShareInput = (input: UpdateSMBFileShareIn
     ...(input.AdminUserList !== undefined && {
       AdminUserList: serializeAws_json1_1FileShareUserList(input.AdminUserList, context),
     }),
-    ...(input.DefaultStorageClass !== undefined && {
-      DefaultStorageClass: input.DefaultStorageClass,
-    }),
-    ...(input.FileShareARN !== undefined && {
-      FileShareARN: input.FileShareARN,
-    }),
-    ...(input.GuessMIMETypeEnabled !== undefined && {
-      GuessMIMETypeEnabled: input.GuessMIMETypeEnabled,
-    }),
+    ...(input.DefaultStorageClass !== undefined && { DefaultStorageClass: input.DefaultStorageClass }),
+    ...(input.FileShareARN !== undefined && { FileShareARN: input.FileShareARN }),
+    ...(input.GuessMIMETypeEnabled !== undefined && { GuessMIMETypeEnabled: input.GuessMIMETypeEnabled }),
     ...(input.InvalidUserList !== undefined && {
       InvalidUserList: serializeAws_json1_1FileShareUserList(input.InvalidUserList, context),
     }),
-    ...(input.KMSEncrypted !== undefined && {
-      KMSEncrypted: input.KMSEncrypted,
-    }),
+    ...(input.KMSEncrypted !== undefined && { KMSEncrypted: input.KMSEncrypted }),
     ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
     ...(input.ObjectACL !== undefined && { ObjectACL: input.ObjectACL }),
     ...(input.ReadOnly !== undefined && { ReadOnly: input.ReadOnly }),
-    ...(input.RequesterPays !== undefined && {
-      RequesterPays: input.RequesterPays,
-    }),
-    ...(input.SMBACLEnabled !== undefined && {
-      SMBACLEnabled: input.SMBACLEnabled,
-    }),
+    ...(input.RequesterPays !== undefined && { RequesterPays: input.RequesterPays }),
+    ...(input.SMBACLEnabled !== undefined && { SMBACLEnabled: input.SMBACLEnabled }),
     ...(input.ValidUserList !== undefined && {
       ValidUserList: serializeAws_json1_1FileShareUserList(input.ValidUserList, context),
     }),
@@ -7149,9 +6999,7 @@ const serializeAws_json1_1UpdateSMBSecurityStrategyInput = (
 ): any => {
   return {
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.SMBSecurityStrategy !== undefined && {
-      SMBSecurityStrategy: input.SMBSecurityStrategy,
-    }),
+    ...(input.SMBSecurityStrategy !== undefined && { SMBSecurityStrategy: input.SMBSecurityStrategy }),
   };
 };
 
@@ -7161,13 +7009,9 @@ const serializeAws_json1_1UpdateSnapshotScheduleInput = (
 ): any => {
   return {
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.RecurrenceInHours !== undefined && {
-      RecurrenceInHours: input.RecurrenceInHours,
-    }),
+    ...(input.RecurrenceInHours !== undefined && { RecurrenceInHours: input.RecurrenceInHours }),
     ...(input.StartAt !== undefined && { StartAt: input.StartAt }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.VolumeARN !== undefined && { VolumeARN: input.VolumeARN }),
   };
 };
@@ -7178,9 +7022,7 @@ const serializeAws_json1_1UpdateVTLDeviceTypeInput = (
 ): any => {
   return {
     ...(input.DeviceType !== undefined && { DeviceType: input.DeviceType }),
-    ...(input.VTLDeviceARN !== undefined && {
-      VTLDeviceARN: input.VTLDeviceARN,
-    }),
+    ...(input.VTLDeviceARN !== undefined && { VTLDeviceARN: input.VTLDeviceARN }),
   };
 };
 

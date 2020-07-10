@@ -1964,9 +1964,7 @@ const serializeAws_json1_1CreateSubscriptionRequest = (
 
 const serializeAws_json1_1DeleteProtectionRequest = (input: DeleteProtectionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ProtectionId !== undefined && {
-      ProtectionId: input.ProtectionId,
-    }),
+    ...(input.ProtectionId !== undefined && { ProtectionId: input.ProtectionId }),
   };
 };
 
@@ -2002,9 +2000,7 @@ const serializeAws_json1_1DescribeProtectionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ProtectionId !== undefined && {
-      ProtectionId: input.ProtectionId,
-    }),
+    ...(input.ProtectionId !== undefined && { ProtectionId: input.ProtectionId }),
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
   };
 };
@@ -2034,9 +2030,7 @@ const serializeAws_json1_1DisassociateDRTRoleRequest = (
 
 const serializeAws_json1_1EmergencyContact = (input: EmergencyContact, context: __SerdeContext): any => {
   return {
-    ...(input.EmailAddress !== undefined && {
-      EmailAddress: input.EmailAddress,
-    }),
+    ...(input.EmailAddress !== undefined && { EmailAddress: input.EmailAddress }),
   };
 };
 
@@ -2053,17 +2047,13 @@ const serializeAws_json1_1GetSubscriptionStateRequest = (
 
 const serializeAws_json1_1ListAttacksRequest = (input: ListAttacksRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime !== undefined && {
-      EndTime: serializeAws_json1_1TimeRange(input.EndTime, context),
-    }),
+    ...(input.EndTime !== undefined && { EndTime: serializeAws_json1_1TimeRange(input.EndTime, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.ResourceArns !== undefined && {
       ResourceArns: serializeAws_json1_1ResourceArnFilterList(input.ResourceArns, context),
     }),
-    ...(input.StartTime !== undefined && {
-      StartTime: serializeAws_json1_1TimeRange(input.StartTime, context),
-    }),
+    ...(input.StartTime !== undefined && { StartTime: serializeAws_json1_1TimeRange(input.StartTime, context) }),
   };
 };
 
@@ -2080,12 +2070,8 @@ const serializeAws_json1_1ResourceArnFilterList = (input: string[], context: __S
 
 const serializeAws_json1_1TimeRange = (input: TimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.FromInclusive !== undefined && {
-      FromInclusive: Math.round(input.FromInclusive.getTime() / 1000),
-    }),
-    ...(input.ToExclusive !== undefined && {
-      ToExclusive: Math.round(input.ToExclusive.getTime() / 1000),
-    }),
+    ...(input.FromInclusive !== undefined && { FromInclusive: Math.round(input.FromInclusive.getTime() / 1000) }),
+    ...(input.ToExclusive !== undefined && { ToExclusive: Math.round(input.ToExclusive.getTime() / 1000) }),
   };
 };
 

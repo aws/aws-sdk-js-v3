@@ -16297,12 +16297,8 @@ const serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.approvalRuleTemplateName !== undefined && {
-      approvalRuleTemplateName: input.approvalRuleTemplateName,
-    }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.approvalRuleTemplateName !== undefined && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -16311,9 +16307,7 @@ const serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesInpu
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.approvalRuleTemplateName !== undefined && {
-      approvalRuleTemplateName: input.approvalRuleTemplateName,
-    }),
+    ...(input.approvalRuleTemplateName !== undefined && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
     ...(input.repositoryNames !== undefined && {
       repositoryNames: serializeAws_json1_1RepositoryNameList(input.repositoryNames, context),
     }),
@@ -16325,32 +16319,20 @@ const serializeAws_json1_1BatchDescribeMergeConflictsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.conflictDetailLevel !== undefined && {
-      conflictDetailLevel: input.conflictDetailLevel,
-    }),
+    ...(input.conflictDetailLevel !== undefined && { conflictDetailLevel: input.conflictDetailLevel }),
     ...(input.conflictResolutionStrategy !== undefined && {
       conflictResolutionStrategy: input.conflictResolutionStrategy,
     }),
     ...(input.destinationCommitSpecifier !== undefined && {
       destinationCommitSpecifier: input.destinationCommitSpecifier,
     }),
-    ...(input.filePaths !== undefined && {
-      filePaths: serializeAws_json1_1FilePaths(input.filePaths, context),
-    }),
-    ...(input.maxConflictFiles !== undefined && {
-      maxConflictFiles: input.maxConflictFiles,
-    }),
-    ...(input.maxMergeHunks !== undefined && {
-      maxMergeHunks: input.maxMergeHunks,
-    }),
+    ...(input.filePaths !== undefined && { filePaths: serializeAws_json1_1FilePaths(input.filePaths, context) }),
+    ...(input.maxConflictFiles !== undefined && { maxConflictFiles: input.maxConflictFiles }),
+    ...(input.maxMergeHunks !== undefined && { maxMergeHunks: input.maxMergeHunks }),
     ...(input.mergeOption !== undefined && { mergeOption: input.mergeOption }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
-    ...(input.sourceCommitSpecifier !== undefined && {
-      sourceCommitSpecifier: input.sourceCommitSpecifier,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
+    ...(input.sourceCommitSpecifier !== undefined && { sourceCommitSpecifier: input.sourceCommitSpecifier }),
   };
 };
 
@@ -16359,9 +16341,7 @@ const serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesI
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.approvalRuleTemplateName !== undefined && {
-      approvalRuleTemplateName: input.approvalRuleTemplateName,
-    }),
+    ...(input.approvalRuleTemplateName !== undefined && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
     ...(input.repositoryNames !== undefined && {
       repositoryNames: serializeAws_json1_1RepositoryNameList(input.repositoryNames, context),
     }),
@@ -16373,9 +16353,7 @@ const serializeAws_json1_1BatchGetCommitsInput = (input: BatchGetCommitsInput, c
     ...(input.commitIds !== undefined && {
       commitIds: serializeAws_json1_1CommitIdsInputList(input.commitIds, context),
     }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -16423,9 +16401,7 @@ const serializeAws_json1_1CreateApprovalRuleTemplateInput = (
     ...(input.approvalRuleTemplateDescription !== undefined && {
       approvalRuleTemplateDescription: input.approvalRuleTemplateDescription,
     }),
-    ...(input.approvalRuleTemplateName !== undefined && {
-      approvalRuleTemplateName: input.approvalRuleTemplateName,
-    }),
+    ...(input.approvalRuleTemplateName !== undefined && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
   };
 };
 
@@ -16433,9 +16409,7 @@ const serializeAws_json1_1CreateBranchInput = (input: CreateBranchInput, context
   return {
     ...(input.branchName !== undefined && { branchName: input.branchName }),
     ...(input.commitId !== undefined && { commitId: input.commitId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -16443,25 +16417,15 @@ const serializeAws_json1_1CreateCommitInput = (input: CreateCommitInput, context
   return {
     ...(input.authorName !== undefined && { authorName: input.authorName }),
     ...(input.branchName !== undefined && { branchName: input.branchName }),
-    ...(input.commitMessage !== undefined && {
-      commitMessage: input.commitMessage,
-    }),
+    ...(input.commitMessage !== undefined && { commitMessage: input.commitMessage }),
     ...(input.deleteFiles !== undefined && {
       deleteFiles: serializeAws_json1_1DeleteFileEntries(input.deleteFiles, context),
     }),
     ...(input.email !== undefined && { email: input.email }),
-    ...(input.keepEmptyFolders !== undefined && {
-      keepEmptyFolders: input.keepEmptyFolders,
-    }),
-    ...(input.parentCommitId !== undefined && {
-      parentCommitId: input.parentCommitId,
-    }),
-    ...(input.putFiles !== undefined && {
-      putFiles: serializeAws_json1_1PutFileEntries(input.putFiles, context),
-    }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.keepEmptyFolders !== undefined && { keepEmptyFolders: input.keepEmptyFolders }),
+    ...(input.parentCommitId !== undefined && { parentCommitId: input.parentCommitId }),
+    ...(input.putFiles !== undefined && { putFiles: serializeAws_json1_1PutFileEntries(input.putFiles, context) }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
     ...(input.setFileModes !== undefined && {
       setFileModes: serializeAws_json1_1SetFileModeEntries(input.setFileModes, context),
     }),
@@ -16473,15 +16437,9 @@ const serializeAws_json1_1CreatePullRequestApprovalRuleInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.approvalRuleContent !== undefined && {
-      approvalRuleContent: input.approvalRuleContent,
-    }),
-    ...(input.approvalRuleName !== undefined && {
-      approvalRuleName: input.approvalRuleName,
-    }),
-    ...(input.pullRequestId !== undefined && {
-      pullRequestId: input.pullRequestId,
-    }),
+    ...(input.approvalRuleContent !== undefined && { approvalRuleContent: input.approvalRuleContent }),
+    ...(input.approvalRuleName !== undefined && { approvalRuleName: input.approvalRuleName }),
+    ...(input.pullRequestId !== undefined && { pullRequestId: input.pullRequestId }),
   };
 };
 
@@ -16489,24 +16447,16 @@ const serializeAws_json1_1CreatePullRequestInput = (input: CreatePullRequestInpu
   return {
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.targets !== undefined && {
-      targets: serializeAws_json1_1TargetList(input.targets, context),
-    }),
+    ...(input.targets !== undefined && { targets: serializeAws_json1_1TargetList(input.targets, context) }),
     ...(input.title !== undefined && { title: input.title }),
   };
 };
 
 const serializeAws_json1_1CreateRepositoryInput = (input: CreateRepositoryInput, context: __SerdeContext): any => {
   return {
-    ...(input.repositoryDescription !== undefined && {
-      repositoryDescription: input.repositoryDescription,
-    }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagsMap(input.tags, context),
-    }),
+    ...(input.repositoryDescription !== undefined && { repositoryDescription: input.repositoryDescription }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagsMap(input.tags, context) }),
   };
 };
 
@@ -16516,12 +16466,8 @@ const serializeAws_json1_1CreateUnreferencedMergeCommitInput = (
 ): any => {
   return {
     ...(input.authorName !== undefined && { authorName: input.authorName }),
-    ...(input.commitMessage !== undefined && {
-      commitMessage: input.commitMessage,
-    }),
-    ...(input.conflictDetailLevel !== undefined && {
-      conflictDetailLevel: input.conflictDetailLevel,
-    }),
+    ...(input.commitMessage !== undefined && { commitMessage: input.commitMessage }),
+    ...(input.conflictDetailLevel !== undefined && { conflictDetailLevel: input.conflictDetailLevel }),
     ...(input.conflictResolution !== undefined && {
       conflictResolution: serializeAws_json1_1ConflictResolution(input.conflictResolution, context),
     }),
@@ -16532,16 +16478,10 @@ const serializeAws_json1_1CreateUnreferencedMergeCommitInput = (
       destinationCommitSpecifier: input.destinationCommitSpecifier,
     }),
     ...(input.email !== undefined && { email: input.email }),
-    ...(input.keepEmptyFolders !== undefined && {
-      keepEmptyFolders: input.keepEmptyFolders,
-    }),
+    ...(input.keepEmptyFolders !== undefined && { keepEmptyFolders: input.keepEmptyFolders }),
     ...(input.mergeOption !== undefined && { mergeOption: input.mergeOption }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
-    ...(input.sourceCommitSpecifier !== undefined && {
-      sourceCommitSpecifier: input.sourceCommitSpecifier,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
+    ...(input.sourceCommitSpecifier !== undefined && { sourceCommitSpecifier: input.sourceCommitSpecifier }),
   };
 };
 
@@ -16550,18 +16490,14 @@ const serializeAws_json1_1DeleteApprovalRuleTemplateInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.approvalRuleTemplateName !== undefined && {
-      approvalRuleTemplateName: input.approvalRuleTemplateName,
-    }),
+    ...(input.approvalRuleTemplateName !== undefined && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
   };
 };
 
 const serializeAws_json1_1DeleteBranchInput = (input: DeleteBranchInput, context: __SerdeContext): any => {
   return {
     ...(input.branchName !== undefined && { branchName: input.branchName }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -16587,21 +16523,13 @@ const serializeAws_json1_1DeleteFileEntry = (input: DeleteFileEntry, context: __
 const serializeAws_json1_1DeleteFileInput = (input: DeleteFileInput, context: __SerdeContext): any => {
   return {
     ...(input.branchName !== undefined && { branchName: input.branchName }),
-    ...(input.commitMessage !== undefined && {
-      commitMessage: input.commitMessage,
-    }),
+    ...(input.commitMessage !== undefined && { commitMessage: input.commitMessage }),
     ...(input.email !== undefined && { email: input.email }),
     ...(input.filePath !== undefined && { filePath: input.filePath }),
-    ...(input.keepEmptyFolders !== undefined && {
-      keepEmptyFolders: input.keepEmptyFolders,
-    }),
+    ...(input.keepEmptyFolders !== undefined && { keepEmptyFolders: input.keepEmptyFolders }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.parentCommitId !== undefined && {
-      parentCommitId: input.parentCommitId,
-    }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.parentCommitId !== undefined && { parentCommitId: input.parentCommitId }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -16610,20 +16538,14 @@ const serializeAws_json1_1DeletePullRequestApprovalRuleInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.approvalRuleName !== undefined && {
-      approvalRuleName: input.approvalRuleName,
-    }),
-    ...(input.pullRequestId !== undefined && {
-      pullRequestId: input.pullRequestId,
-    }),
+    ...(input.approvalRuleName !== undefined && { approvalRuleName: input.approvalRuleName }),
+    ...(input.pullRequestId !== undefined && { pullRequestId: input.pullRequestId }),
   };
 };
 
 const serializeAws_json1_1DeleteRepositoryInput = (input: DeleteRepositoryInput, context: __SerdeContext): any => {
   return {
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -16632,9 +16554,7 @@ const serializeAws_json1_1DescribeMergeConflictsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.conflictDetailLevel !== undefined && {
-      conflictDetailLevel: input.conflictDetailLevel,
-    }),
+    ...(input.conflictDetailLevel !== undefined && { conflictDetailLevel: input.conflictDetailLevel }),
     ...(input.conflictResolutionStrategy !== undefined && {
       conflictResolutionStrategy: input.conflictResolutionStrategy,
     }),
@@ -16642,17 +16562,11 @@ const serializeAws_json1_1DescribeMergeConflictsInput = (
       destinationCommitSpecifier: input.destinationCommitSpecifier,
     }),
     ...(input.filePath !== undefined && { filePath: input.filePath }),
-    ...(input.maxMergeHunks !== undefined && {
-      maxMergeHunks: input.maxMergeHunks,
-    }),
+    ...(input.maxMergeHunks !== undefined && { maxMergeHunks: input.maxMergeHunks }),
     ...(input.mergeOption !== undefined && { mergeOption: input.mergeOption }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
-    ...(input.sourceCommitSpecifier !== undefined && {
-      sourceCommitSpecifier: input.sourceCommitSpecifier,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
+    ...(input.sourceCommitSpecifier !== undefined && { sourceCommitSpecifier: input.sourceCommitSpecifier }),
   };
 };
 
@@ -16664,12 +16578,8 @@ const serializeAws_json1_1DescribePullRequestEventsInput = (
     ...(input.actorArn !== undefined && { actorArn: input.actorArn }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.pullRequestEventType !== undefined && {
-      pullRequestEventType: input.pullRequestEventType,
-    }),
-    ...(input.pullRequestId !== undefined && {
-      pullRequestId: input.pullRequestId,
-    }),
+    ...(input.pullRequestEventType !== undefined && { pullRequestEventType: input.pullRequestEventType }),
+    ...(input.pullRequestId !== undefined && { pullRequestId: input.pullRequestId }),
   };
 };
 
@@ -16678,12 +16588,8 @@ const serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryInput = 
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.approvalRuleTemplateName !== undefined && {
-      approvalRuleTemplateName: input.approvalRuleTemplateName,
-    }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.approvalRuleTemplateName !== undefined && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -16692,9 +16598,7 @@ const serializeAws_json1_1EvaluatePullRequestApprovalRulesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.pullRequestId !== undefined && {
-      pullRequestId: input.pullRequestId,
-    }),
+    ...(input.pullRequestId !== undefined && { pullRequestId: input.pullRequestId }),
     ...(input.revisionId !== undefined && { revisionId: input.revisionId }),
   };
 };
@@ -16708,27 +16612,21 @@ const serializeAws_json1_1GetApprovalRuleTemplateInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.approvalRuleTemplateName !== undefined && {
-      approvalRuleTemplateName: input.approvalRuleTemplateName,
-    }),
+    ...(input.approvalRuleTemplateName !== undefined && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
   };
 };
 
 const serializeAws_json1_1GetBlobInput = (input: GetBlobInput, context: __SerdeContext): any => {
   return {
     ...(input.blobId !== undefined && { blobId: input.blobId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
 const serializeAws_json1_1GetBranchInput = (input: GetBranchInput, context: __SerdeContext): any => {
   return {
     ...(input.branchName !== undefined && { branchName: input.branchName }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -16743,17 +16641,11 @@ const serializeAws_json1_1GetCommentsForComparedCommitInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.afterCommitId !== undefined && {
-      afterCommitId: input.afterCommitId,
-    }),
-    ...(input.beforeCommitId !== undefined && {
-      beforeCommitId: input.beforeCommitId,
-    }),
+    ...(input.afterCommitId !== undefined && { afterCommitId: input.afterCommitId }),
+    ...(input.beforeCommitId !== undefined && { beforeCommitId: input.beforeCommitId }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -16762,29 +16654,19 @@ const serializeAws_json1_1GetCommentsForPullRequestInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.afterCommitId !== undefined && {
-      afterCommitId: input.afterCommitId,
-    }),
-    ...(input.beforeCommitId !== undefined && {
-      beforeCommitId: input.beforeCommitId,
-    }),
+    ...(input.afterCommitId !== undefined && { afterCommitId: input.afterCommitId }),
+    ...(input.beforeCommitId !== undefined && { beforeCommitId: input.beforeCommitId }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.pullRequestId !== undefined && {
-      pullRequestId: input.pullRequestId,
-    }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.pullRequestId !== undefined && { pullRequestId: input.pullRequestId }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
 const serializeAws_json1_1GetCommitInput = (input: GetCommitInput, context: __SerdeContext): any => {
   return {
     ...(input.commitId !== undefined && { commitId: input.commitId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -16792,106 +16674,72 @@ const serializeAws_json1_1GetDifferencesInput = (input: GetDifferencesInput, con
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.afterCommitSpecifier !== undefined && {
-      afterCommitSpecifier: input.afterCommitSpecifier,
-    }),
+    ...(input.afterCommitSpecifier !== undefined && { afterCommitSpecifier: input.afterCommitSpecifier }),
     ...(input.afterPath !== undefined && { afterPath: input.afterPath }),
-    ...(input.beforeCommitSpecifier !== undefined && {
-      beforeCommitSpecifier: input.beforeCommitSpecifier,
-    }),
+    ...(input.beforeCommitSpecifier !== undefined && { beforeCommitSpecifier: input.beforeCommitSpecifier }),
     ...(input.beforePath !== undefined && { beforePath: input.beforePath }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
 const serializeAws_json1_1GetFileInput = (input: GetFileInput, context: __SerdeContext): any => {
   return {
-    ...(input.commitSpecifier !== undefined && {
-      commitSpecifier: input.commitSpecifier,
-    }),
+    ...(input.commitSpecifier !== undefined && { commitSpecifier: input.commitSpecifier }),
     ...(input.filePath !== undefined && { filePath: input.filePath }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
 const serializeAws_json1_1GetFolderInput = (input: GetFolderInput, context: __SerdeContext): any => {
   return {
-    ...(input.commitSpecifier !== undefined && {
-      commitSpecifier: input.commitSpecifier,
-    }),
+    ...(input.commitSpecifier !== undefined && { commitSpecifier: input.commitSpecifier }),
     ...(input.folderPath !== undefined && { folderPath: input.folderPath }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
 const serializeAws_json1_1GetMergeCommitInput = (input: GetMergeCommitInput, context: __SerdeContext): any => {
   return {
-    ...(input.conflictDetailLevel !== undefined && {
-      conflictDetailLevel: input.conflictDetailLevel,
-    }),
+    ...(input.conflictDetailLevel !== undefined && { conflictDetailLevel: input.conflictDetailLevel }),
     ...(input.conflictResolutionStrategy !== undefined && {
       conflictResolutionStrategy: input.conflictResolutionStrategy,
     }),
     ...(input.destinationCommitSpecifier !== undefined && {
       destinationCommitSpecifier: input.destinationCommitSpecifier,
     }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
-    ...(input.sourceCommitSpecifier !== undefined && {
-      sourceCommitSpecifier: input.sourceCommitSpecifier,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
+    ...(input.sourceCommitSpecifier !== undefined && { sourceCommitSpecifier: input.sourceCommitSpecifier }),
   };
 };
 
 const serializeAws_json1_1GetMergeConflictsInput = (input: GetMergeConflictsInput, context: __SerdeContext): any => {
   return {
-    ...(input.conflictDetailLevel !== undefined && {
-      conflictDetailLevel: input.conflictDetailLevel,
-    }),
+    ...(input.conflictDetailLevel !== undefined && { conflictDetailLevel: input.conflictDetailLevel }),
     ...(input.conflictResolutionStrategy !== undefined && {
       conflictResolutionStrategy: input.conflictResolutionStrategy,
     }),
     ...(input.destinationCommitSpecifier !== undefined && {
       destinationCommitSpecifier: input.destinationCommitSpecifier,
     }),
-    ...(input.maxConflictFiles !== undefined && {
-      maxConflictFiles: input.maxConflictFiles,
-    }),
+    ...(input.maxConflictFiles !== undefined && { maxConflictFiles: input.maxConflictFiles }),
     ...(input.mergeOption !== undefined && { mergeOption: input.mergeOption }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
-    ...(input.sourceCommitSpecifier !== undefined && {
-      sourceCommitSpecifier: input.sourceCommitSpecifier,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
+    ...(input.sourceCommitSpecifier !== undefined && { sourceCommitSpecifier: input.sourceCommitSpecifier }),
   };
 };
 
 const serializeAws_json1_1GetMergeOptionsInput = (input: GetMergeOptionsInput, context: __SerdeContext): any => {
   return {
-    ...(input.conflictDetailLevel !== undefined && {
-      conflictDetailLevel: input.conflictDetailLevel,
-    }),
+    ...(input.conflictDetailLevel !== undefined && { conflictDetailLevel: input.conflictDetailLevel }),
     ...(input.conflictResolutionStrategy !== undefined && {
       conflictResolutionStrategy: input.conflictResolutionStrategy,
     }),
     ...(input.destinationCommitSpecifier !== undefined && {
       destinationCommitSpecifier: input.destinationCommitSpecifier,
     }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
-    ...(input.sourceCommitSpecifier !== undefined && {
-      sourceCommitSpecifier: input.sourceCommitSpecifier,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
+    ...(input.sourceCommitSpecifier !== undefined && { sourceCommitSpecifier: input.sourceCommitSpecifier }),
   };
 };
 
@@ -16900,18 +16748,14 @@ const serializeAws_json1_1GetPullRequestApprovalStatesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.pullRequestId !== undefined && {
-      pullRequestId: input.pullRequestId,
-    }),
+    ...(input.pullRequestId !== undefined && { pullRequestId: input.pullRequestId }),
     ...(input.revisionId !== undefined && { revisionId: input.revisionId }),
   };
 };
 
 const serializeAws_json1_1GetPullRequestInput = (input: GetPullRequestInput, context: __SerdeContext): any => {
   return {
-    ...(input.pullRequestId !== undefined && {
-      pullRequestId: input.pullRequestId,
-    }),
+    ...(input.pullRequestId !== undefined && { pullRequestId: input.pullRequestId }),
   };
 };
 
@@ -16920,18 +16764,14 @@ const serializeAws_json1_1GetPullRequestOverrideStateInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.pullRequestId !== undefined && {
-      pullRequestId: input.pullRequestId,
-    }),
+    ...(input.pullRequestId !== undefined && { pullRequestId: input.pullRequestId }),
     ...(input.revisionId !== undefined && { revisionId: input.revisionId }),
   };
 };
 
 const serializeAws_json1_1GetRepositoryInput = (input: GetRepositoryInput, context: __SerdeContext): any => {
   return {
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -16940,9 +16780,7 @@ const serializeAws_json1_1GetRepositoryTriggersInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -16963,18 +16801,14 @@ const serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryInput 
   return {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
 const serializeAws_json1_1ListBranchesInput = (input: ListBranchesInput, context: __SerdeContext): any => {
   return {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -16983,12 +16817,8 @@ const serializeAws_json1_1ListPullRequestsInput = (input: ListPullRequestsInput,
     ...(input.authorArn !== undefined && { authorArn: input.authorArn }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.pullRequestStatus !== undefined && {
-      pullRequestStatus: input.pullRequestStatus,
-    }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.pullRequestStatus !== undefined && { pullRequestStatus: input.pullRequestStatus }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -16997,9 +16827,7 @@ const serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.approvalRuleTemplateName !== undefined && {
-      approvalRuleTemplateName: input.approvalRuleTemplateName,
-    }),
+    ...(input.approvalRuleTemplateName !== undefined && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
@@ -17026,12 +16854,8 @@ const serializeAws_json1_1ListTagsForResourceInput = (
 const serializeAws_json1_1Location = (input: Location, context: __SerdeContext): any => {
   return {
     ...(input.filePath !== undefined && { filePath: input.filePath }),
-    ...(input.filePosition !== undefined && {
-      filePosition: input.filePosition,
-    }),
-    ...(input.relativeFileVersion !== undefined && {
-      relativeFileVersion: input.relativeFileVersion,
-    }),
+    ...(input.filePosition !== undefined && { filePosition: input.filePosition }),
+    ...(input.relativeFileVersion !== undefined && { relativeFileVersion: input.relativeFileVersion }),
   };
 };
 
@@ -17043,15 +16867,9 @@ const serializeAws_json1_1MergeBranchesByFastForwardInput = (
     ...(input.destinationCommitSpecifier !== undefined && {
       destinationCommitSpecifier: input.destinationCommitSpecifier,
     }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
-    ...(input.sourceCommitSpecifier !== undefined && {
-      sourceCommitSpecifier: input.sourceCommitSpecifier,
-    }),
-    ...(input.targetBranch !== undefined && {
-      targetBranch: input.targetBranch,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
+    ...(input.sourceCommitSpecifier !== undefined && { sourceCommitSpecifier: input.sourceCommitSpecifier }),
+    ...(input.targetBranch !== undefined && { targetBranch: input.targetBranch }),
   };
 };
 
@@ -17061,12 +16879,8 @@ const serializeAws_json1_1MergeBranchesBySquashInput = (
 ): any => {
   return {
     ...(input.authorName !== undefined && { authorName: input.authorName }),
-    ...(input.commitMessage !== undefined && {
-      commitMessage: input.commitMessage,
-    }),
-    ...(input.conflictDetailLevel !== undefined && {
-      conflictDetailLevel: input.conflictDetailLevel,
-    }),
+    ...(input.commitMessage !== undefined && { commitMessage: input.commitMessage }),
+    ...(input.conflictDetailLevel !== undefined && { conflictDetailLevel: input.conflictDetailLevel }),
     ...(input.conflictResolution !== undefined && {
       conflictResolution: serializeAws_json1_1ConflictResolution(input.conflictResolution, context),
     }),
@@ -17077,18 +16891,10 @@ const serializeAws_json1_1MergeBranchesBySquashInput = (
       destinationCommitSpecifier: input.destinationCommitSpecifier,
     }),
     ...(input.email !== undefined && { email: input.email }),
-    ...(input.keepEmptyFolders !== undefined && {
-      keepEmptyFolders: input.keepEmptyFolders,
-    }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
-    ...(input.sourceCommitSpecifier !== undefined && {
-      sourceCommitSpecifier: input.sourceCommitSpecifier,
-    }),
-    ...(input.targetBranch !== undefined && {
-      targetBranch: input.targetBranch,
-    }),
+    ...(input.keepEmptyFolders !== undefined && { keepEmptyFolders: input.keepEmptyFolders }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
+    ...(input.sourceCommitSpecifier !== undefined && { sourceCommitSpecifier: input.sourceCommitSpecifier }),
+    ...(input.targetBranch !== undefined && { targetBranch: input.targetBranch }),
   };
 };
 
@@ -17098,12 +16904,8 @@ const serializeAws_json1_1MergeBranchesByThreeWayInput = (
 ): any => {
   return {
     ...(input.authorName !== undefined && { authorName: input.authorName }),
-    ...(input.commitMessage !== undefined && {
-      commitMessage: input.commitMessage,
-    }),
-    ...(input.conflictDetailLevel !== undefined && {
-      conflictDetailLevel: input.conflictDetailLevel,
-    }),
+    ...(input.commitMessage !== undefined && { commitMessage: input.commitMessage }),
+    ...(input.conflictDetailLevel !== undefined && { conflictDetailLevel: input.conflictDetailLevel }),
     ...(input.conflictResolution !== undefined && {
       conflictResolution: serializeAws_json1_1ConflictResolution(input.conflictResolution, context),
     }),
@@ -17114,18 +16916,10 @@ const serializeAws_json1_1MergeBranchesByThreeWayInput = (
       destinationCommitSpecifier: input.destinationCommitSpecifier,
     }),
     ...(input.email !== undefined && { email: input.email }),
-    ...(input.keepEmptyFolders !== undefined && {
-      keepEmptyFolders: input.keepEmptyFolders,
-    }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
-    ...(input.sourceCommitSpecifier !== undefined && {
-      sourceCommitSpecifier: input.sourceCommitSpecifier,
-    }),
-    ...(input.targetBranch !== undefined && {
-      targetBranch: input.targetBranch,
-    }),
+    ...(input.keepEmptyFolders !== undefined && { keepEmptyFolders: input.keepEmptyFolders }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
+    ...(input.sourceCommitSpecifier !== undefined && { sourceCommitSpecifier: input.sourceCommitSpecifier }),
+    ...(input.targetBranch !== undefined && { targetBranch: input.targetBranch }),
   };
 };
 
@@ -17134,15 +16928,9 @@ const serializeAws_json1_1MergePullRequestByFastForwardInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.pullRequestId !== undefined && {
-      pullRequestId: input.pullRequestId,
-    }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
-    ...(input.sourceCommitId !== undefined && {
-      sourceCommitId: input.sourceCommitId,
-    }),
+    ...(input.pullRequestId !== undefined && { pullRequestId: input.pullRequestId }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
+    ...(input.sourceCommitId !== undefined && { sourceCommitId: input.sourceCommitId }),
   };
 };
 
@@ -17152,12 +16940,8 @@ const serializeAws_json1_1MergePullRequestBySquashInput = (
 ): any => {
   return {
     ...(input.authorName !== undefined && { authorName: input.authorName }),
-    ...(input.commitMessage !== undefined && {
-      commitMessage: input.commitMessage,
-    }),
-    ...(input.conflictDetailLevel !== undefined && {
-      conflictDetailLevel: input.conflictDetailLevel,
-    }),
+    ...(input.commitMessage !== undefined && { commitMessage: input.commitMessage }),
+    ...(input.conflictDetailLevel !== undefined && { conflictDetailLevel: input.conflictDetailLevel }),
     ...(input.conflictResolution !== undefined && {
       conflictResolution: serializeAws_json1_1ConflictResolution(input.conflictResolution, context),
     }),
@@ -17165,18 +16949,10 @@ const serializeAws_json1_1MergePullRequestBySquashInput = (
       conflictResolutionStrategy: input.conflictResolutionStrategy,
     }),
     ...(input.email !== undefined && { email: input.email }),
-    ...(input.keepEmptyFolders !== undefined && {
-      keepEmptyFolders: input.keepEmptyFolders,
-    }),
-    ...(input.pullRequestId !== undefined && {
-      pullRequestId: input.pullRequestId,
-    }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
-    ...(input.sourceCommitId !== undefined && {
-      sourceCommitId: input.sourceCommitId,
-    }),
+    ...(input.keepEmptyFolders !== undefined && { keepEmptyFolders: input.keepEmptyFolders }),
+    ...(input.pullRequestId !== undefined && { pullRequestId: input.pullRequestId }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
+    ...(input.sourceCommitId !== undefined && { sourceCommitId: input.sourceCommitId }),
   };
 };
 
@@ -17186,12 +16962,8 @@ const serializeAws_json1_1MergePullRequestByThreeWayInput = (
 ): any => {
   return {
     ...(input.authorName !== undefined && { authorName: input.authorName }),
-    ...(input.commitMessage !== undefined && {
-      commitMessage: input.commitMessage,
-    }),
-    ...(input.conflictDetailLevel !== undefined && {
-      conflictDetailLevel: input.conflictDetailLevel,
-    }),
+    ...(input.commitMessage !== undefined && { commitMessage: input.commitMessage }),
+    ...(input.conflictDetailLevel !== undefined && { conflictDetailLevel: input.conflictDetailLevel }),
     ...(input.conflictResolution !== undefined && {
       conflictResolution: serializeAws_json1_1ConflictResolution(input.conflictResolution, context),
     }),
@@ -17199,18 +16971,10 @@ const serializeAws_json1_1MergePullRequestByThreeWayInput = (
       conflictResolutionStrategy: input.conflictResolutionStrategy,
     }),
     ...(input.email !== undefined && { email: input.email }),
-    ...(input.keepEmptyFolders !== undefined && {
-      keepEmptyFolders: input.keepEmptyFolders,
-    }),
-    ...(input.pullRequestId !== undefined && {
-      pullRequestId: input.pullRequestId,
-    }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
-    ...(input.sourceCommitId !== undefined && {
-      sourceCommitId: input.sourceCommitId,
-    }),
+    ...(input.keepEmptyFolders !== undefined && { keepEmptyFolders: input.keepEmptyFolders }),
+    ...(input.pullRequestId !== undefined && { pullRequestId: input.pullRequestId }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
+    ...(input.sourceCommitId !== undefined && { sourceCommitId: input.sourceCommitId }),
   };
 };
 
@@ -17219,12 +16983,8 @@ const serializeAws_json1_1OverridePullRequestApprovalRulesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.overrideStatus !== undefined && {
-      overrideStatus: input.overrideStatus,
-    }),
-    ...(input.pullRequestId !== undefined && {
-      pullRequestId: input.pullRequestId,
-    }),
+    ...(input.overrideStatus !== undefined && { overrideStatus: input.overrideStatus }),
+    ...(input.pullRequestId !== undefined && { pullRequestId: input.pullRequestId }),
     ...(input.revisionId !== undefined && { revisionId: input.revisionId }),
   };
 };
@@ -17234,20 +16994,12 @@ const serializeAws_json1_1PostCommentForComparedCommitInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.afterCommitId !== undefined && {
-      afterCommitId: input.afterCommitId,
-    }),
-    ...(input.beforeCommitId !== undefined && {
-      beforeCommitId: input.beforeCommitId,
-    }),
+    ...(input.afterCommitId !== undefined && { afterCommitId: input.afterCommitId }),
+    ...(input.beforeCommitId !== undefined && { beforeCommitId: input.beforeCommitId }),
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
     ...(input.content !== undefined && { content: input.content }),
-    ...(input.location !== undefined && {
-      location: serializeAws_json1_1Location(input.location, context),
-    }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.location !== undefined && { location: serializeAws_json1_1Location(input.location, context) }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -17256,23 +17008,13 @@ const serializeAws_json1_1PostCommentForPullRequestInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.afterCommitId !== undefined && {
-      afterCommitId: input.afterCommitId,
-    }),
-    ...(input.beforeCommitId !== undefined && {
-      beforeCommitId: input.beforeCommitId,
-    }),
+    ...(input.afterCommitId !== undefined && { afterCommitId: input.afterCommitId }),
+    ...(input.beforeCommitId !== undefined && { beforeCommitId: input.beforeCommitId }),
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
     ...(input.content !== undefined && { content: input.content }),
-    ...(input.location !== undefined && {
-      location: serializeAws_json1_1Location(input.location, context),
-    }),
-    ...(input.pullRequestId !== undefined && {
-      pullRequestId: input.pullRequestId,
-    }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.location !== undefined && { location: serializeAws_json1_1Location(input.location, context) }),
+    ...(input.pullRequestId !== undefined && { pullRequestId: input.pullRequestId }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -17290,9 +17032,7 @@ const serializeAws_json1_1PutFileEntries = (input: PutFileEntry[], context: __Se
 
 const serializeAws_json1_1PutFileEntry = (input: PutFileEntry, context: __SerdeContext): any => {
   return {
-    ...(input.fileContent !== undefined && {
-      fileContent: context.base64Encoder(input.fileContent),
-    }),
+    ...(input.fileContent !== undefined && { fileContent: context.base64Encoder(input.fileContent) }),
     ...(input.fileMode !== undefined && { fileMode: input.fileMode }),
     ...(input.filePath !== undefined && { filePath: input.filePath }),
     ...(input.sourceFile !== undefined && {
@@ -17304,22 +17044,14 @@ const serializeAws_json1_1PutFileEntry = (input: PutFileEntry, context: __SerdeC
 const serializeAws_json1_1PutFileInput = (input: PutFileInput, context: __SerdeContext): any => {
   return {
     ...(input.branchName !== undefined && { branchName: input.branchName }),
-    ...(input.commitMessage !== undefined && {
-      commitMessage: input.commitMessage,
-    }),
+    ...(input.commitMessage !== undefined && { commitMessage: input.commitMessage }),
     ...(input.email !== undefined && { email: input.email }),
-    ...(input.fileContent !== undefined && {
-      fileContent: context.base64Encoder(input.fileContent),
-    }),
+    ...(input.fileContent !== undefined && { fileContent: context.base64Encoder(input.fileContent) }),
     ...(input.fileMode !== undefined && { fileMode: input.fileMode }),
     ...(input.filePath !== undefined && { filePath: input.filePath }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.parentCommitId !== undefined && {
-      parentCommitId: input.parentCommitId,
-    }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.parentCommitId !== undefined && { parentCommitId: input.parentCommitId }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -17328,9 +17060,7 @@ const serializeAws_json1_1PutRepositoryTriggersInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
     ...(input.triggers !== undefined && {
       triggers: serializeAws_json1_1RepositoryTriggersList(input.triggers, context),
     }),
@@ -17343,14 +17073,10 @@ const serializeAws_json1_1ReplaceContentEntries = (input: ReplaceContentEntry[],
 
 const serializeAws_json1_1ReplaceContentEntry = (input: ReplaceContentEntry, context: __SerdeContext): any => {
   return {
-    ...(input.content !== undefined && {
-      content: context.base64Encoder(input.content),
-    }),
+    ...(input.content !== undefined && { content: context.base64Encoder(input.content) }),
     ...(input.fileMode !== undefined && { fileMode: input.fileMode }),
     ...(input.filePath !== undefined && { filePath: input.filePath }),
-    ...(input.replacementType !== undefined && {
-      replacementType: input.replacementType,
-    }),
+    ...(input.replacementType !== undefined && { replacementType: input.replacementType }),
   };
 };
 
@@ -17360,13 +17086,9 @@ const serializeAws_json1_1RepositoryNameList = (input: string[], context: __Serd
 
 const serializeAws_json1_1RepositoryTrigger = (input: RepositoryTrigger, context: __SerdeContext): any => {
   return {
-    ...(input.branches !== undefined && {
-      branches: serializeAws_json1_1BranchNameList(input.branches, context),
-    }),
+    ...(input.branches !== undefined && { branches: serializeAws_json1_1BranchNameList(input.branches, context) }),
     ...(input.customData !== undefined && { customData: input.customData }),
-    ...(input.destinationArn !== undefined && {
-      destinationArn: input.destinationArn,
-    }),
+    ...(input.destinationArn !== undefined && { destinationArn: input.destinationArn }),
     ...(input.events !== undefined && {
       events: serializeAws_json1_1RepositoryTriggerEventList(input.events, context),
     }),
@@ -17410,9 +17132,7 @@ const serializeAws_json1_1TagKeysList = (input: string[], context: __SerdeContex
 const serializeAws_json1_1TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagsMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagsMap(input.tags, context) }),
   };
 };
 
@@ -17428,15 +17148,9 @@ const serializeAws_json1_1TagsMap = (input: { [key: string]: string }, context: 
 
 const serializeAws_json1_1Target = (input: Target, context: __SerdeContext): any => {
   return {
-    ...(input.destinationReference !== undefined && {
-      destinationReference: input.destinationReference,
-    }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
-    ...(input.sourceReference !== undefined && {
-      sourceReference: input.sourceReference,
-    }),
+    ...(input.destinationReference !== undefined && { destinationReference: input.destinationReference }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
+    ...(input.sourceReference !== undefined && { sourceReference: input.sourceReference }),
   };
 };
 
@@ -17449,9 +17163,7 @@ const serializeAws_json1_1TestRepositoryTriggersInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
     ...(input.triggers !== undefined && {
       triggers: serializeAws_json1_1RepositoryTriggersList(input.triggers, context),
     }),
@@ -17461,9 +17173,7 @@ const serializeAws_json1_1TestRepositoryTriggersInput = (
 const serializeAws_json1_1UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys !== undefined && {
-      tagKeys: serializeAws_json1_1TagKeysList(input.tagKeys, context),
-    }),
+    ...(input.tagKeys !== undefined && { tagKeys: serializeAws_json1_1TagKeysList(input.tagKeys, context) }),
   };
 };
 
@@ -17472,15 +17182,11 @@ const serializeAws_json1_1UpdateApprovalRuleTemplateContentInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.approvalRuleTemplateName !== undefined && {
-      approvalRuleTemplateName: input.approvalRuleTemplateName,
-    }),
+    ...(input.approvalRuleTemplateName !== undefined && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
     ...(input.existingRuleContentSha256 !== undefined && {
       existingRuleContentSha256: input.existingRuleContentSha256,
     }),
-    ...(input.newRuleContent !== undefined && {
-      newRuleContent: input.newRuleContent,
-    }),
+    ...(input.newRuleContent !== undefined && { newRuleContent: input.newRuleContent }),
   };
 };
 
@@ -17492,9 +17198,7 @@ const serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionInput = (
     ...(input.approvalRuleTemplateDescription !== undefined && {
       approvalRuleTemplateDescription: input.approvalRuleTemplateDescription,
     }),
-    ...(input.approvalRuleTemplateName !== undefined && {
-      approvalRuleTemplateName: input.approvalRuleTemplateName,
-    }),
+    ...(input.approvalRuleTemplateName !== undefined && { approvalRuleTemplateName: input.approvalRuleTemplateName }),
   };
 };
 
@@ -17524,12 +17228,8 @@ const serializeAws_json1_1UpdateDefaultBranchInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.defaultBranchName !== undefined && {
-      defaultBranchName: input.defaultBranchName,
-    }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.defaultBranchName !== undefined && { defaultBranchName: input.defaultBranchName }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -17538,18 +17238,12 @@ const serializeAws_json1_1UpdatePullRequestApprovalRuleContentInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.approvalRuleName !== undefined && {
-      approvalRuleName: input.approvalRuleName,
-    }),
+    ...(input.approvalRuleName !== undefined && { approvalRuleName: input.approvalRuleName }),
     ...(input.existingRuleContentSha256 !== undefined && {
       existingRuleContentSha256: input.existingRuleContentSha256,
     }),
-    ...(input.newRuleContent !== undefined && {
-      newRuleContent: input.newRuleContent,
-    }),
-    ...(input.pullRequestId !== undefined && {
-      pullRequestId: input.pullRequestId,
-    }),
+    ...(input.newRuleContent !== undefined && { newRuleContent: input.newRuleContent }),
+    ...(input.pullRequestId !== undefined && { pullRequestId: input.pullRequestId }),
   };
 };
 
@@ -17558,12 +17252,8 @@ const serializeAws_json1_1UpdatePullRequestApprovalStateInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.approvalState !== undefined && {
-      approvalState: input.approvalState,
-    }),
-    ...(input.pullRequestId !== undefined && {
-      pullRequestId: input.pullRequestId,
-    }),
+    ...(input.approvalState !== undefined && { approvalState: input.approvalState }),
+    ...(input.pullRequestId !== undefined && { pullRequestId: input.pullRequestId }),
     ...(input.revisionId !== undefined && { revisionId: input.revisionId }),
   };
 };
@@ -17574,9 +17264,7 @@ const serializeAws_json1_1UpdatePullRequestDescriptionInput = (
 ): any => {
   return {
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.pullRequestId !== undefined && {
-      pullRequestId: input.pullRequestId,
-    }),
+    ...(input.pullRequestId !== undefined && { pullRequestId: input.pullRequestId }),
   };
 };
 
@@ -17585,12 +17273,8 @@ const serializeAws_json1_1UpdatePullRequestStatusInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.pullRequestId !== undefined && {
-      pullRequestId: input.pullRequestId,
-    }),
-    ...(input.pullRequestStatus !== undefined && {
-      pullRequestStatus: input.pullRequestStatus,
-    }),
+    ...(input.pullRequestId !== undefined && { pullRequestId: input.pullRequestId }),
+    ...(input.pullRequestStatus !== undefined && { pullRequestStatus: input.pullRequestStatus }),
   };
 };
 
@@ -17599,9 +17283,7 @@ const serializeAws_json1_1UpdatePullRequestTitleInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.pullRequestId !== undefined && {
-      pullRequestId: input.pullRequestId,
-    }),
+    ...(input.pullRequestId !== undefined && { pullRequestId: input.pullRequestId }),
     ...(input.title !== undefined && { title: input.title }),
   };
 };
@@ -17611,12 +17293,8 @@ const serializeAws_json1_1UpdateRepositoryDescriptionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.repositoryDescription !== undefined && {
-      repositoryDescription: input.repositoryDescription,
-    }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryDescription !== undefined && { repositoryDescription: input.repositoryDescription }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 

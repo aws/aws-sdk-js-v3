@@ -24,12 +24,8 @@ export const serializeAws_restJson1GetPersonalizedRankingCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.campaignArn !== undefined && { campaignArn: input.campaignArn }),
-    ...(input.context !== undefined && {
-      context: serializeAws_restJson1Context(input.context, context),
-    }),
-    ...(input.inputList !== undefined && {
-      inputList: serializeAws_restJson1InputList(input.inputList, context),
-    }),
+    ...(input.context !== undefined && { context: serializeAws_restJson1Context(input.context, context) }),
+    ...(input.inputList !== undefined && { inputList: serializeAws_restJson1InputList(input.inputList, context) }),
     ...(input.userId !== undefined && { userId: input.userId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -55,9 +51,7 @@ export const serializeAws_restJson1GetRecommendationsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.campaignArn !== undefined && { campaignArn: input.campaignArn }),
-    ...(input.context !== undefined && {
-      context: serializeAws_restJson1Context(input.context, context),
-    }),
+    ...(input.context !== undefined && { context: serializeAws_restJson1Context(input.context, context) }),
     ...(input.itemId !== undefined && { itemId: input.itemId }),
     ...(input.numResults !== undefined && { numResults: input.numResults }),
     ...(input.userId !== undefined && { userId: input.userId }),

@@ -3116,9 +3116,7 @@ const serializeAws_json1_1CreateAppRequest = (input: CreateAppRequest, context: 
     ...(input.serverGroups !== undefined && {
       serverGroups: serializeAws_json1_1ServerGroups(input.serverGroups, context),
     }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1Tags(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -3132,9 +3130,7 @@ const serializeAws_json1_1CreateReplicationJobRequest = (
     ...(input.frequency !== undefined && { frequency: input.frequency }),
     ...(input.kmsKeyId !== undefined && { kmsKeyId: input.kmsKeyId }),
     ...(input.licenseType !== undefined && { licenseType: input.licenseType }),
-    ...(input.numberOfRecentAmisToKeep !== undefined && {
-      numberOfRecentAmisToKeep: input.numberOfRecentAmisToKeep,
-    }),
+    ...(input.numberOfRecentAmisToKeep !== undefined && { numberOfRecentAmisToKeep: input.numberOfRecentAmisToKeep }),
     ...(input.roleName !== undefined && { roleName: input.roleName }),
     ...(input.runOnce !== undefined && { runOnce: input.runOnce }),
     ...(input.seedReplicationTime !== undefined && {
@@ -3165,12 +3161,8 @@ const serializeAws_json1_1DeleteAppReplicationConfigurationRequest = (
 const serializeAws_json1_1DeleteAppRequest = (input: DeleteAppRequest, context: __SerdeContext): any => {
   return {
     ...(input.appId !== undefined && { appId: input.appId }),
-    ...(input.forceStopAppReplication !== undefined && {
-      forceStopAppReplication: input.forceStopAppReplication,
-    }),
-    ...(input.forceTerminateApp !== undefined && {
-      forceTerminateApp: input.forceTerminateApp,
-    }),
+    ...(input.forceStopAppReplication !== undefined && { forceStopAppReplication: input.forceStopAppReplication }),
+    ...(input.forceTerminateApp !== undefined && { forceTerminateApp: input.forceTerminateApp }),
   };
 };
 
@@ -3179,9 +3171,7 @@ const serializeAws_json1_1DeleteReplicationJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.replicationJobId !== undefined && {
-      replicationJobId: input.replicationJobId,
-    }),
+    ...(input.replicationJobId !== undefined && { replicationJobId: input.replicationJobId }),
   };
 };
 
@@ -3207,18 +3197,14 @@ const serializeAws_json1_1GenerateChangeSetRequest = (
 ): any => {
   return {
     ...(input.appId !== undefined && { appId: input.appId }),
-    ...(input.changesetFormat !== undefined && {
-      changesetFormat: input.changesetFormat,
-    }),
+    ...(input.changesetFormat !== undefined && { changesetFormat: input.changesetFormat }),
   };
 };
 
 const serializeAws_json1_1GenerateTemplateRequest = (input: GenerateTemplateRequest, context: __SerdeContext): any => {
   return {
     ...(input.appId !== undefined && { appId: input.appId }),
-    ...(input.templateFormat !== undefined && {
-      templateFormat: input.templateFormat,
-    }),
+    ...(input.templateFormat !== undefined && { templateFormat: input.templateFormat }),
   };
 };
 
@@ -3260,9 +3246,7 @@ const serializeAws_json1_1GetReplicationJobsRequest = (
   return {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.replicationJobId !== undefined && {
-      replicationJobId: input.replicationJobId,
-    }),
+    ...(input.replicationJobId !== undefined && { replicationJobId: input.replicationJobId }),
   };
 };
 
@@ -3273,9 +3257,7 @@ const serializeAws_json1_1GetReplicationRunsRequest = (
   return {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.replicationJobId !== undefined && {
-      replicationJobId: input.replicationJobId,
-    }),
+    ...(input.replicationJobId !== undefined && { replicationJobId: input.replicationJobId }),
   };
 };
 
@@ -3304,9 +3286,7 @@ const serializeAws_json1_1LaunchAppRequest = (input: LaunchAppRequest, context: 
 
 const serializeAws_json1_1ListAppsRequest = (input: ListAppsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.appIds !== undefined && {
-      appIds: serializeAws_json1_1AppIds(input.appIds, context),
-    }),
+    ...(input.appIds !== undefined && { appIds: serializeAws_json1_1AppIds(input.appIds, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
@@ -3352,29 +3332,19 @@ const serializeAws_json1_1S3Location = (input: S3Location, context: __SerdeConte
 
 const serializeAws_json1_1Server = (input: Server, context: __SerdeContext): any => {
   return {
-    ...(input.replicationJobId !== undefined && {
-      replicationJobId: input.replicationJobId,
-    }),
-    ...(input.replicationJobTerminated !== undefined && {
-      replicationJobTerminated: input.replicationJobTerminated,
-    }),
+    ...(input.replicationJobId !== undefined && { replicationJobId: input.replicationJobId }),
+    ...(input.replicationJobTerminated !== undefined && { replicationJobTerminated: input.replicationJobTerminated }),
     ...(input.serverId !== undefined && { serverId: input.serverId }),
     ...(input.serverType !== undefined && { serverType: input.serverType }),
-    ...(input.vmServer !== undefined && {
-      vmServer: serializeAws_json1_1VmServer(input.vmServer, context),
-    }),
+    ...(input.vmServer !== undefined && { vmServer: serializeAws_json1_1VmServer(input.vmServer, context) }),
   };
 };
 
 const serializeAws_json1_1ServerGroup = (input: ServerGroup, context: __SerdeContext): any => {
   return {
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.serverGroupId !== undefined && {
-      serverGroupId: input.serverGroupId,
-    }),
-    ...(input.serverList !== undefined && {
-      serverList: serializeAws_json1_1ServerList(input.serverList, context),
-    }),
+    ...(input.serverGroupId !== undefined && { serverGroupId: input.serverGroupId }),
+    ...(input.serverList !== undefined && { serverList: serializeAws_json1_1ServerList(input.serverList, context) }),
   };
 };
 
@@ -3384,9 +3354,7 @@ const serializeAws_json1_1ServerGroupLaunchConfiguration = (
 ): any => {
   return {
     ...(input.launchOrder !== undefined && { launchOrder: input.launchOrder }),
-    ...(input.serverGroupId !== undefined && {
-      serverGroupId: input.serverGroupId,
-    }),
+    ...(input.serverGroupId !== undefined && { serverGroupId: input.serverGroupId }),
     ...(input.serverLaunchConfigurations !== undefined && {
       serverLaunchConfigurations: serializeAws_json1_1ServerLaunchConfigurations(
         input.serverLaunchConfigurations,
@@ -3408,9 +3376,7 @@ const serializeAws_json1_1ServerGroupReplicationConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.serverGroupId !== undefined && {
-      serverGroupId: input.serverGroupId,
-    }),
+    ...(input.serverGroupId !== undefined && { serverGroupId: input.serverGroupId }),
     ...(input.serverReplicationConfigurations !== undefined && {
       serverReplicationConfigurations: serializeAws_json1_1ServerReplicationConfigurations(
         input.serverReplicationConfigurations,
@@ -3436,24 +3402,14 @@ const serializeAws_json1_1ServerLaunchConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.associatePublicIpAddress !== undefined && {
-      associatePublicIpAddress: input.associatePublicIpAddress,
-    }),
+    ...(input.associatePublicIpAddress !== undefined && { associatePublicIpAddress: input.associatePublicIpAddress }),
     ...(input.ec2KeyName !== undefined && { ec2KeyName: input.ec2KeyName }),
-    ...(input.instanceType !== undefined && {
-      instanceType: input.instanceType,
-    }),
+    ...(input.instanceType !== undefined && { instanceType: input.instanceType }),
     ...(input.logicalId !== undefined && { logicalId: input.logicalId }),
-    ...(input.securityGroup !== undefined && {
-      securityGroup: input.securityGroup,
-    }),
-    ...(input.server !== undefined && {
-      server: serializeAws_json1_1Server(input.server, context),
-    }),
+    ...(input.securityGroup !== undefined && { securityGroup: input.securityGroup }),
+    ...(input.server !== undefined && { server: serializeAws_json1_1Server(input.server, context) }),
     ...(input.subnet !== undefined && { subnet: input.subnet }),
-    ...(input.userData !== undefined && {
-      userData: serializeAws_json1_1UserData(input.userData, context),
-    }),
+    ...(input.userData !== undefined && { userData: serializeAws_json1_1UserData(input.userData, context) }),
     ...(input.vpc !== undefined && { vpc: input.vpc }),
   };
 };
@@ -3474,9 +3430,7 @@ const serializeAws_json1_1ServerReplicationConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.server !== undefined && {
-      server: serializeAws_json1_1Server(input.server, context),
-    }),
+    ...(input.server !== undefined && { server: serializeAws_json1_1Server(input.server, context) }),
     ...(input.serverReplicationParameters !== undefined && {
       serverReplicationParameters: serializeAws_json1_1ServerReplicationParameters(
         input.serverReplicationParameters,
@@ -3502,13 +3456,9 @@ const serializeAws_json1_1ServerReplicationParameters = (
     ...(input.frequency !== undefined && { frequency: input.frequency }),
     ...(input.kmsKeyId !== undefined && { kmsKeyId: input.kmsKeyId }),
     ...(input.licenseType !== undefined && { licenseType: input.licenseType }),
-    ...(input.numberOfRecentAmisToKeep !== undefined && {
-      numberOfRecentAmisToKeep: input.numberOfRecentAmisToKeep,
-    }),
+    ...(input.numberOfRecentAmisToKeep !== undefined && { numberOfRecentAmisToKeep: input.numberOfRecentAmisToKeep }),
     ...(input.runOnce !== undefined && { runOnce: input.runOnce }),
-    ...(input.seedTime !== undefined && {
-      seedTime: Math.round(input.seedTime.getTime() / 1000),
-    }),
+    ...(input.seedTime !== undefined && { seedTime: Math.round(input.seedTime.getTime() / 1000) }),
   };
 };
 
@@ -3527,9 +3477,7 @@ const serializeAws_json1_1StartOnDemandReplicationRunRequest = (
 ): any => {
   return {
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.replicationJobId !== undefined && {
-      replicationJobId: input.replicationJobId,
-    }),
+    ...(input.replicationJobId !== undefined && { replicationJobId: input.replicationJobId }),
   };
 };
 
@@ -3568,9 +3516,7 @@ const serializeAws_json1_1UpdateAppRequest = (input: UpdateAppRequest, context: 
     ...(input.serverGroups !== undefined && {
       serverGroups: serializeAws_json1_1ServerGroups(input.serverGroups, context),
     }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1Tags(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -3587,32 +3533,22 @@ const serializeAws_json1_1UpdateReplicationJobRequest = (
     ...(input.nextReplicationRunStartTime !== undefined && {
       nextReplicationRunStartTime: Math.round(input.nextReplicationRunStartTime.getTime() / 1000),
     }),
-    ...(input.numberOfRecentAmisToKeep !== undefined && {
-      numberOfRecentAmisToKeep: input.numberOfRecentAmisToKeep,
-    }),
-    ...(input.replicationJobId !== undefined && {
-      replicationJobId: input.replicationJobId,
-    }),
+    ...(input.numberOfRecentAmisToKeep !== undefined && { numberOfRecentAmisToKeep: input.numberOfRecentAmisToKeep }),
+    ...(input.replicationJobId !== undefined && { replicationJobId: input.replicationJobId }),
     ...(input.roleName !== undefined && { roleName: input.roleName }),
   };
 };
 
 const serializeAws_json1_1UserData = (input: UserData, context: __SerdeContext): any => {
   return {
-    ...(input.s3Location !== undefined && {
-      s3Location: serializeAws_json1_1S3Location(input.s3Location, context),
-    }),
+    ...(input.s3Location !== undefined && { s3Location: serializeAws_json1_1S3Location(input.s3Location, context) }),
   };
 };
 
 const serializeAws_json1_1VmServer = (input: VmServer, context: __SerdeContext): any => {
   return {
-    ...(input.vmManagerName !== undefined && {
-      vmManagerName: input.vmManagerName,
-    }),
-    ...(input.vmManagerType !== undefined && {
-      vmManagerType: input.vmManagerType,
-    }),
+    ...(input.vmManagerName !== undefined && { vmManagerName: input.vmManagerName }),
+    ...(input.vmManagerType !== undefined && { vmManagerType: input.vmManagerType }),
     ...(input.vmName !== undefined && { vmName: input.vmName }),
     ...(input.vmPath !== undefined && { vmPath: input.vmPath }),
     ...(input.vmServerAddress !== undefined && {

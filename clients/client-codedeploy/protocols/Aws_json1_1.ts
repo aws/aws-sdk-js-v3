@@ -7404,9 +7404,7 @@ const serializeAws_json1_1AddTagsToOnPremisesInstancesInput = (
     ...(input.instanceNames !== undefined && {
       instanceNames: serializeAws_json1_1InstanceNameList(input.instanceNames, context),
     }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -7418,13 +7416,9 @@ const serializeAws_json1_1Alarm = (input: Alarm, context: __SerdeContext): any =
 
 const serializeAws_json1_1AlarmConfiguration = (input: AlarmConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.alarms !== undefined && {
-      alarms: serializeAws_json1_1AlarmList(input.alarms, context),
-    }),
+    ...(input.alarms !== undefined && { alarms: serializeAws_json1_1AlarmList(input.alarms, context) }),
     ...(input.enabled !== undefined && { enabled: input.enabled }),
-    ...(input.ignorePollAlarmFailure !== undefined && {
-      ignorePollAlarmFailure: input.ignorePollAlarmFailure,
-    }),
+    ...(input.ignorePollAlarmFailure !== undefined && { ignorePollAlarmFailure: input.ignorePollAlarmFailure }),
   };
 };
 
@@ -7449,9 +7443,7 @@ const serializeAws_json1_1AutoRollbackConfiguration = (
 ): any => {
   return {
     ...(input.enabled !== undefined && { enabled: input.enabled }),
-    ...(input.events !== undefined && {
-      events: serializeAws_json1_1AutoRollbackEventsList(input.events, context),
-    }),
+    ...(input.events !== undefined && { events: serializeAws_json1_1AutoRollbackEventsList(input.events, context) }),
   };
 };
 
@@ -7471,9 +7463,7 @@ const serializeAws_json1_1BatchGetApplicationRevisionsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.applicationName !== undefined && {
-      applicationName: input.applicationName,
-    }),
+    ...(input.applicationName !== undefined && { applicationName: input.applicationName }),
     ...(input.revisions !== undefined && {
       revisions: serializeAws_json1_1RevisionLocationList(input.revisions, context),
     }),
@@ -7496,9 +7486,7 @@ const serializeAws_json1_1BatchGetDeploymentGroupsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.applicationName !== undefined && {
-      applicationName: input.applicationName,
-    }),
+    ...(input.applicationName !== undefined && { applicationName: input.applicationName }),
     ...(input.deploymentGroupNames !== undefined && {
       deploymentGroupNames: serializeAws_json1_1DeploymentGroupsList(input.deploymentGroupNames, context),
     }),
@@ -7510,9 +7498,7 @@ const serializeAws_json1_1BatchGetDeploymentInstancesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentId !== undefined && {
-      deploymentId: input.deploymentId,
-    }),
+    ...(input.deploymentId !== undefined && { deploymentId: input.deploymentId }),
     ...(input.instanceIds !== undefined && {
       instanceIds: serializeAws_json1_1InstancesList(input.instanceIds, context),
     }),
@@ -7535,12 +7521,8 @@ const serializeAws_json1_1BatchGetDeploymentTargetsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentId !== undefined && {
-      deploymentId: input.deploymentId,
-    }),
-    ...(input.targetIds !== undefined && {
-      targetIds: serializeAws_json1_1TargetIdList(input.targetIds, context),
-    }),
+    ...(input.deploymentId !== undefined && { deploymentId: input.deploymentId }),
+    ...(input.targetIds !== undefined && { targetIds: serializeAws_json1_1TargetIdList(input.targetIds, context) }),
   };
 };
 
@@ -7592,26 +7574,16 @@ const serializeAws_json1_1BlueInstanceTerminationOption = (
 
 const serializeAws_json1_1ContinueDeploymentInput = (input: ContinueDeploymentInput, context: __SerdeContext): any => {
   return {
-    ...(input.deploymentId !== undefined && {
-      deploymentId: input.deploymentId,
-    }),
-    ...(input.deploymentWaitType !== undefined && {
-      deploymentWaitType: input.deploymentWaitType,
-    }),
+    ...(input.deploymentId !== undefined && { deploymentId: input.deploymentId }),
+    ...(input.deploymentWaitType !== undefined && { deploymentWaitType: input.deploymentWaitType }),
   };
 };
 
 const serializeAws_json1_1CreateApplicationInput = (input: CreateApplicationInput, context: __SerdeContext): any => {
   return {
-    ...(input.applicationName !== undefined && {
-      applicationName: input.applicationName,
-    }),
-    ...(input.computePlatform !== undefined && {
-      computePlatform: input.computePlatform,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.applicationName !== undefined && { applicationName: input.applicationName }),
+    ...(input.computePlatform !== undefined && { computePlatform: input.computePlatform }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -7620,12 +7592,8 @@ const serializeAws_json1_1CreateDeploymentConfigInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.computePlatform !== undefined && {
-      computePlatform: input.computePlatform,
-    }),
-    ...(input.deploymentConfigName !== undefined && {
-      deploymentConfigName: input.deploymentConfigName,
-    }),
+    ...(input.computePlatform !== undefined && { computePlatform: input.computePlatform }),
+    ...(input.deploymentConfigName !== undefined && { deploymentConfigName: input.deploymentConfigName }),
     ...(input.minimumHealthyHosts !== undefined && {
       minimumHealthyHosts: serializeAws_json1_1MinimumHealthyHosts(input.minimumHealthyHosts, context),
     }),
@@ -7643,9 +7611,7 @@ const serializeAws_json1_1CreateDeploymentGroupInput = (
     ...(input.alarmConfiguration !== undefined && {
       alarmConfiguration: serializeAws_json1_1AlarmConfiguration(input.alarmConfiguration, context),
     }),
-    ...(input.applicationName !== undefined && {
-      applicationName: input.applicationName,
-    }),
+    ...(input.applicationName !== undefined && { applicationName: input.applicationName }),
     ...(input.autoRollbackConfiguration !== undefined && {
       autoRollbackConfiguration: serializeAws_json1_1AutoRollbackConfiguration(
         input.autoRollbackConfiguration,
@@ -7661,21 +7627,15 @@ const serializeAws_json1_1CreateDeploymentGroupInput = (
         context
       ),
     }),
-    ...(input.deploymentConfigName !== undefined && {
-      deploymentConfigName: input.deploymentConfigName,
-    }),
-    ...(input.deploymentGroupName !== undefined && {
-      deploymentGroupName: input.deploymentGroupName,
-    }),
+    ...(input.deploymentConfigName !== undefined && { deploymentConfigName: input.deploymentConfigName }),
+    ...(input.deploymentGroupName !== undefined && { deploymentGroupName: input.deploymentGroupName }),
     ...(input.deploymentStyle !== undefined && {
       deploymentStyle: serializeAws_json1_1DeploymentStyle(input.deploymentStyle, context),
     }),
     ...(input.ec2TagFilters !== undefined && {
       ec2TagFilters: serializeAws_json1_1EC2TagFilterList(input.ec2TagFilters, context),
     }),
-    ...(input.ec2TagSet !== undefined && {
-      ec2TagSet: serializeAws_json1_1EC2TagSet(input.ec2TagSet, context),
-    }),
+    ...(input.ec2TagSet !== undefined && { ec2TagSet: serializeAws_json1_1EC2TagSet(input.ec2TagSet, context) }),
     ...(input.ecsServices !== undefined && {
       ecsServices: serializeAws_json1_1ECSServiceList(input.ecsServices, context),
     }),
@@ -7688,12 +7648,8 @@ const serializeAws_json1_1CreateDeploymentGroupInput = (
     ...(input.onPremisesTagSet !== undefined && {
       onPremisesTagSet: serializeAws_json1_1OnPremisesTagSet(input.onPremisesTagSet, context),
     }),
-    ...(input.serviceRoleArn !== undefined && {
-      serviceRoleArn: input.serviceRoleArn,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.serviceRoleArn !== undefined && { serviceRoleArn: input.serviceRoleArn }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
     ...(input.triggerConfigurations !== undefined && {
       triggerConfigurations: serializeAws_json1_1TriggerConfigList(input.triggerConfigurations, context),
     }),
@@ -7702,31 +7658,21 @@ const serializeAws_json1_1CreateDeploymentGroupInput = (
 
 const serializeAws_json1_1CreateDeploymentInput = (input: CreateDeploymentInput, context: __SerdeContext): any => {
   return {
-    ...(input.applicationName !== undefined && {
-      applicationName: input.applicationName,
-    }),
+    ...(input.applicationName !== undefined && { applicationName: input.applicationName }),
     ...(input.autoRollbackConfiguration !== undefined && {
       autoRollbackConfiguration: serializeAws_json1_1AutoRollbackConfiguration(
         input.autoRollbackConfiguration,
         context
       ),
     }),
-    ...(input.deploymentConfigName !== undefined && {
-      deploymentConfigName: input.deploymentConfigName,
-    }),
-    ...(input.deploymentGroupName !== undefined && {
-      deploymentGroupName: input.deploymentGroupName,
-    }),
+    ...(input.deploymentConfigName !== undefined && { deploymentConfigName: input.deploymentConfigName }),
+    ...(input.deploymentGroupName !== undefined && { deploymentGroupName: input.deploymentGroupName }),
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.fileExistsBehavior !== undefined && {
-      fileExistsBehavior: input.fileExistsBehavior,
-    }),
+    ...(input.fileExistsBehavior !== undefined && { fileExistsBehavior: input.fileExistsBehavior }),
     ...(input.ignoreApplicationStopFailures !== undefined && {
       ignoreApplicationStopFailures: input.ignoreApplicationStopFailures,
     }),
-    ...(input.revision !== undefined && {
-      revision: serializeAws_json1_1RevisionLocation(input.revision, context),
-    }),
+    ...(input.revision !== undefined && { revision: serializeAws_json1_1RevisionLocation(input.revision, context) }),
     ...(input.targetInstances !== undefined && {
       targetInstances: serializeAws_json1_1TargetInstances(input.targetInstances, context),
     }),
@@ -7738,9 +7684,7 @@ const serializeAws_json1_1CreateDeploymentInput = (input: CreateDeploymentInput,
 
 const serializeAws_json1_1DeleteApplicationInput = (input: DeleteApplicationInput, context: __SerdeContext): any => {
   return {
-    ...(input.applicationName !== undefined && {
-      applicationName: input.applicationName,
-    }),
+    ...(input.applicationName !== undefined && { applicationName: input.applicationName }),
   };
 };
 
@@ -7749,9 +7693,7 @@ const serializeAws_json1_1DeleteDeploymentConfigInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentConfigName !== undefined && {
-      deploymentConfigName: input.deploymentConfigName,
-    }),
+    ...(input.deploymentConfigName !== undefined && { deploymentConfigName: input.deploymentConfigName }),
   };
 };
 
@@ -7760,12 +7702,8 @@ const serializeAws_json1_1DeleteDeploymentGroupInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.applicationName !== undefined && {
-      applicationName: input.applicationName,
-    }),
-    ...(input.deploymentGroupName !== undefined && {
-      deploymentGroupName: input.deploymentGroupName,
-    }),
+    ...(input.applicationName !== undefined && { applicationName: input.applicationName }),
+    ...(input.deploymentGroupName !== undefined && { deploymentGroupName: input.deploymentGroupName }),
   };
 };
 
@@ -7784,12 +7722,8 @@ const serializeAws_json1_1DeploymentGroupsList = (input: string[], context: __Se
 
 const serializeAws_json1_1DeploymentReadyOption = (input: DeploymentReadyOption, context: __SerdeContext): any => {
   return {
-    ...(input.actionOnTimeout !== undefined && {
-      actionOnTimeout: input.actionOnTimeout,
-    }),
-    ...(input.waitTimeInMinutes !== undefined && {
-      waitTimeInMinutes: input.waitTimeInMinutes,
-    }),
+    ...(input.actionOnTimeout !== undefined && { actionOnTimeout: input.actionOnTimeout }),
+    ...(input.waitTimeInMinutes !== undefined && { waitTimeInMinutes: input.waitTimeInMinutes }),
   };
 };
 
@@ -7806,12 +7740,8 @@ const serializeAws_json1_1DeploymentStatusList = (
 
 const serializeAws_json1_1DeploymentStyle = (input: DeploymentStyle, context: __SerdeContext): any => {
   return {
-    ...(input.deploymentOption !== undefined && {
-      deploymentOption: input.deploymentOption,
-    }),
-    ...(input.deploymentType !== undefined && {
-      deploymentType: input.deploymentType,
-    }),
+    ...(input.deploymentOption !== undefined && { deploymentOption: input.deploymentOption }),
+    ...(input.deploymentType !== undefined && { deploymentType: input.deploymentType }),
   };
 };
 
@@ -7820,9 +7750,7 @@ const serializeAws_json1_1DeregisterOnPremisesInstanceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.instanceName !== undefined && {
-      instanceName: input.instanceName,
-    }),
+    ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
   };
 };
 
@@ -7877,9 +7805,7 @@ const serializeAws_json1_1FilterValueList = (input: string[], context: __SerdeCo
 
 const serializeAws_json1_1GetApplicationInput = (input: GetApplicationInput, context: __SerdeContext): any => {
   return {
-    ...(input.applicationName !== undefined && {
-      applicationName: input.applicationName,
-    }),
+    ...(input.applicationName !== undefined && { applicationName: input.applicationName }),
   };
 };
 
@@ -7888,12 +7814,8 @@ const serializeAws_json1_1GetApplicationRevisionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.applicationName !== undefined && {
-      applicationName: input.applicationName,
-    }),
-    ...(input.revision !== undefined && {
-      revision: serializeAws_json1_1RevisionLocation(input.revision, context),
-    }),
+    ...(input.applicationName !== undefined && { applicationName: input.applicationName }),
+    ...(input.revision !== undefined && { revision: serializeAws_json1_1RevisionLocation(input.revision, context) }),
   };
 };
 
@@ -7902,28 +7824,20 @@ const serializeAws_json1_1GetDeploymentConfigInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentConfigName !== undefined && {
-      deploymentConfigName: input.deploymentConfigName,
-    }),
+    ...(input.deploymentConfigName !== undefined && { deploymentConfigName: input.deploymentConfigName }),
   };
 };
 
 const serializeAws_json1_1GetDeploymentGroupInput = (input: GetDeploymentGroupInput, context: __SerdeContext): any => {
   return {
-    ...(input.applicationName !== undefined && {
-      applicationName: input.applicationName,
-    }),
-    ...(input.deploymentGroupName !== undefined && {
-      deploymentGroupName: input.deploymentGroupName,
-    }),
+    ...(input.applicationName !== undefined && { applicationName: input.applicationName }),
+    ...(input.deploymentGroupName !== undefined && { deploymentGroupName: input.deploymentGroupName }),
   };
 };
 
 const serializeAws_json1_1GetDeploymentInput = (input: GetDeploymentInput, context: __SerdeContext): any => {
   return {
-    ...(input.deploymentId !== undefined && {
-      deploymentId: input.deploymentId,
-    }),
+    ...(input.deploymentId !== undefined && { deploymentId: input.deploymentId }),
   };
 };
 
@@ -7932,9 +7846,7 @@ const serializeAws_json1_1GetDeploymentInstanceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentId !== undefined && {
-      deploymentId: input.deploymentId,
-    }),
+    ...(input.deploymentId !== undefined && { deploymentId: input.deploymentId }),
     ...(input.instanceId !== undefined && { instanceId: input.instanceId }),
   };
 };
@@ -7944,9 +7856,7 @@ const serializeAws_json1_1GetDeploymentTargetInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentId !== undefined && {
-      deploymentId: input.deploymentId,
-    }),
+    ...(input.deploymentId !== undefined && { deploymentId: input.deploymentId }),
     ...(input.targetId !== undefined && { targetId: input.targetId }),
   };
 };
@@ -7956,9 +7866,7 @@ const serializeAws_json1_1GetOnPremisesInstanceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.instanceName !== undefined && {
-      instanceName: input.instanceName,
-    }),
+    ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
   };
 };
 
@@ -7999,9 +7907,7 @@ const serializeAws_json1_1ListApplicationRevisionsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.applicationName !== undefined && {
-      applicationName: input.applicationName,
-    }),
+    ...(input.applicationName !== undefined && { applicationName: input.applicationName }),
     ...(input.deployed !== undefined && { deployed: input.deployed }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.s3Bucket !== undefined && { s3Bucket: input.s3Bucket }),
@@ -8031,9 +7937,7 @@ const serializeAws_json1_1ListDeploymentGroupsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.applicationName !== undefined && {
-      applicationName: input.applicationName,
-    }),
+    ...(input.applicationName !== undefined && { applicationName: input.applicationName }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
 };
@@ -8043,9 +7947,7 @@ const serializeAws_json1_1ListDeploymentInstancesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentId !== undefined && {
-      deploymentId: input.deploymentId,
-    }),
+    ...(input.deploymentId !== undefined && { deploymentId: input.deploymentId }),
     ...(input.instanceStatusFilter !== undefined && {
       instanceStatusFilter: serializeAws_json1_1InstanceStatusList(input.instanceStatusFilter, context),
     }),
@@ -8058,15 +7960,11 @@ const serializeAws_json1_1ListDeploymentInstancesInput = (
 
 const serializeAws_json1_1ListDeploymentsInput = (input: ListDeploymentsInput, context: __SerdeContext): any => {
   return {
-    ...(input.applicationName !== undefined && {
-      applicationName: input.applicationName,
-    }),
+    ...(input.applicationName !== undefined && { applicationName: input.applicationName }),
     ...(input.createTimeRange !== undefined && {
       createTimeRange: serializeAws_json1_1TimeRange(input.createTimeRange, context),
     }),
-    ...(input.deploymentGroupName !== undefined && {
-      deploymentGroupName: input.deploymentGroupName,
-    }),
+    ...(input.deploymentGroupName !== undefined && { deploymentGroupName: input.deploymentGroupName }),
     ...(input.includeOnlyStatuses !== undefined && {
       includeOnlyStatuses: serializeAws_json1_1DeploymentStatusList(input.includeOnlyStatuses, context),
     }),
@@ -8079,9 +7977,7 @@ const serializeAws_json1_1ListDeploymentTargetsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentId !== undefined && {
-      deploymentId: input.deploymentId,
-    }),
+    ...(input.deploymentId !== undefined && { deploymentId: input.deploymentId }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.targetFilters !== undefined && {
       targetFilters: serializeAws_json1_1TargetFilters(input.targetFilters, context),
@@ -8108,12 +8004,8 @@ const serializeAws_json1_1ListOnPremisesInstancesInput = (
 ): any => {
   return {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.registrationStatus !== undefined && {
-      registrationStatus: input.registrationStatus,
-    }),
-    ...(input.tagFilters !== undefined && {
-      tagFilters: serializeAws_json1_1TagFilterList(input.tagFilters, context),
-    }),
+    ...(input.registrationStatus !== undefined && { registrationStatus: input.registrationStatus }),
+    ...(input.tagFilters !== undefined && { tagFilters: serializeAws_json1_1TagFilterList(input.tagFilters, context) }),
   };
 };
 
@@ -8165,9 +8057,7 @@ const serializeAws_json1_1PutLifecycleEventHookExecutionStatusInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentId !== undefined && {
-      deploymentId: input.deploymentId,
-    }),
+    ...(input.deploymentId !== undefined && { deploymentId: input.deploymentId }),
     ...(input.lifecycleEventHookExecutionId !== undefined && {
       lifecycleEventHookExecutionId: input.lifecycleEventHookExecutionId,
     }),
@@ -8187,13 +8077,9 @@ const serializeAws_json1_1RegisterApplicationRevisionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.applicationName !== undefined && {
-      applicationName: input.applicationName,
-    }),
+    ...(input.applicationName !== undefined && { applicationName: input.applicationName }),
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.revision !== undefined && {
-      revision: serializeAws_json1_1RevisionLocation(input.revision, context),
-    }),
+    ...(input.revision !== undefined && { revision: serializeAws_json1_1RevisionLocation(input.revision, context) }),
   };
 };
 
@@ -8202,13 +8088,9 @@ const serializeAws_json1_1RegisterOnPremisesInstanceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.iamSessionArn !== undefined && {
-      iamSessionArn: input.iamSessionArn,
-    }),
+    ...(input.iamSessionArn !== undefined && { iamSessionArn: input.iamSessionArn }),
     ...(input.iamUserArn !== undefined && { iamUserArn: input.iamUserArn }),
-    ...(input.instanceName !== undefined && {
-      instanceName: input.instanceName,
-    }),
+    ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
   };
 };
 
@@ -8220,9 +8102,7 @@ const serializeAws_json1_1RemoveTagsFromOnPremisesInstancesInput = (
     ...(input.instanceNames !== undefined && {
       instanceNames: serializeAws_json1_1InstanceNameList(input.instanceNames, context),
     }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -8234,15 +8114,9 @@ const serializeAws_json1_1RevisionLocation = (input: RevisionLocation, context: 
     ...(input.gitHubLocation !== undefined && {
       gitHubLocation: serializeAws_json1_1GitHubLocation(input.gitHubLocation, context),
     }),
-    ...(input.revisionType !== undefined && {
-      revisionType: input.revisionType,
-    }),
-    ...(input.s3Location !== undefined && {
-      s3Location: serializeAws_json1_1S3Location(input.s3Location, context),
-    }),
-    ...(input.string !== undefined && {
-      string: serializeAws_json1_1RawString(input.string, context),
-    }),
+    ...(input.revisionType !== undefined && { revisionType: input.revisionType }),
+    ...(input.s3Location !== undefined && { s3Location: serializeAws_json1_1S3Location(input.s3Location, context) }),
+    ...(input.string !== undefined && { string: serializeAws_json1_1RawString(input.string, context) }),
   };
 };
 
@@ -8265,20 +8139,14 @@ const serializeAws_json1_1SkipWaitTimeForInstanceTerminationInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentId !== undefined && {
-      deploymentId: input.deploymentId,
-    }),
+    ...(input.deploymentId !== undefined && { deploymentId: input.deploymentId }),
   };
 };
 
 const serializeAws_json1_1StopDeploymentInput = (input: StopDeploymentInput, context: __SerdeContext): any => {
   return {
-    ...(input.autoRollbackEnabled !== undefined && {
-      autoRollbackEnabled: input.autoRollbackEnabled,
-    }),
-    ...(input.deploymentId !== undefined && {
-      deploymentId: input.deploymentId,
-    }),
+    ...(input.autoRollbackEnabled !== undefined && { autoRollbackEnabled: input.autoRollbackEnabled }),
+    ...(input.deploymentId !== undefined && { deploymentId: input.deploymentId }),
   };
 };
 
@@ -8312,9 +8180,7 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 const serializeAws_json1_1TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -8365,9 +8231,7 @@ const serializeAws_json1_1TargetInstances = (input: TargetInstances, context: __
     ...(input.autoScalingGroups !== undefined && {
       autoScalingGroups: serializeAws_json1_1AutoScalingGroupNameList(input.autoScalingGroups, context),
     }),
-    ...(input.ec2TagSet !== undefined && {
-      ec2TagSet: serializeAws_json1_1EC2TagSet(input.ec2TagSet, context),
-    }),
+    ...(input.ec2TagSet !== undefined && { ec2TagSet: serializeAws_json1_1EC2TagSet(input.ec2TagSet, context) }),
     ...(input.tagFilters !== undefined && {
       tagFilters: serializeAws_json1_1EC2TagFilterList(input.tagFilters, context),
     }),
@@ -8376,34 +8240,22 @@ const serializeAws_json1_1TargetInstances = (input: TargetInstances, context: __
 
 const serializeAws_json1_1TimeBasedCanary = (input: TimeBasedCanary, context: __SerdeContext): any => {
   return {
-    ...(input.canaryInterval !== undefined && {
-      canaryInterval: input.canaryInterval,
-    }),
-    ...(input.canaryPercentage !== undefined && {
-      canaryPercentage: input.canaryPercentage,
-    }),
+    ...(input.canaryInterval !== undefined && { canaryInterval: input.canaryInterval }),
+    ...(input.canaryPercentage !== undefined && { canaryPercentage: input.canaryPercentage }),
   };
 };
 
 const serializeAws_json1_1TimeBasedLinear = (input: TimeBasedLinear, context: __SerdeContext): any => {
   return {
-    ...(input.linearInterval !== undefined && {
-      linearInterval: input.linearInterval,
-    }),
-    ...(input.linearPercentage !== undefined && {
-      linearPercentage: input.linearPercentage,
-    }),
+    ...(input.linearInterval !== undefined && { linearInterval: input.linearInterval }),
+    ...(input.linearPercentage !== undefined && { linearPercentage: input.linearPercentage }),
   };
 };
 
 const serializeAws_json1_1TimeRange = (input: TimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.end !== undefined && {
-      end: Math.round(input.end.getTime() / 1000),
-    }),
-    ...(input.start !== undefined && {
-      start: Math.round(input.start.getTime() / 1000),
-    }),
+    ...(input.end !== undefined && { end: Math.round(input.end.getTime() / 1000) }),
+    ...(input.start !== undefined && { start: Math.round(input.start.getTime() / 1000) }),
   };
 };
 
@@ -8433,9 +8285,7 @@ const serializeAws_json1_1TriggerConfig = (input: TriggerConfig, context: __Serd
       triggerEvents: serializeAws_json1_1TriggerEventTypeList(input.triggerEvents, context),
     }),
     ...(input.triggerName !== undefined && { triggerName: input.triggerName }),
-    ...(input.triggerTargetArn !== undefined && {
-      triggerTargetArn: input.triggerTargetArn,
-    }),
+    ...(input.triggerTargetArn !== undefined && { triggerTargetArn: input.triggerTargetArn }),
   };
 };
 
@@ -8453,20 +8303,14 @@ const serializeAws_json1_1TriggerEventTypeList = (
 const serializeAws_json1_1UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateApplicationInput = (input: UpdateApplicationInput, context: __SerdeContext): any => {
   return {
-    ...(input.applicationName !== undefined && {
-      applicationName: input.applicationName,
-    }),
-    ...(input.newApplicationName !== undefined && {
-      newApplicationName: input.newApplicationName,
-    }),
+    ...(input.applicationName !== undefined && { applicationName: input.applicationName }),
+    ...(input.newApplicationName !== undefined && { newApplicationName: input.newApplicationName }),
   };
 };
 
@@ -8478,9 +8322,7 @@ const serializeAws_json1_1UpdateDeploymentGroupInput = (
     ...(input.alarmConfiguration !== undefined && {
       alarmConfiguration: serializeAws_json1_1AlarmConfiguration(input.alarmConfiguration, context),
     }),
-    ...(input.applicationName !== undefined && {
-      applicationName: input.applicationName,
-    }),
+    ...(input.applicationName !== undefined && { applicationName: input.applicationName }),
     ...(input.autoRollbackConfiguration !== undefined && {
       autoRollbackConfiguration: serializeAws_json1_1AutoRollbackConfiguration(
         input.autoRollbackConfiguration,
@@ -8499,36 +8341,28 @@ const serializeAws_json1_1UpdateDeploymentGroupInput = (
     ...(input.currentDeploymentGroupName !== undefined && {
       currentDeploymentGroupName: input.currentDeploymentGroupName,
     }),
-    ...(input.deploymentConfigName !== undefined && {
-      deploymentConfigName: input.deploymentConfigName,
-    }),
+    ...(input.deploymentConfigName !== undefined && { deploymentConfigName: input.deploymentConfigName }),
     ...(input.deploymentStyle !== undefined && {
       deploymentStyle: serializeAws_json1_1DeploymentStyle(input.deploymentStyle, context),
     }),
     ...(input.ec2TagFilters !== undefined && {
       ec2TagFilters: serializeAws_json1_1EC2TagFilterList(input.ec2TagFilters, context),
     }),
-    ...(input.ec2TagSet !== undefined && {
-      ec2TagSet: serializeAws_json1_1EC2TagSet(input.ec2TagSet, context),
-    }),
+    ...(input.ec2TagSet !== undefined && { ec2TagSet: serializeAws_json1_1EC2TagSet(input.ec2TagSet, context) }),
     ...(input.ecsServices !== undefined && {
       ecsServices: serializeAws_json1_1ECSServiceList(input.ecsServices, context),
     }),
     ...(input.loadBalancerInfo !== undefined && {
       loadBalancerInfo: serializeAws_json1_1LoadBalancerInfo(input.loadBalancerInfo, context),
     }),
-    ...(input.newDeploymentGroupName !== undefined && {
-      newDeploymentGroupName: input.newDeploymentGroupName,
-    }),
+    ...(input.newDeploymentGroupName !== undefined && { newDeploymentGroupName: input.newDeploymentGroupName }),
     ...(input.onPremisesInstanceTagFilters !== undefined && {
       onPremisesInstanceTagFilters: serializeAws_json1_1TagFilterList(input.onPremisesInstanceTagFilters, context),
     }),
     ...(input.onPremisesTagSet !== undefined && {
       onPremisesTagSet: serializeAws_json1_1OnPremisesTagSet(input.onPremisesTagSet, context),
     }),
-    ...(input.serviceRoleArn !== undefined && {
-      serviceRoleArn: input.serviceRoleArn,
-    }),
+    ...(input.serviceRoleArn !== undefined && { serviceRoleArn: input.serviceRoleArn }),
     ...(input.triggerConfigurations !== undefined && {
       triggerConfigurations: serializeAws_json1_1TriggerConfigList(input.triggerConfigurations, context),
     }),

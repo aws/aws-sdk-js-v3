@@ -87,9 +87,7 @@ export const serializeAws_restJson1CreateMemberCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.InvitationId !== undefined && {
-      InvitationId: input.InvitationId,
-    }),
+    ...(input.InvitationId !== undefined && { InvitationId: input.InvitationId }),
     ...(input.MemberConfiguration !== undefined && {
       MemberConfiguration: serializeAws_restJson1MemberConfiguration(input.MemberConfiguration, context),
     }),
@@ -125,9 +123,7 @@ export const serializeAws_restJson1CreateNetworkCommand = async (
         context
       ),
     }),
-    ...(input.FrameworkVersion !== undefined && {
-      FrameworkVersion: input.FrameworkVersion,
-    }),
+    ...(input.FrameworkVersion !== undefined && { FrameworkVersion: input.FrameworkVersion }),
     ...(input.MemberConfiguration !== undefined && {
       MemberConfiguration: serializeAws_restJson1MemberConfiguration(input.MemberConfiguration, context),
     }),
@@ -212,9 +208,7 @@ export const serializeAws_restJson1CreateProposalCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Actions !== undefined && {
-      Actions: serializeAws_restJson1ProposalActions(input.Actions, context),
-    }),
+    ...(input.Actions !== undefined && { Actions: serializeAws_restJson1ProposalActions(input.Actions, context) }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.MemberId !== undefined && { MemberId: input.MemberId }),
@@ -483,9 +477,7 @@ export const serializeAws_restJson1ListInvitationsCommand = async (
   };
   let resolvedPath = "/invitations";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -521,9 +513,7 @@ export const serializeAws_restJson1ListMembersCommand = async (
   }
   const query: any = {
     ...(input.IsOwned !== undefined && { isOwned: input.IsOwned.toString() }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.Name !== undefined && { name: input.Name }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.Status !== undefined && { status: input.Status }),
@@ -552,9 +542,7 @@ export const serializeAws_restJson1ListNetworksCommand = async (
   let resolvedPath = "/networks";
   const query: any = {
     ...(input.Framework !== undefined && { framework: input.Framework }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.Name !== undefined && { name: input.Name }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.Status !== undefined && { status: input.Status }),
@@ -600,9 +588,7 @@ export const serializeAws_restJson1ListNodesCommand = async (
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.Status !== undefined && { status: input.Status }),
   };
@@ -638,9 +624,7 @@ export const serializeAws_restJson1ListProposalsCommand = async (
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -684,9 +668,7 @@ export const serializeAws_restJson1ListProposalVotesCommand = async (
     throw new Error("No value provided for input HTTP label: ProposalId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -762,9 +744,7 @@ export const serializeAws_restJson1VoteOnProposalCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Vote !== undefined && { Vote: input.Vote }),
-    ...(input.VoterMemberId !== undefined && {
-      VoterMemberId: input.VoterMemberId,
-    }),
+    ...(input.VoterMemberId !== undefined && { VoterMemberId: input.VoterMemberId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2592,15 +2572,9 @@ const serializeAws_restJson1ApprovalThresholdPolicy = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ProposalDurationInHours !== undefined && {
-      ProposalDurationInHours: input.ProposalDurationInHours,
-    }),
-    ...(input.ThresholdComparator !== undefined && {
-      ThresholdComparator: input.ThresholdComparator,
-    }),
-    ...(input.ThresholdPercentage !== undefined && {
-      ThresholdPercentage: input.ThresholdPercentage,
-    }),
+    ...(input.ProposalDurationInHours !== undefined && { ProposalDurationInHours: input.ProposalDurationInHours }),
+    ...(input.ThresholdComparator !== undefined && { ThresholdComparator: input.ThresholdComparator }),
+    ...(input.ThresholdPercentage !== undefined && { ThresholdPercentage: input.ThresholdPercentage }),
   };
 };
 
@@ -2629,12 +2603,8 @@ const serializeAws_restJson1MemberFabricConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdminPassword !== undefined && {
-      AdminPassword: input.AdminPassword,
-    }),
-    ...(input.AdminUsername !== undefined && {
-      AdminUsername: input.AdminUsername,
-    }),
+    ...(input.AdminPassword !== undefined && { AdminPassword: input.AdminPassword }),
+    ...(input.AdminUsername !== undefined && { AdminUsername: input.AdminUsername }),
   };
 };
 
@@ -2671,12 +2641,8 @@ const serializeAws_restJson1NetworkFrameworkConfiguration = (
 
 const serializeAws_restJson1NodeConfiguration = (input: NodeConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.AvailabilityZone !== undefined && {
-      AvailabilityZone: input.AvailabilityZone,
-    }),
-    ...(input.InstanceType !== undefined && {
-      InstanceType: input.InstanceType,
-    }),
+    ...(input.AvailabilityZone !== undefined && { AvailabilityZone: input.AvailabilityZone }),
+    ...(input.InstanceType !== undefined && { InstanceType: input.InstanceType }),
   };
 };
 
@@ -2685,9 +2651,7 @@ const serializeAws_restJson1ProposalActions = (input: ProposalActions, context: 
     ...(input.Invitations !== undefined && {
       Invitations: serializeAws_restJson1InviteActionList(input.Invitations, context),
     }),
-    ...(input.Removals !== undefined && {
-      Removals: serializeAws_restJson1RemoveActionList(input.Removals, context),
-    }),
+    ...(input.Removals !== undefined && { Removals: serializeAws_restJson1RemoveActionList(input.Removals, context) }),
   };
 };
 

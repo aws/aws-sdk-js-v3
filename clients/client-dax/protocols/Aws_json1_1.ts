@@ -2755,30 +2755,20 @@ const serializeAws_json1_1CreateClusterRequest = (input: CreateClusterRequest, c
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
     ...(input.NodeType !== undefined && { NodeType: input.NodeType }),
-    ...(input.NotificationTopicArn !== undefined && {
-      NotificationTopicArn: input.NotificationTopicArn,
-    }),
-    ...(input.ParameterGroupName !== undefined && {
-      ParameterGroupName: input.ParameterGroupName,
-    }),
+    ...(input.NotificationTopicArn !== undefined && { NotificationTopicArn: input.NotificationTopicArn }),
+    ...(input.ParameterGroupName !== undefined && { ParameterGroupName: input.ParameterGroupName }),
     ...(input.PreferredMaintenanceWindow !== undefined && {
       PreferredMaintenanceWindow: input.PreferredMaintenanceWindow,
     }),
-    ...(input.ReplicationFactor !== undefined && {
-      ReplicationFactor: input.ReplicationFactor,
-    }),
+    ...(input.ReplicationFactor !== undefined && { ReplicationFactor: input.ReplicationFactor }),
     ...(input.SSESpecification !== undefined && {
       SSESpecification: serializeAws_json1_1SSESpecification(input.SSESpecification, context),
     }),
     ...(input.SecurityGroupIds !== undefined && {
       SecurityGroupIds: serializeAws_json1_1SecurityGroupIdentifierList(input.SecurityGroupIds, context),
     }),
-    ...(input.SubnetGroupName !== undefined && {
-      SubnetGroupName: input.SubnetGroupName,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.SubnetGroupName !== undefined && { SubnetGroupName: input.SubnetGroupName }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -2788,9 +2778,7 @@ const serializeAws_json1_1CreateParameterGroupRequest = (
 ): any => {
   return {
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.ParameterGroupName !== undefined && {
-      ParameterGroupName: input.ParameterGroupName,
-    }),
+    ...(input.ParameterGroupName !== undefined && { ParameterGroupName: input.ParameterGroupName }),
   };
 };
 
@@ -2800,9 +2788,7 @@ const serializeAws_json1_1CreateSubnetGroupRequest = (
 ): any => {
   return {
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.SubnetGroupName !== undefined && {
-      SubnetGroupName: input.SubnetGroupName,
-    }),
+    ...(input.SubnetGroupName !== undefined && { SubnetGroupName: input.SubnetGroupName }),
     ...(input.SubnetIds !== undefined && {
       SubnetIds: serializeAws_json1_1SubnetIdentifierList(input.SubnetIds, context),
     }),
@@ -2818,9 +2804,7 @@ const serializeAws_json1_1DecreaseReplicationFactorRequest = (
       AvailabilityZones: serializeAws_json1_1AvailabilityZoneList(input.AvailabilityZones, context),
     }),
     ...(input.ClusterName !== undefined && { ClusterName: input.ClusterName }),
-    ...(input.NewReplicationFactor !== undefined && {
-      NewReplicationFactor: input.NewReplicationFactor,
-    }),
+    ...(input.NewReplicationFactor !== undefined && { NewReplicationFactor: input.NewReplicationFactor }),
     ...(input.NodeIdsToRemove !== undefined && {
       NodeIdsToRemove: serializeAws_json1_1NodeIdentifierList(input.NodeIdsToRemove, context),
     }),
@@ -2838,9 +2822,7 @@ const serializeAws_json1_1DeleteParameterGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ParameterGroupName !== undefined && {
-      ParameterGroupName: input.ParameterGroupName,
-    }),
+    ...(input.ParameterGroupName !== undefined && { ParameterGroupName: input.ParameterGroupName }),
   };
 };
 
@@ -2849,9 +2831,7 @@ const serializeAws_json1_1DeleteSubnetGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SubnetGroupName !== undefined && {
-      SubnetGroupName: input.SubnetGroupName,
-    }),
+    ...(input.SubnetGroupName !== undefined && { SubnetGroupName: input.SubnetGroupName }),
   };
 };
 
@@ -2878,16 +2858,12 @@ const serializeAws_json1_1DescribeDefaultParametersRequest = (
 const serializeAws_json1_1DescribeEventsRequest = (input: DescribeEventsRequest, context: __SerdeContext): any => {
   return {
     ...(input.Duration !== undefined && { Duration: input.Duration }),
-    ...(input.EndTime !== undefined && {
-      EndTime: Math.round(input.EndTime.getTime() / 1000),
-    }),
+    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.SourceName !== undefined && { SourceName: input.SourceName }),
     ...(input.SourceType !== undefined && { SourceType: input.SourceType }),
-    ...(input.StartTime !== undefined && {
-      StartTime: Math.round(input.StartTime.getTime() / 1000),
-    }),
+    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
@@ -2911,9 +2887,7 @@ const serializeAws_json1_1DescribeParametersRequest = (
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ParameterGroupName !== undefined && {
-      ParameterGroupName: input.ParameterGroupName,
-    }),
+    ...(input.ParameterGroupName !== undefined && { ParameterGroupName: input.ParameterGroupName }),
     ...(input.Source !== undefined && { Source: input.Source }),
   };
 };
@@ -2940,9 +2914,7 @@ const serializeAws_json1_1IncreaseReplicationFactorRequest = (
       AvailabilityZones: serializeAws_json1_1AvailabilityZoneList(input.AvailabilityZones, context),
     }),
     ...(input.ClusterName !== undefined && { ClusterName: input.ClusterName }),
-    ...(input.NewReplicationFactor !== undefined && {
-      NewReplicationFactor: input.NewReplicationFactor,
-    }),
+    ...(input.NewReplicationFactor !== undefined && { NewReplicationFactor: input.NewReplicationFactor }),
   };
 };
 
@@ -2953,9 +2925,7 @@ const serializeAws_json1_1KeyList = (input: string[], context: __SerdeContext): 
 const serializeAws_json1_1ListTagsRequest = (input: ListTagsRequest, context: __SerdeContext): any => {
   return {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceName !== undefined && {
-      ResourceName: input.ResourceName,
-    }),
+    ...(input.ResourceName !== undefined && { ResourceName: input.ResourceName }),
   };
 };
 
@@ -2969,12 +2939,8 @@ const serializeAws_json1_1ParameterGroupNameList = (input: string[], context: __
 
 const serializeAws_json1_1ParameterNameValue = (input: ParameterNameValue, context: __SerdeContext): any => {
   return {
-    ...(input.ParameterName !== undefined && {
-      ParameterName: input.ParameterName,
-    }),
-    ...(input.ParameterValue !== undefined && {
-      ParameterValue: input.ParameterValue,
-    }),
+    ...(input.ParameterName !== undefined && { ParameterName: input.ParameterName }),
+    ...(input.ParameterValue !== undefined && { ParameterValue: input.ParameterValue }),
   };
 };
 
@@ -3020,23 +2986,15 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceName !== undefined && {
-      ResourceName: input.ResourceName,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.ResourceName !== undefined && { ResourceName: input.ResourceName }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceName !== undefined && {
-      ResourceName: input.ResourceName,
-    }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1KeyList(input.TagKeys, context),
-    }),
+    ...(input.ResourceName !== undefined && { ResourceName: input.ResourceName }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1KeyList(input.TagKeys, context) }),
   };
 };
 
@@ -3044,15 +3002,9 @@ const serializeAws_json1_1UpdateClusterRequest = (input: UpdateClusterRequest, c
   return {
     ...(input.ClusterName !== undefined && { ClusterName: input.ClusterName }),
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.NotificationTopicArn !== undefined && {
-      NotificationTopicArn: input.NotificationTopicArn,
-    }),
-    ...(input.NotificationTopicStatus !== undefined && {
-      NotificationTopicStatus: input.NotificationTopicStatus,
-    }),
-    ...(input.ParameterGroupName !== undefined && {
-      ParameterGroupName: input.ParameterGroupName,
-    }),
+    ...(input.NotificationTopicArn !== undefined && { NotificationTopicArn: input.NotificationTopicArn }),
+    ...(input.NotificationTopicStatus !== undefined && { NotificationTopicStatus: input.NotificationTopicStatus }),
+    ...(input.ParameterGroupName !== undefined && { ParameterGroupName: input.ParameterGroupName }),
     ...(input.PreferredMaintenanceWindow !== undefined && {
       PreferredMaintenanceWindow: input.PreferredMaintenanceWindow,
     }),
@@ -3067,9 +3019,7 @@ const serializeAws_json1_1UpdateParameterGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ParameterGroupName !== undefined && {
-      ParameterGroupName: input.ParameterGroupName,
-    }),
+    ...(input.ParameterGroupName !== undefined && { ParameterGroupName: input.ParameterGroupName }),
     ...(input.ParameterNameValues !== undefined && {
       ParameterNameValues: serializeAws_json1_1ParameterNameValueList(input.ParameterNameValues, context),
     }),
@@ -3082,9 +3032,7 @@ const serializeAws_json1_1UpdateSubnetGroupRequest = (
 ): any => {
   return {
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.SubnetGroupName !== undefined && {
-      SubnetGroupName: input.SubnetGroupName,
-    }),
+    ...(input.SubnetGroupName !== undefined && { SubnetGroupName: input.SubnetGroupName }),
     ...(input.SubnetIds !== undefined && {
       SubnetIds: serializeAws_json1_1SubnetIdentifierList(input.SubnetIds, context),
     }),

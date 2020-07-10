@@ -192,12 +192,8 @@ const serializeAws_json1_1GenerateDataSetRequest = (input: GenerateDataSetReques
       dataSetPublicationDate: Math.round(input.dataSetPublicationDate.getTime() / 1000),
     }),
     ...(input.dataSetType !== undefined && { dataSetType: input.dataSetType }),
-    ...(input.destinationS3BucketName !== undefined && {
-      destinationS3BucketName: input.destinationS3BucketName,
-    }),
-    ...(input.destinationS3Prefix !== undefined && {
-      destinationS3Prefix: input.destinationS3Prefix,
-    }),
+    ...(input.destinationS3BucketName !== undefined && { destinationS3BucketName: input.destinationS3BucketName }),
+    ...(input.destinationS3Prefix !== undefined && { destinationS3Prefix: input.destinationS3Prefix }),
     ...(input.roleNameArn !== undefined && { roleNameArn: input.roleNameArn }),
     ...(input.snsTopicArn !== undefined && { snsTopicArn: input.snsTopicArn }),
   };
@@ -212,15 +208,9 @@ const serializeAws_json1_1StartSupportDataExportRequest = (
       customerDefinedValues: serializeAws_json1_1CustomerDefinedValues(input.customerDefinedValues, context),
     }),
     ...(input.dataSetType !== undefined && { dataSetType: input.dataSetType }),
-    ...(input.destinationS3BucketName !== undefined && {
-      destinationS3BucketName: input.destinationS3BucketName,
-    }),
-    ...(input.destinationS3Prefix !== undefined && {
-      destinationS3Prefix: input.destinationS3Prefix,
-    }),
-    ...(input.fromDate !== undefined && {
-      fromDate: Math.round(input.fromDate.getTime() / 1000),
-    }),
+    ...(input.destinationS3BucketName !== undefined && { destinationS3BucketName: input.destinationS3BucketName }),
+    ...(input.destinationS3Prefix !== undefined && { destinationS3Prefix: input.destinationS3Prefix }),
+    ...(input.fromDate !== undefined && { fromDate: Math.round(input.fromDate.getTime() / 1000) }),
     ...(input.roleNameArn !== undefined && { roleNameArn: input.roleNameArn }),
     ...(input.snsTopicArn !== undefined && { snsTopicArn: input.snsTopicArn }),
   };

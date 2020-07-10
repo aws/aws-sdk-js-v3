@@ -1325,9 +1325,7 @@ const serializeAws_json1_1BatchPermissionsRequestEntry = (
     ...(input.Principal !== undefined && {
       Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context),
     }),
-    ...(input.Resource !== undefined && {
-      Resource: serializeAws_json1_1Resource(input.Resource, context),
-    }),
+    ...(input.Resource !== undefined && { Resource: serializeAws_json1_1Resource(input.Resource, context) }),
   };
 };
 
@@ -1427,9 +1425,7 @@ const serializeAws_json1_1DescribeResourceRequest = (input: DescribeResourceRequ
 
 const serializeAws_json1_1FilterCondition = (input: FilterCondition, context: __SerdeContext): any => {
   return {
-    ...(input.ComparisonOperator !== undefined && {
-      ComparisonOperator: input.ComparisonOperator,
-    }),
+    ...(input.ComparisonOperator !== undefined && { ComparisonOperator: input.ComparisonOperator }),
     ...(input.Field !== undefined && { Field: input.Field }),
     ...(input.StringValueList !== undefined && {
       StringValueList: serializeAws_json1_1StringValueList(input.StringValueList, context),
@@ -1474,9 +1470,7 @@ const serializeAws_json1_1GrantPermissionsRequest = (input: GrantPermissionsRequ
     ...(input.Principal !== undefined && {
       Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context),
     }),
-    ...(input.Resource !== undefined && {
-      Resource: serializeAws_json1_1Resource(input.Resource, context),
-    }),
+    ...(input.Resource !== undefined && { Resource: serializeAws_json1_1Resource(input.Resource, context) }),
   };
 };
 
@@ -1488,12 +1482,8 @@ const serializeAws_json1_1ListPermissionsRequest = (input: ListPermissionsReques
     ...(input.Principal !== undefined && {
       Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context),
     }),
-    ...(input.Resource !== undefined && {
-      Resource: serializeAws_json1_1Resource(input.Resource, context),
-    }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
+    ...(input.Resource !== undefined && { Resource: serializeAws_json1_1Resource(input.Resource, context) }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
   };
 };
 
@@ -1542,26 +1532,18 @@ const serializeAws_json1_1RegisterResourceRequest = (input: RegisterResourceRequ
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
     ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
-    ...(input.UseServiceLinkedRole !== undefined && {
-      UseServiceLinkedRole: input.UseServiceLinkedRole,
-    }),
+    ...(input.UseServiceLinkedRole !== undefined && { UseServiceLinkedRole: input.UseServiceLinkedRole }),
   };
 };
 
 const serializeAws_json1_1Resource = (input: Resource, context: __SerdeContext): any => {
   return {
-    ...(input.Catalog !== undefined && {
-      Catalog: serializeAws_json1_1CatalogResource(input.Catalog, context),
-    }),
+    ...(input.Catalog !== undefined && { Catalog: serializeAws_json1_1CatalogResource(input.Catalog, context) }),
     ...(input.DataLocation !== undefined && {
       DataLocation: serializeAws_json1_1DataLocationResource(input.DataLocation, context),
     }),
-    ...(input.Database !== undefined && {
-      Database: serializeAws_json1_1DatabaseResource(input.Database, context),
-    }),
-    ...(input.Table !== undefined && {
-      Table: serializeAws_json1_1TableResource(input.Table, context),
-    }),
+    ...(input.Database !== undefined && { Database: serializeAws_json1_1DatabaseResource(input.Database, context) }),
+    ...(input.Table !== undefined && { Table: serializeAws_json1_1TableResource(input.Table, context) }),
     ...(input.TableWithColumns !== undefined && {
       TableWithColumns: serializeAws_json1_1TableWithColumnsResource(input.TableWithColumns, context),
     }),
@@ -1583,9 +1565,7 @@ const serializeAws_json1_1RevokePermissionsRequest = (
     ...(input.Principal !== undefined && {
       Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context),
     }),
-    ...(input.Resource !== undefined && {
-      Resource: serializeAws_json1_1Resource(input.Resource, context),
-    }),
+    ...(input.Resource !== undefined && { Resource: serializeAws_json1_1Resource(input.Resource, context) }),
   };
 };
 
@@ -1595,9 +1575,7 @@ const serializeAws_json1_1StringValueList = (input: string[], context: __SerdeCo
 
 const serializeAws_json1_1TableResource = (input: TableResource, context: __SerdeContext): any => {
   return {
-    ...(input.DatabaseName !== undefined && {
-      DatabaseName: input.DatabaseName,
-    }),
+    ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
     ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
@@ -1613,9 +1591,7 @@ const serializeAws_json1_1TableWithColumnsResource = (
     ...(input.ColumnWildcard !== undefined && {
       ColumnWildcard: serializeAws_json1_1ColumnWildcard(input.ColumnWildcard, context),
     }),
-    ...(input.DatabaseName !== undefined && {
-      DatabaseName: input.DatabaseName,
-    }),
+    ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
     ...(input.Name !== undefined && { Name: input.Name }),
   };
 };

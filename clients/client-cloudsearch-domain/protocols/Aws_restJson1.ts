@@ -45,9 +45,7 @@ export const serializeAws_restJson1SearchCommand = async (
     ...(input.highlight !== undefined && { highlight: input.highlight }),
     ...(input.partial !== undefined && { partial: input.partial.toString() }),
     ...(input.query !== undefined && { q: input.query }),
-    ...(input.queryOptions !== undefined && {
-      "q.options": input.queryOptions,
-    }),
+    ...(input.queryOptions !== undefined && { "q.options": input.queryOptions }),
     ...(input.queryParser !== undefined && { "q.parser": input.queryParser }),
     ...(input.return !== undefined && { return: input.return }),
     ...(input.size !== undefined && { size: input.size.toString() }),
@@ -104,9 +102,7 @@ export const serializeAws_restJson1UploadDocumentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/octet-stream",
-    ...(isSerializableHeaderValue(input.contentType) && {
-      "Content-Type": input.contentType!,
-    }),
+    ...(isSerializableHeaderValue(input.contentType) && { "Content-Type": input.contentType! }),
   };
   let resolvedPath = "/2013-01-01/documents/batch";
   const query: any = {

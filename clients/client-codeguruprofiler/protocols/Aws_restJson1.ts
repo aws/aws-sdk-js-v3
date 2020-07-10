@@ -75,12 +75,8 @@ export const serializeAws_restJson1ConfigureAgentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.fleetInstanceId !== undefined && {
-      fleetInstanceId: input.fleetInstanceId,
-    }),
-    ...(input.metadata !== undefined && {
-      metadata: serializeAws_restJson1Metadata(input.metadata, context),
-    }),
+    ...(input.fleetInstanceId !== undefined && { fleetInstanceId: input.fleetInstanceId }),
+    ...(input.metadata !== undefined && { metadata: serializeAws_restJson1Metadata(input.metadata, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -110,12 +106,8 @@ export const serializeAws_restJson1CreateProfilingGroupCommand = async (
     ...(input.agentOrchestrationConfig !== undefined && {
       agentOrchestrationConfig: serializeAws_restJson1AgentOrchestrationConfig(input.agentOrchestrationConfig, context),
     }),
-    ...(input.computePlatform !== undefined && {
-      computePlatform: input.computePlatform,
-    }),
-    ...(input.profilingGroupName !== undefined && {
-      profilingGroupName: input.profilingGroupName,
-    }),
+    ...(input.computePlatform !== undefined && { computePlatform: input.computePlatform }),
+    ...(input.profilingGroupName !== undefined && { profilingGroupName: input.profilingGroupName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -199,12 +191,8 @@ export const serializeAws_restJson1ListProfilingGroupsCommand = async (
   };
   let resolvedPath = "/profilingGroups";
   const query: any = {
-    ...(input.includeDescription !== undefined && {
-      includeDescription: input.includeDescription.toString(),
-    }),
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.includeDescription !== undefined && { includeDescription: input.includeDescription.toString() }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -314,9 +302,7 @@ export const serializeAws_restJson1PutPermissionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.principals !== undefined && {
-      principals: serializeAws_restJson1Principals(input.principals, context),
-    }),
+    ...(input.principals !== undefined && { principals: serializeAws_restJson1Principals(input.principals, context) }),
     ...(input.revisionId !== undefined && { revisionId: input.revisionId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -393,16 +379,10 @@ export const serializeAws_restJson1GetProfileCommand = async (
     throw new Error("No value provided for input HTTP label: profilingGroupName.");
   }
   const query: any = {
-    ...(input.endTime !== undefined && {
-      endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString(),
-    }),
-    ...(input.maxDepth !== undefined && {
-      maxDepth: input.maxDepth.toString(),
-    }),
+    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.maxDepth !== undefined && { maxDepth: input.maxDepth.toString() }),
     ...(input.period !== undefined && { period: input.period }),
-    ...(input.startTime !== undefined && {
-      startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString(),
-    }),
+    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -436,18 +416,12 @@ export const serializeAws_restJson1ListProfileTimesCommand = async (
     throw new Error("No value provided for input HTTP label: profilingGroupName.");
   }
   const query: any = {
-    ...(input.endTime !== undefined && {
-      endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString(),
-    }),
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.orderBy !== undefined && { orderBy: input.orderBy }),
     ...(input.period !== undefined && { period: input.period }),
-    ...(input.startTime !== undefined && {
-      startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString(),
-    }),
+    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -469,9 +443,7 @@ export const serializeAws_restJson1PostAgentProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/octet-stream",
-    ...(isSerializableHeaderValue(input.contentType) && {
-      "Content-Type": input.contentType!,
-    }),
+    ...(isSerializableHeaderValue(input.contentType) && { "Content-Type": input.contentType! }),
   };
   let resolvedPath = "/profilingGroups/{profilingGroupName}/agentProfile";
   if (input.profilingGroupName !== undefined) {
@@ -484,9 +456,7 @@ export const serializeAws_restJson1PostAgentProfileCommand = async (
     throw new Error("No value provided for input HTTP label: profilingGroupName.");
   }
   const query: any = {
-    ...(input.profileToken !== undefined && {
-      profileToken: input.profileToken,
-    }),
+    ...(input.profileToken !== undefined && { profileToken: input.profileToken }),
   };
   let body: any;
   if (input.agentProfile !== undefined) {
@@ -523,16 +493,10 @@ export const serializeAws_restJson1RetrieveTimeSeriesCommand = async (
     throw new Error("No value provided for input HTTP label: profilingGroupName.");
   }
   const query: any = {
-    ...(input.endTime !== undefined && {
-      endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString(),
-    }),
+    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.period !== undefined && { period: input.period }),
-    ...(input.startTime !== undefined && {
-      startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString(),
-    }),
-    ...(input.targetResolution !== undefined && {
-      targetResolution: input.targetResolution,
-    }),
+    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.targetResolution !== undefined && { targetResolution: input.targetResolution }),
   };
   let body: any;
   body = JSON.stringify({
@@ -1759,9 +1723,7 @@ const serializeAws_restJson1AgentOrchestrationConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.profilingEnabled !== undefined && {
-      profilingEnabled: input.profilingEnabled,
-    }),
+    ...(input.profilingEnabled !== undefined && { profilingEnabled: input.profilingEnabled }),
   };
 };
 

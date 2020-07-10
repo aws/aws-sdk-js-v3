@@ -12911,9 +12911,7 @@ const serializeAws_json1_1AddOnRequestList = (input: AddOnRequest[], context: __
 
 const serializeAws_json1_1AllocateStaticIpRequest = (input: AllocateStaticIpRequest, context: __SerdeContext): any => {
   return {
-    ...(input.staticIpName !== undefined && {
-      staticIpName: input.staticIpName,
-    }),
+    ...(input.staticIpName !== undefined && { staticIpName: input.staticIpName }),
   };
 };
 
@@ -12921,9 +12919,7 @@ const serializeAws_json1_1AttachDiskRequest = (input: AttachDiskRequest, context
   return {
     ...(input.diskName !== undefined && { diskName: input.diskName }),
     ...(input.diskPath !== undefined && { diskPath: input.diskPath }),
-    ...(input.instanceName !== undefined && {
-      instanceName: input.instanceName,
-    }),
+    ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
   };
 };
 
@@ -12945,9 +12941,7 @@ const serializeAws_json1_1AttachInstancesToLoadBalancerRequest = (
     ...(input.instanceNames !== undefined && {
       instanceNames: serializeAws_json1_1ResourceNameList(input.instanceNames, context),
     }),
-    ...(input.loadBalancerName !== undefined && {
-      loadBalancerName: input.loadBalancerName,
-    }),
+    ...(input.loadBalancerName !== undefined && { loadBalancerName: input.loadBalancerName }),
   };
 };
 
@@ -12956,23 +12950,15 @@ const serializeAws_json1_1AttachLoadBalancerTlsCertificateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.certificateName !== undefined && {
-      certificateName: input.certificateName,
-    }),
-    ...(input.loadBalancerName !== undefined && {
-      loadBalancerName: input.loadBalancerName,
-    }),
+    ...(input.certificateName !== undefined && { certificateName: input.certificateName }),
+    ...(input.loadBalancerName !== undefined && { loadBalancerName: input.loadBalancerName }),
   };
 };
 
 const serializeAws_json1_1AttachStaticIpRequest = (input: AttachStaticIpRequest, context: __SerdeContext): any => {
   return {
-    ...(input.instanceName !== undefined && {
-      instanceName: input.instanceName,
-    }),
-    ...(input.staticIpName !== undefined && {
-      staticIpName: input.staticIpName,
-    }),
+    ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
+    ...(input.staticIpName !== undefined && { staticIpName: input.staticIpName }),
   };
 };
 
@@ -12981,9 +12967,7 @@ const serializeAws_json1_1AutoSnapshotAddOnRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.snapshotTimeOfDay !== undefined && {
-      snapshotTimeOfDay: input.snapshotTimeOfDay,
-    }),
+    ...(input.snapshotTimeOfDay !== undefined && { snapshotTimeOfDay: input.snapshotTimeOfDay }),
   };
 };
 
@@ -12992,30 +12976,18 @@ const serializeAws_json1_1CloseInstancePublicPortsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.instanceName !== undefined && {
-      instanceName: input.instanceName,
-    }),
-    ...(input.portInfo !== undefined && {
-      portInfo: serializeAws_json1_1PortInfo(input.portInfo, context),
-    }),
+    ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
+    ...(input.portInfo !== undefined && { portInfo: serializeAws_json1_1PortInfo(input.portInfo, context) }),
   };
 };
 
 const serializeAws_json1_1CopySnapshotRequest = (input: CopySnapshotRequest, context: __SerdeContext): any => {
   return {
     ...(input.restoreDate !== undefined && { restoreDate: input.restoreDate }),
-    ...(input.sourceRegion !== undefined && {
-      sourceRegion: input.sourceRegion,
-    }),
-    ...(input.sourceResourceName !== undefined && {
-      sourceResourceName: input.sourceResourceName,
-    }),
-    ...(input.sourceSnapshotName !== undefined && {
-      sourceSnapshotName: input.sourceSnapshotName,
-    }),
-    ...(input.targetSnapshotName !== undefined && {
-      targetSnapshotName: input.targetSnapshotName,
-    }),
+    ...(input.sourceRegion !== undefined && { sourceRegion: input.sourceRegion }),
+    ...(input.sourceResourceName !== undefined && { sourceResourceName: input.sourceResourceName }),
+    ...(input.sourceSnapshotName !== undefined && { sourceSnapshotName: input.sourceSnapshotName }),
+    ...(input.targetSnapshotName !== undefined && { targetSnapshotName: input.targetSnapshotName }),
     ...(input.useLatestRestorableAutoSnapshot !== undefined && {
       useLatestRestorableAutoSnapshot: input.useLatestRestorableAutoSnapshot,
     }),
@@ -13038,24 +13010,14 @@ const serializeAws_json1_1CreateDiskFromSnapshotRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.addOns !== undefined && {
-      addOns: serializeAws_json1_1AddOnRequestList(input.addOns, context),
-    }),
-    ...(input.availabilityZone !== undefined && {
-      availabilityZone: input.availabilityZone,
-    }),
+    ...(input.addOns !== undefined && { addOns: serializeAws_json1_1AddOnRequestList(input.addOns, context) }),
+    ...(input.availabilityZone !== undefined && { availabilityZone: input.availabilityZone }),
     ...(input.diskName !== undefined && { diskName: input.diskName }),
-    ...(input.diskSnapshotName !== undefined && {
-      diskSnapshotName: input.diskSnapshotName,
-    }),
+    ...(input.diskSnapshotName !== undefined && { diskSnapshotName: input.diskSnapshotName }),
     ...(input.restoreDate !== undefined && { restoreDate: input.restoreDate }),
     ...(input.sizeInGb !== undefined && { sizeInGb: input.sizeInGb }),
-    ...(input.sourceDiskName !== undefined && {
-      sourceDiskName: input.sourceDiskName,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.sourceDiskName !== undefined && { sourceDiskName: input.sourceDiskName }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
     ...(input.useLatestRestorableAutoSnapshot !== undefined && {
       useLatestRestorableAutoSnapshot: input.useLatestRestorableAutoSnapshot,
     }),
@@ -13064,17 +13026,11 @@ const serializeAws_json1_1CreateDiskFromSnapshotRequest = (
 
 const serializeAws_json1_1CreateDiskRequest = (input: CreateDiskRequest, context: __SerdeContext): any => {
   return {
-    ...(input.addOns !== undefined && {
-      addOns: serializeAws_json1_1AddOnRequestList(input.addOns, context),
-    }),
-    ...(input.availabilityZone !== undefined && {
-      availabilityZone: input.availabilityZone,
-    }),
+    ...(input.addOns !== undefined && { addOns: serializeAws_json1_1AddOnRequestList(input.addOns, context) }),
+    ...(input.availabilityZone !== undefined && { availabilityZone: input.availabilityZone }),
     ...(input.diskName !== undefined && { diskName: input.diskName }),
     ...(input.sizeInGb !== undefined && { sizeInGb: input.sizeInGb }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -13084,15 +13040,9 @@ const serializeAws_json1_1CreateDiskSnapshotRequest = (
 ): any => {
   return {
     ...(input.diskName !== undefined && { diskName: input.diskName }),
-    ...(input.diskSnapshotName !== undefined && {
-      diskSnapshotName: input.diskSnapshotName,
-    }),
-    ...(input.instanceName !== undefined && {
-      instanceName: input.instanceName,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.diskSnapshotName !== undefined && { diskSnapshotName: input.diskSnapshotName }),
+    ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -13111,9 +13061,7 @@ const serializeAws_json1_1CreateDomainEntryRequest = (
 const serializeAws_json1_1CreateDomainRequest = (input: CreateDomainRequest, context: __SerdeContext): any => {
   return {
     ...(input.domainName !== undefined && { domainName: input.domainName }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -13122,30 +13070,20 @@ const serializeAws_json1_1CreateInstancesFromSnapshotRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.addOns !== undefined && {
-      addOns: serializeAws_json1_1AddOnRequestList(input.addOns, context),
-    }),
+    ...(input.addOns !== undefined && { addOns: serializeAws_json1_1AddOnRequestList(input.addOns, context) }),
     ...(input.attachedDiskMapping !== undefined && {
       attachedDiskMapping: serializeAws_json1_1AttachedDiskMap(input.attachedDiskMapping, context),
     }),
-    ...(input.availabilityZone !== undefined && {
-      availabilityZone: input.availabilityZone,
-    }),
+    ...(input.availabilityZone !== undefined && { availabilityZone: input.availabilityZone }),
     ...(input.bundleId !== undefined && { bundleId: input.bundleId }),
     ...(input.instanceNames !== undefined && {
       instanceNames: serializeAws_json1_1StringList(input.instanceNames, context),
     }),
-    ...(input.instanceSnapshotName !== undefined && {
-      instanceSnapshotName: input.instanceSnapshotName,
-    }),
+    ...(input.instanceSnapshotName !== undefined && { instanceSnapshotName: input.instanceSnapshotName }),
     ...(input.keyPairName !== undefined && { keyPairName: input.keyPairName }),
     ...(input.restoreDate !== undefined && { restoreDate: input.restoreDate }),
-    ...(input.sourceInstanceName !== undefined && {
-      sourceInstanceName: input.sourceInstanceName,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.sourceInstanceName !== undefined && { sourceInstanceName: input.sourceInstanceName }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
     ...(input.useLatestRestorableAutoSnapshot !== undefined && {
       useLatestRestorableAutoSnapshot: input.useLatestRestorableAutoSnapshot,
     }),
@@ -13158,38 +13096,24 @@ const serializeAws_json1_1CreateInstanceSnapshotRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.instanceName !== undefined && {
-      instanceName: input.instanceName,
-    }),
-    ...(input.instanceSnapshotName !== undefined && {
-      instanceSnapshotName: input.instanceSnapshotName,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
+    ...(input.instanceSnapshotName !== undefined && { instanceSnapshotName: input.instanceSnapshotName }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateInstancesRequest = (input: CreateInstancesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.addOns !== undefined && {
-      addOns: serializeAws_json1_1AddOnRequestList(input.addOns, context),
-    }),
-    ...(input.availabilityZone !== undefined && {
-      availabilityZone: input.availabilityZone,
-    }),
+    ...(input.addOns !== undefined && { addOns: serializeAws_json1_1AddOnRequestList(input.addOns, context) }),
+    ...(input.availabilityZone !== undefined && { availabilityZone: input.availabilityZone }),
     ...(input.blueprintId !== undefined && { blueprintId: input.blueprintId }),
     ...(input.bundleId !== undefined && { bundleId: input.bundleId }),
-    ...(input.customImageName !== undefined && {
-      customImageName: input.customImageName,
-    }),
+    ...(input.customImageName !== undefined && { customImageName: input.customImageName }),
     ...(input.instanceNames !== undefined && {
       instanceNames: serializeAws_json1_1StringList(input.instanceNames, context),
     }),
     ...(input.keyPairName !== undefined && { keyPairName: input.keyPairName }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
     ...(input.userData !== undefined && { userData: input.userData }),
   };
 };
@@ -13197,9 +13121,7 @@ const serializeAws_json1_1CreateInstancesRequest = (input: CreateInstancesReques
 const serializeAws_json1_1CreateKeyPairRequest = (input: CreateKeyPairRequest, context: __SerdeContext): any => {
   return {
     ...(input.keyPairName !== undefined && { keyPairName: input.keyPairName }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -13211,24 +13133,12 @@ const serializeAws_json1_1CreateLoadBalancerRequest = (
     ...(input.certificateAlternativeNames !== undefined && {
       certificateAlternativeNames: serializeAws_json1_1DomainNameList(input.certificateAlternativeNames, context),
     }),
-    ...(input.certificateDomainName !== undefined && {
-      certificateDomainName: input.certificateDomainName,
-    }),
-    ...(input.certificateName !== undefined && {
-      certificateName: input.certificateName,
-    }),
-    ...(input.healthCheckPath !== undefined && {
-      healthCheckPath: input.healthCheckPath,
-    }),
-    ...(input.instancePort !== undefined && {
-      instancePort: input.instancePort,
-    }),
-    ...(input.loadBalancerName !== undefined && {
-      loadBalancerName: input.loadBalancerName,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.certificateDomainName !== undefined && { certificateDomainName: input.certificateDomainName }),
+    ...(input.certificateName !== undefined && { certificateName: input.certificateName }),
+    ...(input.healthCheckPath !== undefined && { healthCheckPath: input.healthCheckPath }),
+    ...(input.instancePort !== undefined && { instancePort: input.instancePort }),
+    ...(input.loadBalancerName !== undefined && { loadBalancerName: input.loadBalancerName }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -13240,18 +13150,10 @@ const serializeAws_json1_1CreateLoadBalancerTlsCertificateRequest = (
     ...(input.certificateAlternativeNames !== undefined && {
       certificateAlternativeNames: serializeAws_json1_1DomainNameList(input.certificateAlternativeNames, context),
     }),
-    ...(input.certificateDomainName !== undefined && {
-      certificateDomainName: input.certificateDomainName,
-    }),
-    ...(input.certificateName !== undefined && {
-      certificateName: input.certificateName,
-    }),
-    ...(input.loadBalancerName !== undefined && {
-      loadBalancerName: input.loadBalancerName,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.certificateDomainName !== undefined && { certificateDomainName: input.certificateDomainName }),
+    ...(input.certificateName !== undefined && { certificateName: input.certificateName }),
+    ...(input.loadBalancerName !== undefined && { loadBalancerName: input.loadBalancerName }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -13260,33 +13162,21 @@ const serializeAws_json1_1CreateRelationalDatabaseFromSnapshotRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.availabilityZone !== undefined && {
-      availabilityZone: input.availabilityZone,
-    }),
-    ...(input.publiclyAccessible !== undefined && {
-      publiclyAccessible: input.publiclyAccessible,
-    }),
+    ...(input.availabilityZone !== undefined && { availabilityZone: input.availabilityZone }),
+    ...(input.publiclyAccessible !== undefined && { publiclyAccessible: input.publiclyAccessible }),
     ...(input.relationalDatabaseBundleId !== undefined && {
       relationalDatabaseBundleId: input.relationalDatabaseBundleId,
     }),
-    ...(input.relationalDatabaseName !== undefined && {
-      relationalDatabaseName: input.relationalDatabaseName,
-    }),
+    ...(input.relationalDatabaseName !== undefined && { relationalDatabaseName: input.relationalDatabaseName }),
     ...(input.relationalDatabaseSnapshotName !== undefined && {
       relationalDatabaseSnapshotName: input.relationalDatabaseSnapshotName,
     }),
-    ...(input.restoreTime !== undefined && {
-      restoreTime: Math.round(input.restoreTime.getTime() / 1000),
-    }),
+    ...(input.restoreTime !== undefined && { restoreTime: Math.round(input.restoreTime.getTime() / 1000) }),
     ...(input.sourceRelationalDatabaseName !== undefined && {
       sourceRelationalDatabaseName: input.sourceRelationalDatabaseName,
     }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
-    ...(input.useLatestRestorableTime !== undefined && {
-      useLatestRestorableTime: input.useLatestRestorableTime,
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.useLatestRestorableTime !== undefined && { useLatestRestorableTime: input.useLatestRestorableTime }),
   };
 };
 
@@ -13295,39 +13185,23 @@ const serializeAws_json1_1CreateRelationalDatabaseRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.availabilityZone !== undefined && {
-      availabilityZone: input.availabilityZone,
-    }),
-    ...(input.masterDatabaseName !== undefined && {
-      masterDatabaseName: input.masterDatabaseName,
-    }),
-    ...(input.masterUserPassword !== undefined && {
-      masterUserPassword: input.masterUserPassword,
-    }),
-    ...(input.masterUsername !== undefined && {
-      masterUsername: input.masterUsername,
-    }),
-    ...(input.preferredBackupWindow !== undefined && {
-      preferredBackupWindow: input.preferredBackupWindow,
-    }),
+    ...(input.availabilityZone !== undefined && { availabilityZone: input.availabilityZone }),
+    ...(input.masterDatabaseName !== undefined && { masterDatabaseName: input.masterDatabaseName }),
+    ...(input.masterUserPassword !== undefined && { masterUserPassword: input.masterUserPassword }),
+    ...(input.masterUsername !== undefined && { masterUsername: input.masterUsername }),
+    ...(input.preferredBackupWindow !== undefined && { preferredBackupWindow: input.preferredBackupWindow }),
     ...(input.preferredMaintenanceWindow !== undefined && {
       preferredMaintenanceWindow: input.preferredMaintenanceWindow,
     }),
-    ...(input.publiclyAccessible !== undefined && {
-      publiclyAccessible: input.publiclyAccessible,
-    }),
+    ...(input.publiclyAccessible !== undefined && { publiclyAccessible: input.publiclyAccessible }),
     ...(input.relationalDatabaseBlueprintId !== undefined && {
       relationalDatabaseBlueprintId: input.relationalDatabaseBlueprintId,
     }),
     ...(input.relationalDatabaseBundleId !== undefined && {
       relationalDatabaseBundleId: input.relationalDatabaseBundleId,
     }),
-    ...(input.relationalDatabaseName !== undefined && {
-      relationalDatabaseName: input.relationalDatabaseName,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.relationalDatabaseName !== undefined && { relationalDatabaseName: input.relationalDatabaseName }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -13336,15 +13210,11 @@ const serializeAws_json1_1CreateRelationalDatabaseSnapshotRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.relationalDatabaseName !== undefined && {
-      relationalDatabaseName: input.relationalDatabaseName,
-    }),
+    ...(input.relationalDatabaseName !== undefined && { relationalDatabaseName: input.relationalDatabaseName }),
     ...(input.relationalDatabaseSnapshotName !== undefined && {
       relationalDatabaseSnapshotName: input.relationalDatabaseSnapshotName,
     }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -13354,18 +13224,14 @@ const serializeAws_json1_1DeleteAutoSnapshotRequest = (
 ): any => {
   return {
     ...(input.date !== undefined && { date: input.date }),
-    ...(input.resourceName !== undefined && {
-      resourceName: input.resourceName,
-    }),
+    ...(input.resourceName !== undefined && { resourceName: input.resourceName }),
   };
 };
 
 const serializeAws_json1_1DeleteDiskRequest = (input: DeleteDiskRequest, context: __SerdeContext): any => {
   return {
     ...(input.diskName !== undefined && { diskName: input.diskName }),
-    ...(input.forceDeleteAddOns !== undefined && {
-      forceDeleteAddOns: input.forceDeleteAddOns,
-    }),
+    ...(input.forceDeleteAddOns !== undefined && { forceDeleteAddOns: input.forceDeleteAddOns }),
   };
 };
 
@@ -13374,9 +13240,7 @@ const serializeAws_json1_1DeleteDiskSnapshotRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.diskSnapshotName !== undefined && {
-      diskSnapshotName: input.diskSnapshotName,
-    }),
+    ...(input.diskSnapshotName !== undefined && { diskSnapshotName: input.diskSnapshotName }),
   };
 };
 
@@ -13400,12 +13264,8 @@ const serializeAws_json1_1DeleteDomainRequest = (input: DeleteDomainRequest, con
 
 const serializeAws_json1_1DeleteInstanceRequest = (input: DeleteInstanceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.forceDeleteAddOns !== undefined && {
-      forceDeleteAddOns: input.forceDeleteAddOns,
-    }),
-    ...(input.instanceName !== undefined && {
-      instanceName: input.instanceName,
-    }),
+    ...(input.forceDeleteAddOns !== undefined && { forceDeleteAddOns: input.forceDeleteAddOns }),
+    ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
   };
 };
 
@@ -13414,9 +13274,7 @@ const serializeAws_json1_1DeleteInstanceSnapshotRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.instanceSnapshotName !== undefined && {
-      instanceSnapshotName: input.instanceSnapshotName,
-    }),
+    ...(input.instanceSnapshotName !== undefined && { instanceSnapshotName: input.instanceSnapshotName }),
   };
 };
 
@@ -13431,9 +13289,7 @@ const serializeAws_json1_1DeleteKnownHostKeysRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.instanceName !== undefined && {
-      instanceName: input.instanceName,
-    }),
+    ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
   };
 };
 
@@ -13442,9 +13298,7 @@ const serializeAws_json1_1DeleteLoadBalancerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.loadBalancerName !== undefined && {
-      loadBalancerName: input.loadBalancerName,
-    }),
+    ...(input.loadBalancerName !== undefined && { loadBalancerName: input.loadBalancerName }),
   };
 };
 
@@ -13453,13 +13307,9 @@ const serializeAws_json1_1DeleteLoadBalancerTlsCertificateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.certificateName !== undefined && {
-      certificateName: input.certificateName,
-    }),
+    ...(input.certificateName !== undefined && { certificateName: input.certificateName }),
     ...(input.force !== undefined && { force: input.force }),
-    ...(input.loadBalancerName !== undefined && {
-      loadBalancerName: input.loadBalancerName,
-    }),
+    ...(input.loadBalancerName !== undefined && { loadBalancerName: input.loadBalancerName }),
   };
 };
 
@@ -13471,12 +13321,8 @@ const serializeAws_json1_1DeleteRelationalDatabaseRequest = (
     ...(input.finalRelationalDatabaseSnapshotName !== undefined && {
       finalRelationalDatabaseSnapshotName: input.finalRelationalDatabaseSnapshotName,
     }),
-    ...(input.relationalDatabaseName !== undefined && {
-      relationalDatabaseName: input.relationalDatabaseName,
-    }),
-    ...(input.skipFinalSnapshot !== undefined && {
-      skipFinalSnapshot: input.skipFinalSnapshot,
-    }),
+    ...(input.relationalDatabaseName !== undefined && { relationalDatabaseName: input.relationalDatabaseName }),
+    ...(input.skipFinalSnapshot !== undefined && { skipFinalSnapshot: input.skipFinalSnapshot }),
   };
 };
 
@@ -13505,35 +13351,27 @@ const serializeAws_json1_1DetachInstancesFromLoadBalancerRequest = (
     ...(input.instanceNames !== undefined && {
       instanceNames: serializeAws_json1_1ResourceNameList(input.instanceNames, context),
     }),
-    ...(input.loadBalancerName !== undefined && {
-      loadBalancerName: input.loadBalancerName,
-    }),
+    ...(input.loadBalancerName !== undefined && { loadBalancerName: input.loadBalancerName }),
   };
 };
 
 const serializeAws_json1_1DetachStaticIpRequest = (input: DetachStaticIpRequest, context: __SerdeContext): any => {
   return {
-    ...(input.staticIpName !== undefined && {
-      staticIpName: input.staticIpName,
-    }),
+    ...(input.staticIpName !== undefined && { staticIpName: input.staticIpName }),
   };
 };
 
 const serializeAws_json1_1DisableAddOnRequest = (input: DisableAddOnRequest, context: __SerdeContext): any => {
   return {
     ...(input.addOnType !== undefined && { addOnType: input.addOnType }),
-    ...(input.resourceName !== undefined && {
-      resourceName: input.resourceName,
-    }),
+    ...(input.resourceName !== undefined && { resourceName: input.resourceName }),
   };
 };
 
 const serializeAws_json1_1DiskMap = (input: DiskMap, context: __SerdeContext): any => {
   return {
     ...(input.newDiskName !== undefined && { newDiskName: input.newDiskName }),
-    ...(input.originalDiskPath !== undefined && {
-      originalDiskPath: input.originalDiskPath,
-    }),
+    ...(input.originalDiskPath !== undefined && { originalDiskPath: input.originalDiskPath }),
   };
 };
 
@@ -13546,9 +13384,7 @@ const serializeAws_json1_1DomainEntry = (input: DomainEntry, context: __SerdeCon
     ...(input.id !== undefined && { id: input.id }),
     ...(input.isAlias !== undefined && { isAlias: input.isAlias }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.options !== undefined && {
-      options: serializeAws_json1_1DomainEntryOptions(input.options, context),
-    }),
+    ...(input.options !== undefined && { options: serializeAws_json1_1DomainEntryOptions(input.options, context) }),
     ...(input.target !== undefined && { target: input.target }),
     ...(input.type !== undefined && { type: input.type }),
   };
@@ -13580,17 +13416,13 @@ const serializeAws_json1_1EnableAddOnRequest = (input: EnableAddOnRequest, conte
     ...(input.addOnRequest !== undefined && {
       addOnRequest: serializeAws_json1_1AddOnRequest(input.addOnRequest, context),
     }),
-    ...(input.resourceName !== undefined && {
-      resourceName: input.resourceName,
-    }),
+    ...(input.resourceName !== undefined && { resourceName: input.resourceName }),
   };
 };
 
 const serializeAws_json1_1ExportSnapshotRequest = (input: ExportSnapshotRequest, context: __SerdeContext): any => {
   return {
-    ...(input.sourceSnapshotName !== undefined && {
-      sourceSnapshotName: input.sourceSnapshotName,
-    }),
+    ...(input.sourceSnapshotName !== undefined && { sourceSnapshotName: input.sourceSnapshotName }),
   };
 };
 
@@ -13602,26 +13434,20 @@ const serializeAws_json1_1GetActiveNamesRequest = (input: GetActiveNamesRequest,
 
 const serializeAws_json1_1GetAutoSnapshotsRequest = (input: GetAutoSnapshotsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.resourceName !== undefined && {
-      resourceName: input.resourceName,
-    }),
+    ...(input.resourceName !== undefined && { resourceName: input.resourceName }),
   };
 };
 
 const serializeAws_json1_1GetBlueprintsRequest = (input: GetBlueprintsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.includeInactive !== undefined && {
-      includeInactive: input.includeInactive,
-    }),
+    ...(input.includeInactive !== undefined && { includeInactive: input.includeInactive }),
     ...(input.pageToken !== undefined && { pageToken: input.pageToken }),
   };
 };
 
 const serializeAws_json1_1GetBundlesRequest = (input: GetBundlesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.includeInactive !== undefined && {
-      includeInactive: input.includeInactive,
-    }),
+    ...(input.includeInactive !== undefined && { includeInactive: input.includeInactive }),
     ...(input.pageToken !== undefined && { pageToken: input.pageToken }),
   };
 };
@@ -13643,9 +13469,7 @@ const serializeAws_json1_1GetDiskRequest = (input: GetDiskRequest, context: __Se
 
 const serializeAws_json1_1GetDiskSnapshotRequest = (input: GetDiskSnapshotRequest, context: __SerdeContext): any => {
   return {
-    ...(input.diskSnapshotName !== undefined && {
-      diskSnapshotName: input.diskSnapshotName,
-    }),
+    ...(input.diskSnapshotName !== undefined && { diskSnapshotName: input.diskSnapshotName }),
   };
 };
 
@@ -13687,9 +13511,7 @@ const serializeAws_json1_1GetInstanceAccessDetailsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.instanceName !== undefined && {
-      instanceName: input.instanceName,
-    }),
+    ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
     ...(input.protocol !== undefined && { protocol: input.protocol }),
   };
 };
@@ -13699,17 +13521,11 @@ const serializeAws_json1_1GetInstanceMetricDataRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endTime !== undefined && {
-      endTime: Math.round(input.endTime.getTime() / 1000),
-    }),
-    ...(input.instanceName !== undefined && {
-      instanceName: input.instanceName,
-    }),
+    ...(input.endTime !== undefined && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
     ...(input.metricName !== undefined && { metricName: input.metricName }),
     ...(input.period !== undefined && { period: input.period }),
-    ...(input.startTime !== undefined && {
-      startTime: Math.round(input.startTime.getTime() / 1000),
-    }),
+    ...(input.startTime !== undefined && { startTime: Math.round(input.startTime.getTime() / 1000) }),
     ...(input.statistics !== undefined && {
       statistics: serializeAws_json1_1MetricStatisticList(input.statistics, context),
     }),
@@ -13722,17 +13538,13 @@ const serializeAws_json1_1GetInstancePortStatesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.instanceName !== undefined && {
-      instanceName: input.instanceName,
-    }),
+    ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
   };
 };
 
 const serializeAws_json1_1GetInstanceRequest = (input: GetInstanceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.instanceName !== undefined && {
-      instanceName: input.instanceName,
-    }),
+    ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
   };
 };
 
@@ -13741,9 +13553,7 @@ const serializeAws_json1_1GetInstanceSnapshotRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.instanceSnapshotName !== undefined && {
-      instanceSnapshotName: input.instanceSnapshotName,
-    }),
+    ...(input.instanceSnapshotName !== undefined && { instanceSnapshotName: input.instanceSnapshotName }),
   };
 };
 
@@ -13764,9 +13574,7 @@ const serializeAws_json1_1GetInstancesRequest = (input: GetInstancesRequest, con
 
 const serializeAws_json1_1GetInstanceStateRequest = (input: GetInstanceStateRequest, context: __SerdeContext): any => {
   return {
-    ...(input.instanceName !== undefined && {
-      instanceName: input.instanceName,
-    }),
+    ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
   };
 };
 
@@ -13787,17 +13595,11 @@ const serializeAws_json1_1GetLoadBalancerMetricDataRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endTime !== undefined && {
-      endTime: Math.round(input.endTime.getTime() / 1000),
-    }),
-    ...(input.loadBalancerName !== undefined && {
-      loadBalancerName: input.loadBalancerName,
-    }),
+    ...(input.endTime !== undefined && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.loadBalancerName !== undefined && { loadBalancerName: input.loadBalancerName }),
     ...(input.metricName !== undefined && { metricName: input.metricName }),
     ...(input.period !== undefined && { period: input.period }),
-    ...(input.startTime !== undefined && {
-      startTime: Math.round(input.startTime.getTime() / 1000),
-    }),
+    ...(input.startTime !== undefined && { startTime: Math.round(input.startTime.getTime() / 1000) }),
     ...(input.statistics !== undefined && {
       statistics: serializeAws_json1_1MetricStatisticList(input.statistics, context),
     }),
@@ -13807,9 +13609,7 @@ const serializeAws_json1_1GetLoadBalancerMetricDataRequest = (
 
 const serializeAws_json1_1GetLoadBalancerRequest = (input: GetLoadBalancerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.loadBalancerName !== undefined && {
-      loadBalancerName: input.loadBalancerName,
-    }),
+    ...(input.loadBalancerName !== undefined && { loadBalancerName: input.loadBalancerName }),
   };
 };
 
@@ -13824,9 +13624,7 @@ const serializeAws_json1_1GetLoadBalancerTlsCertificatesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.loadBalancerName !== undefined && {
-      loadBalancerName: input.loadBalancerName,
-    }),
+    ...(input.loadBalancerName !== undefined && { loadBalancerName: input.loadBalancerName }),
   };
 };
 
@@ -13842,9 +13640,7 @@ const serializeAws_json1_1GetOperationsForResourceRequest = (
 ): any => {
   return {
     ...(input.pageToken !== undefined && { pageToken: input.pageToken }),
-    ...(input.resourceName !== undefined && {
-      resourceName: input.resourceName,
-    }),
+    ...(input.resourceName !== undefined && { resourceName: input.resourceName }),
   };
 };
 
@@ -13856,9 +13652,7 @@ const serializeAws_json1_1GetOperationsRequest = (input: GetOperationsRequest, c
 
 const serializeAws_json1_1GetRegionsRequest = (input: GetRegionsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.includeAvailabilityZones !== undefined && {
-      includeAvailabilityZones: input.includeAvailabilityZones,
-    }),
+    ...(input.includeAvailabilityZones !== undefined && { includeAvailabilityZones: input.includeAvailabilityZones }),
     ...(input.includeRelationalDatabaseAvailabilityZones !== undefined && {
       includeRelationalDatabaseAvailabilityZones: input.includeRelationalDatabaseAvailabilityZones,
     }),
@@ -13888,13 +13682,9 @@ const serializeAws_json1_1GetRelationalDatabaseEventsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.durationInMinutes !== undefined && {
-      durationInMinutes: input.durationInMinutes,
-    }),
+    ...(input.durationInMinutes !== undefined && { durationInMinutes: input.durationInMinutes }),
     ...(input.pageToken !== undefined && { pageToken: input.pageToken }),
-    ...(input.relationalDatabaseName !== undefined && {
-      relationalDatabaseName: input.relationalDatabaseName,
-    }),
+    ...(input.relationalDatabaseName !== undefined && { relationalDatabaseName: input.relationalDatabaseName }),
   };
 };
 
@@ -13903,22 +13693,12 @@ const serializeAws_json1_1GetRelationalDatabaseLogEventsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endTime !== undefined && {
-      endTime: Math.round(input.endTime.getTime() / 1000),
-    }),
-    ...(input.logStreamName !== undefined && {
-      logStreamName: input.logStreamName,
-    }),
+    ...(input.endTime !== undefined && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.logStreamName !== undefined && { logStreamName: input.logStreamName }),
     ...(input.pageToken !== undefined && { pageToken: input.pageToken }),
-    ...(input.relationalDatabaseName !== undefined && {
-      relationalDatabaseName: input.relationalDatabaseName,
-    }),
-    ...(input.startFromHead !== undefined && {
-      startFromHead: input.startFromHead,
-    }),
-    ...(input.startTime !== undefined && {
-      startTime: Math.round(input.startTime.getTime() / 1000),
-    }),
+    ...(input.relationalDatabaseName !== undefined && { relationalDatabaseName: input.relationalDatabaseName }),
+    ...(input.startFromHead !== undefined && { startFromHead: input.startFromHead }),
+    ...(input.startTime !== undefined && { startTime: Math.round(input.startTime.getTime() / 1000) }),
   };
 };
 
@@ -13927,9 +13707,7 @@ const serializeAws_json1_1GetRelationalDatabaseLogStreamsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.relationalDatabaseName !== undefined && {
-      relationalDatabaseName: input.relationalDatabaseName,
-    }),
+    ...(input.relationalDatabaseName !== undefined && { relationalDatabaseName: input.relationalDatabaseName }),
   };
 };
 
@@ -13938,12 +13716,8 @@ const serializeAws_json1_1GetRelationalDatabaseMasterUserPasswordRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.passwordVersion !== undefined && {
-      passwordVersion: input.passwordVersion,
-    }),
-    ...(input.relationalDatabaseName !== undefined && {
-      relationalDatabaseName: input.relationalDatabaseName,
-    }),
+    ...(input.passwordVersion !== undefined && { passwordVersion: input.passwordVersion }),
+    ...(input.relationalDatabaseName !== undefined && { relationalDatabaseName: input.relationalDatabaseName }),
   };
 };
 
@@ -13952,17 +13726,11 @@ const serializeAws_json1_1GetRelationalDatabaseMetricDataRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endTime !== undefined && {
-      endTime: Math.round(input.endTime.getTime() / 1000),
-    }),
+    ...(input.endTime !== undefined && { endTime: Math.round(input.endTime.getTime() / 1000) }),
     ...(input.metricName !== undefined && { metricName: input.metricName }),
     ...(input.period !== undefined && { period: input.period }),
-    ...(input.relationalDatabaseName !== undefined && {
-      relationalDatabaseName: input.relationalDatabaseName,
-    }),
-    ...(input.startTime !== undefined && {
-      startTime: Math.round(input.startTime.getTime() / 1000),
-    }),
+    ...(input.relationalDatabaseName !== undefined && { relationalDatabaseName: input.relationalDatabaseName }),
+    ...(input.startTime !== undefined && { startTime: Math.round(input.startTime.getTime() / 1000) }),
     ...(input.statistics !== undefined && {
       statistics: serializeAws_json1_1MetricStatisticList(input.statistics, context),
     }),
@@ -13976,9 +13744,7 @@ const serializeAws_json1_1GetRelationalDatabaseParametersRequest = (
 ): any => {
   return {
     ...(input.pageToken !== undefined && { pageToken: input.pageToken }),
-    ...(input.relationalDatabaseName !== undefined && {
-      relationalDatabaseName: input.relationalDatabaseName,
-    }),
+    ...(input.relationalDatabaseName !== undefined && { relationalDatabaseName: input.relationalDatabaseName }),
   };
 };
 
@@ -13987,9 +13753,7 @@ const serializeAws_json1_1GetRelationalDatabaseRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.relationalDatabaseName !== undefined && {
-      relationalDatabaseName: input.relationalDatabaseName,
-    }),
+    ...(input.relationalDatabaseName !== undefined && { relationalDatabaseName: input.relationalDatabaseName }),
   };
 };
 
@@ -14024,9 +13788,7 @@ const serializeAws_json1_1GetRelationalDatabasesRequest = (
 
 const serializeAws_json1_1GetStaticIpRequest = (input: GetStaticIpRequest, context: __SerdeContext): any => {
   return {
-    ...(input.staticIpName !== undefined && {
-      staticIpName: input.staticIpName,
-    }),
+    ...(input.staticIpName !== undefined && { staticIpName: input.staticIpName }),
   };
 };
 
@@ -14039,23 +13801,15 @@ const serializeAws_json1_1GetStaticIpsRequest = (input: GetStaticIpsRequest, con
 const serializeAws_json1_1ImportKeyPairRequest = (input: ImportKeyPairRequest, context: __SerdeContext): any => {
   return {
     ...(input.keyPairName !== undefined && { keyPairName: input.keyPairName }),
-    ...(input.publicKeyBase64 !== undefined && {
-      publicKeyBase64: input.publicKeyBase64,
-    }),
+    ...(input.publicKeyBase64 !== undefined && { publicKeyBase64: input.publicKeyBase64 }),
   };
 };
 
 const serializeAws_json1_1InstanceEntry = (input: InstanceEntry, context: __SerdeContext): any => {
   return {
-    ...(input.availabilityZone !== undefined && {
-      availabilityZone: input.availabilityZone,
-    }),
-    ...(input.instanceType !== undefined && {
-      instanceType: input.instanceType,
-    }),
-    ...(input.portInfoSource !== undefined && {
-      portInfoSource: input.portInfoSource,
-    }),
+    ...(input.availabilityZone !== undefined && { availabilityZone: input.availabilityZone }),
+    ...(input.instanceType !== undefined && { instanceType: input.instanceType }),
+    ...(input.portInfoSource !== undefined && { portInfoSource: input.portInfoSource }),
     ...(input.sourceName !== undefined && { sourceName: input.sourceName }),
     ...(input.userData !== undefined && { userData: input.userData }),
   };
@@ -14078,12 +13832,8 @@ const serializeAws_json1_1OpenInstancePublicPortsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.instanceName !== undefined && {
-      instanceName: input.instanceName,
-    }),
-    ...(input.portInfo !== undefined && {
-      portInfo: serializeAws_json1_1PortInfo(input.portInfo, context),
-    }),
+    ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
+    ...(input.portInfo !== undefined && { portInfo: serializeAws_json1_1PortInfo(input.portInfo, context) }),
   };
 };
 
@@ -14108,20 +13858,14 @@ const serializeAws_json1_1PutInstancePublicPortsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.instanceName !== undefined && {
-      instanceName: input.instanceName,
-    }),
-    ...(input.portInfos !== undefined && {
-      portInfos: serializeAws_json1_1PortInfoList(input.portInfos, context),
-    }),
+    ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
+    ...(input.portInfos !== undefined && { portInfos: serializeAws_json1_1PortInfoList(input.portInfos, context) }),
   };
 };
 
 const serializeAws_json1_1RebootInstanceRequest = (input: RebootInstanceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.instanceName !== undefined && {
-      instanceName: input.instanceName,
-    }),
+    ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
   };
 };
 
@@ -14130,9 +13874,7 @@ const serializeAws_json1_1RebootRelationalDatabaseRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.relationalDatabaseName !== undefined && {
-      relationalDatabaseName: input.relationalDatabaseName,
-    }),
+    ...(input.relationalDatabaseName !== undefined && { relationalDatabaseName: input.relationalDatabaseName }),
   };
 };
 
@@ -14141,22 +13883,14 @@ const serializeAws_json1_1RelationalDatabaseParameter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.allowedValues !== undefined && {
-      allowedValues: input.allowedValues,
-    }),
+    ...(input.allowedValues !== undefined && { allowedValues: input.allowedValues }),
     ...(input.applyMethod !== undefined && { applyMethod: input.applyMethod }),
     ...(input.applyType !== undefined && { applyType: input.applyType }),
     ...(input.dataType !== undefined && { dataType: input.dataType }),
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.isModifiable !== undefined && {
-      isModifiable: input.isModifiable,
-    }),
-    ...(input.parameterName !== undefined && {
-      parameterName: input.parameterName,
-    }),
-    ...(input.parameterValue !== undefined && {
-      parameterValue: input.parameterValue,
-    }),
+    ...(input.isModifiable !== undefined && { isModifiable: input.isModifiable }),
+    ...(input.parameterName !== undefined && { parameterName: input.parameterName }),
+    ...(input.parameterValue !== undefined && { parameterValue: input.parameterValue }),
   };
 };
 
@@ -14169,9 +13903,7 @@ const serializeAws_json1_1RelationalDatabaseParameterList = (
 
 const serializeAws_json1_1ReleaseStaticIpRequest = (input: ReleaseStaticIpRequest, context: __SerdeContext): any => {
   return {
-    ...(input.staticIpName !== undefined && {
-      staticIpName: input.staticIpName,
-    }),
+    ...(input.staticIpName !== undefined && { staticIpName: input.staticIpName }),
   };
 };
 
@@ -14181,9 +13913,7 @@ const serializeAws_json1_1ResourceNameList = (input: string[], context: __SerdeC
 
 const serializeAws_json1_1StartInstanceRequest = (input: StartInstanceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.instanceName !== undefined && {
-      instanceName: input.instanceName,
-    }),
+    ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
   };
 };
 
@@ -14192,18 +13922,14 @@ const serializeAws_json1_1StartRelationalDatabaseRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.relationalDatabaseName !== undefined && {
-      relationalDatabaseName: input.relationalDatabaseName,
-    }),
+    ...(input.relationalDatabaseName !== undefined && { relationalDatabaseName: input.relationalDatabaseName }),
   };
 };
 
 const serializeAws_json1_1StopInstanceRequest = (input: StopInstanceRequest, context: __SerdeContext): any => {
   return {
     ...(input.force !== undefined && { force: input.force }),
-    ...(input.instanceName !== undefined && {
-      instanceName: input.instanceName,
-    }),
+    ...(input.instanceName !== undefined && { instanceName: input.instanceName }),
   };
 };
 
@@ -14212,9 +13938,7 @@ const serializeAws_json1_1StopRelationalDatabaseRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.relationalDatabaseName !== undefined && {
-      relationalDatabaseName: input.relationalDatabaseName,
-    }),
+    ...(input.relationalDatabaseName !== undefined && { relationalDatabaseName: input.relationalDatabaseName }),
     ...(input.relationalDatabaseSnapshotName !== undefined && {
       relationalDatabaseSnapshotName: input.relationalDatabaseSnapshotName,
     }),
@@ -14243,12 +13967,8 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.resourceName !== undefined && {
-      resourceName: input.resourceName,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.resourceName !== undefined && { resourceName: input.resourceName }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -14259,12 +13979,8 @@ const serializeAws_json1_1UnpeerVpcRequest = (input: UnpeerVpcRequest, context: 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.resourceName !== undefined && {
-      resourceName: input.resourceName,
-    }),
-    ...(input.tagKeys !== undefined && {
-      tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context),
-    }),
+    ...(input.resourceName !== undefined && { resourceName: input.resourceName }),
+    ...(input.tagKeys !== undefined && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
   };
 };
 
@@ -14285,15 +14001,9 @@ const serializeAws_json1_1UpdateLoadBalancerAttributeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.attributeName !== undefined && {
-      attributeName: input.attributeName,
-    }),
-    ...(input.attributeValue !== undefined && {
-      attributeValue: input.attributeValue,
-    }),
-    ...(input.loadBalancerName !== undefined && {
-      loadBalancerName: input.loadBalancerName,
-    }),
+    ...(input.attributeName !== undefined && { attributeName: input.attributeName }),
+    ...(input.attributeValue !== undefined && { attributeValue: input.attributeValue }),
+    ...(input.loadBalancerName !== undefined && { loadBalancerName: input.loadBalancerName }),
   };
 };
 
@@ -14305,9 +14015,7 @@ const serializeAws_json1_1UpdateRelationalDatabaseParametersRequest = (
     ...(input.parameters !== undefined && {
       parameters: serializeAws_json1_1RelationalDatabaseParameterList(input.parameters, context),
     }),
-    ...(input.relationalDatabaseName !== undefined && {
-      relationalDatabaseName: input.relationalDatabaseName,
-    }),
+    ...(input.relationalDatabaseName !== undefined && { relationalDatabaseName: input.relationalDatabaseName }),
   };
 };
 
@@ -14316,36 +14024,18 @@ const serializeAws_json1_1UpdateRelationalDatabaseRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.applyImmediately !== undefined && {
-      applyImmediately: input.applyImmediately,
-    }),
-    ...(input.caCertificateIdentifier !== undefined && {
-      caCertificateIdentifier: input.caCertificateIdentifier,
-    }),
-    ...(input.disableBackupRetention !== undefined && {
-      disableBackupRetention: input.disableBackupRetention,
-    }),
-    ...(input.enableBackupRetention !== undefined && {
-      enableBackupRetention: input.enableBackupRetention,
-    }),
-    ...(input.masterUserPassword !== undefined && {
-      masterUserPassword: input.masterUserPassword,
-    }),
-    ...(input.preferredBackupWindow !== undefined && {
-      preferredBackupWindow: input.preferredBackupWindow,
-    }),
+    ...(input.applyImmediately !== undefined && { applyImmediately: input.applyImmediately }),
+    ...(input.caCertificateIdentifier !== undefined && { caCertificateIdentifier: input.caCertificateIdentifier }),
+    ...(input.disableBackupRetention !== undefined && { disableBackupRetention: input.disableBackupRetention }),
+    ...(input.enableBackupRetention !== undefined && { enableBackupRetention: input.enableBackupRetention }),
+    ...(input.masterUserPassword !== undefined && { masterUserPassword: input.masterUserPassword }),
+    ...(input.preferredBackupWindow !== undefined && { preferredBackupWindow: input.preferredBackupWindow }),
     ...(input.preferredMaintenanceWindow !== undefined && {
       preferredMaintenanceWindow: input.preferredMaintenanceWindow,
     }),
-    ...(input.publiclyAccessible !== undefined && {
-      publiclyAccessible: input.publiclyAccessible,
-    }),
-    ...(input.relationalDatabaseName !== undefined && {
-      relationalDatabaseName: input.relationalDatabaseName,
-    }),
-    ...(input.rotateMasterUserPassword !== undefined && {
-      rotateMasterUserPassword: input.rotateMasterUserPassword,
-    }),
+    ...(input.publiclyAccessible !== undefined && { publiclyAccessible: input.publiclyAccessible }),
+    ...(input.relationalDatabaseName !== undefined && { relationalDatabaseName: input.relationalDatabaseName }),
+    ...(input.rotateMasterUserPassword !== undefined && { rotateMasterUserPassword: input.rotateMasterUserPassword }),
   };
 };
 

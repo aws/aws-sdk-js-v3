@@ -421,9 +421,7 @@ export interface GetSessionResponse {
 export namespace GetSessionResponse {
   export const filterSensitiveLog = (obj: GetSessionResponse): any => ({
     ...obj,
-    ...(obj.dialogAction && {
-      dialogAction: DialogAction.filterSensitiveLog(obj.dialogAction),
-    }),
+    ...(obj.dialogAction && { dialogAction: DialogAction.filterSensitiveLog(obj.dialogAction) }),
     ...(obj.recentIntentSummaryView && {
       recentIntentSummaryView: obj.recentIntentSummaryView.map((item) => IntentSummary.filterSensitiveLog(item)),
     }),
@@ -1318,9 +1316,7 @@ export interface PutSessionRequest {
 export namespace PutSessionRequest {
   export const filterSensitiveLog = (obj: PutSessionRequest): any => ({
     ...obj,
-    ...(obj.dialogAction && {
-      dialogAction: DialogAction.filterSensitiveLog(obj.dialogAction),
-    }),
+    ...(obj.dialogAction && { dialogAction: DialogAction.filterSensitiveLog(obj.dialogAction) }),
     ...(obj.recentIntentSummaryView && {
       recentIntentSummaryView: obj.recentIntentSummaryView.map((item) => IntentSummary.filterSensitiveLog(item)),
     }),

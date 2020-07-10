@@ -2577,29 +2577,17 @@ const serializeAws_json1_1CreateApplicationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OpsCenterEnabled !== undefined && {
-      OpsCenterEnabled: input.OpsCenterEnabled,
-    }),
-    ...(input.OpsItemSNSTopicArn !== undefined && {
-      OpsItemSNSTopicArn: input.OpsItemSNSTopicArn,
-    }),
-    ...(input.ResourceGroupName !== undefined && {
-      ResourceGroupName: input.ResourceGroupName,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.OpsCenterEnabled !== undefined && { OpsCenterEnabled: input.OpsCenterEnabled }),
+    ...(input.OpsItemSNSTopicArn !== undefined && { OpsItemSNSTopicArn: input.OpsItemSNSTopicArn }),
+    ...(input.ResourceGroupName !== undefined && { ResourceGroupName: input.ResourceGroupName }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateComponentRequest = (input: CreateComponentRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ComponentName !== undefined && {
-      ComponentName: input.ComponentName,
-    }),
-    ...(input.ResourceGroupName !== undefined && {
-      ResourceGroupName: input.ResourceGroupName,
-    }),
+    ...(input.ComponentName !== undefined && { ComponentName: input.ComponentName }),
+    ...(input.ResourceGroupName !== undefined && { ResourceGroupName: input.ResourceGroupName }),
     ...(input.ResourceList !== undefined && {
       ResourceList: serializeAws_json1_1ResourceList(input.ResourceList, context),
     }),
@@ -2610,13 +2598,9 @@ const serializeAws_json1_1CreateLogPatternRequest = (input: CreateLogPatternRequ
   return {
     ...(input.Pattern !== undefined && { Pattern: input.Pattern }),
     ...(input.PatternName !== undefined && { PatternName: input.PatternName }),
-    ...(input.PatternSetName !== undefined && {
-      PatternSetName: input.PatternSetName,
-    }),
+    ...(input.PatternSetName !== undefined && { PatternSetName: input.PatternSetName }),
     ...(input.Rank !== undefined && { Rank: input.Rank }),
-    ...(input.ResourceGroupName !== undefined && {
-      ResourceGroupName: input.ResourceGroupName,
-    }),
+    ...(input.ResourceGroupName !== undefined && { ResourceGroupName: input.ResourceGroupName }),
   };
 };
 
@@ -2625,32 +2609,22 @@ const serializeAws_json1_1DeleteApplicationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceGroupName !== undefined && {
-      ResourceGroupName: input.ResourceGroupName,
-    }),
+    ...(input.ResourceGroupName !== undefined && { ResourceGroupName: input.ResourceGroupName }),
   };
 };
 
 const serializeAws_json1_1DeleteComponentRequest = (input: DeleteComponentRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ComponentName !== undefined && {
-      ComponentName: input.ComponentName,
-    }),
-    ...(input.ResourceGroupName !== undefined && {
-      ResourceGroupName: input.ResourceGroupName,
-    }),
+    ...(input.ComponentName !== undefined && { ComponentName: input.ComponentName }),
+    ...(input.ResourceGroupName !== undefined && { ResourceGroupName: input.ResourceGroupName }),
   };
 };
 
 const serializeAws_json1_1DeleteLogPatternRequest = (input: DeleteLogPatternRequest, context: __SerdeContext): any => {
   return {
     ...(input.PatternName !== undefined && { PatternName: input.PatternName }),
-    ...(input.PatternSetName !== undefined && {
-      PatternSetName: input.PatternSetName,
-    }),
-    ...(input.ResourceGroupName !== undefined && {
-      ResourceGroupName: input.ResourceGroupName,
-    }),
+    ...(input.PatternSetName !== undefined && { PatternSetName: input.PatternSetName }),
+    ...(input.ResourceGroupName !== undefined && { ResourceGroupName: input.ResourceGroupName }),
   };
 };
 
@@ -2659,9 +2633,7 @@ const serializeAws_json1_1DescribeApplicationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceGroupName !== undefined && {
-      ResourceGroupName: input.ResourceGroupName,
-    }),
+    ...(input.ResourceGroupName !== undefined && { ResourceGroupName: input.ResourceGroupName }),
   };
 };
 
@@ -2670,12 +2642,8 @@ const serializeAws_json1_1DescribeComponentConfigurationRecommendationRequest = 
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ComponentName !== undefined && {
-      ComponentName: input.ComponentName,
-    }),
-    ...(input.ResourceGroupName !== undefined && {
-      ResourceGroupName: input.ResourceGroupName,
-    }),
+    ...(input.ComponentName !== undefined && { ComponentName: input.ComponentName }),
+    ...(input.ResourceGroupName !== undefined && { ResourceGroupName: input.ResourceGroupName }),
     ...(input.Tier !== undefined && { Tier: input.Tier }),
   };
 };
@@ -2685,12 +2653,8 @@ const serializeAws_json1_1DescribeComponentConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ComponentName !== undefined && {
-      ComponentName: input.ComponentName,
-    }),
-    ...(input.ResourceGroupName !== undefined && {
-      ResourceGroupName: input.ResourceGroupName,
-    }),
+    ...(input.ComponentName !== undefined && { ComponentName: input.ComponentName }),
+    ...(input.ResourceGroupName !== undefined && { ResourceGroupName: input.ResourceGroupName }),
   };
 };
 
@@ -2699,12 +2663,8 @@ const serializeAws_json1_1DescribeComponentRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ComponentName !== undefined && {
-      ComponentName: input.ComponentName,
-    }),
-    ...(input.ResourceGroupName !== undefined && {
-      ResourceGroupName: input.ResourceGroupName,
-    }),
+    ...(input.ComponentName !== undefined && { ComponentName: input.ComponentName }),
+    ...(input.ResourceGroupName !== undefined && { ResourceGroupName: input.ResourceGroupName }),
   };
 };
 
@@ -2714,12 +2674,8 @@ const serializeAws_json1_1DescribeLogPatternRequest = (
 ): any => {
   return {
     ...(input.PatternName !== undefined && { PatternName: input.PatternName }),
-    ...(input.PatternSetName !== undefined && {
-      PatternSetName: input.PatternSetName,
-    }),
-    ...(input.ResourceGroupName !== undefined && {
-      ResourceGroupName: input.ResourceGroupName,
-    }),
+    ...(input.PatternSetName !== undefined && { PatternSetName: input.PatternSetName }),
+    ...(input.ResourceGroupName !== undefined && { ResourceGroupName: input.ResourceGroupName }),
   };
 };
 
@@ -2728,9 +2684,7 @@ const serializeAws_json1_1DescribeObservationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ObservationId !== undefined && {
-      ObservationId: input.ObservationId,
-    }),
+    ...(input.ObservationId !== undefined && { ObservationId: input.ObservationId }),
   };
 };
 
@@ -2760,9 +2714,7 @@ const serializeAws_json1_1ListComponentsRequest = (input: ListComponentsRequest,
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceGroupName !== undefined && {
-      ResourceGroupName: input.ResourceGroupName,
-    }),
+    ...(input.ResourceGroupName !== undefined && { ResourceGroupName: input.ResourceGroupName }),
   };
 };
 
@@ -2771,18 +2723,12 @@ const serializeAws_json1_1ListConfigurationHistoryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndTime !== undefined && {
-      EndTime: Math.round(input.EndTime.getTime() / 1000),
-    }),
+    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.EventStatus !== undefined && { EventStatus: input.EventStatus }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceGroupName !== undefined && {
-      ResourceGroupName: input.ResourceGroupName,
-    }),
-    ...(input.StartTime !== undefined && {
-      StartTime: Math.round(input.StartTime.getTime() / 1000),
-    }),
+    ...(input.ResourceGroupName !== undefined && { ResourceGroupName: input.ResourceGroupName }),
+    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
@@ -2793,9 +2739,7 @@ const serializeAws_json1_1ListLogPatternSetsRequest = (
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceGroupName !== undefined && {
-      ResourceGroupName: input.ResourceGroupName,
-    }),
+    ...(input.ResourceGroupName !== undefined && { ResourceGroupName: input.ResourceGroupName }),
   };
 };
 
@@ -2803,28 +2747,18 @@ const serializeAws_json1_1ListLogPatternsRequest = (input: ListLogPatternsReques
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.PatternSetName !== undefined && {
-      PatternSetName: input.PatternSetName,
-    }),
-    ...(input.ResourceGroupName !== undefined && {
-      ResourceGroupName: input.ResourceGroupName,
-    }),
+    ...(input.PatternSetName !== undefined && { PatternSetName: input.PatternSetName }),
+    ...(input.ResourceGroupName !== undefined && { ResourceGroupName: input.ResourceGroupName }),
   };
 };
 
 const serializeAws_json1_1ListProblemsRequest = (input: ListProblemsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime !== undefined && {
-      EndTime: Math.round(input.EndTime.getTime() / 1000),
-    }),
+    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceGroupName !== undefined && {
-      ResourceGroupName: input.ResourceGroupName,
-    }),
-    ...(input.StartTime !== undefined && {
-      StartTime: Math.round(input.StartTime.getTime() / 1000),
-    }),
+    ...(input.ResourceGroupName !== undefined && { ResourceGroupName: input.ResourceGroupName }),
+    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
@@ -2859,18 +2793,14 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -2879,18 +2809,10 @@ const serializeAws_json1_1UpdateApplicationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OpsCenterEnabled !== undefined && {
-      OpsCenterEnabled: input.OpsCenterEnabled,
-    }),
-    ...(input.OpsItemSNSTopicArn !== undefined && {
-      OpsItemSNSTopicArn: input.OpsItemSNSTopicArn,
-    }),
-    ...(input.RemoveSNSTopic !== undefined && {
-      RemoveSNSTopic: input.RemoveSNSTopic,
-    }),
-    ...(input.ResourceGroupName !== undefined && {
-      ResourceGroupName: input.ResourceGroupName,
-    }),
+    ...(input.OpsCenterEnabled !== undefined && { OpsCenterEnabled: input.OpsCenterEnabled }),
+    ...(input.OpsItemSNSTopicArn !== undefined && { OpsItemSNSTopicArn: input.OpsItemSNSTopicArn }),
+    ...(input.RemoveSNSTopic !== undefined && { RemoveSNSTopic: input.RemoveSNSTopic }),
+    ...(input.ResourceGroupName !== undefined && { ResourceGroupName: input.ResourceGroupName }),
   };
 };
 
@@ -2899,31 +2821,19 @@ const serializeAws_json1_1UpdateComponentConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ComponentConfiguration !== undefined && {
-      ComponentConfiguration: input.ComponentConfiguration,
-    }),
-    ...(input.ComponentName !== undefined && {
-      ComponentName: input.ComponentName,
-    }),
+    ...(input.ComponentConfiguration !== undefined && { ComponentConfiguration: input.ComponentConfiguration }),
+    ...(input.ComponentName !== undefined && { ComponentName: input.ComponentName }),
     ...(input.Monitor !== undefined && { Monitor: input.Monitor }),
-    ...(input.ResourceGroupName !== undefined && {
-      ResourceGroupName: input.ResourceGroupName,
-    }),
+    ...(input.ResourceGroupName !== undefined && { ResourceGroupName: input.ResourceGroupName }),
     ...(input.Tier !== undefined && { Tier: input.Tier }),
   };
 };
 
 const serializeAws_json1_1UpdateComponentRequest = (input: UpdateComponentRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ComponentName !== undefined && {
-      ComponentName: input.ComponentName,
-    }),
-    ...(input.NewComponentName !== undefined && {
-      NewComponentName: input.NewComponentName,
-    }),
-    ...(input.ResourceGroupName !== undefined && {
-      ResourceGroupName: input.ResourceGroupName,
-    }),
+    ...(input.ComponentName !== undefined && { ComponentName: input.ComponentName }),
+    ...(input.NewComponentName !== undefined && { NewComponentName: input.NewComponentName }),
+    ...(input.ResourceGroupName !== undefined && { ResourceGroupName: input.ResourceGroupName }),
     ...(input.ResourceList !== undefined && {
       ResourceList: serializeAws_json1_1ResourceList(input.ResourceList, context),
     }),
@@ -2934,13 +2844,9 @@ const serializeAws_json1_1UpdateLogPatternRequest = (input: UpdateLogPatternRequ
   return {
     ...(input.Pattern !== undefined && { Pattern: input.Pattern }),
     ...(input.PatternName !== undefined && { PatternName: input.PatternName }),
-    ...(input.PatternSetName !== undefined && {
-      PatternSetName: input.PatternSetName,
-    }),
+    ...(input.PatternSetName !== undefined && { PatternSetName: input.PatternSetName }),
     ...(input.Rank !== undefined && { Rank: input.Rank }),
-    ...(input.ResourceGroupName !== undefined && {
-      ResourceGroupName: input.ResourceGroupName,
-    }),
+    ...(input.ResourceGroupName !== undefined && { ResourceGroupName: input.ResourceGroupName }),
   };
 };
 

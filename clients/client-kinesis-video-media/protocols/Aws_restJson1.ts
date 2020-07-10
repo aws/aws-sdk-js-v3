@@ -247,18 +247,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
 
 const serializeAws_restJson1StartSelector = (input: StartSelector, context: __SerdeContext): any => {
   return {
-    ...(input.AfterFragmentNumber !== undefined && {
-      AfterFragmentNumber: input.AfterFragmentNumber,
-    }),
-    ...(input.ContinuationToken !== undefined && {
-      ContinuationToken: input.ContinuationToken,
-    }),
-    ...(input.StartSelectorType !== undefined && {
-      StartSelectorType: input.StartSelectorType,
-    }),
-    ...(input.StartTimestamp !== undefined && {
-      StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000),
-    }),
+    ...(input.AfterFragmentNumber !== undefined && { AfterFragmentNumber: input.AfterFragmentNumber }),
+    ...(input.ContinuationToken !== undefined && { ContinuationToken: input.ContinuationToken }),
+    ...(input.StartSelectorType !== undefined && { StartSelectorType: input.StartSelectorType }),
+    ...(input.StartTimestamp !== undefined && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 

@@ -1105,9 +1105,7 @@ const serializeAws_json1_1EncryptionKey = (input: EncryptionKey, context: __Serd
 const serializeAws_json1_1GetTerminologyRequest = (input: GetTerminologyRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.TerminologyDataFormat !== undefined && {
-      TerminologyDataFormat: input.TerminologyDataFormat,
-    }),
+    ...(input.TerminologyDataFormat !== undefined && { TerminologyDataFormat: input.TerminologyDataFormat }),
   };
 };
 
@@ -1120,9 +1118,7 @@ const serializeAws_json1_1ImportTerminologyRequest = (
     ...(input.EncryptionKey !== undefined && {
       EncryptionKey: serializeAws_json1_1EncryptionKey(input.EncryptionKey, context),
     }),
-    ...(input.MergeStrategy !== undefined && {
-      MergeStrategy: input.MergeStrategy,
-    }),
+    ...(input.MergeStrategy !== undefined && { MergeStrategy: input.MergeStrategy }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.TerminologyData !== undefined && {
       TerminologyData: serializeAws_json1_1TerminologyData(input.TerminologyData, context),
@@ -1152,9 +1148,7 @@ const serializeAws_json1_1ListTextTranslationJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1TextTranslationJobFilter(input.Filter, context),
-    }),
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1TextTranslationJobFilter(input.Filter, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -1176,9 +1170,7 @@ const serializeAws_json1_1StartTextTranslationJobRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn !== undefined && {
-      DataAccessRoleArn: input.DataAccessRoleArn,
-    }),
+    ...(input.DataAccessRoleArn !== undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
     ...(input.InputDataConfig !== undefined && {
       InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
     }),
@@ -1186,9 +1178,7 @@ const serializeAws_json1_1StartTextTranslationJobRequest = (
     ...(input.OutputDataConfig !== undefined && {
       OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
     }),
-    ...(input.SourceLanguageCode !== undefined && {
-      SourceLanguageCode: input.SourceLanguageCode,
-    }),
+    ...(input.SourceLanguageCode !== undefined && { SourceLanguageCode: input.SourceLanguageCode }),
     ...(input.TargetLanguageCodes !== undefined && {
       TargetLanguageCodes: serializeAws_json1_1TargetLanguageCodeStringList(input.TargetLanguageCodes, context),
     }),
@@ -1213,9 +1203,7 @@ const serializeAws_json1_1TargetLanguageCodeStringList = (input: string[], conte
 
 const serializeAws_json1_1TerminologyData = (input: TerminologyData, context: __SerdeContext): any => {
   return {
-    ...(input.File !== undefined && {
-      File: context.base64Encoder(input.File),
-    }),
+    ...(input.File !== undefined && { File: context.base64Encoder(input.File) }),
     ...(input.Format !== undefined && { Format: input.Format }),
   };
 };
@@ -1238,12 +1226,8 @@ const serializeAws_json1_1TextTranslationJobFilter = (
 
 const serializeAws_json1_1TranslateTextRequest = (input: TranslateTextRequest, context: __SerdeContext): any => {
   return {
-    ...(input.SourceLanguageCode !== undefined && {
-      SourceLanguageCode: input.SourceLanguageCode,
-    }),
-    ...(input.TargetLanguageCode !== undefined && {
-      TargetLanguageCode: input.TargetLanguageCode,
-    }),
+    ...(input.SourceLanguageCode !== undefined && { SourceLanguageCode: input.SourceLanguageCode }),
+    ...(input.TargetLanguageCode !== undefined && { TargetLanguageCode: input.TargetLanguageCode }),
     ...(input.TerminologyNames !== undefined && {
       TerminologyNames: serializeAws_json1_1ResourceNameList(input.TerminologyNames, context),
     }),

@@ -476,13 +476,9 @@ const serializeAws_json1_1ReportDefinition = (input: ReportDefinition, context: 
     }),
     ...(input.Compression !== undefined && { Compression: input.Compression }),
     ...(input.Format !== undefined && { Format: input.Format }),
-    ...(input.RefreshClosedReports !== undefined && {
-      RefreshClosedReports: input.RefreshClosedReports,
-    }),
+    ...(input.RefreshClosedReports !== undefined && { RefreshClosedReports: input.RefreshClosedReports }),
     ...(input.ReportName !== undefined && { ReportName: input.ReportName }),
-    ...(input.ReportVersioning !== undefined && {
-      ReportVersioning: input.ReportVersioning,
-    }),
+    ...(input.ReportVersioning !== undefined && { ReportVersioning: input.ReportVersioning }),
     ...(input.S3Bucket !== undefined && { S3Bucket: input.S3Bucket }),
     ...(input.S3Prefix !== undefined && { S3Prefix: input.S3Prefix }),
     ...(input.S3Region !== undefined && { S3Region: input.S3Region }),

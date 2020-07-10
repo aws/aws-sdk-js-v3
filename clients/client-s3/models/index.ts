@@ -649,9 +649,7 @@ export interface CopyObjectOutput {
 export namespace CopyObjectOutput {
   export const filterSensitiveLog = (obj: CopyObjectOutput): any => ({
     ...obj,
-    ...(obj.SSEKMSEncryptionContext && {
-      SSEKMSEncryptionContext: SENSITIVE_STRING,
-    }),
+    ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
     ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is CopyObjectOutput => __isa(o, "CopyObjectOutput");
@@ -864,13 +862,9 @@ export interface CopyObjectRequest {
 export namespace CopyObjectRequest {
   export const filterSensitiveLog = (obj: CopyObjectRequest): any => ({
     ...obj,
-    ...(obj.CopySourceSSECustomerKey && {
-      CopySourceSSECustomerKey: SENSITIVE_STRING,
-    }),
+    ...(obj.CopySourceSSECustomerKey && { CopySourceSSECustomerKey: SENSITIVE_STRING }),
     ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
-    ...(obj.SSEKMSEncryptionContext && {
-      SSEKMSEncryptionContext: SENSITIVE_STRING,
-    }),
+    ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
     ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is CopyObjectRequest => __isa(o, "CopyObjectRequest");
@@ -1148,9 +1142,7 @@ export interface CreateMultipartUploadOutput {
 export namespace CreateMultipartUploadOutput {
   export const filterSensitiveLog = (obj: CreateMultipartUploadOutput): any => ({
     ...obj,
-    ...(obj.SSEKMSEncryptionContext && {
-      SSEKMSEncryptionContext: SENSITIVE_STRING,
-    }),
+    ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
     ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is CreateMultipartUploadOutput => __isa(o, "CreateMultipartUploadOutput");
@@ -1310,9 +1302,7 @@ export namespace CreateMultipartUploadRequest {
   export const filterSensitiveLog = (obj: CreateMultipartUploadRequest): any => ({
     ...obj,
     ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
-    ...(obj.SSEKMSEncryptionContext && {
-      SSEKMSEncryptionContext: SENSITIVE_STRING,
-    }),
+    ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
     ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is CreateMultipartUploadRequest => __isa(o, "CreateMultipartUploadRequest");
@@ -5759,9 +5749,7 @@ export interface InventoryConfiguration {
 export namespace InventoryConfiguration {
   export const filterSensitiveLog = (obj: InventoryConfiguration): any => ({
     ...obj,
-    ...(obj.Destination && {
-      Destination: InventoryDestination.filterSensitiveLog(obj.Destination),
-    }),
+    ...(obj.Destination && { Destination: InventoryDestination.filterSensitiveLog(obj.Destination) }),
   });
   export const isa = (o: any): o is InventoryConfiguration => __isa(o, "InventoryConfiguration");
 }
@@ -5883,9 +5871,7 @@ export interface InventoryS3BucketDestination {
 export namespace InventoryS3BucketDestination {
   export const filterSensitiveLog = (obj: InventoryS3BucketDestination): any => ({
     ...obj,
-    ...(obj.Encryption && {
-      Encryption: InventoryEncryption.filterSensitiveLog(obj.Encryption),
-    }),
+    ...(obj.Encryption && { Encryption: InventoryEncryption.filterSensitiveLog(obj.Encryption) }),
   });
   export const isa = (o: any): o is InventoryS3BucketDestination => __isa(o, "InventoryS3BucketDestination");
 }
@@ -8591,9 +8577,7 @@ export interface PutObjectOutput {
 export namespace PutObjectOutput {
   export const filterSensitiveLog = (obj: PutObjectOutput): any => ({
     ...obj,
-    ...(obj.SSEKMSEncryptionContext && {
-      SSEKMSEncryptionContext: SENSITIVE_STRING,
-    }),
+    ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
     ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is PutObjectOutput => __isa(o, "PutObjectOutput");
@@ -8790,9 +8774,7 @@ export namespace PutObjectRequest {
   export const filterSensitiveLog = (obj: PutObjectRequest): any => ({
     ...obj,
     ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
-    ...(obj.SSEKMSEncryptionContext && {
-      SSEKMSEncryptionContext: SENSITIVE_STRING,
-    }),
+    ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
     ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is PutObjectRequest => __isa(o, "PutObjectRequest");
@@ -9412,9 +9394,7 @@ export interface RestoreObjectRequest {
 export namespace RestoreObjectRequest {
   export const filterSensitiveLog = (obj: RestoreObjectRequest): any => ({
     ...obj,
-    ...(obj.RestoreRequest && {
-      RestoreRequest: RestoreRequest.filterSensitiveLog(obj.RestoreRequest),
-    }),
+    ...(obj.RestoreRequest && { RestoreRequest: RestoreRequest.filterSensitiveLog(obj.RestoreRequest) }),
   });
   export const isa = (o: any): o is RestoreObjectRequest => __isa(o, "RestoreObjectRequest");
 }
@@ -9465,9 +9445,7 @@ export interface RestoreRequest {
 export namespace RestoreRequest {
   export const filterSensitiveLog = (obj: RestoreRequest): any => ({
     ...obj,
-    ...(obj.OutputLocation && {
-      OutputLocation: OutputLocation.filterSensitiveLog(obj.OutputLocation),
-    }),
+    ...(obj.OutputLocation && { OutputLocation: OutputLocation.filterSensitiveLog(obj.OutputLocation) }),
   });
   export const isa = (o: any): o is RestoreRequest => __isa(o, "RestoreRequest");
 }
@@ -9569,9 +9547,7 @@ export interface S3Location {
 export namespace S3Location {
   export const filterSensitiveLog = (obj: S3Location): any => ({
     ...obj,
-    ...(obj.Encryption && {
-      Encryption: Encryption.filterSensitiveLog(obj.Encryption),
-    }),
+    ...(obj.Encryption && { Encryption: Encryption.filterSensitiveLog(obj.Encryption) }),
   });
   export const isa = (o: any): o is S3Location => __isa(o, "S3Location");
 }
@@ -9882,9 +9858,7 @@ export interface ServerSideEncryptionConfiguration {
 export namespace ServerSideEncryptionConfiguration {
   export const filterSensitiveLog = (obj: ServerSideEncryptionConfiguration): any => ({
     ...obj,
-    ...(obj.Rules && {
-      Rules: obj.Rules.map((item) => ServerSideEncryptionRule.filterSensitiveLog(item)),
-    }),
+    ...(obj.Rules && { Rules: obj.Rules.map((item) => ServerSideEncryptionRule.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is ServerSideEncryptionConfiguration => __isa(o, "ServerSideEncryptionConfiguration");
 }
@@ -10384,9 +10358,7 @@ export interface UploadPartCopyRequest {
 export namespace UploadPartCopyRequest {
   export const filterSensitiveLog = (obj: UploadPartCopyRequest): any => ({
     ...obj,
-    ...(obj.CopySourceSSECustomerKey && {
-      CopySourceSSECustomerKey: SENSITIVE_STRING,
-    }),
+    ...(obj.CopySourceSSECustomerKey && { CopySourceSSECustomerKey: SENSITIVE_STRING }),
     ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is UploadPartCopyRequest => __isa(o, "UploadPartCopyRequest");

@@ -562,9 +562,7 @@ const serializeAws_json1_1DescribeTunnelRequest = (input: DescribeTunnelRequest,
 
 const serializeAws_json1_1DestinationConfig = (input: DestinationConfig, context: __SerdeContext): any => {
   return {
-    ...(input.services !== undefined && {
-      services: serializeAws_json1_1ServiceList(input.services, context),
-    }),
+    ...(input.services !== undefined && { services: serializeAws_json1_1ServiceList(input.services, context) }),
     ...(input.thingName !== undefined && { thingName: input.thingName }),
   };
 };
@@ -592,9 +590,7 @@ const serializeAws_json1_1OpenTunnelRequest = (input: OpenTunnelRequest, context
     ...(input.destinationConfig !== undefined && {
       destinationConfig: serializeAws_json1_1DestinationConfig(input.destinationConfig, context),
     }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
     ...(input.timeoutConfig !== undefined && {
       timeoutConfig: serializeAws_json1_1TimeoutConfig(input.timeoutConfig, context),
     }),
@@ -623,9 +619,7 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -640,9 +634,7 @@ const serializeAws_json1_1TimeoutConfig = (input: TimeoutConfig, context: __Serd
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys !== undefined && {
-      tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context),
-    }),
+    ...(input.tagKeys !== undefined && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
   };
 };
 

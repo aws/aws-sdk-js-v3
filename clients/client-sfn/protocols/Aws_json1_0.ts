@@ -2372,9 +2372,7 @@ const serializeAws_json1_0CloudWatchLogsLogGroup = (input: CloudWatchLogsLogGrou
 const serializeAws_json1_0CreateActivityInput = (input: CreateActivityInput, context: __SerdeContext): any => {
   return {
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_0TagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_0TagList(input.tags, context) }),
   };
 };
 
@@ -2386,9 +2384,7 @@ const serializeAws_json1_0CreateStateMachineInput = (input: CreateStateMachineIn
     }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_0TagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_0TagList(input.tags, context) }),
     ...(input.type !== undefined && { type: input.type }),
   };
 };
@@ -2401,9 +2397,7 @@ const serializeAws_json1_0DeleteActivityInput = (input: DeleteActivityInput, con
 
 const serializeAws_json1_0DeleteStateMachineInput = (input: DeleteStateMachineInput, context: __SerdeContext): any => {
   return {
-    ...(input.stateMachineArn !== undefined && {
-      stateMachineArn: input.stateMachineArn,
-    }),
+    ...(input.stateMachineArn !== undefined && { stateMachineArn: input.stateMachineArn }),
   };
 };
 
@@ -2415,9 +2409,7 @@ const serializeAws_json1_0DescribeActivityInput = (input: DescribeActivityInput,
 
 const serializeAws_json1_0DescribeExecutionInput = (input: DescribeExecutionInput, context: __SerdeContext): any => {
   return {
-    ...(input.executionArn !== undefined && {
-      executionArn: input.executionArn,
-    }),
+    ...(input.executionArn !== undefined && { executionArn: input.executionArn }),
   };
 };
 
@@ -2426,9 +2418,7 @@ const serializeAws_json1_0DescribeStateMachineForExecutionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.executionArn !== undefined && {
-      executionArn: input.executionArn,
-    }),
+    ...(input.executionArn !== undefined && { executionArn: input.executionArn }),
   };
 };
 
@@ -2437,9 +2427,7 @@ const serializeAws_json1_0DescribeStateMachineInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.stateMachineArn !== undefined && {
-      stateMachineArn: input.stateMachineArn,
-    }),
+    ...(input.stateMachineArn !== undefined && { stateMachineArn: input.stateMachineArn }),
   };
 };
 
@@ -2455,14 +2443,10 @@ const serializeAws_json1_0GetExecutionHistoryInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.executionArn !== undefined && {
-      executionArn: input.executionArn,
-    }),
+    ...(input.executionArn !== undefined && { executionArn: input.executionArn }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.reverseOrder !== undefined && {
-      reverseOrder: input.reverseOrder,
-    }),
+    ...(input.reverseOrder !== undefined && { reverseOrder: input.reverseOrder }),
   };
 };
 
@@ -2477,12 +2461,8 @@ const serializeAws_json1_0ListExecutionsInput = (input: ListExecutionsInput, con
   return {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.stateMachineArn !== undefined && {
-      stateMachineArn: input.stateMachineArn,
-    }),
-    ...(input.statusFilter !== undefined && {
-      statusFilter: input.statusFilter,
-    }),
+    ...(input.stateMachineArn !== undefined && { stateMachineArn: input.stateMachineArn }),
+    ...(input.statusFilter !== undefined && { statusFilter: input.statusFilter }),
   };
 };
 
@@ -2519,9 +2499,7 @@ const serializeAws_json1_0LoggingConfiguration = (input: LoggingConfiguration, c
     ...(input.destinations !== undefined && {
       destinations: serializeAws_json1_0LogDestinationList(input.destinations, context),
     }),
-    ...(input.includeExecutionData !== undefined && {
-      includeExecutionData: input.includeExecutionData,
-    }),
+    ...(input.includeExecutionData !== undefined && { includeExecutionData: input.includeExecutionData }),
     ...(input.level !== undefined && { level: input.level }),
   };
 };
@@ -2551,9 +2529,7 @@ const serializeAws_json1_0StartExecutionInput = (input: StartExecutionInput, con
   return {
     ...(input.input !== undefined && { input: input.input }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.stateMachineArn !== undefined && {
-      stateMachineArn: input.stateMachineArn,
-    }),
+    ...(input.stateMachineArn !== undefined && { stateMachineArn: input.stateMachineArn }),
   };
 };
 
@@ -2561,9 +2537,7 @@ const serializeAws_json1_0StopExecutionInput = (input: StopExecutionInput, conte
   return {
     ...(input.cause !== undefined && { cause: input.cause }),
     ...(input.error !== undefined && { error: input.error }),
-    ...(input.executionArn !== undefined && {
-      executionArn: input.executionArn,
-    }),
+    ...(input.executionArn !== undefined && { executionArn: input.executionArn }),
   };
 };
 
@@ -2585,18 +2559,14 @@ const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any
 const serializeAws_json1_0TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_0TagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_0TagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_0UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys !== undefined && {
-      tagKeys: serializeAws_json1_0TagKeyList(input.tagKeys, context),
-    }),
+    ...(input.tagKeys !== undefined && { tagKeys: serializeAws_json1_0TagKeyList(input.tagKeys, context) }),
   };
 };
 
@@ -2607,9 +2577,7 @@ const serializeAws_json1_0UpdateStateMachineInput = (input: UpdateStateMachineIn
       loggingConfiguration: serializeAws_json1_0LoggingConfiguration(input.loggingConfiguration, context),
     }),
     ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
-    ...(input.stateMachineArn !== undefined && {
-      stateMachineArn: input.stateMachineArn,
-    }),
+    ...(input.stateMachineArn !== undefined && { stateMachineArn: input.stateMachineArn }),
   };
 };
 

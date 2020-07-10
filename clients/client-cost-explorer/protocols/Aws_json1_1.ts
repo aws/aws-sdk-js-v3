@@ -1905,9 +1905,7 @@ const deserializeAws_json1_1UnresolvableUsageUnitExceptionResponse = async (
 
 const serializeAws_json1_1CostCategoryRule = (input: CostCategoryRule, context: __SerdeContext): any => {
   return {
-    ...(input.Rule !== undefined && {
-      Rule: serializeAws_json1_1Expression(input.Rule, context),
-    }),
+    ...(input.Rule !== undefined && { Rule: serializeAws_json1_1Expression(input.Rule, context) }),
     ...(input.Value !== undefined && { Value: input.Value }),
   };
 };
@@ -1919,9 +1917,7 @@ const serializeAws_json1_1CostCategoryRulesList = (input: CostCategoryRule[], co
 const serializeAws_json1_1CostCategoryValues = (input: CostCategoryValues, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_json1_1Values(input.Values, context),
-    }),
+    ...(input.Values !== undefined && { Values: serializeAws_json1_1Values(input.Values, context) }),
   };
 };
 
@@ -1932,9 +1928,7 @@ const serializeAws_json1_1CreateCostCategoryDefinitionRequest = (
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.RuleVersion !== undefined && { RuleVersion: input.RuleVersion }),
-    ...(input.Rules !== undefined && {
-      Rules: serializeAws_json1_1CostCategoryRulesList(input.Rules, context),
-    }),
+    ...(input.Rules !== undefined && { Rules: serializeAws_json1_1CostCategoryRulesList(input.Rules, context) }),
   };
 };
 
@@ -1950,9 +1944,7 @@ const serializeAws_json1_1DeleteCostCategoryDefinitionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CostCategoryArn !== undefined && {
-      CostCategoryArn: input.CostCategoryArn,
-    }),
+    ...(input.CostCategoryArn !== undefined && { CostCategoryArn: input.CostCategoryArn }),
   };
 };
 
@@ -1961,9 +1953,7 @@ const serializeAws_json1_1DescribeCostCategoryDefinitionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CostCategoryArn !== undefined && {
-      CostCategoryArn: input.CostCategoryArn,
-    }),
+    ...(input.CostCategoryArn !== undefined && { CostCategoryArn: input.CostCategoryArn }),
     ...(input.EffectiveOn !== undefined && { EffectiveOn: input.EffectiveOn }),
   };
 };
@@ -1971,40 +1961,28 @@ const serializeAws_json1_1DescribeCostCategoryDefinitionRequest = (
 const serializeAws_json1_1DimensionValues = (input: DimensionValues, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_json1_1Values(input.Values, context),
-    }),
+    ...(input.Values !== undefined && { Values: serializeAws_json1_1Values(input.Values, context) }),
   };
 };
 
 const serializeAws_json1_1EC2Specification = (input: EC2Specification, context: __SerdeContext): any => {
   return {
-    ...(input.OfferingClass !== undefined && {
-      OfferingClass: input.OfferingClass,
-    }),
+    ...(input.OfferingClass !== undefined && { OfferingClass: input.OfferingClass }),
   };
 };
 
 const serializeAws_json1_1Expression = (input: Expression, context: __SerdeContext): any => {
   return {
-    ...(input.And !== undefined && {
-      And: serializeAws_json1_1Expressions(input.And, context),
-    }),
+    ...(input.And !== undefined && { And: serializeAws_json1_1Expressions(input.And, context) }),
     ...(input.CostCategories !== undefined && {
       CostCategories: serializeAws_json1_1CostCategoryValues(input.CostCategories, context),
     }),
     ...(input.Dimensions !== undefined && {
       Dimensions: serializeAws_json1_1DimensionValues(input.Dimensions, context),
     }),
-    ...(input.Not !== undefined && {
-      Not: serializeAws_json1_1Expression(input.Not, context),
-    }),
-    ...(input.Or !== undefined && {
-      Or: serializeAws_json1_1Expressions(input.Or, context),
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagValues(input.Tags, context),
-    }),
+    ...(input.Not !== undefined && { Not: serializeAws_json1_1Expression(input.Not, context) }),
+    ...(input.Or !== undefined && { Or: serializeAws_json1_1Expressions(input.Or, context) }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagValues(input.Tags, context) }),
   };
 };
 
@@ -2014,22 +1992,12 @@ const serializeAws_json1_1Expressions = (input: Expression[], context: __SerdeCo
 
 const serializeAws_json1_1GetCostAndUsageRequest = (input: GetCostAndUsageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1Expression(input.Filter, context),
-    }),
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1Expression(input.Filter, context) }),
     ...(input.Granularity !== undefined && { Granularity: input.Granularity }),
-    ...(input.GroupBy !== undefined && {
-      GroupBy: serializeAws_json1_1GroupDefinitions(input.GroupBy, context),
-    }),
-    ...(input.Metrics !== undefined && {
-      Metrics: serializeAws_json1_1MetricNames(input.Metrics, context),
-    }),
-    ...(input.NextPageToken !== undefined && {
-      NextPageToken: input.NextPageToken,
-    }),
-    ...(input.TimePeriod !== undefined && {
-      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context),
-    }),
+    ...(input.GroupBy !== undefined && { GroupBy: serializeAws_json1_1GroupDefinitions(input.GroupBy, context) }),
+    ...(input.Metrics !== undefined && { Metrics: serializeAws_json1_1MetricNames(input.Metrics, context) }),
+    ...(input.NextPageToken !== undefined && { NextPageToken: input.NextPageToken }),
+    ...(input.TimePeriod !== undefined && { TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context) }),
   };
 };
 
@@ -2038,38 +2006,22 @@ const serializeAws_json1_1GetCostAndUsageWithResourcesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1Expression(input.Filter, context),
-    }),
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1Expression(input.Filter, context) }),
     ...(input.Granularity !== undefined && { Granularity: input.Granularity }),
-    ...(input.GroupBy !== undefined && {
-      GroupBy: serializeAws_json1_1GroupDefinitions(input.GroupBy, context),
-    }),
-    ...(input.Metrics !== undefined && {
-      Metrics: serializeAws_json1_1MetricNames(input.Metrics, context),
-    }),
-    ...(input.NextPageToken !== undefined && {
-      NextPageToken: input.NextPageToken,
-    }),
-    ...(input.TimePeriod !== undefined && {
-      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context),
-    }),
+    ...(input.GroupBy !== undefined && { GroupBy: serializeAws_json1_1GroupDefinitions(input.GroupBy, context) }),
+    ...(input.Metrics !== undefined && { Metrics: serializeAws_json1_1MetricNames(input.Metrics, context) }),
+    ...(input.NextPageToken !== undefined && { NextPageToken: input.NextPageToken }),
+    ...(input.TimePeriod !== undefined && { TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context) }),
   };
 };
 
 const serializeAws_json1_1GetCostForecastRequest = (input: GetCostForecastRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1Expression(input.Filter, context),
-    }),
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1Expression(input.Filter, context) }),
     ...(input.Granularity !== undefined && { Granularity: input.Granularity }),
     ...(input.Metric !== undefined && { Metric: input.Metric }),
-    ...(input.PredictionIntervalLevel !== undefined && {
-      PredictionIntervalLevel: input.PredictionIntervalLevel,
-    }),
-    ...(input.TimePeriod !== undefined && {
-      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context),
-    }),
+    ...(input.PredictionIntervalLevel !== undefined && { PredictionIntervalLevel: input.PredictionIntervalLevel }),
+    ...(input.TimePeriod !== undefined && { TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context) }),
   };
 };
 
@@ -2080,15 +2032,9 @@ const serializeAws_json1_1GetDimensionValuesRequest = (
   return {
     ...(input.Context !== undefined && { Context: input.Context }),
     ...(input.Dimension !== undefined && { Dimension: input.Dimension }),
-    ...(input.NextPageToken !== undefined && {
-      NextPageToken: input.NextPageToken,
-    }),
-    ...(input.SearchString !== undefined && {
-      SearchString: input.SearchString,
-    }),
-    ...(input.TimePeriod !== undefined && {
-      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context),
-    }),
+    ...(input.NextPageToken !== undefined && { NextPageToken: input.NextPageToken }),
+    ...(input.SearchString !== undefined && { SearchString: input.SearchString }),
+    ...(input.TimePeriod !== undefined && { TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context) }),
   };
 };
 
@@ -2097,22 +2043,12 @@ const serializeAws_json1_1GetReservationCoverageRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1Expression(input.Filter, context),
-    }),
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1Expression(input.Filter, context) }),
     ...(input.Granularity !== undefined && { Granularity: input.Granularity }),
-    ...(input.GroupBy !== undefined && {
-      GroupBy: serializeAws_json1_1GroupDefinitions(input.GroupBy, context),
-    }),
-    ...(input.Metrics !== undefined && {
-      Metrics: serializeAws_json1_1MetricNames(input.Metrics, context),
-    }),
-    ...(input.NextPageToken !== undefined && {
-      NextPageToken: input.NextPageToken,
-    }),
-    ...(input.TimePeriod !== undefined && {
-      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context),
-    }),
+    ...(input.GroupBy !== undefined && { GroupBy: serializeAws_json1_1GroupDefinitions(input.GroupBy, context) }),
+    ...(input.Metrics !== undefined && { Metrics: serializeAws_json1_1MetricNames(input.Metrics, context) }),
+    ...(input.NextPageToken !== undefined && { NextPageToken: input.NextPageToken }),
+    ...(input.TimePeriod !== undefined && { TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context) }),
   };
 };
 
@@ -2122,19 +2058,11 @@ const serializeAws_json1_1GetReservationPurchaseRecommendationRequest = (
 ): any => {
   return {
     ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.AccountScope !== undefined && {
-      AccountScope: input.AccountScope,
-    }),
-    ...(input.LookbackPeriodInDays !== undefined && {
-      LookbackPeriodInDays: input.LookbackPeriodInDays,
-    }),
-    ...(input.NextPageToken !== undefined && {
-      NextPageToken: input.NextPageToken,
-    }),
+    ...(input.AccountScope !== undefined && { AccountScope: input.AccountScope }),
+    ...(input.LookbackPeriodInDays !== undefined && { LookbackPeriodInDays: input.LookbackPeriodInDays }),
+    ...(input.NextPageToken !== undefined && { NextPageToken: input.NextPageToken }),
     ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
-    ...(input.PaymentOption !== undefined && {
-      PaymentOption: input.PaymentOption,
-    }),
+    ...(input.PaymentOption !== undefined && { PaymentOption: input.PaymentOption }),
     ...(input.Service !== undefined && { Service: input.Service }),
     ...(input.ServiceSpecification !== undefined && {
       ServiceSpecification: serializeAws_json1_1ServiceSpecification(input.ServiceSpecification, context),
@@ -2148,19 +2076,11 @@ const serializeAws_json1_1GetReservationUtilizationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1Expression(input.Filter, context),
-    }),
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1Expression(input.Filter, context) }),
     ...(input.Granularity !== undefined && { Granularity: input.Granularity }),
-    ...(input.GroupBy !== undefined && {
-      GroupBy: serializeAws_json1_1GroupDefinitions(input.GroupBy, context),
-    }),
-    ...(input.NextPageToken !== undefined && {
-      NextPageToken: input.NextPageToken,
-    }),
-    ...(input.TimePeriod !== undefined && {
-      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context),
-    }),
+    ...(input.GroupBy !== undefined && { GroupBy: serializeAws_json1_1GroupDefinitions(input.GroupBy, context) }),
+    ...(input.NextPageToken !== undefined && { NextPageToken: input.NextPageToken }),
+    ...(input.TimePeriod !== undefined && { TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context) }),
   };
 };
 
@@ -2169,12 +2089,8 @@ const serializeAws_json1_1GetRightsizingRecommendationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1Expression(input.Filter, context),
-    }),
-    ...(input.NextPageToken !== undefined && {
-      NextPageToken: input.NextPageToken,
-    }),
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1Expression(input.Filter, context) }),
+    ...(input.NextPageToken !== undefined && { NextPageToken: input.NextPageToken }),
     ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
     ...(input.Service !== undefined && { Service: input.Service }),
   };
@@ -2185,21 +2101,13 @@ const serializeAws_json1_1GetSavingsPlansCoverageRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1Expression(input.Filter, context),
-    }),
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1Expression(input.Filter, context) }),
     ...(input.Granularity !== undefined && { Granularity: input.Granularity }),
-    ...(input.GroupBy !== undefined && {
-      GroupBy: serializeAws_json1_1GroupDefinitions(input.GroupBy, context),
-    }),
+    ...(input.GroupBy !== undefined && { GroupBy: serializeAws_json1_1GroupDefinitions(input.GroupBy, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.Metrics !== undefined && {
-      Metrics: serializeAws_json1_1MetricNames(input.Metrics, context),
-    }),
+    ...(input.Metrics !== undefined && { Metrics: serializeAws_json1_1MetricNames(input.Metrics, context) }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.TimePeriod !== undefined && {
-      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context),
-    }),
+    ...(input.TimePeriod !== undefined && { TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context) }),
   };
 };
 
@@ -2208,19 +2116,11 @@ const serializeAws_json1_1GetSavingsPlansPurchaseRecommendationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LookbackPeriodInDays !== undefined && {
-      LookbackPeriodInDays: input.LookbackPeriodInDays,
-    }),
-    ...(input.NextPageToken !== undefined && {
-      NextPageToken: input.NextPageToken,
-    }),
+    ...(input.LookbackPeriodInDays !== undefined && { LookbackPeriodInDays: input.LookbackPeriodInDays }),
+    ...(input.NextPageToken !== undefined && { NextPageToken: input.NextPageToken }),
     ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
-    ...(input.PaymentOption !== undefined && {
-      PaymentOption: input.PaymentOption,
-    }),
-    ...(input.SavingsPlansType !== undefined && {
-      SavingsPlansType: input.SavingsPlansType,
-    }),
+    ...(input.PaymentOption !== undefined && { PaymentOption: input.PaymentOption }),
+    ...(input.SavingsPlansType !== undefined && { SavingsPlansType: input.SavingsPlansType }),
     ...(input.TermInYears !== undefined && { TermInYears: input.TermInYears }),
   };
 };
@@ -2230,14 +2130,10 @@ const serializeAws_json1_1GetSavingsPlansUtilizationDetailsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1Expression(input.Filter, context),
-    }),
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1Expression(input.Filter, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.TimePeriod !== undefined && {
-      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context),
-    }),
+    ...(input.TimePeriod !== undefined && { TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context) }),
   };
 };
 
@@ -2246,44 +2142,28 @@ const serializeAws_json1_1GetSavingsPlansUtilizationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1Expression(input.Filter, context),
-    }),
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1Expression(input.Filter, context) }),
     ...(input.Granularity !== undefined && { Granularity: input.Granularity }),
-    ...(input.TimePeriod !== undefined && {
-      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context),
-    }),
+    ...(input.TimePeriod !== undefined && { TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context) }),
   };
 };
 
 const serializeAws_json1_1GetTagsRequest = (input: GetTagsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.NextPageToken !== undefined && {
-      NextPageToken: input.NextPageToken,
-    }),
-    ...(input.SearchString !== undefined && {
-      SearchString: input.SearchString,
-    }),
+    ...(input.NextPageToken !== undefined && { NextPageToken: input.NextPageToken }),
+    ...(input.SearchString !== undefined && { SearchString: input.SearchString }),
     ...(input.TagKey !== undefined && { TagKey: input.TagKey }),
-    ...(input.TimePeriod !== undefined && {
-      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context),
-    }),
+    ...(input.TimePeriod !== undefined && { TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context) }),
   };
 };
 
 const serializeAws_json1_1GetUsageForecastRequest = (input: GetUsageForecastRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1Expression(input.Filter, context),
-    }),
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1Expression(input.Filter, context) }),
     ...(input.Granularity !== undefined && { Granularity: input.Granularity }),
     ...(input.Metric !== undefined && { Metric: input.Metric }),
-    ...(input.PredictionIntervalLevel !== undefined && {
-      PredictionIntervalLevel: input.PredictionIntervalLevel,
-    }),
-    ...(input.TimePeriod !== undefined && {
-      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context),
-    }),
+    ...(input.PredictionIntervalLevel !== undefined && { PredictionIntervalLevel: input.PredictionIntervalLevel }),
+    ...(input.TimePeriod !== undefined && { TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context) }),
   };
 };
 
@@ -2323,9 +2203,7 @@ const serializeAws_json1_1ServiceSpecification = (input: ServiceSpecification, c
 const serializeAws_json1_1TagValues = (input: TagValues, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_json1_1Values(input.Values, context),
-    }),
+    ...(input.Values !== undefined && { Values: serializeAws_json1_1Values(input.Values, context) }),
   };
 };
 
@@ -2334,13 +2212,9 @@ const serializeAws_json1_1UpdateCostCategoryDefinitionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CostCategoryArn !== undefined && {
-      CostCategoryArn: input.CostCategoryArn,
-    }),
+    ...(input.CostCategoryArn !== undefined && { CostCategoryArn: input.CostCategoryArn }),
     ...(input.RuleVersion !== undefined && { RuleVersion: input.RuleVersion }),
-    ...(input.Rules !== undefined && {
-      Rules: serializeAws_json1_1CostCategoryRulesList(input.Rules, context),
-    }),
+    ...(input.Rules !== undefined && { Rules: serializeAws_json1_1CostCategoryRulesList(input.Rules, context) }),
   };
 };
 

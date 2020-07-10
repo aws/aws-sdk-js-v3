@@ -894,13 +894,9 @@ const serializeAws_json1_1GetComplianceSummaryInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GroupBy !== undefined && {
-      GroupBy: serializeAws_json1_1GroupBy(input.GroupBy, context),
-    }),
+    ...(input.GroupBy !== undefined && { GroupBy: serializeAws_json1_1GroupBy(input.GroupBy, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.PaginationToken !== undefined && {
-      PaginationToken: input.PaginationToken,
-    }),
+    ...(input.PaginationToken !== undefined && { PaginationToken: input.PaginationToken }),
     ...(input.RegionFilters !== undefined && {
       RegionFilters: serializeAws_json1_1RegionFilterList(input.RegionFilters, context),
     }),
@@ -921,21 +917,13 @@ const serializeAws_json1_1GetResourcesInput = (input: GetResourcesInput, context
     ...(input.ExcludeCompliantResources !== undefined && {
       ExcludeCompliantResources: input.ExcludeCompliantResources,
     }),
-    ...(input.IncludeComplianceDetails !== undefined && {
-      IncludeComplianceDetails: input.IncludeComplianceDetails,
-    }),
-    ...(input.PaginationToken !== undefined && {
-      PaginationToken: input.PaginationToken,
-    }),
+    ...(input.IncludeComplianceDetails !== undefined && { IncludeComplianceDetails: input.IncludeComplianceDetails }),
+    ...(input.PaginationToken !== undefined && { PaginationToken: input.PaginationToken }),
     ...(input.ResourceTypeFilters !== undefined && {
       ResourceTypeFilters: serializeAws_json1_1ResourceTypeFilterList(input.ResourceTypeFilters, context),
     }),
-    ...(input.ResourcesPerPage !== undefined && {
-      ResourcesPerPage: input.ResourcesPerPage,
-    }),
-    ...(input.TagFilters !== undefined && {
-      TagFilters: serializeAws_json1_1TagFilterList(input.TagFilters, context),
-    }),
+    ...(input.ResourcesPerPage !== undefined && { ResourcesPerPage: input.ResourcesPerPage }),
+    ...(input.TagFilters !== undefined && { TagFilters: serializeAws_json1_1TagFilterList(input.TagFilters, context) }),
     ...(input.TagsPerPage !== undefined && { TagsPerPage: input.TagsPerPage }),
   };
 };
@@ -943,9 +931,7 @@ const serializeAws_json1_1GetResourcesInput = (input: GetResourcesInput, context
 const serializeAws_json1_1GetTagKeysInput = (input: GetTagKeysInput, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.PaginationToken !== undefined && {
-      PaginationToken: input.PaginationToken,
-    }),
+    ...(input.PaginationToken !== undefined && { PaginationToken: input.PaginationToken }),
   };
 };
 
@@ -953,9 +939,7 @@ const serializeAws_json1_1GetTagValuesInput = (input: GetTagValuesInput, context
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.PaginationToken !== undefined && {
-      PaginationToken: input.PaginationToken,
-    }),
+    ...(input.PaginationToken !== undefined && { PaginationToken: input.PaginationToken }),
   };
 };
 
@@ -987,9 +971,7 @@ const serializeAws_json1_1StartReportCreationInput = (
 const serializeAws_json1_1TagFilter = (input: TagFilter, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_json1_1TagValueList(input.Values, context),
-    }),
+    ...(input.Values !== undefined && { Values: serializeAws_json1_1TagValueList(input.Values, context) }),
   };
 };
 
@@ -1020,9 +1002,7 @@ const serializeAws_json1_1TagResourcesInput = (input: TagResourcesInput, context
     ...(input.ResourceARNList !== undefined && {
       ResourceARNList: serializeAws_json1_1ResourceARNList(input.ResourceARNList, context),
     }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagMap(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagMap(input.Tags, context) }),
   };
 };
 
@@ -1039,9 +1019,7 @@ const serializeAws_json1_1UntagResourcesInput = (input: UntagResourcesInput, con
     ...(input.ResourceARNList !== undefined && {
       ResourceARNList: serializeAws_json1_1ResourceARNList(input.ResourceARNList, context),
     }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeyListForUntag(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyListForUntag(input.TagKeys, context) }),
   };
 };
 

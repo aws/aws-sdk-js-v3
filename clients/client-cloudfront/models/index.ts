@@ -951,9 +951,7 @@ export interface CreateDistributionResult {
 export namespace CreateDistributionResult {
   export const filterSensitiveLog = (obj: CreateDistributionResult): any => ({
     ...obj,
-    ...(obj.Distribution && {
-      Distribution: Distribution.filterSensitiveLog(obj.Distribution),
-    }),
+    ...(obj.Distribution && { Distribution: Distribution.filterSensitiveLog(obj.Distribution) }),
   });
   export const isa = (o: any): o is CreateDistributionResult => __isa(o, "CreateDistributionResult");
 }
@@ -1005,9 +1003,7 @@ export interface CreateDistributionWithTagsResult {
 export namespace CreateDistributionWithTagsResult {
   export const filterSensitiveLog = (obj: CreateDistributionWithTagsResult): any => ({
     ...obj,
-    ...(obj.Distribution && {
-      Distribution: Distribution.filterSensitiveLog(obj.Distribution),
-    }),
+    ...(obj.Distribution && { Distribution: Distribution.filterSensitiveLog(obj.Distribution) }),
   });
   export const isa = (o: any): o is CreateDistributionWithTagsResult => __isa(o, "CreateDistributionWithTagsResult");
 }
@@ -3104,9 +3100,7 @@ export interface GetDistributionResult {
 export namespace GetDistributionResult {
   export const filterSensitiveLog = (obj: GetDistributionResult): any => ({
     ...obj,
-    ...(obj.Distribution && {
-      Distribution: Distribution.filterSensitiveLog(obj.Distribution),
-    }),
+    ...(obj.Distribution && { Distribution: Distribution.filterSensitiveLog(obj.Distribution) }),
   });
   export const isa = (o: any): o is GetDistributionResult => __isa(o, "GetDistributionResult");
 }
@@ -6697,9 +6691,7 @@ export interface UpdateDistributionResult {
 export namespace UpdateDistributionResult {
   export const filterSensitiveLog = (obj: UpdateDistributionResult): any => ({
     ...obj,
-    ...(obj.Distribution && {
-      Distribution: Distribution.filterSensitiveLog(obj.Distribution),
-    }),
+    ...(obj.Distribution && { Distribution: Distribution.filterSensitiveLog(obj.Distribution) }),
   });
   export const isa = (o: any): o is UpdateDistributionResult => __isa(o, "UpdateDistributionResult");
 }

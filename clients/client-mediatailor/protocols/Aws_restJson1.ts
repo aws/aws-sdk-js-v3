@@ -110,9 +110,7 @@ export const serializeAws_restJson1ListPlaybackConfigurationsCommand = async (
   };
   let resolvedPath = "/playbackConfigurations";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      MaxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
@@ -169,9 +167,7 @@ export const serializeAws_restJson1PutPlaybackConfigurationCommand = async (
   let resolvedPath = "/playbackConfiguration";
   let body: any;
   body = JSON.stringify({
-    ...(input.AdDecisionServerUrl !== undefined && {
-      AdDecisionServerUrl: input.AdDecisionServerUrl,
-    }),
+    ...(input.AdDecisionServerUrl !== undefined && { AdDecisionServerUrl: input.AdDecisionServerUrl }),
     ...(input.CdnConfiguration !== undefined && {
       CdnConfiguration: serializeAws_restJson1CdnConfiguration(input.CdnConfiguration, context),
     }),
@@ -183,15 +179,9 @@ export const serializeAws_restJson1PutPlaybackConfigurationCommand = async (
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.SlateAdUrl !== undefined && { SlateAdUrl: input.SlateAdUrl }),
-    ...(input.Tags !== undefined && {
-      tags: serializeAws_restJson1__mapOf__string(input.Tags, context),
-    }),
-    ...(input.TranscodeProfileName !== undefined && {
-      TranscodeProfileName: input.TranscodeProfileName,
-    }),
-    ...(input.VideoContentSourceUrl !== undefined && {
-      VideoContentSourceUrl: input.VideoContentSourceUrl,
-    }),
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
+    ...(input.TranscodeProfileName !== undefined && { TranscodeProfileName: input.TranscodeProfileName }),
+    ...(input.VideoContentSourceUrl !== undefined && { VideoContentSourceUrl: input.VideoContentSourceUrl }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -224,9 +214,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && {
-      tags: serializeAws_restJson1__mapOf__string(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -258,9 +246,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && {
-      tagKeys: (input.TagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -757,12 +743,8 @@ const serializeAws_restJson1__mapOf__string = (input: { [key: string]: string },
 
 const serializeAws_restJson1CdnConfiguration = (input: CdnConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.AdSegmentUrlPrefix !== undefined && {
-      AdSegmentUrlPrefix: input.AdSegmentUrlPrefix,
-    }),
-    ...(input.ContentSegmentUrlPrefix !== undefined && {
-      ContentSegmentUrlPrefix: input.ContentSegmentUrlPrefix,
-    }),
+    ...(input.AdSegmentUrlPrefix !== undefined && { AdSegmentUrlPrefix: input.AdSegmentUrlPrefix }),
+    ...(input.ContentSegmentUrlPrefix !== undefined && { ContentSegmentUrlPrefix: input.ContentSegmentUrlPrefix }),
   };
 };
 
@@ -772,9 +754,7 @@ const serializeAws_restJson1DashConfigurationForPut = (
 ): any => {
   return {
     ...(input.MpdLocation !== undefined && { MpdLocation: input.MpdLocation }),
-    ...(input.OriginManifestType !== undefined && {
-      OriginManifestType: input.OriginManifestType,
-    }),
+    ...(input.OriginManifestType !== undefined && { OriginManifestType: input.OriginManifestType }),
   };
 };
 
@@ -783,12 +763,8 @@ const serializeAws_restJson1LivePreRollConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdDecisionServerUrl !== undefined && {
-      AdDecisionServerUrl: input.AdDecisionServerUrl,
-    }),
-    ...(input.MaxDurationSeconds !== undefined && {
-      MaxDurationSeconds: input.MaxDurationSeconds,
-    }),
+    ...(input.AdDecisionServerUrl !== undefined && { AdDecisionServerUrl: input.AdDecisionServerUrl }),
+    ...(input.MaxDurationSeconds !== undefined && { MaxDurationSeconds: input.MaxDurationSeconds }),
   };
 };
 

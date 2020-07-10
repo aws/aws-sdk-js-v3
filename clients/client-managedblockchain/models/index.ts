@@ -1121,9 +1121,7 @@ export interface MemberFrameworkConfiguration {
 export namespace MemberFrameworkConfiguration {
   export const filterSensitiveLog = (obj: MemberFrameworkConfiguration): any => ({
     ...obj,
-    ...(obj.Fabric && {
-      Fabric: MemberFabricConfiguration.filterSensitiveLog(obj.Fabric),
-    }),
+    ...(obj.Fabric && { Fabric: MemberFabricConfiguration.filterSensitiveLog(obj.Fabric) }),
   });
   export const isa = (o: any): o is MemberFrameworkConfiguration => __isa(o, "MemberFrameworkConfiguration");
 }

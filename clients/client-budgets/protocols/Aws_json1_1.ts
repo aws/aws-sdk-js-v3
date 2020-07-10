@@ -1623,9 +1623,7 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
 
 const serializeAws_json1_1Budget = (input: Budget, context: __SerdeContext): any => {
   return {
-    ...(input.BudgetLimit !== undefined && {
-      BudgetLimit: serializeAws_json1_1Spend(input.BudgetLimit, context),
-    }),
+    ...(input.BudgetLimit !== undefined && { BudgetLimit: serializeAws_json1_1Spend(input.BudgetLimit, context) }),
     ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
     ...(input.BudgetType !== undefined && { BudgetType: input.BudgetType }),
     ...(input.CalculatedSpend !== undefined && {
@@ -1634,27 +1632,19 @@ const serializeAws_json1_1Budget = (input: Budget, context: __SerdeContext): any
     ...(input.CostFilters !== undefined && {
       CostFilters: serializeAws_json1_1CostFilters(input.CostFilters, context),
     }),
-    ...(input.CostTypes !== undefined && {
-      CostTypes: serializeAws_json1_1CostTypes(input.CostTypes, context),
-    }),
-    ...(input.LastUpdatedTime !== undefined && {
-      LastUpdatedTime: Math.round(input.LastUpdatedTime.getTime() / 1000),
-    }),
+    ...(input.CostTypes !== undefined && { CostTypes: serializeAws_json1_1CostTypes(input.CostTypes, context) }),
+    ...(input.LastUpdatedTime !== undefined && { LastUpdatedTime: Math.round(input.LastUpdatedTime.getTime() / 1000) }),
     ...(input.PlannedBudgetLimits !== undefined && {
       PlannedBudgetLimits: serializeAws_json1_1PlannedBudgetLimits(input.PlannedBudgetLimits, context),
     }),
-    ...(input.TimePeriod !== undefined && {
-      TimePeriod: serializeAws_json1_1TimePeriod(input.TimePeriod, context),
-    }),
+    ...(input.TimePeriod !== undefined && { TimePeriod: serializeAws_json1_1TimePeriod(input.TimePeriod, context) }),
     ...(input.TimeUnit !== undefined && { TimeUnit: input.TimeUnit }),
   };
 };
 
 const serializeAws_json1_1CalculatedSpend = (input: CalculatedSpend, context: __SerdeContext): any => {
   return {
-    ...(input.ActualSpend !== undefined && {
-      ActualSpend: serializeAws_json1_1Spend(input.ActualSpend, context),
-    }),
+    ...(input.ActualSpend !== undefined && { ActualSpend: serializeAws_json1_1Spend(input.ActualSpend, context) }),
     ...(input.ForecastedSpend !== undefined && {
       ForecastedSpend: serializeAws_json1_1Spend(input.ForecastedSpend, context),
     }),
@@ -1673,34 +1663,16 @@ const serializeAws_json1_1CostFilters = (input: { [key: string]: string[] }, con
 
 const serializeAws_json1_1CostTypes = (input: CostTypes, context: __SerdeContext): any => {
   return {
-    ...(input.IncludeCredit !== undefined && {
-      IncludeCredit: input.IncludeCredit,
-    }),
-    ...(input.IncludeDiscount !== undefined && {
-      IncludeDiscount: input.IncludeDiscount,
-    }),
-    ...(input.IncludeOtherSubscription !== undefined && {
-      IncludeOtherSubscription: input.IncludeOtherSubscription,
-    }),
-    ...(input.IncludeRecurring !== undefined && {
-      IncludeRecurring: input.IncludeRecurring,
-    }),
-    ...(input.IncludeRefund !== undefined && {
-      IncludeRefund: input.IncludeRefund,
-    }),
-    ...(input.IncludeSubscription !== undefined && {
-      IncludeSubscription: input.IncludeSubscription,
-    }),
-    ...(input.IncludeSupport !== undefined && {
-      IncludeSupport: input.IncludeSupport,
-    }),
+    ...(input.IncludeCredit !== undefined && { IncludeCredit: input.IncludeCredit }),
+    ...(input.IncludeDiscount !== undefined && { IncludeDiscount: input.IncludeDiscount }),
+    ...(input.IncludeOtherSubscription !== undefined && { IncludeOtherSubscription: input.IncludeOtherSubscription }),
+    ...(input.IncludeRecurring !== undefined && { IncludeRecurring: input.IncludeRecurring }),
+    ...(input.IncludeRefund !== undefined && { IncludeRefund: input.IncludeRefund }),
+    ...(input.IncludeSubscription !== undefined && { IncludeSubscription: input.IncludeSubscription }),
+    ...(input.IncludeSupport !== undefined && { IncludeSupport: input.IncludeSupport }),
     ...(input.IncludeTax !== undefined && { IncludeTax: input.IncludeTax }),
-    ...(input.IncludeUpfront !== undefined && {
-      IncludeUpfront: input.IncludeUpfront,
-    }),
-    ...(input.UseAmortized !== undefined && {
-      UseAmortized: input.UseAmortized,
-    }),
+    ...(input.IncludeUpfront !== undefined && { IncludeUpfront: input.IncludeUpfront }),
+    ...(input.UseAmortized !== undefined && { UseAmortized: input.UseAmortized }),
     ...(input.UseBlended !== undefined && { UseBlended: input.UseBlended }),
   };
 };
@@ -1708,9 +1680,7 @@ const serializeAws_json1_1CostTypes = (input: CostTypes, context: __SerdeContext
 const serializeAws_json1_1CreateBudgetRequest = (input: CreateBudgetRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.Budget !== undefined && {
-      Budget: serializeAws_json1_1Budget(input.Budget, context),
-    }),
+    ...(input.Budget !== undefined && { Budget: serializeAws_json1_1Budget(input.Budget, context) }),
     ...(input.NotificationsWithSubscribers !== undefined && {
       NotificationsWithSubscribers: serializeAws_json1_1NotificationWithSubscribersList(
         input.NotificationsWithSubscribers,
@@ -1743,9 +1713,7 @@ const serializeAws_json1_1CreateSubscriberRequest = (input: CreateSubscriberRequ
     ...(input.Notification !== undefined && {
       Notification: serializeAws_json1_1Notification(input.Notification, context),
     }),
-    ...(input.Subscriber !== undefined && {
-      Subscriber: serializeAws_json1_1Subscriber(input.Subscriber, context),
-    }),
+    ...(input.Subscriber !== undefined && { Subscriber: serializeAws_json1_1Subscriber(input.Subscriber, context) }),
   };
 };
 
@@ -1776,9 +1744,7 @@ const serializeAws_json1_1DeleteSubscriberRequest = (input: DeleteSubscriberRequ
     ...(input.Notification !== undefined && {
       Notification: serializeAws_json1_1Notification(input.Notification, context),
     }),
-    ...(input.Subscriber !== undefined && {
-      Subscriber: serializeAws_json1_1Subscriber(input.Subscriber, context),
-    }),
+    ...(input.Subscriber !== undefined && { Subscriber: serializeAws_json1_1Subscriber(input.Subscriber, context) }),
   };
 };
 
@@ -1791,9 +1757,7 @@ const serializeAws_json1_1DescribeBudgetPerformanceHistoryRequest = (
     ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.TimePeriod !== undefined && {
-      TimePeriod: serializeAws_json1_1TimePeriod(input.TimePeriod, context),
-    }),
+    ...(input.TimePeriod !== undefined && { TimePeriod: serializeAws_json1_1TimePeriod(input.TimePeriod, context) }),
   };
 };
 
@@ -1845,19 +1809,11 @@ const serializeAws_json1_1DimensionValues = (input: string[], context: __SerdeCo
 
 const serializeAws_json1_1Notification = (input: Notification, context: __SerdeContext): any => {
   return {
-    ...(input.ComparisonOperator !== undefined && {
-      ComparisonOperator: input.ComparisonOperator,
-    }),
-    ...(input.NotificationState !== undefined && {
-      NotificationState: input.NotificationState,
-    }),
-    ...(input.NotificationType !== undefined && {
-      NotificationType: input.NotificationType,
-    }),
+    ...(input.ComparisonOperator !== undefined && { ComparisonOperator: input.ComparisonOperator }),
+    ...(input.NotificationState !== undefined && { NotificationState: input.NotificationState }),
+    ...(input.NotificationType !== undefined && { NotificationType: input.NotificationType }),
     ...(input.Threshold !== undefined && { Threshold: input.Threshold }),
-    ...(input.ThresholdType !== undefined && {
-      ThresholdType: input.ThresholdType,
-    }),
+    ...(input.ThresholdType !== undefined && { ThresholdType: input.ThresholdType }),
   };
 };
 
@@ -1902,9 +1858,7 @@ const serializeAws_json1_1Spend = (input: Spend, context: __SerdeContext): any =
 const serializeAws_json1_1Subscriber = (input: Subscriber, context: __SerdeContext): any => {
   return {
     ...(input.Address !== undefined && { Address: input.Address }),
-    ...(input.SubscriptionType !== undefined && {
-      SubscriptionType: input.SubscriptionType,
-    }),
+    ...(input.SubscriptionType !== undefined && { SubscriptionType: input.SubscriptionType }),
   };
 };
 
@@ -1914,21 +1868,15 @@ const serializeAws_json1_1Subscribers = (input: Subscriber[], context: __SerdeCo
 
 const serializeAws_json1_1TimePeriod = (input: TimePeriod, context: __SerdeContext): any => {
   return {
-    ...(input.End !== undefined && {
-      End: Math.round(input.End.getTime() / 1000),
-    }),
-    ...(input.Start !== undefined && {
-      Start: Math.round(input.Start.getTime() / 1000),
-    }),
+    ...(input.End !== undefined && { End: Math.round(input.End.getTime() / 1000) }),
+    ...(input.Start !== undefined && { Start: Math.round(input.Start.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1UpdateBudgetRequest = (input: UpdateBudgetRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.NewBudget !== undefined && {
-      NewBudget: serializeAws_json1_1Budget(input.NewBudget, context),
-    }),
+    ...(input.NewBudget !== undefined && { NewBudget: serializeAws_json1_1Budget(input.NewBudget, context) }),
   };
 };
 

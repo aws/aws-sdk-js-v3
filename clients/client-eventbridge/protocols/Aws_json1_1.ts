@@ -2839,15 +2839,11 @@ const serializeAws_json1_1ActivateEventSourceRequest = (
 
 const serializeAws_json1_1AwsVpcConfiguration = (input: AwsVpcConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.AssignPublicIp !== undefined && {
-      AssignPublicIp: input.AssignPublicIp,
-    }),
+    ...(input.AssignPublicIp !== undefined && { AssignPublicIp: input.AssignPublicIp }),
     ...(input.SecurityGroups !== undefined && {
       SecurityGroups: serializeAws_json1_1StringList(input.SecurityGroups, context),
     }),
-    ...(input.Subnets !== undefined && {
-      Subnets: serializeAws_json1_1StringList(input.Subnets, context),
-    }),
+    ...(input.Subnets !== undefined && { Subnets: serializeAws_json1_1StringList(input.Subnets, context) }),
   };
 };
 
@@ -2862,9 +2858,7 @@ const serializeAws_json1_1BatchParameters = (input: BatchParameters, context: __
     ...(input.ArrayProperties !== undefined && {
       ArrayProperties: serializeAws_json1_1BatchArrayProperties(input.ArrayProperties, context),
     }),
-    ...(input.JobDefinition !== undefined && {
-      JobDefinition: input.JobDefinition,
-    }),
+    ...(input.JobDefinition !== undefined && { JobDefinition: input.JobDefinition }),
     ...(input.JobName !== undefined && { JobName: input.JobName }),
     ...(input.RetryStrategy !== undefined && {
       RetryStrategy: serializeAws_json1_1BatchRetryStrategy(input.RetryStrategy, context),
@@ -2888,9 +2882,7 @@ const serializeAws_json1_1Condition = (input: Condition, context: __SerdeContext
 
 const serializeAws_json1_1CreateEventBusRequest = (input: CreateEventBusRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EventSourceName !== undefined && {
-      EventSourceName: input.EventSourceName,
-    }),
+    ...(input.EventSourceName !== undefined && { EventSourceName: input.EventSourceName }),
     ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
@@ -2932,9 +2924,7 @@ const serializeAws_json1_1DeletePartnerEventSourceRequest = (
 
 const serializeAws_json1_1DeleteRuleRequest = (input: DeleteRuleRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EventBusName !== undefined && {
-      EventBusName: input.EventBusName,
-    }),
+    ...(input.EventBusName !== undefined && { EventBusName: input.EventBusName }),
     ...(input.Force !== undefined && { Force: input.Force }),
     ...(input.Name !== undefined && { Name: input.Name }),
   };
@@ -2966,18 +2956,14 @@ const serializeAws_json1_1DescribePartnerEventSourceRequest = (
 
 const serializeAws_json1_1DescribeRuleRequest = (input: DescribeRuleRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EventBusName !== undefined && {
-      EventBusName: input.EventBusName,
-    }),
+    ...(input.EventBusName !== undefined && { EventBusName: input.EventBusName }),
     ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1DisableRuleRequest = (input: DisableRuleRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EventBusName !== undefined && {
-      EventBusName: input.EventBusName,
-    }),
+    ...(input.EventBusName !== undefined && { EventBusName: input.EventBusName }),
     ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
@@ -2989,21 +2975,15 @@ const serializeAws_json1_1EcsParameters = (input: EcsParameters, context: __Serd
     ...(input.NetworkConfiguration !== undefined && {
       NetworkConfiguration: serializeAws_json1_1NetworkConfiguration(input.NetworkConfiguration, context),
     }),
-    ...(input.PlatformVersion !== undefined && {
-      PlatformVersion: input.PlatformVersion,
-    }),
+    ...(input.PlatformVersion !== undefined && { PlatformVersion: input.PlatformVersion }),
     ...(input.TaskCount !== undefined && { TaskCount: input.TaskCount }),
-    ...(input.TaskDefinitionArn !== undefined && {
-      TaskDefinitionArn: input.TaskDefinitionArn,
-    }),
+    ...(input.TaskDefinitionArn !== undefined && { TaskDefinitionArn: input.TaskDefinitionArn }),
   };
 };
 
 const serializeAws_json1_1EnableRuleRequest = (input: EnableRuleRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EventBusName !== undefined && {
-      EventBusName: input.EventBusName,
-    }),
+    ...(input.EventBusName !== undefined && { EventBusName: input.EventBusName }),
     ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
@@ -3017,17 +2997,13 @@ const serializeAws_json1_1InputTransformer = (input: InputTransformer, context: 
     ...(input.InputPathsMap !== undefined && {
       InputPathsMap: serializeAws_json1_1TransformerPaths(input.InputPathsMap, context),
     }),
-    ...(input.InputTemplate !== undefined && {
-      InputTemplate: input.InputTemplate,
-    }),
+    ...(input.InputTemplate !== undefined && { InputTemplate: input.InputTemplate }),
   };
 };
 
 const serializeAws_json1_1KinesisParameters = (input: KinesisParameters, context: __SerdeContext): any => {
   return {
-    ...(input.PartitionKeyPath !== undefined && {
-      PartitionKeyPath: input.PartitionKeyPath,
-    }),
+    ...(input.PartitionKeyPath !== undefined && { PartitionKeyPath: input.PartitionKeyPath }),
   };
 };
 
@@ -3052,9 +3028,7 @@ const serializeAws_json1_1ListPartnerEventSourceAccountsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EventSourceName !== undefined && {
-      EventSourceName: input.EventSourceName,
-    }),
+    ...(input.EventSourceName !== undefined && { EventSourceName: input.EventSourceName }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -3076,9 +3050,7 @@ const serializeAws_json1_1ListRuleNamesByTargetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EventBusName !== undefined && {
-      EventBusName: input.EventBusName,
-    }),
+    ...(input.EventBusName !== undefined && { EventBusName: input.EventBusName }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.TargetArn !== undefined && { TargetArn: input.TargetArn }),
@@ -3087,9 +3059,7 @@ const serializeAws_json1_1ListRuleNamesByTargetRequest = (
 
 const serializeAws_json1_1ListRulesRequest = (input: ListRulesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EventBusName !== undefined && {
-      EventBusName: input.EventBusName,
-    }),
+    ...(input.EventBusName !== undefined && { EventBusName: input.EventBusName }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.NamePrefix !== undefined && { NamePrefix: input.NamePrefix }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -3110,9 +3080,7 @@ const serializeAws_json1_1ListTargetsByRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EventBusName !== undefined && {
-      EventBusName: input.EventBusName,
-    }),
+    ...(input.EventBusName !== undefined && { EventBusName: input.EventBusName }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.Rule !== undefined && { Rule: input.Rule }),
@@ -3139,16 +3107,12 @@ const serializeAws_json1_1PutEventsRequestEntry = (input: PutEventsRequestEntry,
   return {
     ...(input.Detail !== undefined && { Detail: input.Detail }),
     ...(input.DetailType !== undefined && { DetailType: input.DetailType }),
-    ...(input.EventBusName !== undefined && {
-      EventBusName: input.EventBusName,
-    }),
+    ...(input.EventBusName !== undefined && { EventBusName: input.EventBusName }),
     ...(input.Resources !== undefined && {
       Resources: serializeAws_json1_1EventResourceList(input.Resources, context),
     }),
     ...(input.Source !== undefined && { Source: input.Source }),
-    ...(input.Time !== undefined && {
-      Time: Math.round(input.Time.getTime() / 1000),
-    }),
+    ...(input.Time !== undefined && { Time: Math.round(input.Time.getTime() / 1000) }),
   };
 };
 
@@ -3178,9 +3142,7 @@ const serializeAws_json1_1PutPartnerEventsRequestEntry = (
       Resources: serializeAws_json1_1EventResourceList(input.Resources, context),
     }),
     ...(input.Source !== undefined && { Source: input.Source }),
-    ...(input.Time !== undefined && {
-      Time: Math.round(input.Time.getTime() / 1000),
-    }),
+    ...(input.Time !== undefined && { Time: Math.round(input.Time.getTime() / 1000) }),
   };
 };
 
@@ -3194,12 +3156,8 @@ const serializeAws_json1_1PutPartnerEventsRequestEntryList = (
 const serializeAws_json1_1PutPermissionRequest = (input: PutPermissionRequest, context: __SerdeContext): any => {
   return {
     ...(input.Action !== undefined && { Action: input.Action }),
-    ...(input.Condition !== undefined && {
-      Condition: serializeAws_json1_1Condition(input.Condition, context),
-    }),
-    ...(input.EventBusName !== undefined && {
-      EventBusName: input.EventBusName,
-    }),
+    ...(input.Condition !== undefined && { Condition: serializeAws_json1_1Condition(input.Condition, context) }),
+    ...(input.EventBusName !== undefined && { EventBusName: input.EventBusName }),
     ...(input.Principal !== undefined && { Principal: input.Principal }),
     ...(input.StatementId !== undefined && { StatementId: input.StatementId }),
   };
@@ -3208,54 +3166,36 @@ const serializeAws_json1_1PutPermissionRequest = (input: PutPermissionRequest, c
 const serializeAws_json1_1PutRuleRequest = (input: PutRuleRequest, context: __SerdeContext): any => {
   return {
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.EventBusName !== undefined && {
-      EventBusName: input.EventBusName,
-    }),
-    ...(input.EventPattern !== undefined && {
-      EventPattern: input.EventPattern,
-    }),
+    ...(input.EventBusName !== undefined && { EventBusName: input.EventBusName }),
+    ...(input.EventPattern !== undefined && { EventPattern: input.EventPattern }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
-    ...(input.ScheduleExpression !== undefined && {
-      ScheduleExpression: input.ScheduleExpression,
-    }),
+    ...(input.ScheduleExpression !== undefined && { ScheduleExpression: input.ScheduleExpression }),
     ...(input.State !== undefined && { State: input.State }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1PutTargetsRequest = (input: PutTargetsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EventBusName !== undefined && {
-      EventBusName: input.EventBusName,
-    }),
+    ...(input.EventBusName !== undefined && { EventBusName: input.EventBusName }),
     ...(input.Rule !== undefined && { Rule: input.Rule }),
-    ...(input.Targets !== undefined && {
-      Targets: serializeAws_json1_1TargetList(input.Targets, context),
-    }),
+    ...(input.Targets !== undefined && { Targets: serializeAws_json1_1TargetList(input.Targets, context) }),
   };
 };
 
 const serializeAws_json1_1RemovePermissionRequest = (input: RemovePermissionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EventBusName !== undefined && {
-      EventBusName: input.EventBusName,
-    }),
+    ...(input.EventBusName !== undefined && { EventBusName: input.EventBusName }),
     ...(input.StatementId !== undefined && { StatementId: input.StatementId }),
   };
 };
 
 const serializeAws_json1_1RemoveTargetsRequest = (input: RemoveTargetsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EventBusName !== undefined && {
-      EventBusName: input.EventBusName,
-    }),
+    ...(input.EventBusName !== undefined && { EventBusName: input.EventBusName }),
     ...(input.Force !== undefined && { Force: input.Force }),
-    ...(input.Ids !== undefined && {
-      Ids: serializeAws_json1_1TargetIdList(input.Ids, context),
-    }),
+    ...(input.Ids !== undefined && { Ids: serializeAws_json1_1TargetIdList(input.Ids, context) }),
     ...(input.Rule !== undefined && { Rule: input.Rule }),
   };
 };
@@ -3271,9 +3211,7 @@ const serializeAws_json1_1RunCommandParameters = (input: RunCommandParameters, c
 const serializeAws_json1_1RunCommandTarget = (input: RunCommandTarget, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_json1_1RunCommandTargetValues(input.Values, context),
-    }),
+    ...(input.Values !== undefined && { Values: serializeAws_json1_1RunCommandTargetValues(input.Values, context) }),
   };
 };
 
@@ -3287,9 +3225,7 @@ const serializeAws_json1_1RunCommandTargetValues = (input: string[], context: __
 
 const serializeAws_json1_1SqsParameters = (input: SqsParameters, context: __SerdeContext): any => {
   return {
-    ...(input.MessageGroupId !== undefined && {
-      MessageGroupId: input.MessageGroupId,
-    }),
+    ...(input.MessageGroupId !== undefined && { MessageGroupId: input.MessageGroupId }),
   };
 };
 
@@ -3315,9 +3251,7 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -3360,9 +3294,7 @@ const serializeAws_json1_1TargetList = (input: Target[], context: __SerdeContext
 const serializeAws_json1_1TestEventPatternRequest = (input: TestEventPatternRequest, context: __SerdeContext): any => {
   return {
     ...(input.Event !== undefined && { Event: input.Event }),
-    ...(input.EventPattern !== undefined && {
-      EventPattern: input.EventPattern,
-    }),
+    ...(input.EventPattern !== undefined && { EventPattern: input.EventPattern }),
   };
 };
 
@@ -3379,9 +3311,7 @@ const serializeAws_json1_1TransformerPaths = (input: { [key: string]: string }, 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 

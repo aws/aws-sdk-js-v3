@@ -50,19 +50,13 @@ export const serializeAws_restJson1GetDASHStreamingSessionURLCommand = async (
     ...(input.DASHFragmentSelector !== undefined && {
       DASHFragmentSelector: serializeAws_restJson1DASHFragmentSelector(input.DASHFragmentSelector, context),
     }),
-    ...(input.DisplayFragmentNumber !== undefined && {
-      DisplayFragmentNumber: input.DisplayFragmentNumber,
-    }),
-    ...(input.DisplayFragmentTimestamp !== undefined && {
-      DisplayFragmentTimestamp: input.DisplayFragmentTimestamp,
-    }),
+    ...(input.DisplayFragmentNumber !== undefined && { DisplayFragmentNumber: input.DisplayFragmentNumber }),
+    ...(input.DisplayFragmentTimestamp !== undefined && { DisplayFragmentTimestamp: input.DisplayFragmentTimestamp }),
     ...(input.Expires !== undefined && { Expires: input.Expires }),
     ...(input.MaxManifestFragmentResults !== undefined && {
       MaxManifestFragmentResults: input.MaxManifestFragmentResults,
     }),
-    ...(input.PlaybackMode !== undefined && {
-      PlaybackMode: input.PlaybackMode,
-    }),
+    ...(input.PlaybackMode !== undefined && { PlaybackMode: input.PlaybackMode }),
     ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
     ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
   });
@@ -88,15 +82,9 @@ export const serializeAws_restJson1GetHLSStreamingSessionURLCommand = async (
   let resolvedPath = "/getHLSStreamingSessionURL";
   let body: any;
   body = JSON.stringify({
-    ...(input.ContainerFormat !== undefined && {
-      ContainerFormat: input.ContainerFormat,
-    }),
-    ...(input.DiscontinuityMode !== undefined && {
-      DiscontinuityMode: input.DiscontinuityMode,
-    }),
-    ...(input.DisplayFragmentTimestamp !== undefined && {
-      DisplayFragmentTimestamp: input.DisplayFragmentTimestamp,
-    }),
+    ...(input.ContainerFormat !== undefined && { ContainerFormat: input.ContainerFormat }),
+    ...(input.DiscontinuityMode !== undefined && { DiscontinuityMode: input.DiscontinuityMode }),
+    ...(input.DisplayFragmentTimestamp !== undefined && { DisplayFragmentTimestamp: input.DisplayFragmentTimestamp }),
     ...(input.Expires !== undefined && { Expires: input.Expires }),
     ...(input.HLSFragmentSelector !== undefined && {
       HLSFragmentSelector: serializeAws_restJson1HLSFragmentSelector(input.HLSFragmentSelector, context),
@@ -104,9 +92,7 @@ export const serializeAws_restJson1GetHLSStreamingSessionURLCommand = async (
     ...(input.MaxMediaPlaylistFragmentResults !== undefined && {
       MaxMediaPlaylistFragmentResults: input.MaxMediaPlaylistFragmentResults,
     }),
-    ...(input.PlaybackMode !== undefined && {
-      PlaybackMode: input.PlaybackMode,
-    }),
+    ...(input.PlaybackMode !== undefined && { PlaybackMode: input.PlaybackMode }),
     ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
     ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
   });
@@ -706,9 +692,7 @@ const deserializeAws_restJson1UnsupportedStreamMediaTypeExceptionResponse = asyn
 
 const serializeAws_restJson1DASHFragmentSelector = (input: DASHFragmentSelector, context: __SerdeContext): any => {
   return {
-    ...(input.FragmentSelectorType !== undefined && {
-      FragmentSelectorType: input.FragmentSelectorType,
-    }),
+    ...(input.FragmentSelectorType !== undefined && { FragmentSelectorType: input.FragmentSelectorType }),
     ...(input.TimestampRange !== undefined && {
       TimestampRange: serializeAws_restJson1DASHTimestampRange(input.TimestampRange, context),
     }),
@@ -717,12 +701,8 @@ const serializeAws_restJson1DASHFragmentSelector = (input: DASHFragmentSelector,
 
 const serializeAws_restJson1DASHTimestampRange = (input: DASHTimestampRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndTimestamp !== undefined && {
-      EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000),
-    }),
-    ...(input.StartTimestamp !== undefined && {
-      StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000),
-    }),
+    ...(input.EndTimestamp !== undefined && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
+    ...(input.StartTimestamp !== undefined && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 
@@ -732,9 +712,7 @@ const serializeAws_restJson1FragmentNumberList = (input: string[], context: __Se
 
 const serializeAws_restJson1FragmentSelector = (input: FragmentSelector, context: __SerdeContext): any => {
   return {
-    ...(input.FragmentSelectorType !== undefined && {
-      FragmentSelectorType: input.FragmentSelectorType,
-    }),
+    ...(input.FragmentSelectorType !== undefined && { FragmentSelectorType: input.FragmentSelectorType }),
     ...(input.TimestampRange !== undefined && {
       TimestampRange: serializeAws_restJson1TimestampRange(input.TimestampRange, context),
     }),
@@ -743,9 +721,7 @@ const serializeAws_restJson1FragmentSelector = (input: FragmentSelector, context
 
 const serializeAws_restJson1HLSFragmentSelector = (input: HLSFragmentSelector, context: __SerdeContext): any => {
   return {
-    ...(input.FragmentSelectorType !== undefined && {
-      FragmentSelectorType: input.FragmentSelectorType,
-    }),
+    ...(input.FragmentSelectorType !== undefined && { FragmentSelectorType: input.FragmentSelectorType }),
     ...(input.TimestampRange !== undefined && {
       TimestampRange: serializeAws_restJson1HLSTimestampRange(input.TimestampRange, context),
     }),
@@ -754,23 +730,15 @@ const serializeAws_restJson1HLSFragmentSelector = (input: HLSFragmentSelector, c
 
 const serializeAws_restJson1HLSTimestampRange = (input: HLSTimestampRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndTimestamp !== undefined && {
-      EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000),
-    }),
-    ...(input.StartTimestamp !== undefined && {
-      StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000),
-    }),
+    ...(input.EndTimestamp !== undefined && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
+    ...(input.StartTimestamp !== undefined && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 
 const serializeAws_restJson1TimestampRange = (input: TimestampRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndTimestamp !== undefined && {
-      EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000),
-    }),
-    ...(input.StartTimestamp !== undefined && {
-      StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000),
-    }),
+    ...(input.EndTimestamp !== undefined && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
+    ...(input.StartTimestamp !== undefined && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 

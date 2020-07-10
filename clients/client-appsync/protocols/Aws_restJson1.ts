@@ -123,15 +123,9 @@ export const serializeAws_restJson1CreateApiCacheCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.apiCachingBehavior !== undefined && {
-      apiCachingBehavior: input.apiCachingBehavior,
-    }),
-    ...(input.atRestEncryptionEnabled !== undefined && {
-      atRestEncryptionEnabled: input.atRestEncryptionEnabled,
-    }),
-    ...(input.transitEncryptionEnabled !== undefined && {
-      transitEncryptionEnabled: input.transitEncryptionEnabled,
-    }),
+    ...(input.apiCachingBehavior !== undefined && { apiCachingBehavior: input.apiCachingBehavior }),
+    ...(input.atRestEncryptionEnabled !== undefined && { atRestEncryptionEnabled: input.atRestEncryptionEnabled }),
+    ...(input.transitEncryptionEnabled !== undefined && { transitEncryptionEnabled: input.transitEncryptionEnabled }),
     ...(input.ttl !== undefined && { ttl: input.ttl }),
     ...(input.type !== undefined && { type: input.type }),
   });
@@ -220,9 +214,7 @@ export const serializeAws_restJson1CreateDataSourceCommand = async (
         context
       ),
     }),
-    ...(input.serviceRoleArn !== undefined && {
-      serviceRoleArn: input.serviceRoleArn,
-    }),
+    ...(input.serviceRoleArn !== undefined && { serviceRoleArn: input.serviceRoleArn }),
     ...(input.type !== undefined && { type: input.type }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -256,20 +248,12 @@ export const serializeAws_restJson1CreateFunctionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.dataSourceName !== undefined && {
-      dataSourceName: input.dataSourceName,
-    }),
+    ...(input.dataSourceName !== undefined && { dataSourceName: input.dataSourceName }),
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.functionVersion !== undefined && {
-      functionVersion: input.functionVersion,
-    }),
+    ...(input.functionVersion !== undefined && { functionVersion: input.functionVersion }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.requestMappingTemplate !== undefined && {
-      requestMappingTemplate: input.requestMappingTemplate,
-    }),
-    ...(input.responseMappingTemplate !== undefined && {
-      responseMappingTemplate: input.responseMappingTemplate,
-    }),
+    ...(input.requestMappingTemplate !== undefined && { requestMappingTemplate: input.requestMappingTemplate }),
+    ...(input.responseMappingTemplate !== undefined && { responseMappingTemplate: input.responseMappingTemplate }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -299,19 +283,13 @@ export const serializeAws_restJson1CreateGraphqlApiCommand = async (
         context
       ),
     }),
-    ...(input.authenticationType !== undefined && {
-      authenticationType: input.authenticationType,
-    }),
-    ...(input.logConfig !== undefined && {
-      logConfig: serializeAws_restJson1LogConfig(input.logConfig, context),
-    }),
+    ...(input.authenticationType !== undefined && { authenticationType: input.authenticationType }),
+    ...(input.logConfig !== undefined && { logConfig: serializeAws_restJson1LogConfig(input.logConfig, context) }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.openIDConnectConfig !== undefined && {
       openIDConnectConfig: serializeAws_restJson1OpenIDConnectConfig(input.openIDConnectConfig, context),
     }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
     ...(input.userPoolConfig !== undefined && {
       userPoolConfig: serializeAws_restJson1UserPoolConfig(input.userPoolConfig, context),
     }),
@@ -359,23 +337,15 @@ export const serializeAws_restJson1CreateResolverCommand = async (
     ...(input.cachingConfig !== undefined && {
       cachingConfig: serializeAws_restJson1CachingConfig(input.cachingConfig, context),
     }),
-    ...(input.dataSourceName !== undefined && {
-      dataSourceName: input.dataSourceName,
-    }),
+    ...(input.dataSourceName !== undefined && { dataSourceName: input.dataSourceName }),
     ...(input.fieldName !== undefined && { fieldName: input.fieldName }),
     ...(input.kind !== undefined && { kind: input.kind }),
     ...(input.pipelineConfig !== undefined && {
       pipelineConfig: serializeAws_restJson1PipelineConfig(input.pipelineConfig, context),
     }),
-    ...(input.requestMappingTemplate !== undefined && {
-      requestMappingTemplate: input.requestMappingTemplate,
-    }),
-    ...(input.responseMappingTemplate !== undefined && {
-      responseMappingTemplate: input.responseMappingTemplate,
-    }),
-    ...(input.syncConfig !== undefined && {
-      syncConfig: serializeAws_restJson1SyncConfig(input.syncConfig, context),
-    }),
+    ...(input.requestMappingTemplate !== undefined && { requestMappingTemplate: input.requestMappingTemplate }),
+    ...(input.responseMappingTemplate !== undefined && { responseMappingTemplate: input.responseMappingTemplate }),
+    ...(input.syncConfig !== undefined && { syncConfig: serializeAws_restJson1SyncConfig(input.syncConfig, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -874,9 +844,7 @@ export const serializeAws_restJson1GetIntrospectionSchemaCommand = async (
   }
   const query: any = {
     ...(input.format !== undefined && { format: input.format }),
-    ...(input.includeDirectives !== undefined && {
-      includeDirectives: input.includeDirectives.toString(),
-    }),
+    ...(input.includeDirectives !== undefined && { includeDirectives: input.includeDirectives.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1031,9 +999,7 @@ export const serializeAws_restJson1ListApiKeysCommand = async (
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -1068,9 +1034,7 @@ export const serializeAws_restJson1ListDataSourcesCommand = async (
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -1105,9 +1069,7 @@ export const serializeAws_restJson1ListFunctionsCommand = async (
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -1133,9 +1095,7 @@ export const serializeAws_restJson1ListGraphqlApisCommand = async (
   };
   let resolvedPath = "/apis";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -1179,9 +1139,7 @@ export const serializeAws_restJson1ListResolversCommand = async (
     throw new Error("No value provided for input HTTP label: typeName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -1225,9 +1183,7 @@ export const serializeAws_restJson1ListResolversByFunctionCommand = async (
     throw new Error("No value provided for input HTTP label: functionId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -1293,9 +1249,7 @@ export const serializeAws_restJson1ListTypesCommand = async (
   }
   const query: any = {
     ...(input.format !== undefined && { format: input.format }),
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -1331,9 +1285,7 @@ export const serializeAws_restJson1StartSchemaCreationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.definition !== undefined && {
-      definition: context.base64Encoder(input.definition),
-    }),
+    ...(input.definition !== undefined && { definition: context.base64Encoder(input.definition) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1366,9 +1318,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1400,9 +1350,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && {
-      tagKeys: (input.tagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1437,9 +1385,7 @@ export const serializeAws_restJson1UpdateApiCacheCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.apiCachingBehavior !== undefined && {
-      apiCachingBehavior: input.apiCachingBehavior,
-    }),
+    ...(input.apiCachingBehavior !== undefined && { apiCachingBehavior: input.apiCachingBehavior }),
     ...(input.ttl !== undefined && { ttl: input.ttl }),
     ...(input.type !== undefined && { type: input.type }),
   });
@@ -1545,9 +1491,7 @@ export const serializeAws_restJson1UpdateDataSourceCommand = async (
         context
       ),
     }),
-    ...(input.serviceRoleArn !== undefined && {
-      serviceRoleArn: input.serviceRoleArn,
-    }),
+    ...(input.serviceRoleArn !== undefined && { serviceRoleArn: input.serviceRoleArn }),
     ...(input.type !== undefined && { type: input.type }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1590,20 +1534,12 @@ export const serializeAws_restJson1UpdateFunctionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.dataSourceName !== undefined && {
-      dataSourceName: input.dataSourceName,
-    }),
+    ...(input.dataSourceName !== undefined && { dataSourceName: input.dataSourceName }),
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.functionVersion !== undefined && {
-      functionVersion: input.functionVersion,
-    }),
+    ...(input.functionVersion !== undefined && { functionVersion: input.functionVersion }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.requestMappingTemplate !== undefined && {
-      requestMappingTemplate: input.requestMappingTemplate,
-    }),
-    ...(input.responseMappingTemplate !== undefined && {
-      responseMappingTemplate: input.responseMappingTemplate,
-    }),
+    ...(input.requestMappingTemplate !== undefined && { requestMappingTemplate: input.requestMappingTemplate }),
+    ...(input.responseMappingTemplate !== undefined && { responseMappingTemplate: input.responseMappingTemplate }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1642,12 +1578,8 @@ export const serializeAws_restJson1UpdateGraphqlApiCommand = async (
         context
       ),
     }),
-    ...(input.authenticationType !== undefined && {
-      authenticationType: input.authenticationType,
-    }),
-    ...(input.logConfig !== undefined && {
-      logConfig: serializeAws_restJson1LogConfig(input.logConfig, context),
-    }),
+    ...(input.authenticationType !== undefined && { authenticationType: input.authenticationType }),
+    ...(input.logConfig !== undefined && { logConfig: serializeAws_restJson1LogConfig(input.logConfig, context) }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.openIDConnectConfig !== undefined && {
       openIDConnectConfig: serializeAws_restJson1OpenIDConnectConfig(input.openIDConnectConfig, context),
@@ -1708,22 +1640,14 @@ export const serializeAws_restJson1UpdateResolverCommand = async (
     ...(input.cachingConfig !== undefined && {
       cachingConfig: serializeAws_restJson1CachingConfig(input.cachingConfig, context),
     }),
-    ...(input.dataSourceName !== undefined && {
-      dataSourceName: input.dataSourceName,
-    }),
+    ...(input.dataSourceName !== undefined && { dataSourceName: input.dataSourceName }),
     ...(input.kind !== undefined && { kind: input.kind }),
     ...(input.pipelineConfig !== undefined && {
       pipelineConfig: serializeAws_restJson1PipelineConfig(input.pipelineConfig, context),
     }),
-    ...(input.requestMappingTemplate !== undefined && {
-      requestMappingTemplate: input.requestMappingTemplate,
-    }),
-    ...(input.responseMappingTemplate !== undefined && {
-      responseMappingTemplate: input.responseMappingTemplate,
-    }),
-    ...(input.syncConfig !== undefined && {
-      syncConfig: serializeAws_restJson1SyncConfig(input.syncConfig, context),
-    }),
+    ...(input.requestMappingTemplate !== undefined && { requestMappingTemplate: input.requestMappingTemplate }),
+    ...(input.responseMappingTemplate !== undefined && { responseMappingTemplate: input.responseMappingTemplate }),
+    ...(input.syncConfig !== undefined && { syncConfig: serializeAws_restJson1SyncConfig(input.syncConfig, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5482,9 +5406,7 @@ const serializeAws_restJson1AdditionalAuthenticationProvider = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.authenticationType !== undefined && {
-      authenticationType: input.authenticationType,
-    }),
+    ...(input.authenticationType !== undefined && { authenticationType: input.authenticationType }),
     ...(input.openIDConnectConfig !== undefined && {
       openIDConnectConfig: serializeAws_restJson1OpenIDConnectConfig(input.openIDConnectConfig, context),
     }),
@@ -5503,9 +5425,7 @@ const serializeAws_restJson1AdditionalAuthenticationProviders = (
 
 const serializeAws_restJson1AuthorizationConfig = (input: AuthorizationConfig, context: __SerdeContext): any => {
   return {
-    ...(input.authorizationType !== undefined && {
-      authorizationType: input.authorizationType,
-    }),
+    ...(input.authorizationType !== undefined && { authorizationType: input.authorizationType }),
     ...(input.awsIamConfig !== undefined && {
       awsIamConfig: serializeAws_restJson1AwsIamConfig(input.awsIamConfig, context),
     }),
@@ -5514,12 +5434,8 @@ const serializeAws_restJson1AuthorizationConfig = (input: AuthorizationConfig, c
 
 const serializeAws_restJson1AwsIamConfig = (input: AwsIamConfig, context: __SerdeContext): any => {
   return {
-    ...(input.signingRegion !== undefined && {
-      signingRegion: input.signingRegion,
-    }),
-    ...(input.signingServiceName !== undefined && {
-      signingServiceName: input.signingServiceName,
-    }),
+    ...(input.signingRegion !== undefined && { signingRegion: input.signingRegion }),
+    ...(input.signingServiceName !== undefined && { signingServiceName: input.signingServiceName }),
   };
 };
 
@@ -5538,9 +5454,7 @@ const serializeAws_restJson1CachingKeys = (input: string[], context: __SerdeCont
 
 const serializeAws_restJson1CognitoUserPoolConfig = (input: CognitoUserPoolConfig, context: __SerdeContext): any => {
   return {
-    ...(input.appIdClientRegex !== undefined && {
-      appIdClientRegex: input.appIdClientRegex,
-    }),
+    ...(input.appIdClientRegex !== undefined && { appIdClientRegex: input.appIdClientRegex }),
     ...(input.awsRegion !== undefined && { awsRegion: input.awsRegion }),
     ...(input.userPoolId !== undefined && { userPoolId: input.userPoolId }),
   };
@@ -5548,15 +5462,9 @@ const serializeAws_restJson1CognitoUserPoolConfig = (input: CognitoUserPoolConfi
 
 const serializeAws_restJson1DeltaSyncConfig = (input: DeltaSyncConfig, context: __SerdeContext): any => {
   return {
-    ...(input.baseTableTTL !== undefined && {
-      baseTableTTL: input.baseTableTTL,
-    }),
-    ...(input.deltaSyncTableName !== undefined && {
-      deltaSyncTableName: input.deltaSyncTableName,
-    }),
-    ...(input.deltaSyncTableTTL !== undefined && {
-      deltaSyncTableTTL: input.deltaSyncTableTTL,
-    }),
+    ...(input.baseTableTTL !== undefined && { baseTableTTL: input.baseTableTTL }),
+    ...(input.deltaSyncTableName !== undefined && { deltaSyncTableName: input.deltaSyncTableName }),
+    ...(input.deltaSyncTableTTL !== undefined && { deltaSyncTableTTL: input.deltaSyncTableTTL }),
   };
 };
 
@@ -5570,9 +5478,7 @@ const serializeAws_restJson1DynamodbDataSourceConfig = (
       deltaSyncConfig: serializeAws_restJson1DeltaSyncConfig(input.deltaSyncConfig, context),
     }),
     ...(input.tableName !== undefined && { tableName: input.tableName }),
-    ...(input.useCallerCredentials !== undefined && {
-      useCallerCredentials: input.useCallerCredentials,
-    }),
+    ...(input.useCallerCredentials !== undefined && { useCallerCredentials: input.useCallerCredentials }),
     ...(input.versioned !== undefined && { versioned: input.versioned }),
   };
 };
@@ -5605,31 +5511,21 @@ const serializeAws_restJson1LambdaConflictHandlerConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.lambdaConflictHandlerArn !== undefined && {
-      lambdaConflictHandlerArn: input.lambdaConflictHandlerArn,
-    }),
+    ...(input.lambdaConflictHandlerArn !== undefined && { lambdaConflictHandlerArn: input.lambdaConflictHandlerArn }),
   };
 };
 
 const serializeAws_restJson1LambdaDataSourceConfig = (input: LambdaDataSourceConfig, context: __SerdeContext): any => {
   return {
-    ...(input.lambdaFunctionArn !== undefined && {
-      lambdaFunctionArn: input.lambdaFunctionArn,
-    }),
+    ...(input.lambdaFunctionArn !== undefined && { lambdaFunctionArn: input.lambdaFunctionArn }),
   };
 };
 
 const serializeAws_restJson1LogConfig = (input: LogConfig, context: __SerdeContext): any => {
   return {
-    ...(input.cloudWatchLogsRoleArn !== undefined && {
-      cloudWatchLogsRoleArn: input.cloudWatchLogsRoleArn,
-    }),
-    ...(input.excludeVerboseContent !== undefined && {
-      excludeVerboseContent: input.excludeVerboseContent,
-    }),
-    ...(input.fieldLogLevel !== undefined && {
-      fieldLogLevel: input.fieldLogLevel,
-    }),
+    ...(input.cloudWatchLogsRoleArn !== undefined && { cloudWatchLogsRoleArn: input.cloudWatchLogsRoleArn }),
+    ...(input.excludeVerboseContent !== undefined && { excludeVerboseContent: input.excludeVerboseContent }),
+    ...(input.fieldLogLevel !== undefined && { fieldLogLevel: input.fieldLogLevel }),
   };
 };
 
@@ -5644,24 +5540,16 @@ const serializeAws_restJson1OpenIDConnectConfig = (input: OpenIDConnectConfig, c
 
 const serializeAws_restJson1PipelineConfig = (input: PipelineConfig, context: __SerdeContext): any => {
   return {
-    ...(input.functions !== undefined && {
-      functions: serializeAws_restJson1FunctionsIds(input.functions, context),
-    }),
+    ...(input.functions !== undefined && { functions: serializeAws_restJson1FunctionsIds(input.functions, context) }),
   };
 };
 
 const serializeAws_restJson1RdsHttpEndpointConfig = (input: RdsHttpEndpointConfig, context: __SerdeContext): any => {
   return {
     ...(input.awsRegion !== undefined && { awsRegion: input.awsRegion }),
-    ...(input.awsSecretStoreArn !== undefined && {
-      awsSecretStoreArn: input.awsSecretStoreArn,
-    }),
-    ...(input.databaseName !== undefined && {
-      databaseName: input.databaseName,
-    }),
-    ...(input.dbClusterIdentifier !== undefined && {
-      dbClusterIdentifier: input.dbClusterIdentifier,
-    }),
+    ...(input.awsSecretStoreArn !== undefined && { awsSecretStoreArn: input.awsSecretStoreArn }),
+    ...(input.databaseName !== undefined && { databaseName: input.databaseName }),
+    ...(input.dbClusterIdentifier !== undefined && { dbClusterIdentifier: input.dbClusterIdentifier }),
     ...(input.schema !== undefined && { schema: input.schema }),
   };
 };
@@ -5682,12 +5570,8 @@ const serializeAws_restJson1RelationalDatabaseDataSourceConfig = (
 
 const serializeAws_restJson1SyncConfig = (input: SyncConfig, context: __SerdeContext): any => {
   return {
-    ...(input.conflictDetection !== undefined && {
-      conflictDetection: input.conflictDetection,
-    }),
-    ...(input.conflictHandler !== undefined && {
-      conflictHandler: input.conflictHandler,
-    }),
+    ...(input.conflictDetection !== undefined && { conflictDetection: input.conflictDetection }),
+    ...(input.conflictHandler !== undefined && { conflictHandler: input.conflictHandler }),
     ...(input.lambdaConflictHandlerConfig !== undefined && {
       lambdaConflictHandlerConfig: serializeAws_restJson1LambdaConflictHandlerConfig(
         input.lambdaConflictHandlerConfig,
@@ -5709,13 +5593,9 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
 
 const serializeAws_restJson1UserPoolConfig = (input: UserPoolConfig, context: __SerdeContext): any => {
   return {
-    ...(input.appIdClientRegex !== undefined && {
-      appIdClientRegex: input.appIdClientRegex,
-    }),
+    ...(input.appIdClientRegex !== undefined && { appIdClientRegex: input.appIdClientRegex }),
     ...(input.awsRegion !== undefined && { awsRegion: input.awsRegion }),
-    ...(input.defaultAction !== undefined && {
-      defaultAction: input.defaultAction,
-    }),
+    ...(input.defaultAction !== undefined && { defaultAction: input.defaultAction }),
     ...(input.userPoolId !== undefined && { userPoolId: input.userPoolId }),
   };
 };

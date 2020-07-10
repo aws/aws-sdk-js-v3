@@ -219,12 +219,8 @@ const serializeAws_json1_0CommitTransactionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CommitDigest !== undefined && {
-      CommitDigest: context.base64Encoder(input.CommitDigest),
-    }),
-    ...(input.TransactionId !== undefined && {
-      TransactionId: input.TransactionId,
-    }),
+    ...(input.CommitDigest !== undefined && { CommitDigest: context.base64Encoder(input.CommitDigest) }),
+    ...(input.TransactionId !== undefined && { TransactionId: input.TransactionId }),
   };
 };
 
@@ -238,20 +234,14 @@ const serializeAws_json1_0ExecuteStatementRequest = (input: ExecuteStatementRequ
       Parameters: serializeAws_json1_0StatementParameters(input.Parameters, context),
     }),
     ...(input.Statement !== undefined && { Statement: input.Statement }),
-    ...(input.TransactionId !== undefined && {
-      TransactionId: input.TransactionId,
-    }),
+    ...(input.TransactionId !== undefined && { TransactionId: input.TransactionId }),
   };
 };
 
 const serializeAws_json1_0FetchPageRequest = (input: FetchPageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.NextPageToken !== undefined && {
-      NextPageToken: input.NextPageToken,
-    }),
-    ...(input.TransactionId !== undefined && {
-      TransactionId: input.TransactionId,
-    }),
+    ...(input.NextPageToken !== undefined && { NextPageToken: input.NextPageToken }),
+    ...(input.TransactionId !== undefined && { TransactionId: input.TransactionId }),
   };
 };
 
@@ -269,12 +259,8 @@ const serializeAws_json1_0SendCommandRequest = (input: SendCommandRequest, conte
     ...(input.ExecuteStatement !== undefined && {
       ExecuteStatement: serializeAws_json1_0ExecuteStatementRequest(input.ExecuteStatement, context),
     }),
-    ...(input.FetchPage !== undefined && {
-      FetchPage: serializeAws_json1_0FetchPageRequest(input.FetchPage, context),
-    }),
-    ...(input.SessionToken !== undefined && {
-      SessionToken: input.SessionToken,
-    }),
+    ...(input.FetchPage !== undefined && { FetchPage: serializeAws_json1_0FetchPageRequest(input.FetchPage, context) }),
+    ...(input.SessionToken !== undefined && { SessionToken: input.SessionToken }),
     ...(input.StartSession !== undefined && {
       StartSession: serializeAws_json1_0StartSessionRequest(input.StartSession, context),
     }),
@@ -300,9 +286,7 @@ const serializeAws_json1_0StatementParameters = (input: ValueHolder[], context: 
 
 const serializeAws_json1_0ValueHolder = (input: ValueHolder, context: __SerdeContext): any => {
   return {
-    ...(input.IonBinary !== undefined && {
-      IonBinary: context.base64Encoder(input.IonBinary),
-    }),
+    ...(input.IonBinary !== undefined && { IonBinary: context.base64Encoder(input.IonBinary) }),
     ...(input.IonText !== undefined && { IonText: input.IonText }),
   };
 };

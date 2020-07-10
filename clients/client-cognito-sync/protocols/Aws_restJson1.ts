@@ -409,9 +409,7 @@ export const serializeAws_restJson1ListIdentityPoolUsageCommand = async (
   };
   let resolvedPath = "/identitypools";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -464,16 +462,10 @@ export const serializeAws_restJson1ListRecordsCommand = async (
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
   const query: any = {
-    ...(input.LastSyncCount !== undefined && {
-      lastSyncCount: input.LastSyncCount.toString(),
-    }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.LastSyncCount !== undefined && { lastSyncCount: input.LastSyncCount.toString() }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.SyncSessionToken !== undefined && {
-      syncSessionToken: input.SyncSessionToken,
-    }),
+    ...(input.SyncSessionToken !== undefined && { syncSessionToken: input.SyncSessionToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -551,9 +543,7 @@ export const serializeAws_restJson1SetCognitoEventsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Events !== undefined && {
-      Events: serializeAws_restJson1Events(input.Events, context),
-    }),
+    ...(input.Events !== undefined && { Events: serializeAws_restJson1Events(input.Events, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -589,9 +579,7 @@ export const serializeAws_restJson1SetIdentityPoolConfigurationCommand = async (
     ...(input.CognitoStreams !== undefined && {
       CognitoStreams: serializeAws_restJson1CognitoStreams(input.CognitoStreams, context),
     }),
-    ...(input.PushSync !== undefined && {
-      PushSync: serializeAws_restJson1PushSync(input.PushSync, context),
-    }),
+    ...(input.PushSync !== undefined && { PushSync: serializeAws_restJson1PushSync(input.PushSync, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -727,9 +715,7 @@ export const serializeAws_restJson1UpdateRecordsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ClientContext) && {
-      "x-amz-Client-Context": input.ClientContext!,
-    }),
+    ...(isSerializableHeaderValue(input.ClientContext) && { "x-amz-Client-Context": input.ClientContext! }),
   };
   let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
   if (input.DatasetName !== undefined) {
@@ -765,9 +751,7 @@ export const serializeAws_restJson1UpdateRecordsCommand = async (
     ...(input.RecordPatches !== undefined && {
       RecordPatches: serializeAws_restJson1RecordPatchList(input.RecordPatches, context),
     }),
-    ...(input.SyncSessionToken !== undefined && {
-      SyncSessionToken: input.SyncSessionToken,
-    }),
+    ...(input.SyncSessionToken !== undefined && { SyncSessionToken: input.SyncSessionToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2648,14 +2632,10 @@ const serializeAws_restJson1ApplicationArnList = (input: string[], context: __Se
 
 const serializeAws_restJson1CognitoStreams = (input: CognitoStreams, context: __SerdeContext): any => {
   return {
-    ...(input.DisabledReason !== undefined && {
-      DisabledReason: input.DisabledReason,
-    }),
+    ...(input.DisabledReason !== undefined && { DisabledReason: input.DisabledReason }),
     ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
     ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
-    ...(input.StreamingStatus !== undefined && {
-      StreamingStatus: input.StreamingStatus,
-    }),
+    ...(input.StreamingStatus !== undefined && { StreamingStatus: input.StreamingStatus }),
   };
 };
 

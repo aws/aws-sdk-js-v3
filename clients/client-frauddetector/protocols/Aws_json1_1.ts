@@ -2913,9 +2913,7 @@ const serializeAws_json1_1BatchCreateVariableRequest = (
 
 const serializeAws_json1_1BatchGetVariableRequest = (input: BatchGetVariableRequest, context: __SerdeContext): any => {
   return {
-    ...(input.names !== undefined && {
-      names: serializeAws_json1_1NameList(input.names, context),
-    }),
+    ...(input.names !== undefined && { names: serializeAws_json1_1NameList(input.names, context) }),
   };
 };
 
@@ -2932,9 +2930,7 @@ const serializeAws_json1_1CreateDetectorVersionRequest = (
     ...(input.modelVersions !== undefined && {
       modelVersions: serializeAws_json1_1ListOfModelVersions(input.modelVersions, context),
     }),
-    ...(input.rules !== undefined && {
-      rules: serializeAws_json1_1RuleList(input.rules, context),
-    }),
+    ...(input.rules !== undefined && { rules: serializeAws_json1_1RuleList(input.rules, context) }),
   };
 };
 
@@ -2966,14 +2962,10 @@ const serializeAws_json1_1CreateVariableRequest = (input: CreateVariableRequest,
   return {
     ...(input.dataSource !== undefined && { dataSource: input.dataSource }),
     ...(input.dataType !== undefined && { dataType: input.dataType }),
-    ...(input.defaultValue !== undefined && {
-      defaultValue: input.defaultValue,
-    }),
+    ...(input.defaultValue !== undefined && { defaultValue: input.defaultValue }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.variableType !== undefined && {
-      variableType: input.variableType,
-    }),
+    ...(input.variableType !== undefined && { variableType: input.variableType }),
   };
 };
 
@@ -2993,9 +2985,7 @@ const serializeAws_json1_1DeleteDetectorVersionRequest = (
 ): any => {
   return {
     ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
-    ...(input.detectorVersionId !== undefined && {
-      detectorVersionId: input.detectorVersionId,
-    }),
+    ...(input.detectorVersionId !== undefined && { detectorVersionId: input.detectorVersionId }),
   };
 };
 
@@ -3021,9 +3011,7 @@ const serializeAws_json1_1DescribeModelVersionsRequest = (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.modelId !== undefined && { modelId: input.modelId }),
     ...(input.modelType !== undefined && { modelType: input.modelType }),
-    ...(input.modelVersionNumber !== undefined && {
-      modelVersionNumber: input.modelVersionNumber,
-    }),
+    ...(input.modelVersionNumber !== undefined && { modelVersionNumber: input.modelVersionNumber }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
 };
@@ -3065,9 +3053,7 @@ const serializeAws_json1_1GetDetectorVersionRequest = (
 ): any => {
   return {
     ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
-    ...(input.detectorVersionId !== undefined && {
-      detectorVersionId: input.detectorVersionId,
-    }),
+    ...(input.detectorVersionId !== undefined && { detectorVersionId: input.detectorVersionId }),
   };
 };
 
@@ -3077,9 +3063,7 @@ const serializeAws_json1_1GetExternalModelsRequest = (
 ): any => {
   return {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.modelEndpoint !== undefined && {
-      modelEndpoint: input.modelEndpoint,
-    }),
+    ...(input.modelEndpoint !== undefined && { modelEndpoint: input.modelEndpoint }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
 };
@@ -3097,9 +3081,7 @@ const serializeAws_json1_1GetModelVersionRequest = (input: GetModelVersionReques
   return {
     ...(input.modelId !== undefined && { modelId: input.modelId }),
     ...(input.modelType !== undefined && { modelType: input.modelType }),
-    ...(input.modelVersionNumber !== undefined && {
-      modelVersionNumber: input.modelVersionNumber,
-    }),
+    ...(input.modelVersionNumber !== undefined && { modelVersionNumber: input.modelVersionNumber }),
   };
 };
 
@@ -3114,9 +3096,7 @@ const serializeAws_json1_1GetOutcomesRequest = (input: GetOutcomesRequest, conte
 const serializeAws_json1_1GetPredictionRequest = (input: GetPredictionRequest, context: __SerdeContext): any => {
   return {
     ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
-    ...(input.detectorVersionId !== undefined && {
-      detectorVersionId: input.detectorVersionId,
-    }),
+    ...(input.detectorVersionId !== undefined && { detectorVersionId: input.detectorVersionId }),
     ...(input.eventAttributes !== undefined && {
       eventAttributes: serializeAws_json1_1EventAttributeMap(input.eventAttributes, context),
     }),
@@ -3187,23 +3167,17 @@ const serializeAws_json1_1ListOfStrings = (input: string[], context: __SerdeCont
 
 const serializeAws_json1_1ModelEndpointDataBlob = (input: ModelEndpointDataBlob, context: __SerdeContext): any => {
   return {
-    ...(input.byteBuffer !== undefined && {
-      byteBuffer: context.base64Encoder(input.byteBuffer),
-    }),
+    ...(input.byteBuffer !== undefined && { byteBuffer: context.base64Encoder(input.byteBuffer) }),
     ...(input.contentType !== undefined && { contentType: input.contentType }),
   };
 };
 
 const serializeAws_json1_1ModelInputConfiguration = (input: ModelInputConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.csvInputTemplate !== undefined && {
-      csvInputTemplate: input.csvInputTemplate,
-    }),
+    ...(input.csvInputTemplate !== undefined && { csvInputTemplate: input.csvInputTemplate }),
     ...(input.format !== undefined && { format: input.format }),
     ...(input.isOpaque !== undefined && { isOpaque: input.isOpaque }),
-    ...(input.jsonInputTemplate !== undefined && {
-      jsonInputTemplate: input.jsonInputTemplate,
-    }),
+    ...(input.jsonInputTemplate !== undefined && { jsonInputTemplate: input.jsonInputTemplate }),
   };
 };
 
@@ -3237,9 +3211,7 @@ const serializeAws_json1_1ModelVersion = (input: ModelVersion, context: __SerdeC
   return {
     ...(input.modelId !== undefined && { modelId: input.modelId }),
     ...(input.modelType !== undefined && { modelType: input.modelType }),
-    ...(input.modelVersionNumber !== undefined && {
-      modelVersionNumber: input.modelVersionNumber,
-    }),
+    ...(input.modelVersionNumber !== undefined && { modelVersionNumber: input.modelVersionNumber }),
   };
 };
 
@@ -3263,19 +3235,13 @@ const serializeAws_json1_1PutExternalModelRequest = (input: PutExternalModelRequ
     ...(input.inputConfiguration !== undefined && {
       inputConfiguration: serializeAws_json1_1ModelInputConfiguration(input.inputConfiguration, context),
     }),
-    ...(input.modelEndpoint !== undefined && {
-      modelEndpoint: input.modelEndpoint,
-    }),
-    ...(input.modelEndpointStatus !== undefined && {
-      modelEndpointStatus: input.modelEndpointStatus,
-    }),
+    ...(input.modelEndpoint !== undefined && { modelEndpoint: input.modelEndpoint }),
+    ...(input.modelEndpointStatus !== undefined && { modelEndpointStatus: input.modelEndpointStatus }),
     ...(input.modelSource !== undefined && { modelSource: input.modelSource }),
     ...(input.outputConfiguration !== undefined && {
       outputConfiguration: serializeAws_json1_1ModelOutputConfiguration(input.outputConfiguration, context),
     }),
-    ...(input.role !== undefined && {
-      role: serializeAws_json1_1Role(input.role, context),
-    }),
+    ...(input.role !== undefined && { role: serializeAws_json1_1Role(input.role, context) }),
   };
 };
 
@@ -3324,12 +3290,8 @@ const serializeAws_json1_1RuleList = (input: Rule[], context: __SerdeContext): a
 
 const serializeAws_json1_1TrainingDataSource = (input: TrainingDataSource, context: __SerdeContext): any => {
   return {
-    ...(input.dataAccessRoleArn !== undefined && {
-      dataAccessRoleArn: input.dataAccessRoleArn,
-    }),
-    ...(input.dataLocation !== undefined && {
-      dataLocation: input.dataLocation,
-    }),
+    ...(input.dataAccessRoleArn !== undefined && { dataAccessRoleArn: input.dataAccessRoleArn }),
+    ...(input.dataLocation !== undefined && { dataLocation: input.dataLocation }),
   };
 };
 
@@ -3340,9 +3302,7 @@ const serializeAws_json1_1UpdateDetectorVersionMetadataRequest = (
   return {
     ...(input.description !== undefined && { description: input.description }),
     ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
-    ...(input.detectorVersionId !== undefined && {
-      detectorVersionId: input.detectorVersionId,
-    }),
+    ...(input.detectorVersionId !== undefined && { detectorVersionId: input.detectorVersionId }),
   };
 };
 
@@ -3353,18 +3313,14 @@ const serializeAws_json1_1UpdateDetectorVersionRequest = (
   return {
     ...(input.description !== undefined && { description: input.description }),
     ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
-    ...(input.detectorVersionId !== undefined && {
-      detectorVersionId: input.detectorVersionId,
-    }),
+    ...(input.detectorVersionId !== undefined && { detectorVersionId: input.detectorVersionId }),
     ...(input.externalModelEndpoints !== undefined && {
       externalModelEndpoints: serializeAws_json1_1ListOfStrings(input.externalModelEndpoints, context),
     }),
     ...(input.modelVersions !== undefined && {
       modelVersions: serializeAws_json1_1ListOfModelVersions(input.modelVersions, context),
     }),
-    ...(input.rules !== undefined && {
-      rules: serializeAws_json1_1RuleList(input.rules, context),
-    }),
+    ...(input.rules !== undefined && { rules: serializeAws_json1_1RuleList(input.rules, context) }),
   };
 };
 
@@ -3374,9 +3330,7 @@ const serializeAws_json1_1UpdateDetectorVersionStatusRequest = (
 ): any => {
   return {
     ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
-    ...(input.detectorVersionId !== undefined && {
-      detectorVersionId: input.detectorVersionId,
-    }),
+    ...(input.detectorVersionId !== undefined && { detectorVersionId: input.detectorVersionId }),
     ...(input.status !== undefined && { status: input.status }),
   };
 };
@@ -3389,9 +3343,7 @@ const serializeAws_json1_1UpdateModelVersionRequest = (
     ...(input.description !== undefined && { description: input.description }),
     ...(input.modelId !== undefined && { modelId: input.modelId }),
     ...(input.modelType !== undefined && { modelType: input.modelType }),
-    ...(input.modelVersionNumber !== undefined && {
-      modelVersionNumber: input.modelVersionNumber,
-    }),
+    ...(input.modelVersionNumber !== undefined && { modelVersionNumber: input.modelVersionNumber }),
     ...(input.status !== undefined && { status: input.status }),
   };
 };
@@ -3402,9 +3354,7 @@ const serializeAws_json1_1UpdateRuleMetadataRequest = (
 ): any => {
   return {
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.rule !== undefined && {
-      rule: serializeAws_json1_1Rule(input.rule, context),
-    }),
+    ...(input.rule !== undefined && { rule: serializeAws_json1_1Rule(input.rule, context) }),
   };
 };
 
@@ -3419,22 +3369,16 @@ const serializeAws_json1_1UpdateRuleVersionRequest = (
     ...(input.outcomes !== undefined && {
       outcomes: serializeAws_json1_1NonEmptyListOfStrings(input.outcomes, context),
     }),
-    ...(input.rule !== undefined && {
-      rule: serializeAws_json1_1Rule(input.rule, context),
-    }),
+    ...(input.rule !== undefined && { rule: serializeAws_json1_1Rule(input.rule, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateVariableRequest = (input: UpdateVariableRequest, context: __SerdeContext): any => {
   return {
-    ...(input.defaultValue !== undefined && {
-      defaultValue: input.defaultValue,
-    }),
+    ...(input.defaultValue !== undefined && { defaultValue: input.defaultValue }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.variableType !== undefined && {
-      variableType: input.variableType,
-    }),
+    ...(input.variableType !== undefined && { variableType: input.variableType }),
   };
 };
 
@@ -3442,14 +3386,10 @@ const serializeAws_json1_1VariableEntry = (input: VariableEntry, context: __Serd
   return {
     ...(input.dataSource !== undefined && { dataSource: input.dataSource }),
     ...(input.dataType !== undefined && { dataType: input.dataType }),
-    ...(input.defaultValue !== undefined && {
-      defaultValue: input.defaultValue,
-    }),
+    ...(input.defaultValue !== undefined && { defaultValue: input.defaultValue }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.variableType !== undefined && {
-      variableType: input.variableType,
-    }),
+    ...(input.variableType !== undefined && { variableType: input.variableType }),
   };
 };
 

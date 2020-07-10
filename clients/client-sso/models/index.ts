@@ -67,9 +67,7 @@ export interface GetRoleCredentialsResponse {
 export namespace GetRoleCredentialsResponse {
   export const filterSensitiveLog = (obj: GetRoleCredentialsResponse): any => ({
     ...obj,
-    ...(obj.roleCredentials && {
-      roleCredentials: RoleCredentials.filterSensitiveLog(obj.roleCredentials),
-    }),
+    ...(obj.roleCredentials && { roleCredentials: RoleCredentials.filterSensitiveLog(obj.roleCredentials) }),
   });
   export const isa = (o: any): o is GetRoleCredentialsResponse => __isa(o, "GetRoleCredentialsResponse");
 }

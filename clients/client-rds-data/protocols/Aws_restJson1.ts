@@ -57,9 +57,7 @@ export const serializeAws_restJson1BatchExecuteStatementCommand = async (
     ...(input.schema !== undefined && { schema: input.schema }),
     ...(input.secretArn !== undefined && { secretArn: input.secretArn }),
     ...(input.sql !== undefined && { sql: input.sql }),
-    ...(input.transactionId !== undefined && {
-      transactionId: input.transactionId,
-    }),
+    ...(input.transactionId !== undefined && { transactionId: input.transactionId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -112,9 +110,7 @@ export const serializeAws_restJson1CommitTransactionCommand = async (
   body = JSON.stringify({
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
     ...(input.secretArn !== undefined && { secretArn: input.secretArn }),
-    ...(input.transactionId !== undefined && {
-      transactionId: input.transactionId,
-    }),
+    ...(input.transactionId !== undefined && { transactionId: input.transactionId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -138,17 +134,11 @@ export const serializeAws_restJson1ExecuteSqlCommand = async (
   let resolvedPath = "/ExecuteSql";
   let body: any;
   body = JSON.stringify({
-    ...(input.awsSecretStoreArn !== undefined && {
-      awsSecretStoreArn: input.awsSecretStoreArn,
-    }),
+    ...(input.awsSecretStoreArn !== undefined && { awsSecretStoreArn: input.awsSecretStoreArn }),
     ...(input.database !== undefined && { database: input.database }),
-    ...(input.dbClusterOrInstanceArn !== undefined && {
-      dbClusterOrInstanceArn: input.dbClusterOrInstanceArn,
-    }),
+    ...(input.dbClusterOrInstanceArn !== undefined && { dbClusterOrInstanceArn: input.dbClusterOrInstanceArn }),
     ...(input.schema !== undefined && { schema: input.schema }),
-    ...(input.sqlStatements !== undefined && {
-      sqlStatements: input.sqlStatements,
-    }),
+    ...(input.sqlStatements !== undefined && { sqlStatements: input.sqlStatements }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -172,13 +162,9 @@ export const serializeAws_restJson1ExecuteStatementCommand = async (
   let resolvedPath = "/Execute";
   let body: any;
   body = JSON.stringify({
-    ...(input.continueAfterTimeout !== undefined && {
-      continueAfterTimeout: input.continueAfterTimeout,
-    }),
+    ...(input.continueAfterTimeout !== undefined && { continueAfterTimeout: input.continueAfterTimeout }),
     ...(input.database !== undefined && { database: input.database }),
-    ...(input.includeResultMetadata !== undefined && {
-      includeResultMetadata: input.includeResultMetadata,
-    }),
+    ...(input.includeResultMetadata !== undefined && { includeResultMetadata: input.includeResultMetadata }),
     ...(input.parameters !== undefined && {
       parameters: serializeAws_restJson1SqlParametersList(input.parameters, context),
     }),
@@ -189,9 +175,7 @@ export const serializeAws_restJson1ExecuteStatementCommand = async (
     ...(input.schema !== undefined && { schema: input.schema }),
     ...(input.secretArn !== undefined && { secretArn: input.secretArn }),
     ...(input.sql !== undefined && { sql: input.sql }),
-    ...(input.transactionId !== undefined && {
-      transactionId: input.transactionId,
-    }),
+    ...(input.transactionId !== undefined && { transactionId: input.transactionId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -217,9 +201,7 @@ export const serializeAws_restJson1RollbackTransactionCommand = async (
   body = JSON.stringify({
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
     ...(input.secretArn !== undefined && { secretArn: input.secretArn }),
-    ...(input.transactionId !== undefined && {
-      transactionId: input.transactionId,
-    }),
+    ...(input.transactionId !== undefined && { transactionId: input.transactionId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -885,21 +867,11 @@ const serializeAws_restJson1ArrayOfArray = (input: ArrayValue[], context: __Serd
 
 const serializeAws_restJson1ArrayValue = (input: ArrayValue, context: __SerdeContext): any => {
   return ArrayValue.visit(input, {
-    arrayValues: (value) => ({
-      arrayValues: serializeAws_restJson1ArrayOfArray(value, context),
-    }),
-    booleanValues: (value) => ({
-      booleanValues: serializeAws_restJson1BooleanArray(value, context),
-    }),
-    doubleValues: (value) => ({
-      doubleValues: serializeAws_restJson1DoubleArray(value, context),
-    }),
-    longValues: (value) => ({
-      longValues: serializeAws_restJson1LongArray(value, context),
-    }),
-    stringValues: (value) => ({
-      stringValues: serializeAws_restJson1StringArray(value, context),
-    }),
+    arrayValues: (value) => ({ arrayValues: serializeAws_restJson1ArrayOfArray(value, context) }),
+    booleanValues: (value) => ({ booleanValues: serializeAws_restJson1BooleanArray(value, context) }),
+    doubleValues: (value) => ({ doubleValues: serializeAws_restJson1DoubleArray(value, context) }),
+    longValues: (value) => ({ longValues: serializeAws_restJson1LongArray(value, context) }),
+    stringValues: (value) => ({ stringValues: serializeAws_restJson1StringArray(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -914,9 +886,7 @@ const serializeAws_restJson1DoubleArray = (input: number[], context: __SerdeCont
 
 const serializeAws_restJson1Field = (input: Field, context: __SerdeContext): any => {
   return Field.visit(input, {
-    arrayValue: (value) => ({
-      arrayValue: serializeAws_restJson1ArrayValue(value, context),
-    }),
+    arrayValue: (value) => ({ arrayValue: serializeAws_restJson1ArrayValue(value, context) }),
     blobValue: (value) => ({ blobValue: context.base64Encoder(value) }),
     booleanValue: (value) => ({ booleanValue: value }),
     doubleValue: (value) => ({ doubleValue: value }),
@@ -933,9 +903,7 @@ const serializeAws_restJson1LongArray = (input: number[], context: __SerdeContex
 
 const serializeAws_restJson1ResultSetOptions = (input: ResultSetOptions, context: __SerdeContext): any => {
   return {
-    ...(input.decimalReturnType !== undefined && {
-      decimalReturnType: input.decimalReturnType,
-    }),
+    ...(input.decimalReturnType !== undefined && { decimalReturnType: input.decimalReturnType }),
   };
 };
 
@@ -943,9 +911,7 @@ const serializeAws_restJson1SqlParameter = (input: SqlParameter, context: __Serd
   return {
     ...(input.name !== undefined && { name: input.name }),
     ...(input.typeHint !== undefined && { typeHint: input.typeHint }),
-    ...(input.value !== undefined && {
-      value: serializeAws_restJson1Field(input.value, context),
-    }),
+    ...(input.value !== undefined && { value: serializeAws_restJson1Field(input.value, context) }),
   };
 };
 

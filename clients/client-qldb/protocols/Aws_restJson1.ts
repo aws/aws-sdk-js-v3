@@ -60,16 +60,10 @@ export const serializeAws_restJson1CreateLedgerCommand = async (
   let resolvedPath = "/ledgers";
   let body: any;
   body = JSON.stringify({
-    ...(input.DeletionProtection !== undefined && {
-      DeletionProtection: input.DeletionProtection,
-    }),
+    ...(input.DeletionProtection !== undefined && { DeletionProtection: input.DeletionProtection }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.PermissionsMode !== undefined && {
-      PermissionsMode: input.PermissionsMode,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1Tags(input.Tags, context),
-    }),
+    ...(input.PermissionsMode !== undefined && { PermissionsMode: input.PermissionsMode }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -340,9 +334,7 @@ export const serializeAws_restJson1ListJournalS3ExportsCommand = async (
   };
   let resolvedPath = "/journal-s3-exports";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      max_results: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { next_token: input.NextToken }),
   };
   let body: any;
@@ -377,9 +369,7 @@ export const serializeAws_restJson1ListJournalS3ExportsForLedgerCommand = async 
     throw new Error("No value provided for input HTTP label: Name.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      max_results: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { next_token: input.NextToken }),
   };
   let body: any;
@@ -405,9 +395,7 @@ export const serializeAws_restJson1ListLedgersCommand = async (
   };
   let resolvedPath = "/ledgers";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      max_results: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { next_token: input.NextToken }),
   };
   let body: any;
@@ -473,9 +461,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1Tags(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -507,9 +493,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && {
-      tagKeys: (input.TagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -544,9 +528,7 @@ export const serializeAws_restJson1UpdateLedgerCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DeletionProtection !== undefined && {
-      DeletionProtection: input.DeletionProtection,
-    }),
+    ...(input.DeletionProtection !== undefined && { DeletionProtection: input.DeletionProtection }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1727,9 +1709,7 @@ const serializeAws_restJson1S3EncryptionConfiguration = (
 ): any => {
   return {
     ...(input.KmsKeyArn !== undefined && { KmsKeyArn: input.KmsKeyArn }),
-    ...(input.ObjectEncryptionType !== undefined && {
-      ObjectEncryptionType: input.ObjectEncryptionType,
-    }),
+    ...(input.ObjectEncryptionType !== undefined && { ObjectEncryptionType: input.ObjectEncryptionType }),
   };
 };
 

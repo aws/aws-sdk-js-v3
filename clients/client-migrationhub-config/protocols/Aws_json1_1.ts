@@ -401,9 +401,7 @@ const serializeAws_json1_1CreateHomeRegionControlRequest = (
   return {
     ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
     ...(input.HomeRegion !== undefined && { HomeRegion: input.HomeRegion }),
-    ...(input.Target !== undefined && {
-      Target: serializeAws_json1_1Target(input.Target, context),
-    }),
+    ...(input.Target !== undefined && { Target: serializeAws_json1_1Target(input.Target, context) }),
   };
 };
 
@@ -416,9 +414,7 @@ const serializeAws_json1_1DescribeHomeRegionControlsRequest = (
     ...(input.HomeRegion !== undefined && { HomeRegion: input.HomeRegion }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.Target !== undefined && {
-      Target: serializeAws_json1_1Target(input.Target, context),
-    }),
+    ...(input.Target !== undefined && { Target: serializeAws_json1_1Target(input.Target, context) }),
   };
 };
 

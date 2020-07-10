@@ -1057,9 +1057,7 @@ const deserializeAws_json1_1UnsupportedDocumentExceptionResponse = async (
 
 const serializeAws_json1_1AnalyzeDocumentRequest = (input: AnalyzeDocumentRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Document !== undefined && {
-      Document: serializeAws_json1_1Document(input.Document, context),
-    }),
+    ...(input.Document !== undefined && { Document: serializeAws_json1_1Document(input.Document, context) }),
     ...(input.FeatureTypes !== undefined && {
       FeatureTypes: serializeAws_json1_1FeatureTypes(input.FeatureTypes, context),
     }),
@@ -1081,28 +1079,20 @@ const serializeAws_json1_1DetectDocumentTextRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Document !== undefined && {
-      Document: serializeAws_json1_1Document(input.Document, context),
-    }),
+    ...(input.Document !== undefined && { Document: serializeAws_json1_1Document(input.Document, context) }),
   };
 };
 
 const serializeAws_json1_1Document = (input: Document, context: __SerdeContext): any => {
   return {
-    ...(input.Bytes !== undefined && {
-      Bytes: context.base64Encoder(input.Bytes),
-    }),
-    ...(input.S3Object !== undefined && {
-      S3Object: serializeAws_json1_1S3Object(input.S3Object, context),
-    }),
+    ...(input.Bytes !== undefined && { Bytes: context.base64Encoder(input.Bytes) }),
+    ...(input.S3Object !== undefined && { S3Object: serializeAws_json1_1S3Object(input.S3Object, context) }),
   };
 };
 
 const serializeAws_json1_1DocumentLocation = (input: DocumentLocation, context: __SerdeContext): any => {
   return {
-    ...(input.S3Object !== undefined && {
-      S3Object: serializeAws_json1_1S3Object(input.S3Object, context),
-    }),
+    ...(input.S3Object !== undefined && { S3Object: serializeAws_json1_1S3Object(input.S3Object, context) }),
   };
 };
 
@@ -1137,12 +1127,8 @@ const serializeAws_json1_1HumanLoopConfig = (input: HumanLoopConfig, context: __
     ...(input.DataAttributes !== undefined && {
       DataAttributes: serializeAws_json1_1HumanLoopDataAttributes(input.DataAttributes, context),
     }),
-    ...(input.FlowDefinitionArn !== undefined && {
-      FlowDefinitionArn: input.FlowDefinitionArn,
-    }),
-    ...(input.HumanLoopName !== undefined && {
-      HumanLoopName: input.HumanLoopName,
-    }),
+    ...(input.FlowDefinitionArn !== undefined && { FlowDefinitionArn: input.FlowDefinitionArn }),
+    ...(input.HumanLoopName !== undefined && { HumanLoopName: input.HumanLoopName }),
   };
 };
 
@@ -1174,9 +1160,7 @@ const serializeAws_json1_1StartDocumentAnalysisRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClientRequestToken !== undefined && {
-      ClientRequestToken: input.ClientRequestToken,
-    }),
+    ...(input.ClientRequestToken !== undefined && { ClientRequestToken: input.ClientRequestToken }),
     ...(input.DocumentLocation !== undefined && {
       DocumentLocation: serializeAws_json1_1DocumentLocation(input.DocumentLocation, context),
     }),
@@ -1195,9 +1179,7 @@ const serializeAws_json1_1StartDocumentTextDetectionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClientRequestToken !== undefined && {
-      ClientRequestToken: input.ClientRequestToken,
-    }),
+    ...(input.ClientRequestToken !== undefined && { ClientRequestToken: input.ClientRequestToken }),
     ...(input.DocumentLocation !== undefined && {
       DocumentLocation: serializeAws_json1_1DocumentLocation(input.DocumentLocation, context),
     }),

@@ -1696,9 +1696,7 @@ const serializeAws_json1_1CreateWorkGroupInput = (input: CreateWorkGroupInput, c
     }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -1710,35 +1708,27 @@ const serializeAws_json1_1DeleteNamedQueryInput = (input: DeleteNamedQueryInput,
 
 const serializeAws_json1_1DeleteWorkGroupInput = (input: DeleteWorkGroupInput, context: __SerdeContext): any => {
   return {
-    ...(input.RecursiveDeleteOption !== undefined && {
-      RecursiveDeleteOption: input.RecursiveDeleteOption,
-    }),
+    ...(input.RecursiveDeleteOption !== undefined && { RecursiveDeleteOption: input.RecursiveDeleteOption }),
     ...(input.WorkGroup !== undefined && { WorkGroup: input.WorkGroup }),
   };
 };
 
 const serializeAws_json1_1EncryptionConfiguration = (input: EncryptionConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.EncryptionOption !== undefined && {
-      EncryptionOption: input.EncryptionOption,
-    }),
+    ...(input.EncryptionOption !== undefined && { EncryptionOption: input.EncryptionOption }),
     ...(input.KmsKey !== undefined && { KmsKey: input.KmsKey }),
   };
 };
 
 const serializeAws_json1_1GetNamedQueryInput = (input: GetNamedQueryInput, context: __SerdeContext): any => {
   return {
-    ...(input.NamedQueryId !== undefined && {
-      NamedQueryId: input.NamedQueryId,
-    }),
+    ...(input.NamedQueryId !== undefined && { NamedQueryId: input.NamedQueryId }),
   };
 };
 
 const serializeAws_json1_1GetQueryExecutionInput = (input: GetQueryExecutionInput, context: __SerdeContext): any => {
   return {
-    ...(input.QueryExecutionId !== undefined && {
-      QueryExecutionId: input.QueryExecutionId,
-    }),
+    ...(input.QueryExecutionId !== undefined && { QueryExecutionId: input.QueryExecutionId }),
   };
 };
 
@@ -1746,9 +1736,7 @@ const serializeAws_json1_1GetQueryResultsInput = (input: GetQueryResultsInput, c
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.QueryExecutionId !== undefined && {
-      QueryExecutionId: input.QueryExecutionId,
-    }),
+    ...(input.QueryExecutionId !== undefined && { QueryExecutionId: input.QueryExecutionId }),
   };
 };
 
@@ -1814,9 +1802,7 @@ const serializeAws_json1_1ResultConfiguration = (input: ResultConfiguration, con
     ...(input.EncryptionConfiguration !== undefined && {
       EncryptionConfiguration: serializeAws_json1_1EncryptionConfiguration(input.EncryptionConfiguration, context),
     }),
-    ...(input.OutputLocation !== undefined && {
-      OutputLocation: input.OutputLocation,
-    }),
+    ...(input.OutputLocation !== undefined && { OutputLocation: input.OutputLocation }),
   };
 };
 
@@ -1828,15 +1814,11 @@ const serializeAws_json1_1ResultConfigurationUpdates = (
     ...(input.EncryptionConfiguration !== undefined && {
       EncryptionConfiguration: serializeAws_json1_1EncryptionConfiguration(input.EncryptionConfiguration, context),
     }),
-    ...(input.OutputLocation !== undefined && {
-      OutputLocation: input.OutputLocation,
-    }),
+    ...(input.OutputLocation !== undefined && { OutputLocation: input.OutputLocation }),
     ...(input.RemoveEncryptionConfiguration !== undefined && {
       RemoveEncryptionConfiguration: input.RemoveEncryptionConfiguration,
     }),
-    ...(input.RemoveOutputLocation !== undefined && {
-      RemoveOutputLocation: input.RemoveOutputLocation,
-    }),
+    ...(input.RemoveOutputLocation !== undefined && { RemoveOutputLocation: input.RemoveOutputLocation }),
   };
 };
 
@@ -1881,18 +1863,14 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 const serializeAws_json1_1TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -1918,9 +1896,7 @@ const serializeAws_json1_1WorkGroupConfiguration = (input: WorkGroupConfiguratio
     ...(input.PublishCloudWatchMetricsEnabled !== undefined && {
       PublishCloudWatchMetricsEnabled: input.PublishCloudWatchMetricsEnabled,
     }),
-    ...(input.RequesterPaysEnabled !== undefined && {
-      RequesterPaysEnabled: input.RequesterPaysEnabled,
-    }),
+    ...(input.RequesterPaysEnabled !== undefined && { RequesterPaysEnabled: input.RequesterPaysEnabled }),
     ...(input.ResultConfiguration !== undefined && {
       ResultConfiguration: serializeAws_json1_1ResultConfiguration(input.ResultConfiguration, context),
     }),
@@ -1944,9 +1920,7 @@ const serializeAws_json1_1WorkGroupConfigurationUpdates = (
     ...(input.RemoveBytesScannedCutoffPerQuery !== undefined && {
       RemoveBytesScannedCutoffPerQuery: input.RemoveBytesScannedCutoffPerQuery,
     }),
-    ...(input.RequesterPaysEnabled !== undefined && {
-      RequesterPaysEnabled: input.RequesterPaysEnabled,
-    }),
+    ...(input.RequesterPaysEnabled !== undefined && { RequesterPaysEnabled: input.RequesterPaysEnabled }),
     ...(input.ResultConfigurationUpdates !== undefined && {
       ResultConfigurationUpdates: serializeAws_json1_1ResultConfigurationUpdates(
         input.ResultConfigurationUpdates,

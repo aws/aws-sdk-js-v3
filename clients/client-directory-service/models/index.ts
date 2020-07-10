@@ -27,9 +27,7 @@ export interface AcceptSharedDirectoryResult {
 export namespace AcceptSharedDirectoryResult {
   export const filterSensitiveLog = (obj: AcceptSharedDirectoryResult): any => ({
     ...obj,
-    ...(obj.SharedDirectory && {
-      SharedDirectory: SharedDirectory.filterSensitiveLog(obj.SharedDirectory),
-    }),
+    ...(obj.SharedDirectory && { SharedDirectory: SharedDirectory.filterSensitiveLog(obj.SharedDirectory) }),
   });
   export const isa = (o: any): o is AcceptSharedDirectoryResult => __isa(o, "AcceptSharedDirectoryResult");
 }
@@ -2000,9 +1998,7 @@ export namespace DirectoryDescription {
     ...(obj.OwnerDirectoryDescription && {
       OwnerDirectoryDescription: OwnerDirectoryDescription.filterSensitiveLog(obj.OwnerDirectoryDescription),
     }),
-    ...(obj.RadiusSettings && {
-      RadiusSettings: RadiusSettings.filterSensitiveLog(obj.RadiusSettings),
-    }),
+    ...(obj.RadiusSettings && { RadiusSettings: RadiusSettings.filterSensitiveLog(obj.RadiusSettings) }),
     ...(obj.ShareNotes && { ShareNotes: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is DirectoryDescription => __isa(o, "DirectoryDescription");
@@ -2512,9 +2508,7 @@ export interface EnableRadiusRequest {
 export namespace EnableRadiusRequest {
   export const filterSensitiveLog = (obj: EnableRadiusRequest): any => ({
     ...obj,
-    ...(obj.RadiusSettings && {
-      RadiusSettings: RadiusSettings.filterSensitiveLog(obj.RadiusSettings),
-    }),
+    ...(obj.RadiusSettings && { RadiusSettings: RadiusSettings.filterSensitiveLog(obj.RadiusSettings) }),
   });
   export const isa = (o: any): o is EnableRadiusRequest => __isa(o, "EnableRadiusRequest");
 }
@@ -3392,9 +3386,7 @@ export interface OwnerDirectoryDescription {
 export namespace OwnerDirectoryDescription {
   export const filterSensitiveLog = (obj: OwnerDirectoryDescription): any => ({
     ...obj,
-    ...(obj.RadiusSettings && {
-      RadiusSettings: RadiusSettings.filterSensitiveLog(obj.RadiusSettings),
-    }),
+    ...(obj.RadiusSettings && { RadiusSettings: RadiusSettings.filterSensitiveLog(obj.RadiusSettings) }),
   });
   export const isa = (o: any): o is OwnerDirectoryDescription => __isa(o, "OwnerDirectoryDescription");
 }
@@ -4451,9 +4443,7 @@ export interface UpdateRadiusRequest {
 export namespace UpdateRadiusRequest {
   export const filterSensitiveLog = (obj: UpdateRadiusRequest): any => ({
     ...obj,
-    ...(obj.RadiusSettings && {
-      RadiusSettings: RadiusSettings.filterSensitiveLog(obj.RadiusSettings),
-    }),
+    ...(obj.RadiusSettings && { RadiusSettings: RadiusSettings.filterSensitiveLog(obj.RadiusSettings) }),
   });
   export const isa = (o: any): o is UpdateRadiusRequest => __isa(o, "UpdateRadiusRequest");
 }

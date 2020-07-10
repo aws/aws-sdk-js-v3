@@ -1757,28 +1757,20 @@ const serializeAws_json1_1CorsRule = (input: CorsRule, context: __SerdeContext):
     ...(input.ExposeHeaders !== undefined && {
       ExposeHeaders: serializeAws_json1_1ExposeHeaders(input.ExposeHeaders, context),
     }),
-    ...(input.MaxAgeSeconds !== undefined && {
-      MaxAgeSeconds: input.MaxAgeSeconds,
-    }),
+    ...(input.MaxAgeSeconds !== undefined && { MaxAgeSeconds: input.MaxAgeSeconds }),
   };
 };
 
 const serializeAws_json1_1CreateContainerInput = (input: CreateContainerInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && {
-      ContainerName: input.ContainerName,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1DeleteContainerInput = (input: DeleteContainerInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && {
-      ContainerName: input.ContainerName,
-    }),
+    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
   };
 };
 
@@ -1787,17 +1779,13 @@ const serializeAws_json1_1DeleteContainerPolicyInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContainerName !== undefined && {
-      ContainerName: input.ContainerName,
-    }),
+    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1DeleteCorsPolicyInput = (input: DeleteCorsPolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && {
-      ContainerName: input.ContainerName,
-    }),
+    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
   };
 };
 
@@ -1806,17 +1794,13 @@ const serializeAws_json1_1DeleteLifecyclePolicyInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContainerName !== undefined && {
-      ContainerName: input.ContainerName,
-    }),
+    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1DescribeContainerInput = (input: DescribeContainerInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && {
-      ContainerName: input.ContainerName,
-    }),
+    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
   };
 };
 
@@ -1826,25 +1810,19 @@ const serializeAws_json1_1ExposeHeaders = (input: string[], context: __SerdeCont
 
 const serializeAws_json1_1GetContainerPolicyInput = (input: GetContainerPolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && {
-      ContainerName: input.ContainerName,
-    }),
+    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1GetCorsPolicyInput = (input: GetCorsPolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && {
-      ContainerName: input.ContainerName,
-    }),
+    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1GetLifecyclePolicyInput = (input: GetLifecyclePolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && {
-      ContainerName: input.ContainerName,
-    }),
+    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
   };
 };
 
@@ -1866,48 +1844,34 @@ const serializeAws_json1_1ListTagsForResourceInput = (
 
 const serializeAws_json1_1PutContainerPolicyInput = (input: PutContainerPolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && {
-      ContainerName: input.ContainerName,
-    }),
+    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
     ...(input.Policy !== undefined && { Policy: input.Policy }),
   };
 };
 
 const serializeAws_json1_1PutCorsPolicyInput = (input: PutCorsPolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && {
-      ContainerName: input.ContainerName,
-    }),
-    ...(input.CorsPolicy !== undefined && {
-      CorsPolicy: serializeAws_json1_1CorsPolicy(input.CorsPolicy, context),
-    }),
+    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
+    ...(input.CorsPolicy !== undefined && { CorsPolicy: serializeAws_json1_1CorsPolicy(input.CorsPolicy, context) }),
   };
 };
 
 const serializeAws_json1_1PutLifecyclePolicyInput = (input: PutLifecyclePolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && {
-      ContainerName: input.ContainerName,
-    }),
-    ...(input.LifecyclePolicy !== undefined && {
-      LifecyclePolicy: input.LifecyclePolicy,
-    }),
+    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
+    ...(input.LifecyclePolicy !== undefined && { LifecyclePolicy: input.LifecyclePolicy }),
   };
 };
 
 const serializeAws_json1_1StartAccessLoggingInput = (input: StartAccessLoggingInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && {
-      ContainerName: input.ContainerName,
-    }),
+    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1StopAccessLoggingInput = (input: StopAccessLoggingInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && {
-      ContainerName: input.ContainerName,
-    }),
+    ...(input.ContainerName !== undefined && { ContainerName: input.ContainerName }),
   };
 };
 
@@ -1929,18 +1893,14 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 const serializeAws_json1_1TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.Resource !== undefined && { Resource: input.Resource }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.Resource !== undefined && { Resource: input.Resource }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 

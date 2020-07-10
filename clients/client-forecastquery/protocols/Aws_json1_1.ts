@@ -209,9 +209,7 @@ const serializeAws_json1_1Filters = (input: { [key: string]: string }, context: 
 const serializeAws_json1_1QueryForecastRequest = (input: QueryForecastRequest, context: __SerdeContext): any => {
   return {
     ...(input.EndDate !== undefined && { EndDate: input.EndDate }),
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1Filters(input.Filters, context),
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
     ...(input.ForecastArn !== undefined && { ForecastArn: input.ForecastArn }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.StartDate !== undefined && { StartDate: input.StartDate }),

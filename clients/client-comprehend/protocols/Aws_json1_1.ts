@@ -5515,9 +5515,7 @@ const serializeAws_json1_1BatchDetectDominantLanguageRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.TextList !== undefined && {
-      TextList: serializeAws_json1_1StringList(input.TextList, context),
-    }),
+    ...(input.TextList !== undefined && { TextList: serializeAws_json1_1StringList(input.TextList, context) }),
   };
 };
 
@@ -5526,12 +5524,8 @@ const serializeAws_json1_1BatchDetectEntitiesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
-    ...(input.TextList !== undefined && {
-      TextList: serializeAws_json1_1StringList(input.TextList, context),
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.TextList !== undefined && { TextList: serializeAws_json1_1StringList(input.TextList, context) }),
   };
 };
 
@@ -5540,12 +5534,8 @@ const serializeAws_json1_1BatchDetectKeyPhrasesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
-    ...(input.TextList !== undefined && {
-      TextList: serializeAws_json1_1StringList(input.TextList, context),
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.TextList !== undefined && { TextList: serializeAws_json1_1StringList(input.TextList, context) }),
   };
 };
 
@@ -5554,12 +5544,8 @@ const serializeAws_json1_1BatchDetectSentimentRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
-    ...(input.TextList !== undefined && {
-      TextList: serializeAws_json1_1StringList(input.TextList, context),
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.TextList !== undefined && { TextList: serializeAws_json1_1StringList(input.TextList, context) }),
   };
 };
 
@@ -5568,12 +5554,8 @@ const serializeAws_json1_1BatchDetectSyntaxRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
-    ...(input.TextList !== undefined && {
-      TextList: serializeAws_json1_1StringList(input.TextList, context),
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.TextList !== undefined && { TextList: serializeAws_json1_1StringList(input.TextList, context) }),
   };
 };
 
@@ -5590,47 +5572,29 @@ const serializeAws_json1_1CreateDocumentClassifierRequest = (
 ): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn !== undefined && {
-      DataAccessRoleArn: input.DataAccessRoleArn,
-    }),
-    ...(input.DocumentClassifierName !== undefined && {
-      DocumentClassifierName: input.DocumentClassifierName,
-    }),
+    ...(input.DataAccessRoleArn !== undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.DocumentClassifierName !== undefined && { DocumentClassifierName: input.DocumentClassifierName }),
     ...(input.InputDataConfig !== undefined && {
       InputDataConfig: serializeAws_json1_1DocumentClassifierInputDataConfig(input.InputDataConfig, context),
     }),
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
     ...(input.Mode !== undefined && { Mode: input.Mode }),
     ...(input.OutputDataConfig !== undefined && {
       OutputDataConfig: serializeAws_json1_1DocumentClassifierOutputDataConfig(input.OutputDataConfig, context),
     }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
-    ...(input.VolumeKmsKeyId !== undefined && {
-      VolumeKmsKeyId: input.VolumeKmsKeyId,
-    }),
-    ...(input.VpcConfig !== undefined && {
-      VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.VolumeKmsKeyId !== undefined && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
+    ...(input.VpcConfig !== undefined && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
 };
 
 const serializeAws_json1_1CreateEndpointRequest = (input: CreateEndpointRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DesiredInferenceUnits !== undefined && {
-      DesiredInferenceUnits: input.DesiredInferenceUnits,
-    }),
-    ...(input.EndpointName !== undefined && {
-      EndpointName: input.EndpointName,
-    }),
+    ...(input.DesiredInferenceUnits !== undefined && { DesiredInferenceUnits: input.DesiredInferenceUnits }),
+    ...(input.EndpointName !== undefined && { EndpointName: input.EndpointName }),
     ...(input.ModelArn !== undefined && { ModelArn: input.ModelArn }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -5640,27 +5604,15 @@ const serializeAws_json1_1CreateEntityRecognizerRequest = (
 ): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn !== undefined && {
-      DataAccessRoleArn: input.DataAccessRoleArn,
-    }),
+    ...(input.DataAccessRoleArn !== undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
     ...(input.InputDataConfig !== undefined && {
       InputDataConfig: serializeAws_json1_1EntityRecognizerInputDataConfig(input.InputDataConfig, context),
     }),
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
-    ...(input.RecognizerName !== undefined && {
-      RecognizerName: input.RecognizerName,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
-    ...(input.VolumeKmsKeyId !== undefined && {
-      VolumeKmsKeyId: input.VolumeKmsKeyId,
-    }),
-    ...(input.VpcConfig !== undefined && {
-      VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context),
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.RecognizerName !== undefined && { RecognizerName: input.RecognizerName }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.VolumeKmsKeyId !== undefined && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
+    ...(input.VpcConfig !== undefined && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
 };
 
@@ -5669,9 +5621,7 @@ const serializeAws_json1_1DeleteDocumentClassifierRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DocumentClassifierArn !== undefined && {
-      DocumentClassifierArn: input.DocumentClassifierArn,
-    }),
+    ...(input.DocumentClassifierArn !== undefined && { DocumentClassifierArn: input.DocumentClassifierArn }),
   };
 };
 
@@ -5686,9 +5636,7 @@ const serializeAws_json1_1DeleteEntityRecognizerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EntityRecognizerArn !== undefined && {
-      EntityRecognizerArn: input.EntityRecognizerArn,
-    }),
+    ...(input.EntityRecognizerArn !== undefined && { EntityRecognizerArn: input.EntityRecognizerArn }),
   };
 };
 
@@ -5706,9 +5654,7 @@ const serializeAws_json1_1DescribeDocumentClassifierRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DocumentClassifierArn !== undefined && {
-      DocumentClassifierArn: input.DocumentClassifierArn,
-    }),
+    ...(input.DocumentClassifierArn !== undefined && { DocumentClassifierArn: input.DocumentClassifierArn }),
   };
 };
 
@@ -5741,9 +5687,7 @@ const serializeAws_json1_1DescribeEntityRecognizerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EntityRecognizerArn !== undefined && {
-      EntityRecognizerArn: input.EntityRecognizerArn,
-    }),
+    ...(input.EntityRecognizerArn !== undefined && { EntityRecognizerArn: input.EntityRecognizerArn }),
   };
 };
 
@@ -5785,36 +5729,28 @@ const serializeAws_json1_1DetectDominantLanguageRequest = (
 
 const serializeAws_json1_1DetectEntitiesRequest = (input: DetectEntitiesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
     ...(input.Text !== undefined && { Text: input.Text }),
   };
 };
 
 const serializeAws_json1_1DetectKeyPhrasesRequest = (input: DetectKeyPhrasesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
     ...(input.Text !== undefined && { Text: input.Text }),
   };
 };
 
 const serializeAws_json1_1DetectSentimentRequest = (input: DetectSentimentRequest, context: __SerdeContext): any => {
   return {
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
     ...(input.Text !== undefined && { Text: input.Text }),
   };
 };
 
 const serializeAws_json1_1DetectSyntaxRequest = (input: DetectSyntaxRequest, context: __SerdeContext): any => {
   return {
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
     ...(input.Text !== undefined && { Text: input.Text }),
   };
 };
@@ -5826,9 +5762,7 @@ const serializeAws_json1_1DocumentClassificationJobFilter = (
   return {
     ...(input.JobName !== undefined && { JobName: input.JobName }),
     ...(input.JobStatus !== undefined && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter !== undefined && {
-      SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000),
-    }),
+    ...(input.SubmitTimeAfter !== undefined && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
     ...(input.SubmitTimeBefore !== undefined && {
       SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000),
     }),
@@ -5841,9 +5775,7 @@ const serializeAws_json1_1DocumentClassifierFilter = (
 ): any => {
   return {
     ...(input.Status !== undefined && { Status: input.Status }),
-    ...(input.SubmitTimeAfter !== undefined && {
-      SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000),
-    }),
+    ...(input.SubmitTimeAfter !== undefined && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
     ...(input.SubmitTimeBefore !== undefined && {
       SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000),
     }),
@@ -5855,9 +5787,7 @@ const serializeAws_json1_1DocumentClassifierInputDataConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LabelDelimiter !== undefined && {
-      LabelDelimiter: input.LabelDelimiter,
-    }),
+    ...(input.LabelDelimiter !== undefined && { LabelDelimiter: input.LabelDelimiter }),
     ...(input.S3Uri !== undefined && { S3Uri: input.S3Uri }),
   };
 };
@@ -5879,9 +5809,7 @@ const serializeAws_json1_1DominantLanguageDetectionJobFilter = (
   return {
     ...(input.JobName !== undefined && { JobName: input.JobName }),
     ...(input.JobStatus !== undefined && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter !== undefined && {
-      SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000),
-    }),
+    ...(input.SubmitTimeAfter !== undefined && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
     ...(input.SubmitTimeBefore !== undefined && {
       SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000),
     }),
@@ -5908,9 +5836,7 @@ const serializeAws_json1_1EntitiesDetectionJobFilter = (
   return {
     ...(input.JobName !== undefined && { JobName: input.JobName }),
     ...(input.JobStatus !== undefined && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter !== undefined && {
-      SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000),
-    }),
+    ...(input.SubmitTimeAfter !== undefined && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
     ...(input.SubmitTimeBefore !== undefined && {
       SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000),
     }),
@@ -5947,9 +5873,7 @@ const serializeAws_json1_1EntityRecognizerEntityList = (
 const serializeAws_json1_1EntityRecognizerFilter = (input: EntityRecognizerFilter, context: __SerdeContext): any => {
   return {
     ...(input.Status !== undefined && { Status: input.Status }),
-    ...(input.SubmitTimeAfter !== undefined && {
-      SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000),
-    }),
+    ...(input.SubmitTimeAfter !== undefined && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
     ...(input.SubmitTimeBefore !== undefined && {
       SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000),
     }),
@@ -6000,9 +5924,7 @@ const serializeAws_json1_1KeyPhrasesDetectionJobFilter = (
   return {
     ...(input.JobName !== undefined && { JobName: input.JobName }),
     ...(input.JobStatus !== undefined && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter !== undefined && {
-      SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000),
-    }),
+    ...(input.SubmitTimeAfter !== undefined && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
     ...(input.SubmitTimeBefore !== undefined && {
       SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000),
     }),
@@ -6027,9 +5949,7 @@ const serializeAws_json1_1ListDocumentClassifiersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1DocumentClassifierFilter(input.Filter, context),
-    }),
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1DocumentClassifierFilter(input.Filter, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -6050,9 +5970,7 @@ const serializeAws_json1_1ListDominantLanguageDetectionJobsRequest = (
 
 const serializeAws_json1_1ListEndpointsRequest = (input: ListEndpointsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1EndpointFilter(input.Filter, context),
-    }),
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1EndpointFilter(input.Filter, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -6076,9 +5994,7 @@ const serializeAws_json1_1ListEntityRecognizersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1EntityRecognizerFilter(input.Filter, context),
-    }),
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1EntityRecognizerFilter(input.Filter, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -6124,9 +6040,7 @@ const serializeAws_json1_1ListTopicsDetectionJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1TopicsDetectionJobFilter(input.Filter, context),
-    }),
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1TopicsDetectionJobFilter(input.Filter, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -6150,9 +6064,7 @@ const serializeAws_json1_1SentimentDetectionJobFilter = (
   return {
     ...(input.JobName !== undefined && { JobName: input.JobName }),
     ...(input.JobStatus !== undefined && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter !== undefined && {
-      SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000),
-    }),
+    ...(input.SubmitTimeAfter !== undefined && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
     ...(input.SubmitTimeBefore !== undefined && {
       SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000),
     }),
@@ -6165,12 +6077,8 @@ const serializeAws_json1_1StartDocumentClassificationJobRequest = (
 ): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn !== undefined && {
-      DataAccessRoleArn: input.DataAccessRoleArn,
-    }),
-    ...(input.DocumentClassifierArn !== undefined && {
-      DocumentClassifierArn: input.DocumentClassifierArn,
-    }),
+    ...(input.DataAccessRoleArn !== undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.DocumentClassifierArn !== undefined && { DocumentClassifierArn: input.DocumentClassifierArn }),
     ...(input.InputDataConfig !== undefined && {
       InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
     }),
@@ -6178,12 +6086,8 @@ const serializeAws_json1_1StartDocumentClassificationJobRequest = (
     ...(input.OutputDataConfig !== undefined && {
       OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
     }),
-    ...(input.VolumeKmsKeyId !== undefined && {
-      VolumeKmsKeyId: input.VolumeKmsKeyId,
-    }),
-    ...(input.VpcConfig !== undefined && {
-      VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context),
-    }),
+    ...(input.VolumeKmsKeyId !== undefined && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
+    ...(input.VpcConfig !== undefined && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
 };
 
@@ -6193,9 +6097,7 @@ const serializeAws_json1_1StartDominantLanguageDetectionJobRequest = (
 ): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn !== undefined && {
-      DataAccessRoleArn: input.DataAccessRoleArn,
-    }),
+    ...(input.DataAccessRoleArn !== undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
     ...(input.InputDataConfig !== undefined && {
       InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
     }),
@@ -6203,12 +6105,8 @@ const serializeAws_json1_1StartDominantLanguageDetectionJobRequest = (
     ...(input.OutputDataConfig !== undefined && {
       OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
     }),
-    ...(input.VolumeKmsKeyId !== undefined && {
-      VolumeKmsKeyId: input.VolumeKmsKeyId,
-    }),
-    ...(input.VpcConfig !== undefined && {
-      VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context),
-    }),
+    ...(input.VolumeKmsKeyId !== undefined && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
+    ...(input.VpcConfig !== undefined && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
 };
 
@@ -6218,28 +6116,18 @@ const serializeAws_json1_1StartEntitiesDetectionJobRequest = (
 ): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn !== undefined && {
-      DataAccessRoleArn: input.DataAccessRoleArn,
-    }),
-    ...(input.EntityRecognizerArn !== undefined && {
-      EntityRecognizerArn: input.EntityRecognizerArn,
-    }),
+    ...(input.DataAccessRoleArn !== undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.EntityRecognizerArn !== undefined && { EntityRecognizerArn: input.EntityRecognizerArn }),
     ...(input.InputDataConfig !== undefined && {
       InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
     }),
     ...(input.JobName !== undefined && { JobName: input.JobName }),
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
     ...(input.OutputDataConfig !== undefined && {
       OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
     }),
-    ...(input.VolumeKmsKeyId !== undefined && {
-      VolumeKmsKeyId: input.VolumeKmsKeyId,
-    }),
-    ...(input.VpcConfig !== undefined && {
-      VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context),
-    }),
+    ...(input.VolumeKmsKeyId !== undefined && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
+    ...(input.VpcConfig !== undefined && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
 };
 
@@ -6249,25 +6137,17 @@ const serializeAws_json1_1StartKeyPhrasesDetectionJobRequest = (
 ): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn !== undefined && {
-      DataAccessRoleArn: input.DataAccessRoleArn,
-    }),
+    ...(input.DataAccessRoleArn !== undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
     ...(input.InputDataConfig !== undefined && {
       InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
     }),
     ...(input.JobName !== undefined && { JobName: input.JobName }),
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
     ...(input.OutputDataConfig !== undefined && {
       OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
     }),
-    ...(input.VolumeKmsKeyId !== undefined && {
-      VolumeKmsKeyId: input.VolumeKmsKeyId,
-    }),
-    ...(input.VpcConfig !== undefined && {
-      VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context),
-    }),
+    ...(input.VolumeKmsKeyId !== undefined && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
+    ...(input.VpcConfig !== undefined && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
 };
 
@@ -6277,25 +6157,17 @@ const serializeAws_json1_1StartSentimentDetectionJobRequest = (
 ): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn !== undefined && {
-      DataAccessRoleArn: input.DataAccessRoleArn,
-    }),
+    ...(input.DataAccessRoleArn !== undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
     ...(input.InputDataConfig !== undefined && {
       InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
     }),
     ...(input.JobName !== undefined && { JobName: input.JobName }),
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
     ...(input.OutputDataConfig !== undefined && {
       OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
     }),
-    ...(input.VolumeKmsKeyId !== undefined && {
-      VolumeKmsKeyId: input.VolumeKmsKeyId,
-    }),
-    ...(input.VpcConfig !== undefined && {
-      VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context),
-    }),
+    ...(input.VolumeKmsKeyId !== undefined && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
+    ...(input.VpcConfig !== undefined && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
 };
 
@@ -6305,25 +6177,17 @@ const serializeAws_json1_1StartTopicsDetectionJobRequest = (
 ): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn !== undefined && {
-      DataAccessRoleArn: input.DataAccessRoleArn,
-    }),
+    ...(input.DataAccessRoleArn !== undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
     ...(input.InputDataConfig !== undefined && {
       InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
     }),
     ...(input.JobName !== undefined && { JobName: input.JobName }),
-    ...(input.NumberOfTopics !== undefined && {
-      NumberOfTopics: input.NumberOfTopics,
-    }),
+    ...(input.NumberOfTopics !== undefined && { NumberOfTopics: input.NumberOfTopics }),
     ...(input.OutputDataConfig !== undefined && {
       OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
     }),
-    ...(input.VolumeKmsKeyId !== undefined && {
-      VolumeKmsKeyId: input.VolumeKmsKeyId,
-    }),
-    ...(input.VpcConfig !== undefined && {
-      VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context),
-    }),
+    ...(input.VolumeKmsKeyId !== undefined && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
+    ...(input.VpcConfig !== undefined && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
 };
 
@@ -6368,9 +6232,7 @@ const serializeAws_json1_1StopTrainingDocumentClassifierRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DocumentClassifierArn !== undefined && {
-      DocumentClassifierArn: input.DocumentClassifierArn,
-    }),
+    ...(input.DocumentClassifierArn !== undefined && { DocumentClassifierArn: input.DocumentClassifierArn }),
   };
 };
 
@@ -6379,9 +6241,7 @@ const serializeAws_json1_1StopTrainingEntityRecognizerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EntityRecognizerArn !== undefined && {
-      EntityRecognizerArn: input.EntityRecognizerArn,
-    }),
+    ...(input.EntityRecognizerArn !== undefined && { EntityRecognizerArn: input.EntityRecognizerArn }),
   };
 };
 
@@ -6411,9 +6271,7 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -6424,9 +6282,7 @@ const serializeAws_json1_1TopicsDetectionJobFilter = (
   return {
     ...(input.JobName !== undefined && { JobName: input.JobName }),
     ...(input.JobStatus !== undefined && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter !== undefined && {
-      SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000),
-    }),
+    ...(input.SubmitTimeAfter !== undefined && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
     ...(input.SubmitTimeBefore !== undefined && {
       SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000),
     }),
@@ -6436,17 +6292,13 @@ const serializeAws_json1_1TopicsDetectionJobFilter = (
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateEndpointRequest = (input: UpdateEndpointRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DesiredInferenceUnits !== undefined && {
-      DesiredInferenceUnits: input.DesiredInferenceUnits,
-    }),
+    ...(input.DesiredInferenceUnits !== undefined && { DesiredInferenceUnits: input.DesiredInferenceUnits }),
     ...(input.EndpointArn !== undefined && { EndpointArn: input.EndpointArn }),
   };
 };
@@ -6456,9 +6308,7 @@ const serializeAws_json1_1VpcConfig = (input: VpcConfig, context: __SerdeContext
     ...(input.SecurityGroupIds !== undefined && {
       SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(input.SecurityGroupIds, context),
     }),
-    ...(input.Subnets !== undefined && {
-      Subnets: serializeAws_json1_1Subnets(input.Subnets, context),
-    }),
+    ...(input.Subnets !== undefined && { Subnets: serializeAws_json1_1Subnets(input.Subnets, context) }),
   };
 };
 

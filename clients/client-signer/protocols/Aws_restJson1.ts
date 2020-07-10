@@ -192,9 +192,7 @@ export const serializeAws_restJson1ListSigningJobsCommand = async (
   };
   let resolvedPath = "/signing-jobs";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.platformId !== undefined && { platformId: input.platformId }),
     ...(input.requestedBy !== undefined && { requestedBy: input.requestedBy }),
@@ -224,9 +222,7 @@ export const serializeAws_restJson1ListSigningPlatformsCommand = async (
   let resolvedPath = "/signing-platforms";
   const query: any = {
     ...(input.category !== undefined && { category: input.category }),
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.partner !== undefined && { partner: input.partner }),
     ...(input.target !== undefined && { target: input.target }),
@@ -254,12 +250,8 @@ export const serializeAws_restJson1ListSigningProfilesCommand = async (
   };
   let resolvedPath = "/signing-profiles";
   const query: any = {
-    ...(input.includeCanceled !== undefined && {
-      includeCanceled: input.includeCanceled.toString(),
-    }),
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.includeCanceled !== undefined && { includeCanceled: input.includeCanceled.toString() }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -335,9 +327,7 @@ export const serializeAws_restJson1PutSigningProfileCommand = async (
     ...(input.signingParameters !== undefined && {
       signingParameters: serializeAws_restJson1SigningParameters(input.signingParameters, context),
     }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -366,9 +356,7 @@ export const serializeAws_restJson1StartSigningJobCommand = async (
       destination: serializeAws_restJson1Destination(input.destination, context),
     }),
     ...(input.profileName !== undefined && { profileName: input.profileName }),
-    ...(input.source !== undefined && {
-      source: serializeAws_restJson1Source(input.source, context),
-    }),
+    ...(input.source !== undefined && { source: serializeAws_restJson1Source(input.source, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -401,9 +389,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -435,9 +421,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && {
-      tagKeys: (input.tagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1605,9 +1589,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1Destination = (input: Destination, context: __SerdeContext): any => {
   return {
-    ...(input.s3 !== undefined && {
-      s3: serializeAws_restJson1S3Destination(input.s3, context),
-    }),
+    ...(input.s3 !== undefined && { s3: serializeAws_restJson1S3Destination(input.s3, context) }),
   };
 };
 
@@ -1631,20 +1613,14 @@ const serializeAws_restJson1SigningConfigurationOverrides = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.encryptionAlgorithm !== undefined && {
-      encryptionAlgorithm: input.encryptionAlgorithm,
-    }),
-    ...(input.hashAlgorithm !== undefined && {
-      hashAlgorithm: input.hashAlgorithm,
-    }),
+    ...(input.encryptionAlgorithm !== undefined && { encryptionAlgorithm: input.encryptionAlgorithm }),
+    ...(input.hashAlgorithm !== undefined && { hashAlgorithm: input.hashAlgorithm }),
   };
 };
 
 const serializeAws_restJson1SigningMaterial = (input: SigningMaterial, context: __SerdeContext): any => {
   return {
-    ...(input.certificateArn !== undefined && {
-      certificateArn: input.certificateArn,
-    }),
+    ...(input.certificateArn !== undefined && { certificateArn: input.certificateArn }),
   };
 };
 
@@ -1671,9 +1647,7 @@ const serializeAws_restJson1SigningPlatformOverrides = (
 
 const serializeAws_restJson1Source = (input: Source, context: __SerdeContext): any => {
   return {
-    ...(input.s3 !== undefined && {
-      s3: serializeAws_restJson1S3Source(input.s3, context),
-    }),
+    ...(input.s3 !== undefined && { s3: serializeAws_restJson1S3Source(input.s3, context) }),
   };
 };
 

@@ -453,9 +453,7 @@ const deserializeAws_json1_0TrimmedDataAccessExceptionResponse = async (
 
 const serializeAws_json1_0DescribeStreamInput = (input: DescribeStreamInput, context: __SerdeContext): any => {
   return {
-    ...(input.ExclusiveStartShardId !== undefined && {
-      ExclusiveStartShardId: input.ExclusiveStartShardId,
-    }),
+    ...(input.ExclusiveStartShardId !== undefined && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.StreamArn !== undefined && { StreamArn: input.StreamArn }),
   };
@@ -464,30 +462,22 @@ const serializeAws_json1_0DescribeStreamInput = (input: DescribeStreamInput, con
 const serializeAws_json1_0GetRecordsInput = (input: GetRecordsInput, context: __SerdeContext): any => {
   return {
     ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.ShardIterator !== undefined && {
-      ShardIterator: input.ShardIterator,
-    }),
+    ...(input.ShardIterator !== undefined && { ShardIterator: input.ShardIterator }),
   };
 };
 
 const serializeAws_json1_0GetShardIteratorInput = (input: GetShardIteratorInput, context: __SerdeContext): any => {
   return {
-    ...(input.SequenceNumber !== undefined && {
-      SequenceNumber: input.SequenceNumber,
-    }),
+    ...(input.SequenceNumber !== undefined && { SequenceNumber: input.SequenceNumber }),
     ...(input.ShardId !== undefined && { ShardId: input.ShardId }),
-    ...(input.ShardIteratorType !== undefined && {
-      ShardIteratorType: input.ShardIteratorType,
-    }),
+    ...(input.ShardIteratorType !== undefined && { ShardIteratorType: input.ShardIteratorType }),
     ...(input.StreamArn !== undefined && { StreamArn: input.StreamArn }),
   };
 };
 
 const serializeAws_json1_0ListStreamsInput = (input: ListStreamsInput, context: __SerdeContext): any => {
   return {
-    ...(input.ExclusiveStartStreamArn !== undefined && {
-      ExclusiveStartStreamArn: input.ExclusiveStartStreamArn,
-    }),
+    ...(input.ExclusiveStartStreamArn !== undefined && { ExclusiveStartStreamArn: input.ExclusiveStartStreamArn }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.TableName !== undefined && { TableName: input.TableName }),
   };

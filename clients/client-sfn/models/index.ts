@@ -1105,9 +1105,7 @@ export interface GetExecutionHistoryOutput {
 export namespace GetExecutionHistoryOutput {
   export const filterSensitiveLog = (obj: GetExecutionHistoryOutput): any => ({
     ...obj,
-    ...(obj.events && {
-      events: obj.events.map((item) => HistoryEvent.filterSensitiveLog(item)),
-    }),
+    ...(obj.events && { events: obj.events.map((item) => HistoryEvent.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is GetExecutionHistoryOutput => __isa(o, "GetExecutionHistoryOutput");
 }

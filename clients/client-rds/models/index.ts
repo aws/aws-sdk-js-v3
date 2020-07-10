@@ -4263,9 +4263,7 @@ export interface CustomAvailabilityZone {
 export namespace CustomAvailabilityZone {
   export const filterSensitiveLog = (obj: CustomAvailabilityZone): any => ({
     ...obj,
-    ...(obj.VpnDetails && {
-      VpnDetails: VpnDetails.filterSensitiveLog(obj.VpnDetails),
-    }),
+    ...(obj.VpnDetails && { VpnDetails: VpnDetails.filterSensitiveLog(obj.VpnDetails) }),
   });
   export const isa = (o: any): o is CustomAvailabilityZone => __isa(o, "CustomAvailabilityZone");
 }

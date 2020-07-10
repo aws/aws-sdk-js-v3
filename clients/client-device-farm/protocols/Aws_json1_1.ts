@@ -7682,9 +7682,7 @@ const serializeAws_json1_1CreateDevicePoolRequest = (input: CreateDevicePoolRequ
     ...(input.maxDevices !== undefined && { maxDevices: input.maxDevices }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.projectArn !== undefined && { projectArn: input.projectArn }),
-    ...(input.rules !== undefined && {
-      rules: serializeAws_json1_1Rules(input.rules, context),
-    }),
+    ...(input.rules !== undefined && { rules: serializeAws_json1_1Rules(input.rules, context) }),
   };
 };
 
@@ -7698,12 +7696,8 @@ const serializeAws_json1_1CreateInstanceProfileRequest = (
       excludeAppPackagesFromCleanup: serializeAws_json1_1PackageIds(input.excludeAppPackagesFromCleanup, context),
     }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.packageCleanup !== undefined && {
-      packageCleanup: input.packageCleanup,
-    }),
-    ...(input.rebootAfterUse !== undefined && {
-      rebootAfterUse: input.rebootAfterUse,
-    }),
+    ...(input.packageCleanup !== undefined && { packageCleanup: input.packageCleanup }),
+    ...(input.rebootAfterUse !== undefined && { rebootAfterUse: input.rebootAfterUse }),
   };
 };
 
@@ -7713,41 +7707,23 @@ const serializeAws_json1_1CreateNetworkProfileRequest = (
 ): any => {
   return {
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.downlinkBandwidthBits !== undefined && {
-      downlinkBandwidthBits: input.downlinkBandwidthBits,
-    }),
-    ...(input.downlinkDelayMs !== undefined && {
-      downlinkDelayMs: input.downlinkDelayMs,
-    }),
-    ...(input.downlinkJitterMs !== undefined && {
-      downlinkJitterMs: input.downlinkJitterMs,
-    }),
-    ...(input.downlinkLossPercent !== undefined && {
-      downlinkLossPercent: input.downlinkLossPercent,
-    }),
+    ...(input.downlinkBandwidthBits !== undefined && { downlinkBandwidthBits: input.downlinkBandwidthBits }),
+    ...(input.downlinkDelayMs !== undefined && { downlinkDelayMs: input.downlinkDelayMs }),
+    ...(input.downlinkJitterMs !== undefined && { downlinkJitterMs: input.downlinkJitterMs }),
+    ...(input.downlinkLossPercent !== undefined && { downlinkLossPercent: input.downlinkLossPercent }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.projectArn !== undefined && { projectArn: input.projectArn }),
     ...(input.type !== undefined && { type: input.type }),
-    ...(input.uplinkBandwidthBits !== undefined && {
-      uplinkBandwidthBits: input.uplinkBandwidthBits,
-    }),
-    ...(input.uplinkDelayMs !== undefined && {
-      uplinkDelayMs: input.uplinkDelayMs,
-    }),
-    ...(input.uplinkJitterMs !== undefined && {
-      uplinkJitterMs: input.uplinkJitterMs,
-    }),
-    ...(input.uplinkLossPercent !== undefined && {
-      uplinkLossPercent: input.uplinkLossPercent,
-    }),
+    ...(input.uplinkBandwidthBits !== undefined && { uplinkBandwidthBits: input.uplinkBandwidthBits }),
+    ...(input.uplinkDelayMs !== undefined && { uplinkDelayMs: input.uplinkDelayMs }),
+    ...(input.uplinkJitterMs !== undefined && { uplinkJitterMs: input.uplinkJitterMs }),
+    ...(input.uplinkLossPercent !== undefined && { uplinkLossPercent: input.uplinkLossPercent }),
   };
 };
 
 const serializeAws_json1_1CreateProjectRequest = (input: CreateProjectRequest, context: __SerdeContext): any => {
   return {
-    ...(input.defaultJobTimeoutMinutes !== undefined && {
-      defaultJobTimeoutMinutes: input.defaultJobTimeoutMinutes,
-    }),
+    ...(input.defaultJobTimeoutMinutes !== undefined && { defaultJobTimeoutMinutes: input.defaultJobTimeoutMinutes }),
     ...(input.name !== undefined && { name: input.name }),
   };
 };
@@ -7757,9 +7733,7 @@ const serializeAws_json1_1CreateRemoteAccessSessionConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.billingMethod !== undefined && {
-      billingMethod: input.billingMethod,
-    }),
+    ...(input.billingMethod !== undefined && { billingMethod: input.billingMethod }),
     ...(input.vpceConfigurationArns !== undefined && {
       vpceConfigurationArns: serializeAws_json1_1AmazonResourceNames(input.vpceConfigurationArns, context),
     }),
@@ -7777,26 +7751,14 @@ const serializeAws_json1_1CreateRemoteAccessSessionRequest = (
     }),
     ...(input.deviceArn !== undefined && { deviceArn: input.deviceArn }),
     ...(input.instanceArn !== undefined && { instanceArn: input.instanceArn }),
-    ...(input.interactionMode !== undefined && {
-      interactionMode: input.interactionMode,
-    }),
+    ...(input.interactionMode !== undefined && { interactionMode: input.interactionMode }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.projectArn !== undefined && { projectArn: input.projectArn }),
-    ...(input.remoteDebugEnabled !== undefined && {
-      remoteDebugEnabled: input.remoteDebugEnabled,
-    }),
-    ...(input.remoteRecordAppArn !== undefined && {
-      remoteRecordAppArn: input.remoteRecordAppArn,
-    }),
-    ...(input.remoteRecordEnabled !== undefined && {
-      remoteRecordEnabled: input.remoteRecordEnabled,
-    }),
-    ...(input.skipAppResign !== undefined && {
-      skipAppResign: input.skipAppResign,
-    }),
-    ...(input.sshPublicKey !== undefined && {
-      sshPublicKey: input.sshPublicKey,
-    }),
+    ...(input.remoteDebugEnabled !== undefined && { remoteDebugEnabled: input.remoteDebugEnabled }),
+    ...(input.remoteRecordAppArn !== undefined && { remoteRecordAppArn: input.remoteRecordAppArn }),
+    ...(input.remoteRecordEnabled !== undefined && { remoteRecordEnabled: input.remoteRecordEnabled }),
+    ...(input.skipAppResign !== undefined && { skipAppResign: input.skipAppResign }),
+    ...(input.sshPublicKey !== undefined && { sshPublicKey: input.sshPublicKey }),
   };
 };
 
@@ -7815,9 +7777,7 @@ const serializeAws_json1_1CreateTestGridUrlRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.expiresInSeconds !== undefined && {
-      expiresInSeconds: input.expiresInSeconds,
-    }),
+    ...(input.expiresInSeconds !== undefined && { expiresInSeconds: input.expiresInSeconds }),
     ...(input.projectArn !== undefined && { projectArn: input.projectArn }),
   };
 };
@@ -7836,18 +7796,12 @@ const serializeAws_json1_1CreateVPCEConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.serviceDnsName !== undefined && {
-      serviceDnsName: input.serviceDnsName,
-    }),
+    ...(input.serviceDnsName !== undefined && { serviceDnsName: input.serviceDnsName }),
     ...(input.vpceConfigurationDescription !== undefined && {
       vpceConfigurationDescription: input.vpceConfigurationDescription,
     }),
-    ...(input.vpceConfigurationName !== undefined && {
-      vpceConfigurationName: input.vpceConfigurationName,
-    }),
-    ...(input.vpceServiceName !== undefined && {
-      vpceServiceName: input.vpceServiceName,
-    }),
+    ...(input.vpceConfigurationName !== undefined && { vpceConfigurationName: input.vpceConfigurationName }),
+    ...(input.vpceServiceName !== undefined && { vpceServiceName: input.vpceServiceName }),
   };
 };
 
@@ -7859,9 +7813,7 @@ const serializeAws_json1_1CustomerArtifactPaths = (input: CustomerArtifactPaths,
     ...(input.deviceHostPaths !== undefined && {
       deviceHostPaths: serializeAws_json1_1DeviceHostPaths(input.deviceHostPaths, context),
     }),
-    ...(input.iosPaths !== undefined && {
-      iosPaths: serializeAws_json1_1IosPaths(input.iosPaths, context),
-    }),
+    ...(input.iosPaths !== undefined && { iosPaths: serializeAws_json1_1IosPaths(input.iosPaths, context) }),
   };
 };
 
@@ -7938,9 +7890,7 @@ const serializeAws_json1_1DeviceFilter = (input: DeviceFilter, context: __SerdeC
   return {
     ...(input.attribute !== undefined && { attribute: input.attribute }),
     ...(input.operator !== undefined && { operator: input.operator }),
-    ...(input.values !== undefined && {
-      values: serializeAws_json1_1DeviceFilterValues(input.values, context),
-    }),
+    ...(input.values !== undefined && { values: serializeAws_json1_1DeviceFilterValues(input.values, context) }),
   };
 };
 
@@ -7961,30 +7911,18 @@ const serializeAws_json1_1DeviceSelectionConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filters !== undefined && {
-      filters: serializeAws_json1_1DeviceFilters(input.filters, context),
-    }),
+    ...(input.filters !== undefined && { filters: serializeAws_json1_1DeviceFilters(input.filters, context) }),
     ...(input.maxDevices !== undefined && { maxDevices: input.maxDevices }),
   };
 };
 
 const serializeAws_json1_1ExecutionConfiguration = (input: ExecutionConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.accountsCleanup !== undefined && {
-      accountsCleanup: input.accountsCleanup,
-    }),
-    ...(input.appPackagesCleanup !== undefined && {
-      appPackagesCleanup: input.appPackagesCleanup,
-    }),
-    ...(input.jobTimeoutMinutes !== undefined && {
-      jobTimeoutMinutes: input.jobTimeoutMinutes,
-    }),
-    ...(input.skipAppResign !== undefined && {
-      skipAppResign: input.skipAppResign,
-    }),
-    ...(input.videoCapture !== undefined && {
-      videoCapture: input.videoCapture,
-    }),
+    ...(input.accountsCleanup !== undefined && { accountsCleanup: input.accountsCleanup }),
+    ...(input.appPackagesCleanup !== undefined && { appPackagesCleanup: input.appPackagesCleanup }),
+    ...(input.jobTimeoutMinutes !== undefined && { jobTimeoutMinutes: input.jobTimeoutMinutes }),
+    ...(input.skipAppResign !== undefined && { skipAppResign: input.skipAppResign }),
+    ...(input.videoCapture !== undefined && { videoCapture: input.videoCapture }),
   };
 };
 
@@ -8013,12 +7951,8 @@ const serializeAws_json1_1GetDevicePoolCompatibilityRequest = (
     ...(input.configuration !== undefined && {
       configuration: serializeAws_json1_1ScheduleRunConfiguration(input.configuration, context),
     }),
-    ...(input.devicePoolArn !== undefined && {
-      devicePoolArn: input.devicePoolArn,
-    }),
-    ...(input.test !== undefined && {
-      test: serializeAws_json1_1ScheduleRunTest(input.test, context),
-    }),
+    ...(input.devicePoolArn !== undefined && { devicePoolArn: input.devicePoolArn }),
+    ...(input.test !== undefined && { test: serializeAws_json1_1ScheduleRunTest(input.test, context) }),
     ...(input.testType !== undefined && { testType: input.testType }),
   };
 };
@@ -8142,9 +8076,7 @@ const serializeAws_json1_1InstallToRemoteAccessSessionRequest = (
 ): any => {
   return {
     ...(input.appArn !== undefined && { appArn: input.appArn }),
-    ...(input.remoteAccessSessionArn !== undefined && {
-      remoteAccessSessionArn: input.remoteAccessSessionArn,
-    }),
+    ...(input.remoteAccessSessionArn !== undefined && { remoteAccessSessionArn: input.remoteAccessSessionArn }),
   };
 };
 
@@ -8185,9 +8117,7 @@ const serializeAws_json1_1ListDevicePoolsRequest = (input: ListDevicePoolsReques
 const serializeAws_json1_1ListDevicesRequest = (input: ListDevicesRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.filters !== undefined && {
-      filters: serializeAws_json1_1DeviceFilters(input.filters, context),
-    }),
+    ...(input.filters !== undefined && { filters: serializeAws_json1_1DeviceFilters(input.filters, context) }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
 };
@@ -8335,12 +8265,8 @@ const serializeAws_json1_1ListTestGridSessionsRequest = (
     ...(input.creationTimeBefore !== undefined && {
       creationTimeBefore: Math.round(input.creationTimeBefore.getTime() / 1000),
     }),
-    ...(input.endTimeAfter !== undefined && {
-      endTimeAfter: Math.round(input.endTimeAfter.getTime() / 1000),
-    }),
-    ...(input.endTimeBefore !== undefined && {
-      endTimeBefore: Math.round(input.endTimeBefore.getTime() / 1000),
-    }),
+    ...(input.endTimeAfter !== undefined && { endTimeAfter: Math.round(input.endTimeAfter.getTime() / 1000) }),
+    ...(input.endTimeBefore !== undefined && { endTimeBefore: Math.round(input.endTimeBefore.getTime() / 1000) }),
     ...(input.maxResult !== undefined && { maxResult: input.maxResult }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.projectArn !== undefined && { projectArn: input.projectArn }),
@@ -8397,9 +8323,7 @@ const serializeAws_json1_1PackageIds = (input: string[], context: __SerdeContext
 const serializeAws_json1_1PurchaseOfferingRequest = (input: PurchaseOfferingRequest, context: __SerdeContext): any => {
   return {
     ...(input.offeringId !== undefined && { offeringId: input.offeringId }),
-    ...(input.offeringPromotionId !== undefined && {
-      offeringPromotionId: input.offeringPromotionId,
-    }),
+    ...(input.offeringPromotionId !== undefined && { offeringPromotionId: input.offeringPromotionId }),
     ...(input.quantity !== undefined && { quantity: input.quantity }),
   };
 };
@@ -8440,25 +8364,15 @@ const serializeAws_json1_1ScheduleRunConfiguration = (
     ...(input.auxiliaryApps !== undefined && {
       auxiliaryApps: serializeAws_json1_1AmazonResourceNames(input.auxiliaryApps, context),
     }),
-    ...(input.billingMethod !== undefined && {
-      billingMethod: input.billingMethod,
-    }),
+    ...(input.billingMethod !== undefined && { billingMethod: input.billingMethod }),
     ...(input.customerArtifactPaths !== undefined && {
       customerArtifactPaths: serializeAws_json1_1CustomerArtifactPaths(input.customerArtifactPaths, context),
     }),
-    ...(input.extraDataPackageArn !== undefined && {
-      extraDataPackageArn: input.extraDataPackageArn,
-    }),
+    ...(input.extraDataPackageArn !== undefined && { extraDataPackageArn: input.extraDataPackageArn }),
     ...(input.locale !== undefined && { locale: input.locale }),
-    ...(input.location !== undefined && {
-      location: serializeAws_json1_1Location(input.location, context),
-    }),
-    ...(input.networkProfileArn !== undefined && {
-      networkProfileArn: input.networkProfileArn,
-    }),
-    ...(input.radios !== undefined && {
-      radios: serializeAws_json1_1Radios(input.radios, context),
-    }),
+    ...(input.location !== undefined && { location: serializeAws_json1_1Location(input.location, context) }),
+    ...(input.networkProfileArn !== undefined && { networkProfileArn: input.networkProfileArn }),
+    ...(input.radios !== undefined && { radios: serializeAws_json1_1Radios(input.radios, context) }),
     ...(input.vpceConfigurationArns !== undefined && {
       vpceConfigurationArns: serializeAws_json1_1AmazonResourceNames(input.vpceConfigurationArns, context),
     }),
@@ -8471,9 +8385,7 @@ const serializeAws_json1_1ScheduleRunRequest = (input: ScheduleRunRequest, conte
     ...(input.configuration !== undefined && {
       configuration: serializeAws_json1_1ScheduleRunConfiguration(input.configuration, context),
     }),
-    ...(input.devicePoolArn !== undefined && {
-      devicePoolArn: input.devicePoolArn,
-    }),
+    ...(input.devicePoolArn !== undefined && { devicePoolArn: input.devicePoolArn }),
     ...(input.deviceSelectionConfiguration !== undefined && {
       deviceSelectionConfiguration: serializeAws_json1_1DeviceSelectionConfiguration(
         input.deviceSelectionConfiguration,
@@ -8485,9 +8397,7 @@ const serializeAws_json1_1ScheduleRunRequest = (input: ScheduleRunRequest, conte
     }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.projectArn !== undefined && { projectArn: input.projectArn }),
-    ...(input.test !== undefined && {
-      test: serializeAws_json1_1ScheduleRunTest(input.test, context),
-    }),
+    ...(input.test !== undefined && { test: serializeAws_json1_1ScheduleRunTest(input.test, context) }),
   };
 };
 
@@ -8497,9 +8407,7 @@ const serializeAws_json1_1ScheduleRunTest = (input: ScheduleRunTest, context: __
     ...(input.parameters !== undefined && {
       parameters: serializeAws_json1_1TestParameters(input.parameters, context),
     }),
-    ...(input.testPackageArn !== undefined && {
-      testPackageArn: input.testPackageArn,
-    }),
+    ...(input.testPackageArn !== undefined && { testPackageArn: input.testPackageArn }),
     ...(input.testSpecArn !== undefined && { testSpecArn: input.testSpecArn }),
     ...(input.type !== undefined && { type: input.type }),
   };
@@ -8544,9 +8452,7 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -8563,9 +8469,7 @@ const serializeAws_json1_1TestParameters = (input: { [key: string]: string }, co
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -8575,9 +8479,7 @@ const serializeAws_json1_1UpdateDeviceInstanceRequest = (
 ): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.labels !== undefined && {
-      labels: serializeAws_json1_1InstanceLabels(input.labels, context),
-    }),
+    ...(input.labels !== undefined && { labels: serializeAws_json1_1InstanceLabels(input.labels, context) }),
     ...(input.profileArn !== undefined && { profileArn: input.profileArn }),
   };
 };
@@ -8585,15 +8487,11 @@ const serializeAws_json1_1UpdateDeviceInstanceRequest = (
 const serializeAws_json1_1UpdateDevicePoolRequest = (input: UpdateDevicePoolRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.clearMaxDevices !== undefined && {
-      clearMaxDevices: input.clearMaxDevices,
-    }),
+    ...(input.clearMaxDevices !== undefined && { clearMaxDevices: input.clearMaxDevices }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.maxDevices !== undefined && { maxDevices: input.maxDevices }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.rules !== undefined && {
-      rules: serializeAws_json1_1Rules(input.rules, context),
-    }),
+    ...(input.rules !== undefined && { rules: serializeAws_json1_1Rules(input.rules, context) }),
   };
 };
 
@@ -8608,12 +8506,8 @@ const serializeAws_json1_1UpdateInstanceProfileRequest = (
       excludeAppPackagesFromCleanup: serializeAws_json1_1PackageIds(input.excludeAppPackagesFromCleanup, context),
     }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.packageCleanup !== undefined && {
-      packageCleanup: input.packageCleanup,
-    }),
-    ...(input.rebootAfterUse !== undefined && {
-      rebootAfterUse: input.rebootAfterUse,
-    }),
+    ...(input.packageCleanup !== undefined && { packageCleanup: input.packageCleanup }),
+    ...(input.rebootAfterUse !== undefined && { rebootAfterUse: input.rebootAfterUse }),
   };
 };
 
@@ -8624,41 +8518,23 @@ const serializeAws_json1_1UpdateNetworkProfileRequest = (
   return {
     ...(input.arn !== undefined && { arn: input.arn }),
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.downlinkBandwidthBits !== undefined && {
-      downlinkBandwidthBits: input.downlinkBandwidthBits,
-    }),
-    ...(input.downlinkDelayMs !== undefined && {
-      downlinkDelayMs: input.downlinkDelayMs,
-    }),
-    ...(input.downlinkJitterMs !== undefined && {
-      downlinkJitterMs: input.downlinkJitterMs,
-    }),
-    ...(input.downlinkLossPercent !== undefined && {
-      downlinkLossPercent: input.downlinkLossPercent,
-    }),
+    ...(input.downlinkBandwidthBits !== undefined && { downlinkBandwidthBits: input.downlinkBandwidthBits }),
+    ...(input.downlinkDelayMs !== undefined && { downlinkDelayMs: input.downlinkDelayMs }),
+    ...(input.downlinkJitterMs !== undefined && { downlinkJitterMs: input.downlinkJitterMs }),
+    ...(input.downlinkLossPercent !== undefined && { downlinkLossPercent: input.downlinkLossPercent }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.type !== undefined && { type: input.type }),
-    ...(input.uplinkBandwidthBits !== undefined && {
-      uplinkBandwidthBits: input.uplinkBandwidthBits,
-    }),
-    ...(input.uplinkDelayMs !== undefined && {
-      uplinkDelayMs: input.uplinkDelayMs,
-    }),
-    ...(input.uplinkJitterMs !== undefined && {
-      uplinkJitterMs: input.uplinkJitterMs,
-    }),
-    ...(input.uplinkLossPercent !== undefined && {
-      uplinkLossPercent: input.uplinkLossPercent,
-    }),
+    ...(input.uplinkBandwidthBits !== undefined && { uplinkBandwidthBits: input.uplinkBandwidthBits }),
+    ...(input.uplinkDelayMs !== undefined && { uplinkDelayMs: input.uplinkDelayMs }),
+    ...(input.uplinkJitterMs !== undefined && { uplinkJitterMs: input.uplinkJitterMs }),
+    ...(input.uplinkLossPercent !== undefined && { uplinkLossPercent: input.uplinkLossPercent }),
   };
 };
 
 const serializeAws_json1_1UpdateProjectRequest = (input: UpdateProjectRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.defaultJobTimeoutMinutes !== undefined && {
-      defaultJobTimeoutMinutes: input.defaultJobTimeoutMinutes,
-    }),
+    ...(input.defaultJobTimeoutMinutes !== undefined && { defaultJobTimeoutMinutes: input.defaultJobTimeoutMinutes }),
     ...(input.name !== undefined && { name: input.name }),
   };
 };
@@ -8689,18 +8565,12 @@ const serializeAws_json1_1UpdateVPCEConfigurationRequest = (
 ): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.serviceDnsName !== undefined && {
-      serviceDnsName: input.serviceDnsName,
-    }),
+    ...(input.serviceDnsName !== undefined && { serviceDnsName: input.serviceDnsName }),
     ...(input.vpceConfigurationDescription !== undefined && {
       vpceConfigurationDescription: input.vpceConfigurationDescription,
     }),
-    ...(input.vpceConfigurationName !== undefined && {
-      vpceConfigurationName: input.vpceConfigurationName,
-    }),
-    ...(input.vpceServiceName !== undefined && {
-      vpceServiceName: input.vpceServiceName,
-    }),
+    ...(input.vpceConfigurationName !== undefined && { vpceConfigurationName: input.vpceConfigurationName }),
+    ...(input.vpceServiceName !== undefined && { vpceServiceName: input.vpceServiceName }),
   };
 };
 

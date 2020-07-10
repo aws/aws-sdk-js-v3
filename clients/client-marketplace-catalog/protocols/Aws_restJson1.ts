@@ -123,14 +123,10 @@ export const serializeAws_restJson1ListChangeSetsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Catalog !== undefined && { Catalog: input.Catalog }),
-    ...(input.FilterList !== undefined && {
-      FilterList: serializeAws_restJson1FilterList(input.FilterList, context),
-    }),
+    ...(input.FilterList !== undefined && { FilterList: serializeAws_restJson1FilterList(input.FilterList, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.Sort !== undefined && {
-      Sort: serializeAws_restJson1Sort(input.Sort, context),
-    }),
+    ...(input.Sort !== undefined && { Sort: serializeAws_restJson1Sort(input.Sort, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -156,14 +152,10 @@ export const serializeAws_restJson1ListEntitiesCommand = async (
   body = JSON.stringify({
     ...(input.Catalog !== undefined && { Catalog: input.Catalog }),
     ...(input.EntityType !== undefined && { EntityType: input.EntityType }),
-    ...(input.FilterList !== undefined && {
-      FilterList: serializeAws_restJson1FilterList(input.FilterList, context),
-    }),
+    ...(input.FilterList !== undefined && { FilterList: serializeAws_restJson1FilterList(input.FilterList, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.Sort !== undefined && {
-      Sort: serializeAws_restJson1Sort(input.Sort, context),
-    }),
+    ...(input.Sort !== undefined && { Sort: serializeAws_restJson1Sort(input.Sort, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -191,12 +183,8 @@ export const serializeAws_restJson1StartChangeSetCommand = async (
     ...(input.ChangeSet !== undefined && {
       ChangeSet: serializeAws_restJson1RequestedChangeList(input.ChangeSet, context),
     }),
-    ...(input.ChangeSetName !== undefined && {
-      ChangeSetName: input.ChangeSetName,
-    }),
-    ...(input.ClientRequestToken !== undefined && {
-      ClientRequestToken: input.ClientRequestToken,
-    }),
+    ...(input.ChangeSetName !== undefined && { ChangeSetName: input.ChangeSetName }),
+    ...(input.ClientRequestToken !== undefined && { ClientRequestToken: input.ClientRequestToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -962,9 +950,7 @@ const serializeAws_restJson1Change = (input: Change, context: __SerdeContext): a
   return {
     ...(input.ChangeType !== undefined && { ChangeType: input.ChangeType }),
     ...(input.Details !== undefined && { Details: input.Details }),
-    ...(input.Entity !== undefined && {
-      Entity: serializeAws_restJson1Entity(input.Entity, context),
-    }),
+    ...(input.Entity !== undefined && { Entity: serializeAws_restJson1Entity(input.Entity, context) }),
   };
 };
 
@@ -978,9 +964,7 @@ const serializeAws_restJson1Entity = (input: Entity, context: __SerdeContext): a
 const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ValueList !== undefined && {
-      ValueList: serializeAws_restJson1ValueList(input.ValueList, context),
-    }),
+    ...(input.ValueList !== undefined && { ValueList: serializeAws_restJson1ValueList(input.ValueList, context) }),
   };
 };
 

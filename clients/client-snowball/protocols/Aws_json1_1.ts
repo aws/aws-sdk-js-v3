@@ -1757,19 +1757,13 @@ const serializeAws_json1_1Address = (input: Address, context: __SerdeContext): a
     ...(input.City !== undefined && { City: input.City }),
     ...(input.Company !== undefined && { Company: input.Company }),
     ...(input.Country !== undefined && { Country: input.Country }),
-    ...(input.IsRestricted !== undefined && {
-      IsRestricted: input.IsRestricted,
-    }),
+    ...(input.IsRestricted !== undefined && { IsRestricted: input.IsRestricted }),
     ...(input.Landmark !== undefined && { Landmark: input.Landmark }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.PhoneNumber !== undefined && { PhoneNumber: input.PhoneNumber }),
     ...(input.PostalCode !== undefined && { PostalCode: input.PostalCode }),
-    ...(input.PrefectureOrDistrict !== undefined && {
-      PrefectureOrDistrict: input.PrefectureOrDistrict,
-    }),
-    ...(input.StateOrProvince !== undefined && {
-      StateOrProvince: input.StateOrProvince,
-    }),
+    ...(input.PrefectureOrDistrict !== undefined && { PrefectureOrDistrict: input.PrefectureOrDistrict }),
+    ...(input.StateOrProvince !== undefined && { StateOrProvince: input.StateOrProvince }),
     ...(input.Street1 !== undefined && { Street1: input.Street1 }),
     ...(input.Street2 !== undefined && { Street2: input.Street2 }),
     ...(input.Street3 !== undefined && { Street3: input.Street3 }),
@@ -1790,9 +1784,7 @@ const serializeAws_json1_1CancelJobRequest = (input: CancelJobRequest, context: 
 
 const serializeAws_json1_1CreateAddressRequest = (input: CreateAddressRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Address !== undefined && {
-      Address: serializeAws_json1_1Address(input.Address, context),
-    }),
+    ...(input.Address !== undefined && { Address: serializeAws_json1_1Address(input.Address, context) }),
   };
 };
 
@@ -1800,24 +1792,16 @@ const serializeAws_json1_1CreateClusterRequest = (input: CreateClusterRequest, c
   return {
     ...(input.AddressId !== undefined && { AddressId: input.AddressId }),
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.ForwardingAddressId !== undefined && {
-      ForwardingAddressId: input.ForwardingAddressId,
-    }),
+    ...(input.ForwardingAddressId !== undefined && { ForwardingAddressId: input.ForwardingAddressId }),
     ...(input.JobType !== undefined && { JobType: input.JobType }),
     ...(input.KmsKeyARN !== undefined && { KmsKeyARN: input.KmsKeyARN }),
     ...(input.Notification !== undefined && {
       Notification: serializeAws_json1_1Notification(input.Notification, context),
     }),
-    ...(input.Resources !== undefined && {
-      Resources: serializeAws_json1_1JobResource(input.Resources, context),
-    }),
+    ...(input.Resources !== undefined && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
     ...(input.RoleARN !== undefined && { RoleARN: input.RoleARN }),
-    ...(input.ShippingOption !== undefined && {
-      ShippingOption: input.ShippingOption,
-    }),
-    ...(input.SnowballType !== undefined && {
-      SnowballType: input.SnowballType,
-    }),
+    ...(input.ShippingOption !== undefined && { ShippingOption: input.ShippingOption }),
+    ...(input.SnowballType !== undefined && { SnowballType: input.SnowballType }),
   };
 };
 
@@ -1826,27 +1810,19 @@ const serializeAws_json1_1CreateJobRequest = (input: CreateJobRequest, context: 
     ...(input.AddressId !== undefined && { AddressId: input.AddressId }),
     ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.ForwardingAddressId !== undefined && {
-      ForwardingAddressId: input.ForwardingAddressId,
-    }),
+    ...(input.ForwardingAddressId !== undefined && { ForwardingAddressId: input.ForwardingAddressId }),
     ...(input.JobType !== undefined && { JobType: input.JobType }),
     ...(input.KmsKeyARN !== undefined && { KmsKeyARN: input.KmsKeyARN }),
     ...(input.Notification !== undefined && {
       Notification: serializeAws_json1_1Notification(input.Notification, context),
     }),
-    ...(input.Resources !== undefined && {
-      Resources: serializeAws_json1_1JobResource(input.Resources, context),
-    }),
+    ...(input.Resources !== undefined && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
     ...(input.RoleARN !== undefined && { RoleARN: input.RoleARN }),
-    ...(input.ShippingOption !== undefined && {
-      ShippingOption: input.ShippingOption,
-    }),
+    ...(input.ShippingOption !== undefined && { ShippingOption: input.ShippingOption }),
     ...(input.SnowballCapacityPreference !== undefined && {
       SnowballCapacityPreference: input.SnowballCapacityPreference,
     }),
-    ...(input.SnowballType !== undefined && {
-      SnowballType: input.SnowballType,
-    }),
+    ...(input.SnowballType !== undefined && { SnowballType: input.SnowballType }),
   };
 };
 
@@ -1881,9 +1857,7 @@ const serializeAws_json1_1DescribeJobRequest = (input: DescribeJobRequest, conte
 const serializeAws_json1_1Ec2AmiResource = (input: Ec2AmiResource, context: __SerdeContext): any => {
   return {
     ...(input.AmiId !== undefined && { AmiId: input.AmiId }),
-    ...(input.SnowballAmiId !== undefined && {
-      SnowballAmiId: input.SnowballAmiId,
-    }),
+    ...(input.SnowballAmiId !== undefined && { SnowballAmiId: input.SnowballAmiId }),
   };
 };
 
@@ -1893,9 +1867,7 @@ const serializeAws_json1_1Ec2AmiResourceList = (input: Ec2AmiResource[], context
 
 const serializeAws_json1_1EventTriggerDefinition = (input: EventTriggerDefinition, context: __SerdeContext): any => {
   return {
-    ...(input.EventResourceARN !== undefined && {
-      EventResourceARN: input.EventResourceARN,
-    }),
+    ...(input.EventResourceARN !== undefined && { EventResourceARN: input.EventResourceARN }),
   };
 };
 
@@ -2014,9 +1986,7 @@ const serializeAws_json1_1Notification = (input: Notification, context: __SerdeC
 const serializeAws_json1_1S3Resource = (input: S3Resource, context: __SerdeContext): any => {
   return {
     ...(input.BucketArn !== undefined && { BucketArn: input.BucketArn }),
-    ...(input.KeyRange !== undefined && {
-      KeyRange: serializeAws_json1_1KeyRange(input.KeyRange, context),
-    }),
+    ...(input.KeyRange !== undefined && { KeyRange: serializeAws_json1_1KeyRange(input.KeyRange, context) }),
   };
 };
 
@@ -2029,19 +1999,13 @@ const serializeAws_json1_1UpdateClusterRequest = (input: UpdateClusterRequest, c
     ...(input.AddressId !== undefined && { AddressId: input.AddressId }),
     ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.ForwardingAddressId !== undefined && {
-      ForwardingAddressId: input.ForwardingAddressId,
-    }),
+    ...(input.ForwardingAddressId !== undefined && { ForwardingAddressId: input.ForwardingAddressId }),
     ...(input.Notification !== undefined && {
       Notification: serializeAws_json1_1Notification(input.Notification, context),
     }),
-    ...(input.Resources !== undefined && {
-      Resources: serializeAws_json1_1JobResource(input.Resources, context),
-    }),
+    ...(input.Resources !== undefined && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
     ...(input.RoleARN !== undefined && { RoleARN: input.RoleARN }),
-    ...(input.ShippingOption !== undefined && {
-      ShippingOption: input.ShippingOption,
-    }),
+    ...(input.ShippingOption !== undefined && { ShippingOption: input.ShippingOption }),
   };
 };
 
@@ -2049,20 +2013,14 @@ const serializeAws_json1_1UpdateJobRequest = (input: UpdateJobRequest, context: 
   return {
     ...(input.AddressId !== undefined && { AddressId: input.AddressId }),
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.ForwardingAddressId !== undefined && {
-      ForwardingAddressId: input.ForwardingAddressId,
-    }),
+    ...(input.ForwardingAddressId !== undefined && { ForwardingAddressId: input.ForwardingAddressId }),
     ...(input.JobId !== undefined && { JobId: input.JobId }),
     ...(input.Notification !== undefined && {
       Notification: serializeAws_json1_1Notification(input.Notification, context),
     }),
-    ...(input.Resources !== undefined && {
-      Resources: serializeAws_json1_1JobResource(input.Resources, context),
-    }),
+    ...(input.Resources !== undefined && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
     ...(input.RoleARN !== undefined && { RoleARN: input.RoleARN }),
-    ...(input.ShippingOption !== undefined && {
-      ShippingOption: input.ShippingOption,
-    }),
+    ...(input.ShippingOption !== undefined && { ShippingOption: input.ShippingOption }),
     ...(input.SnowballCapacityPreference !== undefined && {
       SnowballCapacityPreference: input.SnowballCapacityPreference,
     }),

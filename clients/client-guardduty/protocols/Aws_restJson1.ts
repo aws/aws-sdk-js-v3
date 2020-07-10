@@ -177,9 +177,7 @@ export const serializeAws_restJson1AcceptInvitationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.InvitationId !== undefined && {
-      invitationId: input.InvitationId,
-    }),
+    ...(input.InvitationId !== undefined && { invitationId: input.InvitationId }),
     ...(input.MasterId !== undefined && { masterId: input.MasterId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -213,9 +211,7 @@ export const serializeAws_restJson1ArchiveFindingsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.FindingIds !== undefined && {
-      findingIds: serializeAws_restJson1FindingIds(input.FindingIds, context),
-    }),
+    ...(input.FindingIds !== undefined && { findingIds: serializeAws_restJson1FindingIds(input.FindingIds, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -244,9 +240,7 @@ export const serializeAws_restJson1CreateDetectorCommand = async (
     ...(input.FindingPublishingFrequency !== undefined && {
       findingPublishingFrequency: input.FindingPublishingFrequency,
     }),
-    ...(input.Tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -287,9 +281,7 @@ export const serializeAws_restJson1CreateFilterCommand = async (
     }),
     ...(input.Name !== undefined && { name: input.Name }),
     ...(input.Rank !== undefined && { rank: input.Rank }),
-    ...(input.Tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -327,9 +319,7 @@ export const serializeAws_restJson1CreateIPSetCommand = async (
     ...(input.Format !== undefined && { format: input.Format }),
     ...(input.Location !== undefined && { location: input.Location }),
     ...(input.Name !== undefined && { name: input.Name }),
-    ...(input.Tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -401,9 +391,7 @@ export const serializeAws_restJson1CreatePublishingDestinationCommand = async (
     ...(input.DestinationProperties !== undefined && {
       destinationProperties: serializeAws_restJson1DestinationProperties(input.DestinationProperties, context),
     }),
-    ...(input.DestinationType !== undefined && {
-      destinationType: input.DestinationType,
-    }),
+    ...(input.DestinationType !== undefined && { destinationType: input.DestinationType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -476,9 +464,7 @@ export const serializeAws_restJson1CreateThreatIntelSetCommand = async (
     ...(input.Format !== undefined && { format: input.Format }),
     ...(input.Location !== undefined && { location: input.Location }),
     ...(input.Name !== undefined && { name: input.Name }),
-    ...(input.Tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -502,9 +488,7 @@ export const serializeAws_restJson1DeclineInvitationsCommand = async (
   let resolvedPath = "/invitation/decline";
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountIds !== undefined && {
-      accountIds: serializeAws_restJson1AccountIds(input.AccountIds, context),
-    }),
+    ...(input.AccountIds !== undefined && { accountIds: serializeAws_restJson1AccountIds(input.AccountIds, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -597,9 +581,7 @@ export const serializeAws_restJson1DeleteInvitationsCommand = async (
   let resolvedPath = "/invitation/delete";
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountIds !== undefined && {
-      accountIds: serializeAws_restJson1AccountIds(input.AccountIds, context),
-    }),
+    ...(input.AccountIds !== undefined && { accountIds: serializeAws_restJson1AccountIds(input.AccountIds, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -671,9 +653,7 @@ export const serializeAws_restJson1DeleteMembersCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountIds !== undefined && {
-      accountIds: serializeAws_restJson1AccountIds(input.AccountIds, context),
-    }),
+    ...(input.AccountIds !== undefined && { accountIds: serializeAws_restJson1AccountIds(input.AccountIds, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -853,9 +833,7 @@ export const serializeAws_restJson1DisassociateMembersCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountIds !== undefined && {
-      accountIds: serializeAws_restJson1AccountIds(input.AccountIds, context),
-    }),
+    ...(input.AccountIds !== undefined && { accountIds: serializeAws_restJson1AccountIds(input.AccountIds, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -957,9 +935,7 @@ export const serializeAws_restJson1GetFindingsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.FindingIds !== undefined && {
-      findingIds: serializeAws_restJson1FindingIds(input.FindingIds, context),
-    }),
+    ...(input.FindingIds !== undefined && { findingIds: serializeAws_restJson1FindingIds(input.FindingIds, context) }),
     ...(input.SortCriteria !== undefined && {
       sortCriteria: serializeAws_restJson1SortCriteria(input.SortCriteria, context),
     }),
@@ -1124,9 +1100,7 @@ export const serializeAws_restJson1GetMembersCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountIds !== undefined && {
-      accountIds: serializeAws_restJson1AccountIds(input.AccountIds, context),
-    }),
+    ...(input.AccountIds !== undefined && { accountIds: serializeAws_restJson1AccountIds(input.AccountIds, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1198,12 +1172,8 @@ export const serializeAws_restJson1InviteMembersCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountIds !== undefined && {
-      accountIds: serializeAws_restJson1AccountIds(input.AccountIds, context),
-    }),
-    ...(input.DisableEmailNotification !== undefined && {
-      disableEmailNotification: input.DisableEmailNotification,
-    }),
+    ...(input.AccountIds !== undefined && { accountIds: serializeAws_restJson1AccountIds(input.AccountIds, context) }),
+    ...(input.DisableEmailNotification !== undefined && { disableEmailNotification: input.DisableEmailNotification }),
     ...(input.Message !== undefined && { message: input.Message }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1227,9 +1197,7 @@ export const serializeAws_restJson1ListDetectorsCommand = async (
   };
   let resolvedPath = "/detector";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -1264,9 +1232,7 @@ export const serializeAws_restJson1ListFiltersCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -1332,9 +1298,7 @@ export const serializeAws_restJson1ListInvitationsCommand = async (
   };
   let resolvedPath = "/invitation";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -1369,9 +1333,7 @@ export const serializeAws_restJson1ListIPSetsCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -1406,13 +1368,9 @@ export const serializeAws_restJson1ListMembersCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.OnlyAssociated !== undefined && {
-      onlyAssociated: input.OnlyAssociated,
-    }),
+    ...(input.OnlyAssociated !== undefined && { onlyAssociated: input.OnlyAssociated }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1446,9 +1404,7 @@ export const serializeAws_restJson1ListPublishingDestinationsCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -1513,9 +1469,7 @@ export const serializeAws_restJson1ListThreatIntelSetsCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -1551,9 +1505,7 @@ export const serializeAws_restJson1StartMonitoringMembersCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountIds !== undefined && {
-      accountIds: serializeAws_restJson1AccountIds(input.AccountIds, context),
-    }),
+    ...(input.AccountIds !== undefined && { accountIds: serializeAws_restJson1AccountIds(input.AccountIds, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1586,9 +1538,7 @@ export const serializeAws_restJson1StopMonitoringMembersCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountIds !== undefined && {
-      accountIds: serializeAws_restJson1AccountIds(input.AccountIds, context),
-    }),
+    ...(input.AccountIds !== undefined && { accountIds: serializeAws_restJson1AccountIds(input.AccountIds, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1621,9 +1571,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1656,9 +1604,7 @@ export const serializeAws_restJson1UnarchiveFindingsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.FindingIds !== undefined && {
-      findingIds: serializeAws_restJson1FindingIds(input.FindingIds, context),
-    }),
+    ...(input.FindingIds !== undefined && { findingIds: serializeAws_restJson1FindingIds(input.FindingIds, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1690,9 +1636,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && {
-      tagKeys: (input.TagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1812,9 +1756,7 @@ export const serializeAws_restJson1UpdateFindingsFeedbackCommand = async (
   body = JSON.stringify({
     ...(input.Comments !== undefined && { comments: input.Comments }),
     ...(input.Feedback !== undefined && { feedback: input.Feedback }),
-    ...(input.FindingIds !== undefined && {
-      findingIds: serializeAws_restJson1FindingIds(input.FindingIds, context),
-    }),
+    ...(input.FindingIds !== undefined && { findingIds: serializeAws_restJson1FindingIds(input.FindingIds, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5275,30 +5217,18 @@ const serializeAws_restJson1AccountIds = (input: string[], context: __SerdeConte
 
 const serializeAws_restJson1Condition = (input: Condition, context: __SerdeContext): any => {
   return {
-    ...(input.Eq !== undefined && {
-      eq: serializeAws_restJson1Eq(input.Eq, context),
-    }),
-    ...(input.Equals !== undefined && {
-      equals: serializeAws_restJson1Equals(input.Equals, context),
-    }),
+    ...(input.Eq !== undefined && { eq: serializeAws_restJson1Eq(input.Eq, context) }),
+    ...(input.Equals !== undefined && { equals: serializeAws_restJson1Equals(input.Equals, context) }),
     ...(input.GreaterThan !== undefined && { greaterThan: input.GreaterThan }),
-    ...(input.GreaterThanOrEqual !== undefined && {
-      greaterThanOrEqual: input.GreaterThanOrEqual,
-    }),
+    ...(input.GreaterThanOrEqual !== undefined && { greaterThanOrEqual: input.GreaterThanOrEqual }),
     ...(input.Gt !== undefined && { gt: input.Gt }),
     ...(input.Gte !== undefined && { gte: input.Gte }),
     ...(input.LessThan !== undefined && { lessThan: input.LessThan }),
-    ...(input.LessThanOrEqual !== undefined && {
-      lessThanOrEqual: input.LessThanOrEqual,
-    }),
+    ...(input.LessThanOrEqual !== undefined && { lessThanOrEqual: input.LessThanOrEqual }),
     ...(input.Lt !== undefined && { lt: input.Lt }),
     ...(input.Lte !== undefined && { lte: input.Lte }),
-    ...(input.Neq !== undefined && {
-      neq: serializeAws_restJson1Neq(input.Neq, context),
-    }),
-    ...(input.NotEquals !== undefined && {
-      notEquals: serializeAws_restJson1NotEquals(input.NotEquals, context),
-    }),
+    ...(input.Neq !== undefined && { neq: serializeAws_restJson1Neq(input.Neq, context) }),
+    ...(input.NotEquals !== undefined && { notEquals: serializeAws_restJson1NotEquals(input.NotEquals, context) }),
   };
 };
 
@@ -5314,9 +5244,7 @@ const serializeAws_restJson1Criterion = (input: { [key: string]: Condition }, co
 
 const serializeAws_restJson1DestinationProperties = (input: DestinationProperties, context: __SerdeContext): any => {
   return {
-    ...(input.DestinationArn !== undefined && {
-      destinationArn: input.DestinationArn,
-    }),
+    ...(input.DestinationArn !== undefined && { destinationArn: input.DestinationArn }),
     ...(input.KmsKeyArn !== undefined && { kmsKeyArn: input.KmsKeyArn }),
   };
 };
@@ -5331,9 +5259,7 @@ const serializeAws_restJson1Equals = (input: string[], context: __SerdeContext):
 
 const serializeAws_restJson1FindingCriteria = (input: FindingCriteria, context: __SerdeContext): any => {
   return {
-    ...(input.Criterion !== undefined && {
-      criterion: serializeAws_restJson1Criterion(input.Criterion, context),
-    }),
+    ...(input.Criterion !== undefined && { criterion: serializeAws_restJson1Criterion(input.Criterion, context) }),
   };
 };
 
@@ -5362,9 +5288,7 @@ const serializeAws_restJson1NotEquals = (input: string[], context: __SerdeContex
 
 const serializeAws_restJson1SortCriteria = (input: SortCriteria, context: __SerdeContext): any => {
   return {
-    ...(input.AttributeName !== undefined && {
-      attributeName: input.AttributeName,
-    }),
+    ...(input.AttributeName !== undefined && { attributeName: input.AttributeName }),
     ...(input.OrderBy !== undefined && { orderBy: input.OrderBy }),
   };
 };

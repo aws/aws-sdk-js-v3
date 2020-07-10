@@ -33,18 +33,12 @@ export const serializeAws_restJson1StartStreamTranscriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.LanguageCode) && {
-      "x-amzn-transcribe-language-code": input.LanguageCode!,
-    }),
-    ...(isSerializableHeaderValue(input.MediaEncoding) && {
-      "x-amzn-transcribe-media-encoding": input.MediaEncoding!,
-    }),
+    ...(isSerializableHeaderValue(input.LanguageCode) && { "x-amzn-transcribe-language-code": input.LanguageCode! }),
+    ...(isSerializableHeaderValue(input.MediaEncoding) && { "x-amzn-transcribe-media-encoding": input.MediaEncoding! }),
     ...(isSerializableHeaderValue(input.MediaSampleRateHertz) && {
       "x-amzn-transcribe-sample-rate": input.MediaSampleRateHertz!.toString(),
     }),
-    ...(isSerializableHeaderValue(input.SessionId) && {
-      "x-amzn-transcribe-session-id": input.SessionId!,
-    }),
+    ...(isSerializableHeaderValue(input.SessionId) && { "x-amzn-transcribe-session-id": input.SessionId! }),
     ...(isSerializableHeaderValue(input.VocabularyName) && {
       "x-amzn-transcribe-vocabulary-name": input.VocabularyName!,
     }),
@@ -365,17 +359,13 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
 
 const serializeAws_restJson1AudioEvent = (input: AudioEvent, context: __SerdeContext): any => {
   return {
-    ...(input.AudioChunk !== undefined && {
-      AudioChunk: context.base64Encoder(input.AudioChunk),
-    }),
+    ...(input.AudioChunk !== undefined && { AudioChunk: context.base64Encoder(input.AudioChunk) }),
   };
 };
 
 const serializeAws_restJson1AudioStream = (input: AudioStream, context: __SerdeContext): any => {
   return AudioStream.visit(input, {
-    AudioEvent: (value) => ({
-      AudioEvent: serializeAws_restJson1AudioEvent(value, context),
-    }),
+    AudioEvent: (value) => ({ AudioEvent: serializeAws_restJson1AudioEvent(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };

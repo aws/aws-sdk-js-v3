@@ -62,16 +62,12 @@ export const serializeAws_restJson1CreateLifecyclePolicyCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.ExecutionRoleArn !== undefined && {
-      ExecutionRoleArn: input.ExecutionRoleArn,
-    }),
+    ...(input.ExecutionRoleArn !== undefined && { ExecutionRoleArn: input.ExecutionRoleArn }),
     ...(input.PolicyDetails !== undefined && {
       PolicyDetails: serializeAws_restJson1PolicyDetails(input.PolicyDetails, context),
     }),
     ...(input.State !== undefined && { State: input.State }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1TagMap(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -124,19 +120,11 @@ export const serializeAws_restJson1GetLifecyclePoliciesCommand = async (
   };
   let resolvedPath = "/policies";
   const query: any = {
-    ...(input.PolicyIds !== undefined && {
-      policyIds: (input.PolicyIds || []).map((_entry) => _entry),
-    }),
-    ...(input.ResourceTypes !== undefined && {
-      resourceTypes: (input.ResourceTypes || []).map((_entry) => _entry),
-    }),
+    ...(input.PolicyIds !== undefined && { policyIds: (input.PolicyIds || []).map((_entry) => _entry) }),
+    ...(input.ResourceTypes !== undefined && { resourceTypes: (input.ResourceTypes || []).map((_entry) => _entry) }),
     ...(input.State !== undefined && { state: input.State }),
-    ...(input.TagsToAdd !== undefined && {
-      tagsToAdd: (input.TagsToAdd || []).map((_entry) => _entry),
-    }),
-    ...(input.TargetTags !== undefined && {
-      targetTags: (input.TargetTags || []).map((_entry) => _entry),
-    }),
+    ...(input.TagsToAdd !== undefined && { tagsToAdd: (input.TagsToAdd || []).map((_entry) => _entry) }),
+    ...(input.TargetTags !== undefined && { targetTags: (input.TargetTags || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -231,9 +219,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1TagMap(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -265,9 +251,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && {
-      tagKeys: (input.TagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -303,9 +287,7 @@ export const serializeAws_restJson1UpdateLifecyclePolicyCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.ExecutionRoleArn !== undefined && {
-      ExecutionRoleArn: input.ExecutionRoleArn,
-    }),
+    ...(input.ExecutionRoleArn !== undefined && { ExecutionRoleArn: input.ExecutionRoleArn }),
     ...(input.PolicyDetails !== undefined && {
       PolicyDetails: serializeAws_restJson1PolicyDetails(input.PolicyDetails, context),
     }),
@@ -1013,12 +995,8 @@ const serializeAws_restJson1AvailabilityZoneList = (input: string[], context: __
 const serializeAws_restJson1CreateRule = (input: CreateRule, context: __SerdeContext): any => {
   return {
     ...(input.Interval !== undefined && { Interval: input.Interval }),
-    ...(input.IntervalUnit !== undefined && {
-      IntervalUnit: input.IntervalUnit,
-    }),
-    ...(input.Times !== undefined && {
-      Times: serializeAws_restJson1TimesList(input.Times, context),
-    }),
+    ...(input.IntervalUnit !== undefined && { IntervalUnit: input.IntervalUnit }),
+    ...(input.Times !== undefined && { Times: serializeAws_restJson1TimesList(input.Times, context) }),
   };
 };
 
@@ -1028,9 +1006,7 @@ const serializeAws_restJson1CrossRegionCopyRetainRule = (
 ): any => {
   return {
     ...(input.Interval !== undefined && { Interval: input.Interval }),
-    ...(input.IntervalUnit !== undefined && {
-      IntervalUnit: input.IntervalUnit,
-    }),
+    ...(input.IntervalUnit !== undefined && { IntervalUnit: input.IntervalUnit }),
   };
 };
 
@@ -1042,9 +1018,7 @@ const serializeAws_restJson1CrossRegionCopyRule = (input: CrossRegionCopyRule, c
     ...(input.RetainRule !== undefined && {
       RetainRule: serializeAws_restJson1CrossRegionCopyRetainRule(input.RetainRule, context),
     }),
-    ...(input.TargetRegion !== undefined && {
-      TargetRegion: input.TargetRegion,
-    }),
+    ...(input.TargetRegion !== undefined && { TargetRegion: input.TargetRegion }),
   };
 };
 
@@ -1059,32 +1033,24 @@ const serializeAws_restJson1FastRestoreRule = (input: FastRestoreRule, context: 
     }),
     ...(input.Count !== undefined && { Count: input.Count }),
     ...(input.Interval !== undefined && { Interval: input.Interval }),
-    ...(input.IntervalUnit !== undefined && {
-      IntervalUnit: input.IntervalUnit,
-    }),
+    ...(input.IntervalUnit !== undefined && { IntervalUnit: input.IntervalUnit }),
   };
 };
 
 const serializeAws_restJson1_Parameters = (input: _Parameters, context: __SerdeContext): any => {
   return {
-    ...(input.ExcludeBootVolume !== undefined && {
-      ExcludeBootVolume: input.ExcludeBootVolume,
-    }),
+    ...(input.ExcludeBootVolume !== undefined && { ExcludeBootVolume: input.ExcludeBootVolume }),
   };
 };
 
 const serializeAws_restJson1PolicyDetails = (input: PolicyDetails, context: __SerdeContext): any => {
   return {
-    ...(input.Parameters !== undefined && {
-      Parameters: serializeAws_restJson1_Parameters(input.Parameters, context),
-    }),
+    ...(input.Parameters !== undefined && { Parameters: serializeAws_restJson1_Parameters(input.Parameters, context) }),
     ...(input.PolicyType !== undefined && { PolicyType: input.PolicyType }),
     ...(input.ResourceTypes !== undefined && {
       ResourceTypes: serializeAws_restJson1ResourceTypeValuesList(input.ResourceTypes, context),
     }),
-    ...(input.Schedules !== undefined && {
-      Schedules: serializeAws_restJson1ScheduleList(input.Schedules, context),
-    }),
+    ...(input.Schedules !== undefined && { Schedules: serializeAws_restJson1ScheduleList(input.Schedules, context) }),
     ...(input.TargetTags !== undefined && {
       TargetTags: serializeAws_restJson1TargetTagList(input.TargetTags, context),
     }),
@@ -1102,18 +1068,14 @@ const serializeAws_restJson1RetainRule = (input: RetainRule, context: __SerdeCon
   return {
     ...(input.Count !== undefined && { Count: input.Count }),
     ...(input.Interval !== undefined && { Interval: input.Interval }),
-    ...(input.IntervalUnit !== undefined && {
-      IntervalUnit: input.IntervalUnit,
-    }),
+    ...(input.IntervalUnit !== undefined && { IntervalUnit: input.IntervalUnit }),
   };
 };
 
 const serializeAws_restJson1Schedule = (input: Schedule, context: __SerdeContext): any => {
   return {
     ...(input.CopyTags !== undefined && { CopyTags: input.CopyTags }),
-    ...(input.CreateRule !== undefined && {
-      CreateRule: serializeAws_restJson1CreateRule(input.CreateRule, context),
-    }),
+    ...(input.CreateRule !== undefined && { CreateRule: serializeAws_restJson1CreateRule(input.CreateRule, context) }),
     ...(input.CrossRegionCopyRules !== undefined && {
       CrossRegionCopyRules: serializeAws_restJson1CrossRegionCopyRules(input.CrossRegionCopyRules, context),
     }),
@@ -1121,12 +1083,8 @@ const serializeAws_restJson1Schedule = (input: Schedule, context: __SerdeContext
       FastRestoreRule: serializeAws_restJson1FastRestoreRule(input.FastRestoreRule, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.RetainRule !== undefined && {
-      RetainRule: serializeAws_restJson1RetainRule(input.RetainRule, context),
-    }),
-    ...(input.TagsToAdd !== undefined && {
-      TagsToAdd: serializeAws_restJson1TagsToAddList(input.TagsToAdd, context),
-    }),
+    ...(input.RetainRule !== undefined && { RetainRule: serializeAws_restJson1RetainRule(input.RetainRule, context) }),
+    ...(input.TagsToAdd !== undefined && { TagsToAdd: serializeAws_restJson1TagsToAddList(input.TagsToAdd, context) }),
     ...(input.VariableTags !== undefined && {
       VariableTags: serializeAws_restJson1VariableTagsList(input.VariableTags, context),
     }),

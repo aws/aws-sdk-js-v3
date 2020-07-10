@@ -594,9 +594,7 @@ export const serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand = a
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.IfMatch) && {
-      "If-Match": input.IfMatch!,
-    }),
+    ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2019-03-26/origin-access-identity/cloudfront/{Id}";
   if (input.Id !== undefined) {
@@ -627,9 +625,7 @@ export const serializeAws_restXmlDeleteDistributionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.IfMatch) && {
-      "If-Match": input.IfMatch!,
-    }),
+    ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2019-03-26/distribution/{Id}";
   if (input.Id !== undefined) {
@@ -660,9 +656,7 @@ export const serializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand = async
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.IfMatch) && {
-      "If-Match": input.IfMatch!,
-    }),
+    ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2019-03-26/field-level-encryption/{Id}";
   if (input.Id !== undefined) {
@@ -693,9 +687,7 @@ export const serializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.IfMatch) && {
-      "If-Match": input.IfMatch!,
-    }),
+    ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2019-03-26/field-level-encryption-profile/{Id}";
   if (input.Id !== undefined) {
@@ -726,9 +718,7 @@ export const serializeAws_restXmlDeletePublicKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.IfMatch) && {
-      "If-Match": input.IfMatch!,
-    }),
+    ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2019-03-26/public-key/{Id}";
   if (input.Id !== undefined) {
@@ -759,9 +749,7 @@ export const serializeAws_restXmlDeleteStreamingDistributionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.IfMatch) && {
-      "If-Match": input.IfMatch!,
-    }),
+    ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2019-03-26/streaming-distribution/{Id}";
   if (input.Id !== undefined) {
@@ -1508,9 +1496,7 @@ export const serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand = a
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/xml",
-    ...(isSerializableHeaderValue(input.IfMatch) && {
-      "If-Match": input.IfMatch!,
-    }),
+    ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2019-03-26/origin-access-identity/cloudfront/{Id}/config";
   if (input.Id !== undefined) {
@@ -1551,9 +1537,7 @@ export const serializeAws_restXmlUpdateDistributionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/xml",
-    ...(isSerializableHeaderValue(input.IfMatch) && {
-      "If-Match": input.IfMatch!,
-    }),
+    ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2019-03-26/distribution/{Id}/config";
   if (input.Id !== undefined) {
@@ -1591,9 +1575,7 @@ export const serializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand = async
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/xml",
-    ...(isSerializableHeaderValue(input.IfMatch) && {
-      "If-Match": input.IfMatch!,
-    }),
+    ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2019-03-26/field-level-encryption/{Id}/config";
   if (input.Id !== undefined) {
@@ -1631,9 +1613,7 @@ export const serializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/xml",
-    ...(isSerializableHeaderValue(input.IfMatch) && {
-      "If-Match": input.IfMatch!,
-    }),
+    ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2019-03-26/field-level-encryption-profile/{Id}/config";
   if (input.Id !== undefined) {
@@ -1671,9 +1651,7 @@ export const serializeAws_restXmlUpdatePublicKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/xml",
-    ...(isSerializableHeaderValue(input.IfMatch) && {
-      "If-Match": input.IfMatch!,
-    }),
+    ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2019-03-26/public-key/{Id}/config";
   if (input.Id !== undefined) {
@@ -1711,9 +1689,7 @@ export const serializeAws_restXmlUpdateStreamingDistributionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/xml",
-    ...(isSerializableHeaderValue(input.IfMatch) && {
-      "If-Match": input.IfMatch!,
-    }),
+    ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2019-03-26/streaming-distribution/{Id}/config";
   if (input.Id !== undefined) {

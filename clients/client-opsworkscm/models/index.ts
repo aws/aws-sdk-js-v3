@@ -1161,9 +1161,7 @@ export interface ExportServerEngineAttributeResponse {
 export namespace ExportServerEngineAttributeResponse {
   export const filterSensitiveLog = (obj: ExportServerEngineAttributeResponse): any => ({
     ...obj,
-    ...(obj.EngineAttribute && {
-      EngineAttribute: EngineAttribute.filterSensitiveLog(obj.EngineAttribute),
-    }),
+    ...(obj.EngineAttribute && { EngineAttribute: EngineAttribute.filterSensitiveLog(obj.EngineAttribute) }),
   });
   export const isa = (o: any): o is ExportServerEngineAttributeResponse =>
     __isa(o, "ExportServerEngineAttributeResponse");

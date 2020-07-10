@@ -119,9 +119,7 @@ export const serializeAws_restJson1GetSessionCommand = async (
     throw new Error("No value provided for input HTTP label: userId.");
   }
   const query: any = {
-    ...(input.checkpointLabelFilter !== undefined && {
-      checkpointLabelFilter: input.checkpointLabelFilter,
-    }),
+    ...(input.checkpointLabelFilter !== undefined && { checkpointLabelFilter: input.checkpointLabelFilter }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -145,9 +143,7 @@ export const serializeAws_restJson1PostContentCommand = async (
     "Content-Type": "application/octet-stream",
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
     ...(isSerializableHeaderValue(input.accept) && { Accept: input.accept! }),
-    ...(isSerializableHeaderValue(input.contentType) && {
-      "Content-Type": input.contentType!,
-    }),
+    ...(isSerializableHeaderValue(input.contentType) && { "Content-Type": input.contentType! }),
     ...(isSerializableHeaderValue(input.requestAttributes) && {
       "x-amz-lex-request-attributes": __LazyJsonString.fromObject(input.requestAttributes!),
     }),
@@ -1173,45 +1169,25 @@ const deserializeAws_restJson1UnsupportedMediaTypeExceptionResponse = async (
 
 const serializeAws_restJson1DialogAction = (input: DialogAction, context: __SerdeContext): any => {
   return {
-    ...(input.fulfillmentState !== undefined && {
-      fulfillmentState: input.fulfillmentState,
-    }),
+    ...(input.fulfillmentState !== undefined && { fulfillmentState: input.fulfillmentState }),
     ...(input.intentName !== undefined && { intentName: input.intentName }),
     ...(input.message !== undefined && { message: input.message }),
-    ...(input.messageFormat !== undefined && {
-      messageFormat: input.messageFormat,
-    }),
-    ...(input.slotToElicit !== undefined && {
-      slotToElicit: input.slotToElicit,
-    }),
-    ...(input.slots !== undefined && {
-      slots: serializeAws_restJson1StringMap(input.slots, context),
-    }),
+    ...(input.messageFormat !== undefined && { messageFormat: input.messageFormat }),
+    ...(input.slotToElicit !== undefined && { slotToElicit: input.slotToElicit }),
+    ...(input.slots !== undefined && { slots: serializeAws_restJson1StringMap(input.slots, context) }),
     ...(input.type !== undefined && { type: input.type }),
   };
 };
 
 const serializeAws_restJson1IntentSummary = (input: IntentSummary, context: __SerdeContext): any => {
   return {
-    ...(input.checkpointLabel !== undefined && {
-      checkpointLabel: input.checkpointLabel,
-    }),
-    ...(input.confirmationStatus !== undefined && {
-      confirmationStatus: input.confirmationStatus,
-    }),
-    ...(input.dialogActionType !== undefined && {
-      dialogActionType: input.dialogActionType,
-    }),
-    ...(input.fulfillmentState !== undefined && {
-      fulfillmentState: input.fulfillmentState,
-    }),
+    ...(input.checkpointLabel !== undefined && { checkpointLabel: input.checkpointLabel }),
+    ...(input.confirmationStatus !== undefined && { confirmationStatus: input.confirmationStatus }),
+    ...(input.dialogActionType !== undefined && { dialogActionType: input.dialogActionType }),
+    ...(input.fulfillmentState !== undefined && { fulfillmentState: input.fulfillmentState }),
     ...(input.intentName !== undefined && { intentName: input.intentName }),
-    ...(input.slotToElicit !== undefined && {
-      slotToElicit: input.slotToElicit,
-    }),
-    ...(input.slots !== undefined && {
-      slots: serializeAws_restJson1StringMap(input.slots, context),
-    }),
+    ...(input.slotToElicit !== undefined && { slotToElicit: input.slotToElicit }),
+    ...(input.slots !== undefined && { slots: serializeAws_restJson1StringMap(input.slots, context) }),
   };
 };
 

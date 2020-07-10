@@ -1020,9 +1020,7 @@ export interface DkimSigningAttributes {
 export namespace DkimSigningAttributes {
   export const filterSensitiveLog = (obj: DkimSigningAttributes): any => ({
     ...obj,
-    ...(obj.DomainSigningPrivateKey && {
-      DomainSigningPrivateKey: SENSITIVE_STRING,
-    }),
+    ...(obj.DomainSigningPrivateKey && { DomainSigningPrivateKey: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is DkimSigningAttributes => __isa(o, "DkimSigningAttributes");
 }

@@ -745,15 +745,9 @@ const serializeAws_json1_1MeterUsageRequest = (input: MeterUsageRequest, context
   return {
     ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
     ...(input.ProductCode !== undefined && { ProductCode: input.ProductCode }),
-    ...(input.Timestamp !== undefined && {
-      Timestamp: Math.round(input.Timestamp.getTime() / 1000),
-    }),
-    ...(input.UsageDimension !== undefined && {
-      UsageDimension: input.UsageDimension,
-    }),
-    ...(input.UsageQuantity !== undefined && {
-      UsageQuantity: input.UsageQuantity,
-    }),
+    ...(input.Timestamp !== undefined && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.UsageDimension !== undefined && { UsageDimension: input.UsageDimension }),
+    ...(input.UsageQuantity !== undefined && { UsageQuantity: input.UsageQuantity }),
   };
 };
 
@@ -761,30 +755,22 @@ const serializeAws_json1_1RegisterUsageRequest = (input: RegisterUsageRequest, c
   return {
     ...(input.Nonce !== undefined && { Nonce: input.Nonce }),
     ...(input.ProductCode !== undefined && { ProductCode: input.ProductCode }),
-    ...(input.PublicKeyVersion !== undefined && {
-      PublicKeyVersion: input.PublicKeyVersion,
-    }),
+    ...(input.PublicKeyVersion !== undefined && { PublicKeyVersion: input.PublicKeyVersion }),
   };
 };
 
 const serializeAws_json1_1ResolveCustomerRequest = (input: ResolveCustomerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.RegistrationToken !== undefined && {
-      RegistrationToken: input.RegistrationToken,
-    }),
+    ...(input.RegistrationToken !== undefined && { RegistrationToken: input.RegistrationToken }),
   };
 };
 
 const serializeAws_json1_1UsageRecord = (input: UsageRecord, context: __SerdeContext): any => {
   return {
-    ...(input.CustomerIdentifier !== undefined && {
-      CustomerIdentifier: input.CustomerIdentifier,
-    }),
+    ...(input.CustomerIdentifier !== undefined && { CustomerIdentifier: input.CustomerIdentifier }),
     ...(input.Dimension !== undefined && { Dimension: input.Dimension }),
     ...(input.Quantity !== undefined && { Quantity: input.Quantity }),
-    ...(input.Timestamp !== undefined && {
-      Timestamp: Math.round(input.Timestamp.getTime() / 1000),
-    }),
+    ...(input.Timestamp !== undefined && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
   };
 };
 

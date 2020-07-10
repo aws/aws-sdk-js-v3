@@ -168,9 +168,7 @@ const serializeAws_json1_1GetEntitlementFilters = (
 
 const serializeAws_json1_1GetEntitlementsRequest = (input: GetEntitlementsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1GetEntitlementFilters(input.Filter, context),
-    }),
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1GetEntitlementFilters(input.Filter, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.ProductCode !== undefined && { ProductCode: input.ProductCode }),

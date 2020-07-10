@@ -684,12 +684,8 @@ export interface ChapInfo {
 export namespace ChapInfo {
   export const filterSensitiveLog = (obj: ChapInfo): any => ({
     ...obj,
-    ...(obj.SecretToAuthenticateInitiator && {
-      SecretToAuthenticateInitiator: SENSITIVE_STRING,
-    }),
-    ...(obj.SecretToAuthenticateTarget && {
-      SecretToAuthenticateTarget: SENSITIVE_STRING,
-    }),
+    ...(obj.SecretToAuthenticateInitiator && { SecretToAuthenticateInitiator: SENSITIVE_STRING }),
+    ...(obj.SecretToAuthenticateTarget && { SecretToAuthenticateTarget: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is ChapInfo => __isa(o, "ChapInfo");
 }
@@ -5497,12 +5493,8 @@ export interface UpdateChapCredentialsInput {
 export namespace UpdateChapCredentialsInput {
   export const filterSensitiveLog = (obj: UpdateChapCredentialsInput): any => ({
     ...obj,
-    ...(obj.SecretToAuthenticateInitiator && {
-      SecretToAuthenticateInitiator: SENSITIVE_STRING,
-    }),
-    ...(obj.SecretToAuthenticateTarget && {
-      SecretToAuthenticateTarget: SENSITIVE_STRING,
-    }),
+    ...(obj.SecretToAuthenticateInitiator && { SecretToAuthenticateInitiator: SENSITIVE_STRING }),
+    ...(obj.SecretToAuthenticateTarget && { SecretToAuthenticateTarget: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is UpdateChapCredentialsInput => __isa(o, "UpdateChapCredentialsInput");
 }

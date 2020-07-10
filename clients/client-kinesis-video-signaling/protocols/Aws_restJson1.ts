@@ -59,12 +59,8 @@ export const serializeAws_restJson1SendAlexaOfferToMasterCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.ChannelARN !== undefined && { ChannelARN: input.ChannelARN }),
-    ...(input.MessagePayload !== undefined && {
-      MessagePayload: input.MessagePayload,
-    }),
-    ...(input.SenderClientId !== undefined && {
-      SenderClientId: input.SenderClientId,
-    }),
+    ...(input.MessagePayload !== undefined && { MessagePayload: input.MessagePayload }),
+    ...(input.SenderClientId !== undefined && { SenderClientId: input.SenderClientId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

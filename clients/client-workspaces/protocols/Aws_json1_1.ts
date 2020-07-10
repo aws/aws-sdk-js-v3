@@ -3941,18 +3941,14 @@ const serializeAws_json1_1AssociateIpGroupsRequest = (
 ): any => {
   return {
     ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.GroupIds !== undefined && {
-      GroupIds: serializeAws_json1_1IpGroupIdList(input.GroupIds, context),
-    }),
+    ...(input.GroupIds !== undefined && { GroupIds: serializeAws_json1_1IpGroupIdList(input.GroupIds, context) }),
   };
 };
 
 const serializeAws_json1_1AuthorizeIpRulesRequest = (input: AuthorizeIpRulesRequest, context: __SerdeContext): any => {
   return {
     ...(input.GroupId !== undefined && { GroupId: input.GroupId }),
-    ...(input.UserRules !== undefined && {
-      UserRules: serializeAws_json1_1IpRuleList(input.UserRules, context),
-    }),
+    ...(input.UserRules !== undefined && { UserRules: serializeAws_json1_1IpRuleList(input.UserRules, context) }),
   };
 };
 
@@ -3962,9 +3958,7 @@ const serializeAws_json1_1BundleIdList = (input: string[], context: __SerdeConte
 
 const serializeAws_json1_1ClientProperties = (input: ClientProperties, context: __SerdeContext): any => {
   return {
-    ...(input.ReconnectEnabled !== undefined && {
-      ReconnectEnabled: input.ReconnectEnabled,
-    }),
+    ...(input.ReconnectEnabled !== undefined && { ReconnectEnabled: input.ReconnectEnabled }),
   };
 };
 
@@ -3975,15 +3969,9 @@ const serializeAws_json1_1CopyWorkspaceImageRequest = (
   return {
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.SourceImageId !== undefined && {
-      SourceImageId: input.SourceImageId,
-    }),
-    ...(input.SourceRegion !== undefined && {
-      SourceRegion: input.SourceRegion,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.SourceImageId !== undefined && { SourceImageId: input.SourceImageId }),
+    ...(input.SourceRegion !== undefined && { SourceRegion: input.SourceRegion }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -3991,21 +3979,15 @@ const serializeAws_json1_1CreateIpGroupRequest = (input: CreateIpGroupRequest, c
   return {
     ...(input.GroupDesc !== undefined && { GroupDesc: input.GroupDesc }),
     ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
-    ...(input.UserRules !== undefined && {
-      UserRules: serializeAws_json1_1IpRuleList(input.UserRules, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.UserRules !== undefined && { UserRules: serializeAws_json1_1IpRuleList(input.UserRules, context) }),
   };
 };
 
 const serializeAws_json1_1CreateTagsRequest = (input: CreateTagsRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -4026,9 +4008,7 @@ const serializeAws_json1_1DeleteIpGroupRequest = (input: DeleteIpGroupRequest, c
 const serializeAws_json1_1DeleteTagsRequest = (input: DeleteTagsRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -4076,9 +4056,7 @@ const serializeAws_json1_1DescribeClientPropertiesRequest = (
 
 const serializeAws_json1_1DescribeIpGroupsRequest = (input: DescribeIpGroupsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GroupIds !== undefined && {
-      GroupIds: serializeAws_json1_1IpGroupIdList(input.GroupIds, context),
-    }),
+    ...(input.GroupIds !== undefined && { GroupIds: serializeAws_json1_1IpGroupIdList(input.GroupIds, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -4095,9 +4073,7 @@ const serializeAws_json1_1DescribeWorkspaceBundlesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BundleIds !== undefined && {
-      BundleIds: serializeAws_json1_1BundleIdList(input.BundleIds, context),
-    }),
+    ...(input.BundleIds !== undefined && { BundleIds: serializeAws_json1_1BundleIdList(input.BundleIds, context) }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.Owner !== undefined && { Owner: input.Owner }),
   };
@@ -4176,9 +4152,7 @@ const serializeAws_json1_1DisassociateIpGroupsRequest = (
 ): any => {
   return {
     ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.GroupIds !== undefined && {
-      GroupIds: serializeAws_json1_1IpGroupIdList(input.GroupIds, context),
-    }),
+    ...(input.GroupIds !== undefined && { GroupIds: serializeAws_json1_1IpGroupIdList(input.GroupIds, context) }),
   };
 };
 
@@ -4188,16 +4162,10 @@ const serializeAws_json1_1ImportWorkspaceImageRequest = (
 ): any => {
   return {
     ...(input.Ec2ImageId !== undefined && { Ec2ImageId: input.Ec2ImageId }),
-    ...(input.ImageDescription !== undefined && {
-      ImageDescription: input.ImageDescription,
-    }),
+    ...(input.ImageDescription !== undefined && { ImageDescription: input.ImageDescription }),
     ...(input.ImageName !== undefined && { ImageName: input.ImageName }),
-    ...(input.IngestionProcess !== undefined && {
-      IngestionProcess: input.IngestionProcess,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.IngestionProcess !== undefined && { IngestionProcess: input.IngestionProcess }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -4236,9 +4204,7 @@ const serializeAws_json1_1ListAvailableManagementCidrRangesRequest = (
 const serializeAws_json1_1MigrateWorkspaceRequest = (input: MigrateWorkspaceRequest, context: __SerdeContext): any => {
   return {
     ...(input.BundleId !== undefined && { BundleId: input.BundleId }),
-    ...(input.SourceWorkspaceId !== undefined && {
-      SourceWorkspaceId: input.SourceWorkspaceId,
-    }),
+    ...(input.SourceWorkspaceId !== undefined && { SourceWorkspaceId: input.SourceWorkspaceId }),
   };
 };
 
@@ -4247,9 +4213,7 @@ const serializeAws_json1_1ModifyAccountRequest = (input: ModifyAccountRequest, c
     ...(input.DedicatedTenancyManagementCidrRange !== undefined && {
       DedicatedTenancyManagementCidrRange: input.DedicatedTenancyManagementCidrRange,
     }),
-    ...(input.DedicatedTenancySupport !== undefined && {
-      DedicatedTenancySupport: input.DedicatedTenancySupport,
-    }),
+    ...(input.DedicatedTenancySupport !== undefined && { DedicatedTenancySupport: input.DedicatedTenancySupport }),
   };
 };
 
@@ -4325,9 +4289,7 @@ const serializeAws_json1_1ModifyWorkspaceStateRequest = (
 ): any => {
   return {
     ...(input.WorkspaceId !== undefined && { WorkspaceId: input.WorkspaceId }),
-    ...(input.WorkspaceState !== undefined && {
-      WorkspaceState: input.WorkspaceState,
-    }),
+    ...(input.WorkspaceState !== undefined && { WorkspaceState: input.WorkspaceState }),
   };
 };
 
@@ -4376,18 +4338,10 @@ const serializeAws_json1_1RegisterWorkspaceDirectoryRequest = (
 ): any => {
   return {
     ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.EnableSelfService !== undefined && {
-      EnableSelfService: input.EnableSelfService,
-    }),
-    ...(input.EnableWorkDocs !== undefined && {
-      EnableWorkDocs: input.EnableWorkDocs,
-    }),
-    ...(input.SubnetIds !== undefined && {
-      SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context),
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.EnableSelfService !== undefined && { EnableSelfService: input.EnableSelfService }),
+    ...(input.EnableWorkDocs !== undefined && { EnableWorkDocs: input.EnableWorkDocs }),
+    ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.Tenancy !== undefined && { Tenancy: input.Tenancy }),
   };
 };
@@ -4413,21 +4367,11 @@ const serializeAws_json1_1RevokeIpRulesRequest = (input: RevokeIpRulesRequest, c
 
 const serializeAws_json1_1SelfservicePermissions = (input: SelfservicePermissions, context: __SerdeContext): any => {
   return {
-    ...(input.ChangeComputeType !== undefined && {
-      ChangeComputeType: input.ChangeComputeType,
-    }),
-    ...(input.IncreaseVolumeSize !== undefined && {
-      IncreaseVolumeSize: input.IncreaseVolumeSize,
-    }),
-    ...(input.RebuildWorkspace !== undefined && {
-      RebuildWorkspace: input.RebuildWorkspace,
-    }),
-    ...(input.RestartWorkspace !== undefined && {
-      RestartWorkspace: input.RestartWorkspace,
-    }),
-    ...(input.SwitchRunningMode !== undefined && {
-      SwitchRunningMode: input.SwitchRunningMode,
-    }),
+    ...(input.ChangeComputeType !== undefined && { ChangeComputeType: input.ChangeComputeType }),
+    ...(input.IncreaseVolumeSize !== undefined && { IncreaseVolumeSize: input.IncreaseVolumeSize }),
+    ...(input.RebuildWorkspace !== undefined && { RebuildWorkspace: input.RebuildWorkspace }),
+    ...(input.RestartWorkspace !== undefined && { RestartWorkspace: input.RestartWorkspace }),
+    ...(input.SwitchRunningMode !== undefined && { SwitchRunningMode: input.SwitchRunningMode }),
   };
 };
 
@@ -4516,9 +4460,7 @@ const serializeAws_json1_1UpdateRulesOfIpGroupRequest = (
 ): any => {
   return {
     ...(input.GroupId !== undefined && { GroupId: input.GroupId }),
-    ...(input.UserRules !== undefined && {
-      UserRules: serializeAws_json1_1IpRuleList(input.UserRules, context),
-    }),
+    ...(input.UserRules !== undefined && { UserRules: serializeAws_json1_1IpRuleList(input.UserRules, context) }),
   };
 };
 
@@ -4527,27 +4469,13 @@ const serializeAws_json1_1WorkspaceAccessProperties = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeviceTypeAndroid !== undefined && {
-      DeviceTypeAndroid: input.DeviceTypeAndroid,
-    }),
-    ...(input.DeviceTypeChromeOs !== undefined && {
-      DeviceTypeChromeOs: input.DeviceTypeChromeOs,
-    }),
-    ...(input.DeviceTypeIos !== undefined && {
-      DeviceTypeIos: input.DeviceTypeIos,
-    }),
-    ...(input.DeviceTypeOsx !== undefined && {
-      DeviceTypeOsx: input.DeviceTypeOsx,
-    }),
-    ...(input.DeviceTypeWeb !== undefined && {
-      DeviceTypeWeb: input.DeviceTypeWeb,
-    }),
-    ...(input.DeviceTypeWindows !== undefined && {
-      DeviceTypeWindows: input.DeviceTypeWindows,
-    }),
-    ...(input.DeviceTypeZeroClient !== undefined && {
-      DeviceTypeZeroClient: input.DeviceTypeZeroClient,
-    }),
+    ...(input.DeviceTypeAndroid !== undefined && { DeviceTypeAndroid: input.DeviceTypeAndroid }),
+    ...(input.DeviceTypeChromeOs !== undefined && { DeviceTypeChromeOs: input.DeviceTypeChromeOs }),
+    ...(input.DeviceTypeIos !== undefined && { DeviceTypeIos: input.DeviceTypeIos }),
+    ...(input.DeviceTypeOsx !== undefined && { DeviceTypeOsx: input.DeviceTypeOsx }),
+    ...(input.DeviceTypeWeb !== undefined && { DeviceTypeWeb: input.DeviceTypeWeb }),
+    ...(input.DeviceTypeWindows !== undefined && { DeviceTypeWindows: input.DeviceTypeWindows }),
+    ...(input.DeviceTypeZeroClient !== undefined && { DeviceTypeZeroClient: input.DeviceTypeZeroClient }),
   };
 };
 
@@ -4556,16 +4484,10 @@ const serializeAws_json1_1WorkspaceCreationProperties = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CustomSecurityGroupId !== undefined && {
-      CustomSecurityGroupId: input.CustomSecurityGroupId,
-    }),
+    ...(input.CustomSecurityGroupId !== undefined && { CustomSecurityGroupId: input.CustomSecurityGroupId }),
     ...(input.DefaultOu !== undefined && { DefaultOu: input.DefaultOu }),
-    ...(input.EnableInternetAccess !== undefined && {
-      EnableInternetAccess: input.EnableInternetAccess,
-    }),
-    ...(input.EnableMaintenanceMode !== undefined && {
-      EnableMaintenanceMode: input.EnableMaintenanceMode,
-    }),
+    ...(input.EnableInternetAccess !== undefined && { EnableInternetAccess: input.EnableInternetAccess }),
+    ...(input.EnableMaintenanceMode !== undefined && { EnableMaintenanceMode: input.EnableMaintenanceMode }),
     ...(input.UserEnabledAsLocalAdministrator !== undefined && {
       UserEnabledAsLocalAdministrator: input.UserEnabledAsLocalAdministrator,
     }),
@@ -4582,19 +4504,13 @@ const serializeAws_json1_1WorkspaceImageIdList = (input: string[], context: __Se
 
 const serializeAws_json1_1WorkspaceProperties = (input: WorkspaceProperties, context: __SerdeContext): any => {
   return {
-    ...(input.ComputeTypeName !== undefined && {
-      ComputeTypeName: input.ComputeTypeName,
-    }),
-    ...(input.RootVolumeSizeGib !== undefined && {
-      RootVolumeSizeGib: input.RootVolumeSizeGib,
-    }),
+    ...(input.ComputeTypeName !== undefined && { ComputeTypeName: input.ComputeTypeName }),
+    ...(input.RootVolumeSizeGib !== undefined && { RootVolumeSizeGib: input.RootVolumeSizeGib }),
     ...(input.RunningMode !== undefined && { RunningMode: input.RunningMode }),
     ...(input.RunningModeAutoStopTimeoutInMinutes !== undefined && {
       RunningModeAutoStopTimeoutInMinutes: input.RunningModeAutoStopTimeoutInMinutes,
     }),
-    ...(input.UserVolumeSizeGib !== undefined && {
-      UserVolumeSizeGib: input.UserVolumeSizeGib,
-    }),
+    ...(input.UserVolumeSizeGib !== undefined && { UserVolumeSizeGib: input.UserVolumeSizeGib }),
   };
 };
 
@@ -4605,16 +4521,12 @@ const serializeAws_json1_1WorkspaceRequest = (input: WorkspaceRequest, context: 
     ...(input.RootVolumeEncryptionEnabled !== undefined && {
       RootVolumeEncryptionEnabled: input.RootVolumeEncryptionEnabled,
     }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.UserName !== undefined && { UserName: input.UserName }),
     ...(input.UserVolumeEncryptionEnabled !== undefined && {
       UserVolumeEncryptionEnabled: input.UserVolumeEncryptionEnabled,
     }),
-    ...(input.VolumeEncryptionKey !== undefined && {
-      VolumeEncryptionKey: input.VolumeEncryptionKey,
-    }),
+    ...(input.VolumeEncryptionKey !== undefined && { VolumeEncryptionKey: input.VolumeEncryptionKey }),
     ...(input.WorkspaceProperties !== undefined && {
       WorkspaceProperties: serializeAws_json1_1WorkspaceProperties(input.WorkspaceProperties, context),
     }),

@@ -13427,9 +13427,7 @@ const serializeAws_json1_1AdminCreateUserConfigType = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AllowAdminCreateUserOnly !== undefined && {
-      AllowAdminCreateUserOnly: input.AllowAdminCreateUserOnly,
-    }),
+    ...(input.AllowAdminCreateUserOnly !== undefined && { AllowAdminCreateUserOnly: input.AllowAdminCreateUserOnly }),
     ...(input.InviteMessageTemplate !== undefined && {
       InviteMessageTemplate: serializeAws_json1_1MessageTemplateType(input.InviteMessageTemplate, context),
     }),
@@ -13447,15 +13445,9 @@ const serializeAws_json1_1AdminCreateUserRequest = (input: AdminCreateUserReques
     ...(input.DesiredDeliveryMediums !== undefined && {
       DesiredDeliveryMediums: serializeAws_json1_1DeliveryMediumListType(input.DesiredDeliveryMediums, context),
     }),
-    ...(input.ForceAliasCreation !== undefined && {
-      ForceAliasCreation: input.ForceAliasCreation,
-    }),
-    ...(input.MessageAction !== undefined && {
-      MessageAction: input.MessageAction,
-    }),
-    ...(input.TemporaryPassword !== undefined && {
-      TemporaryPassword: input.TemporaryPassword,
-    }),
+    ...(input.ForceAliasCreation !== undefined && { ForceAliasCreation: input.ForceAliasCreation }),
+    ...(input.MessageAction !== undefined && { MessageAction: input.MessageAction }),
+    ...(input.TemporaryPassword !== undefined && { TemporaryPassword: input.TemporaryPassword }),
     ...(input.UserAttributes !== undefined && {
       UserAttributes: serializeAws_json1_1AttributeListType(input.UserAttributes, context),
     }),
@@ -13492,9 +13484,7 @@ const serializeAws_json1_1AdminDisableProviderForUserRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.User !== undefined && {
-      User: serializeAws_json1_1ProviderUserIdentifierType(input.User, context),
-    }),
+    ...(input.User !== undefined && { User: serializeAws_json1_1ProviderUserIdentifierType(input.User, context) }),
     ...(input.UserPoolId !== undefined && { UserPoolId: input.UserPoolId }),
   };
 };
@@ -13580,9 +13570,7 @@ const serializeAws_json1_1AdminLinkProviderForUserRequest = (
 const serializeAws_json1_1AdminListDevicesRequest = (input: AdminListDevicesRequest, context: __SerdeContext): any => {
   return {
     ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.PaginationToken !== undefined && {
-      PaginationToken: input.PaginationToken,
-    }),
+    ...(input.PaginationToken !== undefined && { PaginationToken: input.PaginationToken }),
     ...(input.UserPoolId !== undefined && { UserPoolId: input.UserPoolId }),
     ...(input.Username !== undefined && { Username: input.Username }),
   };
@@ -13644,9 +13632,7 @@ const serializeAws_json1_1AdminRespondToAuthChallengeRequest = (
     ...(input.AnalyticsMetadata !== undefined && {
       AnalyticsMetadata: serializeAws_json1_1AnalyticsMetadataType(input.AnalyticsMetadata, context),
     }),
-    ...(input.ChallengeName !== undefined && {
-      ChallengeName: input.ChallengeName,
-    }),
+    ...(input.ChallengeName !== undefined && { ChallengeName: input.ChallengeName }),
     ...(input.ChallengeResponses !== undefined && {
       ChallengeResponses: serializeAws_json1_1ChallengeResponsesType(input.ChallengeResponses, context),
     }),
@@ -13712,9 +13698,7 @@ const serializeAws_json1_1AdminUpdateAuthEventFeedbackRequest = (
 ): any => {
   return {
     ...(input.EventId !== undefined && { EventId: input.EventId }),
-    ...(input.FeedbackValue !== undefined && {
-      FeedbackValue: input.FeedbackValue,
-    }),
+    ...(input.FeedbackValue !== undefined && { FeedbackValue: input.FeedbackValue }),
     ...(input.UserPoolId !== undefined && { UserPoolId: input.UserPoolId }),
     ...(input.Username !== undefined && { Username: input.Username }),
   };
@@ -13726,9 +13710,7 @@ const serializeAws_json1_1AdminUpdateDeviceStatusRequest = (
 ): any => {
   return {
     ...(input.DeviceKey !== undefined && { DeviceKey: input.DeviceKey }),
-    ...(input.DeviceRememberedStatus !== undefined && {
-      DeviceRememberedStatus: input.DeviceRememberedStatus,
-    }),
+    ...(input.DeviceRememberedStatus !== undefined && { DeviceRememberedStatus: input.DeviceRememberedStatus }),
     ...(input.UserPoolId !== undefined && { UserPoolId: input.UserPoolId }),
     ...(input.Username !== undefined && { Username: input.Username }),
   };
@@ -13772,22 +13754,16 @@ const serializeAws_json1_1AnalyticsConfigurationType = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ApplicationId !== undefined && {
-      ApplicationId: input.ApplicationId,
-    }),
+    ...(input.ApplicationId !== undefined && { ApplicationId: input.ApplicationId }),
     ...(input.ExternalId !== undefined && { ExternalId: input.ExternalId }),
     ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
-    ...(input.UserDataShared !== undefined && {
-      UserDataShared: input.UserDataShared,
-    }),
+    ...(input.UserDataShared !== undefined && { UserDataShared: input.UserDataShared }),
   };
 };
 
 const serializeAws_json1_1AnalyticsMetadataType = (input: AnalyticsMetadataType, context: __SerdeContext): any => {
   return {
-    ...(input.AnalyticsEndpointId !== undefined && {
-      AnalyticsEndpointId: input.AnalyticsEndpointId,
-    }),
+    ...(input.AnalyticsEndpointId !== undefined && { AnalyticsEndpointId: input.AnalyticsEndpointId }),
   };
 };
 
@@ -13857,12 +13833,8 @@ const serializeAws_json1_1ChallengeResponsesType = (input: { [key: string]: stri
 const serializeAws_json1_1ChangePasswordRequest = (input: ChangePasswordRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessToken !== undefined && { AccessToken: input.AccessToken }),
-    ...(input.PreviousPassword !== undefined && {
-      PreviousPassword: input.PreviousPassword,
-    }),
-    ...(input.ProposedPassword !== undefined && {
-      ProposedPassword: input.ProposedPassword,
-    }),
+    ...(input.PreviousPassword !== undefined && { PreviousPassword: input.PreviousPassword }),
+    ...(input.ProposedPassword !== undefined && { ProposedPassword: input.ProposedPassword }),
   };
 };
 
@@ -13929,9 +13901,7 @@ const serializeAws_json1_1ConfirmForgotPasswordRequest = (
     ...(input.ClientMetadata !== undefined && {
       ClientMetadata: serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context),
     }),
-    ...(input.ConfirmationCode !== undefined && {
-      ConfirmationCode: input.ConfirmationCode,
-    }),
+    ...(input.ConfirmationCode !== undefined && { ConfirmationCode: input.ConfirmationCode }),
     ...(input.Password !== undefined && { Password: input.Password }),
     ...(input.SecretHash !== undefined && { SecretHash: input.SecretHash }),
     ...(input.UserContextData !== undefined && {
@@ -13950,12 +13920,8 @@ const serializeAws_json1_1ConfirmSignUpRequest = (input: ConfirmSignUpRequest, c
     ...(input.ClientMetadata !== undefined && {
       ClientMetadata: serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context),
     }),
-    ...(input.ConfirmationCode !== undefined && {
-      ConfirmationCode: input.ConfirmationCode,
-    }),
-    ...(input.ForceAliasCreation !== undefined && {
-      ForceAliasCreation: input.ForceAliasCreation,
-    }),
+    ...(input.ConfirmationCode !== undefined && { ConfirmationCode: input.ConfirmationCode }),
+    ...(input.ForceAliasCreation !== undefined && { ForceAliasCreation: input.ForceAliasCreation }),
     ...(input.SecretHash !== undefined && { SecretHash: input.SecretHash }),
     ...(input.UserContextData !== undefined && {
       UserContextData: serializeAws_json1_1UserContextDataType(input.UserContextData, context),
@@ -14000,12 +13966,8 @@ const serializeAws_json1_1CreateIdentityProviderRequest = (
     ...(input.ProviderDetails !== undefined && {
       ProviderDetails: serializeAws_json1_1ProviderDetailsType(input.ProviderDetails, context),
     }),
-    ...(input.ProviderName !== undefined && {
-      ProviderName: input.ProviderName,
-    }),
-    ...(input.ProviderType !== undefined && {
-      ProviderType: input.ProviderType,
-    }),
+    ...(input.ProviderName !== undefined && { ProviderName: input.ProviderName }),
+    ...(input.ProviderType !== undefined && { ProviderType: input.ProviderType }),
     ...(input.UserPoolId !== undefined && { UserPoolId: input.UserPoolId }),
   };
 };
@@ -14029,9 +13991,7 @@ const serializeAws_json1_1CreateUserImportJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CloudWatchLogsRoleArn !== undefined && {
-      CloudWatchLogsRoleArn: input.CloudWatchLogsRoleArn,
-    }),
+    ...(input.CloudWatchLogsRoleArn !== undefined && { CloudWatchLogsRoleArn: input.CloudWatchLogsRoleArn }),
     ...(input.JobName !== undefined && { JobName: input.JobName }),
     ...(input.UserPoolId !== undefined && { UserPoolId: input.UserPoolId }),
   };
@@ -14058,15 +14018,11 @@ const serializeAws_json1_1CreateUserPoolClientRequest = (
       CallbackURLs: serializeAws_json1_1CallbackURLsListType(input.CallbackURLs, context),
     }),
     ...(input.ClientName !== undefined && { ClientName: input.ClientName }),
-    ...(input.DefaultRedirectURI !== undefined && {
-      DefaultRedirectURI: input.DefaultRedirectURI,
-    }),
+    ...(input.DefaultRedirectURI !== undefined && { DefaultRedirectURI: input.DefaultRedirectURI }),
     ...(input.ExplicitAuthFlows !== undefined && {
       ExplicitAuthFlows: serializeAws_json1_1ExplicitAuthFlowsListType(input.ExplicitAuthFlows, context),
     }),
-    ...(input.GenerateSecret !== undefined && {
-      GenerateSecret: input.GenerateSecret,
-    }),
+    ...(input.GenerateSecret !== undefined && { GenerateSecret: input.GenerateSecret }),
     ...(input.LogoutURLs !== undefined && {
       LogoutURLs: serializeAws_json1_1LogoutURLsListType(input.LogoutURLs, context),
     }),
@@ -14076,9 +14032,7 @@ const serializeAws_json1_1CreateUserPoolClientRequest = (
     ...(input.ReadAttributes !== undefined && {
       ReadAttributes: serializeAws_json1_1ClientPermissionListType(input.ReadAttributes, context),
     }),
-    ...(input.RefreshTokenValidity !== undefined && {
-      RefreshTokenValidity: input.RefreshTokenValidity,
-    }),
+    ...(input.RefreshTokenValidity !== undefined && { RefreshTokenValidity: input.RefreshTokenValidity }),
     ...(input.SupportedIdentityProviders !== undefined && {
       SupportedIdentityProviders: serializeAws_json1_1SupportedIdentityProvidersListType(
         input.SupportedIdentityProviders,
@@ -14125,34 +14079,20 @@ const serializeAws_json1_1CreateUserPoolRequest = (input: CreateUserPoolRequest,
     ...(input.EmailConfiguration !== undefined && {
       EmailConfiguration: serializeAws_json1_1EmailConfigurationType(input.EmailConfiguration, context),
     }),
-    ...(input.EmailVerificationMessage !== undefined && {
-      EmailVerificationMessage: input.EmailVerificationMessage,
-    }),
-    ...(input.EmailVerificationSubject !== undefined && {
-      EmailVerificationSubject: input.EmailVerificationSubject,
-    }),
+    ...(input.EmailVerificationMessage !== undefined && { EmailVerificationMessage: input.EmailVerificationMessage }),
+    ...(input.EmailVerificationSubject !== undefined && { EmailVerificationSubject: input.EmailVerificationSubject }),
     ...(input.LambdaConfig !== undefined && {
       LambdaConfig: serializeAws_json1_1LambdaConfigType(input.LambdaConfig, context),
     }),
-    ...(input.MfaConfiguration !== undefined && {
-      MfaConfiguration: input.MfaConfiguration,
-    }),
-    ...(input.Policies !== undefined && {
-      Policies: serializeAws_json1_1UserPoolPolicyType(input.Policies, context),
-    }),
+    ...(input.MfaConfiguration !== undefined && { MfaConfiguration: input.MfaConfiguration }),
+    ...(input.Policies !== undefined && { Policies: serializeAws_json1_1UserPoolPolicyType(input.Policies, context) }),
     ...(input.PoolName !== undefined && { PoolName: input.PoolName }),
-    ...(input.Schema !== undefined && {
-      Schema: serializeAws_json1_1SchemaAttributesListType(input.Schema, context),
-    }),
-    ...(input.SmsAuthenticationMessage !== undefined && {
-      SmsAuthenticationMessage: input.SmsAuthenticationMessage,
-    }),
+    ...(input.Schema !== undefined && { Schema: serializeAws_json1_1SchemaAttributesListType(input.Schema, context) }),
+    ...(input.SmsAuthenticationMessage !== undefined && { SmsAuthenticationMessage: input.SmsAuthenticationMessage }),
     ...(input.SmsConfiguration !== undefined && {
       SmsConfiguration: serializeAws_json1_1SmsConfigurationType(input.SmsConfiguration, context),
     }),
-    ...(input.SmsVerificationMessage !== undefined && {
-      SmsVerificationMessage: input.SmsVerificationMessage,
-    }),
+    ...(input.SmsVerificationMessage !== undefined && { SmsVerificationMessage: input.SmsVerificationMessage }),
     ...(input.UserPoolAddOns !== undefined && {
       UserPoolAddOns: serializeAws_json1_1UserPoolAddOnsType(input.UserPoolAddOns, context),
     }),
@@ -14177,9 +14117,7 @@ const serializeAws_json1_1CustomAttributesListType = (input: SchemaAttributeType
 
 const serializeAws_json1_1CustomDomainConfigType = (input: CustomDomainConfigType, context: __SerdeContext): any => {
   return {
-    ...(input.CertificateArn !== undefined && {
-      CertificateArn: input.CertificateArn,
-    }),
+    ...(input.CertificateArn !== undefined && { CertificateArn: input.CertificateArn }),
   };
 };
 
@@ -14195,9 +14133,7 @@ const serializeAws_json1_1DeleteIdentityProviderRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ProviderName !== undefined && {
-      ProviderName: input.ProviderName,
-    }),
+    ...(input.ProviderName !== undefined && { ProviderName: input.ProviderName }),
     ...(input.UserPoolId !== undefined && { UserPoolId: input.UserPoolId }),
   };
 };
@@ -14268,9 +14204,7 @@ const serializeAws_json1_1DescribeIdentityProviderRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ProviderName !== undefined && {
-      ProviderName: input.ProviderName,
-    }),
+    ...(input.ProviderName !== undefined && { ProviderName: input.ProviderName }),
     ...(input.UserPoolId !== undefined && { UserPoolId: input.UserPoolId }),
   };
 };
@@ -14346,25 +14280,17 @@ const serializeAws_json1_1DeviceSecretVerifierConfigType = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PasswordVerifier !== undefined && {
-      PasswordVerifier: input.PasswordVerifier,
-    }),
+    ...(input.PasswordVerifier !== undefined && { PasswordVerifier: input.PasswordVerifier }),
     ...(input.Salt !== undefined && { Salt: input.Salt }),
   };
 };
 
 const serializeAws_json1_1EmailConfigurationType = (input: EmailConfigurationType, context: __SerdeContext): any => {
   return {
-    ...(input.ConfigurationSet !== undefined && {
-      ConfigurationSet: input.ConfigurationSet,
-    }),
-    ...(input.EmailSendingAccount !== undefined && {
-      EmailSendingAccount: input.EmailSendingAccount,
-    }),
+    ...(input.ConfigurationSet !== undefined && { ConfigurationSet: input.ConfigurationSet }),
+    ...(input.EmailSendingAccount !== undefined && { EmailSendingAccount: input.EmailSendingAccount }),
     ...(input.From !== undefined && { From: input.From }),
-    ...(input.ReplyToEmailAddress !== undefined && {
-      ReplyToEmailAddress: input.ReplyToEmailAddress,
-    }),
+    ...(input.ReplyToEmailAddress !== undefined && { ReplyToEmailAddress: input.ReplyToEmailAddress }),
     ...(input.SourceArn !== undefined && { SourceArn: input.SourceArn }),
   };
 };
@@ -14429,9 +14355,7 @@ const serializeAws_json1_1GetIdentityProviderByIdentifierRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IdpIdentifier !== undefined && {
-      IdpIdentifier: input.IdpIdentifier,
-    }),
+    ...(input.IdpIdentifier !== undefined && { IdpIdentifier: input.IdpIdentifier }),
     ...(input.UserPoolId !== undefined && { UserPoolId: input.UserPoolId }),
   };
 };
@@ -14461,9 +14385,7 @@ const serializeAws_json1_1GetUserAttributeVerificationCodeRequest = (
 ): any => {
   return {
     ...(input.AccessToken !== undefined && { AccessToken: input.AccessToken }),
-    ...(input.AttributeName !== undefined && {
-      AttributeName: input.AttributeName,
-    }),
+    ...(input.AttributeName !== undefined && { AttributeName: input.AttributeName }),
     ...(input.ClientMetadata !== undefined && {
       ClientMetadata: serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context),
     }),
@@ -14527,31 +14449,15 @@ const serializeAws_json1_1InitiateAuthRequest = (input: InitiateAuthRequest, con
 
 const serializeAws_json1_1LambdaConfigType = (input: LambdaConfigType, context: __SerdeContext): any => {
   return {
-    ...(input.CreateAuthChallenge !== undefined && {
-      CreateAuthChallenge: input.CreateAuthChallenge,
-    }),
-    ...(input.CustomMessage !== undefined && {
-      CustomMessage: input.CustomMessage,
-    }),
-    ...(input.DefineAuthChallenge !== undefined && {
-      DefineAuthChallenge: input.DefineAuthChallenge,
-    }),
-    ...(input.PostAuthentication !== undefined && {
-      PostAuthentication: input.PostAuthentication,
-    }),
-    ...(input.PostConfirmation !== undefined && {
-      PostConfirmation: input.PostConfirmation,
-    }),
-    ...(input.PreAuthentication !== undefined && {
-      PreAuthentication: input.PreAuthentication,
-    }),
+    ...(input.CreateAuthChallenge !== undefined && { CreateAuthChallenge: input.CreateAuthChallenge }),
+    ...(input.CustomMessage !== undefined && { CustomMessage: input.CustomMessage }),
+    ...(input.DefineAuthChallenge !== undefined && { DefineAuthChallenge: input.DefineAuthChallenge }),
+    ...(input.PostAuthentication !== undefined && { PostAuthentication: input.PostAuthentication }),
+    ...(input.PostConfirmation !== undefined && { PostConfirmation: input.PostConfirmation }),
+    ...(input.PreAuthentication !== undefined && { PreAuthentication: input.PreAuthentication }),
     ...(input.PreSignUp !== undefined && { PreSignUp: input.PreSignUp }),
-    ...(input.PreTokenGeneration !== undefined && {
-      PreTokenGeneration: input.PreTokenGeneration,
-    }),
-    ...(input.UserMigration !== undefined && {
-      UserMigration: input.UserMigration,
-    }),
+    ...(input.PreTokenGeneration !== undefined && { PreTokenGeneration: input.PreTokenGeneration }),
+    ...(input.UserMigration !== undefined && { UserMigration: input.UserMigration }),
     ...(input.VerifyAuthChallengeResponse !== undefined && {
       VerifyAuthChallengeResponse: input.VerifyAuthChallengeResponse,
     }),
@@ -14562,9 +14468,7 @@ const serializeAws_json1_1ListDevicesRequest = (input: ListDevicesRequest, conte
   return {
     ...(input.AccessToken !== undefined && { AccessToken: input.AccessToken }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.PaginationToken !== undefined && {
-      PaginationToken: input.PaginationToken,
-    }),
+    ...(input.PaginationToken !== undefined && { PaginationToken: input.PaginationToken }),
   };
 };
 
@@ -14613,9 +14517,7 @@ const serializeAws_json1_1ListUserImportJobsRequest = (
 ): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.PaginationToken !== undefined && {
-      PaginationToken: input.PaginationToken,
-    }),
+    ...(input.PaginationToken !== undefined && { PaginationToken: input.PaginationToken }),
     ...(input.UserPoolId !== undefined && { UserPoolId: input.UserPoolId }),
   };
 };
@@ -14654,9 +14556,7 @@ const serializeAws_json1_1ListUsersRequest = (input: ListUsersRequest, context: 
     }),
     ...(input.Filter !== undefined && { Filter: input.Filter }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.PaginationToken !== undefined && {
-      PaginationToken: input.PaginationToken,
-    }),
+    ...(input.PaginationToken !== undefined && { PaginationToken: input.PaginationToken }),
     ...(input.UserPoolId !== undefined && { UserPoolId: input.UserPoolId }),
   };
 };
@@ -14667,12 +14567,8 @@ const serializeAws_json1_1LogoutURLsListType = (input: string[], context: __Serd
 
 const serializeAws_json1_1MessageTemplateType = (input: MessageTemplateType, context: __SerdeContext): any => {
   return {
-    ...(input.EmailMessage !== undefined && {
-      EmailMessage: input.EmailMessage,
-    }),
-    ...(input.EmailSubject !== undefined && {
-      EmailSubject: input.EmailSubject,
-    }),
+    ...(input.EmailMessage !== undefined && { EmailMessage: input.EmailMessage }),
+    ...(input.EmailSubject !== undefined && { EmailSubject: input.EmailSubject }),
     ...(input.SMSMessage !== undefined && { SMSMessage: input.SMSMessage }),
   };
 };
@@ -14683,12 +14579,8 @@ const serializeAws_json1_1MFAOptionListType = (input: MFAOptionType[], context: 
 
 const serializeAws_json1_1MFAOptionType = (input: MFAOptionType, context: __SerdeContext): any => {
   return {
-    ...(input.AttributeName !== undefined && {
-      AttributeName: input.AttributeName,
-    }),
-    ...(input.DeliveryMedium !== undefined && {
-      DeliveryMedium: input.DeliveryMedium,
-    }),
+    ...(input.AttributeName !== undefined && { AttributeName: input.AttributeName }),
+    ...(input.DeliveryMedium !== undefined && { DeliveryMedium: input.DeliveryMedium }),
   };
 };
 
@@ -14698,9 +14590,7 @@ const serializeAws_json1_1NotifyConfigurationType = (input: NotifyConfigurationT
       BlockEmail: serializeAws_json1_1NotifyEmailType(input.BlockEmail, context),
     }),
     ...(input.From !== undefined && { From: input.From }),
-    ...(input.MfaEmail !== undefined && {
-      MfaEmail: serializeAws_json1_1NotifyEmailType(input.MfaEmail, context),
-    }),
+    ...(input.MfaEmail !== undefined && { MfaEmail: serializeAws_json1_1NotifyEmailType(input.MfaEmail, context) }),
     ...(input.NoActionEmail !== undefined && {
       NoActionEmail: serializeAws_json1_1NotifyEmailType(input.NoActionEmail, context),
     }),
@@ -14733,21 +14623,11 @@ const serializeAws_json1_1OAuthFlowsType = (input: (OAuthFlowType | string)[], c
 
 const serializeAws_json1_1PasswordPolicyType = (input: PasswordPolicyType, context: __SerdeContext): any => {
   return {
-    ...(input.MinimumLength !== undefined && {
-      MinimumLength: input.MinimumLength,
-    }),
-    ...(input.RequireLowercase !== undefined && {
-      RequireLowercase: input.RequireLowercase,
-    }),
-    ...(input.RequireNumbers !== undefined && {
-      RequireNumbers: input.RequireNumbers,
-    }),
-    ...(input.RequireSymbols !== undefined && {
-      RequireSymbols: input.RequireSymbols,
-    }),
-    ...(input.RequireUppercase !== undefined && {
-      RequireUppercase: input.RequireUppercase,
-    }),
+    ...(input.MinimumLength !== undefined && { MinimumLength: input.MinimumLength }),
+    ...(input.RequireLowercase !== undefined && { RequireLowercase: input.RequireLowercase }),
+    ...(input.RequireNumbers !== undefined && { RequireNumbers: input.RequireNumbers }),
+    ...(input.RequireSymbols !== undefined && { RequireSymbols: input.RequireSymbols }),
+    ...(input.RequireUppercase !== undefined && { RequireUppercase: input.RequireUppercase }),
     ...(input.TemporaryPasswordValidityDays !== undefined && {
       TemporaryPasswordValidityDays: input.TemporaryPasswordValidityDays,
     }),
@@ -14769,15 +14649,9 @@ const serializeAws_json1_1ProviderUserIdentifierType = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ProviderAttributeName !== undefined && {
-      ProviderAttributeName: input.ProviderAttributeName,
-    }),
-    ...(input.ProviderAttributeValue !== undefined && {
-      ProviderAttributeValue: input.ProviderAttributeValue,
-    }),
-    ...(input.ProviderName !== undefined && {
-      ProviderName: input.ProviderName,
-    }),
+    ...(input.ProviderAttributeName !== undefined && { ProviderAttributeName: input.ProviderAttributeName }),
+    ...(input.ProviderAttributeValue !== undefined && { ProviderAttributeValue: input.ProviderAttributeValue }),
+    ...(input.ProviderName !== undefined && { ProviderName: input.ProviderName }),
   };
 };
 
@@ -14821,9 +14695,7 @@ const serializeAws_json1_1ResourceServerScopeListType = (
 
 const serializeAws_json1_1ResourceServerScopeType = (input: ResourceServerScopeType, context: __SerdeContext): any => {
   return {
-    ...(input.ScopeDescription !== undefined && {
-      ScopeDescription: input.ScopeDescription,
-    }),
+    ...(input.ScopeDescription !== undefined && { ScopeDescription: input.ScopeDescription }),
     ...(input.ScopeName !== undefined && { ScopeName: input.ScopeName }),
   };
 };
@@ -14836,9 +14708,7 @@ const serializeAws_json1_1RespondToAuthChallengeRequest = (
     ...(input.AnalyticsMetadata !== undefined && {
       AnalyticsMetadata: serializeAws_json1_1AnalyticsMetadataType(input.AnalyticsMetadata, context),
     }),
-    ...(input.ChallengeName !== undefined && {
-      ChallengeName: input.ChallengeName,
-    }),
+    ...(input.ChallengeName !== undefined && { ChallengeName: input.ChallengeName }),
     ...(input.ChallengeResponses !== undefined && {
       ChallengeResponses: serializeAws_json1_1ChallengeResponsesType(input.ChallengeResponses, context),
     }),
@@ -14873,12 +14743,8 @@ const serializeAws_json1_1SchemaAttributesListType = (input: SchemaAttributeType
 
 const serializeAws_json1_1SchemaAttributeType = (input: SchemaAttributeType, context: __SerdeContext): any => {
   return {
-    ...(input.AttributeDataType !== undefined && {
-      AttributeDataType: input.AttributeDataType,
-    }),
-    ...(input.DeveloperOnlyAttribute !== undefined && {
-      DeveloperOnlyAttribute: input.DeveloperOnlyAttribute,
-    }),
+    ...(input.AttributeDataType !== undefined && { AttributeDataType: input.AttributeDataType }),
+    ...(input.DeveloperOnlyAttribute !== undefined && { DeveloperOnlyAttribute: input.DeveloperOnlyAttribute }),
     ...(input.Mutable !== undefined && { Mutable: input.Mutable }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.NumberAttributeConstraints !== undefined && {
@@ -14940,9 +14806,7 @@ const serializeAws_json1_1SetUICustomizationRequest = (
   return {
     ...(input.CSS !== undefined && { CSS: input.CSS }),
     ...(input.ClientId !== undefined && { ClientId: input.ClientId }),
-    ...(input.ImageFile !== undefined && {
-      ImageFile: context.base64Encoder(input.ImageFile),
-    }),
+    ...(input.ImageFile !== undefined && { ImageFile: context.base64Encoder(input.ImageFile) }),
     ...(input.UserPoolId !== undefined && { UserPoolId: input.UserPoolId }),
   };
 };
@@ -14970,9 +14834,7 @@ const serializeAws_json1_1SetUserPoolMfaConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MfaConfiguration !== undefined && {
-      MfaConfiguration: input.MfaConfiguration,
-    }),
+    ...(input.MfaConfiguration !== undefined && { MfaConfiguration: input.MfaConfiguration }),
     ...(input.SmsMfaConfiguration !== undefined && {
       SmsMfaConfiguration: serializeAws_json1_1SmsMfaConfigType(input.SmsMfaConfiguration, context),
     }),
@@ -15026,17 +14888,13 @@ const serializeAws_json1_1SkippedIPRangeListType = (input: string[], context: __
 const serializeAws_json1_1SmsConfigurationType = (input: SmsConfigurationType, context: __SerdeContext): any => {
   return {
     ...(input.ExternalId !== undefined && { ExternalId: input.ExternalId }),
-    ...(input.SnsCallerArn !== undefined && {
-      SnsCallerArn: input.SnsCallerArn,
-    }),
+    ...(input.SnsCallerArn !== undefined && { SnsCallerArn: input.SnsCallerArn }),
   };
 };
 
 const serializeAws_json1_1SmsMfaConfigType = (input: SmsMfaConfigType, context: __SerdeContext): any => {
   return {
-    ...(input.SmsAuthenticationMessage !== undefined && {
-      SmsAuthenticationMessage: input.SmsAuthenticationMessage,
-    }),
+    ...(input.SmsAuthenticationMessage !== undefined && { SmsAuthenticationMessage: input.SmsAuthenticationMessage }),
     ...(input.SmsConfiguration !== undefined && {
       SmsConfiguration: serializeAws_json1_1SmsConfigurationType(input.SmsConfiguration, context),
     }),
@@ -15046,9 +14904,7 @@ const serializeAws_json1_1SmsMfaConfigType = (input: SmsMfaConfigType, context: 
 const serializeAws_json1_1SMSMfaSettingsType = (input: SMSMfaSettingsType, context: __SerdeContext): any => {
   return {
     ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
-    ...(input.PreferredMfa !== undefined && {
-      PreferredMfa: input.PreferredMfa,
-    }),
+    ...(input.PreferredMfa !== undefined && { PreferredMfa: input.PreferredMfa }),
   };
 };
 
@@ -15067,9 +14923,7 @@ const serializeAws_json1_1SoftwareTokenMfaSettingsType = (
 ): any => {
   return {
     ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
-    ...(input.PreferredMfa !== undefined && {
-      PreferredMfa: input.PreferredMfa,
-    }),
+    ...(input.PreferredMfa !== undefined && { PreferredMfa: input.PreferredMfa }),
   };
 };
 
@@ -15110,18 +14964,14 @@ const serializeAws_json1_1SupportedIdentityProvidersListType = (input: string[],
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1UserPoolTagsType(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1UserPoolTagsType(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1UserPoolTagsListType(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1UserPoolTagsListType(input.TagKeys, context) }),
   };
 };
 
@@ -15131,12 +14981,8 @@ const serializeAws_json1_1UpdateAuthEventFeedbackRequest = (
 ): any => {
   return {
     ...(input.EventId !== undefined && { EventId: input.EventId }),
-    ...(input.FeedbackToken !== undefined && {
-      FeedbackToken: input.FeedbackToken,
-    }),
-    ...(input.FeedbackValue !== undefined && {
-      FeedbackValue: input.FeedbackValue,
-    }),
+    ...(input.FeedbackToken !== undefined && { FeedbackToken: input.FeedbackToken }),
+    ...(input.FeedbackValue !== undefined && { FeedbackValue: input.FeedbackValue }),
     ...(input.UserPoolId !== undefined && { UserPoolId: input.UserPoolId }),
     ...(input.Username !== undefined && { Username: input.Username }),
   };
@@ -15149,9 +14995,7 @@ const serializeAws_json1_1UpdateDeviceStatusRequest = (
   return {
     ...(input.AccessToken !== undefined && { AccessToken: input.AccessToken }),
     ...(input.DeviceKey !== undefined && { DeviceKey: input.DeviceKey }),
-    ...(input.DeviceRememberedStatus !== undefined && {
-      DeviceRememberedStatus: input.DeviceRememberedStatus,
-    }),
+    ...(input.DeviceRememberedStatus !== undefined && { DeviceRememberedStatus: input.DeviceRememberedStatus }),
   };
 };
 
@@ -15179,9 +15023,7 @@ const serializeAws_json1_1UpdateIdentityProviderRequest = (
     ...(input.ProviderDetails !== undefined && {
       ProviderDetails: serializeAws_json1_1ProviderDetailsType(input.ProviderDetails, context),
     }),
-    ...(input.ProviderName !== undefined && {
-      ProviderName: input.ProviderName,
-    }),
+    ...(input.ProviderName !== undefined && { ProviderName: input.ProviderName }),
     ...(input.UserPoolId !== undefined && { UserPoolId: input.UserPoolId }),
   };
 };
@@ -15237,9 +15079,7 @@ const serializeAws_json1_1UpdateUserPoolClientRequest = (
     }),
     ...(input.ClientId !== undefined && { ClientId: input.ClientId }),
     ...(input.ClientName !== undefined && { ClientName: input.ClientName }),
-    ...(input.DefaultRedirectURI !== undefined && {
-      DefaultRedirectURI: input.DefaultRedirectURI,
-    }),
+    ...(input.DefaultRedirectURI !== undefined && { DefaultRedirectURI: input.DefaultRedirectURI }),
     ...(input.ExplicitAuthFlows !== undefined && {
       ExplicitAuthFlows: serializeAws_json1_1ExplicitAuthFlowsListType(input.ExplicitAuthFlows, context),
     }),
@@ -15252,9 +15092,7 @@ const serializeAws_json1_1UpdateUserPoolClientRequest = (
     ...(input.ReadAttributes !== undefined && {
       ReadAttributes: serializeAws_json1_1ClientPermissionListType(input.ReadAttributes, context),
     }),
-    ...(input.RefreshTokenValidity !== undefined && {
-      RefreshTokenValidity: input.RefreshTokenValidity,
-    }),
+    ...(input.RefreshTokenValidity !== undefined && { RefreshTokenValidity: input.RefreshTokenValidity }),
     ...(input.SupportedIdentityProviders !== undefined && {
       SupportedIdentityProviders: serializeAws_json1_1SupportedIdentityProvidersListType(
         input.SupportedIdentityProviders,
@@ -15298,30 +15136,18 @@ const serializeAws_json1_1UpdateUserPoolRequest = (input: UpdateUserPoolRequest,
     ...(input.EmailConfiguration !== undefined && {
       EmailConfiguration: serializeAws_json1_1EmailConfigurationType(input.EmailConfiguration, context),
     }),
-    ...(input.EmailVerificationMessage !== undefined && {
-      EmailVerificationMessage: input.EmailVerificationMessage,
-    }),
-    ...(input.EmailVerificationSubject !== undefined && {
-      EmailVerificationSubject: input.EmailVerificationSubject,
-    }),
+    ...(input.EmailVerificationMessage !== undefined && { EmailVerificationMessage: input.EmailVerificationMessage }),
+    ...(input.EmailVerificationSubject !== undefined && { EmailVerificationSubject: input.EmailVerificationSubject }),
     ...(input.LambdaConfig !== undefined && {
       LambdaConfig: serializeAws_json1_1LambdaConfigType(input.LambdaConfig, context),
     }),
-    ...(input.MfaConfiguration !== undefined && {
-      MfaConfiguration: input.MfaConfiguration,
-    }),
-    ...(input.Policies !== undefined && {
-      Policies: serializeAws_json1_1UserPoolPolicyType(input.Policies, context),
-    }),
-    ...(input.SmsAuthenticationMessage !== undefined && {
-      SmsAuthenticationMessage: input.SmsAuthenticationMessage,
-    }),
+    ...(input.MfaConfiguration !== undefined && { MfaConfiguration: input.MfaConfiguration }),
+    ...(input.Policies !== undefined && { Policies: serializeAws_json1_1UserPoolPolicyType(input.Policies, context) }),
+    ...(input.SmsAuthenticationMessage !== undefined && { SmsAuthenticationMessage: input.SmsAuthenticationMessage }),
     ...(input.SmsConfiguration !== undefined && {
       SmsConfiguration: serializeAws_json1_1SmsConfigurationType(input.SmsConfiguration, context),
     }),
-    ...(input.SmsVerificationMessage !== undefined && {
-      SmsVerificationMessage: input.SmsVerificationMessage,
-    }),
+    ...(input.SmsVerificationMessage !== undefined && { SmsVerificationMessage: input.SmsVerificationMessage }),
     ...(input.UserPoolAddOns !== undefined && {
       UserPoolAddOns: serializeAws_json1_1UserPoolAddOnsType(input.UserPoolAddOns, context),
     }),
@@ -15353,9 +15179,7 @@ const serializeAws_json1_1UsernameAttributesListType = (
 
 const serializeAws_json1_1UserPoolAddOnsType = (input: UserPoolAddOnsType, context: __SerdeContext): any => {
   return {
-    ...(input.AdvancedSecurityMode !== undefined && {
-      AdvancedSecurityMode: input.AdvancedSecurityMode,
-    }),
+    ...(input.AdvancedSecurityMode !== undefined && { AdvancedSecurityMode: input.AdvancedSecurityMode }),
   };
 };
 
@@ -15386,21 +15210,11 @@ const serializeAws_json1_1VerificationMessageTemplateType = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DefaultEmailOption !== undefined && {
-      DefaultEmailOption: input.DefaultEmailOption,
-    }),
-    ...(input.EmailMessage !== undefined && {
-      EmailMessage: input.EmailMessage,
-    }),
-    ...(input.EmailMessageByLink !== undefined && {
-      EmailMessageByLink: input.EmailMessageByLink,
-    }),
-    ...(input.EmailSubject !== undefined && {
-      EmailSubject: input.EmailSubject,
-    }),
-    ...(input.EmailSubjectByLink !== undefined && {
-      EmailSubjectByLink: input.EmailSubjectByLink,
-    }),
+    ...(input.DefaultEmailOption !== undefined && { DefaultEmailOption: input.DefaultEmailOption }),
+    ...(input.EmailMessage !== undefined && { EmailMessage: input.EmailMessage }),
+    ...(input.EmailMessageByLink !== undefined && { EmailMessageByLink: input.EmailMessageByLink }),
+    ...(input.EmailSubject !== undefined && { EmailSubject: input.EmailSubject }),
+    ...(input.EmailSubjectByLink !== undefined && { EmailSubjectByLink: input.EmailSubjectByLink }),
     ...(input.SmsMessage !== undefined && { SmsMessage: input.SmsMessage }),
   };
 };
@@ -15418,9 +15232,7 @@ const serializeAws_json1_1VerifySoftwareTokenRequest = (
 ): any => {
   return {
     ...(input.AccessToken !== undefined && { AccessToken: input.AccessToken }),
-    ...(input.FriendlyDeviceName !== undefined && {
-      FriendlyDeviceName: input.FriendlyDeviceName,
-    }),
+    ...(input.FriendlyDeviceName !== undefined && { FriendlyDeviceName: input.FriendlyDeviceName }),
     ...(input.Session !== undefined && { Session: input.Session }),
     ...(input.UserCode !== undefined && { UserCode: input.UserCode }),
   };
@@ -15432,9 +15244,7 @@ const serializeAws_json1_1VerifyUserAttributeRequest = (
 ): any => {
   return {
     ...(input.AccessToken !== undefined && { AccessToken: input.AccessToken }),
-    ...(input.AttributeName !== undefined && {
-      AttributeName: input.AttributeName,
-    }),
+    ...(input.AttributeName !== undefined && { AttributeName: input.AttributeName }),
     ...(input.Code !== undefined && { Code: input.Code }),
   };
 };

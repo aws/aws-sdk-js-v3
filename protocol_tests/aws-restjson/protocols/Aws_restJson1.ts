@@ -113,9 +113,7 @@ export const serializeAws_restJson1AllQueryStringTypesCommand = async (
   };
   let resolvedPath = "/AllQueryStringTypesInput";
   const query: any = {
-    ...(input.queryBoolean !== undefined && {
-      Boolean: input.queryBoolean.toString(),
-    }),
+    ...(input.queryBoolean !== undefined && { Boolean: input.queryBoolean.toString() }),
     ...(input.queryBooleanList !== undefined && {
       BooleanList: (input.queryBooleanList || []).map((_entry) => _entry.toString()),
     }),
@@ -127,15 +125,11 @@ export const serializeAws_restJson1AllQueryStringTypesCommand = async (
       DoubleList: (input.queryDoubleList || []).map((_entry) => (_entry % 1 == 0 ? _entry + ".0" : _entry.toString())),
     }),
     ...(input.queryEnum !== undefined && { Enum: input.queryEnum }),
-    ...(input.queryEnumList !== undefined && {
-      EnumList: (input.queryEnumList || []).map((_entry) => _entry),
-    }),
+    ...(input.queryEnumList !== undefined && { EnumList: (input.queryEnumList || []).map((_entry) => _entry) }),
     ...(input.queryFloat !== undefined && {
       Float: input.queryFloat % 1 == 0 ? input.queryFloat + ".0" : input.queryFloat.toString(),
     }),
-    ...(input.queryInteger !== undefined && {
-      Integer: input.queryInteger.toString(),
-    }),
+    ...(input.queryInteger !== undefined && { Integer: input.queryInteger.toString() }),
     ...(input.queryIntegerList !== undefined && {
       IntegerList: (input.queryIntegerList || []).map((_entry) => _entry.toString()),
     }),
@@ -143,13 +137,9 @@ export const serializeAws_restJson1AllQueryStringTypesCommand = async (
       IntegerSet: (Array.from(input.queryIntegerSet.values()) || []).map((_entry) => _entry.toString()),
     }),
     ...(input.queryLong !== undefined && { Long: input.queryLong.toString() }),
-    ...(input.queryShort !== undefined && {
-      Short: input.queryShort.toString(),
-    }),
+    ...(input.queryShort !== undefined && { Short: input.queryShort.toString() }),
     ...(input.queryString !== undefined && { String: input.queryString }),
-    ...(input.queryStringList !== undefined && {
-      StringList: (input.queryStringList || []).map((_entry) => _entry),
-    }),
+    ...(input.queryStringList !== undefined && { StringList: (input.queryStringList || []).map((_entry) => _entry) }),
     ...(input.queryStringSet !== undefined && {
       StringSet: (Array.from(input.queryStringSet.values()) || []).map((_entry) => _entry),
     }),
@@ -641,39 +631,25 @@ export const serializeAws_restJson1InputAndOutputWithHeadersCommand = async (
     ...(isSerializableHeaderValue(input.headerBooleanList) && {
       "X-BooleanList": (input.headerBooleanList! || []).map((_entry) => _entry.toString()).join(", "),
     }),
-    ...(isSerializableHeaderValue(input.headerByte) && {
-      "X-Byte": input.headerByte!.toString(),
-    }),
+    ...(isSerializableHeaderValue(input.headerByte) && { "X-Byte": input.headerByte!.toString() }),
     ...(isSerializableHeaderValue(input.headerDouble) && {
       "X-Double": input.headerDouble! % 1 == 0 ? input.headerDouble! + ".0" : input.headerDouble!.toString(),
     }),
-    ...(isSerializableHeaderValue(input.headerEnum) && {
-      "X-Enum": input.headerEnum!,
-    }),
+    ...(isSerializableHeaderValue(input.headerEnum) && { "X-Enum": input.headerEnum! }),
     ...(isSerializableHeaderValue(input.headerEnumList) && {
       "X-EnumList": (input.headerEnumList! || []).map((_entry) => _entry).join(", "),
     }),
-    ...(isSerializableHeaderValue(input.headerFalseBool) && {
-      "X-Boolean2": input.headerFalseBool!.toString(),
-    }),
+    ...(isSerializableHeaderValue(input.headerFalseBool) && { "X-Boolean2": input.headerFalseBool!.toString() }),
     ...(isSerializableHeaderValue(input.headerFloat) && {
       "X-Float": input.headerFloat! % 1 == 0 ? input.headerFloat! + ".0" : input.headerFloat!.toString(),
     }),
-    ...(isSerializableHeaderValue(input.headerInteger) && {
-      "X-Integer": input.headerInteger!.toString(),
-    }),
+    ...(isSerializableHeaderValue(input.headerInteger) && { "X-Integer": input.headerInteger!.toString() }),
     ...(isSerializableHeaderValue(input.headerIntegerList) && {
       "X-IntegerList": (input.headerIntegerList! || []).map((_entry) => _entry.toString()).join(", "),
     }),
-    ...(isSerializableHeaderValue(input.headerLong) && {
-      "X-Long": input.headerLong!.toString(),
-    }),
-    ...(isSerializableHeaderValue(input.headerShort) && {
-      "X-Short": input.headerShort!.toString(),
-    }),
-    ...(isSerializableHeaderValue(input.headerString) && {
-      "X-String": input.headerString!,
-    }),
+    ...(isSerializableHeaderValue(input.headerLong) && { "X-Long": input.headerLong!.toString() }),
+    ...(isSerializableHeaderValue(input.headerShort) && { "X-Short": input.headerShort!.toString() }),
+    ...(isSerializableHeaderValue(input.headerString) && { "X-String": input.headerString! }),
     ...(isSerializableHeaderValue(input.headerStringList) && {
       "X-StringList": (input.headerStringList! || []).map((_entry) => _entry).join(", "),
     }),
@@ -685,9 +661,7 @@ export const serializeAws_restJson1InputAndOutputWithHeadersCommand = async (
         .map((_entry) => __dateToUtcString(_entry).toString())
         .join(", "),
     }),
-    ...(isSerializableHeaderValue(input.headerTrueBool) && {
-      "X-Boolean1": input.headerTrueBool!.toString(),
-    }),
+    ...(isSerializableHeaderValue(input.headerTrueBool) && { "X-Boolean1": input.headerTrueBool!.toString() }),
   };
   let resolvedPath = "/InputAndOutputWithHeaders";
   let body: any;
@@ -743,12 +717,8 @@ export const serializeAws_restJson1JsonEnumsCommand = async (
     ...(input.fooEnumList !== undefined && {
       fooEnumList: serializeAws_restJson1FooEnumList(input.fooEnumList, context),
     }),
-    ...(input.fooEnumMap !== undefined && {
-      fooEnumMap: serializeAws_restJson1FooEnumMap(input.fooEnumMap, context),
-    }),
-    ...(input.fooEnumSet !== undefined && {
-      fooEnumSet: serializeAws_restJson1FooEnumSet(input.fooEnumSet, context),
-    }),
+    ...(input.fooEnumMap !== undefined && { fooEnumMap: serializeAws_restJson1FooEnumMap(input.fooEnumMap, context) }),
+    ...(input.fooEnumSet !== undefined && { fooEnumSet: serializeAws_restJson1FooEnumSet(input.fooEnumSet, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -775,21 +745,15 @@ export const serializeAws_restJson1JsonListsCommand = async (
     ...(input.booleanList !== undefined && {
       booleanList: serializeAws_restJson1BooleanList(input.booleanList, context),
     }),
-    ...(input.enumList !== undefined && {
-      enumList: serializeAws_restJson1FooEnumList(input.enumList, context),
-    }),
+    ...(input.enumList !== undefined && { enumList: serializeAws_restJson1FooEnumList(input.enumList, context) }),
     ...(input.integerList !== undefined && {
       integerList: serializeAws_restJson1IntegerList(input.integerList, context),
     }),
     ...(input.nestedStringList !== undefined && {
       nestedStringList: serializeAws_restJson1NestedStringList(input.nestedStringList, context),
     }),
-    ...(input.stringList !== undefined && {
-      stringList: serializeAws_restJson1StringList(input.stringList, context),
-    }),
-    ...(input.stringSet !== undefined && {
-      stringSet: serializeAws_restJson1StringSet(input.stringSet, context),
-    }),
+    ...(input.stringList !== undefined && { stringList: serializeAws_restJson1StringList(input.stringList, context) }),
+    ...(input.stringSet !== undefined && { stringSet: serializeAws_restJson1StringSet(input.stringSet, context) }),
     ...(input.structureList !== undefined && {
       myStructureList: serializeAws_restJson1StructureList(input.structureList, context),
     }),
@@ -819,9 +783,7 @@ export const serializeAws_restJson1JsonMapsCommand = async (
   let resolvedPath = "/JsonMaps";
   let body: any;
   body = JSON.stringify({
-    ...(input.myMap !== undefined && {
-      myMap: serializeAws_restJson1JsonMapsInputOutputMap(input.myMap, context),
-    }),
+    ...(input.myMap !== undefined && { myMap: serializeAws_restJson1JsonMapsInputOutputMap(input.myMap, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -845,18 +807,10 @@ export const serializeAws_restJson1JsonTimestampsCommand = async (
   let resolvedPath = "/JsonTimestamps";
   let body: any;
   body = JSON.stringify({
-    ...(input.dateTime !== undefined && {
-      dateTime: input.dateTime.toISOString().split(".")[0] + "Z",
-    }),
-    ...(input.epochSeconds !== undefined && {
-      epochSeconds: Math.round(input.epochSeconds.getTime() / 1000),
-    }),
-    ...(input.httpDate !== undefined && {
-      httpDate: __dateToUtcString(input.httpDate),
-    }),
-    ...(input.normal !== undefined && {
-      normal: Math.round(input.normal.getTime() / 1000),
-    }),
+    ...(input.dateTime !== undefined && { dateTime: input.dateTime.toISOString().split(".")[0] + "Z" }),
+    ...(input.epochSeconds !== undefined && { epochSeconds: Math.round(input.epochSeconds.getTime() / 1000) }),
+    ...(input.httpDate !== undefined && { httpDate: __dateToUtcString(input.httpDate) }),
+    ...(input.normal !== undefined && { normal: Math.round(input.normal.getTime() / 1000) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -922,9 +876,7 @@ export const serializeAws_restJson1NullAndEmptyHeadersClientCommand = async (
     "Content-Type": "",
     ...(isSerializableHeaderValue(input.a) && { "X-A": input.a! }),
     ...(isSerializableHeaderValue(input.b) && { "X-B": input.b! }),
-    ...(isSerializableHeaderValue(input.c) && {
-      "X-C": (input.c! || []).map((_entry) => _entry).join(", "),
-    }),
+    ...(isSerializableHeaderValue(input.c) && { "X-C": (input.c! || []).map((_entry) => _entry).join(", ") }),
   };
   let resolvedPath = "/NullAndEmptyHeadersClient";
   let body: any;
@@ -948,9 +900,7 @@ export const serializeAws_restJson1NullAndEmptyHeadersServerCommand = async (
     "Content-Type": "",
     ...(isSerializableHeaderValue(input.a) && { "X-A": input.a! }),
     ...(isSerializableHeaderValue(input.b) && { "X-B": input.b! }),
-    ...(isSerializableHeaderValue(input.c) && {
-      "X-C": (input.c! || []).map((_entry) => _entry).join(", "),
-    }),
+    ...(isSerializableHeaderValue(input.c) && { "X-C": (input.c! || []).map((_entry) => _entry).join(", ") }),
   };
   let resolvedPath = "/NullAndEmptyHeadersServer";
   let body: any;
@@ -1055,22 +1005,14 @@ export const serializeAws_restJson1SimpleScalarPropertiesCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.byteValue !== undefined && { byteValue: input.byteValue }),
-    ...(input.doubleValue !== undefined && {
-      DoubleDribble: input.doubleValue,
-    }),
-    ...(input.falseBooleanValue !== undefined && {
-      falseBooleanValue: input.falseBooleanValue,
-    }),
+    ...(input.doubleValue !== undefined && { DoubleDribble: input.doubleValue }),
+    ...(input.falseBooleanValue !== undefined && { falseBooleanValue: input.falseBooleanValue }),
     ...(input.floatValue !== undefined && { floatValue: input.floatValue }),
-    ...(input.integerValue !== undefined && {
-      integerValue: input.integerValue,
-    }),
+    ...(input.integerValue !== undefined && { integerValue: input.integerValue }),
     ...(input.longValue !== undefined && { longValue: input.longValue }),
     ...(input.shortValue !== undefined && { shortValue: input.shortValue }),
     ...(input.stringValue !== undefined && { stringValue: input.stringValue }),
-    ...(input.trueBooleanValue !== undefined && {
-      trueBooleanValue: input.trueBooleanValue,
-    }),
+    ...(input.trueBooleanValue !== undefined && { trueBooleanValue: input.trueBooleanValue }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

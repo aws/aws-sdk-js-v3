@@ -115,18 +115,12 @@ export const serializeAws_restJson1CreateAccessPointCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.FileSystemId !== undefined && {
-      FileSystemId: input.FileSystemId,
-    }),
-    ...(input.PosixUser !== undefined && {
-      PosixUser: serializeAws_restJson1PosixUser(input.PosixUser, context),
-    }),
+    ...(input.FileSystemId !== undefined && { FileSystemId: input.FileSystemId }),
+    ...(input.PosixUser !== undefined && { PosixUser: serializeAws_restJson1PosixUser(input.PosixUser, context) }),
     ...(input.RootDirectory !== undefined && {
       RootDirectory: serializeAws_restJson1RootDirectory(input.RootDirectory, context),
     }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1Tags(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -153,18 +147,12 @@ export const serializeAws_restJson1CreateFileSystemCommand = async (
     CreationToken: input.CreationToken ?? generateIdempotencyToken(),
     ...(input.Encrypted !== undefined && { Encrypted: input.Encrypted }),
     ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
-    ...(input.PerformanceMode !== undefined && {
-      PerformanceMode: input.PerformanceMode,
-    }),
+    ...(input.PerformanceMode !== undefined && { PerformanceMode: input.PerformanceMode }),
     ...(input.ProvisionedThroughputInMibps !== undefined && {
       ProvisionedThroughputInMibps: input.ProvisionedThroughputInMibps,
     }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1Tags(input.Tags, context),
-    }),
-    ...(input.ThroughputMode !== undefined && {
-      ThroughputMode: input.ThroughputMode,
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.ThroughputMode !== undefined && { ThroughputMode: input.ThroughputMode }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -188,9 +176,7 @@ export const serializeAws_restJson1CreateMountTargetCommand = async (
   let resolvedPath = "/2015-02-01/mount-targets";
   let body: any;
   body = JSON.stringify({
-    ...(input.FileSystemId !== undefined && {
-      FileSystemId: input.FileSystemId,
-    }),
+    ...(input.FileSystemId !== undefined && { FileSystemId: input.FileSystemId }),
     ...(input.IpAddress !== undefined && { IpAddress: input.IpAddress }),
     ...(input.SecurityGroups !== undefined && {
       SecurityGroups: serializeAws_restJson1SecurityGroups(input.SecurityGroups, context),
@@ -228,9 +214,7 @@ export const serializeAws_restJson1CreateTagsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1Tags(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -383,9 +367,7 @@ export const serializeAws_restJson1DeleteTagsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_restJson1TagKeys(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_restJson1TagKeys(input.TagKeys, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -408,15 +390,9 @@ export const serializeAws_restJson1DescribeAccessPointsCommand = async (
   };
   let resolvedPath = "/2015-02-01/access-points";
   const query: any = {
-    ...(input.AccessPointId !== undefined && {
-      AccessPointId: input.AccessPointId,
-    }),
-    ...(input.FileSystemId !== undefined && {
-      FileSystemId: input.FileSystemId,
-    }),
-    ...(input.MaxResults !== undefined && {
-      MaxResults: input.MaxResults.toString(),
-    }),
+    ...(input.AccessPointId !== undefined && { AccessPointId: input.AccessPointId }),
+    ...(input.FileSystemId !== undefined && { FileSystemId: input.FileSystemId }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
@@ -472,12 +448,8 @@ export const serializeAws_restJson1DescribeFileSystemsCommand = async (
   };
   let resolvedPath = "/2015-02-01/file-systems";
   const query: any = {
-    ...(input.CreationToken !== undefined && {
-      CreationToken: input.CreationToken,
-    }),
-    ...(input.FileSystemId !== undefined && {
-      FileSystemId: input.FileSystemId,
-    }),
+    ...(input.CreationToken !== undefined && { CreationToken: input.CreationToken }),
+    ...(input.FileSystemId !== undefined && { FileSystemId: input.FileSystemId }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
@@ -534,19 +506,11 @@ export const serializeAws_restJson1DescribeMountTargetsCommand = async (
   };
   let resolvedPath = "/2015-02-01/mount-targets";
   const query: any = {
-    ...(input.AccessPointId !== undefined && {
-      AccessPointId: input.AccessPointId,
-    }),
-    ...(input.FileSystemId !== undefined && {
-      FileSystemId: input.FileSystemId,
-    }),
+    ...(input.AccessPointId !== undefined && { AccessPointId: input.AccessPointId }),
+    ...(input.FileSystemId !== undefined && { FileSystemId: input.FileSystemId }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && {
-      MaxItems: input.MaxItems.toString(),
-    }),
-    ...(input.MountTargetId !== undefined && {
-      MountTargetId: input.MountTargetId,
-    }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
+    ...(input.MountTargetId !== undefined && { MountTargetId: input.MountTargetId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -645,9 +609,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      MaxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
@@ -789,9 +751,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1Tags(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -824,9 +784,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_restJson1TagKeys(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_restJson1TagKeys(input.TagKeys, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -862,9 +820,7 @@ export const serializeAws_restJson1UpdateFileSystemCommand = async (
     ...(input.ProvisionedThroughputInMibps !== undefined && {
       ProvisionedThroughputInMibps: input.ProvisionedThroughputInMibps,
     }),
-    ...(input.ThroughputMode !== undefined && {
-      ThroughputMode: input.ThroughputMode,
-    }),
+    ...(input.ThroughputMode !== undefined && { ThroughputMode: input.ThroughputMode }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3525,9 +3481,7 @@ const serializeAws_restJson1LifecyclePolicies = (input: LifecyclePolicy[], conte
 
 const serializeAws_restJson1LifecyclePolicy = (input: LifecyclePolicy, context: __SerdeContext): any => {
   return {
-    ...(input.TransitionToIA !== undefined && {
-      TransitionToIA: input.TransitionToIA,
-    }),
+    ...(input.TransitionToIA !== undefined && { TransitionToIA: input.TransitionToIA }),
   };
 };
 

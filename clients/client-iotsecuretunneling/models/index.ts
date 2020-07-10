@@ -270,9 +270,7 @@ export interface OpenTunnelResponse {
 export namespace OpenTunnelResponse {
   export const filterSensitiveLog = (obj: OpenTunnelResponse): any => ({
     ...obj,
-    ...(obj.destinationAccessToken && {
-      destinationAccessToken: SENSITIVE_STRING,
-    }),
+    ...(obj.destinationAccessToken && { destinationAccessToken: SENSITIVE_STRING }),
     ...(obj.sourceAccessToken && { sourceAccessToken: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is OpenTunnelResponse => __isa(o, "OpenTunnelResponse");

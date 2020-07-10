@@ -1657,9 +1657,7 @@ export interface GetJobDetailsOutput {
 export namespace GetJobDetailsOutput {
   export const filterSensitiveLog = (obj: GetJobDetailsOutput): any => ({
     ...obj,
-    ...(obj.jobDetails && {
-      jobDetails: JobDetails.filterSensitiveLog(obj.jobDetails),
-    }),
+    ...(obj.jobDetails && { jobDetails: JobDetails.filterSensitiveLog(obj.jobDetails) }),
   });
   export const isa = (o: any): o is GetJobDetailsOutput => __isa(o, "GetJobDetailsOutput");
 }
@@ -1856,9 +1854,7 @@ export interface GetThirdPartyJobDetailsOutput {
 export namespace GetThirdPartyJobDetailsOutput {
   export const filterSensitiveLog = (obj: GetThirdPartyJobDetailsOutput): any => ({
     ...obj,
-    ...(obj.jobDetails && {
-      jobDetails: ThirdPartyJobDetails.filterSensitiveLog(obj.jobDetails),
-    }),
+    ...(obj.jobDetails && { jobDetails: ThirdPartyJobDetails.filterSensitiveLog(obj.jobDetails) }),
   });
   export const isa = (o: any): o is GetThirdPartyJobDetailsOutput => __isa(o, "GetThirdPartyJobDetailsOutput");
 }
@@ -3212,9 +3208,7 @@ export interface PollForJobsOutput {
 export namespace PollForJobsOutput {
   export const filterSensitiveLog = (obj: PollForJobsOutput): any => ({
     ...obj,
-    ...(obj.jobs && {
-      jobs: obj.jobs.map((item) => Job.filterSensitiveLog(item)),
-    }),
+    ...(obj.jobs && { jobs: obj.jobs.map((item) => Job.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is PollForJobsOutput => __isa(o, "PollForJobsOutput");
 }

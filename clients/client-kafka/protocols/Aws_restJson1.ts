@@ -121,21 +121,13 @@ export const serializeAws_restJson1CreateClusterCommand = async (
     ...(input.EncryptionInfo !== undefined && {
       encryptionInfo: serializeAws_restJson1EncryptionInfo(input.EncryptionInfo, context),
     }),
-    ...(input.EnhancedMonitoring !== undefined && {
-      enhancedMonitoring: input.EnhancedMonitoring,
-    }),
-    ...(input.KafkaVersion !== undefined && {
-      kafkaVersion: input.KafkaVersion,
-    }),
-    ...(input.NumberOfBrokerNodes !== undefined && {
-      numberOfBrokerNodes: input.NumberOfBrokerNodes,
-    }),
+    ...(input.EnhancedMonitoring !== undefined && { enhancedMonitoring: input.EnhancedMonitoring }),
+    ...(input.KafkaVersion !== undefined && { kafkaVersion: input.KafkaVersion }),
+    ...(input.NumberOfBrokerNodes !== undefined && { numberOfBrokerNodes: input.NumberOfBrokerNodes }),
     ...(input.OpenMonitoring !== undefined && {
       openMonitoring: serializeAws_restJson1OpenMonitoringInfo(input.OpenMonitoring, context),
     }),
-    ...(input.Tags !== undefined && {
-      tags: serializeAws_restJson1__mapOf__string(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -164,9 +156,7 @@ export const serializeAws_restJson1CreateConfigurationCommand = async (
       kafkaVersions: serializeAws_restJson1__listOf__string(input.KafkaVersions, context),
     }),
     ...(input.Name !== undefined && { name: input.Name }),
-    ...(input.ServerProperties !== undefined && {
-      serverProperties: context.base64Encoder(input.ServerProperties),
-    }),
+    ...(input.ServerProperties !== undefined && { serverProperties: context.base64Encoder(input.ServerProperties) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -198,9 +188,7 @@ export const serializeAws_restJson1DeleteClusterCommand = async (
     throw new Error("No value provided for input HTTP label: ClusterArn.");
   }
   const query: any = {
-    ...(input.CurrentVersion !== undefined && {
-      currentVersion: input.CurrentVersion,
-    }),
+    ...(input.CurrentVersion !== undefined && { currentVersion: input.CurrentVersion }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -393,9 +381,7 @@ export const serializeAws_restJson1ListClusterOperationsCommand = async (
     throw new Error("No value provided for input HTTP label: ClusterArn.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -421,12 +407,8 @@ export const serializeAws_restJson1ListClustersCommand = async (
   };
   let resolvedPath = "/v1/clusters";
   const query: any = {
-    ...(input.ClusterNameFilter !== undefined && {
-      clusterNameFilter: input.ClusterNameFilter,
-    }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.ClusterNameFilter !== undefined && { clusterNameFilter: input.ClusterNameFilter }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -461,9 +443,7 @@ export const serializeAws_restJson1ListConfigurationRevisionsCommand = async (
     throw new Error("No value provided for input HTTP label: Arn.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -489,9 +469,7 @@ export const serializeAws_restJson1ListConfigurationsCommand = async (
   };
   let resolvedPath = "/v1/configurations";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -526,9 +504,7 @@ export const serializeAws_restJson1ListNodesCommand = async (
     throw new Error("No value provided for input HTTP label: ClusterArn.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -594,9 +570,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && {
-      tags: serializeAws_restJson1__mapOf__string(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -628,9 +602,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && {
-      tagKeys: (input.TagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -665,9 +637,7 @@ export const serializeAws_restJson1UpdateBrokerCountCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.CurrentVersion !== undefined && {
-      currentVersion: input.CurrentVersion,
-    }),
+    ...(input.CurrentVersion !== undefined && { currentVersion: input.CurrentVersion }),
     ...(input.TargetNumberOfBrokerNodes !== undefined && {
       targetNumberOfBrokerNodes: input.TargetNumberOfBrokerNodes,
     }),
@@ -703,9 +673,7 @@ export const serializeAws_restJson1UpdateBrokerStorageCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.CurrentVersion !== undefined && {
-      currentVersion: input.CurrentVersion,
-    }),
+    ...(input.CurrentVersion !== undefined && { currentVersion: input.CurrentVersion }),
     ...(input.TargetBrokerEBSVolumeInfo !== undefined && {
       targetBrokerEBSVolumeInfo: serializeAws_restJson1__listOfBrokerEBSVolumeInfo(
         input.TargetBrokerEBSVolumeInfo,
@@ -747,9 +715,7 @@ export const serializeAws_restJson1UpdateClusterConfigurationCommand = async (
     ...(input.ConfigurationInfo !== undefined && {
       configurationInfo: serializeAws_restJson1ConfigurationInfo(input.ConfigurationInfo, context),
     }),
-    ...(input.CurrentVersion !== undefined && {
-      currentVersion: input.CurrentVersion,
-    }),
+    ...(input.CurrentVersion !== undefined && { currentVersion: input.CurrentVersion }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -782,12 +748,8 @@ export const serializeAws_restJson1UpdateMonitoringCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.CurrentVersion !== undefined && {
-      currentVersion: input.CurrentVersion,
-    }),
-    ...(input.EnhancedMonitoring !== undefined && {
-      enhancedMonitoring: input.EnhancedMonitoring,
-    }),
+    ...(input.CurrentVersion !== undefined && { currentVersion: input.CurrentVersion }),
+    ...(input.EnhancedMonitoring !== undefined && { enhancedMonitoring: input.EnhancedMonitoring }),
     ...(input.OpenMonitoring !== undefined && {
       openMonitoring: serializeAws_restJson1OpenMonitoringInfo(input.OpenMonitoring, context),
     }),
@@ -2832,26 +2794,18 @@ const serializeAws_restJson1__mapOf__string = (input: { [key: string]: string },
 
 const serializeAws_restJson1BrokerEBSVolumeInfo = (input: BrokerEBSVolumeInfo, context: __SerdeContext): any => {
   return {
-    ...(input.KafkaBrokerNodeId !== undefined && {
-      kafkaBrokerNodeId: input.KafkaBrokerNodeId,
-    }),
-    ...(input.VolumeSizeGB !== undefined && {
-      volumeSizeGB: input.VolumeSizeGB,
-    }),
+    ...(input.KafkaBrokerNodeId !== undefined && { kafkaBrokerNodeId: input.KafkaBrokerNodeId }),
+    ...(input.VolumeSizeGB !== undefined && { volumeSizeGB: input.VolumeSizeGB }),
   };
 };
 
 const serializeAws_restJson1BrokerNodeGroupInfo = (input: BrokerNodeGroupInfo, context: __SerdeContext): any => {
   return {
-    ...(input.BrokerAZDistribution !== undefined && {
-      brokerAZDistribution: input.BrokerAZDistribution,
-    }),
+    ...(input.BrokerAZDistribution !== undefined && { brokerAZDistribution: input.BrokerAZDistribution }),
     ...(input.ClientSubnets !== undefined && {
       clientSubnets: serializeAws_restJson1__listOf__string(input.ClientSubnets, context),
     }),
-    ...(input.InstanceType !== undefined && {
-      instanceType: input.InstanceType,
-    }),
+    ...(input.InstanceType !== undefined && { instanceType: input.InstanceType }),
     ...(input.SecurityGroups !== undefined && {
       securityGroups: serializeAws_restJson1__listOf__string(input.SecurityGroups, context),
     }),
@@ -2863,9 +2817,7 @@ const serializeAws_restJson1BrokerNodeGroupInfo = (input: BrokerNodeGroupInfo, c
 
 const serializeAws_restJson1ClientAuthentication = (input: ClientAuthentication, context: __SerdeContext): any => {
   return {
-    ...(input.Tls !== undefined && {
-      tls: serializeAws_restJson1Tls(input.Tls, context),
-    }),
+    ...(input.Tls !== undefined && { tls: serializeAws_restJson1Tls(input.Tls, context) }),
   };
 };
 
@@ -2884,9 +2836,7 @@ const serializeAws_restJson1EBSStorageInfo = (input: EBSStorageInfo, context: __
 
 const serializeAws_restJson1EncryptionAtRest = (input: EncryptionAtRest, context: __SerdeContext): any => {
   return {
-    ...(input.DataVolumeKMSKeyId !== undefined && {
-      dataVolumeKMSKeyId: input.DataVolumeKMSKeyId,
-    }),
+    ...(input.DataVolumeKMSKeyId !== undefined && { dataVolumeKMSKeyId: input.DataVolumeKMSKeyId }),
   };
 };
 
@@ -2903,26 +2853,20 @@ const serializeAws_restJson1EncryptionInfo = (input: EncryptionInfo, context: __
 
 const serializeAws_restJson1EncryptionInTransit = (input: EncryptionInTransit, context: __SerdeContext): any => {
   return {
-    ...(input.ClientBroker !== undefined && {
-      clientBroker: input.ClientBroker,
-    }),
+    ...(input.ClientBroker !== undefined && { clientBroker: input.ClientBroker }),
     ...(input.InCluster !== undefined && { inCluster: input.InCluster }),
   };
 };
 
 const serializeAws_restJson1JmxExporterInfo = (input: JmxExporterInfo, context: __SerdeContext): any => {
   return {
-    ...(input.EnabledInBroker !== undefined && {
-      enabledInBroker: input.EnabledInBroker,
-    }),
+    ...(input.EnabledInBroker !== undefined && { enabledInBroker: input.EnabledInBroker }),
   };
 };
 
 const serializeAws_restJson1NodeExporterInfo = (input: NodeExporterInfo, context: __SerdeContext): any => {
   return {
-    ...(input.EnabledInBroker !== undefined && {
-      enabledInBroker: input.EnabledInBroker,
-    }),
+    ...(input.EnabledInBroker !== undefined && { enabledInBroker: input.EnabledInBroker }),
   };
 };
 

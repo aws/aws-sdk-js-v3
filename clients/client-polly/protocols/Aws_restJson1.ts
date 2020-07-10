@@ -102,9 +102,7 @@ export const serializeAws_restJson1DescribeVoicesCommand = async (
     ...(input.IncludeAdditionalLanguageCodes !== undefined && {
       IncludeAdditionalLanguageCodes: input.IncludeAdditionalLanguageCodes.toString(),
     }),
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
@@ -215,9 +213,7 @@ export const serializeAws_restJson1ListSpeechSynthesisTasksCommand = async (
   };
   let resolvedPath = "/v1/synthesisTasks";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      MaxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.Status !== undefined && { Status: input.Status }),
   };
@@ -279,21 +275,13 @@ export const serializeAws_restJson1StartSpeechSynthesisTaskCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Engine !== undefined && { Engine: input.Engine }),
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
     ...(input.LexiconNames !== undefined && {
       LexiconNames: serializeAws_restJson1LexiconNameList(input.LexiconNames, context),
     }),
-    ...(input.OutputFormat !== undefined && {
-      OutputFormat: input.OutputFormat,
-    }),
-    ...(input.OutputS3BucketName !== undefined && {
-      OutputS3BucketName: input.OutputS3BucketName,
-    }),
-    ...(input.OutputS3KeyPrefix !== undefined && {
-      OutputS3KeyPrefix: input.OutputS3KeyPrefix,
-    }),
+    ...(input.OutputFormat !== undefined && { OutputFormat: input.OutputFormat }),
+    ...(input.OutputS3BucketName !== undefined && { OutputS3BucketName: input.OutputS3BucketName }),
+    ...(input.OutputS3KeyPrefix !== undefined && { OutputS3KeyPrefix: input.OutputS3KeyPrefix }),
     ...(input.SampleRate !== undefined && { SampleRate: input.SampleRate }),
     ...(input.SnsTopicArn !== undefined && { SnsTopicArn: input.SnsTopicArn }),
     ...(input.SpeechMarkTypes !== undefined && {
@@ -326,15 +314,11 @@ export const serializeAws_restJson1SynthesizeSpeechCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Engine !== undefined && { Engine: input.Engine }),
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
     ...(input.LexiconNames !== undefined && {
       LexiconNames: serializeAws_restJson1LexiconNameList(input.LexiconNames, context),
     }),
-    ...(input.OutputFormat !== undefined && {
-      OutputFormat: input.OutputFormat,
-    }),
+    ...(input.OutputFormat !== undefined && { OutputFormat: input.OutputFormat }),
     ...(input.SampleRate !== undefined && { SampleRate: input.SampleRate }),
     ...(input.SpeechMarkTypes !== undefined && {
       SpeechMarkTypes: serializeAws_restJson1SpeechMarkTypeList(input.SpeechMarkTypes, context),

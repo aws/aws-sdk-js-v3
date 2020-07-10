@@ -3428,21 +3428,11 @@ const serializeAws_json1_0ContinueAsNewWorkflowExecutionDecisionAttributes = (
     }),
     ...(input.input !== undefined && { input: input.input }),
     ...(input.lambdaRole !== undefined && { lambdaRole: input.lambdaRole }),
-    ...(input.tagList !== undefined && {
-      tagList: serializeAws_json1_0TagList(input.tagList, context),
-    }),
-    ...(input.taskList !== undefined && {
-      taskList: serializeAws_json1_0TaskList(input.taskList, context),
-    }),
-    ...(input.taskPriority !== undefined && {
-      taskPriority: input.taskPriority,
-    }),
-    ...(input.taskStartToCloseTimeout !== undefined && {
-      taskStartToCloseTimeout: input.taskStartToCloseTimeout,
-    }),
-    ...(input.workflowTypeVersion !== undefined && {
-      workflowTypeVersion: input.workflowTypeVersion,
-    }),
+    ...(input.tagList !== undefined && { tagList: serializeAws_json1_0TagList(input.tagList, context) }),
+    ...(input.taskList !== undefined && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
+    ...(input.taskPriority !== undefined && { taskPriority: input.taskPriority }),
+    ...(input.taskStartToCloseTimeout !== undefined && { taskStartToCloseTimeout: input.taskStartToCloseTimeout }),
+    ...(input.workflowTypeVersion !== undefined && { workflowTypeVersion: input.workflowTypeVersion }),
   };
 };
 
@@ -3464,9 +3454,7 @@ const serializeAws_json1_0CountClosedWorkflowExecutionsInput = (
     ...(input.startTimeFilter !== undefined && {
       startTimeFilter: serializeAws_json1_0ExecutionTimeFilter(input.startTimeFilter, context),
     }),
-    ...(input.tagFilter !== undefined && {
-      tagFilter: serializeAws_json1_0TagFilter(input.tagFilter, context),
-    }),
+    ...(input.tagFilter !== undefined && { tagFilter: serializeAws_json1_0TagFilter(input.tagFilter, context) }),
     ...(input.typeFilter !== undefined && {
       typeFilter: serializeAws_json1_0WorkflowTypeFilter(input.typeFilter, context),
     }),
@@ -3485,9 +3473,7 @@ const serializeAws_json1_0CountOpenWorkflowExecutionsInput = (
     ...(input.startTimeFilter !== undefined && {
       startTimeFilter: serializeAws_json1_0ExecutionTimeFilter(input.startTimeFilter, context),
     }),
-    ...(input.tagFilter !== undefined && {
-      tagFilter: serializeAws_json1_0TagFilter(input.tagFilter, context),
-    }),
+    ...(input.tagFilter !== undefined && { tagFilter: serializeAws_json1_0TagFilter(input.tagFilter, context) }),
     ...(input.typeFilter !== undefined && {
       typeFilter: serializeAws_json1_0WorkflowTypeFilter(input.typeFilter, context),
     }),
@@ -3500,9 +3486,7 @@ const serializeAws_json1_0CountPendingActivityTasksInput = (
 ): any => {
   return {
     ...(input.domain !== undefined && { domain: input.domain }),
-    ...(input.taskList !== undefined && {
-      taskList: serializeAws_json1_0TaskList(input.taskList, context),
-    }),
+    ...(input.taskList !== undefined && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
   };
 };
 
@@ -3512,9 +3496,7 @@ const serializeAws_json1_0CountPendingDecisionTasksInput = (
 ): any => {
   return {
     ...(input.domain !== undefined && { domain: input.domain }),
-    ...(input.taskList !== undefined && {
-      taskList: serializeAws_json1_0TaskList(input.taskList, context),
-    }),
+    ...(input.taskList !== undefined && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
   };
 };
 
@@ -3544,9 +3526,7 @@ const serializeAws_json1_0Decision = (input: Decision, context: __SerdeContext):
         context
       ),
     }),
-    ...(input.decisionType !== undefined && {
-      decisionType: input.decisionType,
-    }),
+    ...(input.decisionType !== undefined && { decisionType: input.decisionType }),
     ...(input.failWorkflowExecutionDecisionAttributes !== undefined && {
       failWorkflowExecutionDecisionAttributes: serializeAws_json1_0FailWorkflowExecutionDecisionAttributes(
         input.failWorkflowExecutionDecisionAttributes,
@@ -3682,12 +3662,8 @@ const serializeAws_json1_0DescribeWorkflowTypeInput = (
 
 const serializeAws_json1_0ExecutionTimeFilter = (input: ExecutionTimeFilter, context: __SerdeContext): any => {
   return {
-    ...(input.latestDate !== undefined && {
-      latestDate: Math.round(input.latestDate.getTime() / 1000),
-    }),
-    ...(input.oldestDate !== undefined && {
-      oldestDate: Math.round(input.oldestDate.getTime() / 1000),
-    }),
+    ...(input.latestDate !== undefined && { latestDate: Math.round(input.latestDate.getTime() / 1000) }),
+    ...(input.oldestDate !== undefined && { oldestDate: Math.round(input.oldestDate.getTime() / 1000) }),
   };
 };
 
@@ -3710,34 +3686,20 @@ const serializeAws_json1_0GetWorkflowExecutionHistoryInput = (
     ...(input.execution !== undefined && {
       execution: serializeAws_json1_0WorkflowExecution(input.execution, context),
     }),
-    ...(input.maximumPageSize !== undefined && {
-      maximumPageSize: input.maximumPageSize,
-    }),
-    ...(input.nextPageToken !== undefined && {
-      nextPageToken: input.nextPageToken,
-    }),
-    ...(input.reverseOrder !== undefined && {
-      reverseOrder: input.reverseOrder,
-    }),
+    ...(input.maximumPageSize !== undefined && { maximumPageSize: input.maximumPageSize }),
+    ...(input.nextPageToken !== undefined && { nextPageToken: input.nextPageToken }),
+    ...(input.reverseOrder !== undefined && { reverseOrder: input.reverseOrder }),
   };
 };
 
 const serializeAws_json1_0ListActivityTypesInput = (input: ListActivityTypesInput, context: __SerdeContext): any => {
   return {
     ...(input.domain !== undefined && { domain: input.domain }),
-    ...(input.maximumPageSize !== undefined && {
-      maximumPageSize: input.maximumPageSize,
-    }),
+    ...(input.maximumPageSize !== undefined && { maximumPageSize: input.maximumPageSize }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.nextPageToken !== undefined && {
-      nextPageToken: input.nextPageToken,
-    }),
-    ...(input.registrationStatus !== undefined && {
-      registrationStatus: input.registrationStatus,
-    }),
-    ...(input.reverseOrder !== undefined && {
-      reverseOrder: input.reverseOrder,
-    }),
+    ...(input.nextPageToken !== undefined && { nextPageToken: input.nextPageToken }),
+    ...(input.registrationStatus !== undefined && { registrationStatus: input.registrationStatus }),
+    ...(input.reverseOrder !== undefined && { reverseOrder: input.reverseOrder }),
   };
 };
 
@@ -3756,21 +3718,13 @@ const serializeAws_json1_0ListClosedWorkflowExecutionsInput = (
     ...(input.executionFilter !== undefined && {
       executionFilter: serializeAws_json1_0WorkflowExecutionFilter(input.executionFilter, context),
     }),
-    ...(input.maximumPageSize !== undefined && {
-      maximumPageSize: input.maximumPageSize,
-    }),
-    ...(input.nextPageToken !== undefined && {
-      nextPageToken: input.nextPageToken,
-    }),
-    ...(input.reverseOrder !== undefined && {
-      reverseOrder: input.reverseOrder,
-    }),
+    ...(input.maximumPageSize !== undefined && { maximumPageSize: input.maximumPageSize }),
+    ...(input.nextPageToken !== undefined && { nextPageToken: input.nextPageToken }),
+    ...(input.reverseOrder !== undefined && { reverseOrder: input.reverseOrder }),
     ...(input.startTimeFilter !== undefined && {
       startTimeFilter: serializeAws_json1_0ExecutionTimeFilter(input.startTimeFilter, context),
     }),
-    ...(input.tagFilter !== undefined && {
-      tagFilter: serializeAws_json1_0TagFilter(input.tagFilter, context),
-    }),
+    ...(input.tagFilter !== undefined && { tagFilter: serializeAws_json1_0TagFilter(input.tagFilter, context) }),
     ...(input.typeFilter !== undefined && {
       typeFilter: serializeAws_json1_0WorkflowTypeFilter(input.typeFilter, context),
     }),
@@ -3779,18 +3733,10 @@ const serializeAws_json1_0ListClosedWorkflowExecutionsInput = (
 
 const serializeAws_json1_0ListDomainsInput = (input: ListDomainsInput, context: __SerdeContext): any => {
   return {
-    ...(input.maximumPageSize !== undefined && {
-      maximumPageSize: input.maximumPageSize,
-    }),
-    ...(input.nextPageToken !== undefined && {
-      nextPageToken: input.nextPageToken,
-    }),
-    ...(input.registrationStatus !== undefined && {
-      registrationStatus: input.registrationStatus,
-    }),
-    ...(input.reverseOrder !== undefined && {
-      reverseOrder: input.reverseOrder,
-    }),
+    ...(input.maximumPageSize !== undefined && { maximumPageSize: input.maximumPageSize }),
+    ...(input.nextPageToken !== undefined && { nextPageToken: input.nextPageToken }),
+    ...(input.registrationStatus !== undefined && { registrationStatus: input.registrationStatus }),
+    ...(input.reverseOrder !== undefined && { reverseOrder: input.reverseOrder }),
   };
 };
 
@@ -3803,21 +3749,13 @@ const serializeAws_json1_0ListOpenWorkflowExecutionsInput = (
     ...(input.executionFilter !== undefined && {
       executionFilter: serializeAws_json1_0WorkflowExecutionFilter(input.executionFilter, context),
     }),
-    ...(input.maximumPageSize !== undefined && {
-      maximumPageSize: input.maximumPageSize,
-    }),
-    ...(input.nextPageToken !== undefined && {
-      nextPageToken: input.nextPageToken,
-    }),
-    ...(input.reverseOrder !== undefined && {
-      reverseOrder: input.reverseOrder,
-    }),
+    ...(input.maximumPageSize !== undefined && { maximumPageSize: input.maximumPageSize }),
+    ...(input.nextPageToken !== undefined && { nextPageToken: input.nextPageToken }),
+    ...(input.reverseOrder !== undefined && { reverseOrder: input.reverseOrder }),
     ...(input.startTimeFilter !== undefined && {
       startTimeFilter: serializeAws_json1_0ExecutionTimeFilter(input.startTimeFilter, context),
     }),
-    ...(input.tagFilter !== undefined && {
-      tagFilter: serializeAws_json1_0TagFilter(input.tagFilter, context),
-    }),
+    ...(input.tagFilter !== undefined && { tagFilter: serializeAws_json1_0TagFilter(input.tagFilter, context) }),
     ...(input.typeFilter !== undefined && {
       typeFilter: serializeAws_json1_0WorkflowTypeFilter(input.typeFilter, context),
     }),
@@ -3836,19 +3774,11 @@ const serializeAws_json1_0ListTagsForResourceInput = (
 const serializeAws_json1_0ListWorkflowTypesInput = (input: ListWorkflowTypesInput, context: __SerdeContext): any => {
   return {
     ...(input.domain !== undefined && { domain: input.domain }),
-    ...(input.maximumPageSize !== undefined && {
-      maximumPageSize: input.maximumPageSize,
-    }),
+    ...(input.maximumPageSize !== undefined && { maximumPageSize: input.maximumPageSize }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.nextPageToken !== undefined && {
-      nextPageToken: input.nextPageToken,
-    }),
-    ...(input.registrationStatus !== undefined && {
-      registrationStatus: input.registrationStatus,
-    }),
-    ...(input.reverseOrder !== undefined && {
-      reverseOrder: input.reverseOrder,
-    }),
+    ...(input.nextPageToken !== undefined && { nextPageToken: input.nextPageToken }),
+    ...(input.registrationStatus !== undefined && { registrationStatus: input.registrationStatus }),
+    ...(input.reverseOrder !== undefined && { reverseOrder: input.reverseOrder }),
   };
 };
 
@@ -3859,9 +3789,7 @@ const serializeAws_json1_0PollForActivityTaskInput = (
   return {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.identity !== undefined && { identity: input.identity }),
-    ...(input.taskList !== undefined && {
-      taskList: serializeAws_json1_0TaskList(input.taskList, context),
-    }),
+    ...(input.taskList !== undefined && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
   };
 };
 
@@ -3872,18 +3800,10 @@ const serializeAws_json1_0PollForDecisionTaskInput = (
   return {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.identity !== undefined && { identity: input.identity }),
-    ...(input.maximumPageSize !== undefined && {
-      maximumPageSize: input.maximumPageSize,
-    }),
-    ...(input.nextPageToken !== undefined && {
-      nextPageToken: input.nextPageToken,
-    }),
-    ...(input.reverseOrder !== undefined && {
-      reverseOrder: input.reverseOrder,
-    }),
-    ...(input.taskList !== undefined && {
-      taskList: serializeAws_json1_0TaskList(input.taskList, context),
-    }),
+    ...(input.maximumPageSize !== undefined && { maximumPageSize: input.maximumPageSize }),
+    ...(input.nextPageToken !== undefined && { nextPageToken: input.nextPageToken }),
+    ...(input.reverseOrder !== undefined && { reverseOrder: input.reverseOrder }),
+    ...(input.taskList !== undefined && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
   };
 };
 
@@ -3918,9 +3838,7 @@ const serializeAws_json1_0RegisterActivityTypeInput = (
     ...(input.defaultTaskList !== undefined && {
       defaultTaskList: serializeAws_json1_0TaskList(input.defaultTaskList, context),
     }),
-    ...(input.defaultTaskPriority !== undefined && {
-      defaultTaskPriority: input.defaultTaskPriority,
-    }),
+    ...(input.defaultTaskPriority !== undefined && { defaultTaskPriority: input.defaultTaskPriority }),
     ...(input.defaultTaskScheduleToCloseTimeout !== undefined && {
       defaultTaskScheduleToCloseTimeout: input.defaultTaskScheduleToCloseTimeout,
     }),
@@ -3941,9 +3859,7 @@ const serializeAws_json1_0RegisterDomainInput = (input: RegisterDomainInput, con
   return {
     ...(input.description !== undefined && { description: input.description }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_0ResourceTagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_0ResourceTagList(input.tags, context) }),
     ...(input.workflowExecutionRetentionPeriodInDays !== undefined && {
       workflowExecutionRetentionPeriodInDays: input.workflowExecutionRetentionPeriodInDays,
     }),
@@ -3955,21 +3871,15 @@ const serializeAws_json1_0RegisterWorkflowTypeInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.defaultChildPolicy !== undefined && {
-      defaultChildPolicy: input.defaultChildPolicy,
-    }),
+    ...(input.defaultChildPolicy !== undefined && { defaultChildPolicy: input.defaultChildPolicy }),
     ...(input.defaultExecutionStartToCloseTimeout !== undefined && {
       defaultExecutionStartToCloseTimeout: input.defaultExecutionStartToCloseTimeout,
     }),
-    ...(input.defaultLambdaRole !== undefined && {
-      defaultLambdaRole: input.defaultLambdaRole,
-    }),
+    ...(input.defaultLambdaRole !== undefined && { defaultLambdaRole: input.defaultLambdaRole }),
     ...(input.defaultTaskList !== undefined && {
       defaultTaskList: serializeAws_json1_0TaskList(input.defaultTaskList, context),
     }),
-    ...(input.defaultTaskPriority !== undefined && {
-      defaultTaskPriority: input.defaultTaskPriority,
-    }),
+    ...(input.defaultTaskPriority !== undefined && { defaultTaskPriority: input.defaultTaskPriority }),
     ...(input.defaultTaskStartToCloseTimeout !== undefined && {
       defaultTaskStartToCloseTimeout: input.defaultTaskStartToCloseTimeout,
     }),
@@ -4062,12 +3972,8 @@ const serializeAws_json1_0RespondDecisionTaskCompletedInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.decisions !== undefined && {
-      decisions: serializeAws_json1_0DecisionList(input.decisions, context),
-    }),
-    ...(input.executionContext !== undefined && {
-      executionContext: input.executionContext,
-    }),
+    ...(input.decisions !== undefined && { decisions: serializeAws_json1_0DecisionList(input.decisions, context) }),
+    ...(input.executionContext !== undefined && { executionContext: input.executionContext }),
     ...(input.taskToken !== undefined && { taskToken: input.taskToken }),
   };
 };
@@ -4082,25 +3988,13 @@ const serializeAws_json1_0ScheduleActivityTaskDecisionAttributes = (
       activityType: serializeAws_json1_0ActivityType(input.activityType, context),
     }),
     ...(input.control !== undefined && { control: input.control }),
-    ...(input.heartbeatTimeout !== undefined && {
-      heartbeatTimeout: input.heartbeatTimeout,
-    }),
+    ...(input.heartbeatTimeout !== undefined && { heartbeatTimeout: input.heartbeatTimeout }),
     ...(input.input !== undefined && { input: input.input }),
-    ...(input.scheduleToCloseTimeout !== undefined && {
-      scheduleToCloseTimeout: input.scheduleToCloseTimeout,
-    }),
-    ...(input.scheduleToStartTimeout !== undefined && {
-      scheduleToStartTimeout: input.scheduleToStartTimeout,
-    }),
-    ...(input.startToCloseTimeout !== undefined && {
-      startToCloseTimeout: input.startToCloseTimeout,
-    }),
-    ...(input.taskList !== undefined && {
-      taskList: serializeAws_json1_0TaskList(input.taskList, context),
-    }),
-    ...(input.taskPriority !== undefined && {
-      taskPriority: input.taskPriority,
-    }),
+    ...(input.scheduleToCloseTimeout !== undefined && { scheduleToCloseTimeout: input.scheduleToCloseTimeout }),
+    ...(input.scheduleToStartTimeout !== undefined && { scheduleToStartTimeout: input.scheduleToStartTimeout }),
+    ...(input.startToCloseTimeout !== undefined && { startToCloseTimeout: input.startToCloseTimeout }),
+    ...(input.taskList !== undefined && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
+    ...(input.taskPriority !== undefined && { taskPriority: input.taskPriority }),
   };
 };
 
@@ -4113,9 +4007,7 @@ const serializeAws_json1_0ScheduleLambdaFunctionDecisionAttributes = (
     ...(input.id !== undefined && { id: input.id }),
     ...(input.input !== undefined && { input: input.input }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.startToCloseTimeout !== undefined && {
-      startToCloseTimeout: input.startToCloseTimeout,
-    }),
+    ...(input.startToCloseTimeout !== undefined && { startToCloseTimeout: input.startToCloseTimeout }),
   };
 };
 
@@ -4157,18 +4049,10 @@ const serializeAws_json1_0StartChildWorkflowExecutionDecisionAttributes = (
     }),
     ...(input.input !== undefined && { input: input.input }),
     ...(input.lambdaRole !== undefined && { lambdaRole: input.lambdaRole }),
-    ...(input.tagList !== undefined && {
-      tagList: serializeAws_json1_0TagList(input.tagList, context),
-    }),
-    ...(input.taskList !== undefined && {
-      taskList: serializeAws_json1_0TaskList(input.taskList, context),
-    }),
-    ...(input.taskPriority !== undefined && {
-      taskPriority: input.taskPriority,
-    }),
-    ...(input.taskStartToCloseTimeout !== undefined && {
-      taskStartToCloseTimeout: input.taskStartToCloseTimeout,
-    }),
+    ...(input.tagList !== undefined && { tagList: serializeAws_json1_0TagList(input.tagList, context) }),
+    ...(input.taskList !== undefined && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
+    ...(input.taskPriority !== undefined && { taskPriority: input.taskPriority }),
+    ...(input.taskStartToCloseTimeout !== undefined && { taskStartToCloseTimeout: input.taskStartToCloseTimeout }),
     ...(input.workflowId !== undefined && { workflowId: input.workflowId }),
     ...(input.workflowType !== undefined && {
       workflowType: serializeAws_json1_0WorkflowType(input.workflowType, context),
@@ -4182,9 +4066,7 @@ const serializeAws_json1_0StartTimerDecisionAttributes = (
 ): any => {
   return {
     ...(input.control !== undefined && { control: input.control }),
-    ...(input.startToFireTimeout !== undefined && {
-      startToFireTimeout: input.startToFireTimeout,
-    }),
+    ...(input.startToFireTimeout !== undefined && { startToFireTimeout: input.startToFireTimeout }),
     ...(input.timerId !== undefined && { timerId: input.timerId }),
   };
 };
@@ -4201,18 +4083,10 @@ const serializeAws_json1_0StartWorkflowExecutionInput = (
     }),
     ...(input.input !== undefined && { input: input.input }),
     ...(input.lambdaRole !== undefined && { lambdaRole: input.lambdaRole }),
-    ...(input.tagList !== undefined && {
-      tagList: serializeAws_json1_0TagList(input.tagList, context),
-    }),
-    ...(input.taskList !== undefined && {
-      taskList: serializeAws_json1_0TaskList(input.taskList, context),
-    }),
-    ...(input.taskPriority !== undefined && {
-      taskPriority: input.taskPriority,
-    }),
-    ...(input.taskStartToCloseTimeout !== undefined && {
-      taskStartToCloseTimeout: input.taskStartToCloseTimeout,
-    }),
+    ...(input.tagList !== undefined && { tagList: serializeAws_json1_0TagList(input.tagList, context) }),
+    ...(input.taskList !== undefined && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
+    ...(input.taskPriority !== undefined && { taskPriority: input.taskPriority }),
+    ...(input.taskStartToCloseTimeout !== undefined && { taskStartToCloseTimeout: input.taskStartToCloseTimeout }),
     ...(input.workflowId !== undefined && { workflowId: input.workflowId }),
     ...(input.workflowType !== undefined && {
       workflowType: serializeAws_json1_0WorkflowType(input.workflowType, context),
@@ -4233,9 +4107,7 @@ const serializeAws_json1_0TagList = (input: string[], context: __SerdeContext): 
 const serializeAws_json1_0TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_0ResourceTagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_0ResourceTagList(input.tags, context) }),
   };
 };
 
@@ -4292,9 +4164,7 @@ const serializeAws_json1_0UndeprecateWorkflowTypeInput = (
 const serializeAws_json1_0UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys !== undefined && {
-      tagKeys: serializeAws_json1_0ResourceTagKeyList(input.tagKeys, context),
-    }),
+    ...(input.tagKeys !== undefined && { tagKeys: serializeAws_json1_0ResourceTagKeyList(input.tagKeys, context) }),
   };
 };
 

@@ -2614,12 +2614,8 @@ const serializeAws_json1_1AssociateResolverEndpointIpAddressRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IpAddress !== undefined && {
-      IpAddress: serializeAws_json1_1IpAddressUpdate(input.IpAddress, context),
-    }),
-    ...(input.ResolverEndpointId !== undefined && {
-      ResolverEndpointId: input.ResolverEndpointId,
-    }),
+    ...(input.IpAddress !== undefined && { IpAddress: serializeAws_json1_1IpAddressUpdate(input.IpAddress, context) }),
+    ...(input.ResolverEndpointId !== undefined && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
@@ -2629,9 +2625,7 @@ const serializeAws_json1_1AssociateResolverRuleRequest = (
 ): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ResolverRuleId !== undefined && {
-      ResolverRuleId: input.ResolverRuleId,
-    }),
+    ...(input.ResolverRuleId !== undefined && { ResolverRuleId: input.ResolverRuleId }),
     ...(input.VPCId !== undefined && { VPCId: input.VPCId }),
   };
 };
@@ -2641,9 +2635,7 @@ const serializeAws_json1_1CreateResolverEndpointRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CreatorRequestId !== undefined && {
-      CreatorRequestId: input.CreatorRequestId,
-    }),
+    ...(input.CreatorRequestId !== undefined && { CreatorRequestId: input.CreatorRequestId }),
     ...(input.Direction !== undefined && { Direction: input.Direction }),
     ...(input.IpAddresses !== undefined && {
       IpAddresses: serializeAws_json1_1IpAddressesRequest(input.IpAddresses, context),
@@ -2652,9 +2644,7 @@ const serializeAws_json1_1CreateResolverEndpointRequest = (
     ...(input.SecurityGroupIds !== undefined && {
       SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(input.SecurityGroupIds, context),
     }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -2663,21 +2653,13 @@ const serializeAws_json1_1CreateResolverRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CreatorRequestId !== undefined && {
-      CreatorRequestId: input.CreatorRequestId,
-    }),
+    ...(input.CreatorRequestId !== undefined && { CreatorRequestId: input.CreatorRequestId }),
     ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ResolverEndpointId !== undefined && {
-      ResolverEndpointId: input.ResolverEndpointId,
-    }),
+    ...(input.ResolverEndpointId !== undefined && { ResolverEndpointId: input.ResolverEndpointId }),
     ...(input.RuleType !== undefined && { RuleType: input.RuleType }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
-    ...(input.TargetIps !== undefined && {
-      TargetIps: serializeAws_json1_1TargetList(input.TargetIps, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.TargetIps !== undefined && { TargetIps: serializeAws_json1_1TargetList(input.TargetIps, context) }),
   };
 };
 
@@ -2686,9 +2668,7 @@ const serializeAws_json1_1DeleteResolverEndpointRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverEndpointId !== undefined && {
-      ResolverEndpointId: input.ResolverEndpointId,
-    }),
+    ...(input.ResolverEndpointId !== undefined && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
@@ -2697,9 +2677,7 @@ const serializeAws_json1_1DeleteResolverRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverRuleId !== undefined && {
-      ResolverRuleId: input.ResolverRuleId,
-    }),
+    ...(input.ResolverRuleId !== undefined && { ResolverRuleId: input.ResolverRuleId }),
   };
 };
 
@@ -2708,12 +2686,8 @@ const serializeAws_json1_1DisassociateResolverEndpointIpAddressRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IpAddress !== undefined && {
-      IpAddress: serializeAws_json1_1IpAddressUpdate(input.IpAddress, context),
-    }),
-    ...(input.ResolverEndpointId !== undefined && {
-      ResolverEndpointId: input.ResolverEndpointId,
-    }),
+    ...(input.IpAddress !== undefined && { IpAddress: serializeAws_json1_1IpAddressUpdate(input.IpAddress, context) }),
+    ...(input.ResolverEndpointId !== undefined && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
@@ -2722,9 +2696,7 @@ const serializeAws_json1_1DisassociateResolverRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverRuleId !== undefined && {
-      ResolverRuleId: input.ResolverRuleId,
-    }),
+    ...(input.ResolverRuleId !== undefined && { ResolverRuleId: input.ResolverRuleId }),
     ...(input.VPCId !== undefined && { VPCId: input.VPCId }),
   };
 };
@@ -2732,9 +2704,7 @@ const serializeAws_json1_1DisassociateResolverRuleRequest = (
 const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_json1_1FilterValues(input.Values, context),
-    }),
+    ...(input.Values !== undefined && { Values: serializeAws_json1_1FilterValues(input.Values, context) }),
   };
 };
 
@@ -2751,9 +2721,7 @@ const serializeAws_json1_1GetResolverEndpointRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverEndpointId !== undefined && {
-      ResolverEndpointId: input.ResolverEndpointId,
-    }),
+    ...(input.ResolverEndpointId !== undefined && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
@@ -2779,9 +2747,7 @@ const serializeAws_json1_1GetResolverRulePolicyRequest = (
 
 const serializeAws_json1_1GetResolverRuleRequest = (input: GetResolverRuleRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResolverRuleId !== undefined && {
-      ResolverRuleId: input.ResolverRuleId,
-    }),
+    ...(input.ResolverRuleId !== undefined && { ResolverRuleId: input.ResolverRuleId }),
   };
 };
 
@@ -2811,9 +2777,7 @@ const serializeAws_json1_1ListResolverEndpointIpAddressesRequest = (
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResolverEndpointId !== undefined && {
-      ResolverEndpointId: input.ResolverEndpointId,
-    }),
+    ...(input.ResolverEndpointId !== undefined && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
@@ -2822,9 +2786,7 @@ const serializeAws_json1_1ListResolverEndpointsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1Filters(input.Filters, context),
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -2835,9 +2797,7 @@ const serializeAws_json1_1ListResolverRuleAssociationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1Filters(input.Filters, context),
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -2848,9 +2808,7 @@ const serializeAws_json1_1ListResolverRulesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1Filters(input.Filters, context),
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -2873,21 +2831,15 @@ const serializeAws_json1_1PutResolverRulePolicyRequest = (
 ): any => {
   return {
     ...(input.Arn !== undefined && { Arn: input.Arn }),
-    ...(input.ResolverRulePolicy !== undefined && {
-      ResolverRulePolicy: input.ResolverRulePolicy,
-    }),
+    ...(input.ResolverRulePolicy !== undefined && { ResolverRulePolicy: input.ResolverRulePolicy }),
   };
 };
 
 const serializeAws_json1_1ResolverRuleConfig = (input: ResolverRuleConfig, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ResolverEndpointId !== undefined && {
-      ResolverEndpointId: input.ResolverEndpointId,
-    }),
-    ...(input.TargetIps !== undefined && {
-      TargetIps: serializeAws_json1_1TargetList(input.TargetIps, context),
-    }),
+    ...(input.ResolverEndpointId !== undefined && { ResolverEndpointId: input.ResolverEndpointId }),
+    ...(input.TargetIps !== undefined && { TargetIps: serializeAws_json1_1TargetList(input.TargetIps, context) }),
   };
 };
 
@@ -2913,9 +2865,7 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -2933,9 +2883,7 @@ const serializeAws_json1_1TargetList = (input: TargetAddress[], context: __Serde
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -2945,9 +2893,7 @@ const serializeAws_json1_1UpdateResolverEndpointRequest = (
 ): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ResolverEndpointId !== undefined && {
-      ResolverEndpointId: input.ResolverEndpointId,
-    }),
+    ...(input.ResolverEndpointId !== undefined && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
@@ -2956,12 +2902,8 @@ const serializeAws_json1_1UpdateResolverRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Config !== undefined && {
-      Config: serializeAws_json1_1ResolverRuleConfig(input.Config, context),
-    }),
-    ...(input.ResolverRuleId !== undefined && {
-      ResolverRuleId: input.ResolverRuleId,
-    }),
+    ...(input.Config !== undefined && { Config: serializeAws_json1_1ResolverRuleConfig(input.Config, context) }),
+    ...(input.ResolverRuleId !== undefined && { ResolverRuleId: input.ResolverRuleId }),
   };
 };
 

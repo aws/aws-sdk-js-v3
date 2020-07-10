@@ -259,25 +259,19 @@ const serializeAws_json1_1EmptyStruct = (input: EmptyStruct, context: __SerdeCon
 
 const serializeAws_json1_1KitchenSink = (input: KitchenSink, context: __SerdeContext): any => {
   return {
-    ...(input.Blob !== undefined && {
-      Blob: context.base64Encoder(input.Blob),
-    }),
+    ...(input.Blob !== undefined && { Blob: context.base64Encoder(input.Blob) }),
     ...(input.Boolean !== undefined && { Boolean: input.Boolean }),
     ...(input.Double !== undefined && { Double: input.Double }),
     ...(input.EmptyStruct !== undefined && {
       EmptyStruct: serializeAws_json1_1EmptyStruct(input.EmptyStruct, context),
     }),
     ...(input.Float !== undefined && { Float: input.Float }),
-    ...(input.HttpdateTimestamp !== undefined && {
-      HttpdateTimestamp: __dateToUtcString(input.HttpdateTimestamp),
-    }),
+    ...(input.HttpdateTimestamp !== undefined && { HttpdateTimestamp: __dateToUtcString(input.HttpdateTimestamp) }),
     ...(input.Integer !== undefined && { Integer: input.Integer }),
     ...(input.Iso8601Timestamp !== undefined && {
       Iso8601Timestamp: input.Iso8601Timestamp.toISOString().split(".")[0] + "Z",
     }),
-    ...(input.JsonValue !== undefined && {
-      JsonValue: __LazyJsonString.fromObject(input.JsonValue),
-    }),
+    ...(input.JsonValue !== undefined && { JsonValue: __LazyJsonString.fromObject(input.JsonValue) }),
     ...(input.ListOfLists !== undefined && {
       ListOfLists: serializeAws_json1_1ListOfListOfStrings(input.ListOfLists, context),
     }),
@@ -319,12 +313,8 @@ const serializeAws_json1_1KitchenSink = (input: KitchenSink, context: __SerdeCon
     ...(input.StructWithLocationName !== undefined && {
       StructWithLocationName: serializeAws_json1_1StructWithLocationName(input.StructWithLocationName, context),
     }),
-    ...(input.Timestamp !== undefined && {
-      Timestamp: Math.round(input.Timestamp.getTime() / 1000),
-    }),
-    ...(input.UnixTimestamp !== undefined && {
-      UnixTimestamp: Math.round(input.UnixTimestamp.getTime() / 1000),
-    }),
+    ...(input.Timestamp !== undefined && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.UnixTimestamp !== undefined && { UnixTimestamp: Math.round(input.UnixTimestamp.getTime() / 1000) }),
   };
 };
 

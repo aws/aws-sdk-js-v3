@@ -196,16 +196,10 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
 
 const serializeAws_json1_1SendSSHPublicKeyRequest = (input: SendSSHPublicKeyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AvailabilityZone !== undefined && {
-      AvailabilityZone: input.AvailabilityZone,
-    }),
+    ...(input.AvailabilityZone !== undefined && { AvailabilityZone: input.AvailabilityZone }),
     ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
-    ...(input.InstanceOSUser !== undefined && {
-      InstanceOSUser: input.InstanceOSUser,
-    }),
-    ...(input.SSHPublicKey !== undefined && {
-      SSHPublicKey: input.SSHPublicKey,
-    }),
+    ...(input.InstanceOSUser !== undefined && { InstanceOSUser: input.InstanceOSUser }),
+    ...(input.SSHPublicKey !== undefined && { SSHPublicKey: input.SSHPublicKey }),
   };
 };
 

@@ -6678,9 +6678,7 @@ const serializeAws_json1_1CreateAccountRequest = (input: CreateAccountRequest, c
   return {
     ...(input.AccountName !== undefined && { AccountName: input.AccountName }),
     ...(input.Email !== undefined && { Email: input.Email }),
-    ...(input.IamUserAccessToBilling !== undefined && {
-      IamUserAccessToBilling: input.IamUserAccessToBilling,
-    }),
+    ...(input.IamUserAccessToBilling !== undefined && { IamUserAccessToBilling: input.IamUserAccessToBilling }),
     ...(input.RoleName !== undefined && { RoleName: input.RoleName }),
   };
 };
@@ -6699,9 +6697,7 @@ const serializeAws_json1_1CreateGovCloudAccountRequest = (
   return {
     ...(input.AccountName !== undefined && { AccountName: input.AccountName }),
     ...(input.Email !== undefined && { Email: input.Email }),
-    ...(input.IamUserAccessToBilling !== undefined && {
-      IamUserAccessToBilling: input.IamUserAccessToBilling,
-    }),
+    ...(input.IamUserAccessToBilling !== undefined && { IamUserAccessToBilling: input.IamUserAccessToBilling }),
     ...(input.RoleName !== undefined && { RoleName: input.RoleName }),
   };
 };
@@ -6745,9 +6741,7 @@ const serializeAws_json1_1DeleteOrganizationalUnitRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OrganizationalUnitId !== undefined && {
-      OrganizationalUnitId: input.OrganizationalUnitId,
-    }),
+    ...(input.OrganizationalUnitId !== undefined && { OrganizationalUnitId: input.OrganizationalUnitId }),
   };
 };
 
@@ -6768,9 +6762,7 @@ const serializeAws_json1_1DescribeCreateAccountStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CreateAccountRequestId !== undefined && {
-      CreateAccountRequestId: input.CreateAccountRequestId,
-    }),
+    ...(input.CreateAccountRequestId !== undefined && { CreateAccountRequestId: input.CreateAccountRequestId }),
   };
 };
 
@@ -6798,9 +6790,7 @@ const serializeAws_json1_1DescribeOrganizationalUnitRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OrganizationalUnitId !== undefined && {
-      OrganizationalUnitId: input.OrganizationalUnitId,
-    }),
+    ...(input.OrganizationalUnitId !== undefined && { OrganizationalUnitId: input.OrganizationalUnitId }),
   };
 };
 
@@ -6822,9 +6812,7 @@ const serializeAws_json1_1DisableAWSServiceAccessRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ServicePrincipal !== undefined && {
-      ServicePrincipal: input.ServicePrincipal,
-    }),
+    ...(input.ServicePrincipal !== undefined && { ServicePrincipal: input.ServicePrincipal }),
   };
 };
 
@@ -6850,9 +6838,7 @@ const serializeAws_json1_1EnableAWSServiceAccessRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ServicePrincipal !== undefined && {
-      ServicePrincipal: input.ServicePrincipal,
-    }),
+    ...(input.ServicePrincipal !== undefined && { ServicePrincipal: input.ServicePrincipal }),
   };
 };
 
@@ -6866,9 +6852,7 @@ const serializeAws_json1_1EnablePolicyTypeRequest = (input: EnablePolicyTypeRequ
 const serializeAws_json1_1HandshakeFilter = (input: HandshakeFilter, context: __SerdeContext): any => {
   return {
     ...(input.ActionType !== undefined && { ActionType: input.ActionType }),
-    ...(input.ParentHandshakeId !== undefined && {
-      ParentHandshakeId: input.ParentHandshakeId,
-    }),
+    ...(input.ParentHandshakeId !== undefined && { ParentHandshakeId: input.ParentHandshakeId }),
   };
 };
 
@@ -6885,9 +6869,7 @@ const serializeAws_json1_1InviteAccountToOrganizationRequest = (
 ): any => {
   return {
     ...(input.Notes !== undefined && { Notes: input.Notes }),
-    ...(input.Target !== undefined && {
-      Target: serializeAws_json1_1HandshakeParty(input.Target, context),
-    }),
+    ...(input.Target !== undefined && { Target: serializeAws_json1_1HandshakeParty(input.Target, context) }),
   };
 };
 
@@ -6935,9 +6917,7 @@ const serializeAws_json1_1ListCreateAccountStatusRequest = (
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.States !== undefined && {
-      States: serializeAws_json1_1CreateAccountStates(input.States, context),
-    }),
+    ...(input.States !== undefined && { States: serializeAws_json1_1CreateAccountStates(input.States, context) }),
   };
 };
 
@@ -6946,9 +6926,7 @@ const serializeAws_json1_1ListHandshakesForAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1HandshakeFilter(input.Filter, context),
-    }),
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1HandshakeFilter(input.Filter, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -6959,9 +6937,7 @@ const serializeAws_json1_1ListHandshakesForOrganizationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1HandshakeFilter(input.Filter, context),
-    }),
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1HandshakeFilter(input.Filter, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -7037,12 +7013,8 @@ const serializeAws_json1_1ListTargetsForPolicyRequest = (
 const serializeAws_json1_1MoveAccountRequest = (input: MoveAccountRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.DestinationParentId !== undefined && {
-      DestinationParentId: input.DestinationParentId,
-    }),
-    ...(input.SourceParentId !== undefined && {
-      SourceParentId: input.SourceParentId,
-    }),
+    ...(input.DestinationParentId !== undefined && { DestinationParentId: input.DestinationParentId }),
+    ...(input.SourceParentId !== undefined && { SourceParentId: input.SourceParentId }),
   };
 };
 
@@ -7069,9 +7041,7 @@ const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -7082,9 +7052,7 @@ const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any =>
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
   };
 };
 
@@ -7094,9 +7062,7 @@ const serializeAws_json1_1UpdateOrganizationalUnitRequest = (
 ): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.OrganizationalUnitId !== undefined && {
-      OrganizationalUnitId: input.OrganizationalUnitId,
-    }),
+    ...(input.OrganizationalUnitId !== undefined && { OrganizationalUnitId: input.OrganizationalUnitId }),
   };
 };
 

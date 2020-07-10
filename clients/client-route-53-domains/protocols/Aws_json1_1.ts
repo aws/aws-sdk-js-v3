@@ -2326,12 +2326,8 @@ const serializeAws_json1_1CheckDomainTransferabilityRequest = (
 
 const serializeAws_json1_1ContactDetail = (input: ContactDetail, context: __SerdeContext): any => {
   return {
-    ...(input.AddressLine1 !== undefined && {
-      AddressLine1: input.AddressLine1,
-    }),
-    ...(input.AddressLine2 !== undefined && {
-      AddressLine2: input.AddressLine2,
-    }),
+    ...(input.AddressLine1 !== undefined && { AddressLine1: input.AddressLine1 }),
+    ...(input.AddressLine2 !== undefined && { AddressLine2: input.AddressLine2 }),
     ...(input.City !== undefined && { City: input.City }),
     ...(input.ContactType !== undefined && { ContactType: input.ContactType }),
     ...(input.CountryCode !== undefined && { CountryCode: input.CountryCode }),
@@ -2342,9 +2338,7 @@ const serializeAws_json1_1ContactDetail = (input: ContactDetail, context: __Serd
     ...(input.Fax !== undefined && { Fax: input.Fax }),
     ...(input.FirstName !== undefined && { FirstName: input.FirstName }),
     ...(input.LastName !== undefined && { LastName: input.LastName }),
-    ...(input.OrganizationName !== undefined && {
-      OrganizationName: input.OrganizationName,
-    }),
+    ...(input.OrganizationName !== undefined && { OrganizationName: input.OrganizationName }),
     ...(input.PhoneNumber !== undefined && { PhoneNumber: input.PhoneNumber }),
     ...(input.State !== undefined && { State: input.State }),
     ...(input.ZipCode !== undefined && { ZipCode: input.ZipCode }),
@@ -2431,12 +2425,8 @@ const serializeAws_json1_1GetDomainSuggestionsRequest = (
 ): any => {
   return {
     ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.OnlyAvailable !== undefined && {
-      OnlyAvailable: input.OnlyAvailable,
-    }),
-    ...(input.SuggestionCount !== undefined && {
-      SuggestionCount: input.SuggestionCount,
-    }),
+    ...(input.OnlyAvailable !== undefined && { OnlyAvailable: input.OnlyAvailable }),
+    ...(input.SuggestionCount !== undefined && { SuggestionCount: input.SuggestionCount }),
   };
 };
 
@@ -2464,9 +2454,7 @@ const serializeAws_json1_1ListOperationsRequest = (input: ListOperationsRequest,
   return {
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems }),
-    ...(input.SubmittedSince !== undefined && {
-      SubmittedSince: Math.round(input.SubmittedSince.getTime() / 1000),
-    }),
+    ...(input.SubmittedSince !== undefined && { SubmittedSince: Math.round(input.SubmittedSince.getTime() / 1000) }),
   };
 };
 
@@ -2481,9 +2469,7 @@ const serializeAws_json1_1ListTagsForDomainRequest = (
 
 const serializeAws_json1_1Nameserver = (input: Nameserver, context: __SerdeContext): any => {
   return {
-    ...(input.GlueIps !== undefined && {
-      GlueIps: serializeAws_json1_1GlueIpList(input.GlueIps, context),
-    }),
+    ...(input.GlueIps !== undefined && { GlueIps: serializeAws_json1_1GlueIpList(input.GlueIps, context) }),
     ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
@@ -2499,9 +2485,7 @@ const serializeAws_json1_1RegisterDomainRequest = (input: RegisterDomainRequest,
     }),
     ...(input.AutoRenew !== undefined && { AutoRenew: input.AutoRenew }),
     ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.DurationInYears !== undefined && {
-      DurationInYears: input.DurationInYears,
-    }),
+    ...(input.DurationInYears !== undefined && { DurationInYears: input.DurationInYears }),
     ...(input.IdnLangCode !== undefined && { IdnLangCode: input.IdnLangCode }),
     ...(input.PrivacyProtectAdminContact !== undefined && {
       PrivacyProtectAdminContact: input.PrivacyProtectAdminContact,
@@ -2523,13 +2507,9 @@ const serializeAws_json1_1RegisterDomainRequest = (input: RegisterDomainRequest,
 
 const serializeAws_json1_1RenewDomainRequest = (input: RenewDomainRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CurrentExpiryYear !== undefined && {
-      CurrentExpiryYear: input.CurrentExpiryYear,
-    }),
+    ...(input.CurrentExpiryYear !== undefined && { CurrentExpiryYear: input.CurrentExpiryYear }),
     ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.DurationInYears !== undefined && {
-      DurationInYears: input.DurationInYears,
-    }),
+    ...(input.DurationInYears !== undefined && { DurationInYears: input.DurationInYears }),
   };
 };
 
@@ -2574,9 +2554,7 @@ const serializeAws_json1_1TransferDomainRequest = (input: TransferDomainRequest,
     ...(input.AuthCode !== undefined && { AuthCode: input.AuthCode }),
     ...(input.AutoRenew !== undefined && { AutoRenew: input.AutoRenew }),
     ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.DurationInYears !== undefined && {
-      DurationInYears: input.DurationInYears,
-    }),
+    ...(input.DurationInYears !== undefined && { DurationInYears: input.DurationInYears }),
     ...(input.IdnLangCode !== undefined && { IdnLangCode: input.IdnLangCode }),
     ...(input.Nameservers !== undefined && {
       Nameservers: serializeAws_json1_1NameserverList(input.Nameservers, context),
@@ -2604,13 +2582,9 @@ const serializeAws_json1_1UpdateDomainContactPrivacyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdminPrivacy !== undefined && {
-      AdminPrivacy: input.AdminPrivacy,
-    }),
+    ...(input.AdminPrivacy !== undefined && { AdminPrivacy: input.AdminPrivacy }),
     ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.RegistrantPrivacy !== undefined && {
-      RegistrantPrivacy: input.RegistrantPrivacy,
-    }),
+    ...(input.RegistrantPrivacy !== undefined && { RegistrantPrivacy: input.RegistrantPrivacy }),
     ...(input.TechPrivacy !== undefined && { TechPrivacy: input.TechPrivacy }),
   };
 };
@@ -2652,22 +2626,16 @@ const serializeAws_json1_1UpdateTagsForDomainRequest = (
 ): any => {
   return {
     ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.TagsToUpdate !== undefined && {
-      TagsToUpdate: serializeAws_json1_1TagList(input.TagsToUpdate, context),
-    }),
+    ...(input.TagsToUpdate !== undefined && { TagsToUpdate: serializeAws_json1_1TagList(input.TagsToUpdate, context) }),
   };
 };
 
 const serializeAws_json1_1ViewBillingRequest = (input: ViewBillingRequest, context: __SerdeContext): any => {
   return {
-    ...(input.End !== undefined && {
-      End: Math.round(input.End.getTime() / 1000),
-    }),
+    ...(input.End !== undefined && { End: Math.round(input.End.getTime() / 1000) }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems }),
-    ...(input.Start !== undefined && {
-      Start: Math.round(input.Start.getTime() / 1000),
-    }),
+    ...(input.Start !== undefined && { Start: Math.round(input.Start.getTime() / 1000) }),
   };
 };
 

@@ -104,9 +104,7 @@ export const serializeAws_restJson1ListHumanLoopsCommand = async (
     ...(input.CreationTimeBefore !== undefined && {
       CreationTimeBefore: (input.CreationTimeBefore.toISOString().split(".")[0] + "Z").toString(),
     }),
-    ...(input.MaxResults !== undefined && {
-      MaxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder }),
   };
@@ -137,15 +135,11 @@ export const serializeAws_restJson1StartHumanLoopCommand = async (
     ...(input.DataAttributes !== undefined && {
       DataAttributes: serializeAws_restJson1HumanReviewDataAttributes(input.DataAttributes, context),
     }),
-    ...(input.FlowDefinitionArn !== undefined && {
-      FlowDefinitionArn: input.FlowDefinitionArn,
-    }),
+    ...(input.FlowDefinitionArn !== undefined && { FlowDefinitionArn: input.FlowDefinitionArn }),
     ...(input.HumanLoopInput !== undefined && {
       HumanLoopInput: serializeAws_restJson1HumanLoopInputContent(input.HumanLoopInput, context),
     }),
-    ...(input.HumanLoopName !== undefined && {
-      HumanLoopName: input.HumanLoopName,
-    }),
+    ...(input.HumanLoopName !== undefined && { HumanLoopName: input.HumanLoopName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -169,9 +163,7 @@ export const serializeAws_restJson1StopHumanLoopCommand = async (
   let resolvedPath = "/human-loops/stop";
   let body: any;
   body = JSON.stringify({
-    ...(input.HumanLoopName !== undefined && {
-      HumanLoopName: input.HumanLoopName,
-    }),
+    ...(input.HumanLoopName !== undefined && { HumanLoopName: input.HumanLoopName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -706,9 +698,7 @@ const serializeAws_restJson1ContentClassifiers = (
 
 const serializeAws_restJson1HumanLoopInputContent = (input: HumanLoopInputContent, context: __SerdeContext): any => {
   return {
-    ...(input.InputContent !== undefined && {
-      InputContent: input.InputContent,
-    }),
+    ...(input.InputContent !== undefined && { InputContent: input.InputContent }),
   };
 };
 

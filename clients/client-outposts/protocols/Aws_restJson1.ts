@@ -38,12 +38,8 @@ export const serializeAws_restJson1CreateOutpostCommand = async (
   let resolvedPath = "/outposts";
   let body: any;
   body = JSON.stringify({
-    ...(input.AvailabilityZone !== undefined && {
-      AvailabilityZone: input.AvailabilityZone,
-    }),
-    ...(input.AvailabilityZoneId !== undefined && {
-      AvailabilityZoneId: input.AvailabilityZoneId,
-    }),
+    ...(input.AvailabilityZone !== undefined && { AvailabilityZone: input.AvailabilityZone }),
+    ...(input.AvailabilityZoneId !== undefined && { AvailabilityZoneId: input.AvailabilityZoneId }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.SiteId !== undefined && { SiteId: input.SiteId }),
@@ -108,9 +104,7 @@ export const serializeAws_restJson1GetOutpostInstanceTypesCommand = async (
     throw new Error("No value provided for input HTTP label: OutpostId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      MaxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
@@ -136,9 +130,7 @@ export const serializeAws_restJson1ListOutpostsCommand = async (
   };
   let resolvedPath = "/outposts";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      MaxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
@@ -164,9 +156,7 @@ export const serializeAws_restJson1ListSitesCommand = async (
   };
   let resolvedPath = "/sites";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      MaxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;

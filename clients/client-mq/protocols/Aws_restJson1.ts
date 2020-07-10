@@ -92,36 +92,24 @@ export const serializeAws_restJson1CreateBrokerCommand = async (
   let resolvedPath = "/v1/brokers";
   let body: any;
   body = JSON.stringify({
-    ...(input.AutoMinorVersionUpgrade !== undefined && {
-      autoMinorVersionUpgrade: input.AutoMinorVersionUpgrade,
-    }),
+    ...(input.AutoMinorVersionUpgrade !== undefined && { autoMinorVersionUpgrade: input.AutoMinorVersionUpgrade }),
     ...(input.BrokerName !== undefined && { brokerName: input.BrokerName }),
     ...(input.Configuration !== undefined && {
       configuration: serializeAws_restJson1ConfigurationId(input.Configuration, context),
     }),
     creatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
-    ...(input.DeploymentMode !== undefined && {
-      deploymentMode: input.DeploymentMode,
-    }),
+    ...(input.DeploymentMode !== undefined && { deploymentMode: input.DeploymentMode }),
     ...(input.EncryptionOptions !== undefined && {
       encryptionOptions: serializeAws_restJson1EncryptionOptions(input.EncryptionOptions, context),
     }),
     ...(input.EngineType !== undefined && { engineType: input.EngineType }),
-    ...(input.EngineVersion !== undefined && {
-      engineVersion: input.EngineVersion,
-    }),
-    ...(input.HostInstanceType !== undefined && {
-      hostInstanceType: input.HostInstanceType,
-    }),
-    ...(input.Logs !== undefined && {
-      logs: serializeAws_restJson1Logs(input.Logs, context),
-    }),
+    ...(input.EngineVersion !== undefined && { engineVersion: input.EngineVersion }),
+    ...(input.HostInstanceType !== undefined && { hostInstanceType: input.HostInstanceType }),
+    ...(input.Logs !== undefined && { logs: serializeAws_restJson1Logs(input.Logs, context) }),
     ...(input.MaintenanceWindowStartTime !== undefined && {
       maintenanceWindowStartTime: serializeAws_restJson1WeeklyStartTime(input.MaintenanceWindowStartTime, context),
     }),
-    ...(input.PubliclyAccessible !== undefined && {
-      publiclyAccessible: input.PubliclyAccessible,
-    }),
+    ...(input.PubliclyAccessible !== undefined && { publiclyAccessible: input.PubliclyAccessible }),
     ...(input.SecurityGroups !== undefined && {
       securityGroups: serializeAws_restJson1__listOf__string(input.SecurityGroups, context),
     }),
@@ -129,12 +117,8 @@ export const serializeAws_restJson1CreateBrokerCommand = async (
     ...(input.SubnetIds !== undefined && {
       subnetIds: serializeAws_restJson1__listOf__string(input.SubnetIds, context),
     }),
-    ...(input.Tags !== undefined && {
-      tags: serializeAws_restJson1__mapOf__string(input.Tags, context),
-    }),
-    ...(input.Users !== undefined && {
-      users: serializeAws_restJson1__listOfUser(input.Users, context),
-    }),
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
+    ...(input.Users !== undefined && { users: serializeAws_restJson1__listOfUser(input.Users, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -159,13 +143,9 @@ export const serializeAws_restJson1CreateConfigurationCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.EngineType !== undefined && { engineType: input.EngineType }),
-    ...(input.EngineVersion !== undefined && {
-      engineVersion: input.EngineVersion,
-    }),
+    ...(input.EngineVersion !== undefined && { engineVersion: input.EngineVersion }),
     ...(input.Name !== undefined && { name: input.Name }),
-    ...(input.Tags !== undefined && {
-      tags: serializeAws_restJson1__mapOf__string(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -198,9 +178,7 @@ export const serializeAws_restJson1CreateTagsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && {
-      tags: serializeAws_restJson1__mapOf__string(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -242,12 +220,8 @@ export const serializeAws_restJson1CreateUserCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ConsoleAccess !== undefined && {
-      consoleAccess: input.ConsoleAccess,
-    }),
-    ...(input.Groups !== undefined && {
-      groups: serializeAws_restJson1__listOf__string(input.Groups, context),
-    }),
+    ...(input.ConsoleAccess !== undefined && { consoleAccess: input.ConsoleAccess }),
+    ...(input.Groups !== undefined && { groups: serializeAws_restJson1__listOf__string(input.Groups, context) }),
     ...(input.Password !== undefined && { password: input.Password }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -310,9 +284,7 @@ export const serializeAws_restJson1DeleteTagsCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && {
-      tagKeys: (input.TagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -407,9 +379,7 @@ export const serializeAws_restJson1DescribeBrokerEngineTypesCommand = async (
   let resolvedPath = "/v1/broker-engine-types";
   const query: any = {
     ...(input.EngineType !== undefined && { engineType: input.EngineType }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -436,12 +406,8 @@ export const serializeAws_restJson1DescribeBrokerInstanceOptionsCommand = async 
   let resolvedPath = "/v1/broker-instance-options";
   const query: any = {
     ...(input.EngineType !== undefined && { engineType: input.EngineType }),
-    ...(input.HostInstanceType !== undefined && {
-      hostInstanceType: input.HostInstanceType,
-    }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.HostInstanceType !== undefined && { hostInstanceType: input.HostInstanceType }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.StorageType !== undefined && { storageType: input.StorageType }),
   };
@@ -576,9 +542,7 @@ export const serializeAws_restJson1ListBrokersCommand = async (
   };
   let resolvedPath = "/v1/brokers";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -613,9 +577,7 @@ export const serializeAws_restJson1ListConfigurationRevisionsCommand = async (
     throw new Error("No value provided for input HTTP label: ConfigurationId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -641,9 +603,7 @@ export const serializeAws_restJson1ListConfigurationsCommand = async (
   };
   let resolvedPath = "/v1/configurations";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -708,9 +668,7 @@ export const serializeAws_restJson1ListUsersCommand = async (
     throw new Error("No value provided for input HTTP label: BrokerId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -776,21 +734,13 @@ export const serializeAws_restJson1UpdateBrokerCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AutoMinorVersionUpgrade !== undefined && {
-      autoMinorVersionUpgrade: input.AutoMinorVersionUpgrade,
-    }),
+    ...(input.AutoMinorVersionUpgrade !== undefined && { autoMinorVersionUpgrade: input.AutoMinorVersionUpgrade }),
     ...(input.Configuration !== undefined && {
       configuration: serializeAws_restJson1ConfigurationId(input.Configuration, context),
     }),
-    ...(input.EngineVersion !== undefined && {
-      engineVersion: input.EngineVersion,
-    }),
-    ...(input.HostInstanceType !== undefined && {
-      hostInstanceType: input.HostInstanceType,
-    }),
-    ...(input.Logs !== undefined && {
-      logs: serializeAws_restJson1Logs(input.Logs, context),
-    }),
+    ...(input.EngineVersion !== undefined && { engineVersion: input.EngineVersion }),
+    ...(input.HostInstanceType !== undefined && { hostInstanceType: input.HostInstanceType }),
+    ...(input.Logs !== undefined && { logs: serializeAws_restJson1Logs(input.Logs, context) }),
     ...(input.SecurityGroups !== undefined && {
       securityGroups: serializeAws_restJson1__listOf__string(input.SecurityGroups, context),
     }),
@@ -869,12 +819,8 @@ export const serializeAws_restJson1UpdateUserCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ConsoleAccess !== undefined && {
-      consoleAccess: input.ConsoleAccess,
-    }),
-    ...(input.Groups !== undefined && {
-      groups: serializeAws_restJson1__listOf__string(input.Groups, context),
-    }),
+    ...(input.ConsoleAccess !== undefined && { consoleAccess: input.ConsoleAccess }),
+    ...(input.Groups !== undefined && { groups: serializeAws_restJson1__listOf__string(input.Groups, context) }),
     ...(input.Password !== undefined && { password: input.Password }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3059,9 +3005,7 @@ const serializeAws_restJson1ConfigurationId = (input: ConfigurationId, context: 
 const serializeAws_restJson1EncryptionOptions = (input: EncryptionOptions, context: __SerdeContext): any => {
   return {
     ...(input.KmsKeyId !== undefined && { kmsKeyId: input.KmsKeyId }),
-    ...(input.UseAwsOwnedKey !== undefined && {
-      useAwsOwnedKey: input.UseAwsOwnedKey,
-    }),
+    ...(input.UseAwsOwnedKey !== undefined && { useAwsOwnedKey: input.UseAwsOwnedKey }),
   };
 };
 
@@ -3074,12 +3018,8 @@ const serializeAws_restJson1Logs = (input: Logs, context: __SerdeContext): any =
 
 const serializeAws_restJson1User = (input: User, context: __SerdeContext): any => {
   return {
-    ...(input.ConsoleAccess !== undefined && {
-      consoleAccess: input.ConsoleAccess,
-    }),
-    ...(input.Groups !== undefined && {
-      groups: serializeAws_restJson1__listOf__string(input.Groups, context),
-    }),
+    ...(input.ConsoleAccess !== undefined && { consoleAccess: input.ConsoleAccess }),
+    ...(input.Groups !== undefined && { groups: serializeAws_restJson1__listOf__string(input.Groups, context) }),
     ...(input.Password !== undefined && { password: input.Password }),
     ...(input.Username !== undefined && { username: input.Username }),
   };

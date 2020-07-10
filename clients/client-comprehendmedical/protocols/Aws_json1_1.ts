@@ -1498,9 +1498,7 @@ const serializeAws_json1_1ComprehendMedicalAsyncJobFilter = (
   return {
     ...(input.JobName !== undefined && { JobName: input.JobName }),
     ...(input.JobStatus !== undefined && { JobStatus: input.JobStatus }),
-    ...(input.SubmitTimeAfter !== undefined && {
-      SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000),
-    }),
+    ...(input.SubmitTimeAfter !== undefined && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
     ...(input.SubmitTimeBefore !== undefined && {
       SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000),
     }),
@@ -1601,17 +1599,13 @@ const serializeAws_json1_1StartEntitiesDetectionV2JobRequest = (
 ): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn !== undefined && {
-      DataAccessRoleArn: input.DataAccessRoleArn,
-    }),
+    ...(input.DataAccessRoleArn !== undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
     ...(input.InputDataConfig !== undefined && {
       InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
     }),
     ...(input.JobName !== undefined && { JobName: input.JobName }),
     ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
     ...(input.OutputDataConfig !== undefined && {
       OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
     }),
@@ -1624,17 +1618,13 @@ const serializeAws_json1_1StartPHIDetectionJobRequest = (
 ): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn !== undefined && {
-      DataAccessRoleArn: input.DataAccessRoleArn,
-    }),
+    ...(input.DataAccessRoleArn !== undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
     ...(input.InputDataConfig !== undefined && {
       InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
     }),
     ...(input.JobName !== undefined && { JobName: input.JobName }),
     ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
     ...(input.OutputDataConfig !== undefined && {
       OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
     }),

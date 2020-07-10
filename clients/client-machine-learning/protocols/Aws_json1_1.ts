@@ -2664,12 +2664,8 @@ const deserializeAws_json1_1TagLimitExceededExceptionResponse = async (
 const serializeAws_json1_1AddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -2681,12 +2677,8 @@ const serializeAws_json1_1CreateBatchPredictionInput = (
     ...(input.BatchPredictionDataSourceId !== undefined && {
       BatchPredictionDataSourceId: input.BatchPredictionDataSourceId,
     }),
-    ...(input.BatchPredictionId !== undefined && {
-      BatchPredictionId: input.BatchPredictionId,
-    }),
-    ...(input.BatchPredictionName !== undefined && {
-      BatchPredictionName: input.BatchPredictionName,
-    }),
+    ...(input.BatchPredictionId !== undefined && { BatchPredictionId: input.BatchPredictionId }),
+    ...(input.BatchPredictionName !== undefined && { BatchPredictionName: input.BatchPredictionName }),
     ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
     ...(input.OutputUri !== undefined && { OutputUri: input.OutputUri }),
   };
@@ -2697,18 +2689,10 @@ const serializeAws_json1_1CreateDataSourceFromRDSInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ComputeStatistics !== undefined && {
-      ComputeStatistics: input.ComputeStatistics,
-    }),
-    ...(input.DataSourceId !== undefined && {
-      DataSourceId: input.DataSourceId,
-    }),
-    ...(input.DataSourceName !== undefined && {
-      DataSourceName: input.DataSourceName,
-    }),
-    ...(input.RDSData !== undefined && {
-      RDSData: serializeAws_json1_1RDSDataSpec(input.RDSData, context),
-    }),
+    ...(input.ComputeStatistics !== undefined && { ComputeStatistics: input.ComputeStatistics }),
+    ...(input.DataSourceId !== undefined && { DataSourceId: input.DataSourceId }),
+    ...(input.DataSourceName !== undefined && { DataSourceName: input.DataSourceName }),
+    ...(input.RDSData !== undefined && { RDSData: serializeAws_json1_1RDSDataSpec(input.RDSData, context) }),
     ...(input.RoleARN !== undefined && { RoleARN: input.RoleARN }),
   };
 };
@@ -2718,18 +2702,10 @@ const serializeAws_json1_1CreateDataSourceFromRedshiftInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ComputeStatistics !== undefined && {
-      ComputeStatistics: input.ComputeStatistics,
-    }),
-    ...(input.DataSourceId !== undefined && {
-      DataSourceId: input.DataSourceId,
-    }),
-    ...(input.DataSourceName !== undefined && {
-      DataSourceName: input.DataSourceName,
-    }),
-    ...(input.DataSpec !== undefined && {
-      DataSpec: serializeAws_json1_1RedshiftDataSpec(input.DataSpec, context),
-    }),
+    ...(input.ComputeStatistics !== undefined && { ComputeStatistics: input.ComputeStatistics }),
+    ...(input.DataSourceId !== undefined && { DataSourceId: input.DataSourceId }),
+    ...(input.DataSourceName !== undefined && { DataSourceName: input.DataSourceName }),
+    ...(input.DataSpec !== undefined && { DataSpec: serializeAws_json1_1RedshiftDataSpec(input.DataSpec, context) }),
     ...(input.RoleARN !== undefined && { RoleARN: input.RoleARN }),
   };
 };
@@ -2739,32 +2715,18 @@ const serializeAws_json1_1CreateDataSourceFromS3Input = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ComputeStatistics !== undefined && {
-      ComputeStatistics: input.ComputeStatistics,
-    }),
-    ...(input.DataSourceId !== undefined && {
-      DataSourceId: input.DataSourceId,
-    }),
-    ...(input.DataSourceName !== undefined && {
-      DataSourceName: input.DataSourceName,
-    }),
-    ...(input.DataSpec !== undefined && {
-      DataSpec: serializeAws_json1_1S3DataSpec(input.DataSpec, context),
-    }),
+    ...(input.ComputeStatistics !== undefined && { ComputeStatistics: input.ComputeStatistics }),
+    ...(input.DataSourceId !== undefined && { DataSourceId: input.DataSourceId }),
+    ...(input.DataSourceName !== undefined && { DataSourceName: input.DataSourceName }),
+    ...(input.DataSpec !== undefined && { DataSpec: serializeAws_json1_1S3DataSpec(input.DataSpec, context) }),
   };
 };
 
 const serializeAws_json1_1CreateEvaluationInput = (input: CreateEvaluationInput, context: __SerdeContext): any => {
   return {
-    ...(input.EvaluationDataSourceId !== undefined && {
-      EvaluationDataSourceId: input.EvaluationDataSourceId,
-    }),
-    ...(input.EvaluationId !== undefined && {
-      EvaluationId: input.EvaluationId,
-    }),
-    ...(input.EvaluationName !== undefined && {
-      EvaluationName: input.EvaluationName,
-    }),
+    ...(input.EvaluationDataSourceId !== undefined && { EvaluationDataSourceId: input.EvaluationDataSourceId }),
+    ...(input.EvaluationId !== undefined && { EvaluationId: input.EvaluationId }),
+    ...(input.EvaluationName !== undefined && { EvaluationName: input.EvaluationName }),
     ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
   };
 };
@@ -2779,9 +2741,7 @@ const serializeAws_json1_1CreateMLModelInput = (input: CreateMLModelInput, conte
     }),
     ...(input.Recipe !== undefined && { Recipe: input.Recipe }),
     ...(input.RecipeUri !== undefined && { RecipeUri: input.RecipeUri }),
-    ...(input.TrainingDataSourceId !== undefined && {
-      TrainingDataSourceId: input.TrainingDataSourceId,
-    }),
+    ...(input.TrainingDataSourceId !== undefined && { TrainingDataSourceId: input.TrainingDataSourceId }),
   };
 };
 
@@ -2799,25 +2759,19 @@ const serializeAws_json1_1DeleteBatchPredictionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BatchPredictionId !== undefined && {
-      BatchPredictionId: input.BatchPredictionId,
-    }),
+    ...(input.BatchPredictionId !== undefined && { BatchPredictionId: input.BatchPredictionId }),
   };
 };
 
 const serializeAws_json1_1DeleteDataSourceInput = (input: DeleteDataSourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.DataSourceId !== undefined && {
-      DataSourceId: input.DataSourceId,
-    }),
+    ...(input.DataSourceId !== undefined && { DataSourceId: input.DataSourceId }),
   };
 };
 
 const serializeAws_json1_1DeleteEvaluationInput = (input: DeleteEvaluationInput, context: __SerdeContext): any => {
   return {
-    ...(input.EvaluationId !== undefined && {
-      EvaluationId: input.EvaluationId,
-    }),
+    ...(input.EvaluationId !== undefined && { EvaluationId: input.EvaluationId }),
   };
 };
 
@@ -2839,12 +2793,8 @@ const serializeAws_json1_1DeleteRealtimeEndpointInput = (
 const serializeAws_json1_1DeleteTagsInput = (input: DeleteTagsInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context),
-    }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -2854,9 +2804,7 @@ const serializeAws_json1_1DescribeBatchPredictionsInput = (
 ): any => {
   return {
     ...(input.EQ !== undefined && { EQ: input.EQ }),
-    ...(input.FilterVariable !== undefined && {
-      FilterVariable: input.FilterVariable,
-    }),
+    ...(input.FilterVariable !== undefined && { FilterVariable: input.FilterVariable }),
     ...(input.GE !== undefined && { GE: input.GE }),
     ...(input.GT !== undefined && { GT: input.GT }),
     ...(input.LE !== undefined && { LE: input.LE }),
@@ -2875,9 +2823,7 @@ const serializeAws_json1_1DescribeDataSourcesInput = (
 ): any => {
   return {
     ...(input.EQ !== undefined && { EQ: input.EQ }),
-    ...(input.FilterVariable !== undefined && {
-      FilterVariable: input.FilterVariable,
-    }),
+    ...(input.FilterVariable !== undefined && { FilterVariable: input.FilterVariable }),
     ...(input.GE !== undefined && { GE: input.GE }),
     ...(input.GT !== undefined && { GT: input.GT }),
     ...(input.LE !== undefined && { LE: input.LE }),
@@ -2896,9 +2842,7 @@ const serializeAws_json1_1DescribeEvaluationsInput = (
 ): any => {
   return {
     ...(input.EQ !== undefined && { EQ: input.EQ }),
-    ...(input.FilterVariable !== undefined && {
-      FilterVariable: input.FilterVariable,
-    }),
+    ...(input.FilterVariable !== undefined && { FilterVariable: input.FilterVariable }),
     ...(input.GE !== undefined && { GE: input.GE }),
     ...(input.GT !== undefined && { GT: input.GT }),
     ...(input.LE !== undefined && { LE: input.LE }),
@@ -2914,9 +2858,7 @@ const serializeAws_json1_1DescribeEvaluationsInput = (
 const serializeAws_json1_1DescribeMLModelsInput = (input: DescribeMLModelsInput, context: __SerdeContext): any => {
   return {
     ...(input.EQ !== undefined && { EQ: input.EQ }),
-    ...(input.FilterVariable !== undefined && {
-      FilterVariable: input.FilterVariable,
-    }),
+    ...(input.FilterVariable !== undefined && { FilterVariable: input.FilterVariable }),
     ...(input.GE !== undefined && { GE: input.GE }),
     ...(input.GT !== undefined && { GT: input.GT }),
     ...(input.LE !== undefined && { LE: input.LE }),
@@ -2932,9 +2874,7 @@ const serializeAws_json1_1DescribeMLModelsInput = (input: DescribeMLModelsInput,
 const serializeAws_json1_1DescribeTagsInput = (input: DescribeTagsInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
   };
 };
 
@@ -2944,26 +2884,20 @@ const serializeAws_json1_1EDPSecurityGroupIds = (input: string[], context: __Ser
 
 const serializeAws_json1_1GetBatchPredictionInput = (input: GetBatchPredictionInput, context: __SerdeContext): any => {
   return {
-    ...(input.BatchPredictionId !== undefined && {
-      BatchPredictionId: input.BatchPredictionId,
-    }),
+    ...(input.BatchPredictionId !== undefined && { BatchPredictionId: input.BatchPredictionId }),
   };
 };
 
 const serializeAws_json1_1GetDataSourceInput = (input: GetDataSourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.DataSourceId !== undefined && {
-      DataSourceId: input.DataSourceId,
-    }),
+    ...(input.DataSourceId !== undefined && { DataSourceId: input.DataSourceId }),
     ...(input.Verbose !== undefined && { Verbose: input.Verbose }),
   };
 };
 
 const serializeAws_json1_1GetEvaluationInput = (input: GetEvaluationInput, context: __SerdeContext): any => {
   return {
-    ...(input.EvaluationId !== undefined && {
-      EvaluationId: input.EvaluationId,
-    }),
+    ...(input.EvaluationId !== undefined && { EvaluationId: input.EvaluationId }),
   };
 };
 
@@ -2977,23 +2911,15 @@ const serializeAws_json1_1GetMLModelInput = (input: GetMLModelInput, context: __
 const serializeAws_json1_1PredictInput = (input: PredictInput, context: __SerdeContext): any => {
   return {
     ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
-    ...(input.PredictEndpoint !== undefined && {
-      PredictEndpoint: input.PredictEndpoint,
-    }),
-    ...(input.Record !== undefined && {
-      Record: serializeAws_json1_1Record(input.Record, context),
-    }),
+    ...(input.PredictEndpoint !== undefined && { PredictEndpoint: input.PredictEndpoint }),
+    ...(input.Record !== undefined && { Record: serializeAws_json1_1Record(input.Record, context) }),
   };
 };
 
 const serializeAws_json1_1RDSDatabase = (input: RDSDatabase, context: __SerdeContext): any => {
   return {
-    ...(input.DatabaseName !== undefined && {
-      DatabaseName: input.DatabaseName,
-    }),
-    ...(input.InstanceIdentifier !== undefined && {
-      InstanceIdentifier: input.InstanceIdentifier,
-    }),
+    ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
+    ...(input.InstanceIdentifier !== undefined && { InstanceIdentifier: input.InstanceIdentifier }),
   };
 };
 
@@ -3006,31 +2932,21 @@ const serializeAws_json1_1RDSDatabaseCredentials = (input: RDSDatabaseCredential
 
 const serializeAws_json1_1RDSDataSpec = (input: RDSDataSpec, context: __SerdeContext): any => {
   return {
-    ...(input.DataRearrangement !== undefined && {
-      DataRearrangement: input.DataRearrangement,
-    }),
+    ...(input.DataRearrangement !== undefined && { DataRearrangement: input.DataRearrangement }),
     ...(input.DataSchema !== undefined && { DataSchema: input.DataSchema }),
-    ...(input.DataSchemaUri !== undefined && {
-      DataSchemaUri: input.DataSchemaUri,
-    }),
+    ...(input.DataSchemaUri !== undefined && { DataSchemaUri: input.DataSchemaUri }),
     ...(input.DatabaseCredentials !== undefined && {
       DatabaseCredentials: serializeAws_json1_1RDSDatabaseCredentials(input.DatabaseCredentials, context),
     }),
     ...(input.DatabaseInformation !== undefined && {
       DatabaseInformation: serializeAws_json1_1RDSDatabase(input.DatabaseInformation, context),
     }),
-    ...(input.ResourceRole !== undefined && {
-      ResourceRole: input.ResourceRole,
-    }),
-    ...(input.S3StagingLocation !== undefined && {
-      S3StagingLocation: input.S3StagingLocation,
-    }),
+    ...(input.ResourceRole !== undefined && { ResourceRole: input.ResourceRole }),
+    ...(input.S3StagingLocation !== undefined && { S3StagingLocation: input.S3StagingLocation }),
     ...(input.SecurityGroupIds !== undefined && {
       SecurityGroupIds: serializeAws_json1_1EDPSecurityGroupIds(input.SecurityGroupIds, context),
     }),
-    ...(input.SelectSqlQuery !== undefined && {
-      SelectSqlQuery: input.SelectSqlQuery,
-    }),
+    ...(input.SelectSqlQuery !== undefined && { SelectSqlQuery: input.SelectSqlQuery }),
     ...(input.ServiceRole !== undefined && { ServiceRole: input.ServiceRole }),
     ...(input.SubnetId !== undefined && { SubnetId: input.SubnetId }),
   };
@@ -3048,12 +2964,8 @@ const serializeAws_json1_1Record = (input: { [key: string]: string }, context: _
 
 const serializeAws_json1_1RedshiftDatabase = (input: RedshiftDatabase, context: __SerdeContext): any => {
   return {
-    ...(input.ClusterIdentifier !== undefined && {
-      ClusterIdentifier: input.ClusterIdentifier,
-    }),
-    ...(input.DatabaseName !== undefined && {
-      DatabaseName: input.DatabaseName,
-    }),
+    ...(input.ClusterIdentifier !== undefined && { ClusterIdentifier: input.ClusterIdentifier }),
+    ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
   };
 };
 
@@ -3069,40 +2981,26 @@ const serializeAws_json1_1RedshiftDatabaseCredentials = (
 
 const serializeAws_json1_1RedshiftDataSpec = (input: RedshiftDataSpec, context: __SerdeContext): any => {
   return {
-    ...(input.DataRearrangement !== undefined && {
-      DataRearrangement: input.DataRearrangement,
-    }),
+    ...(input.DataRearrangement !== undefined && { DataRearrangement: input.DataRearrangement }),
     ...(input.DataSchema !== undefined && { DataSchema: input.DataSchema }),
-    ...(input.DataSchemaUri !== undefined && {
-      DataSchemaUri: input.DataSchemaUri,
-    }),
+    ...(input.DataSchemaUri !== undefined && { DataSchemaUri: input.DataSchemaUri }),
     ...(input.DatabaseCredentials !== undefined && {
       DatabaseCredentials: serializeAws_json1_1RedshiftDatabaseCredentials(input.DatabaseCredentials, context),
     }),
     ...(input.DatabaseInformation !== undefined && {
       DatabaseInformation: serializeAws_json1_1RedshiftDatabase(input.DatabaseInformation, context),
     }),
-    ...(input.S3StagingLocation !== undefined && {
-      S3StagingLocation: input.S3StagingLocation,
-    }),
-    ...(input.SelectSqlQuery !== undefined && {
-      SelectSqlQuery: input.SelectSqlQuery,
-    }),
+    ...(input.S3StagingLocation !== undefined && { S3StagingLocation: input.S3StagingLocation }),
+    ...(input.SelectSqlQuery !== undefined && { SelectSqlQuery: input.SelectSqlQuery }),
   };
 };
 
 const serializeAws_json1_1S3DataSpec = (input: S3DataSpec, context: __SerdeContext): any => {
   return {
-    ...(input.DataLocationS3 !== undefined && {
-      DataLocationS3: input.DataLocationS3,
-    }),
-    ...(input.DataRearrangement !== undefined && {
-      DataRearrangement: input.DataRearrangement,
-    }),
+    ...(input.DataLocationS3 !== undefined && { DataLocationS3: input.DataLocationS3 }),
+    ...(input.DataRearrangement !== undefined && { DataRearrangement: input.DataRearrangement }),
     ...(input.DataSchema !== undefined && { DataSchema: input.DataSchema }),
-    ...(input.DataSchemaLocationS3 !== undefined && {
-      DataSchemaLocationS3: input.DataSchemaLocationS3,
-    }),
+    ...(input.DataSchemaLocationS3 !== undefined && { DataSchemaLocationS3: input.DataSchemaLocationS3 }),
   };
 };
 
@@ -3136,34 +3034,22 @@ const serializeAws_json1_1UpdateBatchPredictionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BatchPredictionId !== undefined && {
-      BatchPredictionId: input.BatchPredictionId,
-    }),
-    ...(input.BatchPredictionName !== undefined && {
-      BatchPredictionName: input.BatchPredictionName,
-    }),
+    ...(input.BatchPredictionId !== undefined && { BatchPredictionId: input.BatchPredictionId }),
+    ...(input.BatchPredictionName !== undefined && { BatchPredictionName: input.BatchPredictionName }),
   };
 };
 
 const serializeAws_json1_1UpdateDataSourceInput = (input: UpdateDataSourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.DataSourceId !== undefined && {
-      DataSourceId: input.DataSourceId,
-    }),
-    ...(input.DataSourceName !== undefined && {
-      DataSourceName: input.DataSourceName,
-    }),
+    ...(input.DataSourceId !== undefined && { DataSourceId: input.DataSourceId }),
+    ...(input.DataSourceName !== undefined && { DataSourceName: input.DataSourceName }),
   };
 };
 
 const serializeAws_json1_1UpdateEvaluationInput = (input: UpdateEvaluationInput, context: __SerdeContext): any => {
   return {
-    ...(input.EvaluationId !== undefined && {
-      EvaluationId: input.EvaluationId,
-    }),
-    ...(input.EvaluationName !== undefined && {
-      EvaluationName: input.EvaluationName,
-    }),
+    ...(input.EvaluationId !== undefined && { EvaluationId: input.EvaluationId }),
+    ...(input.EvaluationName !== undefined && { EvaluationName: input.EvaluationName }),
   };
 };
 
@@ -3171,9 +3057,7 @@ const serializeAws_json1_1UpdateMLModelInput = (input: UpdateMLModelInput, conte
   return {
     ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
     ...(input.MLModelName !== undefined && { MLModelName: input.MLModelName }),
-    ...(input.ScoreThreshold !== undefined && {
-      ScoreThreshold: input.ScoreThreshold,
-    }),
+    ...(input.ScoreThreshold !== undefined && { ScoreThreshold: input.ScoreThreshold }),
   };
 };
 

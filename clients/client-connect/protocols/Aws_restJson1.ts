@@ -150,12 +150,8 @@ export const serializeAws_restJson1CreateUserCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DirectoryUserId !== undefined && {
-      DirectoryUserId: input.DirectoryUserId,
-    }),
-    ...(input.HierarchyGroupId !== undefined && {
-      HierarchyGroupId: input.HierarchyGroupId,
-    }),
+    ...(input.DirectoryUserId !== undefined && { DirectoryUserId: input.DirectoryUserId }),
+    ...(input.HierarchyGroupId !== undefined && { HierarchyGroupId: input.HierarchyGroupId }),
     ...(input.IdentityInfo !== undefined && {
       IdentityInfo: serializeAws_restJson1UserIdentityInfo(input.IdentityInfo, context),
     }),
@@ -163,15 +159,11 @@ export const serializeAws_restJson1CreateUserCommand = async (
     ...(input.PhoneConfig !== undefined && {
       PhoneConfig: serializeAws_restJson1UserPhoneConfig(input.PhoneConfig, context),
     }),
-    ...(input.RoutingProfileId !== undefined && {
-      RoutingProfileId: input.RoutingProfileId,
-    }),
+    ...(input.RoutingProfileId !== undefined && { RoutingProfileId: input.RoutingProfileId }),
     ...(input.SecurityProfileIds !== undefined && {
       SecurityProfileIds: serializeAws_restJson1SecurityProfileIds(input.SecurityProfileIds, context),
     }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1TagMap(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
     ...(input.Username !== undefined && { Username: input.Username }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -394,12 +386,8 @@ export const serializeAws_restJson1GetCurrentMetricDataCommand = async (
     ...(input.CurrentMetrics !== undefined && {
       CurrentMetrics: serializeAws_restJson1CurrentMetrics(input.CurrentMetrics, context),
     }),
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_restJson1Filters(input.Filters, context),
-    }),
-    ...(input.Groupings !== undefined && {
-      Groupings: serializeAws_restJson1Groupings(input.Groupings, context),
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_restJson1Filters(input.Filters, context) }),
+    ...(input.Groupings !== undefined && { Groupings: serializeAws_restJson1Groupings(input.Groupings, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   });
@@ -464,23 +452,15 @@ export const serializeAws_restJson1GetMetricDataCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.EndTime !== undefined && {
-      EndTime: Math.round(input.EndTime.getTime() / 1000),
-    }),
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_restJson1Filters(input.Filters, context),
-    }),
-    ...(input.Groupings !== undefined && {
-      Groupings: serializeAws_restJson1Groupings(input.Groupings, context),
-    }),
+    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_restJson1Filters(input.Filters, context) }),
+    ...(input.Groupings !== undefined && { Groupings: serializeAws_restJson1Groupings(input.Groupings, context) }),
     ...(input.HistoricalMetrics !== undefined && {
       HistoricalMetrics: serializeAws_restJson1HistoricalMetrics(input.HistoricalMetrics, context),
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.StartTime !== undefined && {
-      StartTime: Math.round(input.StartTime.getTime() / 1000),
-    }),
+    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -515,9 +495,7 @@ export const serializeAws_restJson1ListContactFlowsCommand = async (
     ...(input.ContactFlowTypes !== undefined && {
       contactFlowTypes: (input.ContactFlowTypes || []).map((_entry) => _entry),
     }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -552,9 +530,7 @@ export const serializeAws_restJson1ListHoursOfOperationsCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -589,9 +565,7 @@ export const serializeAws_restJson1ListPhoneNumbersCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.PhoneNumberCountryCodes !== undefined && {
       phoneNumberCountryCodes: (input.PhoneNumberCountryCodes || []).map((_entry) => _entry),
@@ -632,13 +606,9 @@ export const serializeAws_restJson1ListQueuesCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.QueueTypes !== undefined && {
-      queueTypes: (input.QueueTypes || []).map((_entry) => _entry),
-    }),
+    ...(input.QueueTypes !== undefined && { queueTypes: (input.QueueTypes || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -672,9 +642,7 @@ export const serializeAws_restJson1ListRoutingProfilesCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -709,9 +677,7 @@ export const serializeAws_restJson1ListSecurityProfilesCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -776,9 +742,7 @@ export const serializeAws_restJson1ListUserHierarchyGroupsCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -813,9 +777,7 @@ export const serializeAws_restJson1ListUsersCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -842,13 +804,9 @@ export const serializeAws_restJson1StartChatContactCommand = async (
   let resolvedPath = "/contact/chat";
   let body: any;
   body = JSON.stringify({
-    ...(input.Attributes !== undefined && {
-      Attributes: serializeAws_restJson1Attributes(input.Attributes, context),
-    }),
+    ...(input.Attributes !== undefined && { Attributes: serializeAws_restJson1Attributes(input.Attributes, context) }),
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ContactFlowId !== undefined && {
-      ContactFlowId: input.ContactFlowId,
-    }),
+    ...(input.ContactFlowId !== undefined && { ContactFlowId: input.ContactFlowId }),
     ...(input.InitialMessage !== undefined && {
       InitialMessage: serializeAws_restJson1ChatMessage(input.InitialMessage, context),
     }),
@@ -879,21 +837,13 @@ export const serializeAws_restJson1StartOutboundVoiceContactCommand = async (
   let resolvedPath = "/contact/outbound-voice";
   let body: any;
   body = JSON.stringify({
-    ...(input.Attributes !== undefined && {
-      Attributes: serializeAws_restJson1Attributes(input.Attributes, context),
-    }),
+    ...(input.Attributes !== undefined && { Attributes: serializeAws_restJson1Attributes(input.Attributes, context) }),
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ContactFlowId !== undefined && {
-      ContactFlowId: input.ContactFlowId,
-    }),
-    ...(input.DestinationPhoneNumber !== undefined && {
-      DestinationPhoneNumber: input.DestinationPhoneNumber,
-    }),
+    ...(input.ContactFlowId !== undefined && { ContactFlowId: input.ContactFlowId }),
+    ...(input.DestinationPhoneNumber !== undefined && { DestinationPhoneNumber: input.DestinationPhoneNumber }),
     ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
     ...(input.QueueId !== undefined && { QueueId: input.QueueId }),
-    ...(input.SourcePhoneNumber !== undefined && {
-      SourcePhoneNumber: input.SourcePhoneNumber,
-    }),
+    ...(input.SourcePhoneNumber !== undefined && { SourcePhoneNumber: input.SourcePhoneNumber }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -951,9 +901,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -985,9 +933,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && {
-      tagKeys: (input.tagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1013,12 +959,8 @@ export const serializeAws_restJson1UpdateContactAttributesCommand = async (
   let resolvedPath = "/contact/attributes";
   let body: any;
   body = JSON.stringify({
-    ...(input.Attributes !== undefined && {
-      Attributes: serializeAws_restJson1Attributes(input.Attributes, context),
-    }),
-    ...(input.InitialContactId !== undefined && {
-      InitialContactId: input.InitialContactId,
-    }),
+    ...(input.Attributes !== undefined && { Attributes: serializeAws_restJson1Attributes(input.Attributes, context) }),
+    ...(input.InitialContactId !== undefined && { InitialContactId: input.InitialContactId }),
     ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1061,9 +1003,7 @@ export const serializeAws_restJson1UpdateUserHierarchyCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.HierarchyGroupId !== undefined && {
-      HierarchyGroupId: input.HierarchyGroupId,
-    }),
+    ...(input.HierarchyGroupId !== undefined && { HierarchyGroupId: input.HierarchyGroupId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1193,9 +1133,7 @@ export const serializeAws_restJson1UpdateUserRoutingProfileCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.RoutingProfileId !== undefined && {
-      RoutingProfileId: input.RoutingProfileId,
-    }),
+    ...(input.RoutingProfileId !== undefined && { RoutingProfileId: input.RoutingProfileId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4068,12 +4006,8 @@ const serializeAws_restJson1CurrentMetrics = (input: CurrentMetric[], context: _
 
 const serializeAws_restJson1Filters = (input: Filters, context: __SerdeContext): any => {
   return {
-    ...(input.Channels !== undefined && {
-      Channels: serializeAws_restJson1Channels(input.Channels, context),
-    }),
-    ...(input.Queues !== undefined && {
-      Queues: serializeAws_restJson1Queues(input.Queues, context),
-    }),
+    ...(input.Channels !== undefined && { Channels: serializeAws_restJson1Channels(input.Channels, context) }),
+    ...(input.Queues !== undefined && { Queues: serializeAws_restJson1Queues(input.Queues, context) }),
   };
 };
 
@@ -4085,9 +4019,7 @@ const serializeAws_restJson1HistoricalMetric = (input: HistoricalMetric, context
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Statistic !== undefined && { Statistic: input.Statistic }),
-    ...(input.Threshold !== undefined && {
-      Threshold: serializeAws_restJson1Threshold(input.Threshold, context),
-    }),
+    ...(input.Threshold !== undefined && { Threshold: serializeAws_restJson1Threshold(input.Threshold, context) }),
     ...(input.Unit !== undefined && { Unit: input.Unit }),
   };
 };
@@ -4123,9 +4055,7 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
 const serializeAws_restJson1Threshold = (input: Threshold, context: __SerdeContext): any => {
   return {
     ...(input.Comparison !== undefined && { Comparison: input.Comparison }),
-    ...(input.ThresholdValue !== undefined && {
-      ThresholdValue: input.ThresholdValue,
-    }),
+    ...(input.ThresholdValue !== undefined && { ThresholdValue: input.ThresholdValue }),
   };
 };
 
@@ -4143,9 +4073,7 @@ const serializeAws_restJson1UserPhoneConfig = (input: UserPhoneConfig, context: 
       AfterContactWorkTimeLimit: input.AfterContactWorkTimeLimit,
     }),
     ...(input.AutoAccept !== undefined && { AutoAccept: input.AutoAccept }),
-    ...(input.DeskPhoneNumber !== undefined && {
-      DeskPhoneNumber: input.DeskPhoneNumber,
-    }),
+    ...(input.DeskPhoneNumber !== undefined && { DeskPhoneNumber: input.DeskPhoneNumber }),
     ...(input.PhoneType !== undefined && { PhoneType: input.PhoneType }),
   };
 };

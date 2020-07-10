@@ -75,16 +75,10 @@ export const serializeAws_restJson1ListChangedBlocksCommand = async (
     throw new Error("No value provided for input HTTP label: SecondSnapshotId.");
   }
   const query: any = {
-    ...(input.FirstSnapshotId !== undefined && {
-      firstSnapshotId: input.FirstSnapshotId,
-    }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.FirstSnapshotId !== undefined && { firstSnapshotId: input.FirstSnapshotId }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { pageToken: input.NextToken }),
-    ...(input.StartingBlockIndex !== undefined && {
-      startingBlockIndex: input.StartingBlockIndex.toString(),
-    }),
+    ...(input.StartingBlockIndex !== undefined && { startingBlockIndex: input.StartingBlockIndex.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -118,13 +112,9 @@ export const serializeAws_restJson1ListSnapshotBlocksCommand = async (
     throw new Error("No value provided for input HTTP label: SnapshotId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { pageToken: input.NextToken }),
-    ...(input.StartingBlockIndex !== undefined && {
-      startingBlockIndex: input.StartingBlockIndex.toString(),
-    }),
+    ...(input.StartingBlockIndex !== undefined && { startingBlockIndex: input.StartingBlockIndex.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

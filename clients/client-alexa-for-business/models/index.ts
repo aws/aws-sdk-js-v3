@@ -670,12 +670,8 @@ export namespace Contact {
   export const filterSensitiveLog = (obj: Contact): any => ({
     ...obj,
     ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
-    ...(obj.PhoneNumbers && {
-      PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumber.filterSensitiveLog(item)),
-    }),
-    ...(obj.SipAddresses && {
-      SipAddresses: obj.SipAddresses.map((item) => SipAddress.filterSensitiveLog(item)),
-    }),
+    ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumber.filterSensitiveLog(item)) }),
+    ...(obj.SipAddresses && { SipAddresses: obj.SipAddresses.map((item) => SipAddress.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is Contact => __isa(o, "Contact");
 }
@@ -727,12 +723,8 @@ export namespace ContactData {
   export const filterSensitiveLog = (obj: ContactData): any => ({
     ...obj,
     ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
-    ...(obj.PhoneNumbers && {
-      PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumber.filterSensitiveLog(item)),
-    }),
-    ...(obj.SipAddresses && {
-      SipAddresses: obj.SipAddresses.map((item) => SipAddress.filterSensitiveLog(item)),
-    }),
+    ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumber.filterSensitiveLog(item)) }),
+    ...(obj.SipAddresses && { SipAddresses: obj.SipAddresses.map((item) => SipAddress.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is ContactData => __isa(o, "ContactData");
 }
@@ -974,12 +966,8 @@ export namespace CreateContactRequest {
   export const filterSensitiveLog = (obj: CreateContactRequest): any => ({
     ...obj,
     ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
-    ...(obj.PhoneNumbers && {
-      PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumber.filterSensitiveLog(item)),
-    }),
-    ...(obj.SipAddresses && {
-      SipAddresses: obj.SipAddresses.map((item) => SipAddress.filterSensitiveLog(item)),
-    }),
+    ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumber.filterSensitiveLog(item)) }),
+    ...(obj.SipAddresses && { SipAddresses: obj.SipAddresses.map((item) => SipAddress.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is CreateContactRequest => __isa(o, "CreateContactRequest");
 }
@@ -2878,9 +2866,7 @@ export interface GetNetworkProfileResponse {
 export namespace GetNetworkProfileResponse {
   export const filterSensitiveLog = (obj: GetNetworkProfileResponse): any => ({
     ...obj,
-    ...(obj.NetworkProfile && {
-      NetworkProfile: NetworkProfile.filterSensitiveLog(obj.NetworkProfile),
-    }),
+    ...(obj.NetworkProfile && { NetworkProfile: NetworkProfile.filterSensitiveLog(obj.NetworkProfile) }),
   });
   export const isa = (o: any): o is GetNetworkProfileResponse => __isa(o, "GetNetworkProfileResponse");
 }
@@ -4663,9 +4649,7 @@ export interface SearchContactsResponse {
 export namespace SearchContactsResponse {
   export const filterSensitiveLog = (obj: SearchContactsResponse): any => ({
     ...obj,
-    ...(obj.Contacts && {
-      Contacts: obj.Contacts.map((item) => ContactData.filterSensitiveLog(item)),
-    }),
+    ...(obj.Contacts && { Contacts: obj.Contacts.map((item) => ContactData.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is SearchContactsResponse => __isa(o, "SearchContactsResponse");
 }
@@ -5834,12 +5818,8 @@ export namespace UpdateContactRequest {
   export const filterSensitiveLog = (obj: UpdateContactRequest): any => ({
     ...obj,
     ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
-    ...(obj.PhoneNumbers && {
-      PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumber.filterSensitiveLog(item)),
-    }),
-    ...(obj.SipAddresses && {
-      SipAddresses: obj.SipAddresses.map((item) => SipAddress.filterSensitiveLog(item)),
-    }),
+    ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumber.filterSensitiveLog(item)) }),
+    ...(obj.SipAddresses && { SipAddresses: obj.SipAddresses.map((item) => SipAddress.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is UpdateContactRequest => __isa(o, "UpdateContactRequest");
 }

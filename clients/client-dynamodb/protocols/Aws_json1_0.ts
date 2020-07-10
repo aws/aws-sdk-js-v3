@@ -4630,12 +4630,8 @@ const deserializeAws_json1_0TransactionInProgressExceptionResponse = async (
 
 const serializeAws_json1_0AttributeDefinition = (input: AttributeDefinition, context: __SerdeContext): any => {
   return {
-    ...(input.AttributeName !== undefined && {
-      AttributeName: input.AttributeName,
-    }),
-    ...(input.AttributeType !== undefined && {
-      AttributeType: input.AttributeType,
-    }),
+    ...(input.AttributeName !== undefined && { AttributeName: input.AttributeName }),
+    ...(input.AttributeType !== undefined && { AttributeType: input.AttributeType }),
   };
 };
 
@@ -4664,24 +4660,14 @@ const serializeAws_json1_0AttributeValue = (input: AttributeValue, context: __Se
   return {
     ...(input.B !== undefined && { B: context.base64Encoder(input.B) }),
     ...(input.BOOL !== undefined && { BOOL: input.BOOL }),
-    ...(input.BS !== undefined && {
-      BS: serializeAws_json1_0BinarySetAttributeValue(input.BS, context),
-    }),
-    ...(input.L !== undefined && {
-      L: serializeAws_json1_0ListAttributeValue(input.L, context),
-    }),
-    ...(input.M !== undefined && {
-      M: serializeAws_json1_0MapAttributeValue(input.M, context),
-    }),
+    ...(input.BS !== undefined && { BS: serializeAws_json1_0BinarySetAttributeValue(input.BS, context) }),
+    ...(input.L !== undefined && { L: serializeAws_json1_0ListAttributeValue(input.L, context) }),
+    ...(input.M !== undefined && { M: serializeAws_json1_0MapAttributeValue(input.M, context) }),
     ...(input.N !== undefined && { N: input.N }),
-    ...(input.NS !== undefined && {
-      NS: serializeAws_json1_0NumberSetAttributeValue(input.NS, context),
-    }),
+    ...(input.NS !== undefined && { NS: serializeAws_json1_0NumberSetAttributeValue(input.NS, context) }),
     ...(input.NULL !== undefined && { NULL: input.NULL }),
     ...(input.S !== undefined && { S: input.S }),
-    ...(input.SS !== undefined && {
-      SS: serializeAws_json1_0StringSetAttributeValue(input.SS, context),
-    }),
+    ...(input.SS !== undefined && { SS: serializeAws_json1_0StringSetAttributeValue(input.SS, context) }),
   };
 };
 
@@ -4692,9 +4678,7 @@ const serializeAws_json1_0AttributeValueList = (input: AttributeValue[], context
 const serializeAws_json1_0AttributeValueUpdate = (input: AttributeValueUpdate, context: __SerdeContext): any => {
   return {
     ...(input.Action !== undefined && { Action: input.Action }),
-    ...(input.Value !== undefined && {
-      Value: serializeAws_json1_0AttributeValue(input.Value, context),
-    }),
+    ...(input.Value !== undefined && { Value: serializeAws_json1_0AttributeValue(input.Value, context) }),
   };
 };
 
@@ -4715,18 +4699,10 @@ const serializeAws_json1_0AutoScalingSettingsUpdate = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AutoScalingDisabled !== undefined && {
-      AutoScalingDisabled: input.AutoScalingDisabled,
-    }),
-    ...(input.AutoScalingRoleArn !== undefined && {
-      AutoScalingRoleArn: input.AutoScalingRoleArn,
-    }),
-    ...(input.MaximumUnits !== undefined && {
-      MaximumUnits: input.MaximumUnits,
-    }),
-    ...(input.MinimumUnits !== undefined && {
-      MinimumUnits: input.MinimumUnits,
-    }),
+    ...(input.AutoScalingDisabled !== undefined && { AutoScalingDisabled: input.AutoScalingDisabled }),
+    ...(input.AutoScalingRoleArn !== undefined && { AutoScalingRoleArn: input.AutoScalingRoleArn }),
+    ...(input.MaximumUnits !== undefined && { MaximumUnits: input.MaximumUnits }),
+    ...(input.MinimumUnits !== undefined && { MinimumUnits: input.MinimumUnits }),
     ...(input.ScalingPolicyUpdate !== undefined && {
       ScalingPolicyUpdate: serializeAws_json1_0AutoScalingPolicyUpdate(input.ScalingPolicyUpdate, context),
     }),
@@ -4738,15 +4714,9 @@ const serializeAws_json1_0AutoScalingTargetTrackingScalingPolicyConfigurationUpd
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DisableScaleIn !== undefined && {
-      DisableScaleIn: input.DisableScaleIn,
-    }),
-    ...(input.ScaleInCooldown !== undefined && {
-      ScaleInCooldown: input.ScaleInCooldown,
-    }),
-    ...(input.ScaleOutCooldown !== undefined && {
-      ScaleOutCooldown: input.ScaleOutCooldown,
-    }),
+    ...(input.DisableScaleIn !== undefined && { DisableScaleIn: input.DisableScaleIn }),
+    ...(input.ScaleInCooldown !== undefined && { ScaleInCooldown: input.ScaleInCooldown }),
+    ...(input.ScaleOutCooldown !== undefined && { ScaleOutCooldown: input.ScaleOutCooldown }),
     ...(input.TargetValue !== undefined && { TargetValue: input.TargetValue }),
   };
 };
@@ -4756,9 +4726,7 @@ const serializeAws_json1_0BatchGetItemInput = (input: BatchGetItemInput, context
     ...(input.RequestItems !== undefined && {
       RequestItems: serializeAws_json1_0BatchGetRequestMap(input.RequestItems, context),
     }),
-    ...(input.ReturnConsumedCapacity !== undefined && {
-      ReturnConsumedCapacity: input.ReturnConsumedCapacity,
-    }),
+    ...(input.ReturnConsumedCapacity !== undefined && { ReturnConsumedCapacity: input.ReturnConsumedCapacity }),
   };
 };
 
@@ -4780,9 +4748,7 @@ const serializeAws_json1_0BatchWriteItemInput = (input: BatchWriteItemInput, con
     ...(input.RequestItems !== undefined && {
       RequestItems: serializeAws_json1_0BatchWriteItemRequestMap(input.RequestItems, context),
     }),
-    ...(input.ReturnConsumedCapacity !== undefined && {
-      ReturnConsumedCapacity: input.ReturnConsumedCapacity,
-    }),
+    ...(input.ReturnConsumedCapacity !== undefined && { ReturnConsumedCapacity: input.ReturnConsumedCapacity }),
     ...(input.ReturnItemCollectionMetrics !== undefined && {
       ReturnItemCollectionMetrics: input.ReturnItemCollectionMetrics,
     }),
@@ -4811,17 +4777,13 @@ const serializeAws_json1_0Condition = (input: Condition, context: __SerdeContext
     ...(input.AttributeValueList !== undefined && {
       AttributeValueList: serializeAws_json1_0AttributeValueList(input.AttributeValueList, context),
     }),
-    ...(input.ComparisonOperator !== undefined && {
-      ComparisonOperator: input.ComparisonOperator,
-    }),
+    ...(input.ComparisonOperator !== undefined && { ComparisonOperator: input.ComparisonOperator }),
   };
 };
 
 const serializeAws_json1_0ConditionCheck = (input: ConditionCheck, context: __SerdeContext): any => {
   return {
-    ...(input.ConditionExpression !== undefined && {
-      ConditionExpression: input.ConditionExpression,
-    }),
+    ...(input.ConditionExpression !== undefined && { ConditionExpression: input.ConditionExpression }),
     ...(input.ExpressionAttributeNames !== undefined && {
       ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(input.ExpressionAttributeNames, context),
     }),
@@ -4831,9 +4793,7 @@ const serializeAws_json1_0ConditionCheck = (input: ConditionCheck, context: __Se
         context
       ),
     }),
-    ...(input.Key !== undefined && {
-      Key: serializeAws_json1_0Key(input.Key, context),
-    }),
+    ...(input.Key !== undefined && { Key: serializeAws_json1_0Key(input.Key, context) }),
     ...(input.ReturnValuesOnConditionCheckFailure !== undefined && {
       ReturnValuesOnConditionCheckFailure: input.ReturnValuesOnConditionCheckFailure,
     }),
@@ -4854,12 +4814,8 @@ const serializeAws_json1_0CreateGlobalSecondaryIndexAction = (
 ): any => {
   return {
     ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
-    ...(input.KeySchema !== undefined && {
-      KeySchema: serializeAws_json1_0KeySchema(input.KeySchema, context),
-    }),
-    ...(input.Projection !== undefined && {
-      Projection: serializeAws_json1_0Projection(input.Projection, context),
-    }),
+    ...(input.KeySchema !== undefined && { KeySchema: serializeAws_json1_0KeySchema(input.KeySchema, context) }),
+    ...(input.Projection !== undefined && { Projection: serializeAws_json1_0Projection(input.Projection, context) }),
     ...(input.ProvisionedThroughput !== undefined && {
       ProvisionedThroughput: serializeAws_json1_0ProvisionedThroughput(input.ProvisionedThroughput, context),
     }),
@@ -4868,9 +4824,7 @@ const serializeAws_json1_0CreateGlobalSecondaryIndexAction = (
 
 const serializeAws_json1_0CreateGlobalTableInput = (input: CreateGlobalTableInput, context: __SerdeContext): any => {
   return {
-    ...(input.GlobalTableName !== undefined && {
-      GlobalTableName: input.GlobalTableName,
-    }),
+    ...(input.GlobalTableName !== undefined && { GlobalTableName: input.GlobalTableName }),
     ...(input.ReplicationGroup !== undefined && {
       ReplicationGroup: serializeAws_json1_0ReplicaList(input.ReplicationGroup, context),
     }),
@@ -4894,9 +4848,7 @@ const serializeAws_json1_0CreateReplicationGroupMemberAction = (
         context
       ),
     }),
-    ...(input.KMSMasterKeyId !== undefined && {
-      KMSMasterKeyId: input.KMSMasterKeyId,
-    }),
+    ...(input.KMSMasterKeyId !== undefined && { KMSMasterKeyId: input.KMSMasterKeyId }),
     ...(input.ProvisionedThroughputOverride !== undefined && {
       ProvisionedThroughputOverride: serializeAws_json1_0ProvisionedThroughputOverride(
         input.ProvisionedThroughputOverride,
@@ -4916,9 +4868,7 @@ const serializeAws_json1_0CreateTableInput = (input: CreateTableInput, context: 
     ...(input.GlobalSecondaryIndexes !== undefined && {
       GlobalSecondaryIndexes: serializeAws_json1_0GlobalSecondaryIndexList(input.GlobalSecondaryIndexes, context),
     }),
-    ...(input.KeySchema !== undefined && {
-      KeySchema: serializeAws_json1_0KeySchema(input.KeySchema, context),
-    }),
+    ...(input.KeySchema !== undefined && { KeySchema: serializeAws_json1_0KeySchema(input.KeySchema, context) }),
     ...(input.LocalSecondaryIndexes !== undefined && {
       LocalSecondaryIndexes: serializeAws_json1_0LocalSecondaryIndexList(input.LocalSecondaryIndexes, context),
     }),
@@ -4932,17 +4882,13 @@ const serializeAws_json1_0CreateTableInput = (input: CreateTableInput, context: 
       StreamSpecification: serializeAws_json1_0StreamSpecification(input.StreamSpecification, context),
     }),
     ...(input.TableName !== undefined && { TableName: input.TableName }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_0TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0Delete = (input: Delete, context: __SerdeContext): any => {
   return {
-    ...(input.ConditionExpression !== undefined && {
-      ConditionExpression: input.ConditionExpression,
-    }),
+    ...(input.ConditionExpression !== undefined && { ConditionExpression: input.ConditionExpression }),
     ...(input.ExpressionAttributeNames !== undefined && {
       ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(input.ExpressionAttributeNames, context),
     }),
@@ -4952,9 +4898,7 @@ const serializeAws_json1_0Delete = (input: Delete, context: __SerdeContext): any
         context
       ),
     }),
-    ...(input.Key !== undefined && {
-      Key: serializeAws_json1_0Key(input.Key, context),
-    }),
+    ...(input.Key !== undefined && { Key: serializeAws_json1_0Key(input.Key, context) }),
     ...(input.ReturnValuesOnConditionCheckFailure !== undefined && {
       ReturnValuesOnConditionCheckFailure: input.ReturnValuesOnConditionCheckFailure,
     }),
@@ -4979,12 +4923,8 @@ const serializeAws_json1_0DeleteGlobalSecondaryIndexAction = (
 
 const serializeAws_json1_0DeleteItemInput = (input: DeleteItemInput, context: __SerdeContext): any => {
   return {
-    ...(input.ConditionExpression !== undefined && {
-      ConditionExpression: input.ConditionExpression,
-    }),
-    ...(input.ConditionalOperator !== undefined && {
-      ConditionalOperator: input.ConditionalOperator,
-    }),
+    ...(input.ConditionExpression !== undefined && { ConditionExpression: input.ConditionExpression }),
+    ...(input.ConditionalOperator !== undefined && { ConditionalOperator: input.ConditionalOperator }),
     ...(input.Expected !== undefined && {
       Expected: serializeAws_json1_0ExpectedAttributeMap(input.Expected, context),
     }),
@@ -4997,18 +4937,12 @@ const serializeAws_json1_0DeleteItemInput = (input: DeleteItemInput, context: __
         context
       ),
     }),
-    ...(input.Key !== undefined && {
-      Key: serializeAws_json1_0Key(input.Key, context),
-    }),
-    ...(input.ReturnConsumedCapacity !== undefined && {
-      ReturnConsumedCapacity: input.ReturnConsumedCapacity,
-    }),
+    ...(input.Key !== undefined && { Key: serializeAws_json1_0Key(input.Key, context) }),
+    ...(input.ReturnConsumedCapacity !== undefined && { ReturnConsumedCapacity: input.ReturnConsumedCapacity }),
     ...(input.ReturnItemCollectionMetrics !== undefined && {
       ReturnItemCollectionMetrics: input.ReturnItemCollectionMetrics,
     }),
-    ...(input.ReturnValues !== undefined && {
-      ReturnValues: input.ReturnValues,
-    }),
+    ...(input.ReturnValues !== undefined && { ReturnValues: input.ReturnValues }),
     ...(input.TableName !== undefined && { TableName: input.TableName }),
   };
 };
@@ -5030,9 +4964,7 @@ const serializeAws_json1_0DeleteReplicationGroupMemberAction = (
 
 const serializeAws_json1_0DeleteRequest = (input: DeleteRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && {
-      Key: serializeAws_json1_0Key(input.Key, context),
-    }),
+    ...(input.Key !== undefined && { Key: serializeAws_json1_0Key(input.Key, context) }),
   };
 };
 
@@ -5079,9 +5011,7 @@ const serializeAws_json1_0DescribeGlobalTableInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GlobalTableName !== undefined && {
-      GlobalTableName: input.GlobalTableName,
-    }),
+    ...(input.GlobalTableName !== undefined && { GlobalTableName: input.GlobalTableName }),
   };
 };
 
@@ -5090,9 +5020,7 @@ const serializeAws_json1_0DescribeGlobalTableSettingsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GlobalTableName !== undefined && {
-      GlobalTableName: input.GlobalTableName,
-    }),
+    ...(input.GlobalTableName !== undefined && { GlobalTableName: input.GlobalTableName }),
   };
 };
 
@@ -5139,13 +5067,9 @@ const serializeAws_json1_0ExpectedAttributeValue = (input: ExpectedAttributeValu
     ...(input.AttributeValueList !== undefined && {
       AttributeValueList: serializeAws_json1_0AttributeValueList(input.AttributeValueList, context),
     }),
-    ...(input.ComparisonOperator !== undefined && {
-      ComparisonOperator: input.ComparisonOperator,
-    }),
+    ...(input.ComparisonOperator !== undefined && { ComparisonOperator: input.ComparisonOperator }),
     ...(input.Exists !== undefined && { Exists: input.Exists }),
-    ...(input.Value !== undefined && {
-      Value: serializeAws_json1_0AttributeValue(input.Value, context),
-    }),
+    ...(input.Value !== undefined && { Value: serializeAws_json1_0AttributeValue(input.Value, context) }),
   };
 };
 
@@ -5190,12 +5114,8 @@ const serializeAws_json1_0Get = (input: Get, context: __SerdeContext): any => {
     ...(input.ExpressionAttributeNames !== undefined && {
       ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(input.ExpressionAttributeNames, context),
     }),
-    ...(input.Key !== undefined && {
-      Key: serializeAws_json1_0Key(input.Key, context),
-    }),
-    ...(input.ProjectionExpression !== undefined && {
-      ProjectionExpression: input.ProjectionExpression,
-    }),
+    ...(input.Key !== undefined && { Key: serializeAws_json1_0Key(input.Key, context) }),
+    ...(input.ProjectionExpression !== undefined && { ProjectionExpression: input.ProjectionExpression }),
     ...(input.TableName !== undefined && { TableName: input.TableName }),
   };
 };
@@ -5205,21 +5125,13 @@ const serializeAws_json1_0GetItemInput = (input: GetItemInput, context: __SerdeC
     ...(input.AttributesToGet !== undefined && {
       AttributesToGet: serializeAws_json1_0AttributeNameList(input.AttributesToGet, context),
     }),
-    ...(input.ConsistentRead !== undefined && {
-      ConsistentRead: input.ConsistentRead,
-    }),
+    ...(input.ConsistentRead !== undefined && { ConsistentRead: input.ConsistentRead }),
     ...(input.ExpressionAttributeNames !== undefined && {
       ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(input.ExpressionAttributeNames, context),
     }),
-    ...(input.Key !== undefined && {
-      Key: serializeAws_json1_0Key(input.Key, context),
-    }),
-    ...(input.ProjectionExpression !== undefined && {
-      ProjectionExpression: input.ProjectionExpression,
-    }),
-    ...(input.ReturnConsumedCapacity !== undefined && {
-      ReturnConsumedCapacity: input.ReturnConsumedCapacity,
-    }),
+    ...(input.Key !== undefined && { Key: serializeAws_json1_0Key(input.Key, context) }),
+    ...(input.ProjectionExpression !== undefined && { ProjectionExpression: input.ProjectionExpression }),
+    ...(input.ReturnConsumedCapacity !== undefined && { ReturnConsumedCapacity: input.ReturnConsumedCapacity }),
     ...(input.TableName !== undefined && { TableName: input.TableName }),
   };
 };
@@ -5227,12 +5139,8 @@ const serializeAws_json1_0GetItemInput = (input: GetItemInput, context: __SerdeC
 const serializeAws_json1_0GlobalSecondaryIndex = (input: GlobalSecondaryIndex, context: __SerdeContext): any => {
   return {
     ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
-    ...(input.KeySchema !== undefined && {
-      KeySchema: serializeAws_json1_0KeySchema(input.KeySchema, context),
-    }),
-    ...(input.Projection !== undefined && {
-      Projection: serializeAws_json1_0Projection(input.Projection, context),
-    }),
+    ...(input.KeySchema !== undefined && { KeySchema: serializeAws_json1_0KeySchema(input.KeySchema, context) }),
+    ...(input.Projection !== undefined && { Projection: serializeAws_json1_0Projection(input.Projection, context) }),
     ...(input.ProvisionedThroughput !== undefined && {
       ProvisionedThroughput: serializeAws_json1_0ProvisionedThroughput(input.ProvisionedThroughput, context),
     }),
@@ -5343,18 +5251,12 @@ const serializeAws_json1_0KeysAndAttributes = (input: KeysAndAttributes, context
     ...(input.AttributesToGet !== undefined && {
       AttributesToGet: serializeAws_json1_0AttributeNameList(input.AttributesToGet, context),
     }),
-    ...(input.ConsistentRead !== undefined && {
-      ConsistentRead: input.ConsistentRead,
-    }),
+    ...(input.ConsistentRead !== undefined && { ConsistentRead: input.ConsistentRead }),
     ...(input.ExpressionAttributeNames !== undefined && {
       ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(input.ExpressionAttributeNames, context),
     }),
-    ...(input.Keys !== undefined && {
-      Keys: serializeAws_json1_0KeyList(input.Keys, context),
-    }),
-    ...(input.ProjectionExpression !== undefined && {
-      ProjectionExpression: input.ProjectionExpression,
-    }),
+    ...(input.Keys !== undefined && { Keys: serializeAws_json1_0KeyList(input.Keys, context) }),
+    ...(input.ProjectionExpression !== undefined && { ProjectionExpression: input.ProjectionExpression }),
   };
 };
 
@@ -5364,9 +5266,7 @@ const serializeAws_json1_0KeySchema = (input: KeySchemaElement[], context: __Ser
 
 const serializeAws_json1_0KeySchemaElement = (input: KeySchemaElement, context: __SerdeContext): any => {
   return {
-    ...(input.AttributeName !== undefined && {
-      AttributeName: input.AttributeName,
-    }),
+    ...(input.AttributeName !== undefined && { AttributeName: input.AttributeName }),
     ...(input.KeyType !== undefined && { KeyType: input.KeyType }),
   };
 };
@@ -5378,9 +5278,7 @@ const serializeAws_json1_0ListAttributeValue = (input: AttributeValue[], context
 const serializeAws_json1_0ListBackupsInput = (input: ListBackupsInput, context: __SerdeContext): any => {
   return {
     ...(input.BackupType !== undefined && { BackupType: input.BackupType }),
-    ...(input.ExclusiveStartBackupArn !== undefined && {
-      ExclusiveStartBackupArn: input.ExclusiveStartBackupArn,
-    }),
+    ...(input.ExclusiveStartBackupArn !== undefined && { ExclusiveStartBackupArn: input.ExclusiveStartBackupArn }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.TableName !== undefined && { TableName: input.TableName }),
     ...(input.TimeRangeLowerBound !== undefined && {
@@ -5415,9 +5313,7 @@ const serializeAws_json1_0ListGlobalTablesInput = (input: ListGlobalTablesInput,
 
 const serializeAws_json1_0ListTablesInput = (input: ListTablesInput, context: __SerdeContext): any => {
   return {
-    ...(input.ExclusiveStartTableName !== undefined && {
-      ExclusiveStartTableName: input.ExclusiveStartTableName,
-    }),
+    ...(input.ExclusiveStartTableName !== undefined && { ExclusiveStartTableName: input.ExclusiveStartTableName }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
   };
 };
@@ -5432,12 +5328,8 @@ const serializeAws_json1_0ListTagsOfResourceInput = (input: ListTagsOfResourceIn
 const serializeAws_json1_0LocalSecondaryIndex = (input: LocalSecondaryIndex, context: __SerdeContext): any => {
   return {
     ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
-    ...(input.KeySchema !== undefined && {
-      KeySchema: serializeAws_json1_0KeySchema(input.KeySchema, context),
-    }),
-    ...(input.Projection !== undefined && {
-      Projection: serializeAws_json1_0Projection(input.Projection, context),
-    }),
+    ...(input.KeySchema !== undefined && { KeySchema: serializeAws_json1_0KeySchema(input.KeySchema, context) }),
+    ...(input.Projection !== undefined && { Projection: serializeAws_json1_0Projection(input.Projection, context) }),
   };
 };
 
@@ -5482,20 +5374,14 @@ const serializeAws_json1_0Projection = (input: Projection, context: __SerdeConte
     ...(input.NonKeyAttributes !== undefined && {
       NonKeyAttributes: serializeAws_json1_0NonKeyAttributeNameList(input.NonKeyAttributes, context),
     }),
-    ...(input.ProjectionType !== undefined && {
-      ProjectionType: input.ProjectionType,
-    }),
+    ...(input.ProjectionType !== undefined && { ProjectionType: input.ProjectionType }),
   };
 };
 
 const serializeAws_json1_0ProvisionedThroughput = (input: ProvisionedThroughput, context: __SerdeContext): any => {
   return {
-    ...(input.ReadCapacityUnits !== undefined && {
-      ReadCapacityUnits: input.ReadCapacityUnits,
-    }),
-    ...(input.WriteCapacityUnits !== undefined && {
-      WriteCapacityUnits: input.WriteCapacityUnits,
-    }),
+    ...(input.ReadCapacityUnits !== undefined && { ReadCapacityUnits: input.ReadCapacityUnits }),
+    ...(input.WriteCapacityUnits !== undefined && { WriteCapacityUnits: input.WriteCapacityUnits }),
   };
 };
 
@@ -5504,17 +5390,13 @@ const serializeAws_json1_0ProvisionedThroughputOverride = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ReadCapacityUnits !== undefined && {
-      ReadCapacityUnits: input.ReadCapacityUnits,
-    }),
+    ...(input.ReadCapacityUnits !== undefined && { ReadCapacityUnits: input.ReadCapacityUnits }),
   };
 };
 
 const serializeAws_json1_0Put = (input: Put, context: __SerdeContext): any => {
   return {
-    ...(input.ConditionExpression !== undefined && {
-      ConditionExpression: input.ConditionExpression,
-    }),
+    ...(input.ConditionExpression !== undefined && { ConditionExpression: input.ConditionExpression }),
     ...(input.ExpressionAttributeNames !== undefined && {
       ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(input.ExpressionAttributeNames, context),
     }),
@@ -5524,9 +5406,7 @@ const serializeAws_json1_0Put = (input: Put, context: __SerdeContext): any => {
         context
       ),
     }),
-    ...(input.Item !== undefined && {
-      Item: serializeAws_json1_0PutItemInputAttributeMap(input.Item, context),
-    }),
+    ...(input.Item !== undefined && { Item: serializeAws_json1_0PutItemInputAttributeMap(input.Item, context) }),
     ...(input.ReturnValuesOnConditionCheckFailure !== undefined && {
       ReturnValuesOnConditionCheckFailure: input.ReturnValuesOnConditionCheckFailure,
     }),
@@ -5536,12 +5416,8 @@ const serializeAws_json1_0Put = (input: Put, context: __SerdeContext): any => {
 
 const serializeAws_json1_0PutItemInput = (input: PutItemInput, context: __SerdeContext): any => {
   return {
-    ...(input.ConditionExpression !== undefined && {
-      ConditionExpression: input.ConditionExpression,
-    }),
-    ...(input.ConditionalOperator !== undefined && {
-      ConditionalOperator: input.ConditionalOperator,
-    }),
+    ...(input.ConditionExpression !== undefined && { ConditionExpression: input.ConditionExpression }),
+    ...(input.ConditionalOperator !== undefined && { ConditionalOperator: input.ConditionalOperator }),
     ...(input.Expected !== undefined && {
       Expected: serializeAws_json1_0ExpectedAttributeMap(input.Expected, context),
     }),
@@ -5554,18 +5430,12 @@ const serializeAws_json1_0PutItemInput = (input: PutItemInput, context: __SerdeC
         context
       ),
     }),
-    ...(input.Item !== undefined && {
-      Item: serializeAws_json1_0PutItemInputAttributeMap(input.Item, context),
-    }),
-    ...(input.ReturnConsumedCapacity !== undefined && {
-      ReturnConsumedCapacity: input.ReturnConsumedCapacity,
-    }),
+    ...(input.Item !== undefined && { Item: serializeAws_json1_0PutItemInputAttributeMap(input.Item, context) }),
+    ...(input.ReturnConsumedCapacity !== undefined && { ReturnConsumedCapacity: input.ReturnConsumedCapacity }),
     ...(input.ReturnItemCollectionMetrics !== undefined && {
       ReturnItemCollectionMetrics: input.ReturnItemCollectionMetrics,
     }),
-    ...(input.ReturnValues !== undefined && {
-      ReturnValues: input.ReturnValues,
-    }),
+    ...(input.ReturnValues !== undefined && { ReturnValues: input.ReturnValues }),
     ...(input.TableName !== undefined && { TableName: input.TableName }),
   };
 };
@@ -5585,9 +5455,7 @@ const serializeAws_json1_0PutItemInputAttributeMap = (
 
 const serializeAws_json1_0PutRequest = (input: PutRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Item !== undefined && {
-      Item: serializeAws_json1_0PutItemInputAttributeMap(input.Item, context),
-    }),
+    ...(input.Item !== undefined && { Item: serializeAws_json1_0PutItemInputAttributeMap(input.Item, context) }),
   };
 };
 
@@ -5596,12 +5464,8 @@ const serializeAws_json1_0QueryInput = (input: QueryInput, context: __SerdeConte
     ...(input.AttributesToGet !== undefined && {
       AttributesToGet: serializeAws_json1_0AttributeNameList(input.AttributesToGet, context),
     }),
-    ...(input.ConditionalOperator !== undefined && {
-      ConditionalOperator: input.ConditionalOperator,
-    }),
-    ...(input.ConsistentRead !== undefined && {
-      ConsistentRead: input.ConsistentRead,
-    }),
+    ...(input.ConditionalOperator !== undefined && { ConditionalOperator: input.ConditionalOperator }),
+    ...(input.ConsistentRead !== undefined && { ConsistentRead: input.ConsistentRead }),
     ...(input.ExclusiveStartKey !== undefined && {
       ExclusiveStartKey: serializeAws_json1_0Key(input.ExclusiveStartKey, context),
     }),
@@ -5614,29 +5478,19 @@ const serializeAws_json1_0QueryInput = (input: QueryInput, context: __SerdeConte
         context
       ),
     }),
-    ...(input.FilterExpression !== undefined && {
-      FilterExpression: input.FilterExpression,
-    }),
+    ...(input.FilterExpression !== undefined && { FilterExpression: input.FilterExpression }),
     ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
-    ...(input.KeyConditionExpression !== undefined && {
-      KeyConditionExpression: input.KeyConditionExpression,
-    }),
+    ...(input.KeyConditionExpression !== undefined && { KeyConditionExpression: input.KeyConditionExpression }),
     ...(input.KeyConditions !== undefined && {
       KeyConditions: serializeAws_json1_0KeyConditions(input.KeyConditions, context),
     }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.ProjectionExpression !== undefined && {
-      ProjectionExpression: input.ProjectionExpression,
-    }),
+    ...(input.ProjectionExpression !== undefined && { ProjectionExpression: input.ProjectionExpression }),
     ...(input.QueryFilter !== undefined && {
       QueryFilter: serializeAws_json1_0FilterConditionMap(input.QueryFilter, context),
     }),
-    ...(input.ReturnConsumedCapacity !== undefined && {
-      ReturnConsumedCapacity: input.ReturnConsumedCapacity,
-    }),
-    ...(input.ScanIndexForward !== undefined && {
-      ScanIndexForward: input.ScanIndexForward,
-    }),
+    ...(input.ReturnConsumedCapacity !== undefined && { ReturnConsumedCapacity: input.ReturnConsumedCapacity }),
+    ...(input.ScanIndexForward !== undefined && { ScanIndexForward: input.ScanIndexForward }),
     ...(input.Select !== undefined && { Select: input.Select }),
     ...(input.TableName !== undefined && { TableName: input.TableName }),
   };
@@ -5800,12 +5654,8 @@ const serializeAws_json1_0ReplicationGroupUpdateList = (
 
 const serializeAws_json1_0ReplicaUpdate = (input: ReplicaUpdate, context: __SerdeContext): any => {
   return {
-    ...(input.Create !== undefined && {
-      Create: serializeAws_json1_0CreateReplicaAction(input.Create, context),
-    }),
-    ...(input.Delete !== undefined && {
-      Delete: serializeAws_json1_0DeleteReplicaAction(input.Delete, context),
-    }),
+    ...(input.Create !== undefined && { Create: serializeAws_json1_0CreateReplicaAction(input.Create, context) }),
+    ...(input.Delete !== undefined && { Delete: serializeAws_json1_0DeleteReplicaAction(input.Delete, context) }),
   };
 };
 
@@ -5819,9 +5669,7 @@ const serializeAws_json1_0RestoreTableFromBackupInput = (
 ): any => {
   return {
     ...(input.BackupArn !== undefined && { BackupArn: input.BackupArn }),
-    ...(input.BillingModeOverride !== undefined && {
-      BillingModeOverride: input.BillingModeOverride,
-    }),
+    ...(input.BillingModeOverride !== undefined && { BillingModeOverride: input.BillingModeOverride }),
     ...(input.GlobalSecondaryIndexOverride !== undefined && {
       GlobalSecondaryIndexOverride: serializeAws_json1_0GlobalSecondaryIndexList(
         input.GlobalSecondaryIndexOverride,
@@ -5840,9 +5688,7 @@ const serializeAws_json1_0RestoreTableFromBackupInput = (
         context
       ),
     }),
-    ...(input.TargetTableName !== undefined && {
-      TargetTableName: input.TargetTableName,
-    }),
+    ...(input.TargetTableName !== undefined && { TargetTableName: input.TargetTableName }),
   };
 };
 
@@ -5851,9 +5697,7 @@ const serializeAws_json1_0RestoreTableToPointInTimeInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BillingModeOverride !== undefined && {
-      BillingModeOverride: input.BillingModeOverride,
-    }),
+    ...(input.BillingModeOverride !== undefined && { BillingModeOverride: input.BillingModeOverride }),
     ...(input.GlobalSecondaryIndexOverride !== undefined && {
       GlobalSecondaryIndexOverride: serializeAws_json1_0GlobalSecondaryIndexList(
         input.GlobalSecondaryIndexOverride,
@@ -5872,18 +5716,10 @@ const serializeAws_json1_0RestoreTableToPointInTimeInput = (
         context
       ),
     }),
-    ...(input.RestoreDateTime !== undefined && {
-      RestoreDateTime: Math.round(input.RestoreDateTime.getTime() / 1000),
-    }),
-    ...(input.SourceTableName !== undefined && {
-      SourceTableName: input.SourceTableName,
-    }),
-    ...(input.TargetTableName !== undefined && {
-      TargetTableName: input.TargetTableName,
-    }),
-    ...(input.UseLatestRestorableTime !== undefined && {
-      UseLatestRestorableTime: input.UseLatestRestorableTime,
-    }),
+    ...(input.RestoreDateTime !== undefined && { RestoreDateTime: Math.round(input.RestoreDateTime.getTime() / 1000) }),
+    ...(input.SourceTableName !== undefined && { SourceTableName: input.SourceTableName }),
+    ...(input.TargetTableName !== undefined && { TargetTableName: input.TargetTableName }),
+    ...(input.UseLatestRestorableTime !== undefined && { UseLatestRestorableTime: input.UseLatestRestorableTime }),
   };
 };
 
@@ -5892,12 +5728,8 @@ const serializeAws_json1_0ScanInput = (input: ScanInput, context: __SerdeContext
     ...(input.AttributesToGet !== undefined && {
       AttributesToGet: serializeAws_json1_0AttributeNameList(input.AttributesToGet, context),
     }),
-    ...(input.ConditionalOperator !== undefined && {
-      ConditionalOperator: input.ConditionalOperator,
-    }),
-    ...(input.ConsistentRead !== undefined && {
-      ConsistentRead: input.ConsistentRead,
-    }),
+    ...(input.ConditionalOperator !== undefined && { ConditionalOperator: input.ConditionalOperator }),
+    ...(input.ConsistentRead !== undefined && { ConsistentRead: input.ConsistentRead }),
     ...(input.ExclusiveStartKey !== undefined && {
       ExclusiveStartKey: serializeAws_json1_0Key(input.ExclusiveStartKey, context),
     }),
@@ -5910,47 +5742,33 @@ const serializeAws_json1_0ScanInput = (input: ScanInput, context: __SerdeContext
         context
       ),
     }),
-    ...(input.FilterExpression !== undefined && {
-      FilterExpression: input.FilterExpression,
-    }),
+    ...(input.FilterExpression !== undefined && { FilterExpression: input.FilterExpression }),
     ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.ProjectionExpression !== undefined && {
-      ProjectionExpression: input.ProjectionExpression,
-    }),
-    ...(input.ReturnConsumedCapacity !== undefined && {
-      ReturnConsumedCapacity: input.ReturnConsumedCapacity,
-    }),
+    ...(input.ProjectionExpression !== undefined && { ProjectionExpression: input.ProjectionExpression }),
+    ...(input.ReturnConsumedCapacity !== undefined && { ReturnConsumedCapacity: input.ReturnConsumedCapacity }),
     ...(input.ScanFilter !== undefined && {
       ScanFilter: serializeAws_json1_0FilterConditionMap(input.ScanFilter, context),
     }),
     ...(input.Segment !== undefined && { Segment: input.Segment }),
     ...(input.Select !== undefined && { Select: input.Select }),
     ...(input.TableName !== undefined && { TableName: input.TableName }),
-    ...(input.TotalSegments !== undefined && {
-      TotalSegments: input.TotalSegments,
-    }),
+    ...(input.TotalSegments !== undefined && { TotalSegments: input.TotalSegments }),
   };
 };
 
 const serializeAws_json1_0SSESpecification = (input: SSESpecification, context: __SerdeContext): any => {
   return {
     ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
-    ...(input.KMSMasterKeyId !== undefined && {
-      KMSMasterKeyId: input.KMSMasterKeyId,
-    }),
+    ...(input.KMSMasterKeyId !== undefined && { KMSMasterKeyId: input.KMSMasterKeyId }),
     ...(input.SSEType !== undefined && { SSEType: input.SSEType }),
   };
 };
 
 const serializeAws_json1_0StreamSpecification = (input: StreamSpecification, context: __SerdeContext): any => {
   return {
-    ...(input.StreamEnabled !== undefined && {
-      StreamEnabled: input.StreamEnabled,
-    }),
-    ...(input.StreamViewType !== undefined && {
-      StreamViewType: input.StreamViewType,
-    }),
+    ...(input.StreamEnabled !== undefined && { StreamEnabled: input.StreamEnabled }),
+    ...(input.StreamViewType !== undefined && { StreamViewType: input.StreamViewType }),
   };
 };
 
@@ -5976,26 +5794,20 @@ const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any
 const serializeAws_json1_0TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_0TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0TimeToLiveSpecification = (input: TimeToLiveSpecification, context: __SerdeContext): any => {
   return {
-    ...(input.AttributeName !== undefined && {
-      AttributeName: input.AttributeName,
-    }),
+    ...(input.AttributeName !== undefined && { AttributeName: input.AttributeName }),
     ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
   };
 };
 
 const serializeAws_json1_0TransactGetItem = (input: TransactGetItem, context: __SerdeContext): any => {
   return {
-    ...(input.Get !== undefined && {
-      Get: serializeAws_json1_0Get(input.Get, context),
-    }),
+    ...(input.Get !== undefined && { Get: serializeAws_json1_0Get(input.Get, context) }),
   };
 };
 
@@ -6005,9 +5817,7 @@ const serializeAws_json1_0TransactGetItemList = (input: TransactGetItem[], conte
 
 const serializeAws_json1_0TransactGetItemsInput = (input: TransactGetItemsInput, context: __SerdeContext): any => {
   return {
-    ...(input.ReturnConsumedCapacity !== undefined && {
-      ReturnConsumedCapacity: input.ReturnConsumedCapacity,
-    }),
+    ...(input.ReturnConsumedCapacity !== undefined && { ReturnConsumedCapacity: input.ReturnConsumedCapacity }),
     ...(input.TransactItems !== undefined && {
       TransactItems: serializeAws_json1_0TransactGetItemList(input.TransactItems, context),
     }),
@@ -6019,15 +5829,9 @@ const serializeAws_json1_0TransactWriteItem = (input: TransactWriteItem, context
     ...(input.ConditionCheck !== undefined && {
       ConditionCheck: serializeAws_json1_0ConditionCheck(input.ConditionCheck, context),
     }),
-    ...(input.Delete !== undefined && {
-      Delete: serializeAws_json1_0Delete(input.Delete, context),
-    }),
-    ...(input.Put !== undefined && {
-      Put: serializeAws_json1_0Put(input.Put, context),
-    }),
-    ...(input.Update !== undefined && {
-      Update: serializeAws_json1_0Update(input.Update, context),
-    }),
+    ...(input.Delete !== undefined && { Delete: serializeAws_json1_0Delete(input.Delete, context) }),
+    ...(input.Put !== undefined && { Put: serializeAws_json1_0Put(input.Put, context) }),
+    ...(input.Update !== undefined && { Update: serializeAws_json1_0Update(input.Update, context) }),
   };
 };
 
@@ -6038,9 +5842,7 @@ const serializeAws_json1_0TransactWriteItemList = (input: TransactWriteItem[], c
 const serializeAws_json1_0TransactWriteItemsInput = (input: TransactWriteItemsInput, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.ReturnConsumedCapacity !== undefined && {
-      ReturnConsumedCapacity: input.ReturnConsumedCapacity,
-    }),
+    ...(input.ReturnConsumedCapacity !== undefined && { ReturnConsumedCapacity: input.ReturnConsumedCapacity }),
     ...(input.ReturnItemCollectionMetrics !== undefined && {
       ReturnItemCollectionMetrics: input.ReturnItemCollectionMetrics,
     }),
@@ -6053,17 +5855,13 @@ const serializeAws_json1_0TransactWriteItemsInput = (input: TransactWriteItemsIn
 const serializeAws_json1_0UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
   };
 };
 
 const serializeAws_json1_0Update = (input: Update, context: __SerdeContext): any => {
   return {
-    ...(input.ConditionExpression !== undefined && {
-      ConditionExpression: input.ConditionExpression,
-    }),
+    ...(input.ConditionExpression !== undefined && { ConditionExpression: input.ConditionExpression }),
     ...(input.ExpressionAttributeNames !== undefined && {
       ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(input.ExpressionAttributeNames, context),
     }),
@@ -6073,16 +5871,12 @@ const serializeAws_json1_0Update = (input: Update, context: __SerdeContext): any
         context
       ),
     }),
-    ...(input.Key !== undefined && {
-      Key: serializeAws_json1_0Key(input.Key, context),
-    }),
+    ...(input.Key !== undefined && { Key: serializeAws_json1_0Key(input.Key, context) }),
     ...(input.ReturnValuesOnConditionCheckFailure !== undefined && {
       ReturnValuesOnConditionCheckFailure: input.ReturnValuesOnConditionCheckFailure,
     }),
     ...(input.TableName !== undefined && { TableName: input.TableName }),
-    ...(input.UpdateExpression !== undefined && {
-      UpdateExpression: input.UpdateExpression,
-    }),
+    ...(input.UpdateExpression !== undefined && { UpdateExpression: input.UpdateExpression }),
   };
 };
 
@@ -6128,9 +5922,7 @@ const serializeAws_json1_0UpdateGlobalSecondaryIndexAction = (
 
 const serializeAws_json1_0UpdateGlobalTableInput = (input: UpdateGlobalTableInput, context: __SerdeContext): any => {
   return {
-    ...(input.GlobalTableName !== undefined && {
-      GlobalTableName: input.GlobalTableName,
-    }),
+    ...(input.GlobalTableName !== undefined && { GlobalTableName: input.GlobalTableName }),
     ...(input.ReplicaUpdates !== undefined && {
       ReplicaUpdates: serializeAws_json1_0ReplicaUpdateList(input.ReplicaUpdates, context),
     }),
@@ -6142,18 +5934,14 @@ const serializeAws_json1_0UpdateGlobalTableSettingsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GlobalTableBillingMode !== undefined && {
-      GlobalTableBillingMode: input.GlobalTableBillingMode,
-    }),
+    ...(input.GlobalTableBillingMode !== undefined && { GlobalTableBillingMode: input.GlobalTableBillingMode }),
     ...(input.GlobalTableGlobalSecondaryIndexSettingsUpdate !== undefined && {
       GlobalTableGlobalSecondaryIndexSettingsUpdate: serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdateList(
         input.GlobalTableGlobalSecondaryIndexSettingsUpdate,
         context
       ),
     }),
-    ...(input.GlobalTableName !== undefined && {
-      GlobalTableName: input.GlobalTableName,
-    }),
+    ...(input.GlobalTableName !== undefined && { GlobalTableName: input.GlobalTableName }),
     ...(input.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate !== undefined && {
       GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate: serializeAws_json1_0AutoScalingSettingsUpdate(
         input.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate,
@@ -6174,12 +5962,8 @@ const serializeAws_json1_0UpdateItemInput = (input: UpdateItemInput, context: __
     ...(input.AttributeUpdates !== undefined && {
       AttributeUpdates: serializeAws_json1_0AttributeUpdates(input.AttributeUpdates, context),
     }),
-    ...(input.ConditionExpression !== undefined && {
-      ConditionExpression: input.ConditionExpression,
-    }),
-    ...(input.ConditionalOperator !== undefined && {
-      ConditionalOperator: input.ConditionalOperator,
-    }),
+    ...(input.ConditionExpression !== undefined && { ConditionExpression: input.ConditionExpression }),
+    ...(input.ConditionalOperator !== undefined && { ConditionalOperator: input.ConditionalOperator }),
     ...(input.Expected !== undefined && {
       Expected: serializeAws_json1_0ExpectedAttributeMap(input.Expected, context),
     }),
@@ -6192,22 +5976,14 @@ const serializeAws_json1_0UpdateItemInput = (input: UpdateItemInput, context: __
         context
       ),
     }),
-    ...(input.Key !== undefined && {
-      Key: serializeAws_json1_0Key(input.Key, context),
-    }),
-    ...(input.ReturnConsumedCapacity !== undefined && {
-      ReturnConsumedCapacity: input.ReturnConsumedCapacity,
-    }),
+    ...(input.Key !== undefined && { Key: serializeAws_json1_0Key(input.Key, context) }),
+    ...(input.ReturnConsumedCapacity !== undefined && { ReturnConsumedCapacity: input.ReturnConsumedCapacity }),
     ...(input.ReturnItemCollectionMetrics !== undefined && {
       ReturnItemCollectionMetrics: input.ReturnItemCollectionMetrics,
     }),
-    ...(input.ReturnValues !== undefined && {
-      ReturnValues: input.ReturnValues,
-    }),
+    ...(input.ReturnValues !== undefined && { ReturnValues: input.ReturnValues }),
     ...(input.TableName !== undefined && { TableName: input.TableName }),
-    ...(input.UpdateExpression !== undefined && {
-      UpdateExpression: input.UpdateExpression,
-    }),
+    ...(input.UpdateExpression !== undefined && { UpdateExpression: input.UpdateExpression }),
   };
 };
 
@@ -6222,9 +5998,7 @@ const serializeAws_json1_0UpdateReplicationGroupMemberAction = (
         context
       ),
     }),
-    ...(input.KMSMasterKeyId !== undefined && {
-      KMSMasterKeyId: input.KMSMasterKeyId,
-    }),
+    ...(input.KMSMasterKeyId !== undefined && { KMSMasterKeyId: input.KMSMasterKeyId }),
     ...(input.ProvisionedThroughputOverride !== undefined && {
       ProvisionedThroughputOverride: serializeAws_json1_0ProvisionedThroughputOverride(
         input.ProvisionedThroughputOverride,
@@ -6301,9 +6075,7 @@ const serializeAws_json1_0WriteRequest = (input: WriteRequest, context: __SerdeC
     ...(input.DeleteRequest !== undefined && {
       DeleteRequest: serializeAws_json1_0DeleteRequest(input.DeleteRequest, context),
     }),
-    ...(input.PutRequest !== undefined && {
-      PutRequest: serializeAws_json1_0PutRequest(input.PutRequest, context),
-    }),
+    ...(input.PutRequest !== undefined && { PutRequest: serializeAws_json1_0PutRequest(input.PutRequest, context) }),
   };
 };
 

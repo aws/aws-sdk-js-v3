@@ -163,9 +163,7 @@ export const serializeAws_restJson1BatchDescribeSimulationJobCommand = async (
   let resolvedPath = "/batchDescribeSimulationJob";
   let body: any;
   body = JSON.stringify({
-    ...(input.jobs !== undefined && {
-      jobs: serializeAws_restJson1Arns(input.jobs, context),
-    }),
+    ...(input.jobs !== undefined && { jobs: serializeAws_restJson1Arns(input.jobs, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -248,9 +246,7 @@ export const serializeAws_restJson1CreateDeploymentJobCommand = async (
       deploymentConfig: serializeAws_restJson1DeploymentConfig(input.deploymentConfig, context),
     }),
     ...(input.fleet !== undefined && { fleet: input.fleet }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -275,9 +271,7 @@ export const serializeAws_restJson1CreateFleetCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -301,16 +295,10 @@ export const serializeAws_restJson1CreateRobotCommand = async (
   let resolvedPath = "/createRobot";
   let body: any;
   body = JSON.stringify({
-    ...(input.architecture !== undefined && {
-      architecture: input.architecture,
-    }),
-    ...(input.greengrassGroupId !== undefined && {
-      greengrassGroupId: input.greengrassGroupId,
-    }),
+    ...(input.architecture !== undefined && { architecture: input.architecture }),
+    ...(input.greengrassGroupId !== undefined && { greengrassGroupId: input.greengrassGroupId }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -338,12 +326,8 @@ export const serializeAws_restJson1CreateRobotApplicationCommand = async (
     ...(input.robotSoftwareSuite !== undefined && {
       robotSoftwareSuite: serializeAws_restJson1RobotSoftwareSuite(input.robotSoftwareSuite, context),
     }),
-    ...(input.sources !== undefined && {
-      sources: serializeAws_restJson1SourceConfigs(input.sources, context),
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.sources !== undefined && { sources: serializeAws_restJson1SourceConfigs(input.sources, context) }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -368,9 +352,7 @@ export const serializeAws_restJson1CreateRobotApplicationVersionCommand = async 
   let body: any;
   body = JSON.stringify({
     ...(input.application !== undefined && { application: input.application }),
-    ...(input.currentRevisionId !== undefined && {
-      currentRevisionId: input.currentRevisionId,
-    }),
+    ...(input.currentRevisionId !== undefined && { currentRevisionId: input.currentRevisionId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -404,12 +386,8 @@ export const serializeAws_restJson1CreateSimulationApplicationCommand = async (
     ...(input.simulationSoftwareSuite !== undefined && {
       simulationSoftwareSuite: serializeAws_restJson1SimulationSoftwareSuite(input.simulationSoftwareSuite, context),
     }),
-    ...(input.sources !== undefined && {
-      sources: serializeAws_restJson1SourceConfigs(input.sources, context),
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.sources !== undefined && { sources: serializeAws_restJson1SourceConfigs(input.sources, context) }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -434,9 +412,7 @@ export const serializeAws_restJson1CreateSimulationApplicationVersionCommand = a
   let body: any;
   body = JSON.stringify({
     ...(input.application !== undefined && { application: input.application }),
-    ...(input.currentRevisionId !== undefined && {
-      currentRevisionId: input.currentRevisionId,
-    }),
+    ...(input.currentRevisionId !== undefined && { currentRevisionId: input.currentRevisionId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -464,16 +440,12 @@ export const serializeAws_restJson1CreateSimulationJobCommand = async (
     ...(input.dataSources !== undefined && {
       dataSources: serializeAws_restJson1DataSourceConfigs(input.dataSources, context),
     }),
-    ...(input.failureBehavior !== undefined && {
-      failureBehavior: input.failureBehavior,
-    }),
+    ...(input.failureBehavior !== undefined && { failureBehavior: input.failureBehavior }),
     ...(input.iamRole !== undefined && { iamRole: input.iamRole }),
     ...(input.loggingConfig !== undefined && {
       loggingConfig: serializeAws_restJson1LoggingConfig(input.loggingConfig, context),
     }),
-    ...(input.maxJobDurationInSeconds !== undefined && {
-      maxJobDurationInSeconds: input.maxJobDurationInSeconds,
-    }),
+    ...(input.maxJobDurationInSeconds !== undefined && { maxJobDurationInSeconds: input.maxJobDurationInSeconds }),
     ...(input.outputLocation !== undefined && {
       outputLocation: serializeAws_restJson1OutputLocation(input.outputLocation, context),
     }),
@@ -483,12 +455,8 @@ export const serializeAws_restJson1CreateSimulationJobCommand = async (
     ...(input.simulationApplications !== undefined && {
       simulationApplications: serializeAws_restJson1SimulationApplicationConfigs(input.simulationApplications, context),
     }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
-    ...(input.vpcConfig !== undefined && {
-      vpcConfig: serializeAws_restJson1VPCConfig(input.vpcConfig, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.vpcConfig !== undefined && { vpcConfig: serializeAws_restJson1VPCConfig(input.vpcConfig, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -561,9 +529,7 @@ export const serializeAws_restJson1DeleteRobotApplicationCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.application !== undefined && { application: input.application }),
-    ...(input.applicationVersion !== undefined && {
-      applicationVersion: input.applicationVersion,
-    }),
+    ...(input.applicationVersion !== undefined && { applicationVersion: input.applicationVersion }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -588,9 +554,7 @@ export const serializeAws_restJson1DeleteSimulationApplicationCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.application !== undefined && { application: input.application }),
-    ...(input.applicationVersion !== undefined && {
-      applicationVersion: input.applicationVersion,
-    }),
+    ...(input.applicationVersion !== undefined && { applicationVersion: input.applicationVersion }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -712,9 +676,7 @@ export const serializeAws_restJson1DescribeRobotApplicationCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.application !== undefined && { application: input.application }),
-    ...(input.applicationVersion !== undefined && {
-      applicationVersion: input.applicationVersion,
-    }),
+    ...(input.applicationVersion !== undefined && { applicationVersion: input.applicationVersion }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -739,9 +701,7 @@ export const serializeAws_restJson1DescribeSimulationApplicationCommand = async 
   let body: any;
   body = JSON.stringify({
     ...(input.application !== undefined && { application: input.application }),
-    ...(input.applicationVersion !== undefined && {
-      applicationVersion: input.applicationVersion,
-    }),
+    ...(input.applicationVersion !== undefined && { applicationVersion: input.applicationVersion }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -789,9 +749,7 @@ export const serializeAws_restJson1ListDeploymentJobsCommand = async (
   let resolvedPath = "/listDeploymentJobs";
   let body: any;
   body = JSON.stringify({
-    ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1Filters(input.filters, context),
-    }),
+    ...(input.filters !== undefined && { filters: serializeAws_restJson1Filters(input.filters, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   });
@@ -817,9 +775,7 @@ export const serializeAws_restJson1ListFleetsCommand = async (
   let resolvedPath = "/listFleets";
   let body: any;
   body = JSON.stringify({
-    ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1Filters(input.filters, context),
-    }),
+    ...(input.filters !== undefined && { filters: serializeAws_restJson1Filters(input.filters, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   });
@@ -845,14 +801,10 @@ export const serializeAws_restJson1ListRobotApplicationsCommand = async (
   let resolvedPath = "/listRobotApplications";
   let body: any;
   body = JSON.stringify({
-    ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1Filters(input.filters, context),
-    }),
+    ...(input.filters !== undefined && { filters: serializeAws_restJson1Filters(input.filters, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.versionQualifier !== undefined && {
-      versionQualifier: input.versionQualifier,
-    }),
+    ...(input.versionQualifier !== undefined && { versionQualifier: input.versionQualifier }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -876,9 +828,7 @@ export const serializeAws_restJson1ListRobotsCommand = async (
   let resolvedPath = "/listRobots";
   let body: any;
   body = JSON.stringify({
-    ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1Filters(input.filters, context),
-    }),
+    ...(input.filters !== undefined && { filters: serializeAws_restJson1Filters(input.filters, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   });
@@ -904,14 +854,10 @@ export const serializeAws_restJson1ListSimulationApplicationsCommand = async (
   let resolvedPath = "/listSimulationApplications";
   let body: any;
   body = JSON.stringify({
-    ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1Filters(input.filters, context),
-    }),
+    ...(input.filters !== undefined && { filters: serializeAws_restJson1Filters(input.filters, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.versionQualifier !== undefined && {
-      versionQualifier: input.versionQualifier,
-    }),
+    ...(input.versionQualifier !== undefined && { versionQualifier: input.versionQualifier }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -935,9 +881,7 @@ export const serializeAws_restJson1ListSimulationJobsCommand = async (
   let resolvedPath = "/listSimulationJobs";
   let body: any;
   body = JSON.stringify({
-    ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1Filters(input.filters, context),
-    }),
+    ...(input.filters !== undefined && { filters: serializeAws_restJson1Filters(input.filters, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   });
@@ -1076,9 +1020,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1110,9 +1052,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && {
-      tagKeys: (input.tagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1139,15 +1079,11 @@ export const serializeAws_restJson1UpdateRobotApplicationCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.application !== undefined && { application: input.application }),
-    ...(input.currentRevisionId !== undefined && {
-      currentRevisionId: input.currentRevisionId,
-    }),
+    ...(input.currentRevisionId !== undefined && { currentRevisionId: input.currentRevisionId }),
     ...(input.robotSoftwareSuite !== undefined && {
       robotSoftwareSuite: serializeAws_restJson1RobotSoftwareSuite(input.robotSoftwareSuite, context),
     }),
-    ...(input.sources !== undefined && {
-      sources: serializeAws_restJson1SourceConfigs(input.sources, context),
-    }),
+    ...(input.sources !== undefined && { sources: serializeAws_restJson1SourceConfigs(input.sources, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1172,9 +1108,7 @@ export const serializeAws_restJson1UpdateSimulationApplicationCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.application !== undefined && { application: input.application }),
-    ...(input.currentRevisionId !== undefined && {
-      currentRevisionId: input.currentRevisionId,
-    }),
+    ...(input.currentRevisionId !== undefined && { currentRevisionId: input.currentRevisionId }),
     ...(input.renderingEngine !== undefined && {
       renderingEngine: serializeAws_restJson1RenderingEngine(input.renderingEngine, context),
     }),
@@ -1184,9 +1118,7 @@ export const serializeAws_restJson1UpdateSimulationApplicationCommand = async (
     ...(input.simulationSoftwareSuite !== undefined && {
       simulationSoftwareSuite: serializeAws_restJson1SimulationSoftwareSuite(input.simulationSoftwareSuite, context),
     }),
-    ...(input.sources !== undefined && {
-      sources: serializeAws_restJson1SourceConfigs(input.sources, context),
-    }),
+    ...(input.sources !== undefined && { sources: serializeAws_restJson1SourceConfigs(input.sources, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4956,9 +4888,7 @@ const serializeAws_restJson1DataSourceConfig = (input: DataSourceConfig, context
   return {
     ...(input.name !== undefined && { name: input.name }),
     ...(input.s3Bucket !== undefined && { s3Bucket: input.s3Bucket }),
-    ...(input.s3Keys !== undefined && {
-      s3Keys: serializeAws_restJson1S3Keys(input.s3Keys, context),
-    }),
+    ...(input.s3Keys !== undefined && { s3Keys: serializeAws_restJson1S3Keys(input.s3Keys, context) }),
   };
 };
 
@@ -4972,9 +4902,7 @@ const serializeAws_restJson1DeploymentApplicationConfig = (
 ): any => {
   return {
     ...(input.application !== undefined && { application: input.application }),
-    ...(input.applicationVersion !== undefined && {
-      applicationVersion: input.applicationVersion,
-    }),
+    ...(input.applicationVersion !== undefined && { applicationVersion: input.applicationVersion }),
     ...(input.launchConfig !== undefined && {
       launchConfig: serializeAws_restJson1DeploymentLaunchConfig(input.launchConfig, context),
     }),
@@ -5012,12 +4940,8 @@ const serializeAws_restJson1DeploymentLaunchConfig = (input: DeploymentLaunchCon
     }),
     ...(input.launchFile !== undefined && { launchFile: input.launchFile }),
     ...(input.packageName !== undefined && { packageName: input.packageName }),
-    ...(input.postLaunchFile !== undefined && {
-      postLaunchFile: input.postLaunchFile,
-    }),
-    ...(input.preLaunchFile !== undefined && {
-      preLaunchFile: input.preLaunchFile,
-    }),
+    ...(input.postLaunchFile !== undefined && { postLaunchFile: input.postLaunchFile }),
+    ...(input.preLaunchFile !== undefined && { preLaunchFile: input.preLaunchFile }),
   };
 };
 
@@ -5037,9 +4961,7 @@ const serializeAws_restJson1EnvironmentVariableMap = (
 const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.values !== undefined && {
-      values: serializeAws_restJson1FilterValues(input.values, context),
-    }),
+    ...(input.values !== undefined && { values: serializeAws_restJson1FilterValues(input.values, context) }),
   };
 };
 
@@ -5066,9 +4988,7 @@ const serializeAws_restJson1LaunchConfig = (input: LaunchConfig, context: __Serd
 
 const serializeAws_restJson1LoggingConfig = (input: LoggingConfig, context: __SerdeContext): any => {
   return {
-    ...(input.recordAllRosTopics !== undefined && {
-      recordAllRosTopics: input.recordAllRosTopics,
-    }),
+    ...(input.recordAllRosTopics !== undefined && { recordAllRosTopics: input.recordAllRosTopics }),
   };
 };
 
@@ -5089,12 +5009,8 @@ const serializeAws_restJson1PortForwardingConfig = (input: PortForwardingConfig,
 
 const serializeAws_restJson1PortMapping = (input: PortMapping, context: __SerdeContext): any => {
   return {
-    ...(input.applicationPort !== undefined && {
-      applicationPort: input.applicationPort,
-    }),
-    ...(input.enableOnPublicIp !== undefined && {
-      enableOnPublicIp: input.enableOnPublicIp,
-    }),
+    ...(input.applicationPort !== undefined && { applicationPort: input.applicationPort }),
+    ...(input.enableOnPublicIp !== undefined && { enableOnPublicIp: input.enableOnPublicIp }),
     ...(input.jobPort !== undefined && { jobPort: input.jobPort }),
   };
 };
@@ -5113,9 +5029,7 @@ const serializeAws_restJson1RenderingEngine = (input: RenderingEngine, context: 
 const serializeAws_restJson1RobotApplicationConfig = (input: RobotApplicationConfig, context: __SerdeContext): any => {
   return {
     ...(input.application !== undefined && { application: input.application }),
-    ...(input.applicationVersion !== undefined && {
-      applicationVersion: input.applicationVersion,
-    }),
+    ...(input.applicationVersion !== undefined && { applicationVersion: input.applicationVersion }),
     ...(input.launchConfig !== undefined && {
       launchConfig: serializeAws_restJson1LaunchConfig(input.launchConfig, context),
     }),
@@ -5158,9 +5072,7 @@ const serializeAws_restJson1SimulationApplicationConfig = (
 ): any => {
   return {
     ...(input.application !== undefined && { application: input.application }),
-    ...(input.applicationVersion !== undefined && {
-      applicationVersion: input.applicationVersion,
-    }),
+    ...(input.applicationVersion !== undefined && { applicationVersion: input.applicationVersion }),
     ...(input.launchConfig !== undefined && {
       launchConfig: serializeAws_restJson1LaunchConfig(input.launchConfig, context),
     }),
@@ -5186,9 +5098,7 @@ const serializeAws_restJson1SimulationSoftwareSuite = (
 
 const serializeAws_restJson1SourceConfig = (input: SourceConfig, context: __SerdeContext): any => {
   return {
-    ...(input.architecture !== undefined && {
-      architecture: input.architecture,
-    }),
+    ...(input.architecture !== undefined && { architecture: input.architecture }),
     ...(input.s3Bucket !== undefined && { s3Bucket: input.s3Bucket }),
     ...(input.s3Key !== undefined && { s3Key: input.s3Key }),
   };
@@ -5214,15 +5124,11 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
 
 const serializeAws_restJson1VPCConfig = (input: VPCConfig, context: __SerdeContext): any => {
   return {
-    ...(input.assignPublicIp !== undefined && {
-      assignPublicIp: input.assignPublicIp,
-    }),
+    ...(input.assignPublicIp !== undefined && { assignPublicIp: input.assignPublicIp }),
     ...(input.securityGroups !== undefined && {
       securityGroups: serializeAws_restJson1SecurityGroups(input.securityGroups, context),
     }),
-    ...(input.subnets !== undefined && {
-      subnets: serializeAws_restJson1Subnets(input.subnets, context),
-    }),
+    ...(input.subnets !== undefined && { subnets: serializeAws_restJson1Subnets(input.subnets, context) }),
   };
 };
 

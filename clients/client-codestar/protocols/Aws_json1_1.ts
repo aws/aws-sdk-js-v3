@@ -1901,14 +1901,10 @@ const serializeAws_json1_1AssociateTeamMemberRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.clientRequestToken !== undefined && {
-      clientRequestToken: input.clientRequestToken,
-    }),
+    ...(input.clientRequestToken !== undefined && { clientRequestToken: input.clientRequestToken }),
     ...(input.projectId !== undefined && { projectId: input.projectId }),
     ...(input.projectRole !== undefined && { projectRole: input.projectRole }),
-    ...(input.remoteAccessAllowed !== undefined && {
-      remoteAccessAllowed: input.remoteAccessAllowed,
-    }),
+    ...(input.remoteAccessAllowed !== undefined && { remoteAccessAllowed: input.remoteAccessAllowed }),
     ...(input.userArn !== undefined && { userArn: input.userArn }),
   };
 };
@@ -1918,9 +1914,7 @@ const serializeAws_json1_1Code = (input: Code, context: __SerdeContext): any => 
     ...(input.destination !== undefined && {
       destination: serializeAws_json1_1CodeDestination(input.destination, context),
     }),
-    ...(input.source !== undefined && {
-      source: serializeAws_json1_1CodeSource(input.source, context),
-    }),
+    ...(input.source !== undefined && { source: serializeAws_json1_1CodeSource(input.source, context) }),
   };
 };
 
@@ -1938,37 +1932,25 @@ const serializeAws_json1_1CodeDestination = (input: CodeDestination, context: __
     ...(input.codeCommit !== undefined && {
       codeCommit: serializeAws_json1_1CodeCommitCodeDestination(input.codeCommit, context),
     }),
-    ...(input.gitHub !== undefined && {
-      gitHub: serializeAws_json1_1GitHubCodeDestination(input.gitHub, context),
-    }),
+    ...(input.gitHub !== undefined && { gitHub: serializeAws_json1_1GitHubCodeDestination(input.gitHub, context) }),
   };
 };
 
 const serializeAws_json1_1CodeSource = (input: CodeSource, context: __SerdeContext): any => {
   return {
-    ...(input.s3 !== undefined && {
-      s3: serializeAws_json1_1S3Location(input.s3, context),
-    }),
+    ...(input.s3 !== undefined && { s3: serializeAws_json1_1S3Location(input.s3, context) }),
   };
 };
 
 const serializeAws_json1_1CreateProjectRequest = (input: CreateProjectRequest, context: __SerdeContext): any => {
   return {
-    ...(input.clientRequestToken !== undefined && {
-      clientRequestToken: input.clientRequestToken,
-    }),
+    ...(input.clientRequestToken !== undefined && { clientRequestToken: input.clientRequestToken }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.id !== undefined && { id: input.id }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.sourceCode !== undefined && {
-      sourceCode: serializeAws_json1_1SourceCode(input.sourceCode, context),
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1Tags(input.tags, context),
-    }),
-    ...(input.toolchain !== undefined && {
-      toolchain: serializeAws_json1_1Toolchain(input.toolchain, context),
-    }),
+    ...(input.sourceCode !== undefined && { sourceCode: serializeAws_json1_1SourceCode(input.sourceCode, context) }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+    ...(input.toolchain !== undefined && { toolchain: serializeAws_json1_1Toolchain(input.toolchain, context) }),
   };
 };
 
@@ -1978,21 +1960,15 @@ const serializeAws_json1_1CreateUserProfileRequest = (
 ): any => {
   return {
     ...(input.displayName !== undefined && { displayName: input.displayName }),
-    ...(input.emailAddress !== undefined && {
-      emailAddress: input.emailAddress,
-    }),
-    ...(input.sshPublicKey !== undefined && {
-      sshPublicKey: input.sshPublicKey,
-    }),
+    ...(input.emailAddress !== undefined && { emailAddress: input.emailAddress }),
+    ...(input.sshPublicKey !== undefined && { sshPublicKey: input.sshPublicKey }),
     ...(input.userArn !== undefined && { userArn: input.userArn }),
   };
 };
 
 const serializeAws_json1_1DeleteProjectRequest = (input: DeleteProjectRequest, context: __SerdeContext): any => {
   return {
-    ...(input.clientRequestToken !== undefined && {
-      clientRequestToken: input.clientRequestToken,
-    }),
+    ...(input.clientRequestToken !== undefined && { clientRequestToken: input.clientRequestToken }),
     ...(input.deleteStack !== undefined && { deleteStack: input.deleteStack }),
     ...(input.id !== undefined && { id: input.id }),
   };
@@ -2035,14 +2011,10 @@ const serializeAws_json1_1DisassociateTeamMemberRequest = (
 const serializeAws_json1_1GitHubCodeDestination = (input: GitHubCodeDestination, context: __SerdeContext): any => {
   return {
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.issuesEnabled !== undefined && {
-      issuesEnabled: input.issuesEnabled,
-    }),
+    ...(input.issuesEnabled !== undefined && { issuesEnabled: input.issuesEnabled }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.owner !== undefined && { owner: input.owner }),
-    ...(input.privateRepository !== undefined && {
-      privateRepository: input.privateRepository,
-    }),
+    ...(input.privateRepository !== undefined && { privateRepository: input.privateRepository }),
     ...(input.token !== undefined && { token: input.token }),
     ...(input.type !== undefined && { type: input.type }),
   };
@@ -2107,9 +2079,7 @@ const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): 
 const serializeAws_json1_1TagProjectRequest = (input: TagProjectRequest, context: __SerdeContext): any => {
   return {
     ...(input.id !== undefined && { id: input.id }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1Tags(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -2136,9 +2106,7 @@ const serializeAws_json1_1TemplateParameterMap = (input: { [key: string]: string
 const serializeAws_json1_1Toolchain = (input: Toolchain, context: __SerdeContext): any => {
   return {
     ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
-    ...(input.source !== undefined && {
-      source: serializeAws_json1_1ToolchainSource(input.source, context),
-    }),
+    ...(input.source !== undefined && { source: serializeAws_json1_1ToolchainSource(input.source, context) }),
     ...(input.stackParameters !== undefined && {
       stackParameters: serializeAws_json1_1TemplateParameterMap(input.stackParameters, context),
     }),
@@ -2147,18 +2115,14 @@ const serializeAws_json1_1Toolchain = (input: Toolchain, context: __SerdeContext
 
 const serializeAws_json1_1ToolchainSource = (input: ToolchainSource, context: __SerdeContext): any => {
   return {
-    ...(input.s3 !== undefined && {
-      s3: serializeAws_json1_1S3Location(input.s3, context),
-    }),
+    ...(input.s3 !== undefined && { s3: serializeAws_json1_1S3Location(input.s3, context) }),
   };
 };
 
 const serializeAws_json1_1UntagProjectRequest = (input: UntagProjectRequest, context: __SerdeContext): any => {
   return {
     ...(input.id !== undefined && { id: input.id }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagKeys(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagKeys(input.tags, context) }),
   };
 };
 
@@ -2174,9 +2138,7 @@ const serializeAws_json1_1UpdateTeamMemberRequest = (input: UpdateTeamMemberRequ
   return {
     ...(input.projectId !== undefined && { projectId: input.projectId }),
     ...(input.projectRole !== undefined && { projectRole: input.projectRole }),
-    ...(input.remoteAccessAllowed !== undefined && {
-      remoteAccessAllowed: input.remoteAccessAllowed,
-    }),
+    ...(input.remoteAccessAllowed !== undefined && { remoteAccessAllowed: input.remoteAccessAllowed }),
     ...(input.userArn !== undefined && { userArn: input.userArn }),
   };
 };
@@ -2187,12 +2149,8 @@ const serializeAws_json1_1UpdateUserProfileRequest = (
 ): any => {
   return {
     ...(input.displayName !== undefined && { displayName: input.displayName }),
-    ...(input.emailAddress !== undefined && {
-      emailAddress: input.emailAddress,
-    }),
-    ...(input.sshPublicKey !== undefined && {
-      sshPublicKey: input.sshPublicKey,
-    }),
+    ...(input.emailAddress !== undefined && { emailAddress: input.emailAddress }),
+    ...(input.sshPublicKey !== undefined && { sshPublicKey: input.sshPublicKey }),
     ...(input.userArn !== undefined && { userArn: input.userArn }),
   };
 };

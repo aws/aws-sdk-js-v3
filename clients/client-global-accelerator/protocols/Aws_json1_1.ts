@@ -1862,12 +1862,8 @@ const serializeAws_json1_1CreateAcceleratorRequest = (
 ): any => {
   return {
     ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
-    ...(input.IdempotencyToken !== undefined && {
-      IdempotencyToken: input.IdempotencyToken,
-    }),
-    ...(input.IpAddressType !== undefined && {
-      IpAddressType: input.IpAddressType,
-    }),
+    ...(input.IdempotencyToken !== undefined && { IdempotencyToken: input.IdempotencyToken }),
+    ...(input.IpAddressType !== undefined && { IpAddressType: input.IpAddressType }),
     ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
@@ -1880,48 +1876,26 @@ const serializeAws_json1_1CreateEndpointGroupRequest = (
     ...(input.EndpointConfigurations !== undefined && {
       EndpointConfigurations: serializeAws_json1_1EndpointConfigurations(input.EndpointConfigurations, context),
     }),
-    ...(input.EndpointGroupRegion !== undefined && {
-      EndpointGroupRegion: input.EndpointGroupRegion,
-    }),
+    ...(input.EndpointGroupRegion !== undefined && { EndpointGroupRegion: input.EndpointGroupRegion }),
     ...(input.HealthCheckIntervalSeconds !== undefined && {
       HealthCheckIntervalSeconds: input.HealthCheckIntervalSeconds,
     }),
-    ...(input.HealthCheckPath !== undefined && {
-      HealthCheckPath: input.HealthCheckPath,
-    }),
-    ...(input.HealthCheckPort !== undefined && {
-      HealthCheckPort: input.HealthCheckPort,
-    }),
-    ...(input.HealthCheckProtocol !== undefined && {
-      HealthCheckProtocol: input.HealthCheckProtocol,
-    }),
-    ...(input.IdempotencyToken !== undefined && {
-      IdempotencyToken: input.IdempotencyToken,
-    }),
+    ...(input.HealthCheckPath !== undefined && { HealthCheckPath: input.HealthCheckPath }),
+    ...(input.HealthCheckPort !== undefined && { HealthCheckPort: input.HealthCheckPort }),
+    ...(input.HealthCheckProtocol !== undefined && { HealthCheckProtocol: input.HealthCheckProtocol }),
+    ...(input.IdempotencyToken !== undefined && { IdempotencyToken: input.IdempotencyToken }),
     ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
-    ...(input.ThresholdCount !== undefined && {
-      ThresholdCount: input.ThresholdCount,
-    }),
-    ...(input.TrafficDialPercentage !== undefined && {
-      TrafficDialPercentage: input.TrafficDialPercentage,
-    }),
+    ...(input.ThresholdCount !== undefined && { ThresholdCount: input.ThresholdCount }),
+    ...(input.TrafficDialPercentage !== undefined && { TrafficDialPercentage: input.TrafficDialPercentage }),
   };
 };
 
 const serializeAws_json1_1CreateListenerRequest = (input: CreateListenerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && {
-      AcceleratorArn: input.AcceleratorArn,
-    }),
-    ...(input.ClientAffinity !== undefined && {
-      ClientAffinity: input.ClientAffinity,
-    }),
-    ...(input.IdempotencyToken !== undefined && {
-      IdempotencyToken: input.IdempotencyToken,
-    }),
-    ...(input.PortRanges !== undefined && {
-      PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context),
-    }),
+    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.ClientAffinity !== undefined && { ClientAffinity: input.ClientAffinity }),
+    ...(input.IdempotencyToken !== undefined && { IdempotencyToken: input.IdempotencyToken }),
+    ...(input.PortRanges !== undefined && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
     ...(input.Protocol !== undefined && { Protocol: input.Protocol }),
   };
 };
@@ -1931,9 +1905,7 @@ const serializeAws_json1_1DeleteAcceleratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && {
-      AcceleratorArn: input.AcceleratorArn,
-    }),
+    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
   };
 };
 
@@ -1942,9 +1914,7 @@ const serializeAws_json1_1DeleteEndpointGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndpointGroupArn !== undefined && {
-      EndpointGroupArn: input.EndpointGroupArn,
-    }),
+    ...(input.EndpointGroupArn !== undefined && { EndpointGroupArn: input.EndpointGroupArn }),
   };
 };
 
@@ -1959,9 +1929,7 @@ const serializeAws_json1_1DescribeAcceleratorAttributesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && {
-      AcceleratorArn: input.AcceleratorArn,
-    }),
+    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
   };
 };
 
@@ -1970,9 +1938,7 @@ const serializeAws_json1_1DescribeAcceleratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && {
-      AcceleratorArn: input.AcceleratorArn,
-    }),
+    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
   };
 };
 
@@ -1981,9 +1947,7 @@ const serializeAws_json1_1DescribeEndpointGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndpointGroupArn !== undefined && {
-      EndpointGroupArn: input.EndpointGroupArn,
-    }),
+    ...(input.EndpointGroupArn !== undefined && { EndpointGroupArn: input.EndpointGroupArn }),
   };
 };
 
@@ -2027,9 +1991,7 @@ const serializeAws_json1_1ListEndpointGroupsRequest = (
 
 const serializeAws_json1_1ListListenersRequest = (input: ListListenersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && {
-      AcceleratorArn: input.AcceleratorArn,
-    }),
+    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -2051,18 +2013,10 @@ const serializeAws_json1_1UpdateAcceleratorAttributesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && {
-      AcceleratorArn: input.AcceleratorArn,
-    }),
-    ...(input.FlowLogsEnabled !== undefined && {
-      FlowLogsEnabled: input.FlowLogsEnabled,
-    }),
-    ...(input.FlowLogsS3Bucket !== undefined && {
-      FlowLogsS3Bucket: input.FlowLogsS3Bucket,
-    }),
-    ...(input.FlowLogsS3Prefix !== undefined && {
-      FlowLogsS3Prefix: input.FlowLogsS3Prefix,
-    }),
+    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.FlowLogsEnabled !== undefined && { FlowLogsEnabled: input.FlowLogsEnabled }),
+    ...(input.FlowLogsS3Bucket !== undefined && { FlowLogsS3Bucket: input.FlowLogsS3Bucket }),
+    ...(input.FlowLogsS3Prefix !== undefined && { FlowLogsS3Prefix: input.FlowLogsS3Prefix }),
   };
 };
 
@@ -2071,13 +2025,9 @@ const serializeAws_json1_1UpdateAcceleratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && {
-      AcceleratorArn: input.AcceleratorArn,
-    }),
+    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
     ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
-    ...(input.IpAddressType !== undefined && {
-      IpAddressType: input.IpAddressType,
-    }),
+    ...(input.IpAddressType !== undefined && { IpAddressType: input.IpAddressType }),
     ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
@@ -2090,39 +2040,23 @@ const serializeAws_json1_1UpdateEndpointGroupRequest = (
     ...(input.EndpointConfigurations !== undefined && {
       EndpointConfigurations: serializeAws_json1_1EndpointConfigurations(input.EndpointConfigurations, context),
     }),
-    ...(input.EndpointGroupArn !== undefined && {
-      EndpointGroupArn: input.EndpointGroupArn,
-    }),
+    ...(input.EndpointGroupArn !== undefined && { EndpointGroupArn: input.EndpointGroupArn }),
     ...(input.HealthCheckIntervalSeconds !== undefined && {
       HealthCheckIntervalSeconds: input.HealthCheckIntervalSeconds,
     }),
-    ...(input.HealthCheckPath !== undefined && {
-      HealthCheckPath: input.HealthCheckPath,
-    }),
-    ...(input.HealthCheckPort !== undefined && {
-      HealthCheckPort: input.HealthCheckPort,
-    }),
-    ...(input.HealthCheckProtocol !== undefined && {
-      HealthCheckProtocol: input.HealthCheckProtocol,
-    }),
-    ...(input.ThresholdCount !== undefined && {
-      ThresholdCount: input.ThresholdCount,
-    }),
-    ...(input.TrafficDialPercentage !== undefined && {
-      TrafficDialPercentage: input.TrafficDialPercentage,
-    }),
+    ...(input.HealthCheckPath !== undefined && { HealthCheckPath: input.HealthCheckPath }),
+    ...(input.HealthCheckPort !== undefined && { HealthCheckPort: input.HealthCheckPort }),
+    ...(input.HealthCheckProtocol !== undefined && { HealthCheckProtocol: input.HealthCheckProtocol }),
+    ...(input.ThresholdCount !== undefined && { ThresholdCount: input.ThresholdCount }),
+    ...(input.TrafficDialPercentage !== undefined && { TrafficDialPercentage: input.TrafficDialPercentage }),
   };
 };
 
 const serializeAws_json1_1UpdateListenerRequest = (input: UpdateListenerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClientAffinity !== undefined && {
-      ClientAffinity: input.ClientAffinity,
-    }),
+    ...(input.ClientAffinity !== undefined && { ClientAffinity: input.ClientAffinity }),
     ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
-    ...(input.PortRanges !== undefined && {
-      PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context),
-    }),
+    ...(input.PortRanges !== undefined && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
     ...(input.Protocol !== undefined && { Protocol: input.Protocol }),
   };
 };

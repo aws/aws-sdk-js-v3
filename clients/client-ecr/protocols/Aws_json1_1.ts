@@ -3281,21 +3281,15 @@ const serializeAws_json1_1BatchCheckLayerAvailabilityRequest = (
       layerDigests: serializeAws_json1_1BatchedOperationLayerDigestList(input.layerDigests, context),
     }),
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
 const serializeAws_json1_1BatchDeleteImageRequest = (input: BatchDeleteImageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.imageIds !== undefined && {
-      imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context),
-    }),
+    ...(input.imageIds !== undefined && { imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context) }),
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3308,13 +3302,9 @@ const serializeAws_json1_1BatchGetImageRequest = (input: BatchGetImageRequest, c
     ...(input.acceptedMediaTypes !== undefined && {
       acceptedMediaTypes: serializeAws_json1_1MediaTypeList(input.acceptedMediaTypes, context),
     }),
-    ...(input.imageIds !== undefined && {
-      imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context),
-    }),
+    ...(input.imageIds !== undefined && { imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context) }),
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3327,9 +3317,7 @@ const serializeAws_json1_1CompleteLayerUploadRequest = (
       layerDigests: serializeAws_json1_1LayerDigestList(input.layerDigests, context),
     }),
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
     ...(input.uploadId !== undefined && { uploadId: input.uploadId }),
   };
 };
@@ -3342,15 +3330,9 @@ const serializeAws_json1_1CreateRepositoryRequest = (input: CreateRepositoryRequ
         context
       ),
     }),
-    ...(input.imageTagMutability !== undefined && {
-      imageTagMutability: input.imageTagMutability,
-    }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.imageTagMutability !== undefined && { imageTagMutability: input.imageTagMutability }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -3360,9 +3342,7 @@ const serializeAws_json1_1DeleteLifecyclePolicyRequest = (
 ): any => {
   return {
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3372,9 +3352,7 @@ const serializeAws_json1_1DeleteRepositoryPolicyRequest = (
 ): any => {
   return {
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3382,9 +3360,7 @@ const serializeAws_json1_1DeleteRepositoryRequest = (input: DeleteRepositoryRequ
   return {
     ...(input.force !== undefined && { force: input.force }),
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3393,15 +3369,11 @@ const serializeAws_json1_1DescribeImageScanFindingsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.imageId !== undefined && {
-      imageId: serializeAws_json1_1ImageIdentifier(input.imageId, context),
-    }),
+    ...(input.imageId !== undefined && { imageId: serializeAws_json1_1ImageIdentifier(input.imageId, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3413,18 +3385,12 @@ const serializeAws_json1_1DescribeImagesFilter = (input: DescribeImagesFilter, c
 
 const serializeAws_json1_1DescribeImagesRequest = (input: DescribeImagesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.filter !== undefined && {
-      filter: serializeAws_json1_1DescribeImagesFilter(input.filter, context),
-    }),
-    ...(input.imageIds !== undefined && {
-      imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context),
-    }),
+    ...(input.filter !== undefined && { filter: serializeAws_json1_1DescribeImagesFilter(input.filter, context) }),
+    ...(input.imageIds !== undefined && { imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3464,9 +3430,7 @@ const serializeAws_json1_1GetDownloadUrlForLayerRequest = (
   return {
     ...(input.layerDigest !== undefined && { layerDigest: input.layerDigest }),
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3478,15 +3442,11 @@ const serializeAws_json1_1GetLifecyclePolicyPreviewRequest = (
     ...(input.filter !== undefined && {
       filter: serializeAws_json1_1LifecyclePolicyPreviewFilter(input.filter, context),
     }),
-    ...(input.imageIds !== undefined && {
-      imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context),
-    }),
+    ...(input.imageIds !== undefined && { imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3496,9 +3456,7 @@ const serializeAws_json1_1GetLifecyclePolicyRequest = (
 ): any => {
   return {
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3508,9 +3466,7 @@ const serializeAws_json1_1GetRepositoryPolicyRequest = (
 ): any => {
   return {
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3540,9 +3496,7 @@ const serializeAws_json1_1InitiateLayerUploadRequest = (
 ): any => {
   return {
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3567,15 +3521,11 @@ const serializeAws_json1_1ListImagesFilter = (input: ListImagesFilter, context: 
 
 const serializeAws_json1_1ListImagesRequest = (input: ListImagesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.filter !== undefined && {
-      filter: serializeAws_json1_1ListImagesFilter(input.filter, context),
-    }),
+    ...(input.filter !== undefined && { filter: serializeAws_json1_1ListImagesFilter(input.filter, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3594,14 +3544,10 @@ const serializeAws_json1_1MediaTypeList = (input: string[], context: __SerdeCont
 
 const serializeAws_json1_1PutImageRequest = (input: PutImageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.imageManifest !== undefined && {
-      imageManifest: input.imageManifest,
-    }),
+    ...(input.imageManifest !== undefined && { imageManifest: input.imageManifest }),
     ...(input.imageTag !== undefined && { imageTag: input.imageTag }),
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3617,9 +3563,7 @@ const serializeAws_json1_1PutImageScanningConfigurationRequest = (
       ),
     }),
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3628,13 +3572,9 @@ const serializeAws_json1_1PutImageTagMutabilityRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.imageTagMutability !== undefined && {
-      imageTagMutability: input.imageTagMutability,
-    }),
+    ...(input.imageTagMutability !== undefined && { imageTagMutability: input.imageTagMutability }),
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3643,13 +3583,9 @@ const serializeAws_json1_1PutLifecyclePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.lifecyclePolicyText !== undefined && {
-      lifecyclePolicyText: input.lifecyclePolicyText,
-    }),
+    ...(input.lifecyclePolicyText !== undefined && { lifecyclePolicyText: input.lifecyclePolicyText }),
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3665,21 +3601,15 @@ const serializeAws_json1_1SetRepositoryPolicyRequest = (
     ...(input.force !== undefined && { force: input.force }),
     ...(input.policyText !== undefined && { policyText: input.policyText }),
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
 const serializeAws_json1_1StartImageScanRequest = (input: StartImageScanRequest, context: __SerdeContext): any => {
   return {
-    ...(input.imageId !== undefined && {
-      imageId: serializeAws_json1_1ImageIdentifier(input.imageId, context),
-    }),
+    ...(input.imageId !== undefined && { imageId: serializeAws_json1_1ImageIdentifier(input.imageId, context) }),
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3688,13 +3618,9 @@ const serializeAws_json1_1StartLifecyclePolicyPreviewRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.lifecyclePolicyText !== undefined && {
-      lifecyclePolicyText: input.lifecyclePolicyText,
-    }),
+    ...(input.lifecyclePolicyText !== undefined && { lifecyclePolicyText: input.lifecyclePolicyText }),
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3716,36 +3642,24 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys !== undefined && {
-      tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context),
-    }),
+    ...(input.tagKeys !== undefined && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
   };
 };
 
 const serializeAws_json1_1UploadLayerPartRequest = (input: UploadLayerPartRequest, context: __SerdeContext): any => {
   return {
-    ...(input.layerPartBlob !== undefined && {
-      layerPartBlob: context.base64Encoder(input.layerPartBlob),
-    }),
-    ...(input.partFirstByte !== undefined && {
-      partFirstByte: input.partFirstByte,
-    }),
-    ...(input.partLastByte !== undefined && {
-      partLastByte: input.partLastByte,
-    }),
+    ...(input.layerPartBlob !== undefined && { layerPartBlob: context.base64Encoder(input.layerPartBlob) }),
+    ...(input.partFirstByte !== undefined && { partFirstByte: input.partFirstByte }),
+    ...(input.partLastByte !== undefined && { partLastByte: input.partLastByte }),
     ...(input.registryId !== undefined && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined && {
-      repositoryName: input.repositoryName,
-    }),
+    ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
     ...(input.uploadId !== undefined && { uploadId: input.uploadId }),
   };
 };

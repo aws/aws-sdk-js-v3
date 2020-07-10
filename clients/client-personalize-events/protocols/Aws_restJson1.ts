@@ -19,9 +19,7 @@ export const serializeAws_restJson1PutEventsCommand = async (
   let resolvedPath = "/events";
   let body: any;
   body = JSON.stringify({
-    ...(input.eventList !== undefined && {
-      eventList: serializeAws_restJson1EventList(input.eventList, context),
-    }),
+    ...(input.eventList !== undefined && { eventList: serializeAws_restJson1EventList(input.eventList, context) }),
     ...(input.sessionId !== undefined && { sessionId: input.sessionId }),
     ...(input.trackingId !== undefined && { trackingId: input.trackingId }),
     ...(input.userId !== undefined && { userId: input.userId }),
@@ -110,12 +108,8 @@ const serializeAws_restJson1Event = (input: Event, context: __SerdeContext): any
   return {
     ...(input.eventId !== undefined && { eventId: input.eventId }),
     ...(input.eventType !== undefined && { eventType: input.eventType }),
-    ...(input.properties !== undefined && {
-      properties: __LazyJsonString.fromObject(input.properties),
-    }),
-    ...(input.sentAt !== undefined && {
-      sentAt: Math.round(input.sentAt.getTime() / 1000),
-    }),
+    ...(input.properties !== undefined && { properties: __LazyJsonString.fromObject(input.properties) }),
+    ...(input.sentAt !== undefined && { sentAt: Math.round(input.sentAt.getTime() / 1000) }),
   };
 };
 

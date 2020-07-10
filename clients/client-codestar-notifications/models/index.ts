@@ -112,9 +112,7 @@ export namespace CreateNotificationRuleRequest {
   export const filterSensitiveLog = (obj: CreateNotificationRuleRequest): any => ({
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Targets && {
-      Targets: obj.Targets.map((item) => Target.filterSensitiveLog(item)),
-    }),
+    ...(obj.Targets && { Targets: obj.Targets.map((item) => Target.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is CreateNotificationRuleRequest => __isa(o, "CreateNotificationRuleRequest");
 }
@@ -280,9 +278,7 @@ export namespace DescribeNotificationRuleResult {
   export const filterSensitiveLog = (obj: DescribeNotificationRuleResult): any => ({
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Targets && {
-      Targets: obj.Targets.map((item) => TargetSummary.filterSensitiveLog(item)),
-    }),
+    ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetSummary.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is DescribeNotificationRuleResult => __isa(o, "DescribeNotificationRuleResult");
 }
@@ -633,9 +629,7 @@ export interface ListTargetsResult {
 export namespace ListTargetsResult {
   export const filterSensitiveLog = (obj: ListTargetsResult): any => ({
     ...obj,
-    ...(obj.Targets && {
-      Targets: obj.Targets.map((item) => TargetSummary.filterSensitiveLog(item)),
-    }),
+    ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetSummary.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is ListTargetsResult => __isa(o, "ListTargetsResult");
 }
@@ -948,9 +942,7 @@ export namespace UpdateNotificationRuleRequest {
   export const filterSensitiveLog = (obj: UpdateNotificationRuleRequest): any => ({
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Targets && {
-      Targets: obj.Targets.map((item) => Target.filterSensitiveLog(item)),
-    }),
+    ...(obj.Targets && { Targets: obj.Targets.map((item) => Target.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is UpdateNotificationRuleRequest => __isa(o, "UpdateNotificationRuleRequest");
 }

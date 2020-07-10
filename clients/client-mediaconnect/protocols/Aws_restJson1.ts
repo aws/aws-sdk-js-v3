@@ -108,9 +108,7 @@ export const serializeAws_restJson1CreateFlowCommand = async (
   let resolvedPath = "/v1/flows";
   let body: any;
   body = JSON.stringify({
-    ...(input.AvailabilityZone !== undefined && {
-      availabilityZone: input.AvailabilityZone,
-    }),
+    ...(input.AvailabilityZone !== undefined && { availabilityZone: input.AvailabilityZone }),
     ...(input.Entitlements !== undefined && {
       entitlements: serializeAws_restJson1__listOfGrantEntitlementRequest(input.Entitlements, context),
     }),
@@ -118,9 +116,7 @@ export const serializeAws_restJson1CreateFlowCommand = async (
     ...(input.Outputs !== undefined && {
       outputs: serializeAws_restJson1__listOfAddOutputRequest(input.Outputs, context),
     }),
-    ...(input.Source !== undefined && {
-      source: serializeAws_restJson1SetSourceRequest(input.Source, context),
-    }),
+    ...(input.Source !== undefined && { source: serializeAws_restJson1SetSourceRequest(input.Source, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -238,9 +234,7 @@ export const serializeAws_restJson1ListEntitlementsCommand = async (
   };
   let resolvedPath = "/v1/entitlements";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -266,9 +260,7 @@ export const serializeAws_restJson1ListFlowsCommand = async (
   };
   let resolvedPath = "/v1/flows";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -472,9 +464,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && {
-      tags: serializeAws_restJson1__mapOf__string(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -506,9 +496,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && {
-      tagKeys: (input.TagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -612,9 +600,7 @@ export const serializeAws_restJson1UpdateFlowOutputCommand = async (
     ...(input.Port !== undefined && { port: input.Port }),
     ...(input.Protocol !== undefined && { protocol: input.Protocol }),
     ...(input.RemoteId !== undefined && { remoteId: input.RemoteId }),
-    ...(input.SmoothingLatency !== undefined && {
-      smoothingLatency: input.SmoothingLatency,
-    }),
+    ...(input.SmoothingLatency !== undefined && { smoothingLatency: input.SmoothingLatency }),
     ...(input.StreamId !== undefined && { streamId: input.StreamId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -661,17 +647,13 @@ export const serializeAws_restJson1UpdateFlowSourceCommand = async (
       decryption: serializeAws_restJson1UpdateEncryption(input.Decryption, context),
     }),
     ...(input.Description !== undefined && { description: input.Description }),
-    ...(input.EntitlementArn !== undefined && {
-      entitlementArn: input.EntitlementArn,
-    }),
+    ...(input.EntitlementArn !== undefined && { entitlementArn: input.EntitlementArn }),
     ...(input.IngestPort !== undefined && { ingestPort: input.IngestPort }),
     ...(input.MaxBitrate !== undefined && { maxBitrate: input.MaxBitrate }),
     ...(input.MaxLatency !== undefined && { maxLatency: input.MaxLatency }),
     ...(input.Protocol !== undefined && { protocol: input.Protocol }),
     ...(input.StreamId !== undefined && { streamId: input.StreamId }),
-    ...(input.WhitelistCidr !== undefined && {
-      whitelistCidr: input.WhitelistCidr,
-    }),
+    ...(input.WhitelistCidr !== undefined && { whitelistCidr: input.WhitelistCidr }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2456,17 +2438,13 @@ const serializeAws_restJson1AddOutputRequest = (input: AddOutputRequest, context
     }),
     ...(input.Description !== undefined && { description: input.Description }),
     ...(input.Destination !== undefined && { destination: input.Destination }),
-    ...(input.Encryption !== undefined && {
-      encryption: serializeAws_restJson1Encryption(input.Encryption, context),
-    }),
+    ...(input.Encryption !== undefined && { encryption: serializeAws_restJson1Encryption(input.Encryption, context) }),
     ...(input.MaxLatency !== undefined && { maxLatency: input.MaxLatency }),
     ...(input.Name !== undefined && { name: input.Name }),
     ...(input.Port !== undefined && { port: input.Port }),
     ...(input.Protocol !== undefined && { protocol: input.Protocol }),
     ...(input.RemoteId !== undefined && { remoteId: input.RemoteId }),
-    ...(input.SmoothingLatency !== undefined && {
-      smoothingLatency: input.SmoothingLatency,
-    }),
+    ...(input.SmoothingLatency !== undefined && { smoothingLatency: input.SmoothingLatency }),
     ...(input.StreamId !== undefined && { streamId: input.StreamId }),
   };
 };
@@ -2496,9 +2474,7 @@ const serializeAws_restJson1GrantEntitlementRequest = (
       dataTransferSubscriberFeePercent: input.DataTransferSubscriberFeePercent,
     }),
     ...(input.Description !== undefined && { description: input.Description }),
-    ...(input.Encryption !== undefined && {
-      encryption: serializeAws_restJson1Encryption(input.Encryption, context),
-    }),
+    ...(input.Encryption !== undefined && { encryption: serializeAws_restJson1Encryption(input.Encryption, context) }),
     ...(input.Name !== undefined && { name: input.Name }),
     ...(input.Subscribers !== undefined && {
       subscribers: serializeAws_restJson1__listOf__string(input.Subscribers, context),
@@ -2508,22 +2484,16 @@ const serializeAws_restJson1GrantEntitlementRequest = (
 
 const serializeAws_restJson1SetSourceRequest = (input: SetSourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Decryption !== undefined && {
-      decryption: serializeAws_restJson1Encryption(input.Decryption, context),
-    }),
+    ...(input.Decryption !== undefined && { decryption: serializeAws_restJson1Encryption(input.Decryption, context) }),
     ...(input.Description !== undefined && { description: input.Description }),
-    ...(input.EntitlementArn !== undefined && {
-      entitlementArn: input.EntitlementArn,
-    }),
+    ...(input.EntitlementArn !== undefined && { entitlementArn: input.EntitlementArn }),
     ...(input.IngestPort !== undefined && { ingestPort: input.IngestPort }),
     ...(input.MaxBitrate !== undefined && { maxBitrate: input.MaxBitrate }),
     ...(input.MaxLatency !== undefined && { maxLatency: input.MaxLatency }),
     ...(input.Name !== undefined && { name: input.Name }),
     ...(input.Protocol !== undefined && { protocol: input.Protocol }),
     ...(input.StreamId !== undefined && { streamId: input.StreamId }),
-    ...(input.WhitelistCidr !== undefined && {
-      whitelistCidr: input.WhitelistCidr,
-    }),
+    ...(input.WhitelistCidr !== undefined && { whitelistCidr: input.WhitelistCidr }),
   };
 };
 

@@ -3727,9 +3727,7 @@ const deserializeAws_json1_1UnrecognizedClientExceptionResponse = async (
 const serializeAws_json1_1AssociateKmsKeyRequest = (input: AssociateKmsKeyRequest, context: __SerdeContext): any => {
   return {
     ...(input.kmsKeyId !== undefined && { kmsKeyId: input.kmsKeyId }),
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
   };
 };
 
@@ -3742,16 +3740,10 @@ const serializeAws_json1_1CancelExportTaskRequest = (input: CancelExportTaskRequ
 const serializeAws_json1_1CreateExportTaskRequest = (input: CreateExportTaskRequest, context: __SerdeContext): any => {
   return {
     ...(input.destination !== undefined && { destination: input.destination }),
-    ...(input.destinationPrefix !== undefined && {
-      destinationPrefix: input.destinationPrefix,
-    }),
+    ...(input.destinationPrefix !== undefined && { destinationPrefix: input.destinationPrefix }),
     ...(input.from !== undefined && { from: input.from }),
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
-    ...(input.logStreamNamePrefix !== undefined && {
-      logStreamNamePrefix: input.logStreamNamePrefix,
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
+    ...(input.logStreamNamePrefix !== undefined && { logStreamNamePrefix: input.logStreamNamePrefix }),
     ...(input.taskName !== undefined && { taskName: input.taskName }),
     ...(input.to !== undefined && { to: input.to }),
   };
@@ -3760,23 +3752,15 @@ const serializeAws_json1_1CreateExportTaskRequest = (input: CreateExportTaskRequ
 const serializeAws_json1_1CreateLogGroupRequest = (input: CreateLogGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.kmsKeyId !== undefined && { kmsKeyId: input.kmsKeyId }),
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1Tags(input.tags, context),
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateLogStreamRequest = (input: CreateLogStreamRequest, context: __SerdeContext): any => {
   return {
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
-    ...(input.logStreamName !== undefined && {
-      logStreamName: input.logStreamName,
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
+    ...(input.logStreamName !== undefined && { logStreamName: input.logStreamName }),
   };
 };
 
@@ -3785,28 +3769,20 @@ const serializeAws_json1_1DeleteDestinationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.destinationName !== undefined && {
-      destinationName: input.destinationName,
-    }),
+    ...(input.destinationName !== undefined && { destinationName: input.destinationName }),
   };
 };
 
 const serializeAws_json1_1DeleteLogGroupRequest = (input: DeleteLogGroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
   };
 };
 
 const serializeAws_json1_1DeleteLogStreamRequest = (input: DeleteLogStreamRequest, context: __SerdeContext): any => {
   return {
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
-    ...(input.logStreamName !== undefined && {
-      logStreamName: input.logStreamName,
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
+    ...(input.logStreamName !== undefined && { logStreamName: input.logStreamName }),
   };
 };
 
@@ -3816,9 +3792,7 @@ const serializeAws_json1_1DeleteMetricFilterRequest = (
 ): any => {
   return {
     ...(input.filterName !== undefined && { filterName: input.filterName }),
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
   };
 };
 
@@ -3836,9 +3810,7 @@ const serializeAws_json1_1DeleteRetentionPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
   };
 };
 
@@ -3848,9 +3820,7 @@ const serializeAws_json1_1DeleteSubscriptionFilterRequest = (
 ): any => {
   return {
     ...(input.filterName !== undefined && { filterName: input.filterName }),
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
   };
 };
 
@@ -3859,9 +3829,7 @@ const serializeAws_json1_1DescribeDestinationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationNamePrefix !== undefined && {
-      DestinationNamePrefix: input.DestinationNamePrefix,
-    }),
+    ...(input.DestinationNamePrefix !== undefined && { DestinationNamePrefix: input.DestinationNamePrefix }),
     ...(input.limit !== undefined && { limit: input.limit }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
@@ -3885,9 +3853,7 @@ const serializeAws_json1_1DescribeLogGroupsRequest = (
 ): any => {
   return {
     ...(input.limit !== undefined && { limit: input.limit }),
-    ...(input.logGroupNamePrefix !== undefined && {
-      logGroupNamePrefix: input.logGroupNamePrefix,
-    }),
+    ...(input.logGroupNamePrefix !== undefined && { logGroupNamePrefix: input.logGroupNamePrefix }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
 };
@@ -3899,12 +3865,8 @@ const serializeAws_json1_1DescribeLogStreamsRequest = (
   return {
     ...(input.descending !== undefined && { descending: input.descending }),
     ...(input.limit !== undefined && { limit: input.limit }),
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
-    ...(input.logStreamNamePrefix !== undefined && {
-      logStreamNamePrefix: input.logStreamNamePrefix,
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
+    ...(input.logStreamNamePrefix !== undefined && { logStreamNamePrefix: input.logStreamNamePrefix }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.orderBy !== undefined && { orderBy: input.orderBy }),
   };
@@ -3915,26 +3877,18 @@ const serializeAws_json1_1DescribeMetricFiltersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filterNamePrefix !== undefined && {
-      filterNamePrefix: input.filterNamePrefix,
-    }),
+    ...(input.filterNamePrefix !== undefined && { filterNamePrefix: input.filterNamePrefix }),
     ...(input.limit !== undefined && { limit: input.limit }),
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
     ...(input.metricName !== undefined && { metricName: input.metricName }),
-    ...(input.metricNamespace !== undefined && {
-      metricNamespace: input.metricNamespace,
-    }),
+    ...(input.metricNamespace !== undefined && { metricNamespace: input.metricNamespace }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1DescribeQueriesRequest = (input: DescribeQueriesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.status !== undefined && { status: input.status }),
@@ -3956,13 +3910,9 @@ const serializeAws_json1_1DescribeSubscriptionFiltersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filterNamePrefix !== undefined && {
-      filterNamePrefix: input.filterNamePrefix,
-    }),
+    ...(input.filterNamePrefix !== undefined && { filterNamePrefix: input.filterNamePrefix }),
     ...(input.limit !== undefined && { limit: input.limit }),
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
 };
@@ -3972,26 +3922,18 @@ const serializeAws_json1_1DisassociateKmsKeyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
   };
 };
 
 const serializeAws_json1_1FilterLogEventsRequest = (input: FilterLogEventsRequest, context: __SerdeContext): any => {
   return {
     ...(input.endTime !== undefined && { endTime: input.endTime }),
-    ...(input.filterPattern !== undefined && {
-      filterPattern: input.filterPattern,
-    }),
+    ...(input.filterPattern !== undefined && { filterPattern: input.filterPattern }),
     ...(input.interleaved !== undefined && { interleaved: input.interleaved }),
     ...(input.limit !== undefined && { limit: input.limit }),
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
-    ...(input.logStreamNamePrefix !== undefined && {
-      logStreamNamePrefix: input.logStreamNamePrefix,
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
+    ...(input.logStreamNamePrefix !== undefined && { logStreamNamePrefix: input.logStreamNamePrefix }),
     ...(input.logStreamNames !== undefined && {
       logStreamNames: serializeAws_json1_1InputLogStreamNames(input.logStreamNames, context),
     }),
@@ -4004,16 +3946,10 @@ const serializeAws_json1_1GetLogEventsRequest = (input: GetLogEventsRequest, con
   return {
     ...(input.endTime !== undefined && { endTime: input.endTime }),
     ...(input.limit !== undefined && { limit: input.limit }),
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
-    ...(input.logStreamName !== undefined && {
-      logStreamName: input.logStreamName,
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
+    ...(input.logStreamName !== undefined && { logStreamName: input.logStreamName }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.startFromHead !== undefined && {
-      startFromHead: input.startFromHead,
-    }),
+    ...(input.startFromHead !== undefined && { startFromHead: input.startFromHead }),
     ...(input.startTime !== undefined && { startTime: input.startTime }),
   };
 };
@@ -4023,18 +3959,14 @@ const serializeAws_json1_1GetLogGroupFieldsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
     ...(input.time !== undefined && { time: input.time }),
   };
 };
 
 const serializeAws_json1_1GetLogRecordRequest = (input: GetLogRecordRequest, context: __SerdeContext): any => {
   return {
-    ...(input.logRecordPointer !== undefined && {
-      logRecordPointer: input.logRecordPointer,
-    }),
+    ...(input.logRecordPointer !== undefined && { logRecordPointer: input.logRecordPointer }),
   };
 };
 
@@ -4061,9 +3993,7 @@ const serializeAws_json1_1InputLogStreamNames = (input: string[], context: __Ser
 
 const serializeAws_json1_1ListTagsLogGroupRequest = (input: ListTagsLogGroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
   };
 };
 
@@ -4073,13 +4003,9 @@ const serializeAws_json1_1LogGroupNames = (input: string[], context: __SerdeCont
 
 const serializeAws_json1_1MetricTransformation = (input: MetricTransformation, context: __SerdeContext): any => {
   return {
-    ...(input.defaultValue !== undefined && {
-      defaultValue: input.defaultValue,
-    }),
+    ...(input.defaultValue !== undefined && { defaultValue: input.defaultValue }),
     ...(input.metricName !== undefined && { metricName: input.metricName }),
-    ...(input.metricNamespace !== undefined && {
-      metricNamespace: input.metricNamespace,
-    }),
+    ...(input.metricNamespace !== undefined && { metricNamespace: input.metricNamespace }),
     ...(input.metricValue !== undefined && { metricValue: input.metricValue }),
   };
 };
@@ -4093,20 +4019,14 @@ const serializeAws_json1_1PutDestinationPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.accessPolicy !== undefined && {
-      accessPolicy: input.accessPolicy,
-    }),
-    ...(input.destinationName !== undefined && {
-      destinationName: input.destinationName,
-    }),
+    ...(input.accessPolicy !== undefined && { accessPolicy: input.accessPolicy }),
+    ...(input.destinationName !== undefined && { destinationName: input.destinationName }),
   };
 };
 
 const serializeAws_json1_1PutDestinationRequest = (input: PutDestinationRequest, context: __SerdeContext): any => {
   return {
-    ...(input.destinationName !== undefined && {
-      destinationName: input.destinationName,
-    }),
+    ...(input.destinationName !== undefined && { destinationName: input.destinationName }),
     ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
     ...(input.targetArn !== undefined && { targetArn: input.targetArn }),
   };
@@ -4114,30 +4034,18 @@ const serializeAws_json1_1PutDestinationRequest = (input: PutDestinationRequest,
 
 const serializeAws_json1_1PutLogEventsRequest = (input: PutLogEventsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.logEvents !== undefined && {
-      logEvents: serializeAws_json1_1InputLogEvents(input.logEvents, context),
-    }),
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
-    ...(input.logStreamName !== undefined && {
-      logStreamName: input.logStreamName,
-    }),
-    ...(input.sequenceToken !== undefined && {
-      sequenceToken: input.sequenceToken,
-    }),
+    ...(input.logEvents !== undefined && { logEvents: serializeAws_json1_1InputLogEvents(input.logEvents, context) }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
+    ...(input.logStreamName !== undefined && { logStreamName: input.logStreamName }),
+    ...(input.sequenceToken !== undefined && { sequenceToken: input.sequenceToken }),
   };
 };
 
 const serializeAws_json1_1PutMetricFilterRequest = (input: PutMetricFilterRequest, context: __SerdeContext): any => {
   return {
     ...(input.filterName !== undefined && { filterName: input.filterName }),
-    ...(input.filterPattern !== undefined && {
-      filterPattern: input.filterPattern,
-    }),
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
+    ...(input.filterPattern !== undefined && { filterPattern: input.filterPattern }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
     ...(input.metricTransformations !== undefined && {
       metricTransformations: serializeAws_json1_1MetricTransformations(input.metricTransformations, context),
     }),
@@ -4149,9 +4057,7 @@ const serializeAws_json1_1PutResourcePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.policyDocument !== undefined && {
-      policyDocument: input.policyDocument,
-    }),
+    ...(input.policyDocument !== undefined && { policyDocument: input.policyDocument }),
     ...(input.policyName !== undefined && { policyName: input.policyName }),
   };
 };
@@ -4161,12 +4067,8 @@ const serializeAws_json1_1PutRetentionPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
-    ...(input.retentionInDays !== undefined && {
-      retentionInDays: input.retentionInDays,
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
+    ...(input.retentionInDays !== undefined && { retentionInDays: input.retentionInDays }),
   };
 };
 
@@ -4175,19 +4077,11 @@ const serializeAws_json1_1PutSubscriptionFilterRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.destinationArn !== undefined && {
-      destinationArn: input.destinationArn,
-    }),
-    ...(input.distribution !== undefined && {
-      distribution: input.distribution,
-    }),
+    ...(input.destinationArn !== undefined && { destinationArn: input.destinationArn }),
+    ...(input.distribution !== undefined && { distribution: input.distribution }),
     ...(input.filterName !== undefined && { filterName: input.filterName }),
-    ...(input.filterPattern !== undefined && {
-      filterPattern: input.filterPattern,
-    }),
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
+    ...(input.filterPattern !== undefined && { filterPattern: input.filterPattern }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
     ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
   };
 };
@@ -4196,9 +4090,7 @@ const serializeAws_json1_1StartQueryRequest = (input: StartQueryRequest, context
   return {
     ...(input.endTime !== undefined && { endTime: input.endTime }),
     ...(input.limit !== undefined && { limit: input.limit }),
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
     ...(input.logGroupNames !== undefined && {
       logGroupNames: serializeAws_json1_1LogGroupNames(input.logGroupNames, context),
     }),
@@ -4219,12 +4111,8 @@ const serializeAws_json1_1TagList = (input: string[], context: __SerdeContext): 
 
 const serializeAws_json1_1TagLogGroupRequest = (input: TagLogGroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1Tags(input.tags, context),
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -4244,9 +4132,7 @@ const serializeAws_json1_1TestEventMessages = (input: string[], context: __Serde
 
 const serializeAws_json1_1TestMetricFilterRequest = (input: TestMetricFilterRequest, context: __SerdeContext): any => {
   return {
-    ...(input.filterPattern !== undefined && {
-      filterPattern: input.filterPattern,
-    }),
+    ...(input.filterPattern !== undefined && { filterPattern: input.filterPattern }),
     ...(input.logEventMessages !== undefined && {
       logEventMessages: serializeAws_json1_1TestEventMessages(input.logEventMessages, context),
     }),
@@ -4255,12 +4141,8 @@ const serializeAws_json1_1TestMetricFilterRequest = (input: TestMetricFilterRequ
 
 const serializeAws_json1_1UntagLogGroupRequest = (input: UntagLogGroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.logGroupName !== undefined && {
-      logGroupName: input.logGroupName,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 

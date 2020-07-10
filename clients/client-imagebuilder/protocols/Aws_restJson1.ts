@@ -172,9 +172,7 @@ export const serializeAws_restJson1CancelImageCreationCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
-    ...(input.imageBuildVersionArn !== undefined && {
-      imageBuildVersionArn: input.imageBuildVersionArn,
-    }),
+    ...(input.imageBuildVersionArn !== undefined && { imageBuildVersionArn: input.imageBuildVersionArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -198,21 +196,15 @@ export const serializeAws_restJson1CreateComponentCommand = async (
   let resolvedPath = "/CreateComponent";
   let body: any;
   body = JSON.stringify({
-    ...(input.changeDescription !== undefined && {
-      changeDescription: input.changeDescription,
-    }),
+    ...(input.changeDescription !== undefined && { changeDescription: input.changeDescription }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.data !== undefined && { data: input.data }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.kmsKeyId !== undefined && { kmsKeyId: input.kmsKeyId }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.platform !== undefined && { platform: input.platform }),
-    ...(input.semanticVersion !== undefined && {
-      semanticVersion: input.semanticVersion,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.semanticVersion !== undefined && { semanticVersion: input.semanticVersion }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
     ...(input.uri !== undefined && { uri: input.uri }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -243,9 +235,7 @@ export const serializeAws_restJson1CreateDistributionConfigurationCommand = asyn
       distributions: serializeAws_restJson1DistributionList(input.distributions, context),
     }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -273,18 +263,14 @@ export const serializeAws_restJson1CreateImageCommand = async (
     ...(input.distributionConfigurationArn !== undefined && {
       distributionConfigurationArn: input.distributionConfigurationArn,
     }),
-    ...(input.imageRecipeArn !== undefined && {
-      imageRecipeArn: input.imageRecipeArn,
-    }),
+    ...(input.imageRecipeArn !== undefined && { imageRecipeArn: input.imageRecipeArn }),
     ...(input.imageTestsConfiguration !== undefined && {
       imageTestsConfiguration: serializeAws_restJson1ImageTestsConfiguration(input.imageTestsConfiguration, context),
     }),
     ...(input.infrastructureConfigurationArn !== undefined && {
       infrastructureConfigurationArn: input.infrastructureConfigurationArn,
     }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -313,9 +299,7 @@ export const serializeAws_restJson1CreateImagePipelineCommand = async (
     ...(input.distributionConfigurationArn !== undefined && {
       distributionConfigurationArn: input.distributionConfigurationArn,
     }),
-    ...(input.imageRecipeArn !== undefined && {
-      imageRecipeArn: input.imageRecipeArn,
-    }),
+    ...(input.imageRecipeArn !== undefined && { imageRecipeArn: input.imageRecipeArn }),
     ...(input.imageTestsConfiguration !== undefined && {
       imageTestsConfiguration: serializeAws_restJson1ImageTestsConfiguration(input.imageTestsConfiguration, context),
     }),
@@ -323,13 +307,9 @@ export const serializeAws_restJson1CreateImagePipelineCommand = async (
       infrastructureConfigurationArn: input.infrastructureConfigurationArn,
     }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.schedule !== undefined && {
-      schedule: serializeAws_restJson1Schedule(input.schedule, context),
-    }),
+    ...(input.schedule !== undefined && { schedule: serializeAws_restJson1Schedule(input.schedule, context) }),
     ...(input.status !== undefined && { status: input.status }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -363,12 +343,8 @@ export const serializeAws_restJson1CreateImageRecipeCommand = async (
     ...(input.description !== undefined && { description: input.description }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.parentImage !== undefined && { parentImage: input.parentImage }),
-    ...(input.semanticVersion !== undefined && {
-      semanticVersion: input.semanticVersion,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.semanticVersion !== undefined && { semanticVersion: input.semanticVersion }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -394,25 +370,19 @@ export const serializeAws_restJson1CreateInfrastructureConfigurationCommand = as
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.instanceProfileName !== undefined && {
-      instanceProfileName: input.instanceProfileName,
-    }),
+    ...(input.instanceProfileName !== undefined && { instanceProfileName: input.instanceProfileName }),
     ...(input.instanceTypes !== undefined && {
       instanceTypes: serializeAws_restJson1InstanceTypeList(input.instanceTypes, context),
     }),
     ...(input.keyPair !== undefined && { keyPair: input.keyPair }),
-    ...(input.logging !== undefined && {
-      logging: serializeAws_restJson1Logging(input.logging, context),
-    }),
+    ...(input.logging !== undefined && { logging: serializeAws_restJson1Logging(input.logging, context) }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.securityGroupIds !== undefined && {
       securityGroupIds: serializeAws_restJson1SecurityGroupIds(input.securityGroupIds, context),
     }),
     ...(input.snsTopicArn !== undefined && { snsTopicArn: input.snsTopicArn }),
     ...(input.subnetId !== undefined && { subnetId: input.subnetId }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
     ...(input.terminateInstanceOnFailure !== undefined && {
       terminateInstanceOnFailure: input.terminateInstanceOnFailure,
     }),
@@ -438,9 +408,7 @@ export const serializeAws_restJson1DeleteComponentCommand = async (
   };
   let resolvedPath = "/DeleteComponent";
   const query: any = {
-    ...(input.componentBuildVersionArn !== undefined && {
-      componentBuildVersionArn: input.componentBuildVersionArn,
-    }),
+    ...(input.componentBuildVersionArn !== undefined && { componentBuildVersionArn: input.componentBuildVersionArn }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -492,9 +460,7 @@ export const serializeAws_restJson1DeleteImageCommand = async (
   };
   let resolvedPath = "/DeleteImage";
   const query: any = {
-    ...(input.imageBuildVersionArn !== undefined && {
-      imageBuildVersionArn: input.imageBuildVersionArn,
-    }),
+    ...(input.imageBuildVersionArn !== undefined && { imageBuildVersionArn: input.imageBuildVersionArn }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -519,9 +485,7 @@ export const serializeAws_restJson1DeleteImagePipelineCommand = async (
   };
   let resolvedPath = "/DeleteImagePipeline";
   const query: any = {
-    ...(input.imagePipelineArn !== undefined && {
-      imagePipelineArn: input.imagePipelineArn,
-    }),
+    ...(input.imagePipelineArn !== undefined && { imagePipelineArn: input.imagePipelineArn }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -546,9 +510,7 @@ export const serializeAws_restJson1DeleteImageRecipeCommand = async (
   };
   let resolvedPath = "/DeleteImageRecipe";
   const query: any = {
-    ...(input.imageRecipeArn !== undefined && {
-      imageRecipeArn: input.imageRecipeArn,
-    }),
+    ...(input.imageRecipeArn !== undefined && { imageRecipeArn: input.imageRecipeArn }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -600,9 +562,7 @@ export const serializeAws_restJson1GetComponentCommand = async (
   };
   let resolvedPath = "/GetComponent";
   const query: any = {
-    ...(input.componentBuildVersionArn !== undefined && {
-      componentBuildVersionArn: input.componentBuildVersionArn,
-    }),
+    ...(input.componentBuildVersionArn !== undefined && { componentBuildVersionArn: input.componentBuildVersionArn }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -627,9 +587,7 @@ export const serializeAws_restJson1GetComponentPolicyCommand = async (
   };
   let resolvedPath = "/GetComponentPolicy";
   const query: any = {
-    ...(input.componentArn !== undefined && {
-      componentArn: input.componentArn,
-    }),
+    ...(input.componentArn !== undefined && { componentArn: input.componentArn }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -681,9 +639,7 @@ export const serializeAws_restJson1GetImageCommand = async (
   };
   let resolvedPath = "/GetImage";
   const query: any = {
-    ...(input.imageBuildVersionArn !== undefined && {
-      imageBuildVersionArn: input.imageBuildVersionArn,
-    }),
+    ...(input.imageBuildVersionArn !== undefined && { imageBuildVersionArn: input.imageBuildVersionArn }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -708,9 +664,7 @@ export const serializeAws_restJson1GetImagePipelineCommand = async (
   };
   let resolvedPath = "/GetImagePipeline";
   const query: any = {
-    ...(input.imagePipelineArn !== undefined && {
-      imagePipelineArn: input.imagePipelineArn,
-    }),
+    ...(input.imagePipelineArn !== undefined && { imagePipelineArn: input.imagePipelineArn }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -760,9 +714,7 @@ export const serializeAws_restJson1GetImageRecipeCommand = async (
   };
   let resolvedPath = "/GetImageRecipe";
   const query: any = {
-    ...(input.imageRecipeArn !== undefined && {
-      imageRecipeArn: input.imageRecipeArn,
-    }),
+    ...(input.imageRecipeArn !== undefined && { imageRecipeArn: input.imageRecipeArn }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -787,9 +739,7 @@ export const serializeAws_restJson1GetImageRecipePolicyCommand = async (
   };
   let resolvedPath = "/GetImageRecipePolicy";
   const query: any = {
-    ...(input.imageRecipeArn !== undefined && {
-      imageRecipeArn: input.imageRecipeArn,
-    }),
+    ...(input.imageRecipeArn !== undefined && { imageRecipeArn: input.imageRecipeArn }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -842,9 +792,7 @@ export const serializeAws_restJson1ImportComponentCommand = async (
   let resolvedPath = "/ImportComponent";
   let body: any;
   body = JSON.stringify({
-    ...(input.changeDescription !== undefined && {
-      changeDescription: input.changeDescription,
-    }),
+    ...(input.changeDescription !== undefined && { changeDescription: input.changeDescription }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.data !== undefined && { data: input.data }),
     ...(input.description !== undefined && { description: input.description }),
@@ -852,12 +800,8 @@ export const serializeAws_restJson1ImportComponentCommand = async (
     ...(input.kmsKeyId !== undefined && { kmsKeyId: input.kmsKeyId }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.platform !== undefined && { platform: input.platform }),
-    ...(input.semanticVersion !== undefined && {
-      semanticVersion: input.semanticVersion,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.semanticVersion !== undefined && { semanticVersion: input.semanticVersion }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
     ...(input.type !== undefined && { type: input.type }),
     ...(input.uri !== undefined && { uri: input.uri }),
   });
@@ -883,9 +827,7 @@ export const serializeAws_restJson1ListComponentBuildVersionsCommand = async (
   let resolvedPath = "/ListComponentBuildVersions";
   let body: any;
   body = JSON.stringify({
-    ...(input.componentVersionArn !== undefined && {
-      componentVersionArn: input.componentVersionArn,
-    }),
+    ...(input.componentVersionArn !== undefined && { componentVersionArn: input.componentVersionArn }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   });
@@ -911,9 +853,7 @@ export const serializeAws_restJson1ListComponentsCommand = async (
   let resolvedPath = "/ListComponents";
   let body: any;
   body = JSON.stringify({
-    ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1FilterList(input.filters, context),
-    }),
+    ...(input.filters !== undefined && { filters: serializeAws_restJson1FilterList(input.filters, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.owner !== undefined && { owner: input.owner }),
@@ -940,9 +880,7 @@ export const serializeAws_restJson1ListDistributionConfigurationsCommand = async
   let resolvedPath = "/ListDistributionConfigurations";
   let body: any;
   body = JSON.stringify({
-    ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1FilterList(input.filters, context),
-    }),
+    ...(input.filters !== undefined && { filters: serializeAws_restJson1FilterList(input.filters, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   });
@@ -968,12 +906,8 @@ export const serializeAws_restJson1ListImageBuildVersionsCommand = async (
   let resolvedPath = "/ListImageBuildVersions";
   let body: any;
   body = JSON.stringify({
-    ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1FilterList(input.filters, context),
-    }),
-    ...(input.imageVersionArn !== undefined && {
-      imageVersionArn: input.imageVersionArn,
-    }),
+    ...(input.filters !== undefined && { filters: serializeAws_restJson1FilterList(input.filters, context) }),
+    ...(input.imageVersionArn !== undefined && { imageVersionArn: input.imageVersionArn }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   });
@@ -999,12 +933,8 @@ export const serializeAws_restJson1ListImagePipelineImagesCommand = async (
   let resolvedPath = "/ListImagePipelineImages";
   let body: any;
   body = JSON.stringify({
-    ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1FilterList(input.filters, context),
-    }),
-    ...(input.imagePipelineArn !== undefined && {
-      imagePipelineArn: input.imagePipelineArn,
-    }),
+    ...(input.filters !== undefined && { filters: serializeAws_restJson1FilterList(input.filters, context) }),
+    ...(input.imagePipelineArn !== undefined && { imagePipelineArn: input.imagePipelineArn }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   });
@@ -1030,9 +960,7 @@ export const serializeAws_restJson1ListImagePipelinesCommand = async (
   let resolvedPath = "/ListImagePipelines";
   let body: any;
   body = JSON.stringify({
-    ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1FilterList(input.filters, context),
-    }),
+    ...(input.filters !== undefined && { filters: serializeAws_restJson1FilterList(input.filters, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   });
@@ -1058,9 +986,7 @@ export const serializeAws_restJson1ListImageRecipesCommand = async (
   let resolvedPath = "/ListImageRecipes";
   let body: any;
   body = JSON.stringify({
-    ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1FilterList(input.filters, context),
-    }),
+    ...(input.filters !== undefined && { filters: serializeAws_restJson1FilterList(input.filters, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.owner !== undefined && { owner: input.owner }),
@@ -1087,9 +1013,7 @@ export const serializeAws_restJson1ListImagesCommand = async (
   let resolvedPath = "/ListImages";
   let body: any;
   body = JSON.stringify({
-    ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1FilterList(input.filters, context),
-    }),
+    ...(input.filters !== undefined && { filters: serializeAws_restJson1FilterList(input.filters, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.owner !== undefined && { owner: input.owner }),
@@ -1116,9 +1040,7 @@ export const serializeAws_restJson1ListInfrastructureConfigurationsCommand = asy
   let resolvedPath = "/ListInfrastructureConfigurations";
   let body: any;
   body = JSON.stringify({
-    ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1FilterList(input.filters, context),
-    }),
+    ...(input.filters !== undefined && { filters: serializeAws_restJson1FilterList(input.filters, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   });
@@ -1174,9 +1096,7 @@ export const serializeAws_restJson1PutComponentPolicyCommand = async (
   let resolvedPath = "/PutComponentPolicy";
   let body: any;
   body = JSON.stringify({
-    ...(input.componentArn !== undefined && {
-      componentArn: input.componentArn,
-    }),
+    ...(input.componentArn !== undefined && { componentArn: input.componentArn }),
     ...(input.policy !== undefined && { policy: input.policy }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1226,9 +1146,7 @@ export const serializeAws_restJson1PutImageRecipePolicyCommand = async (
   let resolvedPath = "/PutImageRecipePolicy";
   let body: any;
   body = JSON.stringify({
-    ...(input.imageRecipeArn !== undefined && {
-      imageRecipeArn: input.imageRecipeArn,
-    }),
+    ...(input.imageRecipeArn !== undefined && { imageRecipeArn: input.imageRecipeArn }),
     ...(input.policy !== undefined && { policy: input.policy }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1254,9 +1172,7 @@ export const serializeAws_restJson1StartImagePipelineExecutionCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.imagePipelineArn !== undefined && {
-      imagePipelineArn: input.imagePipelineArn,
-    }),
+    ...(input.imagePipelineArn !== undefined && { imagePipelineArn: input.imagePipelineArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1289,9 +1205,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1323,9 +1237,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && {
-      tagKeys: (input.tagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1387,21 +1299,15 @@ export const serializeAws_restJson1UpdateImagePipelineCommand = async (
     ...(input.distributionConfigurationArn !== undefined && {
       distributionConfigurationArn: input.distributionConfigurationArn,
     }),
-    ...(input.imagePipelineArn !== undefined && {
-      imagePipelineArn: input.imagePipelineArn,
-    }),
-    ...(input.imageRecipeArn !== undefined && {
-      imageRecipeArn: input.imageRecipeArn,
-    }),
+    ...(input.imagePipelineArn !== undefined && { imagePipelineArn: input.imagePipelineArn }),
+    ...(input.imageRecipeArn !== undefined && { imageRecipeArn: input.imageRecipeArn }),
     ...(input.imageTestsConfiguration !== undefined && {
       imageTestsConfiguration: serializeAws_restJson1ImageTestsConfiguration(input.imageTestsConfiguration, context),
     }),
     ...(input.infrastructureConfigurationArn !== undefined && {
       infrastructureConfigurationArn: input.infrastructureConfigurationArn,
     }),
-    ...(input.schedule !== undefined && {
-      schedule: serializeAws_restJson1Schedule(input.schedule, context),
-    }),
+    ...(input.schedule !== undefined && { schedule: serializeAws_restJson1Schedule(input.schedule, context) }),
     ...(input.status !== undefined && { status: input.status }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1431,16 +1337,12 @@ export const serializeAws_restJson1UpdateInfrastructureConfigurationCommand = as
     ...(input.infrastructureConfigurationArn !== undefined && {
       infrastructureConfigurationArn: input.infrastructureConfigurationArn,
     }),
-    ...(input.instanceProfileName !== undefined && {
-      instanceProfileName: input.instanceProfileName,
-    }),
+    ...(input.instanceProfileName !== undefined && { instanceProfileName: input.instanceProfileName }),
     ...(input.instanceTypes !== undefined && {
       instanceTypes: serializeAws_restJson1InstanceTypeList(input.instanceTypes, context),
     }),
     ...(input.keyPair !== undefined && { keyPair: input.keyPair }),
-    ...(input.logging !== undefined && {
-      logging: serializeAws_restJson1Logging(input.logging, context),
-    }),
+    ...(input.logging !== undefined && { logging: serializeAws_restJson1Logging(input.logging, context) }),
     ...(input.securityGroupIds !== undefined && {
       securityGroupIds: serializeAws_restJson1SecurityGroupIds(input.securityGroupIds, context),
     }),
@@ -6417,9 +6319,7 @@ const serializeAws_restJson1AmiDistributionConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.amiTags !== undefined && {
-      amiTags: serializeAws_restJson1TagMap(input.amiTags, context),
-    }),
+    ...(input.amiTags !== undefined && { amiTags: serializeAws_restJson1TagMap(input.amiTags, context) }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.launchPermission !== undefined && {
       launchPermission: serializeAws_restJson1LaunchPermissionConfiguration(input.launchPermission, context),
@@ -6434,9 +6334,7 @@ const serializeAws_restJson1ArnList = (input: string[], context: __SerdeContext)
 
 const serializeAws_restJson1ComponentConfiguration = (input: ComponentConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.componentArn !== undefined && {
-      componentArn: input.componentArn,
-    }),
+    ...(input.componentArn !== undefined && { componentArn: input.componentArn }),
   };
 };
 
@@ -6471,9 +6369,7 @@ const serializeAws_restJson1EbsInstanceBlockDeviceSpecification = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deleteOnTermination !== undefined && {
-      deleteOnTermination: input.deleteOnTermination,
-    }),
+    ...(input.deleteOnTermination !== undefined && { deleteOnTermination: input.deleteOnTermination }),
     ...(input.encrypted !== undefined && { encrypted: input.encrypted }),
     ...(input.iops !== undefined && { iops: input.iops }),
     ...(input.kmsKeyId !== undefined && { kmsKeyId: input.kmsKeyId }),
@@ -6486,9 +6382,7 @@ const serializeAws_restJson1EbsInstanceBlockDeviceSpecification = (
 const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.values !== undefined && {
-      values: serializeAws_restJson1FilterValues(input.values, context),
-    }),
+    ...(input.values !== undefined && { values: serializeAws_restJson1FilterValues(input.values, context) }),
   };
 };
 
@@ -6505,12 +6399,8 @@ const serializeAws_restJson1ImageTestsConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.imageTestsEnabled !== undefined && {
-      imageTestsEnabled: input.imageTestsEnabled,
-    }),
-    ...(input.timeoutMinutes !== undefined && {
-      timeoutMinutes: input.timeoutMinutes,
-    }),
+    ...(input.imageTestsEnabled !== undefined && { imageTestsEnabled: input.imageTestsEnabled }),
+    ...(input.timeoutMinutes !== undefined && { timeoutMinutes: input.timeoutMinutes }),
   };
 };
 
@@ -6544,28 +6434,20 @@ const serializeAws_restJson1LaunchPermissionConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.userGroups !== undefined && {
-      userGroups: serializeAws_restJson1StringList(input.userGroups, context),
-    }),
-    ...(input.userIds !== undefined && {
-      userIds: serializeAws_restJson1AccountList(input.userIds, context),
-    }),
+    ...(input.userGroups !== undefined && { userGroups: serializeAws_restJson1StringList(input.userGroups, context) }),
+    ...(input.userIds !== undefined && { userIds: serializeAws_restJson1AccountList(input.userIds, context) }),
   };
 };
 
 const serializeAws_restJson1Logging = (input: Logging, context: __SerdeContext): any => {
   return {
-    ...(input.s3Logs !== undefined && {
-      s3Logs: serializeAws_restJson1S3Logs(input.s3Logs, context),
-    }),
+    ...(input.s3Logs !== undefined && { s3Logs: serializeAws_restJson1S3Logs(input.s3Logs, context) }),
   };
 };
 
 const serializeAws_restJson1S3Logs = (input: S3Logs, context: __SerdeContext): any => {
   return {
-    ...(input.s3BucketName !== undefined && {
-      s3BucketName: input.s3BucketName,
-    }),
+    ...(input.s3BucketName !== undefined && { s3BucketName: input.s3BucketName }),
     ...(input.s3KeyPrefix !== undefined && { s3KeyPrefix: input.s3KeyPrefix }),
   };
 };
@@ -6575,9 +6457,7 @@ const serializeAws_restJson1Schedule = (input: Schedule, context: __SerdeContext
     ...(input.pipelineExecutionStartCondition !== undefined && {
       pipelineExecutionStartCondition: input.pipelineExecutionStartCondition,
     }),
-    ...(input.scheduleExpression !== undefined && {
-      scheduleExpression: input.scheduleExpression,
-    }),
+    ...(input.scheduleExpression !== undefined && { scheduleExpression: input.scheduleExpression }),
   };
 };
 

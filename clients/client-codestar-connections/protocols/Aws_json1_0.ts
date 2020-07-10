@@ -325,28 +325,20 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
 
 const serializeAws_json1_0CreateConnectionInput = (input: CreateConnectionInput, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectionName !== undefined && {
-      ConnectionName: input.ConnectionName,
-    }),
-    ...(input.ProviderType !== undefined && {
-      ProviderType: input.ProviderType,
-    }),
+    ...(input.ConnectionName !== undefined && { ConnectionName: input.ConnectionName }),
+    ...(input.ProviderType !== undefined && { ProviderType: input.ProviderType }),
   };
 };
 
 const serializeAws_json1_0DeleteConnectionInput = (input: DeleteConnectionInput, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectionArn !== undefined && {
-      ConnectionArn: input.ConnectionArn,
-    }),
+    ...(input.ConnectionArn !== undefined && { ConnectionArn: input.ConnectionArn }),
   };
 };
 
 const serializeAws_json1_0GetConnectionInput = (input: GetConnectionInput, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectionArn !== undefined && {
-      ConnectionArn: input.ConnectionArn,
-    }),
+    ...(input.ConnectionArn !== undefined && { ConnectionArn: input.ConnectionArn }),
   };
 };
 
@@ -354,9 +346,7 @@ const serializeAws_json1_0ListConnectionsInput = (input: ListConnectionsInput, c
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ProviderTypeFilter !== undefined && {
-      ProviderTypeFilter: input.ProviderTypeFilter,
-    }),
+    ...(input.ProviderTypeFilter !== undefined && { ProviderTypeFilter: input.ProviderTypeFilter }),
   };
 };
 

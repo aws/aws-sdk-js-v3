@@ -2365,9 +2365,7 @@ const serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateRequest = (
 ): any => {
   return {
     ...(input.AwsRegion !== undefined && { AwsRegion: input.AwsRegion }),
-    ...(input.DesiredValue !== undefined && {
-      DesiredValue: input.DesiredValue,
-    }),
+    ...(input.DesiredValue !== undefined && { DesiredValue: input.DesiredValue }),
     ...(input.QuotaCode !== undefined && { QuotaCode: input.QuotaCode }),
     ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode }),
   };
@@ -2378,9 +2376,7 @@ const serializeAws_json1_1RequestServiceQuotaIncreaseRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DesiredValue !== undefined && {
-      DesiredValue: input.DesiredValue,
-    }),
+    ...(input.DesiredValue !== undefined && { DesiredValue: input.DesiredValue }),
     ...(input.QuotaCode !== undefined && { QuotaCode: input.QuotaCode }),
     ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode }),
   };

@@ -1943,43 +1943,29 @@ const serializeAws_json1_1CreateServerRequest = (input: CreateServerRequest, con
     ...(input.EndpointDetails !== undefined && {
       EndpointDetails: serializeAws_json1_1EndpointDetails(input.EndpointDetails, context),
     }),
-    ...(input.EndpointType !== undefined && {
-      EndpointType: input.EndpointType,
-    }),
+    ...(input.EndpointType !== undefined && { EndpointType: input.EndpointType }),
     ...(input.HostKey !== undefined && { HostKey: input.HostKey }),
     ...(input.IdentityProviderDetails !== undefined && {
       IdentityProviderDetails: serializeAws_json1_1IdentityProviderDetails(input.IdentityProviderDetails, context),
     }),
-    ...(input.IdentityProviderType !== undefined && {
-      IdentityProviderType: input.IdentityProviderType,
-    }),
+    ...(input.IdentityProviderType !== undefined && { IdentityProviderType: input.IdentityProviderType }),
     ...(input.LoggingRole !== undefined && { LoggingRole: input.LoggingRole }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HomeDirectory !== undefined && {
-      HomeDirectory: input.HomeDirectory,
-    }),
+    ...(input.HomeDirectory !== undefined && { HomeDirectory: input.HomeDirectory }),
     ...(input.HomeDirectoryMappings !== undefined && {
       HomeDirectoryMappings: serializeAws_json1_1HomeDirectoryMappings(input.HomeDirectoryMappings, context),
     }),
-    ...(input.HomeDirectoryType !== undefined && {
-      HomeDirectoryType: input.HomeDirectoryType,
-    }),
+    ...(input.HomeDirectoryType !== undefined && { HomeDirectoryType: input.HomeDirectoryType }),
     ...(input.Policy !== undefined && { Policy: input.Policy }),
     ...(input.Role !== undefined && { Role: input.Role }),
     ...(input.ServerId !== undefined && { ServerId: input.ServerId }),
-    ...(input.SshPublicKeyBody !== undefined && {
-      SshPublicKeyBody: input.SshPublicKeyBody,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
+    ...(input.SshPublicKeyBody !== undefined && { SshPublicKeyBody: input.SshPublicKeyBody }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.UserName !== undefined && { UserName: input.UserName }),
   };
 };
@@ -1996,9 +1982,7 @@ const serializeAws_json1_1DeleteSshPublicKeyRequest = (
 ): any => {
   return {
     ...(input.ServerId !== undefined && { ServerId: input.ServerId }),
-    ...(input.SshPublicKeyId !== undefined && {
-      SshPublicKeyId: input.SshPublicKeyId,
-    }),
+    ...(input.SshPublicKeyId !== undefined && { SshPublicKeyId: input.SshPublicKeyId }),
     ...(input.UserName !== undefined && { UserName: input.UserName }),
   };
 };
@@ -2028,12 +2012,8 @@ const serializeAws_json1_1EndpointDetails = (input: EndpointDetails, context: __
     ...(input.AddressAllocationIds !== undefined && {
       AddressAllocationIds: serializeAws_json1_1AddressAllocationIds(input.AddressAllocationIds, context),
     }),
-    ...(input.SubnetIds !== undefined && {
-      SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context),
-    }),
-    ...(input.VpcEndpointId !== undefined && {
-      VpcEndpointId: input.VpcEndpointId,
-    }),
+    ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
+    ...(input.VpcEndpointId !== undefined && { VpcEndpointId: input.VpcEndpointId }),
     ...(input.VpcId !== undefined && { VpcId: input.VpcId }),
   };
 };
@@ -2051,9 +2031,7 @@ const serializeAws_json1_1HomeDirectoryMappings = (input: HomeDirectoryMapEntry[
 
 const serializeAws_json1_1IdentityProviderDetails = (input: IdentityProviderDetails, context: __SerdeContext): any => {
   return {
-    ...(input.InvocationRole !== undefined && {
-      InvocationRole: input.InvocationRole,
-    }),
+    ...(input.InvocationRole !== undefined && { InvocationRole: input.InvocationRole }),
     ...(input.Url !== undefined && { Url: input.Url }),
   };
 };
@@ -2064,9 +2042,7 @@ const serializeAws_json1_1ImportSshPublicKeyRequest = (
 ): any => {
   return {
     ...(input.ServerId !== undefined && { ServerId: input.ServerId }),
-    ...(input.SshPublicKeyBody !== undefined && {
-      SshPublicKeyBody: input.SshPublicKeyBody,
-    }),
+    ...(input.SshPublicKeyBody !== undefined && { SshPublicKeyBody: input.SshPublicKeyBody }),
     ...(input.UserName !== undefined && { UserName: input.UserName }),
   };
 };
@@ -2127,9 +2103,7 @@ const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.Arn !== undefined && { Arn: input.Arn }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -2144,18 +2118,14 @@ const serializeAws_json1_1TestIdentityProviderRequest = (
   return {
     ...(input.ServerId !== undefined && { ServerId: input.ServerId }),
     ...(input.UserName !== undefined && { UserName: input.UserName }),
-    ...(input.UserPassword !== undefined && {
-      UserPassword: input.UserPassword,
-    }),
+    ...(input.UserPassword !== undefined && { UserPassword: input.UserPassword }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.Arn !== undefined && { Arn: input.Arn }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
   };
 };
 
@@ -2164,9 +2134,7 @@ const serializeAws_json1_1UpdateServerRequest = (input: UpdateServerRequest, con
     ...(input.EndpointDetails !== undefined && {
       EndpointDetails: serializeAws_json1_1EndpointDetails(input.EndpointDetails, context),
     }),
-    ...(input.EndpointType !== undefined && {
-      EndpointType: input.EndpointType,
-    }),
+    ...(input.EndpointType !== undefined && { EndpointType: input.EndpointType }),
     ...(input.HostKey !== undefined && { HostKey: input.HostKey }),
     ...(input.IdentityProviderDetails !== undefined && {
       IdentityProviderDetails: serializeAws_json1_1IdentityProviderDetails(input.IdentityProviderDetails, context),
@@ -2178,15 +2146,11 @@ const serializeAws_json1_1UpdateServerRequest = (input: UpdateServerRequest, con
 
 const serializeAws_json1_1UpdateUserRequest = (input: UpdateUserRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HomeDirectory !== undefined && {
-      HomeDirectory: input.HomeDirectory,
-    }),
+    ...(input.HomeDirectory !== undefined && { HomeDirectory: input.HomeDirectory }),
     ...(input.HomeDirectoryMappings !== undefined && {
       HomeDirectoryMappings: serializeAws_json1_1HomeDirectoryMappings(input.HomeDirectoryMappings, context),
     }),
-    ...(input.HomeDirectoryType !== undefined && {
-      HomeDirectoryType: input.HomeDirectoryType,
-    }),
+    ...(input.HomeDirectoryType !== undefined && { HomeDirectoryType: input.HomeDirectoryType }),
     ...(input.Policy !== undefined && { Policy: input.Policy }),
     ...(input.Role !== undefined && { Role: input.Role }),
     ...(input.ServerId !== undefined && { ServerId: input.ServerId }),

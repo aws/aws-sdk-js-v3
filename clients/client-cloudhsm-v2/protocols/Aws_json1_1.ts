@@ -1526,35 +1526,23 @@ const serializeAws_json1_1CopyBackupToRegionRequest = (
 ): any => {
   return {
     ...(input.BackupId !== undefined && { BackupId: input.BackupId }),
-    ...(input.DestinationRegion !== undefined && {
-      DestinationRegion: input.DestinationRegion,
-    }),
-    ...(input.TagList !== undefined && {
-      TagList: serializeAws_json1_1TagList(input.TagList, context),
-    }),
+    ...(input.DestinationRegion !== undefined && { DestinationRegion: input.DestinationRegion }),
+    ...(input.TagList !== undefined && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
   };
 };
 
 const serializeAws_json1_1CreateClusterRequest = (input: CreateClusterRequest, context: __SerdeContext): any => {
   return {
     ...(input.HsmType !== undefined && { HsmType: input.HsmType }),
-    ...(input.SourceBackupId !== undefined && {
-      SourceBackupId: input.SourceBackupId,
-    }),
-    ...(input.SubnetIds !== undefined && {
-      SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context),
-    }),
-    ...(input.TagList !== undefined && {
-      TagList: serializeAws_json1_1TagList(input.TagList, context),
-    }),
+    ...(input.SourceBackupId !== undefined && { SourceBackupId: input.SourceBackupId }),
+    ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
+    ...(input.TagList !== undefined && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
   };
 };
 
 const serializeAws_json1_1CreateHsmRequest = (input: CreateHsmRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AvailabilityZone !== undefined && {
-      AvailabilityZone: input.AvailabilityZone,
-    }),
+    ...(input.AvailabilityZone !== undefined && { AvailabilityZone: input.AvailabilityZone }),
     ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
     ...(input.IpAddress !== undefined && { IpAddress: input.IpAddress }),
   };
@@ -1583,22 +1571,16 @@ const serializeAws_json1_1DeleteHsmRequest = (input: DeleteHsmRequest, context: 
 
 const serializeAws_json1_1DescribeBackupsRequest = (input: DescribeBackupsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1Filters(input.Filters, context),
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.SortAscending !== undefined && {
-      SortAscending: input.SortAscending,
-    }),
+    ...(input.SortAscending !== undefined && { SortAscending: input.SortAscending }),
   };
 };
 
 const serializeAws_json1_1DescribeClustersRequest = (input: DescribeClustersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1Filters(input.Filters, context),
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -1665,18 +1647,14 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.TagList !== undefined && {
-      TagList: serializeAws_json1_1TagList(input.TagList, context),
-    }),
+    ...(input.TagList !== undefined && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.TagKeyList !== undefined && {
-      TagKeyList: serializeAws_json1_1TagKeyList(input.TagKeyList, context),
-    }),
+    ...(input.TagKeyList !== undefined && { TagKeyList: serializeAws_json1_1TagKeyList(input.TagKeyList, context) }),
   };
 };
 

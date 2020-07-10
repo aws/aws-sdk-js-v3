@@ -4372,9 +4372,7 @@ export interface GetInstanceAccessOutput {
 export namespace GetInstanceAccessOutput {
   export const filterSensitiveLog = (obj: GetInstanceAccessOutput): any => ({
     ...obj,
-    ...(obj.InstanceAccess && {
-      InstanceAccess: InstanceAccess.filterSensitiveLog(obj.InstanceAccess),
-    }),
+    ...(obj.InstanceAccess && { InstanceAccess: InstanceAccess.filterSensitiveLog(obj.InstanceAccess) }),
   });
   export const isa = (o: any): o is GetInstanceAccessOutput => __isa(o, "GetInstanceAccessOutput");
 }

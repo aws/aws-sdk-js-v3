@@ -5800,9 +5800,7 @@ const serializeAws_json1_1ConnectCustomKeyStoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CustomKeyStoreId !== undefined && {
-      CustomKeyStoreId: input.CustomKeyStoreId,
-    }),
+    ...(input.CustomKeyStoreId !== undefined && { CustomKeyStoreId: input.CustomKeyStoreId }),
   };
 };
 
@@ -5818,18 +5816,10 @@ const serializeAws_json1_1CreateCustomKeyStoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CloudHsmClusterId !== undefined && {
-      CloudHsmClusterId: input.CloudHsmClusterId,
-    }),
-    ...(input.CustomKeyStoreName !== undefined && {
-      CustomKeyStoreName: input.CustomKeyStoreName,
-    }),
-    ...(input.KeyStorePassword !== undefined && {
-      KeyStorePassword: input.KeyStorePassword,
-    }),
-    ...(input.TrustAnchorCertificate !== undefined && {
-      TrustAnchorCertificate: input.TrustAnchorCertificate,
-    }),
+    ...(input.CloudHsmClusterId !== undefined && { CloudHsmClusterId: input.CloudHsmClusterId }),
+    ...(input.CustomKeyStoreName !== undefined && { CustomKeyStoreName: input.CustomKeyStoreName }),
+    ...(input.KeyStorePassword !== undefined && { KeyStorePassword: input.KeyStorePassword }),
+    ...(input.TrustAnchorCertificate !== undefined && { TrustAnchorCertificate: input.TrustAnchorCertificate }),
   };
 };
 
@@ -5841,17 +5831,13 @@ const serializeAws_json1_1CreateGrantRequest = (input: CreateGrantRequest, conte
     ...(input.GrantTokens !== undefined && {
       GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context),
     }),
-    ...(input.GranteePrincipal !== undefined && {
-      GranteePrincipal: input.GranteePrincipal,
-    }),
+    ...(input.GranteePrincipal !== undefined && { GranteePrincipal: input.GranteePrincipal }),
     ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Operations !== undefined && {
       Operations: serializeAws_json1_1GrantOperationList(input.Operations, context),
     }),
-    ...(input.RetiringPrincipal !== undefined && {
-      RetiringPrincipal: input.RetiringPrincipal,
-    }),
+    ...(input.RetiringPrincipal !== undefined && { RetiringPrincipal: input.RetiringPrincipal }),
   };
 };
 
@@ -5860,30 +5846,20 @@ const serializeAws_json1_1CreateKeyRequest = (input: CreateKeyRequest, context: 
     ...(input.BypassPolicyLockoutSafetyCheck !== undefined && {
       BypassPolicyLockoutSafetyCheck: input.BypassPolicyLockoutSafetyCheck,
     }),
-    ...(input.CustomKeyStoreId !== undefined && {
-      CustomKeyStoreId: input.CustomKeyStoreId,
-    }),
-    ...(input.CustomerMasterKeySpec !== undefined && {
-      CustomerMasterKeySpec: input.CustomerMasterKeySpec,
-    }),
+    ...(input.CustomKeyStoreId !== undefined && { CustomKeyStoreId: input.CustomKeyStoreId }),
+    ...(input.CustomerMasterKeySpec !== undefined && { CustomerMasterKeySpec: input.CustomerMasterKeySpec }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.KeyUsage !== undefined && { KeyUsage: input.KeyUsage }),
     ...(input.Origin !== undefined && { Origin: input.Origin }),
     ...(input.Policy !== undefined && { Policy: input.Policy }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1DecryptRequest = (input: DecryptRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CiphertextBlob !== undefined && {
-      CiphertextBlob: context.base64Encoder(input.CiphertextBlob),
-    }),
-    ...(input.EncryptionAlgorithm !== undefined && {
-      EncryptionAlgorithm: input.EncryptionAlgorithm,
-    }),
+    ...(input.CiphertextBlob !== undefined && { CiphertextBlob: context.base64Encoder(input.CiphertextBlob) }),
+    ...(input.EncryptionAlgorithm !== undefined && { EncryptionAlgorithm: input.EncryptionAlgorithm }),
     ...(input.EncryptionContext !== undefined && {
       EncryptionContext: serializeAws_json1_1EncryptionContextType(input.EncryptionContext, context),
     }),
@@ -5905,9 +5881,7 @@ const serializeAws_json1_1DeleteCustomKeyStoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CustomKeyStoreId !== undefined && {
-      CustomKeyStoreId: input.CustomKeyStoreId,
-    }),
+    ...(input.CustomKeyStoreId !== undefined && { CustomKeyStoreId: input.CustomKeyStoreId }),
   };
 };
 
@@ -5925,12 +5899,8 @@ const serializeAws_json1_1DescribeCustomKeyStoresRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CustomKeyStoreId !== undefined && {
-      CustomKeyStoreId: input.CustomKeyStoreId,
-    }),
-    ...(input.CustomKeyStoreName !== undefined && {
-      CustomKeyStoreName: input.CustomKeyStoreName,
-    }),
+    ...(input.CustomKeyStoreId !== undefined && { CustomKeyStoreId: input.CustomKeyStoreId }),
+    ...(input.CustomKeyStoreName !== undefined && { CustomKeyStoreName: input.CustomKeyStoreName }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
   };
@@ -5965,9 +5935,7 @@ const serializeAws_json1_1DisconnectCustomKeyStoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CustomKeyStoreId !== undefined && {
-      CustomKeyStoreId: input.CustomKeyStoreId,
-    }),
+    ...(input.CustomKeyStoreId !== undefined && { CustomKeyStoreId: input.CustomKeyStoreId }),
   };
 };
 
@@ -5998,9 +5966,7 @@ const serializeAws_json1_1EncryptionContextType = (input: { [key: string]: strin
 
 const serializeAws_json1_1EncryptRequest = (input: EncryptRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EncryptionAlgorithm !== undefined && {
-      EncryptionAlgorithm: input.EncryptionAlgorithm,
-    }),
+    ...(input.EncryptionAlgorithm !== undefined && { EncryptionAlgorithm: input.EncryptionAlgorithm }),
     ...(input.EncryptionContext !== undefined && {
       EncryptionContext: serializeAws_json1_1EncryptionContextType(input.EncryptionContext, context),
     }),
@@ -6008,9 +5974,7 @@ const serializeAws_json1_1EncryptRequest = (input: EncryptRequest, context: __Se
       GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context),
     }),
     ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.Plaintext !== undefined && {
-      Plaintext: context.base64Encoder(input.Plaintext),
-    }),
+    ...(input.Plaintext !== undefined && { Plaintext: context.base64Encoder(input.Plaintext) }),
   };
 };
 
@@ -6056,9 +6020,7 @@ const serializeAws_json1_1GenerateDataKeyRequest = (input: GenerateDataKeyReques
     }),
     ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
     ...(input.KeySpec !== undefined && { KeySpec: input.KeySpec }),
-    ...(input.NumberOfBytes !== undefined && {
-      NumberOfBytes: input.NumberOfBytes,
-    }),
+    ...(input.NumberOfBytes !== undefined && { NumberOfBytes: input.NumberOfBytes }),
   };
 };
 
@@ -6075,20 +6037,14 @@ const serializeAws_json1_1GenerateDataKeyWithoutPlaintextRequest = (
     }),
     ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
     ...(input.KeySpec !== undefined && { KeySpec: input.KeySpec }),
-    ...(input.NumberOfBytes !== undefined && {
-      NumberOfBytes: input.NumberOfBytes,
-    }),
+    ...(input.NumberOfBytes !== undefined && { NumberOfBytes: input.NumberOfBytes }),
   };
 };
 
 const serializeAws_json1_1GenerateRandomRequest = (input: GenerateRandomRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CustomKeyStoreId !== undefined && {
-      CustomKeyStoreId: input.CustomKeyStoreId,
-    }),
-    ...(input.NumberOfBytes !== undefined && {
-      NumberOfBytes: input.NumberOfBytes,
-    }),
+    ...(input.CustomKeyStoreId !== undefined && { CustomKeyStoreId: input.CustomKeyStoreId }),
+    ...(input.NumberOfBytes !== undefined && { NumberOfBytes: input.NumberOfBytes }),
   };
 };
 
@@ -6114,12 +6070,8 @@ const serializeAws_json1_1GetParametersForImportRequest = (
 ): any => {
   return {
     ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.WrappingAlgorithm !== undefined && {
-      WrappingAlgorithm: input.WrappingAlgorithm,
-    }),
-    ...(input.WrappingKeySpec !== undefined && {
-      WrappingKeySpec: input.WrappingKeySpec,
-    }),
+    ...(input.WrappingAlgorithm !== undefined && { WrappingAlgorithm: input.WrappingAlgorithm }),
+    ...(input.WrappingKeySpec !== undefined && { WrappingKeySpec: input.WrappingKeySpec }),
   };
 };
 
@@ -6159,16 +6111,10 @@ const serializeAws_json1_1ImportKeyMaterialRequest = (
     ...(input.EncryptedKeyMaterial !== undefined && {
       EncryptedKeyMaterial: context.base64Encoder(input.EncryptedKeyMaterial),
     }),
-    ...(input.ExpirationModel !== undefined && {
-      ExpirationModel: input.ExpirationModel,
-    }),
-    ...(input.ImportToken !== undefined && {
-      ImportToken: context.base64Encoder(input.ImportToken),
-    }),
+    ...(input.ExpirationModel !== undefined && { ExpirationModel: input.ExpirationModel }),
+    ...(input.ImportToken !== undefined && { ImportToken: context.base64Encoder(input.ImportToken) }),
     ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.ValidTo !== undefined && {
-      ValidTo: Math.round(input.ValidTo.getTime() / 1000),
-    }),
+    ...(input.ValidTo !== undefined && { ValidTo: Math.round(input.ValidTo.getTime() / 1000) }),
   };
 };
 
@@ -6218,9 +6164,7 @@ const serializeAws_json1_1ListRetirableGrantsRequest = (
   return {
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.RetiringPrincipal !== undefined && {
-      RetiringPrincipal: input.RetiringPrincipal,
-    }),
+    ...(input.RetiringPrincipal !== undefined && { RetiringPrincipal: input.RetiringPrincipal }),
   };
 };
 
@@ -6237,9 +6181,7 @@ const serializeAws_json1_1PutKeyPolicyRequest = (input: PutKeyPolicyRequest, con
 
 const serializeAws_json1_1ReEncryptRequest = (input: ReEncryptRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CiphertextBlob !== undefined && {
-      CiphertextBlob: context.base64Encoder(input.CiphertextBlob),
-    }),
+    ...(input.CiphertextBlob !== undefined && { CiphertextBlob: context.base64Encoder(input.CiphertextBlob) }),
     ...(input.DestinationEncryptionAlgorithm !== undefined && {
       DestinationEncryptionAlgorithm: input.DestinationEncryptionAlgorithm,
     }),
@@ -6249,9 +6191,7 @@ const serializeAws_json1_1ReEncryptRequest = (input: ReEncryptRequest, context: 
         context
       ),
     }),
-    ...(input.DestinationKeyId !== undefined && {
-      DestinationKeyId: input.DestinationKeyId,
-    }),
+    ...(input.DestinationKeyId !== undefined && { DestinationKeyId: input.DestinationKeyId }),
     ...(input.GrantTokens !== undefined && {
       GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context),
     }),
@@ -6286,9 +6226,7 @@ const serializeAws_json1_1ScheduleKeyDeletionRequest = (
 ): any => {
   return {
     ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.PendingWindowInDays !== undefined && {
-      PendingWindowInDays: input.PendingWindowInDays,
-    }),
+    ...(input.PendingWindowInDays !== undefined && { PendingWindowInDays: input.PendingWindowInDays }),
   };
 };
 
@@ -6298,13 +6236,9 @@ const serializeAws_json1_1SignRequest = (input: SignRequest, context: __SerdeCon
       GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context),
     }),
     ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.Message !== undefined && {
-      Message: context.base64Encoder(input.Message),
-    }),
+    ...(input.Message !== undefined && { Message: context.base64Encoder(input.Message) }),
     ...(input.MessageType !== undefined && { MessageType: input.MessageType }),
-    ...(input.SigningAlgorithm !== undefined && {
-      SigningAlgorithm: input.SigningAlgorithm,
-    }),
+    ...(input.SigningAlgorithm !== undefined && { SigningAlgorithm: input.SigningAlgorithm }),
   };
 };
 
@@ -6326,18 +6260,14 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -6353,18 +6283,10 @@ const serializeAws_json1_1UpdateCustomKeyStoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CloudHsmClusterId !== undefined && {
-      CloudHsmClusterId: input.CloudHsmClusterId,
-    }),
-    ...(input.CustomKeyStoreId !== undefined && {
-      CustomKeyStoreId: input.CustomKeyStoreId,
-    }),
-    ...(input.KeyStorePassword !== undefined && {
-      KeyStorePassword: input.KeyStorePassword,
-    }),
-    ...(input.NewCustomKeyStoreName !== undefined && {
-      NewCustomKeyStoreName: input.NewCustomKeyStoreName,
-    }),
+    ...(input.CloudHsmClusterId !== undefined && { CloudHsmClusterId: input.CloudHsmClusterId }),
+    ...(input.CustomKeyStoreId !== undefined && { CustomKeyStoreId: input.CustomKeyStoreId }),
+    ...(input.KeyStorePassword !== undefined && { KeyStorePassword: input.KeyStorePassword }),
+    ...(input.NewCustomKeyStoreName !== undefined && { NewCustomKeyStoreName: input.NewCustomKeyStoreName }),
   };
 };
 
@@ -6384,16 +6306,10 @@ const serializeAws_json1_1VerifyRequest = (input: VerifyRequest, context: __Serd
       GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context),
     }),
     ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.Message !== undefined && {
-      Message: context.base64Encoder(input.Message),
-    }),
+    ...(input.Message !== undefined && { Message: context.base64Encoder(input.Message) }),
     ...(input.MessageType !== undefined && { MessageType: input.MessageType }),
-    ...(input.Signature !== undefined && {
-      Signature: context.base64Encoder(input.Signature),
-    }),
-    ...(input.SigningAlgorithm !== undefined && {
-      SigningAlgorithm: input.SigningAlgorithm,
-    }),
+    ...(input.Signature !== undefined && { Signature: context.base64Encoder(input.Signature) }),
+    ...(input.SigningAlgorithm !== undefined && { SigningAlgorithm: input.SigningAlgorithm }),
   };
 };
 

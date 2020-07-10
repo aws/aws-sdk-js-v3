@@ -7871,9 +7871,7 @@ const serializeAws_json1_1AccountAggregationSource = (
     ...(input.AccountIds !== undefined && {
       AccountIds: serializeAws_json1_1AccountAggregationSourceAccountList(input.AccountIds, context),
     }),
-    ...(input.AllAwsRegions !== undefined && {
-      AllAwsRegions: input.AllAwsRegions,
-    }),
+    ...(input.AllAwsRegions !== undefined && { AllAwsRegions: input.AllAwsRegions }),
     ...(input.AwsRegions !== undefined && {
       AwsRegions: serializeAws_json1_1AggregatorRegionList(input.AwsRegions, context),
     }),
@@ -7904,18 +7902,10 @@ const serializeAws_json1_1AggregateResourceIdentifier = (
 ): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ResourceName !== undefined && {
-      ResourceName: input.ResourceName,
-    }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
-    ...(input.SourceAccountId !== undefined && {
-      SourceAccountId: input.SourceAccountId,
-    }),
-    ...(input.SourceRegion !== undefined && {
-      SourceRegion: input.SourceRegion,
-    }),
+    ...(input.ResourceName !== undefined && { ResourceName: input.ResourceName }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
+    ...(input.SourceAccountId !== undefined && { SourceAccountId: input.SourceAccountId }),
+    ...(input.SourceRegion !== undefined && { SourceRegion: input.SourceRegion }),
   };
 };
 
@@ -7958,32 +7948,18 @@ const serializeAws_json1_1ComplianceTypes = (input: (ComplianceType | string)[],
 
 const serializeAws_json1_1ConfigRule = (input: ConfigRule, context: __SerdeContext): any => {
   return {
-    ...(input.ConfigRuleArn !== undefined && {
-      ConfigRuleArn: input.ConfigRuleArn,
-    }),
-    ...(input.ConfigRuleId !== undefined && {
-      ConfigRuleId: input.ConfigRuleId,
-    }),
-    ...(input.ConfigRuleName !== undefined && {
-      ConfigRuleName: input.ConfigRuleName,
-    }),
-    ...(input.ConfigRuleState !== undefined && {
-      ConfigRuleState: input.ConfigRuleState,
-    }),
+    ...(input.ConfigRuleArn !== undefined && { ConfigRuleArn: input.ConfigRuleArn }),
+    ...(input.ConfigRuleId !== undefined && { ConfigRuleId: input.ConfigRuleId }),
+    ...(input.ConfigRuleName !== undefined && { ConfigRuleName: input.ConfigRuleName }),
+    ...(input.ConfigRuleState !== undefined && { ConfigRuleState: input.ConfigRuleState }),
     ...(input.CreatedBy !== undefined && { CreatedBy: input.CreatedBy }),
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.InputParameters !== undefined && {
-      InputParameters: input.InputParameters,
-    }),
+    ...(input.InputParameters !== undefined && { InputParameters: input.InputParameters }),
     ...(input.MaximumExecutionFrequency !== undefined && {
       MaximumExecutionFrequency: input.MaximumExecutionFrequency,
     }),
-    ...(input.Scope !== undefined && {
-      Scope: serializeAws_json1_1Scope(input.Scope, context),
-    }),
-    ...(input.Source !== undefined && {
-      Source: serializeAws_json1_1Source(input.Source, context),
-    }),
+    ...(input.Scope !== undefined && { Scope: serializeAws_json1_1Scope(input.Scope, context) }),
+    ...(input.Source !== undefined && { Source: serializeAws_json1_1Source(input.Source, context) }),
   };
 };
 
@@ -7994,12 +7970,8 @@ const serializeAws_json1_1ConfigRuleComplianceFilters = (
   return {
     ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
     ...(input.AwsRegion !== undefined && { AwsRegion: input.AwsRegion }),
-    ...(input.ComplianceType !== undefined && {
-      ComplianceType: input.ComplianceType,
-    }),
-    ...(input.ConfigRuleName !== undefined && {
-      ConfigRuleName: input.ConfigRuleName,
-    }),
+    ...(input.ComplianceType !== undefined && { ComplianceType: input.ComplianceType }),
+    ...(input.ConfigRuleName !== undefined && { ConfigRuleName: input.ConfigRuleName }),
   };
 };
 
@@ -8022,9 +7994,7 @@ const serializeAws_json1_1ConfigSnapshotDeliveryProperties = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deliveryFrequency !== undefined && {
-      deliveryFrequency: input.deliveryFrequency,
-    }),
+    ...(input.deliveryFrequency !== undefined && { deliveryFrequency: input.deliveryFrequency }),
   };
 };
 
@@ -8051,9 +8021,7 @@ const serializeAws_json1_1ConformancePackComplianceFilters = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ComplianceType !== undefined && {
-      ComplianceType: input.ComplianceType,
-    }),
+    ...(input.ComplianceType !== undefined && { ComplianceType: input.ComplianceType }),
     ...(input.ConfigRuleNames !== undefined && {
       ConfigRuleNames: serializeAws_json1_1ConformancePackConfigRuleNames(input.ConfigRuleNames, context),
     }),
@@ -8073,18 +8041,14 @@ const serializeAws_json1_1ConformancePackEvaluationFilters = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ComplianceType !== undefined && {
-      ComplianceType: input.ComplianceType,
-    }),
+    ...(input.ComplianceType !== undefined && { ComplianceType: input.ComplianceType }),
     ...(input.ConfigRuleNames !== undefined && {
       ConfigRuleNames: serializeAws_json1_1ConformancePackConfigRuleNames(input.ConfigRuleNames, context),
     }),
     ...(input.ResourceIds !== undefined && {
       ResourceIds: serializeAws_json1_1ConformancePackComplianceResourceIds(input.ResourceIds, context),
     }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
   };
 };
 
@@ -8093,12 +8057,8 @@ const serializeAws_json1_1ConformancePackInputParameter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ParameterName !== undefined && {
-      ParameterName: input.ParameterName,
-    }),
-    ...(input.ParameterValue !== undefined && {
-      ParameterValue: input.ParameterValue,
-    }),
+    ...(input.ParameterName !== undefined && { ParameterName: input.ParameterName }),
+    ...(input.ParameterValue !== undefined && { ParameterValue: input.ParameterValue }),
   };
 };
 
@@ -8122,20 +8082,14 @@ const serializeAws_json1_1DeleteAggregationAuthorizationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AuthorizedAccountId !== undefined && {
-      AuthorizedAccountId: input.AuthorizedAccountId,
-    }),
-    ...(input.AuthorizedAwsRegion !== undefined && {
-      AuthorizedAwsRegion: input.AuthorizedAwsRegion,
-    }),
+    ...(input.AuthorizedAccountId !== undefined && { AuthorizedAccountId: input.AuthorizedAccountId }),
+    ...(input.AuthorizedAwsRegion !== undefined && { AuthorizedAwsRegion: input.AuthorizedAwsRegion }),
   };
 };
 
 const serializeAws_json1_1DeleteConfigRuleRequest = (input: DeleteConfigRuleRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ConfigRuleName !== undefined && {
-      ConfigRuleName: input.ConfigRuleName,
-    }),
+    ...(input.ConfigRuleName !== undefined && { ConfigRuleName: input.ConfigRuleName }),
   };
 };
 
@@ -8166,9 +8120,7 @@ const serializeAws_json1_1DeleteConformancePackRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConformancePackName !== undefined && {
-      ConformancePackName: input.ConformancePackName,
-    }),
+    ...(input.ConformancePackName !== undefined && { ConformancePackName: input.ConformancePackName }),
   };
 };
 
@@ -8177,9 +8129,7 @@ const serializeAws_json1_1DeleteDeliveryChannelRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeliveryChannelName !== undefined && {
-      DeliveryChannelName: input.DeliveryChannelName,
-    }),
+    ...(input.DeliveryChannelName !== undefined && { DeliveryChannelName: input.DeliveryChannelName }),
   };
 };
 
@@ -8188,9 +8138,7 @@ const serializeAws_json1_1DeleteEvaluationResultsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConfigRuleName !== undefined && {
-      ConfigRuleName: input.ConfigRuleName,
-    }),
+    ...(input.ConfigRuleName !== undefined && { ConfigRuleName: input.ConfigRuleName }),
   };
 };
 
@@ -8221,12 +8169,8 @@ const serializeAws_json1_1DeletePendingAggregationRequestRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.RequesterAccountId !== undefined && {
-      RequesterAccountId: input.RequesterAccountId,
-    }),
-    ...(input.RequesterAwsRegion !== undefined && {
-      RequesterAwsRegion: input.RequesterAwsRegion,
-    }),
+    ...(input.RequesterAccountId !== undefined && { RequesterAccountId: input.RequesterAccountId }),
+    ...(input.RequesterAwsRegion !== undefined && { RequesterAwsRegion: input.RequesterAwsRegion }),
   };
 };
 
@@ -8235,12 +8179,8 @@ const serializeAws_json1_1DeleteRemediationConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConfigRuleName !== undefined && {
-      ConfigRuleName: input.ConfigRuleName,
-    }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
+    ...(input.ConfigRuleName !== undefined && { ConfigRuleName: input.ConfigRuleName }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
   };
 };
 
@@ -8249,9 +8189,7 @@ const serializeAws_json1_1DeleteRemediationExceptionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConfigRuleName !== undefined && {
-      ConfigRuleName: input.ConfigRuleName,
-    }),
+    ...(input.ConfigRuleName !== undefined && { ConfigRuleName: input.ConfigRuleName }),
     ...(input.ResourceKeys !== undefined && {
       ResourceKeys: serializeAws_json1_1RemediationExceptionResourceKeys(input.ResourceKeys, context),
     }),
@@ -8264,9 +8202,7 @@ const serializeAws_json1_1DeleteResourceConfigRequest = (
 ): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
   };
 };
 
@@ -8286,9 +8222,7 @@ const serializeAws_json1_1DeliverConfigSnapshotRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deliveryChannelName !== undefined && {
-      deliveryChannelName: input.deliveryChannelName,
-    }),
+    ...(input.deliveryChannelName !== undefined && { deliveryChannelName: input.deliveryChannelName }),
   };
 };
 
@@ -8301,9 +8235,7 @@ const serializeAws_json1_1DeliveryChannel = (input: DeliveryChannel, context: __
       ),
     }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.s3BucketName !== undefined && {
-      s3BucketName: input.s3BucketName,
-    }),
+    ...(input.s3BucketName !== undefined && { s3BucketName: input.s3BucketName }),
     ...(input.s3KeyPrefix !== undefined && { s3KeyPrefix: input.s3KeyPrefix }),
     ...(input.snsTopicARN !== undefined && { snsTopicARN: input.snsTopicARN }),
   };
@@ -8365,9 +8297,7 @@ const serializeAws_json1_1DescribeComplianceByResourceRequest = (
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
   };
 };
 
@@ -8461,9 +8391,7 @@ const serializeAws_json1_1DescribeConformancePackComplianceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConformancePackName !== undefined && {
-      ConformancePackName: input.ConformancePackName,
-    }),
+    ...(input.ConformancePackName !== undefined && { ConformancePackName: input.ConformancePackName }),
     ...(input.Filters !== undefined && {
       Filters: serializeAws_json1_1ConformancePackComplianceFilters(input.Filters, context),
     }),
@@ -8610,9 +8538,7 @@ const serializeAws_json1_1DescribeRemediationExceptionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConfigRuleName !== undefined && {
-      ConfigRuleName: input.ConfigRuleName,
-    }),
+    ...(input.ConfigRuleName !== undefined && { ConfigRuleName: input.ConfigRuleName }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.ResourceKeys !== undefined && {
@@ -8626,9 +8552,7 @@ const serializeAws_json1_1DescribeRemediationExecutionStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConfigRuleName !== undefined && {
-      ConfigRuleName: input.ConfigRuleName,
-    }),
+    ...(input.ConfigRuleName !== undefined && { ConfigRuleName: input.ConfigRuleName }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.ResourceKeys !== undefined && {
@@ -8655,15 +8579,9 @@ const serializeAws_json1_1DescribeRetentionConfigurationsRequest = (
 const serializeAws_json1_1Evaluation = (input: Evaluation, context: __SerdeContext): any => {
   return {
     ...(input.Annotation !== undefined && { Annotation: input.Annotation }),
-    ...(input.ComplianceResourceId !== undefined && {
-      ComplianceResourceId: input.ComplianceResourceId,
-    }),
-    ...(input.ComplianceResourceType !== undefined && {
-      ComplianceResourceType: input.ComplianceResourceType,
-    }),
-    ...(input.ComplianceType !== undefined && {
-      ComplianceType: input.ComplianceType,
-    }),
+    ...(input.ComplianceResourceId !== undefined && { ComplianceResourceId: input.ComplianceResourceId }),
+    ...(input.ComplianceResourceType !== undefined && { ComplianceResourceType: input.ComplianceResourceType }),
+    ...(input.ComplianceType !== undefined && { ComplianceType: input.ComplianceType }),
     ...(input.OrderingTimestamp !== undefined && {
       OrderingTimestamp: Math.round(input.OrderingTimestamp.getTime() / 1000),
     }),
@@ -8693,12 +8611,8 @@ const serializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleRequest = (
   return {
     ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
     ...(input.AwsRegion !== undefined && { AwsRegion: input.AwsRegion }),
-    ...(input.ComplianceType !== undefined && {
-      ComplianceType: input.ComplianceType,
-    }),
-    ...(input.ConfigRuleName !== undefined && {
-      ConfigRuleName: input.ConfigRuleName,
-    }),
+    ...(input.ComplianceType !== undefined && { ComplianceType: input.ComplianceType }),
+    ...(input.ConfigRuleName !== undefined && { ConfigRuleName: input.ConfigRuleName }),
     ...(input.ConfigurationAggregatorName !== undefined && {
       ConfigurationAggregatorName: input.ConfigurationAggregatorName,
     }),
@@ -8732,9 +8646,7 @@ const serializeAws_json1_1GetAggregateDiscoveredResourceCountsRequest = (
     ...(input.ConfigurationAggregatorName !== undefined && {
       ConfigurationAggregatorName: input.ConfigurationAggregatorName,
     }),
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1ResourceCountFilters(input.Filters, context),
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1ResourceCountFilters(input.Filters, context) }),
     ...(input.GroupByKey !== undefined && { GroupByKey: input.GroupByKey }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -8763,9 +8675,7 @@ const serializeAws_json1_1GetComplianceDetailsByConfigRuleRequest = (
     ...(input.ComplianceTypes !== undefined && {
       ComplianceTypes: serializeAws_json1_1ComplianceTypes(input.ComplianceTypes, context),
     }),
-    ...(input.ConfigRuleName !== undefined && {
-      ConfigRuleName: input.ConfigRuleName,
-    }),
+    ...(input.ConfigRuleName !== undefined && { ConfigRuleName: input.ConfigRuleName }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -8781,9 +8691,7 @@ const serializeAws_json1_1GetComplianceDetailsByResourceRequest = (
     }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
   };
 };
 
@@ -8803,9 +8711,7 @@ const serializeAws_json1_1GetConformancePackComplianceDetailsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConformancePackName !== undefined && {
-      ConformancePackName: input.ConformancePackName,
-    }),
+    ...(input.ConformancePackName !== undefined && { ConformancePackName: input.ConformancePackName }),
     ...(input.Filters !== undefined && {
       Filters: serializeAws_json1_1ConformancePackEvaluationFilters(input.Filters, context),
     }),
@@ -8848,9 +8754,7 @@ const serializeAws_json1_1GetOrganizationConfigRuleDetailedStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1StatusDetailFilters(input.Filters, context),
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1StatusDetailFilters(input.Filters, context) }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.OrganizationConfigRuleName !== undefined && {
@@ -8880,21 +8784,13 @@ const serializeAws_json1_1GetResourceConfigHistoryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.chronologicalOrder !== undefined && {
-      chronologicalOrder: input.chronologicalOrder,
-    }),
-    ...(input.earlierTime !== undefined && {
-      earlierTime: Math.round(input.earlierTime.getTime() / 1000),
-    }),
-    ...(input.laterTime !== undefined && {
-      laterTime: Math.round(input.laterTime.getTime() / 1000),
-    }),
+    ...(input.chronologicalOrder !== undefined && { chronologicalOrder: input.chronologicalOrder }),
+    ...(input.earlierTime !== undefined && { earlierTime: Math.round(input.earlierTime.getTime() / 1000) }),
+    ...(input.laterTime !== undefined && { laterTime: Math.round(input.laterTime.getTime() / 1000) }),
     ...(input.limit !== undefined && { limit: input.limit }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.resourceId !== undefined && { resourceId: input.resourceId }),
-    ...(input.resourceType !== undefined && {
-      resourceType: input.resourceType,
-    }),
+    ...(input.resourceType !== undefined && { resourceType: input.resourceType }),
   };
 };
 
@@ -8906,14 +8802,10 @@ const serializeAws_json1_1ListAggregateDiscoveredResourcesRequest = (
     ...(input.ConfigurationAggregatorName !== undefined && {
       ConfigurationAggregatorName: input.ConfigurationAggregatorName,
     }),
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1ResourceFilters(input.Filters, context),
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1ResourceFilters(input.Filters, context) }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
   };
 };
 
@@ -8922,20 +8814,14 @@ const serializeAws_json1_1ListDiscoveredResourcesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.includeDeletedResources !== undefined && {
-      includeDeletedResources: input.includeDeletedResources,
-    }),
+    ...(input.includeDeletedResources !== undefined && { includeDeletedResources: input.includeDeletedResources }),
     ...(input.limit !== undefined && { limit: input.limit }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.resourceIds !== undefined && {
       resourceIds: serializeAws_json1_1ResourceIdList(input.resourceIds, context),
     }),
-    ...(input.resourceName !== undefined && {
-      resourceName: input.resourceName,
-    }),
-    ...(input.resourceType !== undefined && {
-      resourceType: input.resourceType,
-    }),
+    ...(input.resourceName !== undefined && { resourceName: input.resourceName }),
+    ...(input.resourceType !== undefined && { resourceType: input.resourceType }),
   };
 };
 
@@ -8955,9 +8841,7 @@ const serializeAws_json1_1OrganizationAggregationSource = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AllAwsRegions !== undefined && {
-      AllAwsRegions: input.AllAwsRegions,
-    }),
+    ...(input.AllAwsRegions !== undefined && { AllAwsRegions: input.AllAwsRegions }),
     ...(input.AwsRegions !== undefined && {
       AwsRegions: serializeAws_json1_1AggregatorRegionList(input.AwsRegions, context),
     }),
@@ -8986,12 +8870,8 @@ const serializeAws_json1_1OrganizationCustomRuleMetadata = (
 ): any => {
   return {
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.InputParameters !== undefined && {
-      InputParameters: input.InputParameters,
-    }),
-    ...(input.LambdaFunctionArn !== undefined && {
-      LambdaFunctionArn: input.LambdaFunctionArn,
-    }),
+    ...(input.InputParameters !== undefined && { InputParameters: input.InputParameters }),
+    ...(input.LambdaFunctionArn !== undefined && { LambdaFunctionArn: input.LambdaFunctionArn }),
     ...(input.MaximumExecutionFrequency !== undefined && {
       MaximumExecutionFrequency: input.MaximumExecutionFrequency,
     }),
@@ -9001,16 +8881,12 @@ const serializeAws_json1_1OrganizationCustomRuleMetadata = (
         context
       ),
     }),
-    ...(input.ResourceIdScope !== undefined && {
-      ResourceIdScope: input.ResourceIdScope,
-    }),
+    ...(input.ResourceIdScope !== undefined && { ResourceIdScope: input.ResourceIdScope }),
     ...(input.ResourceTypesScope !== undefined && {
       ResourceTypesScope: serializeAws_json1_1ResourceTypesScope(input.ResourceTypesScope, context),
     }),
     ...(input.TagKeyScope !== undefined && { TagKeyScope: input.TagKeyScope }),
-    ...(input.TagValueScope !== undefined && {
-      TagValueScope: input.TagValueScope,
-    }),
+    ...(input.TagValueScope !== undefined && { TagValueScope: input.TagValueScope }),
   };
 };
 
@@ -9020,25 +8896,17 @@ const serializeAws_json1_1OrganizationManagedRuleMetadata = (
 ): any => {
   return {
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.InputParameters !== undefined && {
-      InputParameters: input.InputParameters,
-    }),
+    ...(input.InputParameters !== undefined && { InputParameters: input.InputParameters }),
     ...(input.MaximumExecutionFrequency !== undefined && {
       MaximumExecutionFrequency: input.MaximumExecutionFrequency,
     }),
-    ...(input.ResourceIdScope !== undefined && {
-      ResourceIdScope: input.ResourceIdScope,
-    }),
+    ...(input.ResourceIdScope !== undefined && { ResourceIdScope: input.ResourceIdScope }),
     ...(input.ResourceTypesScope !== undefined && {
       ResourceTypesScope: serializeAws_json1_1ResourceTypesScope(input.ResourceTypesScope, context),
     }),
-    ...(input.RuleIdentifier !== undefined && {
-      RuleIdentifier: input.RuleIdentifier,
-    }),
+    ...(input.RuleIdentifier !== undefined && { RuleIdentifier: input.RuleIdentifier }),
     ...(input.TagKeyScope !== undefined && { TagKeyScope: input.TagKeyScope }),
-    ...(input.TagValueScope !== undefined && {
-      TagValueScope: input.TagValueScope,
-    }),
+    ...(input.TagValueScope !== undefined && { TagValueScope: input.TagValueScope }),
   };
 };
 
@@ -9057,26 +8925,16 @@ const serializeAws_json1_1PutAggregationAuthorizationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AuthorizedAccountId !== undefined && {
-      AuthorizedAccountId: input.AuthorizedAccountId,
-    }),
-    ...(input.AuthorizedAwsRegion !== undefined && {
-      AuthorizedAwsRegion: input.AuthorizedAwsRegion,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagsList(input.Tags, context),
-    }),
+    ...(input.AuthorizedAccountId !== undefined && { AuthorizedAccountId: input.AuthorizedAccountId }),
+    ...(input.AuthorizedAwsRegion !== undefined && { AuthorizedAwsRegion: input.AuthorizedAwsRegion }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagsList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1PutConfigRuleRequest = (input: PutConfigRuleRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ConfigRule !== undefined && {
-      ConfigRule: serializeAws_json1_1ConfigRule(input.ConfigRule, context),
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagsList(input.Tags, context),
-    }),
+    ...(input.ConfigRule !== undefined && { ConfigRule: serializeAws_json1_1ConfigRule(input.ConfigRule, context) }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagsList(input.Tags, context) }),
   };
 };
 
@@ -9100,9 +8958,7 @@ const serializeAws_json1_1PutConfigurationAggregatorRequest = (
         context
       ),
     }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagsList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagsList(input.Tags, context) }),
   };
 };
 
@@ -9128,21 +8984,11 @@ const serializeAws_json1_1PutConformancePackRequest = (
         context
       ),
     }),
-    ...(input.ConformancePackName !== undefined && {
-      ConformancePackName: input.ConformancePackName,
-    }),
-    ...(input.DeliveryS3Bucket !== undefined && {
-      DeliveryS3Bucket: input.DeliveryS3Bucket,
-    }),
-    ...(input.DeliveryS3KeyPrefix !== undefined && {
-      DeliveryS3KeyPrefix: input.DeliveryS3KeyPrefix,
-    }),
-    ...(input.TemplateBody !== undefined && {
-      TemplateBody: input.TemplateBody,
-    }),
-    ...(input.TemplateS3Uri !== undefined && {
-      TemplateS3Uri: input.TemplateS3Uri,
-    }),
+    ...(input.ConformancePackName !== undefined && { ConformancePackName: input.ConformancePackName }),
+    ...(input.DeliveryS3Bucket !== undefined && { DeliveryS3Bucket: input.DeliveryS3Bucket }),
+    ...(input.DeliveryS3KeyPrefix !== undefined && { DeliveryS3KeyPrefix: input.DeliveryS3KeyPrefix }),
+    ...(input.TemplateBody !== undefined && { TemplateBody: input.TemplateBody }),
+    ...(input.TemplateS3Uri !== undefined && { TemplateS3Uri: input.TemplateS3Uri }),
   };
 };
 
@@ -9204,24 +9050,16 @@ const serializeAws_json1_1PutOrganizationConformancePackRequest = (
         context
       ),
     }),
-    ...(input.DeliveryS3Bucket !== undefined && {
-      DeliveryS3Bucket: input.DeliveryS3Bucket,
-    }),
-    ...(input.DeliveryS3KeyPrefix !== undefined && {
-      DeliveryS3KeyPrefix: input.DeliveryS3KeyPrefix,
-    }),
+    ...(input.DeliveryS3Bucket !== undefined && { DeliveryS3Bucket: input.DeliveryS3Bucket }),
+    ...(input.DeliveryS3KeyPrefix !== undefined && { DeliveryS3KeyPrefix: input.DeliveryS3KeyPrefix }),
     ...(input.ExcludedAccounts !== undefined && {
       ExcludedAccounts: serializeAws_json1_1ExcludedAccounts(input.ExcludedAccounts, context),
     }),
     ...(input.OrganizationConformancePackName !== undefined && {
       OrganizationConformancePackName: input.OrganizationConformancePackName,
     }),
-    ...(input.TemplateBody !== undefined && {
-      TemplateBody: input.TemplateBody,
-    }),
-    ...(input.TemplateS3Uri !== undefined && {
-      TemplateS3Uri: input.TemplateS3Uri,
-    }),
+    ...(input.TemplateBody !== undefined && { TemplateBody: input.TemplateBody }),
+    ...(input.TemplateS3Uri !== undefined && { TemplateS3Uri: input.TemplateS3Uri }),
   };
 };
 
@@ -9244,12 +9082,8 @@ const serializeAws_json1_1PutRemediationExceptionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConfigRuleName !== undefined && {
-      ConfigRuleName: input.ConfigRuleName,
-    }),
-    ...(input.ExpirationTime !== undefined && {
-      ExpirationTime: Math.round(input.ExpirationTime.getTime() / 1000),
-    }),
+    ...(input.ConfigRuleName !== undefined && { ConfigRuleName: input.ConfigRuleName }),
+    ...(input.ExpirationTime !== undefined && { ExpirationTime: Math.round(input.ExpirationTime.getTime() / 1000) }),
     ...(input.Message !== undefined && { Message: input.Message }),
     ...(input.ResourceKeys !== undefined && {
       ResourceKeys: serializeAws_json1_1RemediationExceptionResourceKeys(input.ResourceKeys, context),
@@ -9262,22 +9096,12 @@ const serializeAws_json1_1PutResourceConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Configuration !== undefined && {
-      Configuration: input.Configuration,
-    }),
+    ...(input.Configuration !== undefined && { Configuration: input.Configuration }),
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ResourceName !== undefined && {
-      ResourceName: input.ResourceName,
-    }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
-    ...(input.SchemaVersionId !== undefined && {
-      SchemaVersionId: input.SchemaVersionId,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
+    ...(input.ResourceName !== undefined && { ResourceName: input.ResourceName }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
+    ...(input.SchemaVersionId !== undefined && { SchemaVersionId: input.SchemaVersionId }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -9286,17 +9110,13 @@ const serializeAws_json1_1PutRetentionConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.RetentionPeriodInDays !== undefined && {
-      RetentionPeriodInDays: input.RetentionPeriodInDays,
-    }),
+    ...(input.RetentionPeriodInDays !== undefined && { RetentionPeriodInDays: input.RetentionPeriodInDays }),
   };
 };
 
 const serializeAws_json1_1RecordingGroup = (input: RecordingGroup, context: __SerdeContext): any => {
   return {
-    ...(input.allSupported !== undefined && {
-      allSupported: input.allSupported,
-    }),
+    ...(input.allSupported !== undefined && { allSupported: input.allSupported }),
     ...(input.includeGlobalResourceTypes !== undefined && {
       includeGlobalResourceTypes: input.includeGlobalResourceTypes,
     }),
@@ -9317,32 +9137,20 @@ const serializeAws_json1_1RemediationConfiguration = (
   return {
     ...(input.Arn !== undefined && { Arn: input.Arn }),
     ...(input.Automatic !== undefined && { Automatic: input.Automatic }),
-    ...(input.ConfigRuleName !== undefined && {
-      ConfigRuleName: input.ConfigRuleName,
-    }),
-    ...(input.CreatedByService !== undefined && {
-      CreatedByService: input.CreatedByService,
-    }),
+    ...(input.ConfigRuleName !== undefined && { ConfigRuleName: input.ConfigRuleName }),
+    ...(input.CreatedByService !== undefined && { CreatedByService: input.CreatedByService }),
     ...(input.ExecutionControls !== undefined && {
       ExecutionControls: serializeAws_json1_1ExecutionControls(input.ExecutionControls, context),
     }),
-    ...(input.MaximumAutomaticAttempts !== undefined && {
-      MaximumAutomaticAttempts: input.MaximumAutomaticAttempts,
-    }),
+    ...(input.MaximumAutomaticAttempts !== undefined && { MaximumAutomaticAttempts: input.MaximumAutomaticAttempts }),
     ...(input.Parameters !== undefined && {
       Parameters: serializeAws_json1_1RemediationParameters(input.Parameters, context),
     }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
-    ...(input.RetryAttemptSeconds !== undefined && {
-      RetryAttemptSeconds: input.RetryAttemptSeconds,
-    }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
+    ...(input.RetryAttemptSeconds !== undefined && { RetryAttemptSeconds: input.RetryAttemptSeconds }),
     ...(input.TargetId !== undefined && { TargetId: input.TargetId }),
     ...(input.TargetType !== undefined && { TargetType: input.TargetType }),
-    ...(input.TargetVersion !== undefined && {
-      TargetVersion: input.TargetVersion,
-    }),
+    ...(input.TargetVersion !== undefined && { TargetVersion: input.TargetVersion }),
   };
 };
 
@@ -9359,9 +9167,7 @@ const serializeAws_json1_1RemediationExceptionResourceKey = (
 ): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
   };
 };
 
@@ -9403,9 +9209,7 @@ const serializeAws_json1_1ResourceCountFilters = (input: ResourceCountFilters, c
   return {
     ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
     ...(input.Region !== undefined && { Region: input.Region }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
   };
 };
 
@@ -9414,9 +9218,7 @@ const serializeAws_json1_1ResourceFilters = (input: ResourceFilters, context: __
     ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
     ...(input.Region !== undefined && { Region: input.Region }),
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ResourceName !== undefined && {
-      ResourceName: input.ResourceName,
-    }),
+    ...(input.ResourceName !== undefined && { ResourceName: input.ResourceName }),
   };
 };
 
@@ -9434,9 +9236,7 @@ const serializeAws_json1_1ResourceIdList = (input: string[], context: __SerdeCon
 const serializeAws_json1_1ResourceKey = (input: ResourceKey, context: __SerdeContext): any => {
   return {
     ...(input.resourceId !== undefined && { resourceId: input.resourceId }),
-    ...(input.resourceType !== undefined && {
-      resourceType: input.resourceType,
-    }),
+    ...(input.resourceType !== undefined && { resourceType: input.resourceType }),
   };
 };
 
@@ -9468,9 +9268,7 @@ const serializeAws_json1_1RetentionConfigurationNameList = (input: string[], con
 
 const serializeAws_json1_1Scope = (input: Scope, context: __SerdeContext): any => {
   return {
-    ...(input.ComplianceResourceId !== undefined && {
-      ComplianceResourceId: input.ComplianceResourceId,
-    }),
+    ...(input.ComplianceResourceId !== undefined && { ComplianceResourceId: input.ComplianceResourceId }),
     ...(input.ComplianceResourceTypes !== undefined && {
       ComplianceResourceTypes: serializeAws_json1_1ComplianceResourceTypes(input.ComplianceResourceTypes, context),
     }),
@@ -9496,9 +9294,7 @@ const serializeAws_json1_1Source = (input: Source, context: __SerdeContext): any
     ...(input.SourceDetails !== undefined && {
       SourceDetails: serializeAws_json1_1SourceDetails(input.SourceDetails, context),
     }),
-    ...(input.SourceIdentifier !== undefined && {
-      SourceIdentifier: input.SourceIdentifier,
-    }),
+    ...(input.SourceIdentifier !== undefined && { SourceIdentifier: input.SourceIdentifier }),
   };
 };
 
@@ -9521,9 +9317,7 @@ const serializeAws_json1_1SsmControls = (input: SsmControls, context: __SerdeCon
     ...(input.ConcurrentExecutionRatePercentage !== undefined && {
       ConcurrentExecutionRatePercentage: input.ConcurrentExecutionRatePercentage,
     }),
-    ...(input.ErrorPercentage !== undefined && {
-      ErrorPercentage: input.ErrorPercentage,
-    }),
+    ...(input.ErrorPercentage !== undefined && { ErrorPercentage: input.ErrorPercentage }),
   };
 };
 
@@ -9554,9 +9348,7 @@ const serializeAws_json1_1StartRemediationExecutionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConfigRuleName !== undefined && {
-      ConfigRuleName: input.ConfigRuleName,
-    }),
+    ...(input.ConfigRuleName !== undefined && { ConfigRuleName: input.ConfigRuleName }),
     ...(input.ResourceKeys !== undefined && {
       ResourceKeys: serializeAws_json1_1ResourceKeys(input.ResourceKeys, context),
     }),
@@ -9569,18 +9361,14 @@ const serializeAws_json1_1StaticParameterValues = (input: string[], context: __S
 
 const serializeAws_json1_1StaticValue = (input: StaticValue, context: __SerdeContext): any => {
   return {
-    ...(input.Values !== undefined && {
-      Values: serializeAws_json1_1StaticParameterValues(input.Values, context),
-    }),
+    ...(input.Values !== undefined && { Values: serializeAws_json1_1StaticParameterValues(input.Values, context) }),
   };
 };
 
 const serializeAws_json1_1StatusDetailFilters = (input: StatusDetailFilters, context: __SerdeContext): any => {
   return {
     ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.MemberAccountRuleStatus !== undefined && {
-      MemberAccountRuleStatus: input.MemberAccountRuleStatus,
-    }),
+    ...(input.MemberAccountRuleStatus !== undefined && { MemberAccountRuleStatus: input.MemberAccountRuleStatus }),
   };
 };
 
@@ -9613,9 +9401,7 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -9636,9 +9422,7 @@ const serializeAws_json1_1TagsList = (input: Tag[], context: __SerdeContext): an
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 

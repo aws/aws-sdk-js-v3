@@ -212,9 +212,7 @@ export interface AddResourcePermissionsResponse {
 export namespace AddResourcePermissionsResponse {
   export const filterSensitiveLog = (obj: AddResourcePermissionsResponse): any => ({
     ...obj,
-    ...(obj.ShareResults && {
-      ShareResults: obj.ShareResults.map((item) => ShareResult.filterSensitiveLog(item)),
-    }),
+    ...(obj.ShareResults && { ShareResults: obj.ShareResults.map((item) => ShareResult.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is AddResourcePermissionsResponse => __isa(o, "AddResourcePermissionsResponse");
 }
@@ -1123,9 +1121,7 @@ export interface DescribeCommentsResponse {
 export namespace DescribeCommentsResponse {
   export const filterSensitiveLog = (obj: DescribeCommentsResponse): any => ({
     ...obj,
-    ...(obj.Comments && {
-      Comments: obj.Comments.map((item) => Comment.filterSensitiveLog(item)),
-    }),
+    ...(obj.Comments && { Comments: obj.Comments.map((item) => Comment.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is DescribeCommentsResponse => __isa(o, "DescribeCommentsResponse");
 }
@@ -1275,9 +1271,7 @@ export interface DescribeFolderContentsResponse {
 export namespace DescribeFolderContentsResponse {
   export const filterSensitiveLog = (obj: DescribeFolderContentsResponse): any => ({
     ...obj,
-    ...(obj.Documents && {
-      Documents: obj.Documents.map((item) => DocumentMetadata.filterSensitiveLog(item)),
-    }),
+    ...(obj.Documents && { Documents: obj.Documents.map((item) => DocumentMetadata.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is DescribeFolderContentsResponse => __isa(o, "DescribeFolderContentsResponse");
 }
@@ -2036,9 +2030,7 @@ export interface GetDocumentResponse {
 export namespace GetDocumentResponse {
   export const filterSensitiveLog = (obj: GetDocumentResponse): any => ({
     ...obj,
-    ...(obj.Metadata && {
-      Metadata: DocumentMetadata.filterSensitiveLog(obj.Metadata),
-    }),
+    ...(obj.Metadata && { Metadata: DocumentMetadata.filterSensitiveLog(obj.Metadata) }),
   });
   export const isa = (o: any): o is GetDocumentResponse => __isa(o, "GetDocumentResponse");
 }
@@ -2097,9 +2089,7 @@ export interface GetDocumentVersionResponse {
 export namespace GetDocumentVersionResponse {
   export const filterSensitiveLog = (obj: GetDocumentVersionResponse): any => ({
     ...obj,
-    ...(obj.Metadata && {
-      Metadata: DocumentVersionMetadata.filterSensitiveLog(obj.Metadata),
-    }),
+    ...(obj.Metadata && { Metadata: DocumentVersionMetadata.filterSensitiveLog(obj.Metadata) }),
   });
   export const isa = (o: any): o is GetDocumentVersionResponse => __isa(o, "GetDocumentVersionResponse");
 }
@@ -2264,9 +2254,7 @@ export interface GetResourcesResponse {
 export namespace GetResourcesResponse {
   export const filterSensitiveLog = (obj: GetResourcesResponse): any => ({
     ...obj,
-    ...(obj.Documents && {
-      Documents: obj.Documents.map((item) => DocumentMetadata.filterSensitiveLog(item)),
-    }),
+    ...(obj.Documents && { Documents: obj.Documents.map((item) => DocumentMetadata.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is GetResourcesResponse => __isa(o, "GetResourcesResponse");
 }
@@ -2379,12 +2367,8 @@ export interface InitiateDocumentVersionUploadResponse {
 export namespace InitiateDocumentVersionUploadResponse {
   export const filterSensitiveLog = (obj: InitiateDocumentVersionUploadResponse): any => ({
     ...obj,
-    ...(obj.Metadata && {
-      Metadata: DocumentMetadata.filterSensitiveLog(obj.Metadata),
-    }),
-    ...(obj.UploadMetadata && {
-      UploadMetadata: UploadMetadata.filterSensitiveLog(obj.UploadMetadata),
-    }),
+    ...(obj.Metadata && { Metadata: DocumentMetadata.filterSensitiveLog(obj.Metadata) }),
+    ...(obj.UploadMetadata && { UploadMetadata: UploadMetadata.filterSensitiveLog(obj.UploadMetadata) }),
   });
   export const isa = (o: any): o is InitiateDocumentVersionUploadResponse =>
     __isa(o, "InitiateDocumentVersionUploadResponse");

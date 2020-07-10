@@ -249,15 +249,9 @@ const serializeAws_json1_1DescribeDimensionKeysRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndTime !== undefined && {
-      EndTime: Math.round(input.EndTime.getTime() / 1000),
-    }),
-    ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1MetricQueryFilterMap(input.Filter, context),
-    }),
-    ...(input.GroupBy !== undefined && {
-      GroupBy: serializeAws_json1_1DimensionGroup(input.GroupBy, context),
-    }),
+    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1MetricQueryFilterMap(input.Filter, context) }),
+    ...(input.GroupBy !== undefined && { GroupBy: serializeAws_json1_1DimensionGroup(input.GroupBy, context) }),
     ...(input.Identifier !== undefined && { Identifier: input.Identifier }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.Metric !== undefined && { Metric: input.Metric }),
@@ -265,21 +259,15 @@ const serializeAws_json1_1DescribeDimensionKeysRequest = (
     ...(input.PartitionBy !== undefined && {
       PartitionBy: serializeAws_json1_1DimensionGroup(input.PartitionBy, context),
     }),
-    ...(input.PeriodInSeconds !== undefined && {
-      PeriodInSeconds: input.PeriodInSeconds,
-    }),
+    ...(input.PeriodInSeconds !== undefined && { PeriodInSeconds: input.PeriodInSeconds }),
     ...(input.ServiceType !== undefined && { ServiceType: input.ServiceType }),
-    ...(input.StartTime !== undefined && {
-      StartTime: Math.round(input.StartTime.getTime() / 1000),
-    }),
+    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1DimensionGroup = (input: DimensionGroup, context: __SerdeContext): any => {
   return {
-    ...(input.Dimensions !== undefined && {
-      Dimensions: serializeAws_json1_1StringList(input.Dimensions, context),
-    }),
+    ...(input.Dimensions !== undefined && { Dimensions: serializeAws_json1_1StringList(input.Dimensions, context) }),
     ...(input.Group !== undefined && { Group: input.Group }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
   };
@@ -290,33 +278,23 @@ const serializeAws_json1_1GetResourceMetricsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndTime !== undefined && {
-      EndTime: Math.round(input.EndTime.getTime() / 1000),
-    }),
+    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.Identifier !== undefined && { Identifier: input.Identifier }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.MetricQueries !== undefined && {
       MetricQueries: serializeAws_json1_1MetricQueryList(input.MetricQueries, context),
     }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.PeriodInSeconds !== undefined && {
-      PeriodInSeconds: input.PeriodInSeconds,
-    }),
+    ...(input.PeriodInSeconds !== undefined && { PeriodInSeconds: input.PeriodInSeconds }),
     ...(input.ServiceType !== undefined && { ServiceType: input.ServiceType }),
-    ...(input.StartTime !== undefined && {
-      StartTime: Math.round(input.StartTime.getTime() / 1000),
-    }),
+    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1MetricQuery = (input: MetricQuery, context: __SerdeContext): any => {
   return {
-    ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1MetricQueryFilterMap(input.Filter, context),
-    }),
-    ...(input.GroupBy !== undefined && {
-      GroupBy: serializeAws_json1_1DimensionGroup(input.GroupBy, context),
-    }),
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1MetricQueryFilterMap(input.Filter, context) }),
+    ...(input.GroupBy !== undefined && { GroupBy: serializeAws_json1_1DimensionGroup(input.GroupBy, context) }),
     ...(input.Metric !== undefined && { Metric: input.Metric }),
   };
 };

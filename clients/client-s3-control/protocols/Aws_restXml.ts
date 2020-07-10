@@ -95,9 +95,7 @@ export const serializeAws_restXmlCreateAccessPointCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/xml",
-    ...(isSerializableHeaderValue(input.AccountId) && {
-      "x-amz-account-id": input.AccountId!,
-    }),
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/accesspoint/{Name}";
   if (input.Name !== undefined) {
@@ -147,9 +145,7 @@ export const serializeAws_restXmlCreateJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/xml",
-    ...(isSerializableHeaderValue(input.AccountId) && {
-      "x-amz-account-id": input.AccountId!,
-    }),
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/jobs";
   let body: any;
@@ -216,9 +212,7 @@ export const serializeAws_restXmlDeleteAccessPointCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.AccountId) && {
-      "x-amz-account-id": input.AccountId!,
-    }),
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/accesspoint/{Name}";
   if (input.Name !== undefined) {
@@ -249,9 +243,7 @@ export const serializeAws_restXmlDeleteAccessPointPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.AccountId) && {
-      "x-amz-account-id": input.AccountId!,
-    }),
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/accesspoint/{Name}/policy";
   if (input.Name !== undefined) {
@@ -282,9 +274,7 @@ export const serializeAws_restXmlDeletePublicAccessBlockCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.AccountId) && {
-      "x-amz-account-id": input.AccountId!,
-    }),
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/configuration/publicAccessBlock";
   let body: any;
@@ -306,9 +296,7 @@ export const serializeAws_restXmlDescribeJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.AccountId) && {
-      "x-amz-account-id": input.AccountId!,
-    }),
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/jobs/{JobId}";
   if (input.JobId !== undefined) {
@@ -339,9 +327,7 @@ export const serializeAws_restXmlGetAccessPointCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.AccountId) && {
-      "x-amz-account-id": input.AccountId!,
-    }),
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/accesspoint/{Name}";
   if (input.Name !== undefined) {
@@ -372,9 +358,7 @@ export const serializeAws_restXmlGetAccessPointPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.AccountId) && {
-      "x-amz-account-id": input.AccountId!,
-    }),
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/accesspoint/{Name}/policy";
   if (input.Name !== undefined) {
@@ -405,9 +389,7 @@ export const serializeAws_restXmlGetAccessPointPolicyStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.AccountId) && {
-      "x-amz-account-id": input.AccountId!,
-    }),
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/accesspoint/{Name}/policyStatus";
   if (input.Name !== undefined) {
@@ -438,9 +420,7 @@ export const serializeAws_restXmlGetPublicAccessBlockCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.AccountId) && {
-      "x-amz-account-id": input.AccountId!,
-    }),
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/configuration/publicAccessBlock";
   let body: any;
@@ -462,16 +442,12 @@ export const serializeAws_restXmlListAccessPointsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.AccountId) && {
-      "x-amz-account-id": input.AccountId!,
-    }),
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/accesspoint";
   const query: any = {
     ...(input.Bucket !== undefined && { bucket: input.Bucket }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -494,18 +470,12 @@ export const serializeAws_restXmlListJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.AccountId) && {
-      "x-amz-account-id": input.AccountId!,
-    }),
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/jobs";
   const query: any = {
-    ...(input.JobStatuses !== undefined && {
-      jobStatuses: (input.JobStatuses || []).map((_entry) => _entry),
-    }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.JobStatuses !== undefined && { jobStatuses: (input.JobStatuses || []).map((_entry) => _entry) }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -528,9 +498,7 @@ export const serializeAws_restXmlPutAccessPointPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/xml",
-    ...(isSerializableHeaderValue(input.AccountId) && {
-      "x-amz-account-id": input.AccountId!,
-    }),
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/accesspoint/{Name}/policy";
   if (input.Name !== undefined) {
@@ -569,9 +537,7 @@ export const serializeAws_restXmlPutPublicAccessBlockCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/xml",
-    ...(isSerializableHeaderValue(input.AccountId) && {
-      "x-amz-account-id": input.AccountId!,
-    }),
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/configuration/publicAccessBlock";
   let body: any;
@@ -600,9 +566,7 @@ export const serializeAws_restXmlUpdateJobPriorityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.AccountId) && {
-      "x-amz-account-id": input.AccountId!,
-    }),
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/jobs/{JobId}/priority";
   if (input.JobId !== undefined) {
@@ -637,9 +601,7 @@ export const serializeAws_restXmlUpdateJobStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.AccountId) && {
-      "x-amz-account-id": input.AccountId!,
-    }),
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/jobs/{JobId}/status";
   if (input.JobId !== undefined) {
@@ -652,12 +614,8 @@ export const serializeAws_restXmlUpdateJobStatusCommand = async (
     throw new Error("No value provided for input HTTP label: JobId.");
   }
   const query: any = {
-    ...(input.RequestedJobStatus !== undefined && {
-      requestedJobStatus: input.RequestedJobStatus,
-    }),
-    ...(input.StatusUpdateReason !== undefined && {
-      statusUpdateReason: input.StatusUpdateReason,
-    }),
+    ...(input.RequestedJobStatus !== undefined && { requestedJobStatus: input.RequestedJobStatus }),
+    ...(input.StatusUpdateReason !== undefined && { statusUpdateReason: input.StatusUpdateReason }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

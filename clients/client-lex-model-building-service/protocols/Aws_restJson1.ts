@@ -635,12 +635,8 @@ export const serializeAws_restJson1GetBotAliasesCommand = async (
     throw new Error("No value provided for input HTTP label: botName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
-    ...(input.nameContains !== undefined && {
-      nameContains: input.nameContains,
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -732,12 +728,8 @@ export const serializeAws_restJson1GetBotChannelAssociationsCommand = async (
     throw new Error("No value provided for input HTTP label: botName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
-    ...(input.nameContains !== undefined && {
-      nameContains: input.nameContains,
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -763,12 +755,8 @@ export const serializeAws_restJson1GetBotsCommand = async (
   };
   let resolvedPath = "/bots";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
-    ...(input.nameContains !== undefined && {
-      nameContains: input.nameContains,
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -803,9 +791,7 @@ export const serializeAws_restJson1GetBotVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -862,13 +848,9 @@ export const serializeAws_restJson1GetBuiltinIntentsCommand = async (
   let resolvedPath = "/builtins/intents";
   const query: any = {
     ...(input.locale !== undefined && { locale: input.locale }),
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.signatureContains !== undefined && {
-      signatureContains: input.signatureContains,
-    }),
+    ...(input.signatureContains !== undefined && { signatureContains: input.signatureContains }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -894,13 +876,9 @@ export const serializeAws_restJson1GetBuiltinSlotTypesCommand = async (
   let resolvedPath = "/builtins/slottypes";
   const query: any = {
     ...(input.locale !== undefined && { locale: input.locale }),
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.signatureContains !== undefined && {
-      signatureContains: input.signatureContains,
-    }),
+    ...(input.signatureContains !== undefined && { signatureContains: input.signatureContains }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -927,9 +905,7 @@ export const serializeAws_restJson1GetExportCommand = async (
   const query: any = {
     ...(input.exportType !== undefined && { exportType: input.exportType }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.resourceType !== undefined && {
-      resourceType: input.resourceType,
-    }),
+    ...(input.resourceType !== undefined && { resourceType: input.resourceType }),
     ...(input.version !== undefined && { version: input.version }),
   };
   let body: any;
@@ -1024,12 +1000,8 @@ export const serializeAws_restJson1GetIntentsCommand = async (
   };
   let resolvedPath = "/intents";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
-    ...(input.nameContains !== undefined && {
-      nameContains: input.nameContains,
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -1064,9 +1036,7 @@ export const serializeAws_restJson1GetIntentVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -1131,12 +1101,8 @@ export const serializeAws_restJson1GetSlotTypesCommand = async (
   };
   let resolvedPath = "/slottypes";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
-    ...(input.nameContains !== undefined && {
-      nameContains: input.nameContains,
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -1171,9 +1137,7 @@ export const serializeAws_restJson1GetSlotTypeVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -1209,9 +1173,7 @@ export const serializeAws_restJson1GetUtterancesViewCommand = async (
   }
   const query: any = {
     view: "aggregation",
-    ...(input.botVersions !== undefined && {
-      bot_versions: (input.botVersions || []).map((_entry) => _entry),
-    }),
+    ...(input.botVersions !== undefined && { bot_versions: (input.botVersions || []).map((_entry) => _entry) }),
     ...(input.statusType !== undefined && { status_type: input.statusType }),
   };
   let body: any;
@@ -1251,29 +1213,17 @@ export const serializeAws_restJson1PutBotCommand = async (
       abortStatement: serializeAws_restJson1Statement(input.abortStatement, context),
     }),
     ...(input.checksum !== undefined && { checksum: input.checksum }),
-    ...(input.childDirected !== undefined && {
-      childDirected: input.childDirected,
-    }),
+    ...(input.childDirected !== undefined && { childDirected: input.childDirected }),
     ...(input.clarificationPrompt !== undefined && {
       clarificationPrompt: serializeAws_restJson1Prompt(input.clarificationPrompt, context),
     }),
-    ...(input.createVersion !== undefined && {
-      createVersion: input.createVersion,
-    }),
+    ...(input.createVersion !== undefined && { createVersion: input.createVersion }),
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.detectSentiment !== undefined && {
-      detectSentiment: input.detectSentiment,
-    }),
-    ...(input.idleSessionTTLInSeconds !== undefined && {
-      idleSessionTTLInSeconds: input.idleSessionTTLInSeconds,
-    }),
-    ...(input.intents !== undefined && {
-      intents: serializeAws_restJson1IntentList(input.intents, context),
-    }),
+    ...(input.detectSentiment !== undefined && { detectSentiment: input.detectSentiment }),
+    ...(input.idleSessionTTLInSeconds !== undefined && { idleSessionTTLInSeconds: input.idleSessionTTLInSeconds }),
+    ...(input.intents !== undefined && { intents: serializeAws_restJson1IntentList(input.intents, context) }),
     ...(input.locale !== undefined && { locale: input.locale }),
-    ...(input.processBehavior !== undefined && {
-      processBehavior: input.processBehavior,
-    }),
+    ...(input.processBehavior !== undefined && { processBehavior: input.processBehavior }),
     ...(input.voiceId !== undefined && { voiceId: input.voiceId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1361,9 +1311,7 @@ export const serializeAws_restJson1PutIntentCommand = async (
     ...(input.confirmationPrompt !== undefined && {
       confirmationPrompt: serializeAws_restJson1Prompt(input.confirmationPrompt, context),
     }),
-    ...(input.createVersion !== undefined && {
-      createVersion: input.createVersion,
-    }),
+    ...(input.createVersion !== undefined && { createVersion: input.createVersion }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.dialogCodeHook !== undefined && {
       dialogCodeHook: serializeAws_restJson1CodeHook(input.dialogCodeHook, context),
@@ -1374,18 +1322,14 @@ export const serializeAws_restJson1PutIntentCommand = async (
     ...(input.fulfillmentActivity !== undefined && {
       fulfillmentActivity: serializeAws_restJson1FulfillmentActivity(input.fulfillmentActivity, context),
     }),
-    ...(input.parentIntentSignature !== undefined && {
-      parentIntentSignature: input.parentIntentSignature,
-    }),
+    ...(input.parentIntentSignature !== undefined && { parentIntentSignature: input.parentIntentSignature }),
     ...(input.rejectionStatement !== undefined && {
       rejectionStatement: serializeAws_restJson1Statement(input.rejectionStatement, context),
     }),
     ...(input.sampleUtterances !== undefined && {
       sampleUtterances: serializeAws_restJson1IntentUtteranceList(input.sampleUtterances, context),
     }),
-    ...(input.slots !== undefined && {
-      slots: serializeAws_restJson1SlotList(input.slots, context),
-    }),
+    ...(input.slots !== undefined && { slots: serializeAws_restJson1SlotList(input.slots, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1419,16 +1363,12 @@ export const serializeAws_restJson1PutSlotTypeCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.checksum !== undefined && { checksum: input.checksum }),
-    ...(input.createVersion !== undefined && {
-      createVersion: input.createVersion,
-    }),
+    ...(input.createVersion !== undefined && { createVersion: input.createVersion }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.enumerationValues !== undefined && {
       enumerationValues: serializeAws_restJson1EnumerationValues(input.enumerationValues, context),
     }),
-    ...(input.valueSelectionStrategy !== undefined && {
-      valueSelectionStrategy: input.valueSelectionStrategy,
-    }),
+    ...(input.valueSelectionStrategy !== undefined && { valueSelectionStrategy: input.valueSelectionStrategy }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1452,15 +1392,9 @@ export const serializeAws_restJson1StartImportCommand = async (
   let resolvedPath = "/imports";
   let body: any;
   body = JSON.stringify({
-    ...(input.mergeStrategy !== undefined && {
-      mergeStrategy: input.mergeStrategy,
-    }),
-    ...(input.payload !== undefined && {
-      payload: context.base64Encoder(input.payload),
-    }),
-    ...(input.resourceType !== undefined && {
-      resourceType: input.resourceType,
-    }),
+    ...(input.mergeStrategy !== undefined && { mergeStrategy: input.mergeStrategy }),
+    ...(input.payload !== undefined && { payload: context.base64Encoder(input.payload) }),
+    ...(input.resourceType !== undefined && { resourceType: input.resourceType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5245,9 +5179,7 @@ const deserializeAws_restJson1ResourceInUseExceptionResponse = async (
 
 const serializeAws_restJson1CodeHook = (input: CodeHook, context: __SerdeContext): any => {
   return {
-    ...(input.messageVersion !== undefined && {
-      messageVersion: input.messageVersion,
-    }),
+    ...(input.messageVersion !== undefined && { messageVersion: input.messageVersion }),
     ...(input.uri !== undefined && { uri: input.uri }),
   };
 };
@@ -5266,9 +5198,7 @@ const serializeAws_restJson1ConversationLogsRequest = (
 
 const serializeAws_restJson1EnumerationValue = (input: EnumerationValue, context: __SerdeContext): any => {
   return {
-    ...(input.synonyms !== undefined && {
-      synonyms: serializeAws_restJson1SynonymList(input.synonyms, context),
-    }),
+    ...(input.synonyms !== undefined && { synonyms: serializeAws_restJson1SynonymList(input.synonyms, context) }),
     ...(input.value !== undefined && { value: input.value }),
   };
 };
@@ -5279,9 +5209,7 @@ const serializeAws_restJson1EnumerationValues = (input: EnumerationValue[], cont
 
 const serializeAws_restJson1FollowUpPrompt = (input: FollowUpPrompt, context: __SerdeContext): any => {
   return {
-    ...(input.prompt !== undefined && {
-      prompt: serializeAws_restJson1Prompt(input.prompt, context),
-    }),
+    ...(input.prompt !== undefined && { prompt: serializeAws_restJson1Prompt(input.prompt, context) }),
     ...(input.rejectionStatement !== undefined && {
       rejectionStatement: serializeAws_restJson1Statement(input.rejectionStatement, context),
     }),
@@ -5290,9 +5218,7 @@ const serializeAws_restJson1FollowUpPrompt = (input: FollowUpPrompt, context: __
 
 const serializeAws_restJson1FulfillmentActivity = (input: FulfillmentActivity, context: __SerdeContext): any => {
   return {
-    ...(input.codeHook !== undefined && {
-      codeHook: serializeAws_restJson1CodeHook(input.codeHook, context),
-    }),
+    ...(input.codeHook !== undefined && { codeHook: serializeAws_restJson1CodeHook(input.codeHook, context) }),
     ...(input.type !== undefined && { type: input.type }),
   };
 };
@@ -5300,9 +5226,7 @@ const serializeAws_restJson1FulfillmentActivity = (input: FulfillmentActivity, c
 const serializeAws_restJson1Intent = (input: Intent, context: __SerdeContext): any => {
   return {
     ...(input.intentName !== undefined && { intentName: input.intentName }),
-    ...(input.intentVersion !== undefined && {
-      intentVersion: input.intentVersion,
-    }),
+    ...(input.intentVersion !== undefined && { intentVersion: input.intentVersion }),
   };
 };
 
@@ -5342,12 +5266,8 @@ const serializeAws_restJson1MessageList = (input: Message[], context: __SerdeCon
 const serializeAws_restJson1Prompt = (input: Prompt, context: __SerdeContext): any => {
   return {
     ...(input.maxAttempts !== undefined && { maxAttempts: input.maxAttempts }),
-    ...(input.messages !== undefined && {
-      messages: serializeAws_restJson1MessageList(input.messages, context),
-    }),
-    ...(input.responseCard !== undefined && {
-      responseCard: input.responseCard,
-    }),
+    ...(input.messages !== undefined && { messages: serializeAws_restJson1MessageList(input.messages, context) }),
+    ...(input.responseCard !== undefined && { responseCard: input.responseCard }),
   };
 };
 
@@ -5355,23 +5275,15 @@ const serializeAws_restJson1Slot = (input: Slot, context: __SerdeContext): any =
   return {
     ...(input.description !== undefined && { description: input.description }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.obfuscationSetting !== undefined && {
-      obfuscationSetting: input.obfuscationSetting,
-    }),
+    ...(input.obfuscationSetting !== undefined && { obfuscationSetting: input.obfuscationSetting }),
     ...(input.priority !== undefined && { priority: input.priority }),
-    ...(input.responseCard !== undefined && {
-      responseCard: input.responseCard,
-    }),
+    ...(input.responseCard !== undefined && { responseCard: input.responseCard }),
     ...(input.sampleUtterances !== undefined && {
       sampleUtterances: serializeAws_restJson1SlotUtteranceList(input.sampleUtterances, context),
     }),
-    ...(input.slotConstraint !== undefined && {
-      slotConstraint: input.slotConstraint,
-    }),
+    ...(input.slotConstraint !== undefined && { slotConstraint: input.slotConstraint }),
     ...(input.slotType !== undefined && { slotType: input.slotType }),
-    ...(input.slotTypeVersion !== undefined && {
-      slotTypeVersion: input.slotTypeVersion,
-    }),
+    ...(input.slotTypeVersion !== undefined && { slotTypeVersion: input.slotTypeVersion }),
     ...(input.valueElicitationPrompt !== undefined && {
       valueElicitationPrompt: serializeAws_restJson1Prompt(input.valueElicitationPrompt, context),
     }),
@@ -5388,12 +5300,8 @@ const serializeAws_restJson1SlotUtteranceList = (input: string[], context: __Ser
 
 const serializeAws_restJson1Statement = (input: Statement, context: __SerdeContext): any => {
   return {
-    ...(input.messages !== undefined && {
-      messages: serializeAws_restJson1MessageList(input.messages, context),
-    }),
-    ...(input.responseCard !== undefined && {
-      responseCard: input.responseCard,
-    }),
+    ...(input.messages !== undefined && { messages: serializeAws_restJson1MessageList(input.messages, context) }),
+    ...(input.responseCard !== undefined && { responseCard: input.responseCard }),
   };
 };
 

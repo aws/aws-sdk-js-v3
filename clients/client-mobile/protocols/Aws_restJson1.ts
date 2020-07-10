@@ -134,9 +134,7 @@ export const serializeAws_restJson1DescribeProjectCommand = async (
   let resolvedPath = "/project";
   const query: any = {
     ...(input.projectId !== undefined && { projectId: input.projectId }),
-    ...(input.syncFromResources !== undefined && {
-      syncFromResources: input.syncFromResources.toString(),
-    }),
+    ...(input.syncFromResources !== undefined && { syncFromResources: input.syncFromResources.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -226,9 +224,7 @@ export const serializeAws_restJson1ListBundlesCommand = async (
   };
   let resolvedPath = "/bundles";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -254,9 +250,7 @@ export const serializeAws_restJson1ListProjectsCommand = async (
   };
   let resolvedPath = "/projects";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;

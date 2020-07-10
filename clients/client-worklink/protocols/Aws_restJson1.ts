@@ -117,9 +117,7 @@ export const serializeAws_restJson1AssociateDomainCommand = async (
   let resolvedPath = "/associateDomain";
   let body: any;
   body = JSON.stringify({
-    ...(input.AcmCertificateArn !== undefined && {
-      AcmCertificateArn: input.AcmCertificateArn,
-    }),
+    ...(input.AcmCertificateArn !== undefined && { AcmCertificateArn: input.AcmCertificateArn }),
     ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
     ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
     ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn }),
@@ -472,9 +470,7 @@ export const serializeAws_restJson1DisassociateWebsiteAuthorizationProviderComma
   let resolvedPath = "/disassociateWebsiteAuthorizationProvider";
   let body: any;
   body = JSON.stringify({
-    ...(input.AuthorizationProviderId !== undefined && {
-      AuthorizationProviderId: input.AuthorizationProviderId,
-    }),
+    ...(input.AuthorizationProviderId !== undefined && { AuthorizationProviderId: input.AuthorizationProviderId }),
     ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -728,9 +724,7 @@ export const serializeAws_restJson1UpdateAuditStreamConfigurationCommand = async
   let resolvedPath = "/updateAuditStreamConfiguration";
   let body: any;
   body = JSON.stringify({
-    ...(input.AuditStreamArn !== undefined && {
-      AuditStreamArn: input.AuditStreamArn,
-    }),
+    ...(input.AuditStreamArn !== undefined && { AuditStreamArn: input.AuditStreamArn }),
     ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -759,9 +753,7 @@ export const serializeAws_restJson1UpdateCompanyNetworkConfigurationCommand = as
     ...(input.SecurityGroupIds !== undefined && {
       SecurityGroupIds: serializeAws_restJson1SecurityGroupIds(input.SecurityGroupIds, context),
     }),
-    ...(input.SubnetIds !== undefined && {
-      SubnetIds: serializeAws_restJson1SubnetIds(input.SubnetIds, context),
-    }),
+    ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_restJson1SubnetIds(input.SubnetIds, context) }),
     ...(input.VpcId !== undefined && { VpcId: input.VpcId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -786,9 +778,7 @@ export const serializeAws_restJson1UpdateDevicePolicyConfigurationCommand = asyn
   let resolvedPath = "/updateDevicePolicyConfiguration";
   let body: any;
   body = JSON.stringify({
-    ...(input.DeviceCaCertificate !== undefined && {
-      DeviceCaCertificate: input.DeviceCaCertificate,
-    }),
+    ...(input.DeviceCaCertificate !== undefined && { DeviceCaCertificate: input.DeviceCaCertificate }),
     ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -871,9 +861,7 @@ export const serializeAws_restJson1UpdateIdentityProviderConfigurationCommand = 
     ...(input.IdentityProviderSamlMetadata !== undefined && {
       IdentityProviderSamlMetadata: input.IdentityProviderSamlMetadata,
     }),
-    ...(input.IdentityProviderType !== undefined && {
-      IdentityProviderType: input.IdentityProviderType,
-    }),
+    ...(input.IdentityProviderType !== undefined && { IdentityProviderType: input.IdentityProviderType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

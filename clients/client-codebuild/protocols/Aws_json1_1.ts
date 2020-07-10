@@ -2793,25 +2793,19 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
 
 const serializeAws_json1_1BatchDeleteBuildsInput = (input: BatchDeleteBuildsInput, context: __SerdeContext): any => {
   return {
-    ...(input.ids !== undefined && {
-      ids: serializeAws_json1_1BuildIds(input.ids, context),
-    }),
+    ...(input.ids !== undefined && { ids: serializeAws_json1_1BuildIds(input.ids, context) }),
   };
 };
 
 const serializeAws_json1_1BatchGetBuildsInput = (input: BatchGetBuildsInput, context: __SerdeContext): any => {
   return {
-    ...(input.ids !== undefined && {
-      ids: serializeAws_json1_1BuildIds(input.ids, context),
-    }),
+    ...(input.ids !== undefined && { ids: serializeAws_json1_1BuildIds(input.ids, context) }),
   };
 };
 
 const serializeAws_json1_1BatchGetProjectsInput = (input: BatchGetProjectsInput, context: __SerdeContext): any => {
   return {
-    ...(input.names !== undefined && {
-      names: serializeAws_json1_1ProjectNames(input.names, context),
-    }),
+    ...(input.names !== undefined && { names: serializeAws_json1_1ProjectNames(input.names, context) }),
   };
 };
 
@@ -2828,9 +2822,7 @@ const serializeAws_json1_1BatchGetReportGroupsInput = (
 
 const serializeAws_json1_1BatchGetReportsInput = (input: BatchGetReportsInput, context: __SerdeContext): any => {
   return {
-    ...(input.reportArns !== undefined && {
-      reportArns: serializeAws_json1_1ReportArns(input.reportArns, context),
-    }),
+    ...(input.reportArns !== undefined && { reportArns: serializeAws_json1_1ReportArns(input.reportArns, context) }),
   };
 };
 
@@ -2848,29 +2840,17 @@ const serializeAws_json1_1CloudWatchLogsConfig = (input: CloudWatchLogsConfig, c
 
 const serializeAws_json1_1CreateProjectInput = (input: CreateProjectInput, context: __SerdeContext): any => {
   return {
-    ...(input.artifacts !== undefined && {
-      artifacts: serializeAws_json1_1ProjectArtifacts(input.artifacts, context),
-    }),
-    ...(input.badgeEnabled !== undefined && {
-      badgeEnabled: input.badgeEnabled,
-    }),
-    ...(input.cache !== undefined && {
-      cache: serializeAws_json1_1ProjectCache(input.cache, context),
-    }),
+    ...(input.artifacts !== undefined && { artifacts: serializeAws_json1_1ProjectArtifacts(input.artifacts, context) }),
+    ...(input.badgeEnabled !== undefined && { badgeEnabled: input.badgeEnabled }),
+    ...(input.cache !== undefined && { cache: serializeAws_json1_1ProjectCache(input.cache, context) }),
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.encryptionKey !== undefined && {
-      encryptionKey: input.encryptionKey,
-    }),
+    ...(input.encryptionKey !== undefined && { encryptionKey: input.encryptionKey }),
     ...(input.environment !== undefined && {
       environment: serializeAws_json1_1ProjectEnvironment(input.environment, context),
     }),
-    ...(input.logsConfig !== undefined && {
-      logsConfig: serializeAws_json1_1LogsConfig(input.logsConfig, context),
-    }),
+    ...(input.logsConfig !== undefined && { logsConfig: serializeAws_json1_1LogsConfig(input.logsConfig, context) }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.queuedTimeoutInMinutes !== undefined && {
-      queuedTimeoutInMinutes: input.queuedTimeoutInMinutes,
-    }),
+    ...(input.queuedTimeoutInMinutes !== undefined && { queuedTimeoutInMinutes: input.queuedTimeoutInMinutes }),
     ...(input.secondaryArtifacts !== undefined && {
       secondaryArtifacts: serializeAws_json1_1ProjectArtifactsList(input.secondaryArtifacts, context),
     }),
@@ -2884,21 +2864,11 @@ const serializeAws_json1_1CreateProjectInput = (input: CreateProjectInput, conte
       secondarySources: serializeAws_json1_1ProjectSources(input.secondarySources, context),
     }),
     ...(input.serviceRole !== undefined && { serviceRole: input.serviceRole }),
-    ...(input.source !== undefined && {
-      source: serializeAws_json1_1ProjectSource(input.source, context),
-    }),
-    ...(input.sourceVersion !== undefined && {
-      sourceVersion: input.sourceVersion,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
-    ...(input.timeoutInMinutes !== undefined && {
-      timeoutInMinutes: input.timeoutInMinutes,
-    }),
-    ...(input.vpcConfig !== undefined && {
-      vpcConfig: serializeAws_json1_1VpcConfig(input.vpcConfig, context),
-    }),
+    ...(input.source !== undefined && { source: serializeAws_json1_1ProjectSource(input.source, context) }),
+    ...(input.sourceVersion !== undefined && { sourceVersion: input.sourceVersion }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.timeoutInMinutes !== undefined && { timeoutInMinutes: input.timeoutInMinutes }),
+    ...(input.vpcConfig !== undefined && { vpcConfig: serializeAws_json1_1VpcConfig(input.vpcConfig, context) }),
   };
 };
 
@@ -2914,9 +2884,7 @@ const serializeAws_json1_1CreateReportGroupInput = (input: CreateReportGroupInpu
 
 const serializeAws_json1_1CreateWebhookInput = (input: CreateWebhookInput, context: __SerdeContext): any => {
   return {
-    ...(input.branchFilter !== undefined && {
-      branchFilter: input.branchFilter,
-    }),
+    ...(input.branchFilter !== undefined && { branchFilter: input.branchFilter }),
     ...(input.filterGroups !== undefined && {
       filterGroups: serializeAws_json1_1FilterGroups(input.filterGroups, context),
     }),
@@ -2968,9 +2936,7 @@ const serializeAws_json1_1DeleteWebhookInput = (input: DeleteWebhookInput, conte
 
 const serializeAws_json1_1DescribeTestCasesInput = (input: DescribeTestCasesInput, context: __SerdeContext): any => {
   return {
-    ...(input.filter !== undefined && {
-      filter: serializeAws_json1_1TestCaseFilter(input.filter, context),
-    }),
+    ...(input.filter !== undefined && { filter: serializeAws_json1_1TestCaseFilter(input.filter, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.reportArn !== undefined && { reportArn: input.reportArn }),
@@ -3005,9 +2971,7 @@ const serializeAws_json1_1GetResourcePolicyInput = (input: GetResourcePolicyInpu
 
 const serializeAws_json1_1GitSubmodulesConfig = (input: GitSubmodulesConfig, context: __SerdeContext): any => {
   return {
-    ...(input.fetchSubmodules !== undefined && {
-      fetchSubmodules: input.fetchSubmodules,
-    }),
+    ...(input.fetchSubmodules !== undefined && { fetchSubmodules: input.fetchSubmodules }),
   };
 };
 
@@ -3018,9 +2982,7 @@ const serializeAws_json1_1ImportSourceCredentialsInput = (
   return {
     ...(input.authType !== undefined && { authType: input.authType }),
     ...(input.serverType !== undefined && { serverType: input.serverType }),
-    ...(input.shouldOverwrite !== undefined && {
-      shouldOverwrite: input.shouldOverwrite,
-    }),
+    ...(input.shouldOverwrite !== undefined && { shouldOverwrite: input.shouldOverwrite }),
     ...(input.token !== undefined && { token: input.token }),
     ...(input.username !== undefined && { username: input.username }),
   };
@@ -3082,23 +3044,17 @@ const serializeAws_json1_1ListReportsForReportGroupInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filter !== undefined && {
-      filter: serializeAws_json1_1ReportFilter(input.filter, context),
-    }),
+    ...(input.filter !== undefined && { filter: serializeAws_json1_1ReportFilter(input.filter, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.reportGroupArn !== undefined && {
-      reportGroupArn: input.reportGroupArn,
-    }),
+    ...(input.reportGroupArn !== undefined && { reportGroupArn: input.reportGroupArn }),
     ...(input.sortOrder !== undefined && { sortOrder: input.sortOrder }),
   };
 };
 
 const serializeAws_json1_1ListReportsInput = (input: ListReportsInput, context: __SerdeContext): any => {
   return {
-    ...(input.filter !== undefined && {
-      filter: serializeAws_json1_1ReportFilter(input.filter, context),
-    }),
+    ...(input.filter !== undefined && { filter: serializeAws_json1_1ReportFilter(input.filter, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.sortOrder !== undefined && { sortOrder: input.sortOrder }),
@@ -3138,28 +3094,18 @@ const serializeAws_json1_1LogsConfig = (input: LogsConfig, context: __SerdeConte
     ...(input.cloudWatchLogs !== undefined && {
       cloudWatchLogs: serializeAws_json1_1CloudWatchLogsConfig(input.cloudWatchLogs, context),
     }),
-    ...(input.s3Logs !== undefined && {
-      s3Logs: serializeAws_json1_1S3LogsConfig(input.s3Logs, context),
-    }),
+    ...(input.s3Logs !== undefined && { s3Logs: serializeAws_json1_1S3LogsConfig(input.s3Logs, context) }),
   };
 };
 
 const serializeAws_json1_1ProjectArtifacts = (input: ProjectArtifacts, context: __SerdeContext): any => {
   return {
-    ...(input.artifactIdentifier !== undefined && {
-      artifactIdentifier: input.artifactIdentifier,
-    }),
-    ...(input.encryptionDisabled !== undefined && {
-      encryptionDisabled: input.encryptionDisabled,
-    }),
+    ...(input.artifactIdentifier !== undefined && { artifactIdentifier: input.artifactIdentifier }),
+    ...(input.encryptionDisabled !== undefined && { encryptionDisabled: input.encryptionDisabled }),
     ...(input.location !== undefined && { location: input.location }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.namespaceType !== undefined && {
-      namespaceType: input.namespaceType,
-    }),
-    ...(input.overrideArtifactName !== undefined && {
-      overrideArtifactName: input.overrideArtifactName,
-    }),
+    ...(input.namespaceType !== undefined && { namespaceType: input.namespaceType }),
+    ...(input.overrideArtifactName !== undefined && { overrideArtifactName: input.overrideArtifactName }),
     ...(input.packaging !== undefined && { packaging: input.packaging }),
     ...(input.path !== undefined && { path: input.path }),
     ...(input.type !== undefined && { type: input.type }),
@@ -3173,9 +3119,7 @@ const serializeAws_json1_1ProjectArtifactsList = (input: ProjectArtifacts[], con
 const serializeAws_json1_1ProjectCache = (input: ProjectCache, context: __SerdeContext): any => {
   return {
     ...(input.location !== undefined && { location: input.location }),
-    ...(input.modes !== undefined && {
-      modes: serializeAws_json1_1ProjectCacheModes(input.modes, context),
-    }),
+    ...(input.modes !== undefined && { modes: serializeAws_json1_1ProjectCacheModes(input.modes, context) }),
     ...(input.type !== undefined && { type: input.type }),
   };
 };
@@ -3192,12 +3136,8 @@ const serializeAws_json1_1ProjectEnvironment = (input: ProjectEnvironment, conte
       environmentVariables: serializeAws_json1_1EnvironmentVariables(input.environmentVariables, context),
     }),
     ...(input.image !== undefined && { image: input.image }),
-    ...(input.imagePullCredentialsType !== undefined && {
-      imagePullCredentialsType: input.imagePullCredentialsType,
-    }),
-    ...(input.privilegedMode !== undefined && {
-      privilegedMode: input.privilegedMode,
-    }),
+    ...(input.imagePullCredentialsType !== undefined && { imagePullCredentialsType: input.imagePullCredentialsType }),
+    ...(input.privilegedMode !== undefined && { privilegedMode: input.privilegedMode }),
     ...(input.registryCredential !== undefined && {
       registryCredential: serializeAws_json1_1RegistryCredential(input.registryCredential, context),
     }),
@@ -3218,24 +3158,16 @@ const serializeAws_json1_1ProjectSecondarySourceVersions = (
 
 const serializeAws_json1_1ProjectSource = (input: ProjectSource, context: __SerdeContext): any => {
   return {
-    ...(input.auth !== undefined && {
-      auth: serializeAws_json1_1SourceAuth(input.auth, context),
-    }),
+    ...(input.auth !== undefined && { auth: serializeAws_json1_1SourceAuth(input.auth, context) }),
     ...(input.buildspec !== undefined && { buildspec: input.buildspec }),
-    ...(input.gitCloneDepth !== undefined && {
-      gitCloneDepth: input.gitCloneDepth,
-    }),
+    ...(input.gitCloneDepth !== undefined && { gitCloneDepth: input.gitCloneDepth }),
     ...(input.gitSubmodulesConfig !== undefined && {
       gitSubmodulesConfig: serializeAws_json1_1GitSubmodulesConfig(input.gitSubmodulesConfig, context),
     }),
     ...(input.insecureSsl !== undefined && { insecureSsl: input.insecureSsl }),
     ...(input.location !== undefined && { location: input.location }),
-    ...(input.reportBuildStatus !== undefined && {
-      reportBuildStatus: input.reportBuildStatus,
-    }),
-    ...(input.sourceIdentifier !== undefined && {
-      sourceIdentifier: input.sourceIdentifier,
-    }),
+    ...(input.reportBuildStatus !== undefined && { reportBuildStatus: input.reportBuildStatus }),
+    ...(input.sourceIdentifier !== undefined && { sourceIdentifier: input.sourceIdentifier }),
     ...(input.type !== undefined && { type: input.type }),
   };
 };
@@ -3246,12 +3178,8 @@ const serializeAws_json1_1ProjectSources = (input: ProjectSource[], context: __S
 
 const serializeAws_json1_1ProjectSourceVersion = (input: ProjectSourceVersion, context: __SerdeContext): any => {
   return {
-    ...(input.sourceIdentifier !== undefined && {
-      sourceIdentifier: input.sourceIdentifier,
-    }),
-    ...(input.sourceVersion !== undefined && {
-      sourceVersion: input.sourceVersion,
-    }),
+    ...(input.sourceIdentifier !== undefined && { sourceIdentifier: input.sourceIdentifier }),
+    ...(input.sourceVersion !== undefined && { sourceVersion: input.sourceVersion }),
   };
 };
 
@@ -3265,9 +3193,7 @@ const serializeAws_json1_1PutResourcePolicyInput = (input: PutResourcePolicyInpu
 const serializeAws_json1_1RegistryCredential = (input: RegistryCredential, context: __SerdeContext): any => {
   return {
     ...(input.credential !== undefined && { credential: input.credential }),
-    ...(input.credentialProvider !== undefined && {
-      credentialProvider: input.credentialProvider,
-    }),
+    ...(input.credentialProvider !== undefined && { credentialProvider: input.credentialProvider }),
   };
 };
 
@@ -3277,9 +3203,7 @@ const serializeAws_json1_1ReportArns = (input: string[], context: __SerdeContext
 
 const serializeAws_json1_1ReportExportConfig = (input: ReportExportConfig, context: __SerdeContext): any => {
   return {
-    ...(input.exportConfigType !== undefined && {
-      exportConfigType: input.exportConfigType,
-    }),
+    ...(input.exportConfigType !== undefined && { exportConfigType: input.exportConfigType }),
     ...(input.s3Destination !== undefined && {
       s3Destination: serializeAws_json1_1S3ReportExportConfig(input.s3Destination, context),
     }),
@@ -3298,9 +3222,7 @@ const serializeAws_json1_1ReportGroupArns = (input: string[], context: __SerdeCo
 
 const serializeAws_json1_1S3LogsConfig = (input: S3LogsConfig, context: __SerdeContext): any => {
   return {
-    ...(input.encryptionDisabled !== undefined && {
-      encryptionDisabled: input.encryptionDisabled,
-    }),
+    ...(input.encryptionDisabled !== undefined && { encryptionDisabled: input.encryptionDisabled }),
     ...(input.location !== undefined && { location: input.location }),
     ...(input.status !== undefined && { status: input.status }),
   };
@@ -3309,12 +3231,8 @@ const serializeAws_json1_1S3LogsConfig = (input: S3LogsConfig, context: __SerdeC
 const serializeAws_json1_1S3ReportExportConfig = (input: S3ReportExportConfig, context: __SerdeContext): any => {
   return {
     ...(input.bucket !== undefined && { bucket: input.bucket }),
-    ...(input.encryptionDisabled !== undefined && {
-      encryptionDisabled: input.encryptionDisabled,
-    }),
-    ...(input.encryptionKey !== undefined && {
-      encryptionKey: input.encryptionKey,
-    }),
+    ...(input.encryptionDisabled !== undefined && { encryptionDisabled: input.encryptionDisabled }),
+    ...(input.encryptionKey !== undefined && { encryptionKey: input.encryptionKey }),
     ...(input.packaging !== undefined && { packaging: input.packaging }),
     ...(input.path !== undefined && { path: input.path }),
   };
@@ -3336,54 +3254,34 @@ const serializeAws_json1_1StartBuildInput = (input: StartBuildInput, context: __
     ...(input.artifactsOverride !== undefined && {
       artifactsOverride: serializeAws_json1_1ProjectArtifacts(input.artifactsOverride, context),
     }),
-    ...(input.buildspecOverride !== undefined && {
-      buildspecOverride: input.buildspecOverride,
-    }),
+    ...(input.buildspecOverride !== undefined && { buildspecOverride: input.buildspecOverride }),
     ...(input.cacheOverride !== undefined && {
       cacheOverride: serializeAws_json1_1ProjectCache(input.cacheOverride, context),
     }),
-    ...(input.certificateOverride !== undefined && {
-      certificateOverride: input.certificateOverride,
-    }),
-    ...(input.computeTypeOverride !== undefined && {
-      computeTypeOverride: input.computeTypeOverride,
-    }),
-    ...(input.encryptionKeyOverride !== undefined && {
-      encryptionKeyOverride: input.encryptionKeyOverride,
-    }),
-    ...(input.environmentTypeOverride !== undefined && {
-      environmentTypeOverride: input.environmentTypeOverride,
-    }),
+    ...(input.certificateOverride !== undefined && { certificateOverride: input.certificateOverride }),
+    ...(input.computeTypeOverride !== undefined && { computeTypeOverride: input.computeTypeOverride }),
+    ...(input.encryptionKeyOverride !== undefined && { encryptionKeyOverride: input.encryptionKeyOverride }),
+    ...(input.environmentTypeOverride !== undefined && { environmentTypeOverride: input.environmentTypeOverride }),
     ...(input.environmentVariablesOverride !== undefined && {
       environmentVariablesOverride: serializeAws_json1_1EnvironmentVariables(
         input.environmentVariablesOverride,
         context
       ),
     }),
-    ...(input.gitCloneDepthOverride !== undefined && {
-      gitCloneDepthOverride: input.gitCloneDepthOverride,
-    }),
+    ...(input.gitCloneDepthOverride !== undefined && { gitCloneDepthOverride: input.gitCloneDepthOverride }),
     ...(input.gitSubmodulesConfigOverride !== undefined && {
       gitSubmodulesConfigOverride: serializeAws_json1_1GitSubmodulesConfig(input.gitSubmodulesConfigOverride, context),
     }),
-    ...(input.idempotencyToken !== undefined && {
-      idempotencyToken: input.idempotencyToken,
-    }),
-    ...(input.imageOverride !== undefined && {
-      imageOverride: input.imageOverride,
-    }),
+    ...(input.idempotencyToken !== undefined && { idempotencyToken: input.idempotencyToken }),
+    ...(input.imageOverride !== undefined && { imageOverride: input.imageOverride }),
     ...(input.imagePullCredentialsTypeOverride !== undefined && {
       imagePullCredentialsTypeOverride: input.imagePullCredentialsTypeOverride,
     }),
-    ...(input.insecureSslOverride !== undefined && {
-      insecureSslOverride: input.insecureSslOverride,
-    }),
+    ...(input.insecureSslOverride !== undefined && { insecureSslOverride: input.insecureSslOverride }),
     ...(input.logsConfigOverride !== undefined && {
       logsConfigOverride: serializeAws_json1_1LogsConfig(input.logsConfigOverride, context),
     }),
-    ...(input.privilegedModeOverride !== undefined && {
-      privilegedModeOverride: input.privilegedModeOverride,
-    }),
+    ...(input.privilegedModeOverride !== undefined && { privilegedModeOverride: input.privilegedModeOverride }),
     ...(input.projectName !== undefined && { projectName: input.projectName }),
     ...(input.queuedTimeoutInMinutesOverride !== undefined && {
       queuedTimeoutInMinutesOverride: input.queuedTimeoutInMinutesOverride,
@@ -3406,24 +3304,14 @@ const serializeAws_json1_1StartBuildInput = (input: StartBuildInput, context: __
         context
       ),
     }),
-    ...(input.serviceRoleOverride !== undefined && {
-      serviceRoleOverride: input.serviceRoleOverride,
-    }),
+    ...(input.serviceRoleOverride !== undefined && { serviceRoleOverride: input.serviceRoleOverride }),
     ...(input.sourceAuthOverride !== undefined && {
       sourceAuthOverride: serializeAws_json1_1SourceAuth(input.sourceAuthOverride, context),
     }),
-    ...(input.sourceLocationOverride !== undefined && {
-      sourceLocationOverride: input.sourceLocationOverride,
-    }),
-    ...(input.sourceTypeOverride !== undefined && {
-      sourceTypeOverride: input.sourceTypeOverride,
-    }),
-    ...(input.sourceVersion !== undefined && {
-      sourceVersion: input.sourceVersion,
-    }),
-    ...(input.timeoutInMinutesOverride !== undefined && {
-      timeoutInMinutesOverride: input.timeoutInMinutesOverride,
-    }),
+    ...(input.sourceLocationOverride !== undefined && { sourceLocationOverride: input.sourceLocationOverride }),
+    ...(input.sourceTypeOverride !== undefined && { sourceTypeOverride: input.sourceTypeOverride }),
+    ...(input.sourceVersion !== undefined && { sourceVersion: input.sourceVersion }),
+    ...(input.timeoutInMinutesOverride !== undefined && { timeoutInMinutesOverride: input.timeoutInMinutesOverride }),
   };
 };
 
@@ -3456,29 +3344,17 @@ const serializeAws_json1_1TestCaseFilter = (input: TestCaseFilter, context: __Se
 
 const serializeAws_json1_1UpdateProjectInput = (input: UpdateProjectInput, context: __SerdeContext): any => {
   return {
-    ...(input.artifacts !== undefined && {
-      artifacts: serializeAws_json1_1ProjectArtifacts(input.artifacts, context),
-    }),
-    ...(input.badgeEnabled !== undefined && {
-      badgeEnabled: input.badgeEnabled,
-    }),
-    ...(input.cache !== undefined && {
-      cache: serializeAws_json1_1ProjectCache(input.cache, context),
-    }),
+    ...(input.artifacts !== undefined && { artifacts: serializeAws_json1_1ProjectArtifacts(input.artifacts, context) }),
+    ...(input.badgeEnabled !== undefined && { badgeEnabled: input.badgeEnabled }),
+    ...(input.cache !== undefined && { cache: serializeAws_json1_1ProjectCache(input.cache, context) }),
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.encryptionKey !== undefined && {
-      encryptionKey: input.encryptionKey,
-    }),
+    ...(input.encryptionKey !== undefined && { encryptionKey: input.encryptionKey }),
     ...(input.environment !== undefined && {
       environment: serializeAws_json1_1ProjectEnvironment(input.environment, context),
     }),
-    ...(input.logsConfig !== undefined && {
-      logsConfig: serializeAws_json1_1LogsConfig(input.logsConfig, context),
-    }),
+    ...(input.logsConfig !== undefined && { logsConfig: serializeAws_json1_1LogsConfig(input.logsConfig, context) }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.queuedTimeoutInMinutes !== undefined && {
-      queuedTimeoutInMinutes: input.queuedTimeoutInMinutes,
-    }),
+    ...(input.queuedTimeoutInMinutes !== undefined && { queuedTimeoutInMinutes: input.queuedTimeoutInMinutes }),
     ...(input.secondaryArtifacts !== undefined && {
       secondaryArtifacts: serializeAws_json1_1ProjectArtifactsList(input.secondaryArtifacts, context),
     }),
@@ -3492,21 +3368,11 @@ const serializeAws_json1_1UpdateProjectInput = (input: UpdateProjectInput, conte
       secondarySources: serializeAws_json1_1ProjectSources(input.secondarySources, context),
     }),
     ...(input.serviceRole !== undefined && { serviceRole: input.serviceRole }),
-    ...(input.source !== undefined && {
-      source: serializeAws_json1_1ProjectSource(input.source, context),
-    }),
-    ...(input.sourceVersion !== undefined && {
-      sourceVersion: input.sourceVersion,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
-    ...(input.timeoutInMinutes !== undefined && {
-      timeoutInMinutes: input.timeoutInMinutes,
-    }),
-    ...(input.vpcConfig !== undefined && {
-      vpcConfig: serializeAws_json1_1VpcConfig(input.vpcConfig, context),
-    }),
+    ...(input.source !== undefined && { source: serializeAws_json1_1ProjectSource(input.source, context) }),
+    ...(input.sourceVersion !== undefined && { sourceVersion: input.sourceVersion }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.timeoutInMinutes !== undefined && { timeoutInMinutes: input.timeoutInMinutes }),
+    ...(input.vpcConfig !== undefined && { vpcConfig: serializeAws_json1_1VpcConfig(input.vpcConfig, context) }),
   };
 };
 
@@ -3521,16 +3387,12 @@ const serializeAws_json1_1UpdateReportGroupInput = (input: UpdateReportGroupInpu
 
 const serializeAws_json1_1UpdateWebhookInput = (input: UpdateWebhookInput, context: __SerdeContext): any => {
   return {
-    ...(input.branchFilter !== undefined && {
-      branchFilter: input.branchFilter,
-    }),
+    ...(input.branchFilter !== undefined && { branchFilter: input.branchFilter }),
     ...(input.filterGroups !== undefined && {
       filterGroups: serializeAws_json1_1FilterGroups(input.filterGroups, context),
     }),
     ...(input.projectName !== undefined && { projectName: input.projectName }),
-    ...(input.rotateSecret !== undefined && {
-      rotateSecret: input.rotateSecret,
-    }),
+    ...(input.rotateSecret !== undefined && { rotateSecret: input.rotateSecret }),
   };
 };
 
@@ -3539,18 +3401,14 @@ const serializeAws_json1_1VpcConfig = (input: VpcConfig, context: __SerdeContext
     ...(input.securityGroupIds !== undefined && {
       securityGroupIds: serializeAws_json1_1SecurityGroupIds(input.securityGroupIds, context),
     }),
-    ...(input.subnets !== undefined && {
-      subnets: serializeAws_json1_1Subnets(input.subnets, context),
-    }),
+    ...(input.subnets !== undefined && { subnets: serializeAws_json1_1Subnets(input.subnets, context) }),
     ...(input.vpcId !== undefined && { vpcId: input.vpcId }),
   };
 };
 
 const serializeAws_json1_1WebhookFilter = (input: WebhookFilter, context: __SerdeContext): any => {
   return {
-    ...(input.excludeMatchedPattern !== undefined && {
-      excludeMatchedPattern: input.excludeMatchedPattern,
-    }),
+    ...(input.excludeMatchedPattern !== undefined && { excludeMatchedPattern: input.excludeMatchedPattern }),
     ...(input.pattern !== undefined && { pattern: input.pattern }),
     ...(input.type !== undefined && { type: input.type }),
   };

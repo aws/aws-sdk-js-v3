@@ -4441,9 +4441,7 @@ export interface DescribeAccountAuditConfigurationResponse {
    * <p>Information about the targets to which audit notifications are sent for
    *             this account.</p>
    */
-  auditNotificationTargetConfigurations?: {
-    [key: string]: AuditNotificationTarget;
-  };
+  auditNotificationTargetConfigurations?: { [key: string]: AuditNotificationTarget };
 
   /**
    * <p>The ARN of the role that grants permission to AWS IoT to access information
@@ -14042,9 +14040,7 @@ export interface UpdateAccountAuditConfigurationRequest {
   /**
    * <p>Information about the targets to which audit notifications are sent.</p>
    */
-  auditNotificationTargetConfigurations?: {
-    [key: string]: AuditNotificationTarget;
-  };
+  auditNotificationTargetConfigurations?: { [key: string]: AuditNotificationTarget };
 
   /**
    * <p>The ARN of the role that grants permission to AWS IoT to access information

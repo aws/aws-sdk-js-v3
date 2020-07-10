@@ -1063,9 +1063,7 @@ const serializeAws_json1_1awsAccountIdsList = (input: string[], context: __Serde
 
 const serializeAws_json1_1DateTimeRange = (input: DateTimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.from !== undefined && {
-      from: Math.round(input.from.getTime() / 1000),
-    }),
+    ...(input.from !== undefined && { from: Math.round(input.from.getTime() / 1000) }),
     ...(input.to !== undefined && { to: Math.round(input.to.getTime() / 1000) }),
   };
 };
@@ -1107,9 +1105,7 @@ const serializeAws_json1_1DescribeAffectedEntitiesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filter !== undefined && {
-      filter: serializeAws_json1_1EntityFilter(input.filter, context),
-    }),
+    ...(input.filter !== undefined && { filter: serializeAws_json1_1EntityFilter(input.filter, context) }),
     ...(input.locale !== undefined && { locale: input.locale }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -1121,9 +1117,7 @@ const serializeAws_json1_1DescribeEntityAggregatesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.eventArns !== undefined && {
-      eventArns: serializeAws_json1_1EventArnsList(input.eventArns, context),
-    }),
+    ...(input.eventArns !== undefined && { eventArns: serializeAws_json1_1EventArnsList(input.eventArns, context) }),
   };
 };
 
@@ -1132,12 +1126,8 @@ const serializeAws_json1_1DescribeEventAggregatesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.aggregateField !== undefined && {
-      aggregateField: input.aggregateField,
-    }),
-    ...(input.filter !== undefined && {
-      filter: serializeAws_json1_1EventFilter(input.filter, context),
-    }),
+    ...(input.aggregateField !== undefined && { aggregateField: input.aggregateField }),
+    ...(input.filter !== undefined && { filter: serializeAws_json1_1EventFilter(input.filter, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
@@ -1163,9 +1153,7 @@ const serializeAws_json1_1DescribeEventDetailsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.eventArns !== undefined && {
-      eventArns: serializeAws_json1_1eventArnList(input.eventArns, context),
-    }),
+    ...(input.eventArns !== undefined && { eventArns: serializeAws_json1_1eventArnList(input.eventArns, context) }),
     ...(input.locale !== undefined && { locale: input.locale }),
   };
 };
@@ -1175,9 +1163,7 @@ const serializeAws_json1_1DescribeEventsForOrganizationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filter !== undefined && {
-      filter: serializeAws_json1_1OrganizationEventFilter(input.filter, context),
-    }),
+    ...(input.filter !== undefined && { filter: serializeAws_json1_1OrganizationEventFilter(input.filter, context) }),
     ...(input.locale !== undefined && { locale: input.locale }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -1186,9 +1172,7 @@ const serializeAws_json1_1DescribeEventsForOrganizationRequest = (
 
 const serializeAws_json1_1DescribeEventsRequest = (input: DescribeEventsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.filter !== undefined && {
-      filter: serializeAws_json1_1EventFilter(input.filter, context),
-    }),
+    ...(input.filter !== undefined && { filter: serializeAws_json1_1EventFilter(input.filter, context) }),
     ...(input.locale !== undefined && { locale: input.locale }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -1200,9 +1184,7 @@ const serializeAws_json1_1DescribeEventTypesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filter !== undefined && {
-      filter: serializeAws_json1_1EventTypeFilter(input.filter, context),
-    }),
+    ...(input.filter !== undefined && { filter: serializeAws_json1_1EventTypeFilter(input.filter, context) }),
     ...(input.locale !== undefined && { locale: input.locale }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -1215,24 +1197,18 @@ const serializeAws_json1_1entityArnList = (input: string[], context: __SerdeCont
 
 const serializeAws_json1_1EntityFilter = (input: EntityFilter, context: __SerdeContext): any => {
   return {
-    ...(input.entityArns !== undefined && {
-      entityArns: serializeAws_json1_1entityArnList(input.entityArns, context),
-    }),
+    ...(input.entityArns !== undefined && { entityArns: serializeAws_json1_1entityArnList(input.entityArns, context) }),
     ...(input.entityValues !== undefined && {
       entityValues: serializeAws_json1_1entityValueList(input.entityValues, context),
     }),
-    ...(input.eventArns !== undefined && {
-      eventArns: serializeAws_json1_1eventArnList(input.eventArns, context),
-    }),
+    ...(input.eventArns !== undefined && { eventArns: serializeAws_json1_1eventArnList(input.eventArns, context) }),
     ...(input.lastUpdatedTimes !== undefined && {
       lastUpdatedTimes: serializeAws_json1_1dateTimeRangeList(input.lastUpdatedTimes, context),
     }),
     ...(input.statusCodes !== undefined && {
       statusCodes: serializeAws_json1_1entityStatusCodeList(input.statusCodes, context),
     }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1tagFilter(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1tagFilter(input.tags, context) }),
   };
 };
 
@@ -1249,9 +1225,7 @@ const serializeAws_json1_1entityValueList = (input: string[], context: __SerdeCo
 
 const serializeAws_json1_1EventAccountFilter = (input: EventAccountFilter, context: __SerdeContext): any => {
   return {
-    ...(input.awsAccountId !== undefined && {
-      awsAccountId: input.awsAccountId,
-    }),
+    ...(input.awsAccountId !== undefined && { awsAccountId: input.awsAccountId }),
     ...(input.eventArn !== undefined && { eventArn: input.eventArn }),
   };
 };
@@ -1269,18 +1243,12 @@ const serializeAws_json1_1EventFilter = (input: EventFilter, context: __SerdeCon
     ...(input.availabilityZones !== undefined && {
       availabilityZones: serializeAws_json1_1availabilityZones(input.availabilityZones, context),
     }),
-    ...(input.endTimes !== undefined && {
-      endTimes: serializeAws_json1_1dateTimeRangeList(input.endTimes, context),
-    }),
-    ...(input.entityArns !== undefined && {
-      entityArns: serializeAws_json1_1entityArnList(input.entityArns, context),
-    }),
+    ...(input.endTimes !== undefined && { endTimes: serializeAws_json1_1dateTimeRangeList(input.endTimes, context) }),
+    ...(input.entityArns !== undefined && { entityArns: serializeAws_json1_1entityArnList(input.entityArns, context) }),
     ...(input.entityValues !== undefined && {
       entityValues: serializeAws_json1_1entityValueList(input.entityValues, context),
     }),
-    ...(input.eventArns !== undefined && {
-      eventArns: serializeAws_json1_1eventArnList(input.eventArns, context),
-    }),
+    ...(input.eventArns !== undefined && { eventArns: serializeAws_json1_1eventArnList(input.eventArns, context) }),
     ...(input.eventStatusCodes !== undefined && {
       eventStatusCodes: serializeAws_json1_1eventStatusCodeList(input.eventStatusCodes, context),
     }),
@@ -1293,18 +1261,12 @@ const serializeAws_json1_1EventFilter = (input: EventFilter, context: __SerdeCon
     ...(input.lastUpdatedTimes !== undefined && {
       lastUpdatedTimes: serializeAws_json1_1dateTimeRangeList(input.lastUpdatedTimes, context),
     }),
-    ...(input.regions !== undefined && {
-      regions: serializeAws_json1_1regionList(input.regions, context),
-    }),
-    ...(input.services !== undefined && {
-      services: serializeAws_json1_1serviceList(input.services, context),
-    }),
+    ...(input.regions !== undefined && { regions: serializeAws_json1_1regionList(input.regions, context) }),
+    ...(input.services !== undefined && { services: serializeAws_json1_1serviceList(input.services, context) }),
     ...(input.startTimes !== undefined && {
       startTimes: serializeAws_json1_1dateTimeRangeList(input.startTimes, context),
     }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1tagFilter(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1tagFilter(input.tags, context) }),
   };
 };
 
@@ -1331,9 +1293,7 @@ const serializeAws_json1_1EventTypeFilter = (input: EventTypeFilter, context: __
     ...(input.eventTypeCodes !== undefined && {
       eventTypeCodes: serializeAws_json1_1EventTypeCodeList(input.eventTypeCodes, context),
     }),
-    ...(input.services !== undefined && {
-      services: serializeAws_json1_1serviceList(input.services, context),
-    }),
+    ...(input.services !== undefined && { services: serializeAws_json1_1serviceList(input.services, context) }),
   };
 };
 
@@ -1367,12 +1327,8 @@ const serializeAws_json1_1OrganizationEventFilter = (input: OrganizationEventFil
     ...(input.awsAccountIds !== undefined && {
       awsAccountIds: serializeAws_json1_1awsAccountIdsList(input.awsAccountIds, context),
     }),
-    ...(input.endTime !== undefined && {
-      endTime: serializeAws_json1_1DateTimeRange(input.endTime, context),
-    }),
-    ...(input.entityArns !== undefined && {
-      entityArns: serializeAws_json1_1entityArnList(input.entityArns, context),
-    }),
+    ...(input.endTime !== undefined && { endTime: serializeAws_json1_1DateTimeRange(input.endTime, context) }),
+    ...(input.entityArns !== undefined && { entityArns: serializeAws_json1_1entityArnList(input.entityArns, context) }),
     ...(input.entityValues !== undefined && {
       entityValues: serializeAws_json1_1entityValueList(input.entityValues, context),
     }),
@@ -1388,15 +1344,9 @@ const serializeAws_json1_1OrganizationEventFilter = (input: OrganizationEventFil
     ...(input.lastUpdatedTime !== undefined && {
       lastUpdatedTime: serializeAws_json1_1DateTimeRange(input.lastUpdatedTime, context),
     }),
-    ...(input.regions !== undefined && {
-      regions: serializeAws_json1_1regionList(input.regions, context),
-    }),
-    ...(input.services !== undefined && {
-      services: serializeAws_json1_1serviceList(input.services, context),
-    }),
-    ...(input.startTime !== undefined && {
-      startTime: serializeAws_json1_1DateTimeRange(input.startTime, context),
-    }),
+    ...(input.regions !== undefined && { regions: serializeAws_json1_1regionList(input.regions, context) }),
+    ...(input.services !== undefined && { services: serializeAws_json1_1serviceList(input.services, context) }),
+    ...(input.startTime !== undefined && { startTime: serializeAws_json1_1DateTimeRange(input.startTime, context) }),
   };
 };
 

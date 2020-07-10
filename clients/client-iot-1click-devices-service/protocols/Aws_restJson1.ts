@@ -128,9 +128,7 @@ export const serializeAws_restJson1FinalizeDeviceClaimCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && {
-      tags: serializeAws_restJson1__mapOf__string(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -226,9 +224,7 @@ export const serializeAws_restJson1InvokeDeviceMethodCommand = async (
     ...(input.DeviceMethod !== undefined && {
       deviceMethod: serializeAws_restJson1DeviceMethod(input.DeviceMethod, context),
     }),
-    ...(input.DeviceMethodParameters !== undefined && {
-      deviceMethodParameters: input.DeviceMethodParameters,
-    }),
+    ...(input.DeviceMethodParameters !== undefined && { deviceMethodParameters: input.DeviceMethodParameters }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -263,9 +259,7 @@ export const serializeAws_restJson1ListDeviceEventsCommand = async (
     ...(input.FromTimeStamp !== undefined && {
       fromTimeStamp: (input.FromTimeStamp.toISOString().split(".")[0] + "Z").toString(),
     }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.ToTimeStamp !== undefined && {
       toTimeStamp: (input.ToTimeStamp.toISOString().split(".")[0] + "Z").toString(),
@@ -295,9 +289,7 @@ export const serializeAws_restJson1ListDevicesCommand = async (
   let resolvedPath = "/devices";
   const query: any = {
     ...(input.DeviceType !== undefined && { deviceType: input.DeviceType }),
-    ...(input.MaxResults !== undefined && {
-      maxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -363,9 +355,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && {
-      tags: serializeAws_restJson1__mapOf__string(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -427,9 +417,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && {
-      tagKeys: (input.TagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

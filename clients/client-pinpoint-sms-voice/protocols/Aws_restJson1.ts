@@ -67,9 +67,7 @@ export const serializeAws_restJson1CreateConfigurationSetCommand = async (
   let resolvedPath = "/v1/sms-voice/configuration-sets";
   let body: any;
   body = JSON.stringify({
-    ...(input.ConfigurationSetName !== undefined && {
-      ConfigurationSetName: input.ConfigurationSetName,
-    }),
+    ...(input.ConfigurationSetName !== undefined && { ConfigurationSetName: input.ConfigurationSetName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -105,9 +103,7 @@ export const serializeAws_restJson1CreateConfigurationSetEventDestinationCommand
     ...(input.EventDestination !== undefined && {
       EventDestination: serializeAws_restJson1EventDestinationDefinition(input.EventDestination, context),
     }),
-    ...(input.EventDestinationName !== undefined && {
-      EventDestinationName: input.EventDestinationName,
-    }),
+    ...(input.EventDestinationName !== undefined && { EventDestinationName: input.EventDestinationName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -258,18 +254,10 @@ export const serializeAws_restJson1SendVoiceMessageCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.CallerId !== undefined && { CallerId: input.CallerId }),
-    ...(input.ConfigurationSetName !== undefined && {
-      ConfigurationSetName: input.ConfigurationSetName,
-    }),
-    ...(input.Content !== undefined && {
-      Content: serializeAws_restJson1VoiceMessageContent(input.Content, context),
-    }),
-    ...(input.DestinationPhoneNumber !== undefined && {
-      DestinationPhoneNumber: input.DestinationPhoneNumber,
-    }),
-    ...(input.OriginationPhoneNumber !== undefined && {
-      OriginationPhoneNumber: input.OriginationPhoneNumber,
-    }),
+    ...(input.ConfigurationSetName !== undefined && { ConfigurationSetName: input.ConfigurationSetName }),
+    ...(input.Content !== undefined && { Content: serializeAws_restJson1VoiceMessageContent(input.Content, context) }),
+    ...(input.DestinationPhoneNumber !== undefined && { DestinationPhoneNumber: input.DestinationPhoneNumber }),
+    ...(input.OriginationPhoneNumber !== undefined && { OriginationPhoneNumber: input.OriginationPhoneNumber }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1117,18 +1105,14 @@ const serializeAws_restJson1KinesisFirehoseDestination = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeliveryStreamArn !== undefined && {
-      DeliveryStreamArn: input.DeliveryStreamArn,
-    }),
+    ...(input.DeliveryStreamArn !== undefined && { DeliveryStreamArn: input.DeliveryStreamArn }),
     ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
   };
 };
 
 const serializeAws_restJson1PlainTextMessageType = (input: PlainTextMessageType, context: __SerdeContext): any => {
   return {
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
     ...(input.Text !== undefined && { Text: input.Text }),
     ...(input.VoiceId !== undefined && { VoiceId: input.VoiceId }),
   };
@@ -1142,9 +1126,7 @@ const serializeAws_restJson1SnsDestination = (input: SnsDestination, context: __
 
 const serializeAws_restJson1SSMLMessageType = (input: SSMLMessageType, context: __SerdeContext): any => {
   return {
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
     ...(input.Text !== undefined && { Text: input.Text }),
     ...(input.VoiceId !== undefined && { VoiceId: input.VoiceId }),
   };

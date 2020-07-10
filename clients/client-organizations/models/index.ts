@@ -920,9 +920,7 @@ export interface CreateOrganizationResponse {
 export namespace CreateOrganizationResponse {
   export const filterSensitiveLog = (obj: CreateOrganizationResponse): any => ({
     ...obj,
-    ...(obj.Organization && {
-      Organization: Organization.filterSensitiveLog(obj.Organization),
-    }),
+    ...(obj.Organization && { Organization: Organization.filterSensitiveLog(obj.Organization) }),
   });
   export const isa = (o: any): o is CreateOrganizationResponse => __isa(o, "CreateOrganizationResponse");
 }
@@ -1244,9 +1242,7 @@ export interface DescribeOrganizationResponse {
 export namespace DescribeOrganizationResponse {
   export const filterSensitiveLog = (obj: DescribeOrganizationResponse): any => ({
     ...obj,
-    ...(obj.Organization && {
-      Organization: Organization.filterSensitiveLog(obj.Organization),
-    }),
+    ...(obj.Organization && { Organization: Organization.filterSensitiveLog(obj.Organization) }),
   });
   export const isa = (o: any): o is DescribeOrganizationResponse => __isa(o, "DescribeOrganizationResponse");
 }
@@ -1799,12 +1795,8 @@ export interface Handshake {
 export namespace Handshake {
   export const filterSensitiveLog = (obj: Handshake): any => ({
     ...obj,
-    ...(obj.Parties && {
-      Parties: obj.Parties.map((item) => HandshakeParty.filterSensitiveLog(item)),
-    }),
-    ...(obj.Resources && {
-      Resources: obj.Resources.map((item) => HandshakeResource.filterSensitiveLog(item)),
-    }),
+    ...(obj.Parties && { Parties: obj.Parties.map((item) => HandshakeParty.filterSensitiveLog(item)) }),
+    ...(obj.Resources && { Resources: obj.Resources.map((item) => HandshakeResource.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is Handshake => __isa(o, "Handshake");
 }
@@ -2037,9 +2029,7 @@ export interface HandshakeResource {
 export namespace HandshakeResource {
   export const filterSensitiveLog = (obj: HandshakeResource): any => ({
     ...obj,
-    ...(obj.Resources && {
-      Resources: obj.Resources.map((item) => HandshakeResource.filterSensitiveLog(item)),
-    }),
+    ...(obj.Resources && { Resources: obj.Resources.map((item) => HandshakeResource.filterSensitiveLog(item)) }),
     ...(obj.Value && { Value: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is HandshakeResource => __isa(o, "HandshakeResource");
@@ -2330,9 +2320,7 @@ export interface ListAccountsForParentResponse {
 export namespace ListAccountsForParentResponse {
   export const filterSensitiveLog = (obj: ListAccountsForParentResponse): any => ({
     ...obj,
-    ...(obj.Accounts && {
-      Accounts: obj.Accounts.map((item) => Account.filterSensitiveLog(item)),
-    }),
+    ...(obj.Accounts && { Accounts: obj.Accounts.map((item) => Account.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is ListAccountsForParentResponse => __isa(o, "ListAccountsForParentResponse");
 }
@@ -2387,9 +2375,7 @@ export interface ListAccountsResponse {
 export namespace ListAccountsResponse {
   export const filterSensitiveLog = (obj: ListAccountsResponse): any => ({
     ...obj,
-    ...(obj.Accounts && {
-      Accounts: obj.Accounts.map((item) => Account.filterSensitiveLog(item)),
-    }),
+    ...(obj.Accounts && { Accounts: obj.Accounts.map((item) => Account.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is ListAccountsResponse => __isa(o, "ListAccountsResponse");
 }

@@ -482,13 +482,9 @@ export interface CreateEndpointMessage {
 export namespace CreateEndpointMessage {
   export const filterSensitiveLog = (obj: CreateEndpointMessage): any => ({
     ...obj,
-    ...(obj.MongoDbSettings && {
-      MongoDbSettings: MongoDbSettings.filterSensitiveLog(obj.MongoDbSettings),
-    }),
+    ...(obj.MongoDbSettings && { MongoDbSettings: MongoDbSettings.filterSensitiveLog(obj.MongoDbSettings) }),
     ...(obj.Password && { Password: SENSITIVE_STRING }),
-    ...(obj.RedshiftSettings && {
-      RedshiftSettings: RedshiftSettings.filterSensitiveLog(obj.RedshiftSettings),
-    }),
+    ...(obj.RedshiftSettings && { RedshiftSettings: RedshiftSettings.filterSensitiveLog(obj.RedshiftSettings) }),
   });
   export const isa = (o: any): o is CreateEndpointMessage => __isa(o, "CreateEndpointMessage");
 }
@@ -1391,9 +1387,7 @@ export interface DescribeEndpointsResponse {
 export namespace DescribeEndpointsResponse {
   export const filterSensitiveLog = (obj: DescribeEndpointsResponse): any => ({
     ...obj,
-    ...(obj.Endpoints && {
-      Endpoints: obj.Endpoints.map((item) => Endpoint.filterSensitiveLog(item)),
-    }),
+    ...(obj.Endpoints && { Endpoints: obj.Endpoints.map((item) => Endpoint.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is DescribeEndpointsResponse => __isa(o, "DescribeEndpointsResponse");
 }
@@ -2530,12 +2524,8 @@ export interface Endpoint {
 export namespace Endpoint {
   export const filterSensitiveLog = (obj: Endpoint): any => ({
     ...obj,
-    ...(obj.MongoDbSettings && {
-      MongoDbSettings: MongoDbSettings.filterSensitiveLog(obj.MongoDbSettings),
-    }),
-    ...(obj.RedshiftSettings && {
-      RedshiftSettings: RedshiftSettings.filterSensitiveLog(obj.RedshiftSettings),
-    }),
+    ...(obj.MongoDbSettings && { MongoDbSettings: MongoDbSettings.filterSensitiveLog(obj.MongoDbSettings) }),
+    ...(obj.RedshiftSettings && { RedshiftSettings: RedshiftSettings.filterSensitiveLog(obj.RedshiftSettings) }),
   });
   export const isa = (o: any): o is Endpoint => __isa(o, "Endpoint");
 }
@@ -3147,13 +3137,9 @@ export interface ModifyEndpointMessage {
 export namespace ModifyEndpointMessage {
   export const filterSensitiveLog = (obj: ModifyEndpointMessage): any => ({
     ...obj,
-    ...(obj.MongoDbSettings && {
-      MongoDbSettings: MongoDbSettings.filterSensitiveLog(obj.MongoDbSettings),
-    }),
+    ...(obj.MongoDbSettings && { MongoDbSettings: MongoDbSettings.filterSensitiveLog(obj.MongoDbSettings) }),
     ...(obj.Password && { Password: SENSITIVE_STRING }),
-    ...(obj.RedshiftSettings && {
-      RedshiftSettings: RedshiftSettings.filterSensitiveLog(obj.RedshiftSettings),
-    }),
+    ...(obj.RedshiftSettings && { RedshiftSettings: RedshiftSettings.filterSensitiveLog(obj.RedshiftSettings) }),
   });
   export const isa = (o: any): o is ModifyEndpointMessage => __isa(o, "ModifyEndpointMessage");
 }

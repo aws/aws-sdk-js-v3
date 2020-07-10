@@ -62,12 +62,8 @@ export const serializeAws_restJson1DescribeJobExecutionCommand = async (
     throw new Error("No value provided for input HTTP label: thingName.");
   }
   const query: any = {
-    ...(input.executionNumber !== undefined && {
-      executionNumber: input.executionNumber.toString(),
-    }),
-    ...(input.includeJobDocument !== undefined && {
-      includeJobDocument: input.includeJobDocument.toString(),
-    }),
+    ...(input.executionNumber !== undefined && { executionNumber: input.executionNumber.toString() }),
+    ...(input.includeJobDocument !== undefined && { includeJobDocument: input.includeJobDocument.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -135,9 +131,7 @@ export const serializeAws_restJson1StartNextPendingJobExecutionCommand = async (
     ...(input.statusDetails !== undefined && {
       statusDetails: serializeAws_restJson1DetailsMap(input.statusDetails, context),
     }),
-    ...(input.stepTimeoutInMinutes !== undefined && {
-      stepTimeoutInMinutes: input.stepTimeoutInMinutes,
-    }),
+    ...(input.stepTimeoutInMinutes !== undefined && { stepTimeoutInMinutes: input.stepTimeoutInMinutes }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -179,25 +173,15 @@ export const serializeAws_restJson1UpdateJobExecutionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.executionNumber !== undefined && {
-      executionNumber: input.executionNumber,
-    }),
-    ...(input.expectedVersion !== undefined && {
-      expectedVersion: input.expectedVersion,
-    }),
-    ...(input.includeJobDocument !== undefined && {
-      includeJobDocument: input.includeJobDocument,
-    }),
-    ...(input.includeJobExecutionState !== undefined && {
-      includeJobExecutionState: input.includeJobExecutionState,
-    }),
+    ...(input.executionNumber !== undefined && { executionNumber: input.executionNumber }),
+    ...(input.expectedVersion !== undefined && { expectedVersion: input.expectedVersion }),
+    ...(input.includeJobDocument !== undefined && { includeJobDocument: input.includeJobDocument }),
+    ...(input.includeJobExecutionState !== undefined && { includeJobExecutionState: input.includeJobExecutionState }),
     ...(input.status !== undefined && { status: input.status }),
     ...(input.statusDetails !== undefined && {
       statusDetails: serializeAws_restJson1DetailsMap(input.statusDetails, context),
     }),
-    ...(input.stepTimeoutInMinutes !== undefined && {
-      stepTimeoutInMinutes: input.stepTimeoutInMinutes,
-    }),
+    ...(input.stepTimeoutInMinutes !== undefined && { stepTimeoutInMinutes: input.stepTimeoutInMinutes }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

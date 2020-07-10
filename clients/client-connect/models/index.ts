@@ -706,9 +706,7 @@ export interface GetFederationTokenResponse {
 export namespace GetFederationTokenResponse {
   export const filterSensitiveLog = (obj: GetFederationTokenResponse): any => ({
     ...obj,
-    ...(obj.Credentials && {
-      Credentials: Credentials.filterSensitiveLog(obj.Credentials),
-    }),
+    ...(obj.Credentials && { Credentials: Credentials.filterSensitiveLog(obj.Credentials) }),
   });
   export const isa = (o: any): o is GetFederationTokenResponse => __isa(o, "GetFederationTokenResponse");
 }

@@ -205,9 +205,7 @@ export interface ImportTerminologyRequest {
 export namespace ImportTerminologyRequest {
   export const filterSensitiveLog = (obj: ImportTerminologyRequest): any => ({
     ...obj,
-    ...(obj.TerminologyData && {
-      TerminologyData: TerminologyData.filterSensitiveLog(obj.TerminologyData),
-    }),
+    ...(obj.TerminologyData && { TerminologyData: TerminologyData.filterSensitiveLog(obj.TerminologyData) }),
   });
   export const isa = (o: any): o is ImportTerminologyRequest => __isa(o, "ImportTerminologyRequest");
 }

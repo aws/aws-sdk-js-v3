@@ -120,9 +120,7 @@ export const serializeAws_restJson1CreateComputeEnvironmentCommand = async (
   let resolvedPath = "/v1/createcomputeenvironment";
   let body: any;
   body = JSON.stringify({
-    ...(input.computeEnvironmentName !== undefined && {
-      computeEnvironmentName: input.computeEnvironmentName,
-    }),
+    ...(input.computeEnvironmentName !== undefined && { computeEnvironmentName: input.computeEnvironmentName }),
     ...(input.computeResources !== undefined && {
       computeResources: serializeAws_restJson1ComputeResource(input.computeResources, context),
     }),
@@ -155,9 +153,7 @@ export const serializeAws_restJson1CreateJobQueueCommand = async (
     ...(input.computeEnvironmentOrder !== undefined && {
       computeEnvironmentOrder: serializeAws_restJson1ComputeEnvironmentOrders(input.computeEnvironmentOrder, context),
     }),
-    ...(input.jobQueueName !== undefined && {
-      jobQueueName: input.jobQueueName,
-    }),
+    ...(input.jobQueueName !== undefined && { jobQueueName: input.jobQueueName }),
     ...(input.priority !== undefined && { priority: input.priority }),
     ...(input.state !== undefined && { state: input.state }),
   });
@@ -183,9 +179,7 @@ export const serializeAws_restJson1DeleteComputeEnvironmentCommand = async (
   let resolvedPath = "/v1/deletecomputeenvironment";
   let body: any;
   body = JSON.stringify({
-    ...(input.computeEnvironment !== undefined && {
-      computeEnvironment: input.computeEnvironment,
-    }),
+    ...(input.computeEnvironment !== undefined && { computeEnvironment: input.computeEnvironment }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -233,9 +227,7 @@ export const serializeAws_restJson1DeregisterJobDefinitionCommand = async (
   let resolvedPath = "/v1/deregisterjobdefinition";
   let body: any;
   body = JSON.stringify({
-    ...(input.jobDefinition !== undefined && {
-      jobDefinition: input.jobDefinition,
-    }),
+    ...(input.jobDefinition !== undefined && { jobDefinition: input.jobDefinition }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -287,9 +279,7 @@ export const serializeAws_restJson1DescribeJobDefinitionsCommand = async (
   let resolvedPath = "/v1/describejobdefinitions";
   let body: any;
   body = JSON.stringify({
-    ...(input.jobDefinitionName !== undefined && {
-      jobDefinitionName: input.jobDefinitionName,
-    }),
+    ...(input.jobDefinitionName !== undefined && { jobDefinitionName: input.jobDefinitionName }),
     ...(input.jobDefinitions !== undefined && {
       jobDefinitions: serializeAws_restJson1StringList(input.jobDefinitions, context),
     }),
@@ -319,9 +309,7 @@ export const serializeAws_restJson1DescribeJobQueuesCommand = async (
   let resolvedPath = "/v1/describejobqueues";
   let body: any;
   body = JSON.stringify({
-    ...(input.jobQueues !== undefined && {
-      jobQueues: serializeAws_restJson1StringList(input.jobQueues, context),
-    }),
+    ...(input.jobQueues !== undefined && { jobQueues: serializeAws_restJson1StringList(input.jobQueues, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   });
@@ -347,9 +335,7 @@ export const serializeAws_restJson1DescribeJobsCommand = async (
   let resolvedPath = "/v1/describejobs";
   let body: any;
   body = JSON.stringify({
-    ...(input.jobs !== undefined && {
-      jobs: serializeAws_restJson1StringList(input.jobs, context),
-    }),
+    ...(input.jobs !== undefined && { jobs: serializeAws_restJson1StringList(input.jobs, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -377,9 +363,7 @@ export const serializeAws_restJson1ListJobsCommand = async (
     ...(input.jobQueue !== undefined && { jobQueue: input.jobQueue }),
     ...(input.jobStatus !== undefined && { jobStatus: input.jobStatus }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.multiNodeJobId !== undefined && {
-      multiNodeJobId: input.multiNodeJobId,
-    }),
+    ...(input.multiNodeJobId !== undefined && { multiNodeJobId: input.multiNodeJobId }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -407,9 +391,7 @@ export const serializeAws_restJson1RegisterJobDefinitionCommand = async (
     ...(input.containerProperties !== undefined && {
       containerProperties: serializeAws_restJson1ContainerProperties(input.containerProperties, context),
     }),
-    ...(input.jobDefinitionName !== undefined && {
-      jobDefinitionName: input.jobDefinitionName,
-    }),
+    ...(input.jobDefinitionName !== undefined && { jobDefinitionName: input.jobDefinitionName }),
     ...(input.nodeProperties !== undefined && {
       nodeProperties: serializeAws_restJson1NodeProperties(input.nodeProperties, context),
     }),
@@ -419,9 +401,7 @@ export const serializeAws_restJson1RegisterJobDefinitionCommand = async (
     ...(input.retryStrategy !== undefined && {
       retryStrategy: serializeAws_restJson1RetryStrategy(input.retryStrategy, context),
     }),
-    ...(input.timeout !== undefined && {
-      timeout: serializeAws_restJson1JobTimeout(input.timeout, context),
-    }),
+    ...(input.timeout !== undefined && { timeout: serializeAws_restJson1JobTimeout(input.timeout, context) }),
     ...(input.type !== undefined && { type: input.type }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -455,9 +435,7 @@ export const serializeAws_restJson1SubmitJobCommand = async (
     ...(input.dependsOn !== undefined && {
       dependsOn: serializeAws_restJson1JobDependencyList(input.dependsOn, context),
     }),
-    ...(input.jobDefinition !== undefined && {
-      jobDefinition: input.jobDefinition,
-    }),
+    ...(input.jobDefinition !== undefined && { jobDefinition: input.jobDefinition }),
     ...(input.jobName !== undefined && { jobName: input.jobName }),
     ...(input.jobQueue !== undefined && { jobQueue: input.jobQueue }),
     ...(input.nodeOverrides !== undefined && {
@@ -469,9 +447,7 @@ export const serializeAws_restJson1SubmitJobCommand = async (
     ...(input.retryStrategy !== undefined && {
       retryStrategy: serializeAws_restJson1RetryStrategy(input.retryStrategy, context),
     }),
-    ...(input.timeout !== undefined && {
-      timeout: serializeAws_restJson1JobTimeout(input.timeout, context),
-    }),
+    ...(input.timeout !== undefined && { timeout: serializeAws_restJson1JobTimeout(input.timeout, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -520,9 +496,7 @@ export const serializeAws_restJson1UpdateComputeEnvironmentCommand = async (
   let resolvedPath = "/v1/updatecomputeenvironment";
   let body: any;
   body = JSON.stringify({
-    ...(input.computeEnvironment !== undefined && {
-      computeEnvironment: input.computeEnvironment,
-    }),
+    ...(input.computeEnvironment !== undefined && { computeEnvironment: input.computeEnvironment }),
     ...(input.computeResources !== undefined && {
       computeResources: serializeAws_restJson1ComputeResourceUpdate(input.computeResources, context),
     }),
@@ -1666,9 +1640,7 @@ const serializeAws_restJson1ComputeEnvironmentOrder = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.computeEnvironment !== undefined && {
-      computeEnvironment: input.computeEnvironment,
-    }),
+    ...(input.computeEnvironment !== undefined && { computeEnvironment: input.computeEnvironment }),
     ...(input.order !== undefined && { order: input.order }),
   };
 };
@@ -1682,20 +1654,12 @@ const serializeAws_restJson1ComputeEnvironmentOrders = (
 
 const serializeAws_restJson1ComputeResource = (input: ComputeResource, context: __SerdeContext): any => {
   return {
-    ...(input.allocationStrategy !== undefined && {
-      allocationStrategy: input.allocationStrategy,
-    }),
-    ...(input.bidPercentage !== undefined && {
-      bidPercentage: input.bidPercentage,
-    }),
-    ...(input.desiredvCpus !== undefined && {
-      desiredvCpus: input.desiredvCpus,
-    }),
+    ...(input.allocationStrategy !== undefined && { allocationStrategy: input.allocationStrategy }),
+    ...(input.bidPercentage !== undefined && { bidPercentage: input.bidPercentage }),
+    ...(input.desiredvCpus !== undefined && { desiredvCpus: input.desiredvCpus }),
     ...(input.ec2KeyPair !== undefined && { ec2KeyPair: input.ec2KeyPair }),
     ...(input.imageId !== undefined && { imageId: input.imageId }),
-    ...(input.instanceRole !== undefined && {
-      instanceRole: input.instanceRole,
-    }),
+    ...(input.instanceRole !== undefined && { instanceRole: input.instanceRole }),
     ...(input.instanceTypes !== undefined && {
       instanceTypes: serializeAws_restJson1StringList(input.instanceTypes, context),
     }),
@@ -1704,30 +1668,20 @@ const serializeAws_restJson1ComputeResource = (input: ComputeResource, context: 
     }),
     ...(input.maxvCpus !== undefined && { maxvCpus: input.maxvCpus }),
     ...(input.minvCpus !== undefined && { minvCpus: input.minvCpus }),
-    ...(input.placementGroup !== undefined && {
-      placementGroup: input.placementGroup,
-    }),
+    ...(input.placementGroup !== undefined && { placementGroup: input.placementGroup }),
     ...(input.securityGroupIds !== undefined && {
       securityGroupIds: serializeAws_restJson1StringList(input.securityGroupIds, context),
     }),
-    ...(input.spotIamFleetRole !== undefined && {
-      spotIamFleetRole: input.spotIamFleetRole,
-    }),
-    ...(input.subnets !== undefined && {
-      subnets: serializeAws_restJson1StringList(input.subnets, context),
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagsMap(input.tags, context),
-    }),
+    ...(input.spotIamFleetRole !== undefined && { spotIamFleetRole: input.spotIamFleetRole }),
+    ...(input.subnets !== undefined && { subnets: serializeAws_restJson1StringList(input.subnets, context) }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
     ...(input.type !== undefined && { type: input.type }),
   };
 };
 
 const serializeAws_restJson1ComputeResourceUpdate = (input: ComputeResourceUpdate, context: __SerdeContext): any => {
   return {
-    ...(input.desiredvCpus !== undefined && {
-      desiredvCpus: input.desiredvCpus,
-    }),
+    ...(input.desiredvCpus !== undefined && { desiredvCpus: input.desiredvCpus }),
     ...(input.maxvCpus !== undefined && { maxvCpus: input.maxvCpus }),
     ...(input.minvCpus !== undefined && { minvCpus: input.minvCpus }),
   };
@@ -1735,15 +1689,11 @@ const serializeAws_restJson1ComputeResourceUpdate = (input: ComputeResourceUpdat
 
 const serializeAws_restJson1ContainerOverrides = (input: ContainerOverrides, context: __SerdeContext): any => {
   return {
-    ...(input.command !== undefined && {
-      command: serializeAws_restJson1StringList(input.command, context),
-    }),
+    ...(input.command !== undefined && { command: serializeAws_restJson1StringList(input.command, context) }),
     ...(input.environment !== undefined && {
       environment: serializeAws_restJson1EnvironmentVariables(input.environment, context),
     }),
-    ...(input.instanceType !== undefined && {
-      instanceType: input.instanceType,
-    }),
+    ...(input.instanceType !== undefined && { instanceType: input.instanceType }),
     ...(input.memory !== undefined && { memory: input.memory }),
     ...(input.resourceRequirements !== undefined && {
       resourceRequirements: serializeAws_restJson1ResourceRequirements(input.resourceRequirements, context),
@@ -1754,16 +1704,12 @@ const serializeAws_restJson1ContainerOverrides = (input: ContainerOverrides, con
 
 const serializeAws_restJson1ContainerProperties = (input: ContainerProperties, context: __SerdeContext): any => {
   return {
-    ...(input.command !== undefined && {
-      command: serializeAws_restJson1StringList(input.command, context),
-    }),
+    ...(input.command !== undefined && { command: serializeAws_restJson1StringList(input.command, context) }),
     ...(input.environment !== undefined && {
       environment: serializeAws_restJson1EnvironmentVariables(input.environment, context),
     }),
     ...(input.image !== undefined && { image: input.image }),
-    ...(input.instanceType !== undefined && {
-      instanceType: input.instanceType,
-    }),
+    ...(input.instanceType !== undefined && { instanceType: input.instanceType }),
     ...(input.jobRoleArn !== undefined && { jobRoleArn: input.jobRoleArn }),
     ...(input.linuxParameters !== undefined && {
       linuxParameters: serializeAws_restJson1LinuxParameters(input.linuxParameters, context),
@@ -1773,28 +1719,20 @@ const serializeAws_restJson1ContainerProperties = (input: ContainerProperties, c
       mountPoints: serializeAws_restJson1MountPoints(input.mountPoints, context),
     }),
     ...(input.privileged !== undefined && { privileged: input.privileged }),
-    ...(input.readonlyRootFilesystem !== undefined && {
-      readonlyRootFilesystem: input.readonlyRootFilesystem,
-    }),
+    ...(input.readonlyRootFilesystem !== undefined && { readonlyRootFilesystem: input.readonlyRootFilesystem }),
     ...(input.resourceRequirements !== undefined && {
       resourceRequirements: serializeAws_restJson1ResourceRequirements(input.resourceRequirements, context),
     }),
-    ...(input.ulimits !== undefined && {
-      ulimits: serializeAws_restJson1Ulimits(input.ulimits, context),
-    }),
+    ...(input.ulimits !== undefined && { ulimits: serializeAws_restJson1Ulimits(input.ulimits, context) }),
     ...(input.user !== undefined && { user: input.user }),
     ...(input.vcpus !== undefined && { vcpus: input.vcpus }),
-    ...(input.volumes !== undefined && {
-      volumes: serializeAws_restJson1Volumes(input.volumes, context),
-    }),
+    ...(input.volumes !== undefined && { volumes: serializeAws_restJson1Volumes(input.volumes, context) }),
   };
 };
 
 const serializeAws_restJson1Device = (input: Device, context: __SerdeContext): any => {
   return {
-    ...(input.containerPath !== undefined && {
-      containerPath: input.containerPath,
-    }),
+    ...(input.containerPath !== undefined && { containerPath: input.containerPath }),
     ...(input.hostPath !== undefined && { hostPath: input.hostPath }),
     ...(input.permissions !== undefined && {
       permissions: serializeAws_restJson1DeviceCgroupPermissions(input.permissions, context),
@@ -1836,9 +1774,7 @@ const serializeAws_restJson1JobDependencyList = (input: JobDependency[], context
 
 const serializeAws_restJson1JobTimeout = (input: JobTimeout, context: __SerdeContext): any => {
   return {
-    ...(input.attemptDurationSeconds !== undefined && {
-      attemptDurationSeconds: input.attemptDurationSeconds,
-    }),
+    ...(input.attemptDurationSeconds !== undefined && { attemptDurationSeconds: input.attemptDurationSeconds }),
   };
 };
 
@@ -1854,33 +1790,23 @@ const serializeAws_restJson1LaunchTemplateSpecification = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.launchTemplateId !== undefined && {
-      launchTemplateId: input.launchTemplateId,
-    }),
-    ...(input.launchTemplateName !== undefined && {
-      launchTemplateName: input.launchTemplateName,
-    }),
+    ...(input.launchTemplateId !== undefined && { launchTemplateId: input.launchTemplateId }),
+    ...(input.launchTemplateName !== undefined && { launchTemplateName: input.launchTemplateName }),
     ...(input.version !== undefined && { version: input.version }),
   };
 };
 
 const serializeAws_restJson1LinuxParameters = (input: LinuxParameters, context: __SerdeContext): any => {
   return {
-    ...(input.devices !== undefined && {
-      devices: serializeAws_restJson1DevicesList(input.devices, context),
-    }),
+    ...(input.devices !== undefined && { devices: serializeAws_restJson1DevicesList(input.devices, context) }),
   };
 };
 
 const serializeAws_restJson1MountPoint = (input: MountPoint, context: __SerdeContext): any => {
   return {
-    ...(input.containerPath !== undefined && {
-      containerPath: input.containerPath,
-    }),
+    ...(input.containerPath !== undefined && { containerPath: input.containerPath }),
     ...(input.readOnly !== undefined && { readOnly: input.readOnly }),
-    ...(input.sourceVolume !== undefined && {
-      sourceVolume: input.sourceVolume,
-    }),
+    ...(input.sourceVolume !== undefined && { sourceVolume: input.sourceVolume }),
   };
 };
 
@@ -1988,9 +1914,7 @@ const serializeAws_restJson1Ulimits = (input: Ulimit[], context: __SerdeContext)
 
 const serializeAws_restJson1Volume = (input: Volume, context: __SerdeContext): any => {
   return {
-    ...(input.host !== undefined && {
-      host: serializeAws_restJson1Host(input.host, context),
-    }),
+    ...(input.host !== undefined && { host: serializeAws_restJson1Host(input.host, context) }),
     ...(input.name !== undefined && { name: input.name }),
   };
 };

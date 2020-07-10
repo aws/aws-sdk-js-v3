@@ -2295,12 +2295,8 @@ const serializeAws_json1_1AssociateCreatedArtifactRequest = (
       CreatedArtifact: serializeAws_json1_1CreatedArtifact(input.CreatedArtifact, context),
     }),
     ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.MigrationTaskName !== undefined && {
-      MigrationTaskName: input.MigrationTaskName,
-    }),
-    ...(input.ProgressUpdateStream !== undefined && {
-      ProgressUpdateStream: input.ProgressUpdateStream,
-    }),
+    ...(input.MigrationTaskName !== undefined && { MigrationTaskName: input.MigrationTaskName }),
+    ...(input.ProgressUpdateStream !== undefined && { ProgressUpdateStream: input.ProgressUpdateStream }),
   };
 };
 
@@ -2313,12 +2309,8 @@ const serializeAws_json1_1AssociateDiscoveredResourceRequest = (
       DiscoveredResource: serializeAws_json1_1DiscoveredResource(input.DiscoveredResource, context),
     }),
     ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.MigrationTaskName !== undefined && {
-      MigrationTaskName: input.MigrationTaskName,
-    }),
-    ...(input.ProgressUpdateStream !== undefined && {
-      ProgressUpdateStream: input.ProgressUpdateStream,
-    }),
+    ...(input.MigrationTaskName !== undefined && { MigrationTaskName: input.MigrationTaskName }),
+    ...(input.ProgressUpdateStream !== undefined && { ProgressUpdateStream: input.ProgressUpdateStream }),
   };
 };
 
@@ -2335,9 +2327,7 @@ const serializeAws_json1_1CreateProgressUpdateStreamRequest = (
 ): any => {
   return {
     ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.ProgressUpdateStreamName !== undefined && {
-      ProgressUpdateStreamName: input.ProgressUpdateStreamName,
-    }),
+    ...(input.ProgressUpdateStreamName !== undefined && { ProgressUpdateStreamName: input.ProgressUpdateStreamName }),
   };
 };
 
@@ -2347,9 +2337,7 @@ const serializeAws_json1_1DeleteProgressUpdateStreamRequest = (
 ): any => {
   return {
     ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.ProgressUpdateStreamName !== undefined && {
-      ProgressUpdateStreamName: input.ProgressUpdateStreamName,
-    }),
+    ...(input.ProgressUpdateStreamName !== undefined && { ProgressUpdateStreamName: input.ProgressUpdateStreamName }),
   };
 };
 
@@ -2358,9 +2346,7 @@ const serializeAws_json1_1DescribeApplicationStateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ApplicationId !== undefined && {
-      ApplicationId: input.ApplicationId,
-    }),
+    ...(input.ApplicationId !== undefined && { ApplicationId: input.ApplicationId }),
   };
 };
 
@@ -2369,12 +2355,8 @@ const serializeAws_json1_1DescribeMigrationTaskRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MigrationTaskName !== undefined && {
-      MigrationTaskName: input.MigrationTaskName,
-    }),
-    ...(input.ProgressUpdateStream !== undefined && {
-      ProgressUpdateStream: input.ProgressUpdateStream,
-    }),
+    ...(input.MigrationTaskName !== undefined && { MigrationTaskName: input.MigrationTaskName }),
+    ...(input.ProgressUpdateStream !== undefined && { ProgressUpdateStream: input.ProgressUpdateStream }),
   };
 };
 
@@ -2383,16 +2365,10 @@ const serializeAws_json1_1DisassociateCreatedArtifactRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CreatedArtifactName !== undefined && {
-      CreatedArtifactName: input.CreatedArtifactName,
-    }),
+    ...(input.CreatedArtifactName !== undefined && { CreatedArtifactName: input.CreatedArtifactName }),
     ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.MigrationTaskName !== undefined && {
-      MigrationTaskName: input.MigrationTaskName,
-    }),
-    ...(input.ProgressUpdateStream !== undefined && {
-      ProgressUpdateStream: input.ProgressUpdateStream,
-    }),
+    ...(input.MigrationTaskName !== undefined && { MigrationTaskName: input.MigrationTaskName }),
+    ...(input.ProgressUpdateStream !== undefined && { ProgressUpdateStream: input.ProgressUpdateStream }),
   };
 };
 
@@ -2401,24 +2377,16 @@ const serializeAws_json1_1DisassociateDiscoveredResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConfigurationId !== undefined && {
-      ConfigurationId: input.ConfigurationId,
-    }),
+    ...(input.ConfigurationId !== undefined && { ConfigurationId: input.ConfigurationId }),
     ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.MigrationTaskName !== undefined && {
-      MigrationTaskName: input.MigrationTaskName,
-    }),
-    ...(input.ProgressUpdateStream !== undefined && {
-      ProgressUpdateStream: input.ProgressUpdateStream,
-    }),
+    ...(input.MigrationTaskName !== undefined && { MigrationTaskName: input.MigrationTaskName }),
+    ...(input.ProgressUpdateStream !== undefined && { ProgressUpdateStream: input.ProgressUpdateStream }),
   };
 };
 
 const serializeAws_json1_1DiscoveredResource = (input: DiscoveredResource, context: __SerdeContext): any => {
   return {
-    ...(input.ConfigurationId !== undefined && {
-      ConfigurationId: input.ConfigurationId,
-    }),
+    ...(input.ConfigurationId !== undefined && { ConfigurationId: input.ConfigurationId }),
     ...(input.Description !== undefined && { Description: input.Description }),
   };
 };
@@ -2429,12 +2397,8 @@ const serializeAws_json1_1ImportMigrationTaskRequest = (
 ): any => {
   return {
     ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.MigrationTaskName !== undefined && {
-      MigrationTaskName: input.MigrationTaskName,
-    }),
-    ...(input.ProgressUpdateStream !== undefined && {
-      ProgressUpdateStream: input.ProgressUpdateStream,
-    }),
+    ...(input.MigrationTaskName !== undefined && { MigrationTaskName: input.MigrationTaskName }),
+    ...(input.ProgressUpdateStream !== undefined && { ProgressUpdateStream: input.ProgressUpdateStream }),
   };
 };
 
@@ -2457,13 +2421,9 @@ const serializeAws_json1_1ListCreatedArtifactsRequest = (
 ): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.MigrationTaskName !== undefined && {
-      MigrationTaskName: input.MigrationTaskName,
-    }),
+    ...(input.MigrationTaskName !== undefined && { MigrationTaskName: input.MigrationTaskName }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ProgressUpdateStream !== undefined && {
-      ProgressUpdateStream: input.ProgressUpdateStream,
-    }),
+    ...(input.ProgressUpdateStream !== undefined && { ProgressUpdateStream: input.ProgressUpdateStream }),
   };
 };
 
@@ -2473,13 +2433,9 @@ const serializeAws_json1_1ListDiscoveredResourcesRequest = (
 ): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.MigrationTaskName !== undefined && {
-      MigrationTaskName: input.MigrationTaskName,
-    }),
+    ...(input.MigrationTaskName !== undefined && { MigrationTaskName: input.MigrationTaskName }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ProgressUpdateStream !== undefined && {
-      ProgressUpdateStream: input.ProgressUpdateStream,
-    }),
+    ...(input.ProgressUpdateStream !== undefined && { ProgressUpdateStream: input.ProgressUpdateStream }),
   };
 };
 
@@ -2490,9 +2446,7 @@ const serializeAws_json1_1ListMigrationTasksRequest = (
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceName !== undefined && {
-      ResourceName: input.ResourceName,
-    }),
+    ...(input.ResourceName !== undefined && { ResourceName: input.ResourceName }),
   };
 };
 
@@ -2511,14 +2465,10 @@ const serializeAws_json1_1NotifyApplicationStateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ApplicationId !== undefined && {
-      ApplicationId: input.ApplicationId,
-    }),
+    ...(input.ApplicationId !== undefined && { ApplicationId: input.ApplicationId }),
     ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
     ...(input.Status !== undefined && { Status: input.Status }),
-    ...(input.UpdateDateTime !== undefined && {
-      UpdateDateTime: Math.round(input.UpdateDateTime.getTime() / 1000),
-    }),
+    ...(input.UpdateDateTime !== undefined && { UpdateDateTime: Math.round(input.UpdateDateTime.getTime() / 1000) }),
   };
 };
 
@@ -2528,21 +2478,11 @@ const serializeAws_json1_1NotifyMigrationTaskStateRequest = (
 ): any => {
   return {
     ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.MigrationTaskName !== undefined && {
-      MigrationTaskName: input.MigrationTaskName,
-    }),
-    ...(input.NextUpdateSeconds !== undefined && {
-      NextUpdateSeconds: input.NextUpdateSeconds,
-    }),
-    ...(input.ProgressUpdateStream !== undefined && {
-      ProgressUpdateStream: input.ProgressUpdateStream,
-    }),
-    ...(input.Task !== undefined && {
-      Task: serializeAws_json1_1Task(input.Task, context),
-    }),
-    ...(input.UpdateDateTime !== undefined && {
-      UpdateDateTime: Math.round(input.UpdateDateTime.getTime() / 1000),
-    }),
+    ...(input.MigrationTaskName !== undefined && { MigrationTaskName: input.MigrationTaskName }),
+    ...(input.NextUpdateSeconds !== undefined && { NextUpdateSeconds: input.NextUpdateSeconds }),
+    ...(input.ProgressUpdateStream !== undefined && { ProgressUpdateStream: input.ProgressUpdateStream }),
+    ...(input.Task !== undefined && { Task: serializeAws_json1_1Task(input.Task, context) }),
+    ...(input.UpdateDateTime !== undefined && { UpdateDateTime: Math.round(input.UpdateDateTime.getTime() / 1000) }),
   };
 };
 
@@ -2552,12 +2492,8 @@ const serializeAws_json1_1PutResourceAttributesRequest = (
 ): any => {
   return {
     ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.MigrationTaskName !== undefined && {
-      MigrationTaskName: input.MigrationTaskName,
-    }),
-    ...(input.ProgressUpdateStream !== undefined && {
-      ProgressUpdateStream: input.ProgressUpdateStream,
-    }),
+    ...(input.MigrationTaskName !== undefined && { MigrationTaskName: input.MigrationTaskName }),
+    ...(input.ProgressUpdateStream !== undefined && { ProgressUpdateStream: input.ProgressUpdateStream }),
     ...(input.ResourceAttributeList !== undefined && {
       ResourceAttributeList: serializeAws_json1_1ResourceAttributeList(input.ResourceAttributeList, context),
     }),
@@ -2577,13 +2513,9 @@ const serializeAws_json1_1ResourceAttributeList = (input: ResourceAttribute[], c
 
 const serializeAws_json1_1Task = (input: Task, context: __SerdeContext): any => {
   return {
-    ...(input.ProgressPercent !== undefined && {
-      ProgressPercent: input.ProgressPercent,
-    }),
+    ...(input.ProgressPercent !== undefined && { ProgressPercent: input.ProgressPercent }),
     ...(input.Status !== undefined && { Status: input.Status }),
-    ...(input.StatusDetail !== undefined && {
-      StatusDetail: input.StatusDetail,
-    }),
+    ...(input.StatusDetail !== undefined && { StatusDetail: input.StatusDetail }),
   };
 };
 

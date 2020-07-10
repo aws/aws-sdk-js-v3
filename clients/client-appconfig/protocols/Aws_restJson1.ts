@@ -101,9 +101,7 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
   body = JSON.stringify({
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1TagMap(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -139,12 +137,8 @@ export const serializeAws_restJson1CreateConfigurationProfileCommand = async (
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.LocationUri !== undefined && { LocationUri: input.LocationUri }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.RetrievalRoleArn !== undefined && {
-      RetrievalRoleArn: input.RetrievalRoleArn,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1TagMap(input.Tags, context),
-    }),
+    ...(input.RetrievalRoleArn !== undefined && { RetrievalRoleArn: input.RetrievalRoleArn }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
     ...(input.Validators !== undefined && {
       Validators: serializeAws_restJson1ValidatorList(input.Validators, context),
     }),
@@ -175,18 +169,12 @@ export const serializeAws_restJson1CreateDeploymentStrategyCommand = async (
       DeploymentDurationInMinutes: input.DeploymentDurationInMinutes,
     }),
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.FinalBakeTimeInMinutes !== undefined && {
-      FinalBakeTimeInMinutes: input.FinalBakeTimeInMinutes,
-    }),
-    ...(input.GrowthFactor !== undefined && {
-      GrowthFactor: input.GrowthFactor,
-    }),
+    ...(input.FinalBakeTimeInMinutes !== undefined && { FinalBakeTimeInMinutes: input.FinalBakeTimeInMinutes }),
+    ...(input.GrowthFactor !== undefined && { GrowthFactor: input.GrowthFactor }),
     ...(input.GrowthType !== undefined && { GrowthType: input.GrowthType }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.ReplicateTo !== undefined && { ReplicateTo: input.ReplicateTo }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1TagMap(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -220,13 +208,9 @@ export const serializeAws_restJson1CreateEnvironmentCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Monitors !== undefined && {
-      Monitors: serializeAws_restJson1MonitorList(input.Monitors, context),
-    }),
+    ...(input.Monitors !== undefined && { Monitors: serializeAws_restJson1MonitorList(input.Monitors, context) }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1TagMap(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -628,9 +612,7 @@ export const serializeAws_restJson1ListApplicationsCommand = async (
   };
   let resolvedPath = "/applications";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      max_results: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { next_token: input.NextToken }),
   };
   let body: any;
@@ -665,9 +647,7 @@ export const serializeAws_restJson1ListConfigurationProfilesCommand = async (
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      max_results: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { next_token: input.NextToken }),
   };
   let body: any;
@@ -711,9 +691,7 @@ export const serializeAws_restJson1ListDeploymentsCommand = async (
     throw new Error("No value provided for input HTTP label: EnvironmentId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      max_results: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { next_token: input.NextToken }),
   };
   let body: any;
@@ -739,9 +717,7 @@ export const serializeAws_restJson1ListDeploymentStrategiesCommand = async (
   };
   let resolvedPath = "/deploymentstrategies";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      max_results: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { next_token: input.NextToken }),
   };
   let body: any;
@@ -776,9 +752,7 @@ export const serializeAws_restJson1ListEnvironmentsCommand = async (
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      max_results: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { next_token: input.NextToken }),
   };
   let body: any;
@@ -853,19 +827,11 @@ export const serializeAws_restJson1StartDeploymentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ConfigurationProfileId !== undefined && {
-      ConfigurationProfileId: input.ConfigurationProfileId,
-    }),
-    ...(input.ConfigurationVersion !== undefined && {
-      ConfigurationVersion: input.ConfigurationVersion,
-    }),
-    ...(input.DeploymentStrategyId !== undefined && {
-      DeploymentStrategyId: input.DeploymentStrategyId,
-    }),
+    ...(input.ConfigurationProfileId !== undefined && { ConfigurationProfileId: input.ConfigurationProfileId }),
+    ...(input.ConfigurationVersion !== undefined && { ConfigurationVersion: input.ConfigurationVersion }),
+    ...(input.DeploymentStrategyId !== undefined && { DeploymentStrategyId: input.DeploymentStrategyId }),
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1TagMap(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -946,9 +912,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1TagMap(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -980,9 +944,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && {
-      tagKeys: (input.TagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1062,9 +1024,7 @@ export const serializeAws_restJson1UpdateConfigurationProfileCommand = async (
   body = JSON.stringify({
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.RetrievalRoleArn !== undefined && {
-      RetrievalRoleArn: input.RetrievalRoleArn,
-    }),
+    ...(input.RetrievalRoleArn !== undefined && { RetrievalRoleArn: input.RetrievalRoleArn }),
     ...(input.Validators !== undefined && {
       Validators: serializeAws_restJson1ValidatorList(input.Validators, context),
     }),
@@ -1104,12 +1064,8 @@ export const serializeAws_restJson1UpdateDeploymentStrategyCommand = async (
       DeploymentDurationInMinutes: input.DeploymentDurationInMinutes,
     }),
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.FinalBakeTimeInMinutes !== undefined && {
-      FinalBakeTimeInMinutes: input.FinalBakeTimeInMinutes,
-    }),
-    ...(input.GrowthFactor !== undefined && {
-      GrowthFactor: input.GrowthFactor,
-    }),
+    ...(input.FinalBakeTimeInMinutes !== undefined && { FinalBakeTimeInMinutes: input.FinalBakeTimeInMinutes }),
+    ...(input.GrowthFactor !== undefined && { GrowthFactor: input.GrowthFactor }),
     ...(input.GrowthType !== undefined && { GrowthType: input.GrowthType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1153,9 +1109,7 @@ export const serializeAws_restJson1UpdateEnvironmentCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Monitors !== undefined && {
-      Monitors: serializeAws_restJson1MonitorList(input.Monitors, context),
-    }),
+    ...(input.Monitors !== undefined && { Monitors: serializeAws_restJson1MonitorList(input.Monitors, context) }),
     ...(input.Name !== undefined && { Name: input.Name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1197,9 +1151,7 @@ export const serializeAws_restJson1ValidateConfigurationCommand = async (
     throw new Error("No value provided for input HTTP label: ConfigurationProfileId.");
   }
   const query: any = {
-    ...(input.ConfigurationVersion !== undefined && {
-      configuration_version: input.ConfigurationVersion,
-    }),
+    ...(input.ConfigurationVersion !== undefined && { configuration_version: input.ConfigurationVersion }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3793,9 +3745,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
 const serializeAws_restJson1Monitor = (input: Monitor, context: __SerdeContext): any => {
   return {
     ...(input.AlarmArn !== undefined && { AlarmArn: input.AlarmArn }),
-    ...(input.AlarmRoleArn !== undefined && {
-      AlarmRoleArn: input.AlarmRoleArn,
-    }),
+    ...(input.AlarmRoleArn !== undefined && { AlarmRoleArn: input.AlarmRoleArn }),
   };
 };
 

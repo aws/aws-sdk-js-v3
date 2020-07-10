@@ -79,9 +79,7 @@ export interface Code {
 export namespace Code {
   export const filterSensitiveLog = (obj: Code): any => ({
     ...obj,
-    ...(obj.destination && {
-      destination: CodeDestination.filterSensitiveLog(obj.destination),
-    }),
+    ...(obj.destination && { destination: CodeDestination.filterSensitiveLog(obj.destination) }),
   });
   export const isa = (o: any): o is Code => __isa(o, "Code");
 }
@@ -127,9 +125,7 @@ export interface CodeDestination {
 export namespace CodeDestination {
   export const filterSensitiveLog = (obj: CodeDestination): any => ({
     ...obj,
-    ...(obj.gitHub && {
-      gitHub: GitHubCodeDestination.filterSensitiveLog(obj.gitHub),
-    }),
+    ...(obj.gitHub && { gitHub: GitHubCodeDestination.filterSensitiveLog(obj.gitHub) }),
   });
   export const isa = (o: any): o is CodeDestination => __isa(o, "CodeDestination");
 }
@@ -217,12 +213,8 @@ export namespace CreateProjectRequest {
     ...obj,
     ...(obj.description && { description: SENSITIVE_STRING }),
     ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.sourceCode && {
-      sourceCode: obj.sourceCode.map((item) => Code.filterSensitiveLog(item)),
-    }),
-    ...(obj.toolchain && {
-      toolchain: Toolchain.filterSensitiveLog(obj.toolchain),
-    }),
+    ...(obj.sourceCode && { sourceCode: obj.sourceCode.map((item) => Code.filterSensitiveLog(item)) }),
+    ...(obj.toolchain && { toolchain: Toolchain.filterSensitiveLog(obj.toolchain) }),
   });
   export const isa = (o: any): o is CreateProjectRequest => __isa(o, "CreateProjectRequest");
 }

@@ -170,12 +170,8 @@ export const serializeAws_restJson1CreateMeshCommand = async (
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.meshName !== undefined && { meshName: input.meshName }),
-    ...(input.spec !== undefined && {
-      spec: serializeAws_restJson1MeshSpec(input.spec, context),
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagList(input.tags, context),
-    }),
+    ...(input.spec !== undefined && { spec: serializeAws_restJson1MeshSpec(input.spec, context) }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -222,12 +218,8 @@ export const serializeAws_restJson1CreateRouteCommand = async (
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.routeName !== undefined && { routeName: input.routeName }),
-    ...(input.spec !== undefined && {
-      spec: serializeAws_restJson1RouteSpec(input.spec, context),
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagList(input.tags, context),
-    }),
+    ...(input.spec !== undefined && { spec: serializeAws_restJson1RouteSpec(input.spec, context) }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -265,15 +257,9 @@ export const serializeAws_restJson1CreateVirtualNodeCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec !== undefined && {
-      spec: serializeAws_restJson1VirtualNodeSpec(input.spec, context),
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagList(input.tags, context),
-    }),
-    ...(input.virtualNodeName !== undefined && {
-      virtualNodeName: input.virtualNodeName,
-    }),
+    ...(input.spec !== undefined && { spec: serializeAws_restJson1VirtualNodeSpec(input.spec, context) }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+    ...(input.virtualNodeName !== undefined && { virtualNodeName: input.virtualNodeName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -311,15 +297,9 @@ export const serializeAws_restJson1CreateVirtualRouterCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec !== undefined && {
-      spec: serializeAws_restJson1VirtualRouterSpec(input.spec, context),
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagList(input.tags, context),
-    }),
-    ...(input.virtualRouterName !== undefined && {
-      virtualRouterName: input.virtualRouterName,
-    }),
+    ...(input.spec !== undefined && { spec: serializeAws_restJson1VirtualRouterSpec(input.spec, context) }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+    ...(input.virtualRouterName !== undefined && { virtualRouterName: input.virtualRouterName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -357,15 +337,9 @@ export const serializeAws_restJson1CreateVirtualServiceCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec !== undefined && {
-      spec: serializeAws_restJson1VirtualServiceSpec(input.spec, context),
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagList(input.tags, context),
-    }),
-    ...(input.virtualServiceName !== undefined && {
-      virtualServiceName: input.virtualServiceName,
-    }),
+    ...(input.spec !== undefined && { spec: serializeAws_restJson1VirtualServiceSpec(input.spec, context) }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+    ...(input.virtualServiceName !== undefined && { virtualServiceName: input.virtualServiceName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1104,9 +1078,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1134,9 +1106,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.tagKeys !== undefined && {
-      tagKeys: serializeAws_restJson1TagKeyList(input.tagKeys, context),
-    }),
+    ...(input.tagKeys !== undefined && { tagKeys: serializeAws_restJson1TagKeyList(input.tagKeys, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1171,9 +1141,7 @@ export const serializeAws_restJson1UpdateMeshCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec !== undefined && {
-      spec: serializeAws_restJson1MeshSpec(input.spec, context),
-    }),
+    ...(input.spec !== undefined && { spec: serializeAws_restJson1MeshSpec(input.spec, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1228,9 +1196,7 @@ export const serializeAws_restJson1UpdateRouteCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec !== undefined && {
-      spec: serializeAws_restJson1RouteSpec(input.spec, context),
-    }),
+    ...(input.spec !== undefined && { spec: serializeAws_restJson1RouteSpec(input.spec, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1277,9 +1243,7 @@ export const serializeAws_restJson1UpdateVirtualNodeCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec !== undefined && {
-      spec: serializeAws_restJson1VirtualNodeSpec(input.spec, context),
-    }),
+    ...(input.spec !== undefined && { spec: serializeAws_restJson1VirtualNodeSpec(input.spec, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1326,9 +1290,7 @@ export const serializeAws_restJson1UpdateVirtualRouterCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec !== undefined && {
-      spec: serializeAws_restJson1VirtualRouterSpec(input.spec, context),
-    }),
+    ...(input.spec !== undefined && { spec: serializeAws_restJson1VirtualRouterSpec(input.spec, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1375,9 +1337,7 @@ export const serializeAws_restJson1UpdateVirtualServiceCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec !== undefined && {
-      spec: serializeAws_restJson1VirtualServiceSpec(input.spec, context),
-    }),
+    ...(input.spec !== undefined && { spec: serializeAws_restJson1VirtualServiceSpec(input.spec, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4750,9 +4710,7 @@ const deserializeAws_restJson1TooManyTagsExceptionResponse = async (
 
 const serializeAws_restJson1AccessLog = (input: AccessLog, context: __SerdeContext): any => {
   return AccessLog.visit(input, {
-    file: (value) => ({
-      file: serializeAws_restJson1FileAccessLog(value, context),
-    }),
+    file: (value) => ({ file: serializeAws_restJson1FileAccessLog(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -4782,18 +4740,14 @@ const serializeAws_restJson1AwsCloudMapServiceDiscovery = (
     ...(input.attributes !== undefined && {
       attributes: serializeAws_restJson1AwsCloudMapInstanceAttributes(input.attributes, context),
     }),
-    ...(input.namespaceName !== undefined && {
-      namespaceName: input.namespaceName,
-    }),
+    ...(input.namespaceName !== undefined && { namespaceName: input.namespaceName }),
     ...(input.serviceName !== undefined && { serviceName: input.serviceName }),
   };
 };
 
 const serializeAws_restJson1Backend = (input: Backend, context: __SerdeContext): any => {
   return Backend.visit(input, {
-    virtualService: (value) => ({
-      virtualService: serializeAws_restJson1VirtualServiceBackend(value, context),
-    }),
+    virtualService: (value) => ({ virtualService: serializeAws_restJson1VirtualServiceBackend(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -4816,18 +4770,14 @@ const serializeAws_restJson1CertificateAuthorityArns = (input: string[], context
 
 const serializeAws_restJson1ClientPolicy = (input: ClientPolicy, context: __SerdeContext): any => {
   return {
-    ...(input.tls !== undefined && {
-      tls: serializeAws_restJson1ClientPolicyTls(input.tls, context),
-    }),
+    ...(input.tls !== undefined && { tls: serializeAws_restJson1ClientPolicyTls(input.tls, context) }),
   };
 };
 
 const serializeAws_restJson1ClientPolicyTls = (input: ClientPolicyTls, context: __SerdeContext): any => {
   return {
     ...(input.enforce !== undefined && { enforce: input.enforce }),
-    ...(input.ports !== undefined && {
-      ports: serializeAws_restJson1PortSet(input.ports, context),
-    }),
+    ...(input.ports !== undefined && { ports: serializeAws_restJson1PortSet(input.ports, context) }),
     ...(input.validation !== undefined && {
       validation: serializeAws_restJson1TlsValidationContext(input.validation, context),
     }),
@@ -4886,18 +4836,12 @@ const serializeAws_restJson1GrpcRetryPolicyEvents = (
 
 const serializeAws_restJson1GrpcRoute = (input: GrpcRoute, context: __SerdeContext): any => {
   return {
-    ...(input.action !== undefined && {
-      action: serializeAws_restJson1GrpcRouteAction(input.action, context),
-    }),
-    ...(input.match !== undefined && {
-      match: serializeAws_restJson1GrpcRouteMatch(input.match, context),
-    }),
+    ...(input.action !== undefined && { action: serializeAws_restJson1GrpcRouteAction(input.action, context) }),
+    ...(input.match !== undefined && { match: serializeAws_restJson1GrpcRouteMatch(input.match, context) }),
     ...(input.retryPolicy !== undefined && {
       retryPolicy: serializeAws_restJson1GrpcRetryPolicy(input.retryPolicy, context),
     }),
-    ...(input.timeout !== undefined && {
-      timeout: serializeAws_restJson1GrpcTimeout(input.timeout, context),
-    }),
+    ...(input.timeout !== undefined && { timeout: serializeAws_restJson1GrpcTimeout(input.timeout, context) }),
   };
 };
 
@@ -4940,9 +4884,7 @@ const serializeAws_restJson1GrpcRouteMetadataMatchMethod = (
   return GrpcRouteMetadataMatchMethod.visit(input, {
     exact: (value) => ({ exact: value }),
     prefix: (value) => ({ prefix: value }),
-    range: (value) => ({
-      range: serializeAws_restJson1MatchRange(value, context),
-    }),
+    range: (value) => ({ range: serializeAws_restJson1MatchRange(value, context) }),
     regex: (value) => ({ regex: value }),
     suffix: (value) => ({ suffix: value }),
     _: (name, value) => ({ name: value } as any),
@@ -4951,12 +4893,8 @@ const serializeAws_restJson1GrpcRouteMetadataMatchMethod = (
 
 const serializeAws_restJson1GrpcTimeout = (input: GrpcTimeout, context: __SerdeContext): any => {
   return {
-    ...(input.idle !== undefined && {
-      idle: serializeAws_restJson1Duration(input.idle, context),
-    }),
-    ...(input.perRequest !== undefined && {
-      perRequest: serializeAws_restJson1Duration(input.perRequest, context),
-    }),
+    ...(input.idle !== undefined && { idle: serializeAws_restJson1Duration(input.idle, context) }),
+    ...(input.perRequest !== undefined && { perRequest: serializeAws_restJson1Duration(input.perRequest, context) }),
   };
 };
 
@@ -4964,9 +4902,7 @@ const serializeAws_restJson1HeaderMatchMethod = (input: HeaderMatchMethod, conte
   return HeaderMatchMethod.visit(input, {
     exact: (value) => ({ exact: value }),
     prefix: (value) => ({ prefix: value }),
-    range: (value) => ({
-      range: serializeAws_restJson1MatchRange(value, context),
-    }),
+    range: (value) => ({ range: serializeAws_restJson1MatchRange(value, context) }),
     regex: (value) => ({ regex: value }),
     suffix: (value) => ({ suffix: value }),
     _: (name, value) => ({ name: value } as any),
@@ -4975,21 +4911,13 @@ const serializeAws_restJson1HeaderMatchMethod = (input: HeaderMatchMethod, conte
 
 const serializeAws_restJson1HealthCheckPolicy = (input: HealthCheckPolicy, context: __SerdeContext): any => {
   return {
-    ...(input.healthyThreshold !== undefined && {
-      healthyThreshold: input.healthyThreshold,
-    }),
-    ...(input.intervalMillis !== undefined && {
-      intervalMillis: input.intervalMillis,
-    }),
+    ...(input.healthyThreshold !== undefined && { healthyThreshold: input.healthyThreshold }),
+    ...(input.intervalMillis !== undefined && { intervalMillis: input.intervalMillis }),
     ...(input.path !== undefined && { path: input.path }),
     ...(input.port !== undefined && { port: input.port }),
     ...(input.protocol !== undefined && { protocol: input.protocol }),
-    ...(input.timeoutMillis !== undefined && {
-      timeoutMillis: input.timeoutMillis,
-    }),
-    ...(input.unhealthyThreshold !== undefined && {
-      unhealthyThreshold: input.unhealthyThreshold,
-    }),
+    ...(input.timeoutMillis !== undefined && { timeoutMillis: input.timeoutMillis }),
+    ...(input.unhealthyThreshold !== undefined && { unhealthyThreshold: input.unhealthyThreshold }),
   };
 };
 
@@ -5014,18 +4942,12 @@ const serializeAws_restJson1HttpRetryPolicyEvents = (input: string[], context: _
 
 const serializeAws_restJson1HttpRoute = (input: HttpRoute, context: __SerdeContext): any => {
   return {
-    ...(input.action !== undefined && {
-      action: serializeAws_restJson1HttpRouteAction(input.action, context),
-    }),
-    ...(input.match !== undefined && {
-      match: serializeAws_restJson1HttpRouteMatch(input.match, context),
-    }),
+    ...(input.action !== undefined && { action: serializeAws_restJson1HttpRouteAction(input.action, context) }),
+    ...(input.match !== undefined && { match: serializeAws_restJson1HttpRouteMatch(input.match, context) }),
     ...(input.retryPolicy !== undefined && {
       retryPolicy: serializeAws_restJson1HttpRetryPolicy(input.retryPolicy, context),
     }),
-    ...(input.timeout !== undefined && {
-      timeout: serializeAws_restJson1HttpTimeout(input.timeout, context),
-    }),
+    ...(input.timeout !== undefined && { timeout: serializeAws_restJson1HttpTimeout(input.timeout, context) }),
   };
 };
 
@@ -5040,9 +4962,7 @@ const serializeAws_restJson1HttpRouteAction = (input: HttpRouteAction, context: 
 const serializeAws_restJson1HttpRouteHeader = (input: HttpRouteHeader, context: __SerdeContext): any => {
   return {
     ...(input.invert !== undefined && { invert: input.invert }),
-    ...(input.match !== undefined && {
-      match: serializeAws_restJson1HeaderMatchMethod(input.match, context),
-    }),
+    ...(input.match !== undefined && { match: serializeAws_restJson1HeaderMatchMethod(input.match, context) }),
     ...(input.name !== undefined && { name: input.name }),
   };
 };
@@ -5053,9 +4973,7 @@ const serializeAws_restJson1HttpRouteHeaders = (input: HttpRouteHeader[], contex
 
 const serializeAws_restJson1HttpRouteMatch = (input: HttpRouteMatch, context: __SerdeContext): any => {
   return {
-    ...(input.headers !== undefined && {
-      headers: serializeAws_restJson1HttpRouteHeaders(input.headers, context),
-    }),
+    ...(input.headers !== undefined && { headers: serializeAws_restJson1HttpRouteHeaders(input.headers, context) }),
     ...(input.method !== undefined && { method: input.method }),
     ...(input.prefix !== undefined && { prefix: input.prefix }),
     ...(input.scheme !== undefined && { scheme: input.scheme }),
@@ -5064,12 +4982,8 @@ const serializeAws_restJson1HttpRouteMatch = (input: HttpRouteMatch, context: __
 
 const serializeAws_restJson1HttpTimeout = (input: HttpTimeout, context: __SerdeContext): any => {
   return {
-    ...(input.idle !== undefined && {
-      idle: serializeAws_restJson1Duration(input.idle, context),
-    }),
-    ...(input.perRequest !== undefined && {
-      perRequest: serializeAws_restJson1Duration(input.perRequest, context),
-    }),
+    ...(input.idle !== undefined && { idle: serializeAws_restJson1Duration(input.idle, context) }),
+    ...(input.perRequest !== undefined && { perRequest: serializeAws_restJson1Duration(input.perRequest, context) }),
   };
 };
 
@@ -5090,9 +5004,7 @@ const serializeAws_restJson1Listeners = (input: Listener[], context: __SerdeCont
 
 const serializeAws_restJson1Logging = (input: Logging, context: __SerdeContext): any => {
   return {
-    ...(input.accessLog !== undefined && {
-      accessLog: serializeAws_restJson1AccessLog(input.accessLog, context),
-    }),
+    ...(input.accessLog !== undefined && { accessLog: serializeAws_restJson1AccessLog(input.accessLog, context) }),
   };
 };
 
@@ -5124,19 +5036,11 @@ const serializeAws_restJson1PortSet = (input: number[], context: __SerdeContext)
 
 const serializeAws_restJson1RouteSpec = (input: RouteSpec, context: __SerdeContext): any => {
   return {
-    ...(input.grpcRoute !== undefined && {
-      grpcRoute: serializeAws_restJson1GrpcRoute(input.grpcRoute, context),
-    }),
-    ...(input.http2Route !== undefined && {
-      http2Route: serializeAws_restJson1HttpRoute(input.http2Route, context),
-    }),
-    ...(input.httpRoute !== undefined && {
-      httpRoute: serializeAws_restJson1HttpRoute(input.httpRoute, context),
-    }),
+    ...(input.grpcRoute !== undefined && { grpcRoute: serializeAws_restJson1GrpcRoute(input.grpcRoute, context) }),
+    ...(input.http2Route !== undefined && { http2Route: serializeAws_restJson1HttpRoute(input.http2Route, context) }),
+    ...(input.httpRoute !== undefined && { httpRoute: serializeAws_restJson1HttpRoute(input.httpRoute, context) }),
     ...(input.priority !== undefined && { priority: input.priority }),
-    ...(input.tcpRoute !== undefined && {
-      tcpRoute: serializeAws_restJson1TcpRoute(input.tcpRoute, context),
-    }),
+    ...(input.tcpRoute !== undefined && { tcpRoute: serializeAws_restJson1TcpRoute(input.tcpRoute, context) }),
   };
 };
 
@@ -5160,12 +5064,8 @@ const serializeAws_restJson1SdsUnixDomainSocketSource = (
 
 const serializeAws_restJson1ServiceDiscovery = (input: ServiceDiscovery, context: __SerdeContext): any => {
   return ServiceDiscovery.visit(input, {
-    awsCloudMap: (value) => ({
-      awsCloudMap: serializeAws_restJson1AwsCloudMapServiceDiscovery(value, context),
-    }),
-    dns: (value) => ({
-      dns: serializeAws_restJson1DnsServiceDiscovery(value, context),
-    }),
+    awsCloudMap: (value) => ({ awsCloudMap: serializeAws_restJson1AwsCloudMapServiceDiscovery(value, context) }),
+    dns: (value) => ({ dns: serializeAws_restJson1DnsServiceDiscovery(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -5194,12 +5094,8 @@ const serializeAws_restJson1TcpRetryPolicyEvents = (
 
 const serializeAws_restJson1TcpRoute = (input: TcpRoute, context: __SerdeContext): any => {
   return {
-    ...(input.action !== undefined && {
-      action: serializeAws_restJson1TcpRouteAction(input.action, context),
-    }),
-    ...(input.timeout !== undefined && {
-      timeout: serializeAws_restJson1TcpTimeout(input.timeout, context),
-    }),
+    ...(input.action !== undefined && { action: serializeAws_restJson1TcpRouteAction(input.action, context) }),
+    ...(input.timeout !== undefined && { timeout: serializeAws_restJson1TcpTimeout(input.timeout, context) }),
   };
 };
 
@@ -5213,17 +5109,13 @@ const serializeAws_restJson1TcpRouteAction = (input: TcpRouteAction, context: __
 
 const serializeAws_restJson1TcpTimeout = (input: TcpTimeout, context: __SerdeContext): any => {
   return {
-    ...(input.idle !== undefined && {
-      idle: serializeAws_restJson1Duration(input.idle, context),
-    }),
+    ...(input.idle !== undefined && { idle: serializeAws_restJson1Duration(input.idle, context) }),
   };
 };
 
 const serializeAws_restJson1TlsValidationContext = (input: TlsValidationContext, context: __SerdeContext): any => {
   return {
-    ...(input.trust !== undefined && {
-      trust: serializeAws_restJson1TlsValidationContextTrust(input.trust, context),
-    }),
+    ...(input.trust !== undefined && { trust: serializeAws_restJson1TlsValidationContextTrust(input.trust, context) }),
   };
 };
 
@@ -5243,9 +5135,7 @@ const serializeAws_restJson1TlsValidationContextFileTrust = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.certificateChain !== undefined && {
-      certificateChain: input.certificateChain,
-    }),
+    ...(input.certificateChain !== undefined && { certificateChain: input.certificateChain }),
   };
 };
 
@@ -5255,9 +5145,7 @@ const serializeAws_restJson1TlsValidationContextSdsTrust = (
 ): any => {
   return {
     ...(input.secretName !== undefined && { secretName: input.secretName }),
-    ...(input.source !== undefined && {
-      source: serializeAws_restJson1SdsSource(input.source, context),
-    }),
+    ...(input.source !== undefined && { source: serializeAws_restJson1SdsSource(input.source, context) }),
   };
 };
 
@@ -5266,15 +5154,9 @@ const serializeAws_restJson1TlsValidationContextTrust = (
   context: __SerdeContext
 ): any => {
   return TlsValidationContextTrust.visit(input, {
-    acm: (value) => ({
-      acm: serializeAws_restJson1TlsValidationContextAcmTrust(value, context),
-    }),
-    file: (value) => ({
-      file: serializeAws_restJson1TlsValidationContextFileTrust(value, context),
-    }),
-    sds: (value) => ({
-      sds: serializeAws_restJson1TlsValidationContextSdsTrust(value, context),
-    }),
+    acm: (value) => ({ acm: serializeAws_restJson1TlsValidationContextAcmTrust(value, context) }),
+    file: (value) => ({ file: serializeAws_restJson1TlsValidationContextFileTrust(value, context) }),
+    sds: (value) => ({ sds: serializeAws_restJson1TlsValidationContextSdsTrust(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -5284,9 +5166,7 @@ const serializeAws_restJson1VirtualNodeServiceProvider = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.virtualNodeName !== undefined && {
-      virtualNodeName: input.virtualNodeName,
-    }),
+    ...(input.virtualNodeName !== undefined && { virtualNodeName: input.virtualNodeName }),
   };
 };
 
@@ -5295,15 +5175,9 @@ const serializeAws_restJson1VirtualNodeSpec = (input: VirtualNodeSpec, context: 
     ...(input.backendDefaults !== undefined && {
       backendDefaults: serializeAws_restJson1BackendDefaults(input.backendDefaults, context),
     }),
-    ...(input.backends !== undefined && {
-      backends: serializeAws_restJson1Backends(input.backends, context),
-    }),
-    ...(input.listeners !== undefined && {
-      listeners: serializeAws_restJson1Listeners(input.listeners, context),
-    }),
-    ...(input.logging !== undefined && {
-      logging: serializeAws_restJson1Logging(input.logging, context),
-    }),
+    ...(input.backends !== undefined && { backends: serializeAws_restJson1Backends(input.backends, context) }),
+    ...(input.listeners !== undefined && { listeners: serializeAws_restJson1Listeners(input.listeners, context) }),
+    ...(input.logging !== undefined && { logging: serializeAws_restJson1Logging(input.logging, context) }),
     ...(input.serviceDiscovery !== undefined && {
       serviceDiscovery: serializeAws_restJson1ServiceDiscovery(input.serviceDiscovery, context),
     }),
@@ -5327,9 +5201,7 @@ const serializeAws_restJson1VirtualRouterServiceProvider = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.virtualRouterName !== undefined && {
-      virtualRouterName: input.virtualRouterName,
-    }),
+    ...(input.virtualRouterName !== undefined && { virtualRouterName: input.virtualRouterName }),
   };
 };
 
@@ -5346,20 +5218,14 @@ const serializeAws_restJson1VirtualServiceBackend = (input: VirtualServiceBacken
     ...(input.clientPolicy !== undefined && {
       clientPolicy: serializeAws_restJson1ClientPolicy(input.clientPolicy, context),
     }),
-    ...(input.virtualServiceName !== undefined && {
-      virtualServiceName: input.virtualServiceName,
-    }),
+    ...(input.virtualServiceName !== undefined && { virtualServiceName: input.virtualServiceName }),
   };
 };
 
 const serializeAws_restJson1VirtualServiceProvider = (input: VirtualServiceProvider, context: __SerdeContext): any => {
   return VirtualServiceProvider.visit(input, {
-    virtualNode: (value) => ({
-      virtualNode: serializeAws_restJson1VirtualNodeServiceProvider(value, context),
-    }),
-    virtualRouter: (value) => ({
-      virtualRouter: serializeAws_restJson1VirtualRouterServiceProvider(value, context),
-    }),
+    virtualNode: (value) => ({ virtualNode: serializeAws_restJson1VirtualNodeServiceProvider(value, context) }),
+    virtualRouter: (value) => ({ virtualRouter: serializeAws_restJson1VirtualRouterServiceProvider(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };

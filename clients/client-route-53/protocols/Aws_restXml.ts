@@ -1087,13 +1087,9 @@ export const serializeAws_restXmlGetGeoLocationCommand = async (
   };
   let resolvedPath = "/2013-04-01/geolocation";
   const query: any = {
-    ...(input.ContinentCode !== undefined && {
-      continentcode: input.ContinentCode,
-    }),
+    ...(input.ContinentCode !== undefined && { continentcode: input.ContinentCode }),
     ...(input.CountryCode !== undefined && { countrycode: input.CountryCode }),
-    ...(input.SubdivisionCode !== undefined && {
-      subdivisioncode: input.SubdivisionCode,
-    }),
+    ...(input.SubdivisionCode !== undefined && { subdivisioncode: input.SubdivisionCode }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1512,15 +1508,9 @@ export const serializeAws_restXmlListGeoLocationsCommand = async (
   let resolvedPath = "/2013-04-01/geolocations";
   const query: any = {
     ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
-    ...(input.StartContinentCode !== undefined && {
-      startcontinentcode: input.StartContinentCode,
-    }),
-    ...(input.StartCountryCode !== undefined && {
-      startcountrycode: input.StartCountryCode,
-    }),
-    ...(input.StartSubdivisionCode !== undefined && {
-      startsubdivisioncode: input.StartSubdivisionCode,
-    }),
+    ...(input.StartContinentCode !== undefined && { startcontinentcode: input.StartContinentCode }),
+    ...(input.StartCountryCode !== undefined && { startcountrycode: input.StartCountryCode }),
+    ...(input.StartSubdivisionCode !== undefined && { startsubdivisioncode: input.StartSubdivisionCode }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1571,9 +1561,7 @@ export const serializeAws_restXmlListHostedZonesCommand = async (
   };
   let resolvedPath = "/2013-04-01/hostedzone";
   const query: any = {
-    ...(input.DelegationSetId !== undefined && {
-      delegationsetid: input.DelegationSetId,
-    }),
+    ...(input.DelegationSetId !== undefined && { delegationsetid: input.DelegationSetId }),
     ...(input.Marker !== undefined && { marker: input.Marker }),
     ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
   };
@@ -1601,9 +1589,7 @@ export const serializeAws_restXmlListHostedZonesByNameCommand = async (
   let resolvedPath = "/2013-04-01/hostedzonesbyname";
   const query: any = {
     ...(input.DNSName !== undefined && { dnsname: input.DNSName }),
-    ...(input.HostedZoneId !== undefined && {
-      hostedzoneid: input.HostedZoneId,
-    }),
+    ...(input.HostedZoneId !== undefined && { hostedzoneid: input.HostedZoneId }),
     ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
   };
   let body: any;
@@ -1629,9 +1615,7 @@ export const serializeAws_restXmlListQueryLoggingConfigsCommand = async (
   };
   let resolvedPath = "/2013-04-01/queryloggingconfig";
   const query: any = {
-    ...(input.HostedZoneId !== undefined && {
-      hostedzoneid: input.HostedZoneId,
-    }),
+    ...(input.HostedZoneId !== undefined && { hostedzoneid: input.HostedZoneId }),
     ...(input.MaxResults !== undefined && { maxresults: input.MaxResults }),
     ...(input.NextToken !== undefined && { nexttoken: input.NextToken }),
   };
@@ -1668,9 +1652,7 @@ export const serializeAws_restXmlListResourceRecordSetsCommand = async (
   }
   const query: any = {
     ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
-    ...(input.StartRecordIdentifier !== undefined && {
-      identifier: input.StartRecordIdentifier,
-    }),
+    ...(input.StartRecordIdentifier !== undefined && { identifier: input.StartRecordIdentifier }),
     ...(input.StartRecordName !== undefined && { name: input.StartRecordName }),
     ...(input.StartRecordType !== undefined && { type: input.StartRecordType }),
   };
@@ -1805,9 +1787,7 @@ export const serializeAws_restXmlListTrafficPoliciesCommand = async (
   let resolvedPath = "/2013-04-01/trafficpolicies";
   const query: any = {
     ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
-    ...(input.TrafficPolicyIdMarker !== undefined && {
-      trafficpolicyid: input.TrafficPolicyIdMarker,
-    }),
+    ...(input.TrafficPolicyIdMarker !== undefined && { trafficpolicyid: input.TrafficPolicyIdMarker }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1832,9 +1812,7 @@ export const serializeAws_restXmlListTrafficPolicyInstancesCommand = async (
   };
   let resolvedPath = "/2013-04-01/trafficpolicyinstances";
   const query: any = {
-    ...(input.HostedZoneIdMarker !== undefined && {
-      hostedzoneid: input.HostedZoneIdMarker,
-    }),
+    ...(input.HostedZoneIdMarker !== undefined && { hostedzoneid: input.HostedZoneIdMarker }),
     ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
     ...(input.TrafficPolicyInstanceNameMarker !== undefined && {
       trafficpolicyinstancename: input.TrafficPolicyInstanceNameMarker,
@@ -1898,9 +1876,7 @@ export const serializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand = asy
   };
   let resolvedPath = "/2013-04-01/trafficpolicyinstances/trafficpolicy";
   const query: any = {
-    ...(input.HostedZoneIdMarker !== undefined && {
-      hostedzoneid: input.HostedZoneIdMarker,
-    }),
+    ...(input.HostedZoneIdMarker !== undefined && { hostedzoneid: input.HostedZoneIdMarker }),
     ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
     ...(input.TrafficPolicyId !== undefined && { id: input.TrafficPolicyId }),
     ...(input.TrafficPolicyInstanceNameMarker !== undefined && {
@@ -1909,9 +1885,7 @@ export const serializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand = asy
     ...(input.TrafficPolicyInstanceTypeMarker !== undefined && {
       trafficpolicyinstancetype: input.TrafficPolicyInstanceTypeMarker,
     }),
-    ...(input.TrafficPolicyVersion !== undefined && {
-      version: input.TrafficPolicyVersion.toString(),
-    }),
+    ...(input.TrafficPolicyVersion !== undefined && { version: input.TrafficPolicyVersion.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1946,9 +1920,7 @@ export const serializeAws_restXmlListTrafficPolicyVersionsCommand = async (
   }
   const query: any = {
     ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
-    ...(input.TrafficPolicyVersionMarker !== undefined && {
-      trafficpolicyversion: input.TrafficPolicyVersionMarker,
-    }),
+    ...(input.TrafficPolicyVersionMarker !== undefined && { trafficpolicyversion: input.TrafficPolicyVersionMarker }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2008,15 +1980,9 @@ export const serializeAws_restXmlTestDNSAnswerCommand = async (
   };
   let resolvedPath = "/2013-04-01/testdnsanswer";
   const query: any = {
-    ...(input.EDNS0ClientSubnetIP !== undefined && {
-      edns0clientsubnetip: input.EDNS0ClientSubnetIP,
-    }),
-    ...(input.EDNS0ClientSubnetMask !== undefined && {
-      edns0clientsubnetmask: input.EDNS0ClientSubnetMask,
-    }),
-    ...(input.HostedZoneId !== undefined && {
-      hostedzoneid: input.HostedZoneId,
-    }),
+    ...(input.EDNS0ClientSubnetIP !== undefined && { edns0clientsubnetip: input.EDNS0ClientSubnetIP }),
+    ...(input.EDNS0ClientSubnetMask !== undefined && { edns0clientsubnetmask: input.EDNS0ClientSubnetMask }),
+    ...(input.HostedZoneId !== undefined && { hostedzoneid: input.HostedZoneId }),
     ...(input.RecordName !== undefined && { recordname: input.RecordName }),
     ...(input.RecordType !== undefined && { recordtype: input.RecordType }),
     ...(input.ResolverIP !== undefined && { resolverip: input.ResolverIP }),

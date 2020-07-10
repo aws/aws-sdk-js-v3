@@ -102,9 +102,7 @@ export const serializeAws_restJson1BatchGetTracesCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.TraceIds !== undefined && {
-      TraceIds: serializeAws_restJson1TraceIdList(input.TraceIds, context),
-    }),
+    ...(input.TraceIds !== undefined && { TraceIds: serializeAws_restJson1TraceIdList(input.TraceIds, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -128,9 +126,7 @@ export const serializeAws_restJson1CreateGroupCommand = async (
   let resolvedPath = "/CreateGroup";
   let body: any;
   body = JSON.stringify({
-    ...(input.FilterExpression !== undefined && {
-      FilterExpression: input.FilterExpression,
-    }),
+    ...(input.FilterExpression !== undefined && { FilterExpression: input.FilterExpression }),
     ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -379,15 +375,11 @@ export const serializeAws_restJson1GetServiceGraphCommand = async (
   let resolvedPath = "/ServiceGraph";
   let body: any;
   body = JSON.stringify({
-    ...(input.EndTime !== undefined && {
-      EndTime: Math.round(input.EndTime.getTime() / 1000),
-    }),
+    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.GroupARN !== undefined && { GroupARN: input.GroupARN }),
     ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.StartTime !== undefined && {
-      StartTime: Math.round(input.StartTime.getTime() / 1000),
-    }),
+    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -411,19 +403,13 @@ export const serializeAws_restJson1GetTimeSeriesServiceStatisticsCommand = async
   let resolvedPath = "/TimeSeriesServiceStatistics";
   let body: any;
   body = JSON.stringify({
-    ...(input.EndTime !== undefined && {
-      EndTime: Math.round(input.EndTime.getTime() / 1000),
-    }),
-    ...(input.EntitySelectorExpression !== undefined && {
-      EntitySelectorExpression: input.EntitySelectorExpression,
-    }),
+    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.EntitySelectorExpression !== undefined && { EntitySelectorExpression: input.EntitySelectorExpression }),
     ...(input.GroupARN !== undefined && { GroupARN: input.GroupARN }),
     ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.Period !== undefined && { Period: input.Period }),
-    ...(input.StartTime !== undefined && {
-      StartTime: Math.round(input.StartTime.getTime() / 1000),
-    }),
+    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -448,9 +434,7 @@ export const serializeAws_restJson1GetTraceGraphCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.TraceIds !== undefined && {
-      TraceIds: serializeAws_restJson1TraceIdList(input.TraceIds, context),
-    }),
+    ...(input.TraceIds !== undefined && { TraceIds: serializeAws_restJson1TraceIdList(input.TraceIds, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -474,23 +458,15 @@ export const serializeAws_restJson1GetTraceSummariesCommand = async (
   let resolvedPath = "/TraceSummaries";
   let body: any;
   body = JSON.stringify({
-    ...(input.EndTime !== undefined && {
-      EndTime: Math.round(input.EndTime.getTime() / 1000),
-    }),
-    ...(input.FilterExpression !== undefined && {
-      FilterExpression: input.FilterExpression,
-    }),
+    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.FilterExpression !== undefined && { FilterExpression: input.FilterExpression }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.Sampling !== undefined && { Sampling: input.Sampling }),
     ...(input.SamplingStrategy !== undefined && {
       SamplingStrategy: serializeAws_restJson1SamplingStrategy(input.SamplingStrategy, context),
     }),
-    ...(input.StartTime !== undefined && {
-      StartTime: Math.round(input.StartTime.getTime() / 1000),
-    }),
-    ...(input.TimeRangeType !== undefined && {
-      TimeRangeType: input.TimeRangeType,
-    }),
+    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.TimeRangeType !== undefined && { TimeRangeType: input.TimeRangeType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -539,9 +515,7 @@ export const serializeAws_restJson1PutTelemetryRecordsCommand = async (
   let resolvedPath = "/TelemetryRecords";
   let body: any;
   body = JSON.stringify({
-    ...(input.EC2InstanceId !== undefined && {
-      EC2InstanceId: input.EC2InstanceId,
-    }),
+    ...(input.EC2InstanceId !== undefined && { EC2InstanceId: input.EC2InstanceId }),
     ...(input.Hostname !== undefined && { Hostname: input.Hostname }),
     ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
     ...(input.TelemetryRecords !== undefined && {
@@ -596,9 +570,7 @@ export const serializeAws_restJson1UpdateGroupCommand = async (
   let resolvedPath = "/UpdateGroup";
   let body: any;
   body = JSON.stringify({
-    ...(input.FilterExpression !== undefined && {
-      FilterExpression: input.FilterExpression,
-    }),
+    ...(input.FilterExpression !== undefined && { FilterExpression: input.FilterExpression }),
     ...(input.GroupARN !== undefined && { GroupARN: input.GroupARN }),
     ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
   });
@@ -2069,22 +2041,12 @@ const serializeAws_restJson1BackendConnectionErrors = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConnectionRefusedCount !== undefined && {
-      ConnectionRefusedCount: input.ConnectionRefusedCount,
-    }),
-    ...(input.HTTPCode4XXCount !== undefined && {
-      HTTPCode4XXCount: input.HTTPCode4XXCount,
-    }),
-    ...(input.HTTPCode5XXCount !== undefined && {
-      HTTPCode5XXCount: input.HTTPCode5XXCount,
-    }),
+    ...(input.ConnectionRefusedCount !== undefined && { ConnectionRefusedCount: input.ConnectionRefusedCount }),
+    ...(input.HTTPCode4XXCount !== undefined && { HTTPCode4XXCount: input.HTTPCode4XXCount }),
+    ...(input.HTTPCode5XXCount !== undefined && { HTTPCode5XXCount: input.HTTPCode5XXCount }),
     ...(input.OtherCount !== undefined && { OtherCount: input.OtherCount }),
-    ...(input.TimeoutCount !== undefined && {
-      TimeoutCount: input.TimeoutCount,
-    }),
-    ...(input.UnknownHostCount !== undefined && {
-      UnknownHostCount: input.UnknownHostCount,
-    }),
+    ...(input.TimeoutCount !== undefined && { TimeoutCount: input.TimeoutCount }),
+    ...(input.UnknownHostCount !== undefined && { UnknownHostCount: input.UnknownHostCount }),
   };
 };
 
@@ -2097,9 +2059,7 @@ const serializeAws_restJson1SamplingRule = (input: SamplingRule, context: __Serd
     ...(input.HTTPMethod !== undefined && { HTTPMethod: input.HTTPMethod }),
     ...(input.Host !== undefined && { Host: input.Host }),
     ...(input.Priority !== undefined && { Priority: input.Priority }),
-    ...(input.ReservoirSize !== undefined && {
-      ReservoirSize: input.ReservoirSize,
-    }),
+    ...(input.ReservoirSize !== undefined && { ReservoirSize: input.ReservoirSize }),
     ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
     ...(input.RuleARN !== undefined && { RuleARN: input.RuleARN }),
     ...(input.RuleName !== undefined && { RuleName: input.RuleName }),
@@ -2119,9 +2079,7 @@ const serializeAws_restJson1SamplingRuleUpdate = (input: SamplingRuleUpdate, con
     ...(input.HTTPMethod !== undefined && { HTTPMethod: input.HTTPMethod }),
     ...(input.Host !== undefined && { Host: input.Host }),
     ...(input.Priority !== undefined && { Priority: input.Priority }),
-    ...(input.ReservoirSize !== undefined && {
-      ReservoirSize: input.ReservoirSize,
-    }),
+    ...(input.ReservoirSize !== undefined && { ReservoirSize: input.ReservoirSize }),
     ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
     ...(input.RuleARN !== undefined && { RuleARN: input.RuleARN }),
     ...(input.RuleName !== undefined && { RuleName: input.RuleName }),
@@ -2138,16 +2096,10 @@ const serializeAws_restJson1SamplingStatisticsDocument = (
   return {
     ...(input.BorrowCount !== undefined && { BorrowCount: input.BorrowCount }),
     ...(input.ClientID !== undefined && { ClientID: input.ClientID }),
-    ...(input.RequestCount !== undefined && {
-      RequestCount: input.RequestCount,
-    }),
+    ...(input.RequestCount !== undefined && { RequestCount: input.RequestCount }),
     ...(input.RuleName !== undefined && { RuleName: input.RuleName }),
-    ...(input.SampledCount !== undefined && {
-      SampledCount: input.SampledCount,
-    }),
-    ...(input.Timestamp !== undefined && {
-      Timestamp: Math.round(input.Timestamp.getTime() / 1000),
-    }),
+    ...(input.SampledCount !== undefined && { SampledCount: input.SampledCount }),
+    ...(input.Timestamp !== undefined && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
   };
 };
 
@@ -2170,21 +2122,11 @@ const serializeAws_restJson1TelemetryRecord = (input: TelemetryRecord, context: 
     ...(input.BackendConnectionErrors !== undefined && {
       BackendConnectionErrors: serializeAws_restJson1BackendConnectionErrors(input.BackendConnectionErrors, context),
     }),
-    ...(input.SegmentsReceivedCount !== undefined && {
-      SegmentsReceivedCount: input.SegmentsReceivedCount,
-    }),
-    ...(input.SegmentsRejectedCount !== undefined && {
-      SegmentsRejectedCount: input.SegmentsRejectedCount,
-    }),
-    ...(input.SegmentsSentCount !== undefined && {
-      SegmentsSentCount: input.SegmentsSentCount,
-    }),
-    ...(input.SegmentsSpilloverCount !== undefined && {
-      SegmentsSpilloverCount: input.SegmentsSpilloverCount,
-    }),
-    ...(input.Timestamp !== undefined && {
-      Timestamp: Math.round(input.Timestamp.getTime() / 1000),
-    }),
+    ...(input.SegmentsReceivedCount !== undefined && { SegmentsReceivedCount: input.SegmentsReceivedCount }),
+    ...(input.SegmentsRejectedCount !== undefined && { SegmentsRejectedCount: input.SegmentsRejectedCount }),
+    ...(input.SegmentsSentCount !== undefined && { SegmentsSentCount: input.SegmentsSentCount }),
+    ...(input.SegmentsSpilloverCount !== undefined && { SegmentsSpilloverCount: input.SegmentsSpilloverCount }),
+    ...(input.Timestamp !== undefined && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
   };
 };
 

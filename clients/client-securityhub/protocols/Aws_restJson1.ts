@@ -171,9 +171,7 @@ export const serializeAws_restJson1AcceptInvitationCommand = async (
   let resolvedPath = "/master";
   let body: any;
   body = JSON.stringify({
-    ...(input.InvitationId !== undefined && {
-      InvitationId: input.InvitationId,
-    }),
+    ...(input.InvitationId !== undefined && { InvitationId: input.InvitationId }),
     ...(input.MasterId !== undefined && { MasterId: input.MasterId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -311,9 +309,7 @@ export const serializeAws_restJson1CreateInsightCommand = async (
     ...(input.Filters !== undefined && {
       Filters: serializeAws_restJson1AwsSecurityFindingFilters(input.Filters, context),
     }),
-    ...(input.GroupByAttribute !== undefined && {
-      GroupByAttribute: input.GroupByAttribute,
-    }),
+    ...(input.GroupByAttribute !== undefined && { GroupByAttribute: input.GroupByAttribute }),
     ...(input.Name !== undefined && { Name: input.Name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -566,9 +562,7 @@ export const serializeAws_restJson1DescribeProductsCommand = async (
   };
   let resolvedPath = "/products";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      MaxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
@@ -609,9 +603,7 @@ export const serializeAws_restJson1DescribeStandardsControlsCommand = async (
     throw new Error("No value provided for input HTTP label: StandardsSubscriptionArn.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      MaxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
@@ -768,9 +760,7 @@ export const serializeAws_restJson1EnableSecurityHubCommand = async (
   let resolvedPath = "/accounts";
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1TagMap(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -892,9 +882,7 @@ export const serializeAws_restJson1GetInsightsCommand = async (
   let resolvedPath = "/insights/get";
   let body: any;
   body = JSON.stringify({
-    ...(input.InsightArns !== undefined && {
-      InsightArns: serializeAws_restJson1ArnList(input.InsightArns, context),
-    }),
+    ...(input.InsightArns !== undefined && { InsightArns: serializeAws_restJson1ArnList(input.InsightArns, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   });
@@ -1015,9 +1003,7 @@ export const serializeAws_restJson1ListEnabledProductsForImportCommand = async (
   };
   let resolvedPath = "/productSubscriptions";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      MaxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
@@ -1043,9 +1029,7 @@ export const serializeAws_restJson1ListInvitationsCommand = async (
   };
   let resolvedPath = "/invitations";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      MaxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
@@ -1071,13 +1055,9 @@ export const serializeAws_restJson1ListMembersCommand = async (
   };
   let resolvedPath = "/members";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      MaxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.OnlyAssociated !== undefined && {
-      OnlyAssociated: input.OnlyAssociated.toString(),
-    }),
+    ...(input.OnlyAssociated !== undefined && { OnlyAssociated: input.OnlyAssociated.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1142,9 +1122,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1TagMap(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1176,9 +1154,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && {
-      tagKeys: (input.TagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1247,9 +1223,7 @@ export const serializeAws_restJson1UpdateFindingsCommand = async (
     ...(input.Filters !== undefined && {
       Filters: serializeAws_restJson1AwsSecurityFindingFilters(input.Filters, context),
     }),
-    ...(input.Note !== undefined && {
-      Note: serializeAws_restJson1NoteUpdate(input.Note, context),
-    }),
+    ...(input.Note !== undefined && { Note: serializeAws_restJson1NoteUpdate(input.Note, context) }),
     ...(input.RecordState !== undefined && { RecordState: input.RecordState }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1292,9 +1266,7 @@ export const serializeAws_restJson1UpdateInsightCommand = async (
     ...(input.Filters !== undefined && {
       Filters: serializeAws_restJson1AwsSecurityFindingFilters(input.Filters, context),
     }),
-    ...(input.GroupByAttribute !== undefined && {
-      GroupByAttribute: input.GroupByAttribute,
-    }),
+    ...(input.GroupByAttribute !== undefined && { GroupByAttribute: input.GroupByAttribute }),
     ...(input.Name !== undefined && { Name: input.Name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1334,12 +1306,8 @@ export const serializeAws_restJson1UpdateStandardsControlCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ControlStatus !== undefined && {
-      ControlStatus: input.ControlStatus,
-    }),
-    ...(input.DisabledReason !== undefined && {
-      DisabledReason: input.DisabledReason,
-    }),
+    ...(input.ControlStatus !== undefined && { ControlStatus: input.ControlStatus }),
+    ...(input.DisabledReason !== undefined && { DisabledReason: input.DisabledReason }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4881,9 +4849,7 @@ const serializeAws_restJson1AwsCloudFrontDistributionDetails = (
   return {
     ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
     ...(input.ETag !== undefined && { ETag: input.ETag }),
-    ...(input.LastModifiedTime !== undefined && {
-      LastModifiedTime: input.LastModifiedTime,
-    }),
+    ...(input.LastModifiedTime !== undefined && { LastModifiedTime: input.LastModifiedTime }),
     ...(input.Logging !== undefined && {
       Logging: serializeAws_restJson1AwsCloudFrontDistributionLogging(input.Logging, context),
     }),
@@ -4902,9 +4868,7 @@ const serializeAws_restJson1AwsCloudFrontDistributionLogging = (
   return {
     ...(input.Bucket !== undefined && { Bucket: input.Bucket }),
     ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
-    ...(input.IncludeCookies !== undefined && {
-      IncludeCookies: input.IncludeCookies,
-    }),
+    ...(input.IncludeCookies !== undefined && { IncludeCookies: input.IncludeCookies }),
     ...(input.Prefix !== undefined && { Prefix: input.Prefix }),
   };
 };
@@ -4940,9 +4904,7 @@ const serializeAws_restJson1AwsCloudFrontDistributionOrigins = (
 
 const serializeAws_restJson1AwsEc2InstanceDetails = (input: AwsEc2InstanceDetails, context: __SerdeContext): any => {
   return {
-    ...(input.IamInstanceProfileArn !== undefined && {
-      IamInstanceProfileArn: input.IamInstanceProfileArn,
-    }),
+    ...(input.IamInstanceProfileArn !== undefined && { IamInstanceProfileArn: input.IamInstanceProfileArn }),
     ...(input.ImageId !== undefined && { ImageId: input.ImageId }),
     ...(input.IpV4Addresses !== undefined && {
       IpV4Addresses: serializeAws_restJson1StringList(input.IpV4Addresses, context),
@@ -4966,21 +4928,15 @@ const serializeAws_restJson1AwsElbv2LoadBalancerDetails = (
     ...(input.AvailabilityZones !== undefined && {
       AvailabilityZones: serializeAws_restJson1AvailabilityZones(input.AvailabilityZones, context),
     }),
-    ...(input.CanonicalHostedZoneId !== undefined && {
-      CanonicalHostedZoneId: input.CanonicalHostedZoneId,
-    }),
+    ...(input.CanonicalHostedZoneId !== undefined && { CanonicalHostedZoneId: input.CanonicalHostedZoneId }),
     ...(input.CreatedTime !== undefined && { CreatedTime: input.CreatedTime }),
     ...(input.DNSName !== undefined && { DNSName: input.DNSName }),
-    ...(input.IpAddressType !== undefined && {
-      IpAddressType: input.IpAddressType,
-    }),
+    ...(input.IpAddressType !== undefined && { IpAddressType: input.IpAddressType }),
     ...(input.Scheme !== undefined && { Scheme: input.Scheme }),
     ...(input.SecurityGroups !== undefined && {
       SecurityGroups: serializeAws_restJson1SecurityGroups(input.SecurityGroups, context),
     }),
-    ...(input.State !== undefined && {
-      State: serializeAws_restJson1LoadBalancerState(input.State, context),
-    }),
+    ...(input.State !== undefined && { State: serializeAws_restJson1LoadBalancerState(input.State, context) }),
     ...(input.Type !== undefined && { Type: input.Type }),
     ...(input.VpcId !== undefined && { VpcId: input.VpcId }),
   };
@@ -4990,12 +4946,8 @@ const serializeAws_restJson1AwsIamAccessKeyDetails = (input: AwsIamAccessKeyDeta
   return {
     ...(input.CreatedAt !== undefined && { CreatedAt: input.CreatedAt }),
     ...(input.PrincipalId !== undefined && { PrincipalId: input.PrincipalId }),
-    ...(input.PrincipalName !== undefined && {
-      PrincipalName: input.PrincipalName,
-    }),
-    ...(input.PrincipalType !== undefined && {
-      PrincipalType: input.PrincipalType,
-    }),
+    ...(input.PrincipalName !== undefined && { PrincipalName: input.PrincipalName }),
+    ...(input.PrincipalType !== undefined && { PrincipalType: input.PrincipalType }),
     ...(input.Status !== undefined && { Status: input.Status }),
     ...(input.UserName !== undefined && { UserName: input.UserName }),
   };
@@ -5003,13 +4955,9 @@ const serializeAws_restJson1AwsIamAccessKeyDetails = (input: AwsIamAccessKeyDeta
 
 const serializeAws_restJson1AwsIamRoleDetails = (input: AwsIamRoleDetails, context: __SerdeContext): any => {
   return {
-    ...(input.AssumeRolePolicyDocument !== undefined && {
-      AssumeRolePolicyDocument: input.AssumeRolePolicyDocument,
-    }),
+    ...(input.AssumeRolePolicyDocument !== undefined && { AssumeRolePolicyDocument: input.AssumeRolePolicyDocument }),
     ...(input.CreateDate !== undefined && { CreateDate: input.CreateDate }),
-    ...(input.MaxSessionDuration !== undefined && {
-      MaxSessionDuration: input.MaxSessionDuration,
-    }),
+    ...(input.MaxSessionDuration !== undefined && { MaxSessionDuration: input.MaxSessionDuration }),
     ...(input.Path !== undefined && { Path: input.Path }),
     ...(input.RoleId !== undefined && { RoleId: input.RoleId }),
     ...(input.RoleName !== undefined && { RoleName: input.RoleName }),
@@ -5018,12 +4966,8 @@ const serializeAws_restJson1AwsIamRoleDetails = (input: AwsIamRoleDetails, conte
 
 const serializeAws_restJson1AwsKmsKeyDetails = (input: AwsKmsKeyDetails, context: __SerdeContext): any => {
   return {
-    ...(input.AWSAccountId !== undefined && {
-      AWSAccountId: input.AWSAccountId,
-    }),
-    ...(input.CreationDate !== undefined && {
-      CreationDate: input.CreationDate,
-    }),
+    ...(input.AWSAccountId !== undefined && { AWSAccountId: input.AWSAccountId }),
+    ...(input.CreationDate !== undefined && { CreationDate: input.CreationDate }),
     ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
     ...(input.KeyManager !== undefined && { KeyManager: input.KeyManager }),
     ...(input.KeyState !== undefined && { KeyState: input.KeyState }),
@@ -5035,9 +4979,7 @@ const serializeAws_restJson1AwsLambdaFunctionCode = (input: AwsLambdaFunctionCod
   return {
     ...(input.S3Bucket !== undefined && { S3Bucket: input.S3Bucket }),
     ...(input.S3Key !== undefined && { S3Key: input.S3Key }),
-    ...(input.S3ObjectVersion !== undefined && {
-      S3ObjectVersion: input.S3ObjectVersion,
-    }),
+    ...(input.S3ObjectVersion !== undefined && { S3ObjectVersion: input.S3ObjectVersion }),
     ...(input.ZipFile !== undefined && { ZipFile: input.ZipFile }),
   };
 };
@@ -5056,9 +4998,7 @@ const serializeAws_restJson1AwsLambdaFunctionDetails = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Code !== undefined && {
-      Code: serializeAws_restJson1AwsLambdaFunctionCode(input.Code, context),
-    }),
+    ...(input.Code !== undefined && { Code: serializeAws_restJson1AwsLambdaFunctionCode(input.Code, context) }),
     ...(input.CodeSha256 !== undefined && { CodeSha256: input.CodeSha256 }),
     ...(input.DeadLetterConfig !== undefined && {
       DeadLetterConfig: serializeAws_restJson1AwsLambdaFunctionDeadLetterConfig(input.DeadLetterConfig, context),
@@ -5066,14 +5006,10 @@ const serializeAws_restJson1AwsLambdaFunctionDetails = (
     ...(input.Environment !== undefined && {
       Environment: serializeAws_restJson1AwsLambdaFunctionEnvironment(input.Environment, context),
     }),
-    ...(input.FunctionName !== undefined && {
-      FunctionName: input.FunctionName,
-    }),
+    ...(input.FunctionName !== undefined && { FunctionName: input.FunctionName }),
     ...(input.Handler !== undefined && { Handler: input.Handler }),
     ...(input.KmsKeyArn !== undefined && { KmsKeyArn: input.KmsKeyArn }),
-    ...(input.LastModified !== undefined && {
-      LastModified: input.LastModified,
-    }),
+    ...(input.LastModified !== undefined && { LastModified: input.LastModified }),
     ...(input.Layers !== undefined && {
       Layers: serializeAws_restJson1AwsLambdaFunctionLayerList(input.Layers, context),
     }),
@@ -5101,9 +5037,7 @@ const serializeAws_restJson1AwsLambdaFunctionEnvironment = (
     ...(input.Error !== undefined && {
       Error: serializeAws_restJson1AwsLambdaFunctionEnvironmentError(input.Error, context),
     }),
-    ...(input.Variables !== undefined && {
-      Variables: serializeAws_restJson1FieldMap(input.Variables, context),
-    }),
+    ...(input.Variables !== undefined && { Variables: serializeAws_restJson1FieldMap(input.Variables, context) }),
   };
 };
 
@@ -5164,36 +5098,20 @@ const serializeAws_restJson1AwsS3BucketDetails = (input: AwsS3BucketDetails, con
 
 const serializeAws_restJson1AwsSecurityFinding = (input: AwsSecurityFinding, context: __SerdeContext): any => {
   return {
-    ...(input.AwsAccountId !== undefined && {
-      AwsAccountId: input.AwsAccountId,
-    }),
-    ...(input.Compliance !== undefined && {
-      Compliance: serializeAws_restJson1Compliance(input.Compliance, context),
-    }),
+    ...(input.AwsAccountId !== undefined && { AwsAccountId: input.AwsAccountId }),
+    ...(input.Compliance !== undefined && { Compliance: serializeAws_restJson1Compliance(input.Compliance, context) }),
     ...(input.Confidence !== undefined && { Confidence: input.Confidence }),
     ...(input.CreatedAt !== undefined && { CreatedAt: input.CreatedAt }),
     ...(input.Criticality !== undefined && { Criticality: input.Criticality }),
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.FirstObservedAt !== undefined && {
-      FirstObservedAt: input.FirstObservedAt,
-    }),
+    ...(input.FirstObservedAt !== undefined && { FirstObservedAt: input.FirstObservedAt }),
     ...(input.GeneratorId !== undefined && { GeneratorId: input.GeneratorId }),
     ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.LastObservedAt !== undefined && {
-      LastObservedAt: input.LastObservedAt,
-    }),
-    ...(input.Malware !== undefined && {
-      Malware: serializeAws_restJson1MalwareList(input.Malware, context),
-    }),
-    ...(input.Network !== undefined && {
-      Network: serializeAws_restJson1Network(input.Network, context),
-    }),
-    ...(input.Note !== undefined && {
-      Note: serializeAws_restJson1Note(input.Note, context),
-    }),
-    ...(input.Process !== undefined && {
-      Process: serializeAws_restJson1ProcessDetails(input.Process, context),
-    }),
+    ...(input.LastObservedAt !== undefined && { LastObservedAt: input.LastObservedAt }),
+    ...(input.Malware !== undefined && { Malware: serializeAws_restJson1MalwareList(input.Malware, context) }),
+    ...(input.Network !== undefined && { Network: serializeAws_restJson1Network(input.Network, context) }),
+    ...(input.Note !== undefined && { Note: serializeAws_restJson1Note(input.Note, context) }),
+    ...(input.Process !== undefined && { Process: serializeAws_restJson1ProcessDetails(input.Process, context) }),
     ...(input.ProductArn !== undefined && { ProductArn: input.ProductArn }),
     ...(input.ProductFields !== undefined && {
       ProductFields: serializeAws_restJson1FieldMap(input.ProductFields, context),
@@ -5205,33 +5123,21 @@ const serializeAws_restJson1AwsSecurityFinding = (input: AwsSecurityFinding, con
     ...(input.Remediation !== undefined && {
       Remediation: serializeAws_restJson1Remediation(input.Remediation, context),
     }),
-    ...(input.Resources !== undefined && {
-      Resources: serializeAws_restJson1ResourceList(input.Resources, context),
-    }),
-    ...(input.SchemaVersion !== undefined && {
-      SchemaVersion: input.SchemaVersion,
-    }),
-    ...(input.Severity !== undefined && {
-      Severity: serializeAws_restJson1Severity(input.Severity, context),
-    }),
+    ...(input.Resources !== undefined && { Resources: serializeAws_restJson1ResourceList(input.Resources, context) }),
+    ...(input.SchemaVersion !== undefined && { SchemaVersion: input.SchemaVersion }),
+    ...(input.Severity !== undefined && { Severity: serializeAws_restJson1Severity(input.Severity, context) }),
     ...(input.SourceUrl !== undefined && { SourceUrl: input.SourceUrl }),
     ...(input.ThreatIntelIndicators !== undefined && {
       ThreatIntelIndicators: serializeAws_restJson1ThreatIntelIndicatorList(input.ThreatIntelIndicators, context),
     }),
     ...(input.Title !== undefined && { Title: input.Title }),
-    ...(input.Types !== undefined && {
-      Types: serializeAws_restJson1TypeList(input.Types, context),
-    }),
+    ...(input.Types !== undefined && { Types: serializeAws_restJson1TypeList(input.Types, context) }),
     ...(input.UpdatedAt !== undefined && { UpdatedAt: input.UpdatedAt }),
     ...(input.UserDefinedFields !== undefined && {
       UserDefinedFields: serializeAws_restJson1FieldMap(input.UserDefinedFields, context),
     }),
-    ...(input.VerificationState !== undefined && {
-      VerificationState: input.VerificationState,
-    }),
-    ...(input.WorkflowState !== undefined && {
-      WorkflowState: input.WorkflowState,
-    }),
+    ...(input.VerificationState !== undefined && { VerificationState: input.VerificationState }),
+    ...(input.WorkflowState !== undefined && { WorkflowState: input.WorkflowState }),
   };
 };
 
@@ -5252,9 +5158,7 @@ const serializeAws_restJson1AwsSecurityFindingFilters = (
     ...(input.Confidence !== undefined && {
       Confidence: serializeAws_restJson1NumberFilterList(input.Confidence, context),
     }),
-    ...(input.CreatedAt !== undefined && {
-      CreatedAt: serializeAws_restJson1DateFilterList(input.CreatedAt, context),
-    }),
+    ...(input.CreatedAt !== undefined && { CreatedAt: serializeAws_restJson1DateFilterList(input.CreatedAt, context) }),
     ...(input.Criticality !== undefined && {
       Criticality: serializeAws_restJson1NumberFilterList(input.Criticality, context),
     }),
@@ -5267,12 +5171,8 @@ const serializeAws_restJson1AwsSecurityFindingFilters = (
     ...(input.GeneratorId !== undefined && {
       GeneratorId: serializeAws_restJson1StringFilterList(input.GeneratorId, context),
     }),
-    ...(input.Id !== undefined && {
-      Id: serializeAws_restJson1StringFilterList(input.Id, context),
-    }),
-    ...(input.Keyword !== undefined && {
-      Keyword: serializeAws_restJson1KeywordFilterList(input.Keyword, context),
-    }),
+    ...(input.Id !== undefined && { Id: serializeAws_restJson1StringFilterList(input.Id, context) }),
+    ...(input.Keyword !== undefined && { Keyword: serializeAws_restJson1KeywordFilterList(input.Keyword, context) }),
     ...(input.LastObservedAt !== undefined && {
       LastObservedAt: serializeAws_restJson1DateFilterList(input.LastObservedAt, context),
     }),
@@ -5321,9 +5221,7 @@ const serializeAws_restJson1AwsSecurityFindingFilters = (
     ...(input.NetworkSourcePort !== undefined && {
       NetworkSourcePort: serializeAws_restJson1NumberFilterList(input.NetworkSourcePort, context),
     }),
-    ...(input.NoteText !== undefined && {
-      NoteText: serializeAws_restJson1StringFilterList(input.NoteText, context),
-    }),
+    ...(input.NoteText !== undefined && { NoteText: serializeAws_restJson1StringFilterList(input.NoteText, context) }),
     ...(input.NoteUpdatedAt !== undefined && {
       NoteUpdatedAt: serializeAws_restJson1DateFilterList(input.NoteUpdatedAt, context),
     }),
@@ -5507,15 +5405,9 @@ const serializeAws_restJson1AwsSecurityFindingFilters = (
     ...(input.ThreatIntelIndicatorValue !== undefined && {
       ThreatIntelIndicatorValue: serializeAws_restJson1StringFilterList(input.ThreatIntelIndicatorValue, context),
     }),
-    ...(input.Title !== undefined && {
-      Title: serializeAws_restJson1StringFilterList(input.Title, context),
-    }),
-    ...(input.Type !== undefined && {
-      Type: serializeAws_restJson1StringFilterList(input.Type, context),
-    }),
-    ...(input.UpdatedAt !== undefined && {
-      UpdatedAt: serializeAws_restJson1DateFilterList(input.UpdatedAt, context),
-    }),
+    ...(input.Title !== undefined && { Title: serializeAws_restJson1StringFilterList(input.Title, context) }),
+    ...(input.Type !== undefined && { Type: serializeAws_restJson1StringFilterList(input.Type, context) }),
+    ...(input.UpdatedAt !== undefined && { UpdatedAt: serializeAws_restJson1DateFilterList(input.UpdatedAt, context) }),
     ...(input.UserDefinedFields !== undefined && {
       UserDefinedFields: serializeAws_restJson1MapFilterList(input.UserDefinedFields, context),
     }),
@@ -5534,9 +5426,7 @@ const serializeAws_restJson1AwsSecurityFindingList = (input: AwsSecurityFinding[
 
 const serializeAws_restJson1AwsSnsTopicDetails = (input: AwsSnsTopicDetails, context: __SerdeContext): any => {
   return {
-    ...(input.KmsMasterKeyId !== undefined && {
-      KmsMasterKeyId: input.KmsMasterKeyId,
-    }),
+    ...(input.KmsMasterKeyId !== undefined && { KmsMasterKeyId: input.KmsMasterKeyId }),
     ...(input.Owner !== undefined && { Owner: input.Owner }),
     ...(input.Subscription !== undefined && {
       Subscription: serializeAws_restJson1AwsSnsTopicSubscriptionList(input.Subscription, context),
@@ -5564,15 +5454,11 @@ const serializeAws_restJson1AwsSnsTopicSubscriptionList = (
 
 const serializeAws_restJson1AwsSqsQueueDetails = (input: AwsSqsQueueDetails, context: __SerdeContext): any => {
   return {
-    ...(input.DeadLetterTargetArn !== undefined && {
-      DeadLetterTargetArn: input.DeadLetterTargetArn,
-    }),
+    ...(input.DeadLetterTargetArn !== undefined && { DeadLetterTargetArn: input.DeadLetterTargetArn }),
     ...(input.KmsDataKeyReusePeriodSeconds !== undefined && {
       KmsDataKeyReusePeriodSeconds: input.KmsDataKeyReusePeriodSeconds,
     }),
-    ...(input.KmsMasterKeyId !== undefined && {
-      KmsMasterKeyId: input.KmsMasterKeyId,
-    }),
+    ...(input.KmsMasterKeyId !== undefined && { KmsMasterKeyId: input.KmsMasterKeyId }),
     ...(input.QueueName !== undefined && { QueueName: input.QueueName }),
   };
 };
@@ -5594,9 +5480,7 @@ const serializeAws_restJson1ContainerDetails = (input: ContainerDetails, context
 
 const serializeAws_restJson1DateFilter = (input: DateFilter, context: __SerdeContext): any => {
   return {
-    ...(input.DateRange !== undefined && {
-      DateRange: serializeAws_restJson1DateRange(input.DateRange, context),
-    }),
+    ...(input.DateRange !== undefined && { DateRange: serializeAws_restJson1DateRange(input.DateRange, context) }),
     ...(input.End !== undefined && { End: input.End }),
     ...(input.Start !== undefined && { Start: input.Start }),
   };
@@ -5677,23 +5561,13 @@ const serializeAws_restJson1MapFilterList = (input: MapFilter[], context: __Serd
 
 const serializeAws_restJson1Network = (input: Network, context: __SerdeContext): any => {
   return {
-    ...(input.DestinationDomain !== undefined && {
-      DestinationDomain: input.DestinationDomain,
-    }),
-    ...(input.DestinationIpV4 !== undefined && {
-      DestinationIpV4: input.DestinationIpV4,
-    }),
-    ...(input.DestinationIpV6 !== undefined && {
-      DestinationIpV6: input.DestinationIpV6,
-    }),
-    ...(input.DestinationPort !== undefined && {
-      DestinationPort: input.DestinationPort,
-    }),
+    ...(input.DestinationDomain !== undefined && { DestinationDomain: input.DestinationDomain }),
+    ...(input.DestinationIpV4 !== undefined && { DestinationIpV4: input.DestinationIpV4 }),
+    ...(input.DestinationIpV6 !== undefined && { DestinationIpV6: input.DestinationIpV6 }),
+    ...(input.DestinationPort !== undefined && { DestinationPort: input.DestinationPort }),
     ...(input.Direction !== undefined && { Direction: input.Direction }),
     ...(input.Protocol !== undefined && { Protocol: input.Protocol }),
-    ...(input.SourceDomain !== undefined && {
-      SourceDomain: input.SourceDomain,
-    }),
+    ...(input.SourceDomain !== undefined && { SourceDomain: input.SourceDomain }),
     ...(input.SourceIpV4 !== undefined && { SourceIpV4: input.SourceIpV4 }),
     ...(input.SourceIpV6 !== undefined && { SourceIpV6: input.SourceIpV6 }),
     ...(input.SourceMac !== undefined && { SourceMac: input.SourceMac }),
@@ -5739,9 +5613,7 @@ const serializeAws_restJson1ProcessDetails = (input: ProcessDetails, context: __
     ...(input.ParentPid !== undefined && { ParentPid: input.ParentPid }),
     ...(input.Path !== undefined && { Path: input.Path }),
     ...(input.Pid !== undefined && { Pid: input.Pid }),
-    ...(input.TerminatedAt !== undefined && {
-      TerminatedAt: input.TerminatedAt,
-    }),
+    ...(input.TerminatedAt !== undefined && { TerminatedAt: input.TerminatedAt }),
   };
 };
 
@@ -5773,15 +5645,11 @@ const serializeAws_restJson1Remediation = (input: Remediation, context: __SerdeC
 
 const serializeAws_restJson1Resource = (input: Resource, context: __SerdeContext): any => {
   return {
-    ...(input.Details !== undefined && {
-      Details: serializeAws_restJson1ResourceDetails(input.Details, context),
-    }),
+    ...(input.Details !== undefined && { Details: serializeAws_restJson1ResourceDetails(input.Details, context) }),
     ...(input.Id !== undefined && { Id: input.Id }),
     ...(input.Partition !== undefined && { Partition: input.Partition }),
     ...(input.Region !== undefined && { Region: input.Region }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_restJson1FieldMap(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1FieldMap(input.Tags, context) }),
     ...(input.Type !== undefined && { Type: input.Type }),
   };
 };
@@ -5824,9 +5692,7 @@ const serializeAws_restJson1ResourceDetails = (input: ResourceDetails, context: 
     ...(input.Container !== undefined && {
       Container: serializeAws_restJson1ContainerDetails(input.Container, context),
     }),
-    ...(input.Other !== undefined && {
-      Other: serializeAws_restJson1FieldMap(input.Other, context),
-    }),
+    ...(input.Other !== undefined && { Other: serializeAws_restJson1FieldMap(input.Other, context) }),
   };
 };
 
@@ -5878,9 +5744,7 @@ const serializeAws_restJson1StandardsSubscriptionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.StandardsArn !== undefined && {
-      StandardsArn: input.StandardsArn,
-    }),
+    ...(input.StandardsArn !== undefined && { StandardsArn: input.StandardsArn }),
     ...(input.StandardsInput !== undefined && {
       StandardsInput: serializeAws_restJson1StandardsInputParameterMap(input.StandardsInput, context),
     }),
@@ -5922,9 +5786,7 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
 const serializeAws_restJson1ThreatIntelIndicator = (input: ThreatIntelIndicator, context: __SerdeContext): any => {
   return {
     ...(input.Category !== undefined && { Category: input.Category }),
-    ...(input.LastObservedAt !== undefined && {
-      LastObservedAt: input.LastObservedAt,
-    }),
+    ...(input.LastObservedAt !== undefined && { LastObservedAt: input.LastObservedAt }),
     ...(input.Source !== undefined && { Source: input.Source }),
     ...(input.SourceUrl !== undefined && { SourceUrl: input.SourceUrl }),
     ...(input.Type !== undefined && { Type: input.Type }),

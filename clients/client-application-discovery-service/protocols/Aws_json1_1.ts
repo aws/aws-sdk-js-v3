@@ -2999,9 +2999,7 @@ const serializeAws_json1_1CreateTagsRequest = (input: CreateTagsRequest, context
     ...(input.configurationIds !== undefined && {
       configurationIds: serializeAws_json1_1ConfigurationIdList(input.configurationIds, context),
     }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagSet(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagSet(input.tags, context) }),
   };
 };
 
@@ -3021,20 +3019,14 @@ const serializeAws_json1_1DeleteTagsRequest = (input: DeleteTagsRequest, context
     ...(input.configurationIds !== undefined && {
       configurationIds: serializeAws_json1_1ConfigurationIdList(input.configurationIds, context),
     }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagSet(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagSet(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1DescribeAgentsRequest = (input: DescribeAgentsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.agentIds !== undefined && {
-      agentIds: serializeAws_json1_1AgentIds(input.agentIds, context),
-    }),
-    ...(input.filters !== undefined && {
-      filters: serializeAws_json1_1Filters(input.filters, context),
-    }),
+    ...(input.agentIds !== undefined && { agentIds: serializeAws_json1_1AgentIds(input.agentIds, context) }),
+    ...(input.filters !== undefined && { filters: serializeAws_json1_1Filters(input.filters, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
@@ -3069,9 +3061,7 @@ const serializeAws_json1_1DescribeExportConfigurationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.exportIds !== undefined && {
-      exportIds: serializeAws_json1_1ExportIds(input.exportIds, context),
-    }),
+    ...(input.exportIds !== undefined && { exportIds: serializeAws_json1_1ExportIds(input.exportIds, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
@@ -3082,12 +3072,8 @@ const serializeAws_json1_1DescribeExportTasksRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.exportIds !== undefined && {
-      exportIds: serializeAws_json1_1ExportIds(input.exportIds, context),
-    }),
-    ...(input.filters !== undefined && {
-      filters: serializeAws_json1_1ExportFilters(input.filters, context),
-    }),
+    ...(input.exportIds !== undefined && { exportIds: serializeAws_json1_1ExportIds(input.exportIds, context) }),
+    ...(input.filters !== undefined && { filters: serializeAws_json1_1ExportFilters(input.filters, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
@@ -3112,9 +3098,7 @@ const serializeAws_json1_1DescribeImportTasksRequest = (
 
 const serializeAws_json1_1DescribeTagsRequest = (input: DescribeTagsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.filters !== undefined && {
-      filters: serializeAws_json1_1TagFilters(input.filters, context),
-    }),
+    ...(input.filters !== undefined && { filters: serializeAws_json1_1TagFilters(input.filters, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
@@ -3142,9 +3126,7 @@ const serializeAws_json1_1ExportFilter = (input: ExportFilter, context: __SerdeC
   return {
     ...(input.condition !== undefined && { condition: input.condition }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.values !== undefined && {
-      values: serializeAws_json1_1FilterValues(input.values, context),
-    }),
+    ...(input.values !== undefined && { values: serializeAws_json1_1FilterValues(input.values, context) }),
   };
 };
 
@@ -3160,9 +3142,7 @@ const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any
   return {
     ...(input.condition !== undefined && { condition: input.condition }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.values !== undefined && {
-      values: serializeAws_json1_1FilterValues(input.values, context),
-    }),
+    ...(input.values !== undefined && { values: serializeAws_json1_1FilterValues(input.values, context) }),
   };
 };
 
@@ -3184,9 +3164,7 @@ const serializeAws_json1_1GetDiscoverySummaryRequest = (
 const serializeAws_json1_1ImportTaskFilter = (input: ImportTaskFilter, context: __SerdeContext): any => {
   return {
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.values !== undefined && {
-      values: serializeAws_json1_1ImportTaskFilterValueList(input.values, context),
-    }),
+    ...(input.values !== undefined && { values: serializeAws_json1_1ImportTaskFilterValueList(input.values, context) }),
   };
 };
 
@@ -3199,17 +3177,11 @@ const serializeAws_json1_1ListConfigurationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.configurationType !== undefined && {
-      configurationType: input.configurationType,
-    }),
-    ...(input.filters !== undefined && {
-      filters: serializeAws_json1_1Filters(input.filters, context),
-    }),
+    ...(input.configurationType !== undefined && { configurationType: input.configurationType }),
+    ...(input.filters !== undefined && { filters: serializeAws_json1_1Filters(input.filters, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.orderBy !== undefined && {
-      orderBy: serializeAws_json1_1OrderByList(input.orderBy, context),
-    }),
+    ...(input.orderBy !== undefined && { orderBy: serializeAws_json1_1OrderByList(input.orderBy, context) }),
   };
 };
 
@@ -3218,17 +3190,13 @@ const serializeAws_json1_1ListServerNeighborsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.configurationId !== undefined && {
-      configurationId: input.configurationId,
-    }),
+    ...(input.configurationId !== undefined && { configurationId: input.configurationId }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.neighborConfigurationIds !== undefined && {
       neighborConfigurationIds: serializeAws_json1_1ConfigurationIdList(input.neighborConfigurationIds, context),
     }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.portInformationNeeded !== undefined && {
-      portInformationNeeded: input.portInformationNeeded,
-    }),
+    ...(input.portInformationNeeded !== undefined && { portInformationNeeded: input.portInformationNeeded }),
   };
 };
 
@@ -3255,26 +3223,18 @@ const serializeAws_json1_1StartDataCollectionByAgentIdsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.agentIds !== undefined && {
-      agentIds: serializeAws_json1_1AgentIds(input.agentIds, context),
-    }),
+    ...(input.agentIds !== undefined && { agentIds: serializeAws_json1_1AgentIds(input.agentIds, context) }),
   };
 };
 
 const serializeAws_json1_1StartExportTaskRequest = (input: StartExportTaskRequest, context: __SerdeContext): any => {
   return {
-    ...(input.endTime !== undefined && {
-      endTime: Math.round(input.endTime.getTime() / 1000),
-    }),
+    ...(input.endTime !== undefined && { endTime: Math.round(input.endTime.getTime() / 1000) }),
     ...(input.exportDataFormat !== undefined && {
       exportDataFormat: serializeAws_json1_1ExportDataFormats(input.exportDataFormat, context),
     }),
-    ...(input.filters !== undefined && {
-      filters: serializeAws_json1_1ExportFilters(input.filters, context),
-    }),
-    ...(input.startTime !== undefined && {
-      startTime: Math.round(input.startTime.getTime() / 1000),
-    }),
+    ...(input.filters !== undefined && { filters: serializeAws_json1_1ExportFilters(input.filters, context) }),
+    ...(input.startTime !== undefined && { startTime: Math.round(input.startTime.getTime() / 1000) }),
   };
 };
 
@@ -3300,9 +3260,7 @@ const serializeAws_json1_1StopDataCollectionByAgentIdsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.agentIds !== undefined && {
-      agentIds: serializeAws_json1_1AgentIds(input.agentIds, context),
-    }),
+    ...(input.agentIds !== undefined && { agentIds: serializeAws_json1_1AgentIds(input.agentIds, context) }),
   };
 };
 
@@ -3316,9 +3274,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 const serializeAws_json1_1TagFilter = (input: TagFilter, context: __SerdeContext): any => {
   return {
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.values !== undefined && {
-      values: serializeAws_json1_1FilterValues(input.values, context),
-    }),
+    ...(input.values !== undefined && { values: serializeAws_json1_1FilterValues(input.values, context) }),
   };
 };
 
@@ -3339,9 +3295,7 @@ const serializeAws_json1_1UpdateApplicationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.configurationId !== undefined && {
-      configurationId: input.configurationId,
-    }),
+    ...(input.configurationId !== undefined && { configurationId: input.configurationId }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.name !== undefined && { name: input.name }),
   };

@@ -140,9 +140,7 @@ export const serializeAws_restJson1ListItemsCommand = async (
   };
   let resolvedPath = "/";
   const query: any = {
-    ...(input.MaxResults !== undefined && {
-      MaxResults: input.MaxResults.toString(),
-    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.Path !== undefined && { Path: input.Path }),
   };
@@ -167,15 +165,9 @@ export const serializeAws_restJson1PutObjectCommand = async (
   const headers: any = {
     "Content-Type": "application/octet-stream",
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
-    ...(isSerializableHeaderValue(input.CacheControl) && {
-      "Cache-Control": input.CacheControl!,
-    }),
-    ...(isSerializableHeaderValue(input.ContentType) && {
-      "Content-Type": input.ContentType!,
-    }),
-    ...(isSerializableHeaderValue(input.StorageClass) && {
-      "x-amz-storage-class": input.StorageClass!,
-    }),
+    ...(isSerializableHeaderValue(input.CacheControl) && { "Cache-Control": input.CacheControl! }),
+    ...(isSerializableHeaderValue(input.ContentType) && { "Content-Type": input.ContentType! }),
+    ...(isSerializableHeaderValue(input.StorageClass) && { "x-amz-storage-class": input.StorageClass! }),
   };
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {

@@ -6677,18 +6677,14 @@ const serializeAws_json1_1AcceptSharedDirectoryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SharedDirectoryId !== undefined && {
-      SharedDirectoryId: input.SharedDirectoryId,
-    }),
+    ...(input.SharedDirectoryId !== undefined && { SharedDirectoryId: input.SharedDirectoryId }),
   };
 };
 
 const serializeAws_json1_1AddIpRoutesRequest = (input: AddIpRoutesRequest, context: __SerdeContext): any => {
   return {
     ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.IpRoutes !== undefined && {
-      IpRoutes: serializeAws_json1_1IpRoutes(input.IpRoutes, context),
-    }),
+    ...(input.IpRoutes !== undefined && { IpRoutes: serializeAws_json1_1IpRoutes(input.IpRoutes, context) }),
     ...(input.UpdateSecurityGroupForDirectoryControllers !== undefined && {
       UpdateSecurityGroupForDirectoryControllers: input.UpdateSecurityGroupForDirectoryControllers,
     }),
@@ -6701,9 +6697,7 @@ const serializeAws_json1_1AddTagsToResourceRequest = (
 ): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -6724,9 +6718,7 @@ const serializeAws_json1_1CancelSchemaExtensionRequest = (
 ): any => {
   return {
     ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.SchemaExtensionId !== undefined && {
-      SchemaExtensionId: input.SchemaExtensionId,
-    }),
+    ...(input.SchemaExtensionId !== undefined && { SchemaExtensionId: input.SchemaExtensionId }),
   };
 };
 
@@ -6744,9 +6736,7 @@ const serializeAws_json1_1ConnectDirectoryRequest = (input: ConnectDirectoryRequ
     ...(input.Password !== undefined && { Password: input.Password }),
     ...(input.ShortName !== undefined && { ShortName: input.ShortName }),
     ...(input.Size !== undefined && { Size: input.Size }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -6762,9 +6752,7 @@ const serializeAws_json1_1CreateComputerRequest = (input: CreateComputerRequest,
     ...(input.ComputerAttributes !== undefined && {
       ComputerAttributes: serializeAws_json1_1Attributes(input.ComputerAttributes, context),
     }),
-    ...(input.ComputerName !== undefined && {
-      ComputerName: input.ComputerName,
-    }),
+    ...(input.ComputerName !== undefined && { ComputerName: input.ComputerName }),
     ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
     ...(input.OrganizationalUnitDistinguishedName !== undefined && {
       OrganizationalUnitDistinguishedName: input.OrganizationalUnitDistinguishedName,
@@ -6779,12 +6767,8 @@ const serializeAws_json1_1CreateConditionalForwarderRequest = (
 ): any => {
   return {
     ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.DnsIpAddrs !== undefined && {
-      DnsIpAddrs: serializeAws_json1_1DnsIpAddrs(input.DnsIpAddrs, context),
-    }),
-    ...(input.RemoteDomainName !== undefined && {
-      RemoteDomainName: input.RemoteDomainName,
-    }),
+    ...(input.DnsIpAddrs !== undefined && { DnsIpAddrs: serializeAws_json1_1DnsIpAddrs(input.DnsIpAddrs, context) }),
+    ...(input.RemoteDomainName !== undefined && { RemoteDomainName: input.RemoteDomainName }),
   };
 };
 
@@ -6795,9 +6779,7 @@ const serializeAws_json1_1CreateDirectoryRequest = (input: CreateDirectoryReques
     ...(input.Password !== undefined && { Password: input.Password }),
     ...(input.ShortName !== undefined && { ShortName: input.ShortName }),
     ...(input.Size !== undefined && { Size: input.Size }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.VpcSettings !== undefined && {
       VpcSettings: serializeAws_json1_1DirectoryVpcSettings(input.VpcSettings, context),
     }),
@@ -6810,9 +6792,7 @@ const serializeAws_json1_1CreateLogSubscriptionRequest = (
 ): any => {
   return {
     ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.LogGroupName !== undefined && {
-      LogGroupName: input.LogGroupName,
-    }),
+    ...(input.LogGroupName !== undefined && { LogGroupName: input.LogGroupName }),
   };
 };
 
@@ -6826,9 +6806,7 @@ const serializeAws_json1_1CreateMicrosoftADRequest = (
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Password !== undefined && { Password: input.Password }),
     ...(input.ShortName !== undefined && { ShortName: input.ShortName }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.VpcSettings !== undefined && {
       VpcSettings: serializeAws_json1_1DirectoryVpcSettings(input.VpcSettings, context),
     }),
@@ -6848,18 +6826,10 @@ const serializeAws_json1_1CreateTrustRequest = (input: CreateTrustRequest, conte
       ConditionalForwarderIpAddrs: serializeAws_json1_1DnsIpAddrs(input.ConditionalForwarderIpAddrs, context),
     }),
     ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.RemoteDomainName !== undefined && {
-      RemoteDomainName: input.RemoteDomainName,
-    }),
-    ...(input.SelectiveAuth !== undefined && {
-      SelectiveAuth: input.SelectiveAuth,
-    }),
-    ...(input.TrustDirection !== undefined && {
-      TrustDirection: input.TrustDirection,
-    }),
-    ...(input.TrustPassword !== undefined && {
-      TrustPassword: input.TrustPassword,
-    }),
+    ...(input.RemoteDomainName !== undefined && { RemoteDomainName: input.RemoteDomainName }),
+    ...(input.SelectiveAuth !== undefined && { SelectiveAuth: input.SelectiveAuth }),
+    ...(input.TrustDirection !== undefined && { TrustDirection: input.TrustDirection }),
+    ...(input.TrustPassword !== undefined && { TrustPassword: input.TrustPassword }),
     ...(input.TrustType !== undefined && { TrustType: input.TrustType }),
   };
 };
@@ -6870,9 +6840,7 @@ const serializeAws_json1_1DeleteConditionalForwarderRequest = (
 ): any => {
   return {
     ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.RemoteDomainName !== undefined && {
-      RemoteDomainName: input.RemoteDomainName,
-    }),
+    ...(input.RemoteDomainName !== undefined && { RemoteDomainName: input.RemoteDomainName }),
   };
 };
 
@@ -6911,9 +6879,7 @@ const serializeAws_json1_1DeregisterCertificateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateId !== undefined && {
-      CertificateId: input.CertificateId,
-    }),
+    ...(input.CertificateId !== undefined && { CertificateId: input.CertificateId }),
     ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
   };
 };
@@ -6933,9 +6899,7 @@ const serializeAws_json1_1DescribeCertificateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateId !== undefined && {
-      CertificateId: input.CertificateId,
-    }),
+    ...(input.CertificateId !== undefined && { CertificateId: input.CertificateId }),
     ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
   };
 };
@@ -6985,9 +6949,7 @@ const serializeAws_json1_1DescribeEventTopicsRequest = (
 ): any => {
   return {
     ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.TopicNames !== undefined && {
-      TopicNames: serializeAws_json1_1TopicNames(input.TopicNames, context),
-    }),
+    ...(input.TopicNames !== undefined && { TopicNames: serializeAws_json1_1TopicNames(input.TopicNames, context) }),
   };
 };
 
@@ -7010,9 +6972,7 @@ const serializeAws_json1_1DescribeSharedDirectoriesRequest = (
   return {
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.OwnerDirectoryId !== undefined && {
-      OwnerDirectoryId: input.OwnerDirectoryId,
-    }),
+    ...(input.OwnerDirectoryId !== undefined && { OwnerDirectoryId: input.OwnerDirectoryId }),
     ...(input.SharedDirectoryIds !== undefined && {
       SharedDirectoryIds: serializeAws_json1_1DirectoryIds(input.SharedDirectoryIds, context),
     }),
@@ -7038,9 +6998,7 @@ const serializeAws_json1_1DescribeTrustsRequest = (input: DescribeTrustsRequest,
     ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.TrustIds !== undefined && {
-      TrustIds: serializeAws_json1_1TrustIds(input.TrustIds, context),
-    }),
+    ...(input.TrustIds !== undefined && { TrustIds: serializeAws_json1_1TrustIds(input.TrustIds, context) }),
   };
 };
 
@@ -7052,12 +7010,8 @@ const serializeAws_json1_1DirectoryConnectSettings = (
     ...(input.CustomerDnsIps !== undefined && {
       CustomerDnsIps: serializeAws_json1_1DnsIpAddrs(input.CustomerDnsIps, context),
     }),
-    ...(input.CustomerUserName !== undefined && {
-      CustomerUserName: input.CustomerUserName,
-    }),
-    ...(input.SubnetIds !== undefined && {
-      SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context),
-    }),
+    ...(input.CustomerUserName !== undefined && { CustomerUserName: input.CustomerUserName }),
+    ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
     ...(input.VpcId !== undefined && { VpcId: input.VpcId }),
   };
 };
@@ -7068,9 +7022,7 @@ const serializeAws_json1_1DirectoryIds = (input: string[], context: __SerdeConte
 
 const serializeAws_json1_1DirectoryVpcSettings = (input: DirectoryVpcSettings, context: __SerdeContext): any => {
   return {
-    ...(input.SubnetIds !== undefined && {
-      SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context),
-    }),
+    ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
     ...(input.VpcId !== undefined && { VpcId: input.VpcId }),
   };
 };
@@ -7206,28 +7158,16 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
 
 const serializeAws_json1_1RadiusSettings = (input: RadiusSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AuthenticationProtocol !== undefined && {
-      AuthenticationProtocol: input.AuthenticationProtocol,
-    }),
-    ...(input.DisplayLabel !== undefined && {
-      DisplayLabel: input.DisplayLabel,
-    }),
+    ...(input.AuthenticationProtocol !== undefined && { AuthenticationProtocol: input.AuthenticationProtocol }),
+    ...(input.DisplayLabel !== undefined && { DisplayLabel: input.DisplayLabel }),
     ...(input.RadiusPort !== undefined && { RadiusPort: input.RadiusPort }),
-    ...(input.RadiusRetries !== undefined && {
-      RadiusRetries: input.RadiusRetries,
-    }),
+    ...(input.RadiusRetries !== undefined && { RadiusRetries: input.RadiusRetries }),
     ...(input.RadiusServers !== undefined && {
       RadiusServers: serializeAws_json1_1Servers(input.RadiusServers, context),
     }),
-    ...(input.RadiusTimeout !== undefined && {
-      RadiusTimeout: input.RadiusTimeout,
-    }),
-    ...(input.SharedSecret !== undefined && {
-      SharedSecret: input.SharedSecret,
-    }),
-    ...(input.UseSameUsername !== undefined && {
-      UseSameUsername: input.UseSameUsername,
-    }),
+    ...(input.RadiusTimeout !== undefined && { RadiusTimeout: input.RadiusTimeout }),
+    ...(input.SharedSecret !== undefined && { SharedSecret: input.SharedSecret }),
+    ...(input.UseSameUsername !== undefined && { UseSameUsername: input.UseSameUsername }),
   };
 };
 
@@ -7236,9 +7176,7 @@ const serializeAws_json1_1RegisterCertificateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateData !== undefined && {
-      CertificateData: input.CertificateData,
-    }),
+    ...(input.CertificateData !== undefined && { CertificateData: input.CertificateData }),
     ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
   };
 };
@@ -7258,9 +7196,7 @@ const serializeAws_json1_1RejectSharedDirectoryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SharedDirectoryId !== undefined && {
-      SharedDirectoryId: input.SharedDirectoryId,
-    }),
+    ...(input.SharedDirectoryId !== undefined && { SharedDirectoryId: input.SharedDirectoryId }),
   };
 };
 
@@ -7270,9 +7206,7 @@ const serializeAws_json1_1RemoteDomainNames = (input: string[], context: __Serde
 
 const serializeAws_json1_1RemoveIpRoutesRequest = (input: RemoveIpRoutesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CidrIps !== undefined && {
-      CidrIps: serializeAws_json1_1CidrIps(input.CidrIps, context),
-    }),
+    ...(input.CidrIps !== undefined && { CidrIps: serializeAws_json1_1CidrIps(input.CidrIps, context) }),
     ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
   };
 };
@@ -7283,9 +7217,7 @@ const serializeAws_json1_1RemoveTagsFromResourceRequest = (
 ): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
   };
 };
 
@@ -7398,12 +7330,8 @@ const serializeAws_json1_1UpdateConditionalForwarderRequest = (
 ): any => {
   return {
     ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.DnsIpAddrs !== undefined && {
-      DnsIpAddrs: serializeAws_json1_1DnsIpAddrs(input.DnsIpAddrs, context),
-    }),
-    ...(input.RemoteDomainName !== undefined && {
-      RemoteDomainName: input.RemoteDomainName,
-    }),
+    ...(input.DnsIpAddrs !== undefined && { DnsIpAddrs: serializeAws_json1_1DnsIpAddrs(input.DnsIpAddrs, context) }),
+    ...(input.RemoteDomainName !== undefined && { RemoteDomainName: input.RemoteDomainName }),
   };
 };
 
@@ -7412,9 +7340,7 @@ const serializeAws_json1_1UpdateNumberOfDomainControllersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DesiredNumber !== undefined && {
-      DesiredNumber: input.DesiredNumber,
-    }),
+    ...(input.DesiredNumber !== undefined && { DesiredNumber: input.DesiredNumber }),
     ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
   };
 };
@@ -7430,9 +7356,7 @@ const serializeAws_json1_1UpdateRadiusRequest = (input: UpdateRadiusRequest, con
 
 const serializeAws_json1_1UpdateTrustRequest = (input: UpdateTrustRequest, context: __SerdeContext): any => {
   return {
-    ...(input.SelectiveAuth !== undefined && {
-      SelectiveAuth: input.SelectiveAuth,
-    }),
+    ...(input.SelectiveAuth !== undefined && { SelectiveAuth: input.SelectiveAuth }),
     ...(input.TrustId !== undefined && { TrustId: input.TrustId }),
   };
 };

@@ -67,15 +67,9 @@ export const serializeAws_restJson1CreateSavingsPlanCommand = async (
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.commitment !== undefined && { commitment: input.commitment }),
-    ...(input.savingsPlanOfferingId !== undefined && {
-      savingsPlanOfferingId: input.savingsPlanOfferingId,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
-    ...(input.upfrontPaymentAmount !== undefined && {
-      upfrontPaymentAmount: input.upfrontPaymentAmount,
-    }),
+    ...(input.savingsPlanOfferingId !== undefined && { savingsPlanOfferingId: input.savingsPlanOfferingId }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.upfrontPaymentAmount !== undefined && { upfrontPaymentAmount: input.upfrontPaymentAmount }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -104,9 +98,7 @@ export const serializeAws_restJson1DescribeSavingsPlanRatesCommand = async (
     }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.savingsPlanId !== undefined && {
-      savingsPlanId: input.savingsPlanId,
-    }),
+    ...(input.savingsPlanId !== undefined && { savingsPlanId: input.savingsPlanId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -141,9 +133,7 @@ export const serializeAws_restJson1DescribeSavingsPlansCommand = async (
     ...(input.savingsPlanIds !== undefined && {
       savingsPlanIds: serializeAws_restJson1SavingsPlanIdList(input.savingsPlanIds, context),
     }),
-    ...(input.states !== undefined && {
-      states: serializeAws_restJson1SavingsPlanStateList(input.states, context),
-    }),
+    ...(input.states !== undefined && { states: serializeAws_restJson1SavingsPlanStateList(input.states, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -225,17 +215,13 @@ export const serializeAws_restJson1DescribeSavingsPlansOfferingsCommand = async 
     ...(input.descriptions !== undefined && {
       descriptions: serializeAws_restJson1SavingsPlanDescriptionsList(input.descriptions, context),
     }),
-    ...(input.durations !== undefined && {
-      durations: serializeAws_restJson1DurationsList(input.durations, context),
-    }),
+    ...(input.durations !== undefined && { durations: serializeAws_restJson1DurationsList(input.durations, context) }),
     ...(input.filters !== undefined && {
       filters: serializeAws_restJson1SavingsPlanOfferingFiltersList(input.filters, context),
     }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.offeringIds !== undefined && {
-      offeringIds: serializeAws_restJson1UUIDs(input.offeringIds, context),
-    }),
+    ...(input.offeringIds !== undefined && { offeringIds: serializeAws_restJson1UUIDs(input.offeringIds, context) }),
     ...(input.operations !== undefined && {
       operations: serializeAws_restJson1SavingsPlanOperationList(input.operations, context),
     }),
@@ -300,9 +286,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -327,9 +311,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys !== undefined && {
-      tagKeys: serializeAws_restJson1TagKeyList(input.tagKeys, context),
-    }),
+    ...(input.tagKeys !== undefined && { tagKeys: serializeAws_restJson1TagKeyList(input.tagKeys, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1010,9 +992,7 @@ const serializeAws_restJson1SavingsPlanDescriptionsList = (input: string[], cont
 const serializeAws_restJson1SavingsPlanFilter = (input: SavingsPlanFilter, context: __SerdeContext): any => {
   return {
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.values !== undefined && {
-      values: serializeAws_restJson1ListOfStrings(input.values, context),
-    }),
+    ...(input.values !== undefined && { values: serializeAws_restJson1ListOfStrings(input.values, context) }),
   };
 };
 
@@ -1030,9 +1010,7 @@ const serializeAws_restJson1SavingsPlanOfferingFilterElement = (
 ): any => {
   return {
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.values !== undefined && {
-      values: serializeAws_restJson1FilterValuesList(input.values, context),
-    }),
+    ...(input.values !== undefined && { values: serializeAws_restJson1FilterValuesList(input.values, context) }),
   };
 };
 
@@ -1049,9 +1027,7 @@ const serializeAws_restJson1SavingsPlanOfferingRateFilterElement = (
 ): any => {
   return {
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.values !== undefined && {
-      values: serializeAws_restJson1FilterValuesList(input.values, context),
-    }),
+    ...(input.values !== undefined && { values: serializeAws_restJson1FilterValuesList(input.values, context) }),
   };
 };
 
@@ -1083,9 +1059,7 @@ const serializeAws_restJson1SavingsPlanProductTypeList = (
 const serializeAws_restJson1SavingsPlanRateFilter = (input: SavingsPlanRateFilter, context: __SerdeContext): any => {
   return {
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.values !== undefined && {
-      values: serializeAws_restJson1ListOfStrings(input.values, context),
-    }),
+    ...(input.values !== undefined && { values: serializeAws_restJson1ListOfStrings(input.values, context) }),
   };
 };
 

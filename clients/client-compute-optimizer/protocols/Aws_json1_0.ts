@@ -908,9 +908,7 @@ const serializeAws_json1_0AutoScalingGroupArns = (input: string[], context: __Se
 const serializeAws_json1_0Filter = (input: Filter, context: __SerdeContext): any => {
   return {
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.values !== undefined && {
-      values: serializeAws_json1_0FilterValues(input.values, context),
-    }),
+    ...(input.values !== undefined && { values: serializeAws_json1_0FilterValues(input.values, context) }),
   };
 };
 
@@ -927,15 +925,11 @@ const serializeAws_json1_0GetAutoScalingGroupRecommendationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.accountIds !== undefined && {
-      accountIds: serializeAws_json1_0AccountIds(input.accountIds, context),
-    }),
+    ...(input.accountIds !== undefined && { accountIds: serializeAws_json1_0AccountIds(input.accountIds, context) }),
     ...(input.autoScalingGroupArns !== undefined && {
       autoScalingGroupArns: serializeAws_json1_0AutoScalingGroupArns(input.autoScalingGroupArns, context),
     }),
-    ...(input.filters !== undefined && {
-      filters: serializeAws_json1_0Filters(input.filters, context),
-    }),
+    ...(input.filters !== undefined && { filters: serializeAws_json1_0Filters(input.filters, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
@@ -946,12 +940,8 @@ const serializeAws_json1_0GetEC2InstanceRecommendationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.accountIds !== undefined && {
-      accountIds: serializeAws_json1_0AccountIds(input.accountIds, context),
-    }),
-    ...(input.filters !== undefined && {
-      filters: serializeAws_json1_0Filters(input.filters, context),
-    }),
+    ...(input.accountIds !== undefined && { accountIds: serializeAws_json1_0AccountIds(input.accountIds, context) }),
+    ...(input.filters !== undefined && { filters: serializeAws_json1_0Filters(input.filters, context) }),
     ...(input.instanceArns !== undefined && {
       instanceArns: serializeAws_json1_0InstanceArns(input.instanceArns, context),
     }),
@@ -965,14 +955,10 @@ const serializeAws_json1_0GetEC2RecommendationProjectedMetricsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endTime !== undefined && {
-      endTime: Math.round(input.endTime.getTime() / 1000),
-    }),
+    ...(input.endTime !== undefined && { endTime: Math.round(input.endTime.getTime() / 1000) }),
     ...(input.instanceArn !== undefined && { instanceArn: input.instanceArn }),
     ...(input.period !== undefined && { period: input.period }),
-    ...(input.startTime !== undefined && {
-      startTime: Math.round(input.startTime.getTime() / 1000),
-    }),
+    ...(input.startTime !== undefined && { startTime: Math.round(input.startTime.getTime() / 1000) }),
     ...(input.stat !== undefined && { stat: input.stat }),
   };
 };
@@ -989,9 +975,7 @@ const serializeAws_json1_0GetRecommendationSummariesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.accountIds !== undefined && {
-      accountIds: serializeAws_json1_0AccountIds(input.accountIds, context),
-    }),
+    ...(input.accountIds !== undefined && { accountIds: serializeAws_json1_0AccountIds(input.accountIds, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
@@ -1006,9 +990,7 @@ const serializeAws_json1_0UpdateEnrollmentStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.includeMemberAccounts !== undefined && {
-      includeMemberAccounts: input.includeMemberAccounts,
-    }),
+    ...(input.includeMemberAccounts !== undefined && { includeMemberAccounts: input.includeMemberAccounts }),
     ...(input.status !== undefined && { status: input.status }),
   };
 };

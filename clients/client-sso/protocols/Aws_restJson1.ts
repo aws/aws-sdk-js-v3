@@ -29,9 +29,7 @@ export const serializeAws_restJson1GetRoleCredentialsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.accessToken) && {
-      "x-amz-sso_bearer_token": input.accessToken!,
-    }),
+    ...(isSerializableHeaderValue(input.accessToken) && { "x-amz-sso_bearer_token": input.accessToken! }),
   };
   let resolvedPath = "/federation/credentials";
   const query: any = {
@@ -58,16 +56,12 @@ export const serializeAws_restJson1ListAccountRolesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.accessToken) && {
-      "x-amz-sso_bearer_token": input.accessToken!,
-    }),
+    ...(isSerializableHeaderValue(input.accessToken) && { "x-amz-sso_bearer_token": input.accessToken! }),
   };
   let resolvedPath = "/assignment/roles";
   const query: any = {
     ...(input.accountId !== undefined && { account_id: input.accountId }),
-    ...(input.maxResults !== undefined && {
-      max_result: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { max_result: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { next_token: input.nextToken }),
   };
   let body: any;
@@ -90,15 +84,11 @@ export const serializeAws_restJson1ListAccountsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.accessToken) && {
-      "x-amz-sso_bearer_token": input.accessToken!,
-    }),
+    ...(isSerializableHeaderValue(input.accessToken) && { "x-amz-sso_bearer_token": input.accessToken! }),
   };
   let resolvedPath = "/assignment/accounts";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      max_result: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { max_result: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { next_token: input.nextToken }),
   };
   let body: any;
@@ -121,9 +111,7 @@ export const serializeAws_restJson1LogoutCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.accessToken) && {
-      "x-amz-sso_bearer_token": input.accessToken!,
-    }),
+    ...(isSerializableHeaderValue(input.accessToken) && { "x-amz-sso_bearer_token": input.accessToken! }),
   };
   let resolvedPath = "/logout";
   let body: any;

@@ -429,9 +429,7 @@ export const serializeAws_restJson1CreateConnectorDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!,
-    }),
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/connectors";
   let body: any;
@@ -440,9 +438,7 @@ export const serializeAws_restJson1CreateConnectorDefinitionCommand = async (
       InitialVersion: serializeAws_restJson1ConnectorDefinitionVersion(input.InitialVersion, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1Tags(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -462,9 +458,7 @@ export const serializeAws_restJson1CreateConnectorDefinitionVersionCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!,
-    }),
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions";
   if (input.ConnectorDefinitionId !== undefined) {
@@ -500,9 +494,7 @@ export const serializeAws_restJson1CreateCoreDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!,
-    }),
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/cores";
   let body: any;
@@ -511,9 +503,7 @@ export const serializeAws_restJson1CreateCoreDefinitionCommand = async (
       InitialVersion: serializeAws_restJson1CoreDefinitionVersion(input.InitialVersion, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1Tags(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -533,9 +523,7 @@ export const serializeAws_restJson1CreateCoreDefinitionVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!,
-    }),
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}/versions";
   if (input.CoreDefinitionId !== undefined) {
@@ -549,9 +537,7 @@ export const serializeAws_restJson1CreateCoreDefinitionVersionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Cores !== undefined && {
-      Cores: serializeAws_restJson1__listOfCore(input.Cores, context),
-    }),
+    ...(input.Cores !== undefined && { Cores: serializeAws_restJson1__listOfCore(input.Cores, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -571,9 +557,7 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!,
-    }),
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/groups/{GroupId}/deployments";
   if (input.GroupId !== undefined) {
@@ -587,15 +571,9 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DeploymentId !== undefined && {
-      DeploymentId: input.DeploymentId,
-    }),
-    ...(input.DeploymentType !== undefined && {
-      DeploymentType: input.DeploymentType,
-    }),
-    ...(input.GroupVersionId !== undefined && {
-      GroupVersionId: input.GroupVersionId,
-    }),
+    ...(input.DeploymentId !== undefined && { DeploymentId: input.DeploymentId }),
+    ...(input.DeploymentType !== undefined && { DeploymentType: input.DeploymentType }),
+    ...(input.GroupVersionId !== undefined && { GroupVersionId: input.GroupVersionId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -615,9 +593,7 @@ export const serializeAws_restJson1CreateDeviceDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!,
-    }),
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/devices";
   let body: any;
@@ -626,9 +602,7 @@ export const serializeAws_restJson1CreateDeviceDefinitionCommand = async (
       InitialVersion: serializeAws_restJson1DeviceDefinitionVersion(input.InitialVersion, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1Tags(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -648,9 +622,7 @@ export const serializeAws_restJson1CreateDeviceDefinitionVersionCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!,
-    }),
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/devices/{DeviceDefinitionId}/versions";
   if (input.DeviceDefinitionId !== undefined) {
@@ -664,9 +636,7 @@ export const serializeAws_restJson1CreateDeviceDefinitionVersionCommand = async 
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Devices !== undefined && {
-      Devices: serializeAws_restJson1__listOfDevice(input.Devices, context),
-    }),
+    ...(input.Devices !== undefined && { Devices: serializeAws_restJson1__listOfDevice(input.Devices, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -686,9 +656,7 @@ export const serializeAws_restJson1CreateFunctionDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!,
-    }),
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/functions";
   let body: any;
@@ -697,9 +665,7 @@ export const serializeAws_restJson1CreateFunctionDefinitionCommand = async (
       InitialVersion: serializeAws_restJson1FunctionDefinitionVersion(input.InitialVersion, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1Tags(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -719,9 +685,7 @@ export const serializeAws_restJson1CreateFunctionDefinitionVersionCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!,
-    }),
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/functions/{FunctionDefinitionId}/versions";
   if (input.FunctionDefinitionId !== undefined) {
@@ -760,9 +724,7 @@ export const serializeAws_restJson1CreateGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!,
-    }),
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/groups";
   let body: any;
@@ -771,9 +733,7 @@ export const serializeAws_restJson1CreateGroupCommand = async (
       InitialVersion: serializeAws_restJson1GroupVersion(input.InitialVersion, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1Tags(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -793,9 +753,7 @@ export const serializeAws_restJson1CreateGroupCertificateAuthorityCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!,
-    }),
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/groups/{GroupId}/certificateauthorities";
   if (input.GroupId !== undefined) {
@@ -826,9 +784,7 @@ export const serializeAws_restJson1CreateGroupVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!,
-    }),
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/groups/{GroupId}/versions";
   if (input.GroupId !== undefined) {
@@ -845,9 +801,7 @@ export const serializeAws_restJson1CreateGroupVersionCommand = async (
     ...(input.ConnectorDefinitionVersionArn !== undefined && {
       ConnectorDefinitionVersionArn: input.ConnectorDefinitionVersionArn,
     }),
-    ...(input.CoreDefinitionVersionArn !== undefined && {
-      CoreDefinitionVersionArn: input.CoreDefinitionVersionArn,
-    }),
+    ...(input.CoreDefinitionVersionArn !== undefined && { CoreDefinitionVersionArn: input.CoreDefinitionVersionArn }),
     ...(input.DeviceDefinitionVersionArn !== undefined && {
       DeviceDefinitionVersionArn: input.DeviceDefinitionVersionArn,
     }),
@@ -882,9 +836,7 @@ export const serializeAws_restJson1CreateLoggerDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!,
-    }),
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/loggers";
   let body: any;
@@ -893,9 +845,7 @@ export const serializeAws_restJson1CreateLoggerDefinitionCommand = async (
       InitialVersion: serializeAws_restJson1LoggerDefinitionVersion(input.InitialVersion, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1Tags(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -915,9 +865,7 @@ export const serializeAws_restJson1CreateLoggerDefinitionVersionCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!,
-    }),
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/loggers/{LoggerDefinitionId}/versions";
   if (input.LoggerDefinitionId !== undefined) {
@@ -931,9 +879,7 @@ export const serializeAws_restJson1CreateLoggerDefinitionVersionCommand = async 
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Loggers !== undefined && {
-      Loggers: serializeAws_restJson1__listOfLogger(input.Loggers, context),
-    }),
+    ...(input.Loggers !== undefined && { Loggers: serializeAws_restJson1__listOfLogger(input.Loggers, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -953,9 +899,7 @@ export const serializeAws_restJson1CreateResourceDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!,
-    }),
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/resources";
   let body: any;
@@ -964,9 +908,7 @@ export const serializeAws_restJson1CreateResourceDefinitionCommand = async (
       InitialVersion: serializeAws_restJson1ResourceDefinitionVersion(input.InitialVersion, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1Tags(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -986,9 +928,7 @@ export const serializeAws_restJson1CreateResourceDefinitionVersionCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!,
-    }),
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/resources/{ResourceDefinitionId}/versions";
   if (input.ResourceDefinitionId !== undefined) {
@@ -1024,22 +964,14 @@ export const serializeAws_restJson1CreateSoftwareUpdateJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!,
-    }),
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/updates";
   let body: any;
   body = JSON.stringify({
-    ...(input.S3UrlSignerRole !== undefined && {
-      S3UrlSignerRole: input.S3UrlSignerRole,
-    }),
-    ...(input.SoftwareToUpdate !== undefined && {
-      SoftwareToUpdate: input.SoftwareToUpdate,
-    }),
-    ...(input.UpdateAgentLogLevel !== undefined && {
-      UpdateAgentLogLevel: input.UpdateAgentLogLevel,
-    }),
+    ...(input.S3UrlSignerRole !== undefined && { S3UrlSignerRole: input.S3UrlSignerRole }),
+    ...(input.SoftwareToUpdate !== undefined && { SoftwareToUpdate: input.SoftwareToUpdate }),
+    ...(input.UpdateAgentLogLevel !== undefined && { UpdateAgentLogLevel: input.UpdateAgentLogLevel }),
     ...(input.UpdateTargets !== undefined && {
       UpdateTargets: serializeAws_restJson1UpdateTargets(input.UpdateTargets, context),
     }),
@@ -1068,9 +1000,7 @@ export const serializeAws_restJson1CreateSubscriptionDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!,
-    }),
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/subscriptions";
   let body: any;
@@ -1079,9 +1009,7 @@ export const serializeAws_restJson1CreateSubscriptionDefinitionCommand = async (
       InitialVersion: serializeAws_restJson1SubscriptionDefinitionVersion(input.InitialVersion, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1Tags(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1101,9 +1029,7 @@ export const serializeAws_restJson1CreateSubscriptionDefinitionVersionCommand = 
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!,
-    }),
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions";
   if (input.SubscriptionDefinitionId !== undefined) {
@@ -2869,9 +2795,7 @@ export const serializeAws_restJson1ResetDeploymentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!,
-    }),
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/groups/{GroupId}/deployments/$reset";
   if (input.GroupId !== undefined) {
@@ -2905,22 +2829,14 @@ export const serializeAws_restJson1StartBulkDeploymentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.AmznClientToken) && {
-      "X-Amzn-Client-Token": input.AmznClientToken!,
-    }),
+    ...(isSerializableHeaderValue(input.AmznClientToken) && { "X-Amzn-Client-Token": input.AmznClientToken! }),
   };
   let resolvedPath = "/greengrass/bulk/deployments";
   let body: any;
   body = JSON.stringify({
-    ...(input.ExecutionRoleArn !== undefined && {
-      ExecutionRoleArn: input.ExecutionRoleArn,
-    }),
-    ...(input.InputFileUri !== undefined && {
-      InputFileUri: input.InputFileUri,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1Tags(input.tags, context),
-    }),
+    ...(input.ExecutionRoleArn !== undefined && { ExecutionRoleArn: input.ExecutionRoleArn }),
+    ...(input.InputFileUri !== undefined && { InputFileUri: input.InputFileUri }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2983,9 +2899,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1Tags(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3017,9 +2931,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && {
-      tagKeys: (input.TagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -9310,9 +9222,7 @@ const serializeAws_restJson1ConnectivityInfo = (input: ConnectivityInfo, context
 
 const serializeAws_restJson1Connector = (input: Connector, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectorArn !== undefined && {
-      ConnectorArn: input.ConnectorArn,
-    }),
+    ...(input.ConnectorArn !== undefined && { ConnectorArn: input.ConnectorArn }),
     ...(input.Id !== undefined && { Id: input.Id }),
     ...(input.Parameters !== undefined && {
       Parameters: serializeAws_restJson1__mapOf__string(input.Parameters, context),
@@ -9333,9 +9243,7 @@ const serializeAws_restJson1ConnectorDefinitionVersion = (
 
 const serializeAws_restJson1Core = (input: Core, context: __SerdeContext): any => {
   return {
-    ...(input.CertificateArn !== undefined && {
-      CertificateArn: input.CertificateArn,
-    }),
+    ...(input.CertificateArn !== undefined && { CertificateArn: input.CertificateArn }),
     ...(input.Id !== undefined && { Id: input.Id }),
     ...(input.SyncShadow !== undefined && { SyncShadow: input.SyncShadow }),
     ...(input.ThingArn !== undefined && { ThingArn: input.ThingArn }),
@@ -9344,17 +9252,13 @@ const serializeAws_restJson1Core = (input: Core, context: __SerdeContext): any =
 
 const serializeAws_restJson1CoreDefinitionVersion = (input: CoreDefinitionVersion, context: __SerdeContext): any => {
   return {
-    ...(input.Cores !== undefined && {
-      Cores: serializeAws_restJson1__listOfCore(input.Cores, context),
-    }),
+    ...(input.Cores !== undefined && { Cores: serializeAws_restJson1__listOfCore(input.Cores, context) }),
   };
 };
 
 const serializeAws_restJson1Device = (input: Device, context: __SerdeContext): any => {
   return {
-    ...(input.CertificateArn !== undefined && {
-      CertificateArn: input.CertificateArn,
-    }),
+    ...(input.CertificateArn !== undefined && { CertificateArn: input.CertificateArn }),
     ...(input.Id !== undefined && { Id: input.Id }),
     ...(input.SyncShadow !== undefined && { SyncShadow: input.SyncShadow }),
     ...(input.ThingArn !== undefined && { ThingArn: input.ThingArn }),
@@ -9366,9 +9270,7 @@ const serializeAws_restJson1DeviceDefinitionVersion = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Devices !== undefined && {
-      Devices: serializeAws_restJson1__listOfDevice(input.Devices, context),
-    }),
+    ...(input.Devices !== undefined && { Devices: serializeAws_restJson1__listOfDevice(input.Devices, context) }),
   };
 };
 
@@ -9384,9 +9286,7 @@ const serializeAws_restJson1Function = (input: Function, context: __SerdeContext
 
 const serializeAws_restJson1FunctionConfiguration = (input: FunctionConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.EncodingType !== undefined && {
-      EncodingType: input.EncodingType,
-    }),
+    ...(input.EncodingType !== undefined && { EncodingType: input.EncodingType }),
     ...(input.Environment !== undefined && {
       Environment: serializeAws_restJson1FunctionConfigurationEnvironment(input.Environment, context),
     }),
@@ -9429,12 +9329,8 @@ const serializeAws_restJson1FunctionDefaultExecutionConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IsolationMode !== undefined && {
-      IsolationMode: input.IsolationMode,
-    }),
-    ...(input.RunAs !== undefined && {
-      RunAs: serializeAws_restJson1FunctionRunAsConfig(input.RunAs, context),
-    }),
+    ...(input.IsolationMode !== undefined && { IsolationMode: input.IsolationMode }),
+    ...(input.RunAs !== undefined && { RunAs: serializeAws_restJson1FunctionRunAsConfig(input.RunAs, context) }),
   };
 };
 
@@ -9457,12 +9353,8 @@ const serializeAws_restJson1FunctionExecutionConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IsolationMode !== undefined && {
-      IsolationMode: input.IsolationMode,
-    }),
-    ...(input.RunAs !== undefined && {
-      RunAs: serializeAws_restJson1FunctionRunAsConfig(input.RunAs, context),
-    }),
+    ...(input.IsolationMode !== undefined && { IsolationMode: input.IsolationMode }),
+    ...(input.RunAs !== undefined && { RunAs: serializeAws_restJson1FunctionRunAsConfig(input.RunAs, context) }),
   };
 };
 
@@ -9475,9 +9367,7 @@ const serializeAws_restJson1FunctionRunAsConfig = (input: FunctionRunAsConfig, c
 
 const serializeAws_restJson1GroupOwnerSetting = (input: GroupOwnerSetting, context: __SerdeContext): any => {
   return {
-    ...(input.AutoAddGroupOwner !== undefined && {
-      AutoAddGroupOwner: input.AutoAddGroupOwner,
-    }),
+    ...(input.AutoAddGroupOwner !== undefined && { AutoAddGroupOwner: input.AutoAddGroupOwner }),
     ...(input.GroupOwner !== undefined && { GroupOwner: input.GroupOwner }),
   };
 };
@@ -9487,9 +9377,7 @@ const serializeAws_restJson1GroupVersion = (input: GroupVersion, context: __Serd
     ...(input.ConnectorDefinitionVersionArn !== undefined && {
       ConnectorDefinitionVersionArn: input.ConnectorDefinitionVersionArn,
     }),
-    ...(input.CoreDefinitionVersionArn !== undefined && {
-      CoreDefinitionVersionArn: input.CoreDefinitionVersionArn,
-    }),
+    ...(input.CoreDefinitionVersionArn !== undefined && { CoreDefinitionVersionArn: input.CoreDefinitionVersionArn }),
     ...(input.DeviceDefinitionVersionArn !== undefined && {
       DeviceDefinitionVersionArn: input.DeviceDefinitionVersionArn,
     }),
@@ -9525,9 +9413,7 @@ const serializeAws_restJson1LocalVolumeResourceData = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationPath !== undefined && {
-      DestinationPath: input.DestinationPath,
-    }),
+    ...(input.DestinationPath !== undefined && { DestinationPath: input.DestinationPath }),
     ...(input.GroupOwnerSetting !== undefined && {
       GroupOwnerSetting: serializeAws_restJson1GroupOwnerSetting(input.GroupOwnerSetting, context),
     }),
@@ -9550,9 +9436,7 @@ const serializeAws_restJson1LoggerDefinitionVersion = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Loggers !== undefined && {
-      Loggers: serializeAws_restJson1__listOfLogger(input.Loggers, context),
-    }),
+    ...(input.Loggers !== undefined && { Loggers: serializeAws_restJson1__listOfLogger(input.Loggers, context) }),
   };
 };
 
@@ -9619,9 +9503,7 @@ const serializeAws_restJson1ResourceDownloadOwnerSetting = (
 ): any => {
   return {
     ...(input.GroupOwner !== undefined && { GroupOwner: input.GroupOwner }),
-    ...(input.GroupPermission !== undefined && {
-      GroupPermission: input.GroupPermission,
-    }),
+    ...(input.GroupPermission !== undefined && { GroupPermission: input.GroupPermission }),
   };
 };
 
@@ -9630,9 +9512,7 @@ const serializeAws_restJson1S3MachineLearningModelResourceData = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationPath !== undefined && {
-      DestinationPath: input.DestinationPath,
-    }),
+    ...(input.DestinationPath !== undefined && { DestinationPath: input.DestinationPath }),
     ...(input.OwnerSetting !== undefined && {
       OwnerSetting: serializeAws_restJson1ResourceDownloadOwnerSetting(input.OwnerSetting, context),
     }),
@@ -9645,15 +9525,11 @@ const serializeAws_restJson1SageMakerMachineLearningModelResourceData = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationPath !== undefined && {
-      DestinationPath: input.DestinationPath,
-    }),
+    ...(input.DestinationPath !== undefined && { DestinationPath: input.DestinationPath }),
     ...(input.OwnerSetting !== undefined && {
       OwnerSetting: serializeAws_restJson1ResourceDownloadOwnerSetting(input.OwnerSetting, context),
     }),
-    ...(input.SageMakerJobArn !== undefined && {
-      SageMakerJobArn: input.SageMakerJobArn,
-    }),
+    ...(input.SageMakerJobArn !== undefined && { SageMakerJobArn: input.SageMakerJobArn }),
   };
 };
 

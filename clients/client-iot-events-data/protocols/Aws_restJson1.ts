@@ -47,9 +47,7 @@ export const serializeAws_restJson1BatchPutMessageCommand = async (
   let resolvedPath = "/inputs/messages";
   let body: any;
   body = JSON.stringify({
-    ...(input.messages !== undefined && {
-      messages: serializeAws_restJson1Messages(input.messages, context),
-    }),
+    ...(input.messages !== undefined && { messages: serializeAws_restJson1Messages(input.messages, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -141,9 +139,7 @@ export const serializeAws_restJson1ListDetectorsCommand = async (
     throw new Error("No value provided for input HTTP label: detectorModelName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.stateName !== undefined && { stateName: input.stateName }),
   };
@@ -598,9 +594,7 @@ const serializeAws_restJson1DetectorStateDefinition = (
 ): any => {
   return {
     ...(input.stateName !== undefined && { stateName: input.stateName }),
-    ...(input.timers !== undefined && {
-      timers: serializeAws_restJson1TimerDefinitions(input.timers, context),
-    }),
+    ...(input.timers !== undefined && { timers: serializeAws_restJson1TimerDefinitions(input.timers, context) }),
     ...(input.variables !== undefined && {
       variables: serializeAws_restJson1VariableDefinitions(input.variables, context),
     }),
@@ -611,9 +605,7 @@ const serializeAws_restJson1Message = (input: Message, context: __SerdeContext):
   return {
     ...(input.inputName !== undefined && { inputName: input.inputName }),
     ...(input.messageId !== undefined && { messageId: input.messageId }),
-    ...(input.payload !== undefined && {
-      payload: context.base64Encoder(input.payload),
-    }),
+    ...(input.payload !== undefined && { payload: context.base64Encoder(input.payload) }),
   };
 };
 
@@ -634,14 +626,10 @@ const serializeAws_restJson1TimerDefinitions = (input: TimerDefinition[], contex
 
 const serializeAws_restJson1UpdateDetectorRequest = (input: UpdateDetectorRequest, context: __SerdeContext): any => {
   return {
-    ...(input.detectorModelName !== undefined && {
-      detectorModelName: input.detectorModelName,
-    }),
+    ...(input.detectorModelName !== undefined && { detectorModelName: input.detectorModelName }),
     ...(input.keyValue !== undefined && { keyValue: input.keyValue }),
     ...(input.messageId !== undefined && { messageId: input.messageId }),
-    ...(input.state !== undefined && {
-      state: serializeAws_restJson1DetectorStateDefinition(input.state, context),
-    }),
+    ...(input.state !== undefined && { state: serializeAws_restJson1DetectorStateDefinition(input.state, context) }),
   };
 };
 

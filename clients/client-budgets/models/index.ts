@@ -385,9 +385,7 @@ export interface CreateNotificationRequest {
 export namespace CreateNotificationRequest {
   export const filterSensitiveLog = (obj: CreateNotificationRequest): any => ({
     ...obj,
-    ...(obj.Subscribers && {
-      Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)),
-    }),
+    ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is CreateNotificationRequest => __isa(o, "CreateNotificationRequest");
 }
@@ -435,9 +433,7 @@ export interface CreateSubscriberRequest {
 export namespace CreateSubscriberRequest {
   export const filterSensitiveLog = (obj: CreateSubscriberRequest): any => ({
     ...obj,
-    ...(obj.Subscriber && {
-      Subscriber: Subscriber.filterSensitiveLog(obj.Subscriber),
-    }),
+    ...(obj.Subscriber && { Subscriber: Subscriber.filterSensitiveLog(obj.Subscriber) }),
   });
   export const isa = (o: any): o is CreateSubscriberRequest => __isa(o, "CreateSubscriberRequest");
 }
@@ -583,9 +579,7 @@ export interface DeleteSubscriberRequest {
 export namespace DeleteSubscriberRequest {
   export const filterSensitiveLog = (obj: DeleteSubscriberRequest): any => ({
     ...obj,
-    ...(obj.Subscriber && {
-      Subscriber: Subscriber.filterSensitiveLog(obj.Subscriber),
-    }),
+    ...(obj.Subscriber && { Subscriber: Subscriber.filterSensitiveLog(obj.Subscriber) }),
   });
   export const isa = (o: any): o is DeleteSubscriberRequest => __isa(o, "DeleteSubscriberRequest");
 }
@@ -870,9 +864,7 @@ export interface DescribeSubscribersForNotificationResponse {
 export namespace DescribeSubscribersForNotificationResponse {
   export const filterSensitiveLog = (obj: DescribeSubscribersForNotificationResponse): any => ({
     ...obj,
-    ...(obj.Subscribers && {
-      Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)),
-    }),
+    ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is DescribeSubscribersForNotificationResponse =>
     __isa(o, "DescribeSubscribersForNotificationResponse");
@@ -1079,9 +1071,7 @@ export interface NotificationWithSubscribers {
 export namespace NotificationWithSubscribers {
   export const filterSensitiveLog = (obj: NotificationWithSubscribers): any => ({
     ...obj,
-    ...(obj.Subscribers && {
-      Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)),
-    }),
+    ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is NotificationWithSubscribers => __isa(o, "NotificationWithSubscribers");
 }
@@ -1316,12 +1306,8 @@ export interface UpdateSubscriberRequest {
 export namespace UpdateSubscriberRequest {
   export const filterSensitiveLog = (obj: UpdateSubscriberRequest): any => ({
     ...obj,
-    ...(obj.NewSubscriber && {
-      NewSubscriber: Subscriber.filterSensitiveLog(obj.NewSubscriber),
-    }),
-    ...(obj.OldSubscriber && {
-      OldSubscriber: Subscriber.filterSensitiveLog(obj.OldSubscriber),
-    }),
+    ...(obj.NewSubscriber && { NewSubscriber: Subscriber.filterSensitiveLog(obj.NewSubscriber) }),
+    ...(obj.OldSubscriber && { OldSubscriber: Subscriber.filterSensitiveLog(obj.OldSubscriber) }),
   });
   export const isa = (o: any): o is UpdateSubscriberRequest => __isa(o, "UpdateSubscriberRequest");
 }

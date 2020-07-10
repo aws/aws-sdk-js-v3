@@ -3923,9 +3923,7 @@ const serializeAws_json1_1AllQueryArguments = (input: AllQueryArguments, context
 
 const serializeAws_json1_1AndStatement = (input: AndStatement, context: __SerdeContext): any => {
   return {
-    ...(input.Statements !== undefined && {
-      Statements: serializeAws_json1_1Statements(input.Statements, context),
-    }),
+    ...(input.Statements !== undefined && { Statements: serializeAws_json1_1Statements(input.Statements, context) }),
   };
 };
 
@@ -3949,12 +3947,8 @@ const serializeAws_json1_1ByteMatchStatement = (input: ByteMatchStatement, conte
     ...(input.FieldToMatch !== undefined && {
       FieldToMatch: serializeAws_json1_1FieldToMatch(input.FieldToMatch, context),
     }),
-    ...(input.PositionalConstraint !== undefined && {
-      PositionalConstraint: input.PositionalConstraint,
-    }),
-    ...(input.SearchString !== undefined && {
-      SearchString: context.base64Encoder(input.SearchString),
-    }),
+    ...(input.PositionalConstraint !== undefined && { PositionalConstraint: input.PositionalConstraint }),
+    ...(input.SearchString !== undefined && { SearchString: context.base64Encoder(input.SearchString) }),
     ...(input.TextTransformations !== undefined && {
       TextTransformations: serializeAws_json1_1TextTransformations(input.TextTransformations, context),
     }),
@@ -3963,9 +3957,7 @@ const serializeAws_json1_1ByteMatchStatement = (input: ByteMatchStatement, conte
 
 const serializeAws_json1_1CheckCapacityRequest = (input: CheckCapacityRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Rules !== undefined && {
-      Rules: serializeAws_json1_1Rules(input.Rules, context),
-    }),
+    ...(input.Rules !== undefined && { Rules: serializeAws_json1_1Rules(input.Rules, context) }),
     ...(input.Scope !== undefined && { Scope: input.Scope }),
   };
 };
@@ -3980,18 +3972,12 @@ const serializeAws_json1_1CountryCodes = (input: (CountryCode | string)[], conte
 
 const serializeAws_json1_1CreateIPSetRequest = (input: CreateIPSetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Addresses !== undefined && {
-      Addresses: serializeAws_json1_1IPAddresses(input.Addresses, context),
-    }),
+    ...(input.Addresses !== undefined && { Addresses: serializeAws_json1_1IPAddresses(input.Addresses, context) }),
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.IPAddressVersion !== undefined && {
-      IPAddressVersion: input.IPAddressVersion,
-    }),
+    ...(input.IPAddressVersion !== undefined && { IPAddressVersion: input.IPAddressVersion }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Scope !== undefined && { Scope: input.Scope }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -4006,9 +3992,7 @@ const serializeAws_json1_1CreateRegexPatternSetRequest = (
       RegularExpressionList: serializeAws_json1_1RegularExpressionList(input.RegularExpressionList, context),
     }),
     ...(input.Scope !== undefined && { Scope: input.Scope }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -4017,13 +4001,9 @@ const serializeAws_json1_1CreateRuleGroupRequest = (input: CreateRuleGroupReques
     ...(input.Capacity !== undefined && { Capacity: input.Capacity }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Rules !== undefined && {
-      Rules: serializeAws_json1_1Rules(input.Rules, context),
-    }),
+    ...(input.Rules !== undefined && { Rules: serializeAws_json1_1Rules(input.Rules, context) }),
     ...(input.Scope !== undefined && { Scope: input.Scope }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.VisibilityConfig !== undefined && {
       VisibilityConfig: serializeAws_json1_1VisibilityConfig(input.VisibilityConfig, context),
     }),
@@ -4037,13 +4017,9 @@ const serializeAws_json1_1CreateWebACLRequest = (input: CreateWebACLRequest, con
     }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Rules !== undefined && {
-      Rules: serializeAws_json1_1Rules(input.Rules, context),
-    }),
+    ...(input.Rules !== undefined && { Rules: serializeAws_json1_1Rules(input.Rules, context) }),
     ...(input.Scope !== undefined && { Scope: input.Scope }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.VisibilityConfig !== undefined && {
       VisibilityConfig: serializeAws_json1_1VisibilityConfig(input.VisibilityConfig, context),
     }),
@@ -4052,12 +4028,8 @@ const serializeAws_json1_1CreateWebACLRequest = (input: CreateWebACLRequest, con
 
 const serializeAws_json1_1DefaultAction = (input: DefaultAction, context: __SerdeContext): any => {
   return {
-    ...(input.Allow !== undefined && {
-      Allow: serializeAws_json1_1AllowAction(input.Allow, context),
-    }),
-    ...(input.Block !== undefined && {
-      Block: serializeAws_json1_1BlockAction(input.Block, context),
-    }),
+    ...(input.Allow !== undefined && { Allow: serializeAws_json1_1AllowAction(input.Allow, context) }),
+    ...(input.Block !== undefined && { Block: serializeAws_json1_1BlockAction(input.Block, context) }),
   };
 };
 
@@ -4144,12 +4116,8 @@ const serializeAws_json1_1FieldToMatch = (input: FieldToMatch, context: __SerdeC
     ...(input.AllQueryArguments !== undefined && {
       AllQueryArguments: serializeAws_json1_1AllQueryArguments(input.AllQueryArguments, context),
     }),
-    ...(input.Body !== undefined && {
-      Body: serializeAws_json1_1Body(input.Body, context),
-    }),
-    ...(input.Method !== undefined && {
-      Method: serializeAws_json1_1Method(input.Method, context),
-    }),
+    ...(input.Body !== undefined && { Body: serializeAws_json1_1Body(input.Body, context) }),
+    ...(input.Method !== undefined && { Method: serializeAws_json1_1Method(input.Method, context) }),
     ...(input.QueryString !== undefined && {
       QueryString: serializeAws_json1_1QueryString(input.QueryString, context),
     }),
@@ -4159,9 +4127,7 @@ const serializeAws_json1_1FieldToMatch = (input: FieldToMatch, context: __SerdeC
     ...(input.SingleQueryArgument !== undefined && {
       SingleQueryArgument: serializeAws_json1_1SingleQueryArgument(input.SingleQueryArgument, context),
     }),
-    ...(input.UriPath !== undefined && {
-      UriPath: serializeAws_json1_1UriPath(input.UriPath, context),
-    }),
+    ...(input.UriPath !== undefined && { UriPath: serializeAws_json1_1UriPath(input.UriPath, context) }),
   };
 };
 
@@ -4227,13 +4193,9 @@ const serializeAws_json1_1GetSampledRequestsRequest = (
 ): any => {
   return {
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems }),
-    ...(input.RuleMetricName !== undefined && {
-      RuleMetricName: input.RuleMetricName,
-    }),
+    ...(input.RuleMetricName !== undefined && { RuleMetricName: input.RuleMetricName }),
     ...(input.Scope !== undefined && { Scope: input.Scope }),
-    ...(input.TimeWindow !== undefined && {
-      TimeWindow: serializeAws_json1_1TimeWindow(input.TimeWindow, context),
-    }),
+    ...(input.TimeWindow !== undefined && { TimeWindow: serializeAws_json1_1TimeWindow(input.TimeWindow, context) }),
     ...(input.WebAclArn !== undefined && { WebAclArn: input.WebAclArn }),
   };
 };
@@ -4311,9 +4273,7 @@ const serializeAws_json1_1ListResourcesForWebACLRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
     ...(input.WebACLArn !== undefined && { WebACLArn: input.WebACLArn }),
   };
 };
@@ -4384,28 +4344,20 @@ const serializeAws_json1_1NoneAction = (input: NoneAction, context: __SerdeConte
 
 const serializeAws_json1_1NotStatement = (input: NotStatement, context: __SerdeContext): any => {
   return {
-    ...(input.Statement !== undefined && {
-      Statement: serializeAws_json1_1Statement(input.Statement, context),
-    }),
+    ...(input.Statement !== undefined && { Statement: serializeAws_json1_1Statement(input.Statement, context) }),
   };
 };
 
 const serializeAws_json1_1OrStatement = (input: OrStatement, context: __SerdeContext): any => {
   return {
-    ...(input.Statements !== undefined && {
-      Statements: serializeAws_json1_1Statements(input.Statements, context),
-    }),
+    ...(input.Statements !== undefined && { Statements: serializeAws_json1_1Statements(input.Statements, context) }),
   };
 };
 
 const serializeAws_json1_1OverrideAction = (input: OverrideAction, context: __SerdeContext): any => {
   return {
-    ...(input.Count !== undefined && {
-      Count: serializeAws_json1_1CountAction(input.Count, context),
-    }),
-    ...(input.None !== undefined && {
-      None: serializeAws_json1_1NoneAction(input.None, context),
-    }),
+    ...(input.Count !== undefined && { Count: serializeAws_json1_1CountAction(input.Count, context) }),
+    ...(input.None !== undefined && { None: serializeAws_json1_1NoneAction(input.None, context) }),
   };
 };
 
@@ -4426,9 +4378,7 @@ const serializeAws_json1_1QueryString = (input: QueryString, context: __SerdeCon
 
 const serializeAws_json1_1RateBasedStatement = (input: RateBasedStatement, context: __SerdeContext): any => {
   return {
-    ...(input.AggregateKeyType !== undefined && {
-      AggregateKeyType: input.AggregateKeyType,
-    }),
+    ...(input.AggregateKeyType !== undefined && { AggregateKeyType: input.AggregateKeyType }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.ScopeDownStatement !== undefined && {
       ScopeDownStatement: serializeAws_json1_1Statement(input.ScopeDownStatement, context),
@@ -4467,17 +4417,13 @@ const serializeAws_json1_1RegularExpressionList = (input: Regex[], context: __Se
 
 const serializeAws_json1_1Rule = (input: Rule, context: __SerdeContext): any => {
   return {
-    ...(input.Action !== undefined && {
-      Action: serializeAws_json1_1RuleAction(input.Action, context),
-    }),
+    ...(input.Action !== undefined && { Action: serializeAws_json1_1RuleAction(input.Action, context) }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.OverrideAction !== undefined && {
       OverrideAction: serializeAws_json1_1OverrideAction(input.OverrideAction, context),
     }),
     ...(input.Priority !== undefined && { Priority: input.Priority }),
-    ...(input.Statement !== undefined && {
-      Statement: serializeAws_json1_1Statement(input.Statement, context),
-    }),
+    ...(input.Statement !== undefined && { Statement: serializeAws_json1_1Statement(input.Statement, context) }),
     ...(input.VisibilityConfig !== undefined && {
       VisibilityConfig: serializeAws_json1_1VisibilityConfig(input.VisibilityConfig, context),
     }),
@@ -4486,15 +4432,9 @@ const serializeAws_json1_1Rule = (input: Rule, context: __SerdeContext): any => 
 
 const serializeAws_json1_1RuleAction = (input: RuleAction, context: __SerdeContext): any => {
   return {
-    ...(input.Allow !== undefined && {
-      Allow: serializeAws_json1_1AllowAction(input.Allow, context),
-    }),
-    ...(input.Block !== undefined && {
-      Block: serializeAws_json1_1BlockAction(input.Block, context),
-    }),
-    ...(input.Count !== undefined && {
-      Count: serializeAws_json1_1CountAction(input.Count, context),
-    }),
+    ...(input.Allow !== undefined && { Allow: serializeAws_json1_1AllowAction(input.Allow, context) }),
+    ...(input.Block !== undefined && { Block: serializeAws_json1_1BlockAction(input.Block, context) }),
+    ...(input.Count !== undefined && { Count: serializeAws_json1_1CountAction(input.Count, context) }),
   };
 };
 
@@ -4528,9 +4468,7 @@ const serializeAws_json1_1SingleQueryArgument = (input: SingleQueryArgument, con
 
 const serializeAws_json1_1SizeConstraintStatement = (input: SizeConstraintStatement, context: __SerdeContext): any => {
   return {
-    ...(input.ComparisonOperator !== undefined && {
-      ComparisonOperator: input.ComparisonOperator,
-    }),
+    ...(input.ComparisonOperator !== undefined && { ComparisonOperator: input.ComparisonOperator }),
     ...(input.FieldToMatch !== undefined && {
       FieldToMatch: serializeAws_json1_1FieldToMatch(input.FieldToMatch, context),
     }),
@@ -4627,9 +4565,7 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -4646,29 +4582,21 @@ const serializeAws_json1_1TextTransformations = (input: TextTransformation[], co
 
 const serializeAws_json1_1TimeWindow = (input: TimeWindow, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime !== undefined && {
-      EndTime: Math.round(input.EndTime.getTime() / 1000),
-    }),
-    ...(input.StartTime !== undefined && {
-      StartTime: Math.round(input.StartTime.getTime() / 1000),
-    }),
+    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateIPSetRequest = (input: UpdateIPSetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Addresses !== undefined && {
-      Addresses: serializeAws_json1_1IPAddresses(input.Addresses, context),
-    }),
+    ...(input.Addresses !== undefined && { Addresses: serializeAws_json1_1IPAddresses(input.Addresses, context) }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.Id !== undefined && { Id: input.Id }),
     ...(input.LockToken !== undefined && { LockToken: input.LockToken }),
@@ -4699,9 +4627,7 @@ const serializeAws_json1_1UpdateRuleGroupRequest = (input: UpdateRuleGroupReques
     ...(input.Id !== undefined && { Id: input.Id }),
     ...(input.LockToken !== undefined && { LockToken: input.LockToken }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Rules !== undefined && {
-      Rules: serializeAws_json1_1Rules(input.Rules, context),
-    }),
+    ...(input.Rules !== undefined && { Rules: serializeAws_json1_1Rules(input.Rules, context) }),
     ...(input.Scope !== undefined && { Scope: input.Scope }),
     ...(input.VisibilityConfig !== undefined && {
       VisibilityConfig: serializeAws_json1_1VisibilityConfig(input.VisibilityConfig, context),
@@ -4718,9 +4644,7 @@ const serializeAws_json1_1UpdateWebACLRequest = (input: UpdateWebACLRequest, con
     ...(input.Id !== undefined && { Id: input.Id }),
     ...(input.LockToken !== undefined && { LockToken: input.LockToken }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Rules !== undefined && {
-      Rules: serializeAws_json1_1Rules(input.Rules, context),
-    }),
+    ...(input.Rules !== undefined && { Rules: serializeAws_json1_1Rules(input.Rules, context) }),
     ...(input.Scope !== undefined && { Scope: input.Scope }),
     ...(input.VisibilityConfig !== undefined && {
       VisibilityConfig: serializeAws_json1_1VisibilityConfig(input.VisibilityConfig, context),
@@ -4734,13 +4658,9 @@ const serializeAws_json1_1UriPath = (input: UriPath, context: __SerdeContext): a
 
 const serializeAws_json1_1VisibilityConfig = (input: VisibilityConfig, context: __SerdeContext): any => {
   return {
-    ...(input.CloudWatchMetricsEnabled !== undefined && {
-      CloudWatchMetricsEnabled: input.CloudWatchMetricsEnabled,
-    }),
+    ...(input.CloudWatchMetricsEnabled !== undefined && { CloudWatchMetricsEnabled: input.CloudWatchMetricsEnabled }),
     ...(input.MetricName !== undefined && { MetricName: input.MetricName }),
-    ...(input.SampledRequestsEnabled !== undefined && {
-      SampledRequestsEnabled: input.SampledRequestsEnabled,
-    }),
+    ...(input.SampledRequestsEnabled !== undefined && { SampledRequestsEnabled: input.SampledRequestsEnabled }),
   };
 };
 

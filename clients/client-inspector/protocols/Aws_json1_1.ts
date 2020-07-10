@@ -3960,9 +3960,7 @@ const serializeAws_json1_1AssessmentRunFilter = (input: AssessmentRunFilter, con
     ...(input.stateChangeTimeRange !== undefined && {
       stateChangeTimeRange: serializeAws_json1_1TimestampRange(input.stateChangeTimeRange, context),
     }),
-    ...(input.states !== undefined && {
-      states: serializeAws_json1_1AssessmentRunStateList(input.states, context),
-    }),
+    ...(input.states !== undefined && { states: serializeAws_json1_1AssessmentRunStateList(input.states, context) }),
   };
 };
 
@@ -4028,12 +4026,8 @@ const serializeAws_json1_1CreateAssessmentTargetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentTargetName !== undefined && {
-      assessmentTargetName: input.assessmentTargetName,
-    }),
-    ...(input.resourceGroupArn !== undefined && {
-      resourceGroupArn: input.resourceGroupArn,
-    }),
+    ...(input.assessmentTargetName !== undefined && { assessmentTargetName: input.assessmentTargetName }),
+    ...(input.resourceGroupArn !== undefined && { resourceGroupArn: input.resourceGroupArn }),
   };
 };
 
@@ -4042,15 +4036,9 @@ const serializeAws_json1_1CreateAssessmentTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentTargetArn !== undefined && {
-      assessmentTargetArn: input.assessmentTargetArn,
-    }),
-    ...(input.assessmentTemplateName !== undefined && {
-      assessmentTemplateName: input.assessmentTemplateName,
-    }),
-    ...(input.durationInSeconds !== undefined && {
-      durationInSeconds: input.durationInSeconds,
-    }),
+    ...(input.assessmentTargetArn !== undefined && { assessmentTargetArn: input.assessmentTargetArn }),
+    ...(input.assessmentTemplateName !== undefined && { assessmentTemplateName: input.assessmentTemplateName }),
+    ...(input.durationInSeconds !== undefined && { durationInSeconds: input.durationInSeconds }),
     ...(input.rulesPackageArns !== undefined && {
       rulesPackageArns: serializeAws_json1_1AssessmentTemplateRulesPackageArnList(input.rulesPackageArns, context),
     }),
@@ -4065,9 +4053,7 @@ const serializeAws_json1_1CreateExclusionsPreviewRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentTemplateArn !== undefined && {
-      assessmentTemplateArn: input.assessmentTemplateArn,
-    }),
+    ...(input.assessmentTemplateArn !== undefined && { assessmentTemplateArn: input.assessmentTemplateArn }),
   };
 };
 
@@ -4087,9 +4073,7 @@ const serializeAws_json1_1DeleteAssessmentRunRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentRunArn !== undefined && {
-      assessmentRunArn: input.assessmentRunArn,
-    }),
+    ...(input.assessmentRunArn !== undefined && { assessmentRunArn: input.assessmentRunArn }),
   };
 };
 
@@ -4098,9 +4082,7 @@ const serializeAws_json1_1DeleteAssessmentTargetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentTargetArn !== undefined && {
-      assessmentTargetArn: input.assessmentTargetArn,
-    }),
+    ...(input.assessmentTargetArn !== undefined && { assessmentTargetArn: input.assessmentTargetArn }),
   };
 };
 
@@ -4109,9 +4091,7 @@ const serializeAws_json1_1DeleteAssessmentTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentTemplateArn !== undefined && {
-      assessmentTemplateArn: input.assessmentTemplateArn,
-    }),
+    ...(input.assessmentTemplateArn !== undefined && { assessmentTemplateArn: input.assessmentTemplateArn }),
   };
 };
 
@@ -4205,27 +4185,19 @@ const serializeAws_json1_1FilterRulesPackageArnList = (input: string[], context:
 
 const serializeAws_json1_1FindingFilter = (input: FindingFilter, context: __SerdeContext): any => {
   return {
-    ...(input.agentIds !== undefined && {
-      agentIds: serializeAws_json1_1AgentIdList(input.agentIds, context),
-    }),
-    ...(input.attributes !== undefined && {
-      attributes: serializeAws_json1_1AttributeList(input.attributes, context),
-    }),
+    ...(input.agentIds !== undefined && { agentIds: serializeAws_json1_1AgentIdList(input.agentIds, context) }),
+    ...(input.attributes !== undefined && { attributes: serializeAws_json1_1AttributeList(input.attributes, context) }),
     ...(input.autoScalingGroups !== undefined && {
       autoScalingGroups: serializeAws_json1_1AutoScalingGroupList(input.autoScalingGroups, context),
     }),
     ...(input.creationTimeRange !== undefined && {
       creationTimeRange: serializeAws_json1_1TimestampRange(input.creationTimeRange, context),
     }),
-    ...(input.ruleNames !== undefined && {
-      ruleNames: serializeAws_json1_1RuleNameList(input.ruleNames, context),
-    }),
+    ...(input.ruleNames !== undefined && { ruleNames: serializeAws_json1_1RuleNameList(input.ruleNames, context) }),
     ...(input.rulesPackageArns !== undefined && {
       rulesPackageArns: serializeAws_json1_1FilterRulesPackageArnList(input.rulesPackageArns, context),
     }),
-    ...(input.severities !== undefined && {
-      severities: serializeAws_json1_1SeverityList(input.severities, context),
-    }),
+    ...(input.severities !== undefined && { severities: serializeAws_json1_1SeverityList(input.severities, context) }),
     ...(input.userAttributes !== undefined && {
       userAttributes: serializeAws_json1_1AttributeList(input.userAttributes, context),
     }),
@@ -4237,12 +4209,8 @@ const serializeAws_json1_1GetAssessmentReportRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentRunArn !== undefined && {
-      assessmentRunArn: input.assessmentRunArn,
-    }),
-    ...(input.reportFileFormat !== undefined && {
-      reportFileFormat: input.reportFileFormat,
-    }),
+    ...(input.assessmentRunArn !== undefined && { assessmentRunArn: input.assessmentRunArn }),
+    ...(input.reportFileFormat !== undefined && { reportFileFormat: input.reportFileFormat }),
     ...(input.reportType !== undefined && { reportType: input.reportType }),
   };
 };
@@ -4252,15 +4220,11 @@ const serializeAws_json1_1GetExclusionsPreviewRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentTemplateArn !== undefined && {
-      assessmentTemplateArn: input.assessmentTemplateArn,
-    }),
+    ...(input.assessmentTemplateArn !== undefined && { assessmentTemplateArn: input.assessmentTemplateArn }),
     ...(input.locale !== undefined && { locale: input.locale }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.previewToken !== undefined && {
-      previewToken: input.previewToken,
-    }),
+    ...(input.previewToken !== undefined && { previewToken: input.previewToken }),
   };
 };
 
@@ -4269,9 +4233,7 @@ const serializeAws_json1_1GetTelemetryMetadataRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentRunArn !== undefined && {
-      assessmentRunArn: input.assessmentRunArn,
-    }),
+    ...(input.assessmentRunArn !== undefined && { assessmentRunArn: input.assessmentRunArn }),
   };
 };
 
@@ -4280,12 +4242,8 @@ const serializeAws_json1_1ListAssessmentRunAgentsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentRunArn !== undefined && {
-      assessmentRunArn: input.assessmentRunArn,
-    }),
-    ...(input.filter !== undefined && {
-      filter: serializeAws_json1_1AgentFilter(input.filter, context),
-    }),
+    ...(input.assessmentRunArn !== undefined && { assessmentRunArn: input.assessmentRunArn }),
+    ...(input.filter !== undefined && { filter: serializeAws_json1_1AgentFilter(input.filter, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
@@ -4299,9 +4257,7 @@ const serializeAws_json1_1ListAssessmentRunsRequest = (
     ...(input.assessmentTemplateArns !== undefined && {
       assessmentTemplateArns: serializeAws_json1_1ListParentArnList(input.assessmentTemplateArns, context),
     }),
-    ...(input.filter !== undefined && {
-      filter: serializeAws_json1_1AssessmentRunFilter(input.filter, context),
-    }),
+    ...(input.filter !== undefined && { filter: serializeAws_json1_1AssessmentRunFilter(input.filter, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
@@ -4312,9 +4268,7 @@ const serializeAws_json1_1ListAssessmentTargetsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filter !== undefined && {
-      filter: serializeAws_json1_1AssessmentTargetFilter(input.filter, context),
-    }),
+    ...(input.filter !== undefined && { filter: serializeAws_json1_1AssessmentTargetFilter(input.filter, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
@@ -4328,9 +4282,7 @@ const serializeAws_json1_1ListAssessmentTemplatesRequest = (
     ...(input.assessmentTargetArns !== undefined && {
       assessmentTargetArns: serializeAws_json1_1ListParentArnList(input.assessmentTargetArns, context),
     }),
-    ...(input.filter !== undefined && {
-      filter: serializeAws_json1_1AssessmentTemplateFilter(input.filter, context),
-    }),
+    ...(input.filter !== undefined && { filter: serializeAws_json1_1AssessmentTemplateFilter(input.filter, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
@@ -4349,9 +4301,7 @@ const serializeAws_json1_1ListEventSubscriptionsRequest = (
 
 const serializeAws_json1_1ListExclusionsRequest = (input: ListExclusionsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.assessmentRunArn !== undefined && {
-      assessmentRunArn: input.assessmentRunArn,
-    }),
+    ...(input.assessmentRunArn !== undefined && { assessmentRunArn: input.assessmentRunArn }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
@@ -4362,9 +4312,7 @@ const serializeAws_json1_1ListFindingsRequest = (input: ListFindingsRequest, con
     ...(input.assessmentRunArns !== undefined && {
       assessmentRunArns: serializeAws_json1_1ListParentArnList(input.assessmentRunArns, context),
     }),
-    ...(input.filter !== undefined && {
-      filter: serializeAws_json1_1FindingFilter(input.filter, context),
-    }),
+    ...(input.filter !== undefined && { filter: serializeAws_json1_1FindingFilter(input.filter, context) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
@@ -4397,9 +4345,7 @@ const serializeAws_json1_1PreviewAgentsRequest = (input: PreviewAgentsRequest, c
   return {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.previewAgentsArn !== undefined && {
-      previewAgentsArn: input.previewAgentsArn,
-    }),
+    ...(input.previewAgentsArn !== undefined && { previewAgentsArn: input.previewAgentsArn }),
   };
 };
 
@@ -4447,9 +4393,7 @@ const serializeAws_json1_1SetTagsForResourceRequest = (
 ): any => {
   return {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_json1_1TagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -4462,12 +4406,8 @@ const serializeAws_json1_1StartAssessmentRunRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentRunName !== undefined && {
-      assessmentRunName: input.assessmentRunName,
-    }),
-    ...(input.assessmentTemplateArn !== undefined && {
-      assessmentTemplateArn: input.assessmentTemplateArn,
-    }),
+    ...(input.assessmentRunName !== undefined && { assessmentRunName: input.assessmentRunName }),
+    ...(input.assessmentTemplateArn !== undefined && { assessmentTemplateArn: input.assessmentTemplateArn }),
   };
 };
 
@@ -4476,9 +4416,7 @@ const serializeAws_json1_1StopAssessmentRunRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentRunArn !== undefined && {
-      assessmentRunArn: input.assessmentRunArn,
-    }),
+    ...(input.assessmentRunArn !== undefined && { assessmentRunArn: input.assessmentRunArn }),
     ...(input.stopAction !== undefined && { stopAction: input.stopAction }),
   };
 };
@@ -4504,12 +4442,8 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TimestampRange = (input: TimestampRange, context: __SerdeContext): any => {
   return {
-    ...(input.beginDate !== undefined && {
-      beginDate: Math.round(input.beginDate.getTime() / 1000),
-    }),
-    ...(input.endDate !== undefined && {
-      endDate: Math.round(input.endDate.getTime() / 1000),
-    }),
+    ...(input.beginDate !== undefined && { beginDate: Math.round(input.beginDate.getTime() / 1000) }),
+    ...(input.endDate !== undefined && { endDate: Math.round(input.endDate.getTime() / 1000) }),
   };
 };
 
@@ -4529,15 +4463,9 @@ const serializeAws_json1_1UpdateAssessmentTargetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentTargetArn !== undefined && {
-      assessmentTargetArn: input.assessmentTargetArn,
-    }),
-    ...(input.assessmentTargetName !== undefined && {
-      assessmentTargetName: input.assessmentTargetName,
-    }),
-    ...(input.resourceGroupArn !== undefined && {
-      resourceGroupArn: input.resourceGroupArn,
-    }),
+    ...(input.assessmentTargetArn !== undefined && { assessmentTargetArn: input.assessmentTargetArn }),
+    ...(input.assessmentTargetName !== undefined && { assessmentTargetName: input.assessmentTargetName }),
+    ...(input.resourceGroupArn !== undefined && { resourceGroupArn: input.resourceGroupArn }),
   };
 };
 

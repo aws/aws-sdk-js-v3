@@ -622,9 +622,7 @@ export namespace CreateFunctionRequest {
   export const filterSensitiveLog = (obj: CreateFunctionRequest): any => ({
     ...obj,
     ...(obj.Code && { Code: FunctionCode.filterSensitiveLog(obj.Code) }),
-    ...(obj.Environment && {
-      Environment: Environment.filterSensitiveLog(obj.Environment),
-    }),
+    ...(obj.Environment && { Environment: Environment.filterSensitiveLog(obj.Environment) }),
   });
   export const isa = (o: any): o is CreateFunctionRequest => __isa(o, "CreateFunctionRequest");
 }
@@ -1334,9 +1332,7 @@ export interface FunctionConfiguration {
 export namespace FunctionConfiguration {
   export const filterSensitiveLog = (obj: FunctionConfiguration): any => ({
     ...obj,
-    ...(obj.Environment && {
-      Environment: EnvironmentResponse.filterSensitiveLog(obj.Environment),
-    }),
+    ...(obj.Environment && { Environment: EnvironmentResponse.filterSensitiveLog(obj.Environment) }),
   });
   export const isa = (o: any): o is FunctionConfiguration => __isa(o, "FunctionConfiguration");
 }
@@ -1680,9 +1676,7 @@ export interface GetFunctionResponse {
 export namespace GetFunctionResponse {
   export const filterSensitiveLog = (obj: GetFunctionResponse): any => ({
     ...obj,
-    ...(obj.Configuration && {
-      Configuration: FunctionConfiguration.filterSensitiveLog(obj.Configuration),
-    }),
+    ...(obj.Configuration && { Configuration: FunctionConfiguration.filterSensitiveLog(obj.Configuration) }),
   });
   export const isa = (o: any): o is GetFunctionResponse => __isa(o, "GetFunctionResponse");
 }
@@ -2763,9 +2757,7 @@ export interface ListFunctionsResponse {
 export namespace ListFunctionsResponse {
   export const filterSensitiveLog = (obj: ListFunctionsResponse): any => ({
     ...obj,
-    ...(obj.Functions && {
-      Functions: obj.Functions.map((item) => FunctionConfiguration.filterSensitiveLog(item)),
-    }),
+    ...(obj.Functions && { Functions: obj.Functions.map((item) => FunctionConfiguration.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is ListFunctionsResponse => __isa(o, "ListFunctionsResponse");
 }
@@ -3021,9 +3013,7 @@ export interface ListVersionsByFunctionResponse {
 export namespace ListVersionsByFunctionResponse {
   export const filterSensitiveLog = (obj: ListVersionsByFunctionResponse): any => ({
     ...obj,
-    ...(obj.Versions && {
-      Versions: obj.Versions.map((item) => FunctionConfiguration.filterSensitiveLog(item)),
-    }),
+    ...(obj.Versions && { Versions: obj.Versions.map((item) => FunctionConfiguration.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is ListVersionsByFunctionResponse => __isa(o, "ListVersionsByFunctionResponse");
 }
@@ -3231,9 +3221,7 @@ export interface PublishLayerVersionRequest {
 export namespace PublishLayerVersionRequest {
   export const filterSensitiveLog = (obj: PublishLayerVersionRequest): any => ({
     ...obj,
-    ...(obj.Content && {
-      Content: LayerVersionContentInput.filterSensitiveLog(obj.Content),
-    }),
+    ...(obj.Content && { Content: LayerVersionContentInput.filterSensitiveLog(obj.Content) }),
   });
   export const isa = (o: any): o is PublishLayerVersionRequest => __isa(o, "PublishLayerVersionRequest");
 }
@@ -4270,9 +4258,7 @@ export interface UpdateFunctionConfigurationRequest {
 export namespace UpdateFunctionConfigurationRequest {
   export const filterSensitiveLog = (obj: UpdateFunctionConfigurationRequest): any => ({
     ...obj,
-    ...(obj.Environment && {
-      Environment: Environment.filterSensitiveLog(obj.Environment),
-    }),
+    ...(obj.Environment && { Environment: Environment.filterSensitiveLog(obj.Environment) }),
   });
   export const isa = (o: any): o is UpdateFunctionConfigurationRequest =>
     __isa(o, "UpdateFunctionConfigurationRequest");

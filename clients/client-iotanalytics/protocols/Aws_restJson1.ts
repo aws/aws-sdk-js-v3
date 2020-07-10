@@ -150,9 +150,7 @@ export const serializeAws_restJson1BatchPutMessageCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.channelName !== undefined && { channelName: input.channelName }),
-    ...(input.messages !== undefined && {
-      messages: serializeAws_restJson1Messages(input.messages, context),
-    }),
+    ...(input.messages !== undefined && { messages: serializeAws_restJson1Messages(input.messages, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -222,9 +220,7 @@ export const serializeAws_restJson1CreateChannelCommand = async (
     ...(input.retentionPeriod !== undefined && {
       retentionPeriod: serializeAws_restJson1RetentionPeriod(input.retentionPeriod, context),
     }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -248,9 +244,7 @@ export const serializeAws_restJson1CreateDatasetCommand = async (
   let resolvedPath = "/datasets";
   let body: any;
   body = JSON.stringify({
-    ...(input.actions !== undefined && {
-      actions: serializeAws_restJson1DatasetActions(input.actions, context),
-    }),
+    ...(input.actions !== undefined && { actions: serializeAws_restJson1DatasetActions(input.actions, context) }),
     ...(input.contentDeliveryRules !== undefined && {
       contentDeliveryRules: serializeAws_restJson1DatasetContentDeliveryRules(input.contentDeliveryRules, context),
     }),
@@ -258,12 +252,8 @@ export const serializeAws_restJson1CreateDatasetCommand = async (
     ...(input.retentionPeriod !== undefined && {
       retentionPeriod: serializeAws_restJson1RetentionPeriod(input.retentionPeriod, context),
     }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagList(input.tags, context),
-    }),
-    ...(input.triggers !== undefined && {
-      triggers: serializeAws_restJson1DatasetTriggers(input.triggers, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+    ...(input.triggers !== undefined && { triggers: serializeAws_restJson1DatasetTriggers(input.triggers, context) }),
     ...(input.versioningConfiguration !== undefined && {
       versioningConfiguration: serializeAws_restJson1VersioningConfiguration(input.versioningConfiguration, context),
     }),
@@ -320,18 +310,14 @@ export const serializeAws_restJson1CreateDatastoreCommand = async (
   let resolvedPath = "/datastores";
   let body: any;
   body = JSON.stringify({
-    ...(input.datastoreName !== undefined && {
-      datastoreName: input.datastoreName,
-    }),
+    ...(input.datastoreName !== undefined && { datastoreName: input.datastoreName }),
     ...(input.datastoreStorage !== undefined && {
       datastoreStorage: serializeAws_restJson1DatastoreStorage(input.datastoreStorage, context),
     }),
     ...(input.retentionPeriod !== undefined && {
       retentionPeriod: serializeAws_restJson1RetentionPeriod(input.retentionPeriod, context),
     }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -358,12 +344,8 @@ export const serializeAws_restJson1CreatePipelineCommand = async (
     ...(input.pipelineActivities !== undefined && {
       pipelineActivities: serializeAws_restJson1PipelineActivities(input.pipelineActivities, context),
     }),
-    ...(input.pipelineName !== undefined && {
-      pipelineName: input.pipelineName,
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagList(input.tags, context),
-    }),
+    ...(input.pipelineName !== undefined && { pipelineName: input.pipelineName }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -549,9 +531,7 @@ export const serializeAws_restJson1DescribeChannelCommand = async (
     throw new Error("No value provided for input HTTP label: channelName.");
   }
   const query: any = {
-    ...(input.includeStatistics !== undefined && {
-      includeStatistics: input.includeStatistics.toString(),
-    }),
+    ...(input.includeStatistics !== undefined && { includeStatistics: input.includeStatistics.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -615,9 +595,7 @@ export const serializeAws_restJson1DescribeDatastoreCommand = async (
     throw new Error("No value provided for input HTTP label: datastoreName.");
   }
   const query: any = {
-    ...(input.includeStatistics !== undefined && {
-      includeStatistics: input.includeStatistics.toString(),
-    }),
+    ...(input.includeStatistics !== undefined && { includeStatistics: input.includeStatistics.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -728,9 +706,7 @@ export const serializeAws_restJson1ListChannelsCommand = async (
   };
   let resolvedPath = "/channels";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -765,9 +741,7 @@ export const serializeAws_restJson1ListDatasetContentsCommand = async (
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.scheduledBefore !== undefined && {
       scheduledBefore: (input.scheduledBefore.toISOString().split(".")[0] + "Z").toString(),
@@ -799,9 +773,7 @@ export const serializeAws_restJson1ListDatasetsCommand = async (
   };
   let resolvedPath = "/datasets";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -827,9 +799,7 @@ export const serializeAws_restJson1ListDatastoresCommand = async (
   };
   let resolvedPath = "/datastores";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -855,9 +825,7 @@ export const serializeAws_restJson1ListPipelinesCommand = async (
   };
   let resolvedPath = "/pipelines";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString(),
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -935,9 +903,7 @@ export const serializeAws_restJson1RunPipelineActivityCommand = async (
   let resolvedPath = "/pipelineactivities/run";
   let body: any;
   body = JSON.stringify({
-    ...(input.payloads !== undefined && {
-      payloads: serializeAws_restJson1MessagePayloads(input.payloads, context),
-    }),
+    ...(input.payloads !== undefined && { payloads: serializeAws_restJson1MessagePayloads(input.payloads, context) }),
     ...(input.pipelineActivity !== undefined && {
       pipelineActivity: serializeAws_restJson1PipelineActivity(input.pipelineActivity, context),
     }),
@@ -972,15 +938,9 @@ export const serializeAws_restJson1SampleChannelDataCommand = async (
     throw new Error("No value provided for input HTTP label: channelName.");
   }
   const query: any = {
-    ...(input.endTime !== undefined && {
-      endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString(),
-    }),
-    ...(input.maxMessages !== undefined && {
-      maxMessages: input.maxMessages.toString(),
-    }),
-    ...(input.startTime !== undefined && {
-      startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString(),
-    }),
+    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.maxMessages !== undefined && { maxMessages: input.maxMessages.toString() }),
+    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1015,12 +975,8 @@ export const serializeAws_restJson1StartPipelineReprocessingCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.endTime !== undefined && {
-      endTime: Math.round(input.endTime.getTime() / 1000),
-    }),
-    ...(input.startTime !== undefined && {
-      startTime: Math.round(input.startTime.getTime() / 1000),
-    }),
+    ...(input.endTime !== undefined && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.startTime !== undefined && { startTime: Math.round(input.startTime.getTime() / 1000) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1047,9 +1003,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagList(input.tags, context),
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1074,9 +1028,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = "/tags";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys !== undefined && {
-      tagKeys: (input.tagKeys || []).map((_entry) => _entry),
-    }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1149,18 +1101,14 @@ export const serializeAws_restJson1UpdateDatasetCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.actions !== undefined && {
-      actions: serializeAws_restJson1DatasetActions(input.actions, context),
-    }),
+    ...(input.actions !== undefined && { actions: serializeAws_restJson1DatasetActions(input.actions, context) }),
     ...(input.contentDeliveryRules !== undefined && {
       contentDeliveryRules: serializeAws_restJson1DatasetContentDeliveryRules(input.contentDeliveryRules, context),
     }),
     ...(input.retentionPeriod !== undefined && {
       retentionPeriod: serializeAws_restJson1RetentionPeriod(input.retentionPeriod, context),
     }),
-    ...(input.triggers !== undefined && {
-      triggers: serializeAws_restJson1DatasetTriggers(input.triggers, context),
-    }),
+    ...(input.triggers !== undefined && { triggers: serializeAws_restJson1DatasetTriggers(input.triggers, context) }),
     ...(input.versioningConfiguration !== undefined && {
       versioningConfiguration: serializeAws_restJson1VersioningConfiguration(input.versioningConfiguration, context),
     }),
@@ -4450,16 +4398,12 @@ const serializeAws_restJson1ChannelStorage = (input: ChannelStorage, context: __
 
 const serializeAws_restJson1ContainerDatasetAction = (input: ContainerDatasetAction, context: __SerdeContext): any => {
   return {
-    ...(input.executionRoleArn !== undefined && {
-      executionRoleArn: input.executionRoleArn,
-    }),
+    ...(input.executionRoleArn !== undefined && { executionRoleArn: input.executionRoleArn }),
     ...(input.image !== undefined && { image: input.image }),
     ...(input.resourceConfiguration !== undefined && {
       resourceConfiguration: serializeAws_restJson1ResourceConfiguration(input.resourceConfiguration, context),
     }),
-    ...(input.variables !== undefined && {
-      variables: serializeAws_restJson1Variables(input.variables, context),
-    }),
+    ...(input.variables !== undefined && { variables: serializeAws_restJson1Variables(input.variables, context) }),
   };
 };
 
@@ -4551,12 +4495,8 @@ const serializeAws_restJson1DatasetContentVersionValue = (
 
 const serializeAws_restJson1DatasetTrigger = (input: DatasetTrigger, context: __SerdeContext): any => {
   return {
-    ...(input.dataset !== undefined && {
-      dataset: serializeAws_restJson1TriggeringDataset(input.dataset, context),
-    }),
-    ...(input.schedule !== undefined && {
-      schedule: serializeAws_restJson1Schedule(input.schedule, context),
-    }),
+    ...(input.dataset !== undefined && { dataset: serializeAws_restJson1TriggeringDataset(input.dataset, context) }),
+    ...(input.schedule !== undefined && { schedule: serializeAws_restJson1Schedule(input.schedule, context) }),
   };
 };
 
@@ -4566,9 +4506,7 @@ const serializeAws_restJson1DatasetTriggers = (input: DatasetTrigger[], context:
 
 const serializeAws_restJson1DatastoreActivity = (input: DatastoreActivity, context: __SerdeContext): any => {
   return {
-    ...(input.datastoreName !== undefined && {
-      datastoreName: input.datastoreName,
-    }),
+    ...(input.datastoreName !== undefined && { datastoreName: input.datastoreName }),
     ...(input.name !== undefined && { name: input.name }),
   };
 };
@@ -4586,12 +4524,8 @@ const serializeAws_restJson1DatastoreStorage = (input: DatastoreStorage, context
 
 const serializeAws_restJson1DeltaTime = (input: DeltaTime, context: __SerdeContext): any => {
   return {
-    ...(input.offsetSeconds !== undefined && {
-      offsetSeconds: input.offsetSeconds,
-    }),
-    ...(input.timeExpression !== undefined && {
-      timeExpression: input.timeExpression,
-    }),
+    ...(input.offsetSeconds !== undefined && { offsetSeconds: input.offsetSeconds }),
+    ...(input.timeExpression !== undefined && { timeExpression: input.timeExpression }),
   };
 };
 
@@ -4631,9 +4565,7 @@ const serializeAws_restJson1FilterActivity = (input: FilterActivity, context: __
 
 const serializeAws_restJson1GlueConfiguration = (input: GlueConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.databaseName !== undefined && {
-      databaseName: input.databaseName,
-    }),
+    ...(input.databaseName !== undefined && { databaseName: input.databaseName }),
     ...(input.tableName !== undefined && { tableName: input.tableName }),
   };
 };
@@ -4677,9 +4609,7 @@ const serializeAws_restJson1MathActivity = (input: MathActivity, context: __Serd
 const serializeAws_restJson1Message = (input: Message, context: __SerdeContext): any => {
   return {
     ...(input.messageId !== undefined && { messageId: input.messageId }),
-    ...(input.payload !== undefined && {
-      payload: context.base64Encoder(input.payload),
-    }),
+    ...(input.payload !== undefined && { payload: context.base64Encoder(input.payload) }),
   };
 };
 
@@ -4706,9 +4636,7 @@ const serializeAws_restJson1PipelineActivity = (input: PipelineActivity, context
     ...(input.addAttributes !== undefined && {
       addAttributes: serializeAws_restJson1AddAttributesActivity(input.addAttributes, context),
     }),
-    ...(input.channel !== undefined && {
-      channel: serializeAws_restJson1ChannelActivity(input.channel, context),
-    }),
+    ...(input.channel !== undefined && { channel: serializeAws_restJson1ChannelActivity(input.channel, context) }),
     ...(input.datastore !== undefined && {
       datastore: serializeAws_restJson1DatastoreActivity(input.datastore, context),
     }),
@@ -4718,15 +4646,9 @@ const serializeAws_restJson1PipelineActivity = (input: PipelineActivity, context
     ...(input.deviceShadowEnrich !== undefined && {
       deviceShadowEnrich: serializeAws_restJson1DeviceShadowEnrichActivity(input.deviceShadowEnrich, context),
     }),
-    ...(input.filter !== undefined && {
-      filter: serializeAws_restJson1FilterActivity(input.filter, context),
-    }),
-    ...(input.lambda !== undefined && {
-      lambda: serializeAws_restJson1LambdaActivity(input.lambda, context),
-    }),
-    ...(input.math !== undefined && {
-      math: serializeAws_restJson1MathActivity(input.math, context),
-    }),
+    ...(input.filter !== undefined && { filter: serializeAws_restJson1FilterActivity(input.filter, context) }),
+    ...(input.lambda !== undefined && { lambda: serializeAws_restJson1LambdaActivity(input.lambda, context) }),
+    ...(input.math !== undefined && { math: serializeAws_restJson1MathActivity(input.math, context) }),
     ...(input.removeAttributes !== undefined && {
       removeAttributes: serializeAws_restJson1RemoveAttributesActivity(input.removeAttributes, context),
     }),
@@ -4738,9 +4660,7 @@ const serializeAws_restJson1PipelineActivity = (input: PipelineActivity, context
 
 const serializeAws_restJson1QueryFilter = (input: QueryFilter, context: __SerdeContext): any => {
   return {
-    ...(input.deltaTime !== undefined && {
-      deltaTime: serializeAws_restJson1DeltaTime(input.deltaTime, context),
-    }),
+    ...(input.deltaTime !== undefined && { deltaTime: serializeAws_restJson1DeltaTime(input.deltaTime, context) }),
   };
 };
 
@@ -4764,17 +4684,13 @@ const serializeAws_restJson1RemoveAttributesActivity = (
 const serializeAws_restJson1ResourceConfiguration = (input: ResourceConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.computeType !== undefined && { computeType: input.computeType }),
-    ...(input.volumeSizeInGB !== undefined && {
-      volumeSizeInGB: input.volumeSizeInGB,
-    }),
+    ...(input.volumeSizeInGB !== undefined && { volumeSizeInGB: input.volumeSizeInGB }),
   };
 };
 
 const serializeAws_restJson1RetentionPeriod = (input: RetentionPeriod, context: __SerdeContext): any => {
   return {
-    ...(input.numberOfDays !== undefined && {
-      numberOfDays: input.numberOfDays,
-    }),
+    ...(input.numberOfDays !== undefined && { numberOfDays: input.numberOfDays }),
     ...(input.unlimited !== undefined && { unlimited: input.unlimited }),
   };
 };
@@ -4828,9 +4744,7 @@ const serializeAws_restJson1ServiceManagedDatastoreS3Storage = (
 
 const serializeAws_restJson1SqlQueryDatasetAction = (input: SqlQueryDatasetAction, context: __SerdeContext): any => {
   return {
-    ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1QueryFilters(input.filters, context),
-    }),
+    ...(input.filters !== undefined && { filters: serializeAws_restJson1QueryFilters(input.filters, context) }),
     ...(input.sqlQuery !== undefined && { sqlQuery: input.sqlQuery }),
   };
 };

@@ -1815,9 +1815,7 @@ const serializeAws_json1_1AddTagsToResourceRequest = (
 ): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagList !== undefined && {
-      TagList: serializeAws_json1_1TagList(input.TagList, context),
-    }),
+    ...(input.TagList !== undefined && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
   };
 };
 
@@ -1835,9 +1833,7 @@ const serializeAws_json1_1CreateHsmRequest = (input: CreateHsmRequest, context: 
     ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
     ...(input.SshKey !== undefined && { SshKey: input.SshKey }),
     ...(input.SubnetId !== undefined && { SubnetId: input.SubnetId }),
-    ...(input.SubscriptionType !== undefined && {
-      SubscriptionType: input.SubscriptionType,
-    }),
+    ...(input.SubscriptionType !== undefined && { SubscriptionType: input.SubscriptionType }),
     ...(input.SyslogIp !== undefined && { SyslogIp: input.SyslogIp }),
   };
 };
@@ -1876,9 +1872,7 @@ const serializeAws_json1_1DescribeHapgRequest = (input: DescribeHapgRequest, con
 const serializeAws_json1_1DescribeHsmRequest = (input: DescribeHsmRequest, context: __SerdeContext): any => {
   return {
     ...(input.HsmArn !== undefined && { HsmArn: input.HsmArn }),
-    ...(input.HsmSerialNumber !== undefined && {
-      HsmSerialNumber: input.HsmSerialNumber,
-    }),
+    ...(input.HsmSerialNumber !== undefined && { HsmSerialNumber: input.HsmSerialNumber }),
   };
 };
 
@@ -1887,9 +1881,7 @@ const serializeAws_json1_1DescribeLunaClientRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateFingerprint !== undefined && {
-      CertificateFingerprint: input.CertificateFingerprint,
-    }),
+    ...(input.CertificateFingerprint !== undefined && { CertificateFingerprint: input.CertificateFingerprint }),
     ...(input.ClientArn !== undefined && { ClientArn: input.ClientArn }),
   };
 };
@@ -1897,12 +1889,8 @@ const serializeAws_json1_1DescribeLunaClientRequest = (
 const serializeAws_json1_1GetConfigRequest = (input: GetConfigRequest, context: __SerdeContext): any => {
   return {
     ...(input.ClientArn !== undefined && { ClientArn: input.ClientArn }),
-    ...(input.ClientVersion !== undefined && {
-      ClientVersion: input.ClientVersion,
-    }),
-    ...(input.HapgList !== undefined && {
-      HapgList: serializeAws_json1_1HapgList(input.HapgList, context),
-    }),
+    ...(input.ClientVersion !== undefined && { ClientVersion: input.ClientVersion }),
+    ...(input.HapgList !== undefined && { HapgList: serializeAws_json1_1HapgList(input.HapgList, context) }),
   };
 };
 
@@ -1982,9 +1970,7 @@ const serializeAws_json1_1RemoveTagsFromResourceRequest = (
 ): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeyList !== undefined && {
-      TagKeyList: serializeAws_json1_1TagKeyList(input.TagKeyList, context),
-    }),
+    ...(input.TagKeyList !== undefined && { TagKeyList: serializeAws_json1_1TagKeyList(input.TagKeyList, context) }),
   };
 };
 

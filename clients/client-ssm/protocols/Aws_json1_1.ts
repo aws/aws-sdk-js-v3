@@ -13568,12 +13568,8 @@ const serializeAws_json1_1AddTagsToResourceRequest = (
 ): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -13629,12 +13625,8 @@ const serializeAws_json1_1AssociationIdList = (input: string[], context: __Serde
 
 const serializeAws_json1_1AssociationStatus = (input: AssociationStatus, context: __SerdeContext): any => {
   return {
-    ...(input.AdditionalInfo !== undefined && {
-      AdditionalInfo: input.AdditionalInfo,
-    }),
-    ...(input.Date !== undefined && {
-      Date: Math.round(input.Date.getTime() / 1000),
-    }),
+    ...(input.AdditionalInfo !== undefined && { AdditionalInfo: input.AdditionalInfo }),
+    ...(input.Date !== undefined && { Date: Math.round(input.Date.getTime() / 1000) }),
     ...(input.Message !== undefined && { Message: input.Message }),
     ...(input.Name !== undefined && { Name: input.Name }),
   };
@@ -13644,9 +13636,7 @@ const serializeAws_json1_1AttachmentsSource = (input: AttachmentsSource, context
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_json1_1AttachmentsSourceValues(input.Values, context),
-    }),
+    ...(input.Values !== undefined && { Values: serializeAws_json1_1AttachmentsSourceValues(input.Values, context) }),
   };
 };
 
@@ -13716,20 +13706,14 @@ const serializeAws_json1_1CancelMaintenanceWindowExecutionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.WindowExecutionId !== undefined && {
-      WindowExecutionId: input.WindowExecutionId,
-    }),
+    ...(input.WindowExecutionId !== undefined && { WindowExecutionId: input.WindowExecutionId }),
   };
 };
 
 const serializeAws_json1_1CloudWatchOutputConfig = (input: CloudWatchOutputConfig, context: __SerdeContext): any => {
   return {
-    ...(input.CloudWatchLogGroupName !== undefined && {
-      CloudWatchLogGroupName: input.CloudWatchLogGroupName,
-    }),
-    ...(input.CloudWatchOutputEnabled !== undefined && {
-      CloudWatchOutputEnabled: input.CloudWatchOutputEnabled,
-    }),
+    ...(input.CloudWatchLogGroupName !== undefined && { CloudWatchLogGroupName: input.CloudWatchLogGroupName }),
+    ...(input.CloudWatchOutputEnabled !== undefined && { CloudWatchOutputEnabled: input.CloudWatchOutputEnabled }),
   };
 };
 
@@ -13750,12 +13734,8 @@ const serializeAws_json1_1ComplianceExecutionSummary = (
 ): any => {
   return {
     ...(input.ExecutionId !== undefined && { ExecutionId: input.ExecutionId }),
-    ...(input.ExecutionTime !== undefined && {
-      ExecutionTime: Math.round(input.ExecutionTime.getTime() / 1000),
-    }),
-    ...(input.ExecutionType !== undefined && {
-      ExecutionType: input.ExecutionType,
-    }),
+    ...(input.ExecutionTime !== undefined && { ExecutionTime: Math.round(input.ExecutionTime.getTime() / 1000) }),
+    ...(input.ExecutionType !== undefined && { ExecutionType: input.ExecutionType }),
   };
 };
 
@@ -13771,9 +13751,7 @@ const serializeAws_json1_1ComplianceItemDetails = (input: { [key: string]: strin
 
 const serializeAws_json1_1ComplianceItemEntry = (input: ComplianceItemEntry, context: __SerdeContext): any => {
   return {
-    ...(input.Details !== undefined && {
-      Details: serializeAws_json1_1ComplianceItemDetails(input.Details, context),
-    }),
+    ...(input.Details !== undefined && { Details: serializeAws_json1_1ComplianceItemDetails(input.Details, context) }),
     ...(input.Id !== undefined && { Id: input.Id }),
     ...(input.Severity !== undefined && { Severity: input.Severity }),
     ...(input.Status !== undefined && { Status: input.Status }),
@@ -13816,20 +13794,12 @@ const serializeAws_json1_1ComplianceStringFilterValueList = (input: string[], co
 
 const serializeAws_json1_1CreateActivationRequest = (input: CreateActivationRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DefaultInstanceName !== undefined && {
-      DefaultInstanceName: input.DefaultInstanceName,
-    }),
+    ...(input.DefaultInstanceName !== undefined && { DefaultInstanceName: input.DefaultInstanceName }),
     ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.ExpirationDate !== undefined && {
-      ExpirationDate: Math.round(input.ExpirationDate.getTime() / 1000),
-    }),
+    ...(input.ExpirationDate !== undefined && { ExpirationDate: Math.round(input.ExpirationDate.getTime() / 1000) }),
     ...(input.IamRole !== undefined && { IamRole: input.IamRole }),
-    ...(input.RegistrationLimit !== undefined && {
-      RegistrationLimit: input.RegistrationLimit,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.RegistrationLimit !== undefined && { RegistrationLimit: input.RegistrationLimit }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -13856,36 +13826,22 @@ const serializeAws_json1_1CreateAssociationBatchRequestEntry = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssociationName !== undefined && {
-      AssociationName: input.AssociationName,
-    }),
+    ...(input.AssociationName !== undefined && { AssociationName: input.AssociationName }),
     ...(input.AutomationTargetParameterName !== undefined && {
       AutomationTargetParameterName: input.AutomationTargetParameterName,
     }),
-    ...(input.ComplianceSeverity !== undefined && {
-      ComplianceSeverity: input.ComplianceSeverity,
-    }),
-    ...(input.DocumentVersion !== undefined && {
-      DocumentVersion: input.DocumentVersion,
-    }),
+    ...(input.ComplianceSeverity !== undefined && { ComplianceSeverity: input.ComplianceSeverity }),
+    ...(input.DocumentVersion !== undefined && { DocumentVersion: input.DocumentVersion }),
     ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
-    ...(input.MaxConcurrency !== undefined && {
-      MaxConcurrency: input.MaxConcurrency,
-    }),
+    ...(input.MaxConcurrency !== undefined && { MaxConcurrency: input.MaxConcurrency }),
     ...(input.MaxErrors !== undefined && { MaxErrors: input.MaxErrors }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.OutputLocation !== undefined && {
       OutputLocation: serializeAws_json1_1InstanceAssociationOutputLocation(input.OutputLocation, context),
     }),
-    ...(input.Parameters !== undefined && {
-      Parameters: serializeAws_json1_1Parameters(input.Parameters, context),
-    }),
-    ...(input.ScheduleExpression !== undefined && {
-      ScheduleExpression: input.ScheduleExpression,
-    }),
-    ...(input.Targets !== undefined && {
-      Targets: serializeAws_json1_1Targets(input.Targets, context),
-    }),
+    ...(input.Parameters !== undefined && { Parameters: serializeAws_json1_1Parameters(input.Parameters, context) }),
+    ...(input.ScheduleExpression !== undefined && { ScheduleExpression: input.ScheduleExpression }),
+    ...(input.Targets !== undefined && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
   };
 };
 
@@ -13894,36 +13850,22 @@ const serializeAws_json1_1CreateAssociationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssociationName !== undefined && {
-      AssociationName: input.AssociationName,
-    }),
+    ...(input.AssociationName !== undefined && { AssociationName: input.AssociationName }),
     ...(input.AutomationTargetParameterName !== undefined && {
       AutomationTargetParameterName: input.AutomationTargetParameterName,
     }),
-    ...(input.ComplianceSeverity !== undefined && {
-      ComplianceSeverity: input.ComplianceSeverity,
-    }),
-    ...(input.DocumentVersion !== undefined && {
-      DocumentVersion: input.DocumentVersion,
-    }),
+    ...(input.ComplianceSeverity !== undefined && { ComplianceSeverity: input.ComplianceSeverity }),
+    ...(input.DocumentVersion !== undefined && { DocumentVersion: input.DocumentVersion }),
     ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
-    ...(input.MaxConcurrency !== undefined && {
-      MaxConcurrency: input.MaxConcurrency,
-    }),
+    ...(input.MaxConcurrency !== undefined && { MaxConcurrency: input.MaxConcurrency }),
     ...(input.MaxErrors !== undefined && { MaxErrors: input.MaxErrors }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.OutputLocation !== undefined && {
       OutputLocation: serializeAws_json1_1InstanceAssociationOutputLocation(input.OutputLocation, context),
     }),
-    ...(input.Parameters !== undefined && {
-      Parameters: serializeAws_json1_1Parameters(input.Parameters, context),
-    }),
-    ...(input.ScheduleExpression !== undefined && {
-      ScheduleExpression: input.ScheduleExpression,
-    }),
-    ...(input.Targets !== undefined && {
-      Targets: serializeAws_json1_1Targets(input.Targets, context),
-    }),
+    ...(input.Parameters !== undefined && { Parameters: serializeAws_json1_1Parameters(input.Parameters, context) }),
+    ...(input.ScheduleExpression !== undefined && { ScheduleExpression: input.ScheduleExpression }),
+    ...(input.Targets !== undefined && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
   };
 };
 
@@ -13933,19 +13875,13 @@ const serializeAws_json1_1CreateDocumentRequest = (input: CreateDocumentRequest,
       Attachments: serializeAws_json1_1AttachmentsSourceList(input.Attachments, context),
     }),
     ...(input.Content !== undefined && { Content: input.Content }),
-    ...(input.DocumentFormat !== undefined && {
-      DocumentFormat: input.DocumentFormat,
-    }),
-    ...(input.DocumentType !== undefined && {
-      DocumentType: input.DocumentType,
-    }),
+    ...(input.DocumentFormat !== undefined && { DocumentFormat: input.DocumentFormat }),
+    ...(input.DocumentType !== undefined && { DocumentType: input.DocumentType }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Requires !== undefined && {
       Requires: serializeAws_json1_1DocumentRequiresList(input.Requires, context),
     }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.TargetType !== undefined && { TargetType: input.TargetType }),
     ...(input.VersionName !== undefined && { VersionName: input.VersionName }),
   };
@@ -13956,9 +13892,7 @@ const serializeAws_json1_1CreateMaintenanceWindowRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AllowUnassociatedTargets !== undefined && {
-      AllowUnassociatedTargets: input.AllowUnassociatedTargets,
-    }),
+    ...(input.AllowUnassociatedTargets !== undefined && { AllowUnassociatedTargets: input.AllowUnassociatedTargets }),
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.Cutoff !== undefined && { Cutoff: input.Cutoff }),
     ...(input.Description !== undefined && { Description: input.Description }),
@@ -13966,13 +13900,9 @@ const serializeAws_json1_1CreateMaintenanceWindowRequest = (
     ...(input.EndDate !== undefined && { EndDate: input.EndDate }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Schedule !== undefined && { Schedule: input.Schedule }),
-    ...(input.ScheduleTimezone !== undefined && {
-      ScheduleTimezone: input.ScheduleTimezone,
-    }),
+    ...(input.ScheduleTimezone !== undefined && { ScheduleTimezone: input.ScheduleTimezone }),
     ...(input.StartDate !== undefined && { StartDate: input.StartDate }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -13992,9 +13922,7 @@ const serializeAws_json1_1CreateOpsItemRequest = (input: CreateOpsItemRequest, c
     }),
     ...(input.Severity !== undefined && { Severity: input.Severity }),
     ...(input.Source !== undefined && { Source: input.Source }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.Title !== undefined && { Title: input.Title }),
   };
 };
@@ -14022,21 +13950,13 @@ const serializeAws_json1_1CreatePatchBaselineRequest = (
       GlobalFilters: serializeAws_json1_1PatchFilterGroup(input.GlobalFilters, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.OperatingSystem !== undefined && {
-      OperatingSystem: input.OperatingSystem,
-    }),
+    ...(input.OperatingSystem !== undefined && { OperatingSystem: input.OperatingSystem }),
     ...(input.RejectedPatches !== undefined && {
       RejectedPatches: serializeAws_json1_1PatchIdList(input.RejectedPatches, context),
     }),
-    ...(input.RejectedPatchesAction !== undefined && {
-      RejectedPatchesAction: input.RejectedPatchesAction,
-    }),
-    ...(input.Sources !== undefined && {
-      Sources: serializeAws_json1_1PatchSourceList(input.Sources, context),
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.RejectedPatchesAction !== undefined && { RejectedPatchesAction: input.RejectedPatchesAction }),
+    ...(input.Sources !== undefined && { Sources: serializeAws_json1_1PatchSourceList(input.Sources, context) }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -14058,9 +13978,7 @@ const serializeAws_json1_1CreateResourceDataSyncRequest = (
 
 const serializeAws_json1_1DeleteActivationRequest = (input: DeleteActivationRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ActivationId !== undefined && {
-      ActivationId: input.ActivationId,
-    }),
+    ...(input.ActivationId !== undefined && { ActivationId: input.ActivationId }),
   };
 };
 
@@ -14069,9 +13987,7 @@ const serializeAws_json1_1DeleteAssociationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssociationId !== undefined && {
-      AssociationId: input.AssociationId,
-    }),
+    ...(input.AssociationId !== undefined && { AssociationId: input.AssociationId }),
     ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
     ...(input.Name !== undefined && { Name: input.Name }),
   };
@@ -14079,9 +13995,7 @@ const serializeAws_json1_1DeleteAssociationRequest = (
 
 const serializeAws_json1_1DeleteDocumentRequest = (input: DeleteDocumentRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DocumentVersion !== undefined && {
-      DocumentVersion: input.DocumentVersion,
-    }),
+    ...(input.DocumentVersion !== undefined && { DocumentVersion: input.DocumentVersion }),
     ...(input.Force !== undefined && { Force: input.Force }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.VersionName !== undefined && { VersionName: input.VersionName }),
@@ -14092,9 +14006,7 @@ const serializeAws_json1_1DeleteInventoryRequest = (input: DeleteInventoryReques
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
-    ...(input.SchemaDeleteOption !== undefined && {
-      SchemaDeleteOption: input.SchemaDeleteOption,
-    }),
+    ...(input.SchemaDeleteOption !== undefined && { SchemaDeleteOption: input.SchemaDeleteOption }),
     ...(input.TypeName !== undefined && { TypeName: input.TypeName }),
   };
 };
@@ -14116,9 +14028,7 @@ const serializeAws_json1_1DeleteParameterRequest = (input: DeleteParameterReques
 
 const serializeAws_json1_1DeleteParametersRequest = (input: DeleteParametersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Names !== undefined && {
-      Names: serializeAws_json1_1ParameterNameList(input.Names, context),
-    }),
+    ...(input.Names !== undefined && { Names: serializeAws_json1_1ParameterNameList(input.Names, context) }),
   };
 };
 
@@ -14167,9 +14077,7 @@ const serializeAws_json1_1DeregisterTargetFromMaintenanceWindowRequest = (
   return {
     ...(input.Safe !== undefined && { Safe: input.Safe }),
     ...(input.WindowId !== undefined && { WindowId: input.WindowId }),
-    ...(input.WindowTargetId !== undefined && {
-      WindowTargetId: input.WindowTargetId,
-    }),
+    ...(input.WindowTargetId !== undefined && { WindowTargetId: input.WindowTargetId }),
   };
 };
 
@@ -14179,9 +14087,7 @@ const serializeAws_json1_1DeregisterTaskFromMaintenanceWindowRequest = (
 ): any => {
   return {
     ...(input.WindowId !== undefined && { WindowId: input.WindowId }),
-    ...(input.WindowTaskId !== undefined && {
-      WindowTaskId: input.WindowTaskId,
-    }),
+    ...(input.WindowTaskId !== undefined && { WindowTaskId: input.WindowTaskId }),
   };
 };
 
@@ -14222,9 +14128,7 @@ const serializeAws_json1_1DescribeAssociationExecutionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssociationId !== undefined && {
-      AssociationId: input.AssociationId,
-    }),
+    ...(input.AssociationId !== undefined && { AssociationId: input.AssociationId }),
     ...(input.Filters !== undefined && {
       Filters: serializeAws_json1_1AssociationExecutionFilterList(input.Filters, context),
     }),
@@ -14238,9 +14142,7 @@ const serializeAws_json1_1DescribeAssociationExecutionTargetsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssociationId !== undefined && {
-      AssociationId: input.AssociationId,
-    }),
+    ...(input.AssociationId !== undefined && { AssociationId: input.AssociationId }),
     ...(input.ExecutionId !== undefined && { ExecutionId: input.ExecutionId }),
     ...(input.Filters !== undefined && {
       Filters: serializeAws_json1_1AssociationExecutionTargetsFilterList(input.Filters, context),
@@ -14255,12 +14157,8 @@ const serializeAws_json1_1DescribeAssociationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssociationId !== undefined && {
-      AssociationId: input.AssociationId,
-    }),
-    ...(input.AssociationVersion !== undefined && {
-      AssociationVersion: input.AssociationVersion,
-    }),
+    ...(input.AssociationId !== undefined && { AssociationId: input.AssociationId }),
+    ...(input.AssociationVersion !== undefined && { AssociationVersion: input.AssociationVersion }),
     ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
     ...(input.Name !== undefined && { Name: input.Name }),
   };
@@ -14284,17 +14182,13 @@ const serializeAws_json1_1DescribeAutomationStepExecutionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AutomationExecutionId !== undefined && {
-      AutomationExecutionId: input.AutomationExecutionId,
-    }),
+    ...(input.AutomationExecutionId !== undefined && { AutomationExecutionId: input.AutomationExecutionId }),
     ...(input.Filters !== undefined && {
       Filters: serializeAws_json1_1StepExecutionFilterList(input.Filters, context),
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ReverseOrder !== undefined && {
-      ReverseOrder: input.ReverseOrder,
-    }),
+    ...(input.ReverseOrder !== undefined && { ReverseOrder: input.ReverseOrder }),
   };
 };
 
@@ -14317,17 +14211,13 @@ const serializeAws_json1_1DescribeDocumentPermissionRequest = (
 ): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.PermissionType !== undefined && {
-      PermissionType: input.PermissionType,
-    }),
+    ...(input.PermissionType !== undefined && { PermissionType: input.PermissionType }),
   };
 };
 
 const serializeAws_json1_1DescribeDocumentRequest = (input: DescribeDocumentRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DocumentVersion !== undefined && {
-      DocumentVersion: input.DocumentVersion,
-    }),
+    ...(input.DocumentVersion !== undefined && { DocumentVersion: input.DocumentVersion }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.VersionName !== undefined && { VersionName: input.VersionName }),
   };
@@ -14462,9 +14352,7 @@ const serializeAws_json1_1DescribeMaintenanceWindowExecutionTaskInvocationsReque
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.TaskId !== undefined && { TaskId: input.TaskId }),
-    ...(input.WindowExecutionId !== undefined && {
-      WindowExecutionId: input.WindowExecutionId,
-    }),
+    ...(input.WindowExecutionId !== undefined && { WindowExecutionId: input.WindowExecutionId }),
   };
 };
 
@@ -14478,9 +14366,7 @@ const serializeAws_json1_1DescribeMaintenanceWindowExecutionTasksRequest = (
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.WindowExecutionId !== undefined && {
-      WindowExecutionId: input.WindowExecutionId,
-    }),
+    ...(input.WindowExecutionId !== undefined && { WindowExecutionId: input.WindowExecutionId }),
   };
 };
 
@@ -14494,12 +14380,8 @@ const serializeAws_json1_1DescribeMaintenanceWindowScheduleRequest = (
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
-    ...(input.Targets !== undefined && {
-      Targets: serializeAws_json1_1Targets(input.Targets, context),
-    }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
+    ...(input.Targets !== undefined && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
     ...(input.WindowId !== undefined && { WindowId: input.WindowId }),
   };
 };
@@ -14511,12 +14393,8 @@ const serializeAws_json1_1DescribeMaintenanceWindowsForTargetRequest = (
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
-    ...(input.Targets !== undefined && {
-      Targets: serializeAws_json1_1Targets(input.Targets, context),
-    }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
+    ...(input.Targets !== undefined && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
   };
 };
 
@@ -14576,9 +14454,7 @@ const serializeAws_json1_1DescribeParametersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1ParametersFilterList(input.Filters, context),
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1ParametersFilterList(input.Filters, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.ParameterFilters !== undefined && {
@@ -14629,9 +14505,7 @@ const serializeAws_json1_1DescribePatchPropertiesRequest = (
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.OperatingSystem !== undefined && {
-      OperatingSystem: input.OperatingSystem,
-    }),
+    ...(input.OperatingSystem !== undefined && { OperatingSystem: input.OperatingSystem }),
     ...(input.PatchSet !== undefined && { PatchSet: input.PatchSet }),
     ...(input.Property !== undefined && { Property: input.Property }),
   };
@@ -14639,9 +14513,7 @@ const serializeAws_json1_1DescribePatchPropertiesRequest = (
 
 const serializeAws_json1_1DescribeSessionsRequest = (input: DescribeSessionsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1SessionFilterList(input.Filters, context),
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1SessionFilterList(input.Filters, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.State !== undefined && { State: input.State }),
@@ -14695,9 +14567,7 @@ const serializeAws_json1_1GetAutomationExecutionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AutomationExecutionId !== undefined && {
-      AutomationExecutionId: input.AutomationExecutionId,
-    }),
+    ...(input.AutomationExecutionId !== undefined && { AutomationExecutionId: input.AutomationExecutionId }),
   };
 };
 
@@ -14735,9 +14605,7 @@ const serializeAws_json1_1GetDefaultPatchBaselineRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OperatingSystem !== undefined && {
-      OperatingSystem: input.OperatingSystem,
-    }),
+    ...(input.OperatingSystem !== undefined && { OperatingSystem: input.OperatingSystem }),
   };
 };
 
@@ -14753,12 +14621,8 @@ const serializeAws_json1_1GetDeployablePatchSnapshotForInstanceRequest = (
 
 const serializeAws_json1_1GetDocumentRequest = (input: GetDocumentRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DocumentFormat !== undefined && {
-      DocumentFormat: input.DocumentFormat,
-    }),
-    ...(input.DocumentVersion !== undefined && {
-      DocumentVersion: input.DocumentVersion,
-    }),
+    ...(input.DocumentFormat !== undefined && { DocumentFormat: input.DocumentFormat }),
+    ...(input.DocumentVersion !== undefined && { DocumentVersion: input.DocumentVersion }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.VersionName !== undefined && { VersionName: input.VersionName }),
   };
@@ -14769,9 +14633,7 @@ const serializeAws_json1_1GetInventoryRequest = (input: GetInventoryRequest, con
     ...(input.Aggregators !== undefined && {
       Aggregators: serializeAws_json1_1InventoryAggregatorList(input.Aggregators, context),
     }),
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1InventoryFilterList(input.Filters, context),
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1InventoryFilterList(input.Filters, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.ResultAttributes !== undefined && {
@@ -14798,9 +14660,7 @@ const serializeAws_json1_1GetMaintenanceWindowExecutionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.WindowExecutionId !== undefined && {
-      WindowExecutionId: input.WindowExecutionId,
-    }),
+    ...(input.WindowExecutionId !== undefined && { WindowExecutionId: input.WindowExecutionId }),
   };
 };
 
@@ -14809,13 +14669,9 @@ const serializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InvocationId !== undefined && {
-      InvocationId: input.InvocationId,
-    }),
+    ...(input.InvocationId !== undefined && { InvocationId: input.InvocationId }),
     ...(input.TaskId !== undefined && { TaskId: input.TaskId }),
-    ...(input.WindowExecutionId !== undefined && {
-      WindowExecutionId: input.WindowExecutionId,
-    }),
+    ...(input.WindowExecutionId !== undefined && { WindowExecutionId: input.WindowExecutionId }),
   };
 };
 
@@ -14825,9 +14681,7 @@ const serializeAws_json1_1GetMaintenanceWindowExecutionTaskRequest = (
 ): any => {
   return {
     ...(input.TaskId !== undefined && { TaskId: input.TaskId }),
-    ...(input.WindowExecutionId !== undefined && {
-      WindowExecutionId: input.WindowExecutionId,
-    }),
+    ...(input.WindowExecutionId !== undefined && { WindowExecutionId: input.WindowExecutionId }),
   };
 };
 
@@ -14846,9 +14700,7 @@ const serializeAws_json1_1GetMaintenanceWindowTaskRequest = (
 ): any => {
   return {
     ...(input.WindowId !== undefined && { WindowId: input.WindowId }),
-    ...(input.WindowTaskId !== undefined && {
-      WindowTaskId: input.WindowTaskId,
-    }),
+    ...(input.WindowTaskId !== undefined && { WindowTaskId: input.WindowTaskId }),
   };
 };
 
@@ -14863,9 +14715,7 @@ const serializeAws_json1_1GetOpsSummaryRequest = (input: GetOpsSummaryRequest, c
     ...(input.Aggregators !== undefined && {
       Aggregators: serializeAws_json1_1OpsAggregatorList(input.Aggregators, context),
     }),
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1OpsFilterList(input.Filters, context),
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1OpsFilterList(input.Filters, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.ResultAttributes !== undefined && {
@@ -14883,18 +14733,14 @@ const serializeAws_json1_1GetParameterHistoryRequest = (
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.WithDecryption !== undefined && {
-      WithDecryption: input.WithDecryption,
-    }),
+    ...(input.WithDecryption !== undefined && { WithDecryption: input.WithDecryption }),
   };
 };
 
 const serializeAws_json1_1GetParameterRequest = (input: GetParameterRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.WithDecryption !== undefined && {
-      WithDecryption: input.WithDecryption,
-    }),
+    ...(input.WithDecryption !== undefined && { WithDecryption: input.WithDecryption }),
   };
 };
 
@@ -14910,20 +14756,14 @@ const serializeAws_json1_1GetParametersByPathRequest = (
     }),
     ...(input.Path !== undefined && { Path: input.Path }),
     ...(input.Recursive !== undefined && { Recursive: input.Recursive }),
-    ...(input.WithDecryption !== undefined && {
-      WithDecryption: input.WithDecryption,
-    }),
+    ...(input.WithDecryption !== undefined && { WithDecryption: input.WithDecryption }),
   };
 };
 
 const serializeAws_json1_1GetParametersRequest = (input: GetParametersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Names !== undefined && {
-      Names: serializeAws_json1_1ParameterNameList(input.Names, context),
-    }),
-    ...(input.WithDecryption !== undefined && {
-      WithDecryption: input.WithDecryption,
-    }),
+    ...(input.Names !== undefined && { Names: serializeAws_json1_1ParameterNameList(input.Names, context) }),
+    ...(input.WithDecryption !== undefined && { WithDecryption: input.WithDecryption }),
   };
 };
 
@@ -14932,9 +14772,7 @@ const serializeAws_json1_1GetPatchBaselineForPatchGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OperatingSystem !== undefined && {
-      OperatingSystem: input.OperatingSystem,
-    }),
+    ...(input.OperatingSystem !== undefined && { OperatingSystem: input.OperatingSystem }),
     ...(input.PatchGroup !== undefined && { PatchGroup: input.PatchGroup }),
   };
 };
@@ -15041,9 +14879,7 @@ const serializeAws_json1_1InventoryAggregator = (input: InventoryAggregator, con
       Aggregators: serializeAws_json1_1InventoryAggregatorList(input.Aggregators, context),
     }),
     ...(input.Expression !== undefined && { Expression: input.Expression }),
-    ...(input.Groups !== undefined && {
-      Groups: serializeAws_json1_1InventoryGroupList(input.Groups, context),
-    }),
+    ...(input.Groups !== undefined && { Groups: serializeAws_json1_1InventoryGroupList(input.Groups, context) }),
   };
 };
 
@@ -15055,9 +14891,7 @@ const serializeAws_json1_1InventoryFilter = (input: InventoryFilter, context: __
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
     ...(input.Type !== undefined && { Type: input.Type }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_json1_1InventoryFilterValueList(input.Values, context),
-    }),
+    ...(input.Values !== undefined && { Values: serializeAws_json1_1InventoryFilterValueList(input.Values, context) }),
   };
 };
 
@@ -15071,9 +14905,7 @@ const serializeAws_json1_1InventoryFilterValueList = (input: string[], context: 
 
 const serializeAws_json1_1InventoryGroup = (input: InventoryGroup, context: __SerdeContext): any => {
   return {
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1InventoryFilterList(input.Filters, context),
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1InventoryFilterList(input.Filters, context) }),
     ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
@@ -15085,16 +14917,12 @@ const serializeAws_json1_1InventoryGroupList = (input: InventoryGroup[], context
 const serializeAws_json1_1InventoryItem = (input: InventoryItem, context: __SerdeContext): any => {
   return {
     ...(input.CaptureTime !== undefined && { CaptureTime: input.CaptureTime }),
-    ...(input.Content !== undefined && {
-      Content: serializeAws_json1_1InventoryItemEntryList(input.Content, context),
-    }),
+    ...(input.Content !== undefined && { Content: serializeAws_json1_1InventoryItemEntryList(input.Content, context) }),
     ...(input.ContentHash !== undefined && { ContentHash: input.ContentHash }),
     ...(input.Context !== undefined && {
       Context: serializeAws_json1_1InventoryItemContentContext(input.Context, context),
     }),
-    ...(input.SchemaVersion !== undefined && {
-      SchemaVersion: input.SchemaVersion,
-    }),
+    ...(input.SchemaVersion !== undefined && { SchemaVersion: input.SchemaVersion }),
     ...(input.TypeName !== undefined && { TypeName: input.TypeName }),
   };
 };
@@ -15142,13 +14970,9 @@ const serializeAws_json1_1LabelParameterVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Labels !== undefined && {
-      Labels: serializeAws_json1_1ParameterLabelList(input.Labels, context),
-    }),
+    ...(input.Labels !== undefined && { Labels: serializeAws_json1_1ParameterLabelList(input.Labels, context) }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ParameterVersion !== undefined && {
-      ParameterVersion: input.ParameterVersion,
-    }),
+    ...(input.ParameterVersion !== undefined && { ParameterVersion: input.ParameterVersion }),
   };
 };
 
@@ -15167,9 +14991,7 @@ const serializeAws_json1_1ListAssociationVersionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssociationId !== undefined && {
-      AssociationId: input.AssociationId,
-    }),
+    ...(input.AssociationId !== undefined && { AssociationId: input.AssociationId }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -15182,9 +15004,7 @@ const serializeAws_json1_1ListCommandInvocationsRequest = (
   return {
     ...(input.CommandId !== undefined && { CommandId: input.CommandId }),
     ...(input.Details !== undefined && { Details: input.Details }),
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1CommandFilterList(input.Filters, context),
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1CommandFilterList(input.Filters, context) }),
     ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -15194,9 +15014,7 @@ const serializeAws_json1_1ListCommandInvocationsRequest = (
 const serializeAws_json1_1ListCommandsRequest = (input: ListCommandsRequest, context: __SerdeContext): any => {
   return {
     ...(input.CommandId !== undefined && { CommandId: input.CommandId }),
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1CommandFilterList(input.Filters, context),
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1CommandFilterList(input.Filters, context) }),
     ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -15264,9 +15082,7 @@ const serializeAws_json1_1ListInventoryEntriesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1InventoryFilterList(input.Filters, context),
-    }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1InventoryFilterList(input.Filters, context) }),
     ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -15304,17 +15120,13 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
 ): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
   };
 };
 
 const serializeAws_json1_1LoggingInfo = (input: LoggingInfo, context: __SerdeContext): any => {
   return {
-    ...(input.S3BucketName !== undefined && {
-      S3BucketName: input.S3BucketName,
-    }),
+    ...(input.S3BucketName !== undefined && { S3BucketName: input.S3BucketName }),
     ...(input.S3KeyPrefix !== undefined && { S3KeyPrefix: input.S3KeyPrefix }),
     ...(input.S3Region !== undefined && { S3Region: input.S3Region }),
   };
@@ -15325,9 +15137,7 @@ const serializeAws_json1_1MaintenanceWindowAutomationParameters = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DocumentVersion !== undefined && {
-      DocumentVersion: input.DocumentVersion,
-    }),
+    ...(input.DocumentVersion !== undefined && { DocumentVersion: input.DocumentVersion }),
     ...(input.Parameters !== undefined && {
       Parameters: serializeAws_json1_1AutomationParameterMap(input.Parameters, context),
     }),
@@ -15359,12 +15169,8 @@ const serializeAws_json1_1MaintenanceWindowLambdaParameters = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClientContext !== undefined && {
-      ClientContext: input.ClientContext,
-    }),
-    ...(input.Payload !== undefined && {
-      Payload: context.base64Encoder(input.Payload),
-    }),
+    ...(input.ClientContext !== undefined && { ClientContext: input.ClientContext }),
+    ...(input.Payload !== undefined && { Payload: context.base64Encoder(input.Payload) }),
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
   };
 };
@@ -15378,33 +15184,17 @@ const serializeAws_json1_1MaintenanceWindowRunCommandParameters = (
       CloudWatchOutputConfig: serializeAws_json1_1CloudWatchOutputConfig(input.CloudWatchOutputConfig, context),
     }),
     ...(input.Comment !== undefined && { Comment: input.Comment }),
-    ...(input.DocumentHash !== undefined && {
-      DocumentHash: input.DocumentHash,
-    }),
-    ...(input.DocumentHashType !== undefined && {
-      DocumentHashType: input.DocumentHashType,
-    }),
-    ...(input.DocumentVersion !== undefined && {
-      DocumentVersion: input.DocumentVersion,
-    }),
+    ...(input.DocumentHash !== undefined && { DocumentHash: input.DocumentHash }),
+    ...(input.DocumentHashType !== undefined && { DocumentHashType: input.DocumentHashType }),
+    ...(input.DocumentVersion !== undefined && { DocumentVersion: input.DocumentVersion }),
     ...(input.NotificationConfig !== undefined && {
       NotificationConfig: serializeAws_json1_1NotificationConfig(input.NotificationConfig, context),
     }),
-    ...(input.OutputS3BucketName !== undefined && {
-      OutputS3BucketName: input.OutputS3BucketName,
-    }),
-    ...(input.OutputS3KeyPrefix !== undefined && {
-      OutputS3KeyPrefix: input.OutputS3KeyPrefix,
-    }),
-    ...(input.Parameters !== undefined && {
-      Parameters: serializeAws_json1_1Parameters(input.Parameters, context),
-    }),
-    ...(input.ServiceRoleArn !== undefined && {
-      ServiceRoleArn: input.ServiceRoleArn,
-    }),
-    ...(input.TimeoutSeconds !== undefined && {
-      TimeoutSeconds: input.TimeoutSeconds,
-    }),
+    ...(input.OutputS3BucketName !== undefined && { OutputS3BucketName: input.OutputS3BucketName }),
+    ...(input.OutputS3KeyPrefix !== undefined && { OutputS3KeyPrefix: input.OutputS3KeyPrefix }),
+    ...(input.Parameters !== undefined && { Parameters: serializeAws_json1_1Parameters(input.Parameters, context) }),
+    ...(input.ServiceRoleArn !== undefined && { ServiceRoleArn: input.ServiceRoleArn }),
+    ...(input.TimeoutSeconds !== undefined && { TimeoutSeconds: input.TimeoutSeconds }),
   };
 };
 
@@ -15478,26 +15268,18 @@ const serializeAws_json1_1ModifyDocumentPermissionRequest = (
       AccountIdsToRemove: serializeAws_json1_1AccountIdList(input.AccountIdsToRemove, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.PermissionType !== undefined && {
-      PermissionType: input.PermissionType,
-    }),
-    ...(input.SharedDocumentVersion !== undefined && {
-      SharedDocumentVersion: input.SharedDocumentVersion,
-    }),
+    ...(input.PermissionType !== undefined && { PermissionType: input.PermissionType }),
+    ...(input.SharedDocumentVersion !== undefined && { SharedDocumentVersion: input.SharedDocumentVersion }),
   };
 };
 
 const serializeAws_json1_1NotificationConfig = (input: NotificationConfig, context: __SerdeContext): any => {
   return {
-    ...(input.NotificationArn !== undefined && {
-      NotificationArn: input.NotificationArn,
-    }),
+    ...(input.NotificationArn !== undefined && { NotificationArn: input.NotificationArn }),
     ...(input.NotificationEvents !== undefined && {
       NotificationEvents: serializeAws_json1_1NotificationEventList(input.NotificationEvents, context),
     }),
-    ...(input.NotificationType !== undefined && {
-      NotificationType: input.NotificationType,
-    }),
+    ...(input.NotificationType !== undefined && { NotificationType: input.NotificationType }),
   };
 };
 
@@ -15510,22 +15292,14 @@ const serializeAws_json1_1NotificationEventList = (
 
 const serializeAws_json1_1OpsAggregator = (input: OpsAggregator, context: __SerdeContext): any => {
   return {
-    ...(input.AggregatorType !== undefined && {
-      AggregatorType: input.AggregatorType,
-    }),
+    ...(input.AggregatorType !== undefined && { AggregatorType: input.AggregatorType }),
     ...(input.Aggregators !== undefined && {
       Aggregators: serializeAws_json1_1OpsAggregatorList(input.Aggregators, context),
     }),
-    ...(input.AttributeName !== undefined && {
-      AttributeName: input.AttributeName,
-    }),
-    ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1OpsFilterList(input.Filters, context),
-    }),
+    ...(input.AttributeName !== undefined && { AttributeName: input.AttributeName }),
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1OpsFilterList(input.Filters, context) }),
     ...(input.TypeName !== undefined && { TypeName: input.TypeName }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_json1_1OpsAggregatorValueMap(input.Values, context),
-    }),
+    ...(input.Values !== undefined && { Values: serializeAws_json1_1OpsAggregatorValueMap(input.Values, context) }),
   };
 };
 
@@ -15547,9 +15321,7 @@ const serializeAws_json1_1OpsFilter = (input: OpsFilter, context: __SerdeContext
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
     ...(input.Type !== undefined && { Type: input.Type }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_json1_1OpsFilterValueList(input.Values, context),
-    }),
+    ...(input.Values !== undefined && { Values: serializeAws_json1_1OpsFilterValueList(input.Values, context) }),
   };
 };
 
@@ -15572,9 +15344,7 @@ const serializeAws_json1_1OpsItemFilter = (input: OpsItemFilter, context: __Serd
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
     ...(input.Operator !== undefined && { Operator: input.Operator }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_json1_1OpsItemFilterValues(input.Values, context),
-    }),
+    ...(input.Values !== undefined && { Values: serializeAws_json1_1OpsItemFilterValues(input.Values, context) }),
   };
 };
 
@@ -15644,9 +15414,7 @@ const serializeAws_json1_1Parameters = (input: { [key: string]: string[] }, cont
 const serializeAws_json1_1ParametersFilter = (input: ParametersFilter, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_json1_1ParametersFilterValueList(input.Values, context),
-    }),
+    ...(input.Values !== undefined && { Values: serializeAws_json1_1ParametersFilterValueList(input.Values, context) }),
   };
 };
 
@@ -15686,9 +15454,7 @@ const serializeAws_json1_1ParameterValueList = (input: string[], context: __Serd
 const serializeAws_json1_1PatchFilter = (input: PatchFilter, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_json1_1PatchFilterValueList(input.Values, context),
-    }),
+    ...(input.Values !== undefined && { Values: serializeAws_json1_1PatchFilterValueList(input.Values, context) }),
   };
 };
 
@@ -15734,15 +15500,9 @@ const serializeAws_json1_1PatchOrchestratorFilterValues = (input: string[], cont
 
 const serializeAws_json1_1PatchRule = (input: PatchRule, context: __SerdeContext): any => {
   return {
-    ...(input.ApproveAfterDays !== undefined && {
-      ApproveAfterDays: input.ApproveAfterDays,
-    }),
-    ...(input.ComplianceLevel !== undefined && {
-      ComplianceLevel: input.ComplianceLevel,
-    }),
-    ...(input.EnableNonSecurity !== undefined && {
-      EnableNonSecurity: input.EnableNonSecurity,
-    }),
+    ...(input.ApproveAfterDays !== undefined && { ApproveAfterDays: input.ApproveAfterDays }),
+    ...(input.ComplianceLevel !== undefined && { ComplianceLevel: input.ComplianceLevel }),
+    ...(input.EnableNonSecurity !== undefined && { EnableNonSecurity: input.EnableNonSecurity }),
     ...(input.PatchFilterGroup !== undefined && {
       PatchFilterGroup: serializeAws_json1_1PatchFilterGroup(input.PatchFilterGroup, context),
     }),
@@ -15751,9 +15511,7 @@ const serializeAws_json1_1PatchRule = (input: PatchRule, context: __SerdeContext
 
 const serializeAws_json1_1PatchRuleGroup = (input: PatchRuleGroup, context: __SerdeContext): any => {
   return {
-    ...(input.PatchRules !== undefined && {
-      PatchRules: serializeAws_json1_1PatchRuleList(input.PatchRules, context),
-    }),
+    ...(input.PatchRules !== undefined && { PatchRules: serializeAws_json1_1PatchRuleList(input.PatchRules, context) }),
   };
 };
 
@@ -15763,9 +15521,7 @@ const serializeAws_json1_1PatchRuleList = (input: PatchRule[], context: __SerdeC
 
 const serializeAws_json1_1PatchSource = (input: PatchSource, context: __SerdeContext): any => {
   return {
-    ...(input.Configuration !== undefined && {
-      Configuration: input.Configuration,
-    }),
+    ...(input.Configuration !== undefined && { Configuration: input.Configuration }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Products !== undefined && {
       Products: serializeAws_json1_1PatchSourceProductList(input.Products, context),
@@ -15786,47 +15542,33 @@ const serializeAws_json1_1PutComplianceItemsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ComplianceType !== undefined && {
-      ComplianceType: input.ComplianceType,
-    }),
+    ...(input.ComplianceType !== undefined && { ComplianceType: input.ComplianceType }),
     ...(input.ExecutionSummary !== undefined && {
       ExecutionSummary: serializeAws_json1_1ComplianceExecutionSummary(input.ExecutionSummary, context),
     }),
-    ...(input.ItemContentHash !== undefined && {
-      ItemContentHash: input.ItemContentHash,
-    }),
-    ...(input.Items !== undefined && {
-      Items: serializeAws_json1_1ComplianceItemEntryList(input.Items, context),
-    }),
+    ...(input.ItemContentHash !== undefined && { ItemContentHash: input.ItemContentHash }),
+    ...(input.Items !== undefined && { Items: serializeAws_json1_1ComplianceItemEntryList(input.Items, context) }),
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
   };
 };
 
 const serializeAws_json1_1PutInventoryRequest = (input: PutInventoryRequest, context: __SerdeContext): any => {
   return {
     ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
-    ...(input.Items !== undefined && {
-      Items: serializeAws_json1_1InventoryItemList(input.Items, context),
-    }),
+    ...(input.Items !== undefined && { Items: serializeAws_json1_1InventoryItemList(input.Items, context) }),
   };
 };
 
 const serializeAws_json1_1PutParameterRequest = (input: PutParameterRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AllowedPattern !== undefined && {
-      AllowedPattern: input.AllowedPattern,
-    }),
+    ...(input.AllowedPattern !== undefined && { AllowedPattern: input.AllowedPattern }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Overwrite !== undefined && { Overwrite: input.Overwrite }),
     ...(input.Policies !== undefined && { Policies: input.Policies }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.Tier !== undefined && { Tier: input.Tier }),
     ...(input.Type !== undefined && { Type: input.Type }),
     ...(input.Value !== undefined && { Value: input.Value }),
@@ -15864,15 +15606,9 @@ const serializeAws_json1_1RegisterTargetWithMaintenanceWindowRequest = (
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.OwnerInformation !== undefined && {
-      OwnerInformation: input.OwnerInformation,
-    }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
-    ...(input.Targets !== undefined && {
-      Targets: serializeAws_json1_1Targets(input.Targets, context),
-    }),
+    ...(input.OwnerInformation !== undefined && { OwnerInformation: input.OwnerInformation }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
+    ...(input.Targets !== undefined && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
     ...(input.WindowId !== undefined && { WindowId: input.WindowId }),
   };
 };
@@ -15887,18 +15623,12 @@ const serializeAws_json1_1RegisterTaskWithMaintenanceWindowRequest = (
     ...(input.LoggingInfo !== undefined && {
       LoggingInfo: serializeAws_json1_1LoggingInfo(input.LoggingInfo, context),
     }),
-    ...(input.MaxConcurrency !== undefined && {
-      MaxConcurrency: input.MaxConcurrency,
-    }),
+    ...(input.MaxConcurrency !== undefined && { MaxConcurrency: input.MaxConcurrency }),
     ...(input.MaxErrors !== undefined && { MaxErrors: input.MaxErrors }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Priority !== undefined && { Priority: input.Priority }),
-    ...(input.ServiceRoleArn !== undefined && {
-      ServiceRoleArn: input.ServiceRoleArn,
-    }),
-    ...(input.Targets !== undefined && {
-      Targets: serializeAws_json1_1Targets(input.Targets, context),
-    }),
+    ...(input.ServiceRoleArn !== undefined && { ServiceRoleArn: input.ServiceRoleArn }),
+    ...(input.Targets !== undefined && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
     ...(input.TaskArn !== undefined && { TaskArn: input.TaskArn }),
     ...(input.TaskInvocationParameters !== undefined && {
       TaskInvocationParameters: serializeAws_json1_1MaintenanceWindowTaskInvocationParameters(
@@ -15930,12 +15660,8 @@ const serializeAws_json1_1RemoveTagsFromResourceRequest = (
 ): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType !== undefined && {
-      ResourceType: input.ResourceType,
-    }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1KeyList(input.TagKeys, context),
-    }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1KeyList(input.TagKeys, context) }),
   };
 };
 
@@ -15953,9 +15679,7 @@ const serializeAws_json1_1ResourceDataSyncAwsOrganizationsSource = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OrganizationSourceType !== undefined && {
-      OrganizationSourceType: input.OrganizationSourceType,
-    }),
+    ...(input.OrganizationSourceType !== undefined && { OrganizationSourceType: input.OrganizationSourceType }),
     ...(input.OrganizationalUnits !== undefined && {
       OrganizationalUnits: serializeAws_json1_1ResourceDataSyncOrganizationalUnitList(
         input.OrganizationalUnits,
@@ -15970,9 +15694,7 @@ const serializeAws_json1_1ResourceDataSyncOrganizationalUnit = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OrganizationalUnitId !== undefined && {
-      OrganizationalUnitId: input.OrganizationalUnitId,
-    }),
+    ...(input.OrganizationalUnitId !== undefined && { OrganizationalUnitId: input.OrganizationalUnitId }),
   };
 };
 
@@ -15988,9 +15710,7 @@ const serializeAws_json1_1ResourceDataSyncS3Destination = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AWSKMSKeyARN !== undefined && {
-      AWSKMSKeyARN: input.AWSKMSKeyARN,
-    }),
+    ...(input.AWSKMSKeyARN !== undefined && { AWSKMSKeyARN: input.AWSKMSKeyARN }),
     ...(input.BucketName !== undefined && { BucketName: input.BucketName }),
     ...(input.Prefix !== undefined && { Prefix: input.Prefix }),
     ...(input.Region !== undefined && { Region: input.Region }),
@@ -16006,9 +15726,7 @@ const serializeAws_json1_1ResourceDataSyncSource = (input: ResourceDataSyncSourc
         context
       ),
     }),
-    ...(input.IncludeFutureRegions !== undefined && {
-      IncludeFutureRegions: input.IncludeFutureRegions,
-    }),
+    ...(input.IncludeFutureRegions !== undefined && { IncludeFutureRegions: input.IncludeFutureRegions }),
     ...(input.SourceRegions !== undefined && {
       SourceRegions: serializeAws_json1_1ResourceDataSyncSourceRegionList(input.SourceRegions, context),
     }),
@@ -16038,15 +15756,9 @@ const serializeAws_json1_1ResumeSessionRequest = (input: ResumeSessionRequest, c
 
 const serializeAws_json1_1S3OutputLocation = (input: S3OutputLocation, context: __SerdeContext): any => {
   return {
-    ...(input.OutputS3BucketName !== undefined && {
-      OutputS3BucketName: input.OutputS3BucketName,
-    }),
-    ...(input.OutputS3KeyPrefix !== undefined && {
-      OutputS3KeyPrefix: input.OutputS3KeyPrefix,
-    }),
-    ...(input.OutputS3Region !== undefined && {
-      OutputS3Region: input.OutputS3Region,
-    }),
+    ...(input.OutputS3BucketName !== undefined && { OutputS3BucketName: input.OutputS3BucketName }),
+    ...(input.OutputS3KeyPrefix !== undefined && { OutputS3KeyPrefix: input.OutputS3KeyPrefix }),
+    ...(input.OutputS3Region !== undefined && { OutputS3Region: input.OutputS3Region }),
   };
 };
 
@@ -16055,12 +15767,8 @@ const serializeAws_json1_1SendAutomationSignalRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AutomationExecutionId !== undefined && {
-      AutomationExecutionId: input.AutomationExecutionId,
-    }),
-    ...(input.Payload !== undefined && {
-      Payload: serializeAws_json1_1AutomationParameterMap(input.Payload, context),
-    }),
+    ...(input.AutomationExecutionId !== undefined && { AutomationExecutionId: input.AutomationExecutionId }),
+    ...(input.Payload !== undefined && { Payload: serializeAws_json1_1AutomationParameterMap(input.Payload, context) }),
     ...(input.SignalType !== undefined && { SignalType: input.SignalType }),
   };
 };
@@ -16071,49 +15779,25 @@ const serializeAws_json1_1SendCommandRequest = (input: SendCommandRequest, conte
       CloudWatchOutputConfig: serializeAws_json1_1CloudWatchOutputConfig(input.CloudWatchOutputConfig, context),
     }),
     ...(input.Comment !== undefined && { Comment: input.Comment }),
-    ...(input.DocumentHash !== undefined && {
-      DocumentHash: input.DocumentHash,
-    }),
-    ...(input.DocumentHashType !== undefined && {
-      DocumentHashType: input.DocumentHashType,
-    }),
-    ...(input.DocumentName !== undefined && {
-      DocumentName: input.DocumentName,
-    }),
-    ...(input.DocumentVersion !== undefined && {
-      DocumentVersion: input.DocumentVersion,
-    }),
+    ...(input.DocumentHash !== undefined && { DocumentHash: input.DocumentHash }),
+    ...(input.DocumentHashType !== undefined && { DocumentHashType: input.DocumentHashType }),
+    ...(input.DocumentName !== undefined && { DocumentName: input.DocumentName }),
+    ...(input.DocumentVersion !== undefined && { DocumentVersion: input.DocumentVersion }),
     ...(input.InstanceIds !== undefined && {
       InstanceIds: serializeAws_json1_1InstanceIdList(input.InstanceIds, context),
     }),
-    ...(input.MaxConcurrency !== undefined && {
-      MaxConcurrency: input.MaxConcurrency,
-    }),
+    ...(input.MaxConcurrency !== undefined && { MaxConcurrency: input.MaxConcurrency }),
     ...(input.MaxErrors !== undefined && { MaxErrors: input.MaxErrors }),
     ...(input.NotificationConfig !== undefined && {
       NotificationConfig: serializeAws_json1_1NotificationConfig(input.NotificationConfig, context),
     }),
-    ...(input.OutputS3BucketName !== undefined && {
-      OutputS3BucketName: input.OutputS3BucketName,
-    }),
-    ...(input.OutputS3KeyPrefix !== undefined && {
-      OutputS3KeyPrefix: input.OutputS3KeyPrefix,
-    }),
-    ...(input.OutputS3Region !== undefined && {
-      OutputS3Region: input.OutputS3Region,
-    }),
-    ...(input.Parameters !== undefined && {
-      Parameters: serializeAws_json1_1Parameters(input.Parameters, context),
-    }),
-    ...(input.ServiceRoleArn !== undefined && {
-      ServiceRoleArn: input.ServiceRoleArn,
-    }),
-    ...(input.Targets !== undefined && {
-      Targets: serializeAws_json1_1Targets(input.Targets, context),
-    }),
-    ...(input.TimeoutSeconds !== undefined && {
-      TimeoutSeconds: input.TimeoutSeconds,
-    }),
+    ...(input.OutputS3BucketName !== undefined && { OutputS3BucketName: input.OutputS3BucketName }),
+    ...(input.OutputS3KeyPrefix !== undefined && { OutputS3KeyPrefix: input.OutputS3KeyPrefix }),
+    ...(input.OutputS3Region !== undefined && { OutputS3Region: input.OutputS3Region }),
+    ...(input.Parameters !== undefined && { Parameters: serializeAws_json1_1Parameters(input.Parameters, context) }),
+    ...(input.ServiceRoleArn !== undefined && { ServiceRoleArn: input.ServiceRoleArn }),
+    ...(input.Targets !== undefined && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
+    ...(input.TimeoutSeconds !== undefined && { TimeoutSeconds: input.TimeoutSeconds }),
   };
 };
 
@@ -16162,43 +15846,27 @@ const serializeAws_json1_1StartAutomationExecutionRequest = (
 ): any => {
   return {
     ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
-    ...(input.DocumentName !== undefined && {
-      DocumentName: input.DocumentName,
-    }),
-    ...(input.DocumentVersion !== undefined && {
-      DocumentVersion: input.DocumentVersion,
-    }),
-    ...(input.MaxConcurrency !== undefined && {
-      MaxConcurrency: input.MaxConcurrency,
-    }),
+    ...(input.DocumentName !== undefined && { DocumentName: input.DocumentName }),
+    ...(input.DocumentVersion !== undefined && { DocumentVersion: input.DocumentVersion }),
+    ...(input.MaxConcurrency !== undefined && { MaxConcurrency: input.MaxConcurrency }),
     ...(input.MaxErrors !== undefined && { MaxErrors: input.MaxErrors }),
     ...(input.Mode !== undefined && { Mode: input.Mode }),
     ...(input.Parameters !== undefined && {
       Parameters: serializeAws_json1_1AutomationParameterMap(input.Parameters, context),
     }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagList(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.TargetLocations !== undefined && {
       TargetLocations: serializeAws_json1_1TargetLocations(input.TargetLocations, context),
     }),
-    ...(input.TargetMaps !== undefined && {
-      TargetMaps: serializeAws_json1_1TargetMaps(input.TargetMaps, context),
-    }),
-    ...(input.TargetParameterName !== undefined && {
-      TargetParameterName: input.TargetParameterName,
-    }),
-    ...(input.Targets !== undefined && {
-      Targets: serializeAws_json1_1Targets(input.Targets, context),
-    }),
+    ...(input.TargetMaps !== undefined && { TargetMaps: serializeAws_json1_1TargetMaps(input.TargetMaps, context) }),
+    ...(input.TargetParameterName !== undefined && { TargetParameterName: input.TargetParameterName }),
+    ...(input.Targets !== undefined && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
   };
 };
 
 const serializeAws_json1_1StartSessionRequest = (input: StartSessionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DocumentName !== undefined && {
-      DocumentName: input.DocumentName,
-    }),
+    ...(input.DocumentName !== undefined && { DocumentName: input.DocumentName }),
     ...(input.Parameters !== undefined && {
       Parameters: serializeAws_json1_1SessionManagerParameters(input.Parameters, context),
     }),
@@ -16228,9 +15896,7 @@ const serializeAws_json1_1StopAutomationExecutionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AutomationExecutionId !== undefined && {
-      AutomationExecutionId: input.AutomationExecutionId,
-    }),
+    ...(input.AutomationExecutionId !== undefined && { AutomationExecutionId: input.AutomationExecutionId }),
     ...(input.Type !== undefined && { Type: input.Type }),
   };
 };
@@ -16253,29 +15919,19 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 const serializeAws_json1_1Target = (input: Target, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_json1_1TargetValues(input.Values, context),
-    }),
+    ...(input.Values !== undefined && { Values: serializeAws_json1_1TargetValues(input.Values, context) }),
   };
 };
 
 const serializeAws_json1_1TargetLocation = (input: TargetLocation, context: __SerdeContext): any => {
   return {
-    ...(input.Accounts !== undefined && {
-      Accounts: serializeAws_json1_1Accounts(input.Accounts, context),
-    }),
-    ...(input.ExecutionRoleName !== undefined && {
-      ExecutionRoleName: input.ExecutionRoleName,
-    }),
-    ...(input.Regions !== undefined && {
-      Regions: serializeAws_json1_1Regions(input.Regions, context),
-    }),
+    ...(input.Accounts !== undefined && { Accounts: serializeAws_json1_1Accounts(input.Accounts, context) }),
+    ...(input.ExecutionRoleName !== undefined && { ExecutionRoleName: input.ExecutionRoleName }),
+    ...(input.Regions !== undefined && { Regions: serializeAws_json1_1Regions(input.Regions, context) }),
     ...(input.TargetLocationMaxConcurrency !== undefined && {
       TargetLocationMaxConcurrency: input.TargetLocationMaxConcurrency,
     }),
-    ...(input.TargetLocationMaxErrors !== undefined && {
-      TargetLocationMaxErrors: input.TargetLocationMaxErrors,
-    }),
+    ...(input.TargetLocationMaxErrors !== undefined && { TargetLocationMaxErrors: input.TargetLocationMaxErrors }),
   };
 };
 
@@ -16320,41 +15976,23 @@ const serializeAws_json1_1UpdateAssociationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssociationId !== undefined && {
-      AssociationId: input.AssociationId,
-    }),
-    ...(input.AssociationName !== undefined && {
-      AssociationName: input.AssociationName,
-    }),
-    ...(input.AssociationVersion !== undefined && {
-      AssociationVersion: input.AssociationVersion,
-    }),
+    ...(input.AssociationId !== undefined && { AssociationId: input.AssociationId }),
+    ...(input.AssociationName !== undefined && { AssociationName: input.AssociationName }),
+    ...(input.AssociationVersion !== undefined && { AssociationVersion: input.AssociationVersion }),
     ...(input.AutomationTargetParameterName !== undefined && {
       AutomationTargetParameterName: input.AutomationTargetParameterName,
     }),
-    ...(input.ComplianceSeverity !== undefined && {
-      ComplianceSeverity: input.ComplianceSeverity,
-    }),
-    ...(input.DocumentVersion !== undefined && {
-      DocumentVersion: input.DocumentVersion,
-    }),
-    ...(input.MaxConcurrency !== undefined && {
-      MaxConcurrency: input.MaxConcurrency,
-    }),
+    ...(input.ComplianceSeverity !== undefined && { ComplianceSeverity: input.ComplianceSeverity }),
+    ...(input.DocumentVersion !== undefined && { DocumentVersion: input.DocumentVersion }),
+    ...(input.MaxConcurrency !== undefined && { MaxConcurrency: input.MaxConcurrency }),
     ...(input.MaxErrors !== undefined && { MaxErrors: input.MaxErrors }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.OutputLocation !== undefined && {
       OutputLocation: serializeAws_json1_1InstanceAssociationOutputLocation(input.OutputLocation, context),
     }),
-    ...(input.Parameters !== undefined && {
-      Parameters: serializeAws_json1_1Parameters(input.Parameters, context),
-    }),
-    ...(input.ScheduleExpression !== undefined && {
-      ScheduleExpression: input.ScheduleExpression,
-    }),
-    ...(input.Targets !== undefined && {
-      Targets: serializeAws_json1_1Targets(input.Targets, context),
-    }),
+    ...(input.Parameters !== undefined && { Parameters: serializeAws_json1_1Parameters(input.Parameters, context) }),
+    ...(input.ScheduleExpression !== undefined && { ScheduleExpression: input.ScheduleExpression }),
+    ...(input.Targets !== undefined && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
   };
 };
 
@@ -16376,9 +16014,7 @@ const serializeAws_json1_1UpdateDocumentDefaultVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DocumentVersion !== undefined && {
-      DocumentVersion: input.DocumentVersion,
-    }),
+    ...(input.DocumentVersion !== undefined && { DocumentVersion: input.DocumentVersion }),
     ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
@@ -16389,12 +16025,8 @@ const serializeAws_json1_1UpdateDocumentRequest = (input: UpdateDocumentRequest,
       Attachments: serializeAws_json1_1AttachmentsSourceList(input.Attachments, context),
     }),
     ...(input.Content !== undefined && { Content: input.Content }),
-    ...(input.DocumentFormat !== undefined && {
-      DocumentFormat: input.DocumentFormat,
-    }),
-    ...(input.DocumentVersion !== undefined && {
-      DocumentVersion: input.DocumentVersion,
-    }),
+    ...(input.DocumentFormat !== undefined && { DocumentFormat: input.DocumentFormat }),
+    ...(input.DocumentVersion !== undefined && { DocumentVersion: input.DocumentVersion }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.TargetType !== undefined && { TargetType: input.TargetType }),
     ...(input.VersionName !== undefined && { VersionName: input.VersionName }),
@@ -16406,9 +16038,7 @@ const serializeAws_json1_1UpdateMaintenanceWindowRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AllowUnassociatedTargets !== undefined && {
-      AllowUnassociatedTargets: input.AllowUnassociatedTargets,
-    }),
+    ...(input.AllowUnassociatedTargets !== undefined && { AllowUnassociatedTargets: input.AllowUnassociatedTargets }),
     ...(input.Cutoff !== undefined && { Cutoff: input.Cutoff }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.Duration !== undefined && { Duration: input.Duration }),
@@ -16417,9 +16047,7 @@ const serializeAws_json1_1UpdateMaintenanceWindowRequest = (
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Replace !== undefined && { Replace: input.Replace }),
     ...(input.Schedule !== undefined && { Schedule: input.Schedule }),
-    ...(input.ScheduleTimezone !== undefined && {
-      ScheduleTimezone: input.ScheduleTimezone,
-    }),
+    ...(input.ScheduleTimezone !== undefined && { ScheduleTimezone: input.ScheduleTimezone }),
     ...(input.StartDate !== undefined && { StartDate: input.StartDate }),
     ...(input.WindowId !== undefined && { WindowId: input.WindowId }),
   };
@@ -16432,17 +16060,11 @@ const serializeAws_json1_1UpdateMaintenanceWindowTargetRequest = (
   return {
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.OwnerInformation !== undefined && {
-      OwnerInformation: input.OwnerInformation,
-    }),
+    ...(input.OwnerInformation !== undefined && { OwnerInformation: input.OwnerInformation }),
     ...(input.Replace !== undefined && { Replace: input.Replace }),
-    ...(input.Targets !== undefined && {
-      Targets: serializeAws_json1_1Targets(input.Targets, context),
-    }),
+    ...(input.Targets !== undefined && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
     ...(input.WindowId !== undefined && { WindowId: input.WindowId }),
-    ...(input.WindowTargetId !== undefined && {
-      WindowTargetId: input.WindowTargetId,
-    }),
+    ...(input.WindowTargetId !== undefined && { WindowTargetId: input.WindowTargetId }),
   };
 };
 
@@ -16455,19 +16077,13 @@ const serializeAws_json1_1UpdateMaintenanceWindowTaskRequest = (
     ...(input.LoggingInfo !== undefined && {
       LoggingInfo: serializeAws_json1_1LoggingInfo(input.LoggingInfo, context),
     }),
-    ...(input.MaxConcurrency !== undefined && {
-      MaxConcurrency: input.MaxConcurrency,
-    }),
+    ...(input.MaxConcurrency !== undefined && { MaxConcurrency: input.MaxConcurrency }),
     ...(input.MaxErrors !== undefined && { MaxErrors: input.MaxErrors }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Priority !== undefined && { Priority: input.Priority }),
     ...(input.Replace !== undefined && { Replace: input.Replace }),
-    ...(input.ServiceRoleArn !== undefined && {
-      ServiceRoleArn: input.ServiceRoleArn,
-    }),
-    ...(input.Targets !== undefined && {
-      Targets: serializeAws_json1_1Targets(input.Targets, context),
-    }),
+    ...(input.ServiceRoleArn !== undefined && { ServiceRoleArn: input.ServiceRoleArn }),
+    ...(input.Targets !== undefined && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
     ...(input.TaskArn !== undefined && { TaskArn: input.TaskArn }),
     ...(input.TaskInvocationParameters !== undefined && {
       TaskInvocationParameters: serializeAws_json1_1MaintenanceWindowTaskInvocationParameters(
@@ -16479,9 +16095,7 @@ const serializeAws_json1_1UpdateMaintenanceWindowTaskRequest = (
       TaskParameters: serializeAws_json1_1MaintenanceWindowTaskParameters(input.TaskParameters, context),
     }),
     ...(input.WindowId !== undefined && { WindowId: input.WindowId }),
-    ...(input.WindowTaskId !== undefined && {
-      WindowTaskId: input.WindowTaskId,
-    }),
+    ...(input.WindowTaskId !== undefined && { WindowTaskId: input.WindowTaskId }),
   };
 };
 
@@ -16545,13 +16159,9 @@ const serializeAws_json1_1UpdatePatchBaselineRequest = (
     ...(input.RejectedPatches !== undefined && {
       RejectedPatches: serializeAws_json1_1PatchIdList(input.RejectedPatches, context),
     }),
-    ...(input.RejectedPatchesAction !== undefined && {
-      RejectedPatchesAction: input.RejectedPatchesAction,
-    }),
+    ...(input.RejectedPatchesAction !== undefined && { RejectedPatchesAction: input.RejectedPatchesAction }),
     ...(input.Replace !== undefined && { Replace: input.Replace }),
-    ...(input.Sources !== undefined && {
-      Sources: serializeAws_json1_1PatchSourceList(input.Sources, context),
-    }),
+    ...(input.Sources !== undefined && { Sources: serializeAws_json1_1PatchSourceList(input.Sources, context) }),
   };
 };
 
@@ -16574,9 +16184,7 @@ const serializeAws_json1_1UpdateServiceSettingRequest = (
 ): any => {
   return {
     ...(input.SettingId !== undefined && { SettingId: input.SettingId }),
-    ...(input.SettingValue !== undefined && {
-      SettingValue: input.SettingValue,
-    }),
+    ...(input.SettingValue !== undefined && { SettingValue: input.SettingValue }),
   };
 };
 

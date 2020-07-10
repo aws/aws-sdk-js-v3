@@ -181,9 +181,7 @@ export interface GetSpeechSynthesisTaskOutput {
 export namespace GetSpeechSynthesisTaskOutput {
   export const filterSensitiveLog = (obj: GetSpeechSynthesisTaskOutput): any => ({
     ...obj,
-    ...(obj.SynthesisTask && {
-      SynthesisTask: SynthesisTask.filterSensitiveLog(obj.SynthesisTask),
-    }),
+    ...(obj.SynthesisTask && { SynthesisTask: SynthesisTask.filterSensitiveLog(obj.SynthesisTask) }),
   });
   export const isa = (o: any): o is GetSpeechSynthesisTaskOutput => __isa(o, "GetSpeechSynthesisTaskOutput");
 }
@@ -537,9 +535,7 @@ export interface ListLexiconsOutput {
 export namespace ListLexiconsOutput {
   export const filterSensitiveLog = (obj: ListLexiconsOutput): any => ({
     ...obj,
-    ...(obj.Lexicons && {
-      Lexicons: obj.Lexicons.map((item) => LexiconDescription.filterSensitiveLog(item)),
-    }),
+    ...(obj.Lexicons && { Lexicons: obj.Lexicons.map((item) => LexiconDescription.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is ListLexiconsOutput => __isa(o, "ListLexiconsOutput");
 }
@@ -820,9 +816,7 @@ export interface StartSpeechSynthesisTaskOutput {
 export namespace StartSpeechSynthesisTaskOutput {
   export const filterSensitiveLog = (obj: StartSpeechSynthesisTaskOutput): any => ({
     ...obj,
-    ...(obj.SynthesisTask && {
-      SynthesisTask: SynthesisTask.filterSensitiveLog(obj.SynthesisTask),
-    }),
+    ...(obj.SynthesisTask && { SynthesisTask: SynthesisTask.filterSensitiveLog(obj.SynthesisTask) }),
   });
   export const isa = (o: any): o is StartSpeechSynthesisTaskOutput => __isa(o, "StartSpeechSynthesisTaskOutput");
 }

@@ -38,19 +38,13 @@ export const serializeAws_restJson1CreateTokenCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.clientId !== undefined && { clientId: input.clientId }),
-    ...(input.clientSecret !== undefined && {
-      clientSecret: input.clientSecret,
-    }),
+    ...(input.clientSecret !== undefined && { clientSecret: input.clientSecret }),
     ...(input.code !== undefined && { code: input.code }),
     ...(input.deviceCode !== undefined && { deviceCode: input.deviceCode }),
     ...(input.grantType !== undefined && { grantType: input.grantType }),
     ...(input.redirectUri !== undefined && { redirectUri: input.redirectUri }),
-    ...(input.refreshToken !== undefined && {
-      refreshToken: input.refreshToken,
-    }),
-    ...(input.scope !== undefined && {
-      scope: serializeAws_restJson1Scopes(input.scope, context),
-    }),
+    ...(input.refreshToken !== undefined && { refreshToken: input.refreshToken }),
+    ...(input.scope !== undefined && { scope: serializeAws_restJson1Scopes(input.scope, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -76,9 +70,7 @@ export const serializeAws_restJson1RegisterClientCommand = async (
   body = JSON.stringify({
     ...(input.clientName !== undefined && { clientName: input.clientName }),
     ...(input.clientType !== undefined && { clientType: input.clientType }),
-    ...(input.scopes !== undefined && {
-      scopes: serializeAws_restJson1Scopes(input.scopes, context),
-    }),
+    ...(input.scopes !== undefined && { scopes: serializeAws_restJson1Scopes(input.scopes, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -103,9 +95,7 @@ export const serializeAws_restJson1StartDeviceAuthorizationCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.clientId !== undefined && { clientId: input.clientId }),
-    ...(input.clientSecret !== undefined && {
-      clientSecret: input.clientSecret,
-    }),
+    ...(input.clientSecret !== undefined && { clientSecret: input.clientSecret }),
     ...(input.startUrl !== undefined && { startUrl: input.startUrl }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();

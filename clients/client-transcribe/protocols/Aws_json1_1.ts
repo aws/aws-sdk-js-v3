@@ -1435,35 +1435,19 @@ const serializeAws_json1_1CreateVocabularyFilterRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
-    ...(input.VocabularyFilterFileUri !== undefined && {
-      VocabularyFilterFileUri: input.VocabularyFilterFileUri,
-    }),
-    ...(input.VocabularyFilterName !== undefined && {
-      VocabularyFilterName: input.VocabularyFilterName,
-    }),
-    ...(input.Words !== undefined && {
-      Words: serializeAws_json1_1Words(input.Words, context),
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.VocabularyFilterFileUri !== undefined && { VocabularyFilterFileUri: input.VocabularyFilterFileUri }),
+    ...(input.VocabularyFilterName !== undefined && { VocabularyFilterName: input.VocabularyFilterName }),
+    ...(input.Words !== undefined && { Words: serializeAws_json1_1Words(input.Words, context) }),
   };
 };
 
 const serializeAws_json1_1CreateVocabularyRequest = (input: CreateVocabularyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
-    ...(input.Phrases !== undefined && {
-      Phrases: serializeAws_json1_1Phrases(input.Phrases, context),
-    }),
-    ...(input.VocabularyFileUri !== undefined && {
-      VocabularyFileUri: input.VocabularyFileUri,
-    }),
-    ...(input.VocabularyName !== undefined && {
-      VocabularyName: input.VocabularyName,
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.Phrases !== undefined && { Phrases: serializeAws_json1_1Phrases(input.Phrases, context) }),
+    ...(input.VocabularyFileUri !== undefined && { VocabularyFileUri: input.VocabularyFileUri }),
+    ...(input.VocabularyName !== undefined && { VocabularyName: input.VocabularyName }),
   };
 };
 
@@ -1472,9 +1456,7 @@ const serializeAws_json1_1DeleteTranscriptionJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.TranscriptionJobName !== undefined && {
-      TranscriptionJobName: input.TranscriptionJobName,
-    }),
+    ...(input.TranscriptionJobName !== undefined && { TranscriptionJobName: input.TranscriptionJobName }),
   };
 };
 
@@ -1483,17 +1465,13 @@ const serializeAws_json1_1DeleteVocabularyFilterRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VocabularyFilterName !== undefined && {
-      VocabularyFilterName: input.VocabularyFilterName,
-    }),
+    ...(input.VocabularyFilterName !== undefined && { VocabularyFilterName: input.VocabularyFilterName }),
   };
 };
 
 const serializeAws_json1_1DeleteVocabularyRequest = (input: DeleteVocabularyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.VocabularyName !== undefined && {
-      VocabularyName: input.VocabularyName,
-    }),
+    ...(input.VocabularyName !== undefined && { VocabularyName: input.VocabularyName }),
   };
 };
 
@@ -1502,9 +1480,7 @@ const serializeAws_json1_1GetTranscriptionJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.TranscriptionJobName !== undefined && {
-      TranscriptionJobName: input.TranscriptionJobName,
-    }),
+    ...(input.TranscriptionJobName !== undefined && { TranscriptionJobName: input.TranscriptionJobName }),
   };
 };
 
@@ -1513,28 +1489,20 @@ const serializeAws_json1_1GetVocabularyFilterRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VocabularyFilterName !== undefined && {
-      VocabularyFilterName: input.VocabularyFilterName,
-    }),
+    ...(input.VocabularyFilterName !== undefined && { VocabularyFilterName: input.VocabularyFilterName }),
   };
 };
 
 const serializeAws_json1_1GetVocabularyRequest = (input: GetVocabularyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.VocabularyName !== undefined && {
-      VocabularyName: input.VocabularyName,
-    }),
+    ...(input.VocabularyName !== undefined && { VocabularyName: input.VocabularyName }),
   };
 };
 
 const serializeAws_json1_1JobExecutionSettings = (input: JobExecutionSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AllowDeferredExecution !== undefined && {
-      AllowDeferredExecution: input.AllowDeferredExecution,
-    }),
-    ...(input.DataAccessRoleArn !== undefined && {
-      DataAccessRoleArn: input.DataAccessRoleArn,
-    }),
+    ...(input.AllowDeferredExecution !== undefined && { AllowDeferredExecution: input.AllowDeferredExecution }),
+    ...(input.DataAccessRoleArn !== undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
   };
 };
 
@@ -1543,9 +1511,7 @@ const serializeAws_json1_1ListTranscriptionJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobNameContains !== undefined && {
-      JobNameContains: input.JobNameContains,
-    }),
+    ...(input.JobNameContains !== undefined && { JobNameContains: input.JobNameContains }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.Status !== undefined && { Status: input.Status }),
@@ -1555,9 +1521,7 @@ const serializeAws_json1_1ListTranscriptionJobsRequest = (
 const serializeAws_json1_1ListVocabulariesRequest = (input: ListVocabulariesRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NameContains !== undefined && {
-      NameContains: input.NameContains,
-    }),
+    ...(input.NameContains !== undefined && { NameContains: input.NameContains }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.StateEquals !== undefined && { StateEquals: input.StateEquals }),
   };
@@ -1569,18 +1533,14 @@ const serializeAws_json1_1ListVocabularyFiltersRequest = (
 ): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NameContains !== undefined && {
-      NameContains: input.NameContains,
-    }),
+    ...(input.NameContains !== undefined && { NameContains: input.NameContains }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1Media = (input: Media, context: __SerdeContext): any => {
   return {
-    ...(input.MediaFileUri !== undefined && {
-      MediaFileUri: input.MediaFileUri,
-    }),
+    ...(input.MediaFileUri !== undefined && { MediaFileUri: input.MediaFileUri }),
   };
 };
 
@@ -1590,30 +1550,14 @@ const serializeAws_json1_1Phrases = (input: string[], context: __SerdeContext): 
 
 const serializeAws_json1_1Settings = (input: Settings, context: __SerdeContext): any => {
   return {
-    ...(input.ChannelIdentification !== undefined && {
-      ChannelIdentification: input.ChannelIdentification,
-    }),
-    ...(input.MaxAlternatives !== undefined && {
-      MaxAlternatives: input.MaxAlternatives,
-    }),
-    ...(input.MaxSpeakerLabels !== undefined && {
-      MaxSpeakerLabels: input.MaxSpeakerLabels,
-    }),
-    ...(input.ShowAlternatives !== undefined && {
-      ShowAlternatives: input.ShowAlternatives,
-    }),
-    ...(input.ShowSpeakerLabels !== undefined && {
-      ShowSpeakerLabels: input.ShowSpeakerLabels,
-    }),
-    ...(input.VocabularyFilterMethod !== undefined && {
-      VocabularyFilterMethod: input.VocabularyFilterMethod,
-    }),
-    ...(input.VocabularyFilterName !== undefined && {
-      VocabularyFilterName: input.VocabularyFilterName,
-    }),
-    ...(input.VocabularyName !== undefined && {
-      VocabularyName: input.VocabularyName,
-    }),
+    ...(input.ChannelIdentification !== undefined && { ChannelIdentification: input.ChannelIdentification }),
+    ...(input.MaxAlternatives !== undefined && { MaxAlternatives: input.MaxAlternatives }),
+    ...(input.MaxSpeakerLabels !== undefined && { MaxSpeakerLabels: input.MaxSpeakerLabels }),
+    ...(input.ShowAlternatives !== undefined && { ShowAlternatives: input.ShowAlternatives }),
+    ...(input.ShowSpeakerLabels !== undefined && { ShowSpeakerLabels: input.ShowSpeakerLabels }),
+    ...(input.VocabularyFilterMethod !== undefined && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
+    ...(input.VocabularyFilterName !== undefined && { VocabularyFilterName: input.VocabularyFilterName }),
+    ...(input.VocabularyName !== undefined && { VocabularyName: input.VocabularyName }),
   };
 };
 
@@ -1625,28 +1569,14 @@ const serializeAws_json1_1StartTranscriptionJobRequest = (
     ...(input.JobExecutionSettings !== undefined && {
       JobExecutionSettings: serializeAws_json1_1JobExecutionSettings(input.JobExecutionSettings, context),
     }),
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
-    ...(input.Media !== undefined && {
-      Media: serializeAws_json1_1Media(input.Media, context),
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.Media !== undefined && { Media: serializeAws_json1_1Media(input.Media, context) }),
     ...(input.MediaFormat !== undefined && { MediaFormat: input.MediaFormat }),
-    ...(input.MediaSampleRateHertz !== undefined && {
-      MediaSampleRateHertz: input.MediaSampleRateHertz,
-    }),
-    ...(input.OutputBucketName !== undefined && {
-      OutputBucketName: input.OutputBucketName,
-    }),
-    ...(input.OutputEncryptionKMSKeyId !== undefined && {
-      OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId,
-    }),
-    ...(input.Settings !== undefined && {
-      Settings: serializeAws_json1_1Settings(input.Settings, context),
-    }),
-    ...(input.TranscriptionJobName !== undefined && {
-      TranscriptionJobName: input.TranscriptionJobName,
-    }),
+    ...(input.MediaSampleRateHertz !== undefined && { MediaSampleRateHertz: input.MediaSampleRateHertz }),
+    ...(input.OutputBucketName !== undefined && { OutputBucketName: input.OutputBucketName }),
+    ...(input.OutputEncryptionKMSKeyId !== undefined && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
+    ...(input.Settings !== undefined && { Settings: serializeAws_json1_1Settings(input.Settings, context) }),
+    ...(input.TranscriptionJobName !== undefined && { TranscriptionJobName: input.TranscriptionJobName }),
   };
 };
 
@@ -1655,32 +1585,18 @@ const serializeAws_json1_1UpdateVocabularyFilterRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VocabularyFilterFileUri !== undefined && {
-      VocabularyFilterFileUri: input.VocabularyFilterFileUri,
-    }),
-    ...(input.VocabularyFilterName !== undefined && {
-      VocabularyFilterName: input.VocabularyFilterName,
-    }),
-    ...(input.Words !== undefined && {
-      Words: serializeAws_json1_1Words(input.Words, context),
-    }),
+    ...(input.VocabularyFilterFileUri !== undefined && { VocabularyFilterFileUri: input.VocabularyFilterFileUri }),
+    ...(input.VocabularyFilterName !== undefined && { VocabularyFilterName: input.VocabularyFilterName }),
+    ...(input.Words !== undefined && { Words: serializeAws_json1_1Words(input.Words, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateVocabularyRequest = (input: UpdateVocabularyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.LanguageCode !== undefined && {
-      LanguageCode: input.LanguageCode,
-    }),
-    ...(input.Phrases !== undefined && {
-      Phrases: serializeAws_json1_1Phrases(input.Phrases, context),
-    }),
-    ...(input.VocabularyFileUri !== undefined && {
-      VocabularyFileUri: input.VocabularyFileUri,
-    }),
-    ...(input.VocabularyName !== undefined && {
-      VocabularyName: input.VocabularyName,
-    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.Phrases !== undefined && { Phrases: serializeAws_json1_1Phrases(input.Phrases, context) }),
+    ...(input.VocabularyFileUri !== undefined && { VocabularyFileUri: input.VocabularyFileUri }),
+    ...(input.VocabularyName !== undefined && { VocabularyName: input.VocabularyName }),
   };
 };
 

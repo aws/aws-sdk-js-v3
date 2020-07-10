@@ -202,9 +202,7 @@ export interface BatchAssociateUserStackResult {
 export namespace BatchAssociateUserStackResult {
   export const filterSensitiveLog = (obj: BatchAssociateUserStackResult): any => ({
     ...obj,
-    ...(obj.errors && {
-      errors: obj.errors.map((item) => UserStackAssociationError.filterSensitiveLog(item)),
-    }),
+    ...(obj.errors && { errors: obj.errors.map((item) => UserStackAssociationError.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is BatchAssociateUserStackResult => __isa(o, "BatchAssociateUserStackResult");
 }
@@ -238,9 +236,7 @@ export interface BatchDisassociateUserStackResult {
 export namespace BatchDisassociateUserStackResult {
   export const filterSensitiveLog = (obj: BatchDisassociateUserStackResult): any => ({
     ...obj,
-    ...(obj.errors && {
-      errors: obj.errors.map((item) => UserStackAssociationError.filterSensitiveLog(item)),
-    }),
+    ...(obj.errors && { errors: obj.errors.map((item) => UserStackAssociationError.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is BatchDisassociateUserStackResult => __isa(o, "BatchDisassociateUserStackResult");
 }
@@ -400,9 +396,7 @@ export interface CreateDirectoryConfigResult {
 export namespace CreateDirectoryConfigResult {
   export const filterSensitiveLog = (obj: CreateDirectoryConfigResult): any => ({
     ...obj,
-    ...(obj.DirectoryConfig && {
-      DirectoryConfig: DirectoryConfig.filterSensitiveLog(obj.DirectoryConfig),
-    }),
+    ...(obj.DirectoryConfig && { DirectoryConfig: DirectoryConfig.filterSensitiveLog(obj.DirectoryConfig) }),
   });
   export const isa = (o: any): o is CreateDirectoryConfigResult => __isa(o, "CreateDirectoryConfigResult");
 }
@@ -1717,9 +1711,7 @@ export interface DescribeUsersResult {
 export namespace DescribeUsersResult {
   export const filterSensitiveLog = (obj: DescribeUsersResult): any => ({
     ...obj,
-    ...(obj.Users && {
-      Users: obj.Users.map((item) => User.filterSensitiveLog(item)),
-    }),
+    ...(obj.Users && { Users: obj.Users.map((item) => User.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is DescribeUsersResult => __isa(o, "DescribeUsersResult");
 }
@@ -3503,9 +3495,7 @@ export interface UpdateDirectoryConfigResult {
 export namespace UpdateDirectoryConfigResult {
   export const filterSensitiveLog = (obj: UpdateDirectoryConfigResult): any => ({
     ...obj,
-    ...(obj.DirectoryConfig && {
-      DirectoryConfig: DirectoryConfig.filterSensitiveLog(obj.DirectoryConfig),
-    }),
+    ...(obj.DirectoryConfig && { DirectoryConfig: DirectoryConfig.filterSensitiveLog(obj.DirectoryConfig) }),
   });
   export const isa = (o: any): o is UpdateDirectoryConfigResult => __isa(o, "UpdateDirectoryConfigResult");
 }

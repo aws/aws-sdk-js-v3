@@ -2005,15 +2005,9 @@ const serializeAws_json1_1CreateSecretRequest = (input: CreateSecretRequest, con
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.SecretBinary !== undefined && {
-      SecretBinary: context.base64Encoder(input.SecretBinary),
-    }),
-    ...(input.SecretString !== undefined && {
-      SecretString: input.SecretString,
-    }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagListType(input.Tags, context),
-    }),
+    ...(input.SecretBinary !== undefined && { SecretBinary: context.base64Encoder(input.SecretBinary) }),
+    ...(input.SecretString !== undefined && { SecretString: input.SecretString }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagListType(input.Tags, context) }),
   };
 };
 
@@ -2031,9 +2025,7 @@ const serializeAws_json1_1DeleteSecretRequest = (input: DeleteSecretRequest, con
     ...(input.ForceDeleteWithoutRecovery !== undefined && {
       ForceDeleteWithoutRecovery: input.ForceDeleteWithoutRecovery,
     }),
-    ...(input.RecoveryWindowInDays !== undefined && {
-      RecoveryWindowInDays: input.RecoveryWindowInDays,
-    }),
+    ...(input.RecoveryWindowInDays !== undefined && { RecoveryWindowInDays: input.RecoveryWindowInDays }),
     ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
   };
 };
@@ -2049,30 +2041,14 @@ const serializeAws_json1_1GetRandomPasswordRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ExcludeCharacters !== undefined && {
-      ExcludeCharacters: input.ExcludeCharacters,
-    }),
-    ...(input.ExcludeLowercase !== undefined && {
-      ExcludeLowercase: input.ExcludeLowercase,
-    }),
-    ...(input.ExcludeNumbers !== undefined && {
-      ExcludeNumbers: input.ExcludeNumbers,
-    }),
-    ...(input.ExcludePunctuation !== undefined && {
-      ExcludePunctuation: input.ExcludePunctuation,
-    }),
-    ...(input.ExcludeUppercase !== undefined && {
-      ExcludeUppercase: input.ExcludeUppercase,
-    }),
-    ...(input.IncludeSpace !== undefined && {
-      IncludeSpace: input.IncludeSpace,
-    }),
-    ...(input.PasswordLength !== undefined && {
-      PasswordLength: input.PasswordLength,
-    }),
-    ...(input.RequireEachIncludedType !== undefined && {
-      RequireEachIncludedType: input.RequireEachIncludedType,
-    }),
+    ...(input.ExcludeCharacters !== undefined && { ExcludeCharacters: input.ExcludeCharacters }),
+    ...(input.ExcludeLowercase !== undefined && { ExcludeLowercase: input.ExcludeLowercase }),
+    ...(input.ExcludeNumbers !== undefined && { ExcludeNumbers: input.ExcludeNumbers }),
+    ...(input.ExcludePunctuation !== undefined && { ExcludePunctuation: input.ExcludePunctuation }),
+    ...(input.ExcludeUppercase !== undefined && { ExcludeUppercase: input.ExcludeUppercase }),
+    ...(input.IncludeSpace !== undefined && { IncludeSpace: input.IncludeSpace }),
+    ...(input.PasswordLength !== undefined && { PasswordLength: input.PasswordLength }),
+    ...(input.RequireEachIncludedType !== undefined && { RequireEachIncludedType: input.RequireEachIncludedType }),
   };
 };
 
@@ -2089,9 +2065,7 @@ const serializeAws_json1_1GetSecretValueRequest = (input: GetSecretValueRequest,
   return {
     ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
     ...(input.VersionId !== undefined && { VersionId: input.VersionId }),
-    ...(input.VersionStage !== undefined && {
-      VersionStage: input.VersionStage,
-    }),
+    ...(input.VersionStage !== undefined && { VersionStage: input.VersionStage }),
   };
 };
 
@@ -2107,9 +2081,7 @@ const serializeAws_json1_1ListSecretVersionIdsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IncludeDeprecated !== undefined && {
-      IncludeDeprecated: input.IncludeDeprecated,
-    }),
+    ...(input.IncludeDeprecated !== undefined && { IncludeDeprecated: input.IncludeDeprecated }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
@@ -2121,9 +2093,7 @@ const serializeAws_json1_1PutResourcePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourcePolicy !== undefined && {
-      ResourcePolicy: input.ResourcePolicy,
-    }),
+    ...(input.ResourcePolicy !== undefined && { ResourcePolicy: input.ResourcePolicy }),
     ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
   };
 };
@@ -2131,13 +2101,9 @@ const serializeAws_json1_1PutResourcePolicyRequest = (
 const serializeAws_json1_1PutSecretValueRequest = (input: PutSecretValueRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.SecretBinary !== undefined && {
-      SecretBinary: context.base64Encoder(input.SecretBinary),
-    }),
+    ...(input.SecretBinary !== undefined && { SecretBinary: context.base64Encoder(input.SecretBinary) }),
     ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
-    ...(input.SecretString !== undefined && {
-      SecretString: input.SecretString,
-    }),
+    ...(input.SecretString !== undefined && { SecretString: input.SecretString }),
     ...(input.VersionStages !== undefined && {
       VersionStages: serializeAws_json1_1SecretVersionStagesType(input.VersionStages, context),
     }),
@@ -2153,9 +2119,7 @@ const serializeAws_json1_1RestoreSecretRequest = (input: RestoreSecretRequest, c
 const serializeAws_json1_1RotateSecretRequest = (input: RotateSecretRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.RotationLambdaARN !== undefined && {
-      RotationLambdaARN: input.RotationLambdaARN,
-    }),
+    ...(input.RotationLambdaARN !== undefined && { RotationLambdaARN: input.RotationLambdaARN }),
     ...(input.RotationRules !== undefined && {
       RotationRules: serializeAws_json1_1RotationRulesType(input.RotationRules, context),
     }),
@@ -2165,9 +2129,7 @@ const serializeAws_json1_1RotateSecretRequest = (input: RotateSecretRequest, con
 
 const serializeAws_json1_1RotationRulesType = (input: RotationRulesType, context: __SerdeContext): any => {
   return {
-    ...(input.AutomaticallyAfterDays !== undefined && {
-      AutomaticallyAfterDays: input.AutomaticallyAfterDays,
-    }),
+    ...(input.AutomaticallyAfterDays !== undefined && { AutomaticallyAfterDays: input.AutomaticallyAfterDays }),
   };
 };
 
@@ -2193,18 +2155,14 @@ const serializeAws_json1_1TagListType = (input: Tag[], context: __SerdeContext):
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1TagListType(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagListType(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeyListType(input.TagKeys, context),
-    }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyListType(input.TagKeys, context) }),
   };
 };
 
@@ -2213,13 +2171,9 @@ const serializeAws_json1_1UpdateSecretRequest = (input: UpdateSecretRequest, con
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
-    ...(input.SecretBinary !== undefined && {
-      SecretBinary: context.base64Encoder(input.SecretBinary),
-    }),
+    ...(input.SecretBinary !== undefined && { SecretBinary: context.base64Encoder(input.SecretBinary) }),
     ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
-    ...(input.SecretString !== undefined && {
-      SecretString: input.SecretString,
-    }),
+    ...(input.SecretString !== undefined && { SecretString: input.SecretString }),
   };
 };
 
@@ -2228,16 +2182,10 @@ const serializeAws_json1_1UpdateSecretVersionStageRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MoveToVersionId !== undefined && {
-      MoveToVersionId: input.MoveToVersionId,
-    }),
-    ...(input.RemoveFromVersionId !== undefined && {
-      RemoveFromVersionId: input.RemoveFromVersionId,
-    }),
+    ...(input.MoveToVersionId !== undefined && { MoveToVersionId: input.MoveToVersionId }),
+    ...(input.RemoveFromVersionId !== undefined && { RemoveFromVersionId: input.RemoveFromVersionId }),
     ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
-    ...(input.VersionStage !== undefined && {
-      VersionStage: input.VersionStage,
-    }),
+    ...(input.VersionStage !== undefined && { VersionStage: input.VersionStage }),
   };
 };
 

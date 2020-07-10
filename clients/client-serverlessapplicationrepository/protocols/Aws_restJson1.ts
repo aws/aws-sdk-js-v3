@@ -79,29 +79,17 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
     ...(input.Author !== undefined && { author: input.Author }),
     ...(input.Description !== undefined && { description: input.Description }),
     ...(input.HomePageUrl !== undefined && { homePageUrl: input.HomePageUrl }),
-    ...(input.Labels !== undefined && {
-      labels: serializeAws_restJson1__listOf__string(input.Labels, context),
-    }),
+    ...(input.Labels !== undefined && { labels: serializeAws_restJson1__listOf__string(input.Labels, context) }),
     ...(input.LicenseBody !== undefined && { licenseBody: input.LicenseBody }),
     ...(input.LicenseUrl !== undefined && { licenseUrl: input.LicenseUrl }),
     ...(input.Name !== undefined && { name: input.Name }),
     ...(input.ReadmeBody !== undefined && { readmeBody: input.ReadmeBody }),
     ...(input.ReadmeUrl !== undefined && { readmeUrl: input.ReadmeUrl }),
-    ...(input.SemanticVersion !== undefined && {
-      semanticVersion: input.SemanticVersion,
-    }),
-    ...(input.SourceCodeArchiveUrl !== undefined && {
-      sourceCodeArchiveUrl: input.SourceCodeArchiveUrl,
-    }),
-    ...(input.SourceCodeUrl !== undefined && {
-      sourceCodeUrl: input.SourceCodeUrl,
-    }),
-    ...(input.SpdxLicenseId !== undefined && {
-      spdxLicenseId: input.SpdxLicenseId,
-    }),
-    ...(input.TemplateBody !== undefined && {
-      templateBody: input.TemplateBody,
-    }),
+    ...(input.SemanticVersion !== undefined && { semanticVersion: input.SemanticVersion }),
+    ...(input.SourceCodeArchiveUrl !== undefined && { sourceCodeArchiveUrl: input.SourceCodeArchiveUrl }),
+    ...(input.SourceCodeUrl !== undefined && { sourceCodeUrl: input.SourceCodeUrl }),
+    ...(input.SpdxLicenseId !== undefined && { spdxLicenseId: input.SpdxLicenseId }),
+    ...(input.TemplateBody !== undefined && { templateBody: input.TemplateBody }),
     ...(input.TemplateUrl !== undefined && { templateUrl: input.TemplateUrl }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -144,15 +132,9 @@ export const serializeAws_restJson1CreateApplicationVersionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.SourceCodeArchiveUrl !== undefined && {
-      sourceCodeArchiveUrl: input.SourceCodeArchiveUrl,
-    }),
-    ...(input.SourceCodeUrl !== undefined && {
-      sourceCodeUrl: input.SourceCodeUrl,
-    }),
-    ...(input.TemplateBody !== undefined && {
-      templateBody: input.TemplateBody,
-    }),
+    ...(input.SourceCodeArchiveUrl !== undefined && { sourceCodeArchiveUrl: input.SourceCodeArchiveUrl }),
+    ...(input.SourceCodeUrl !== undefined && { sourceCodeUrl: input.SourceCodeUrl }),
+    ...(input.TemplateBody !== undefined && { templateBody: input.TemplateBody }),
     ...(input.TemplateUrl !== undefined && { templateUrl: input.TemplateUrl }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -189,9 +171,7 @@ export const serializeAws_restJson1CreateCloudFormationChangeSetCommand = async 
     ...(input.Capabilities !== undefined && {
       capabilities: serializeAws_restJson1__listOf__string(input.Capabilities, context),
     }),
-    ...(input.ChangeSetName !== undefined && {
-      changeSetName: input.ChangeSetName,
-    }),
+    ...(input.ChangeSetName !== undefined && { changeSetName: input.ChangeSetName }),
     ...(input.ClientToken !== undefined && { clientToken: input.ClientToken }),
     ...(input.Description !== undefined && { description: input.Description }),
     ...(input.NotificationArns !== undefined && {
@@ -206,13 +186,9 @@ export const serializeAws_restJson1CreateCloudFormationChangeSetCommand = async 
     ...(input.RollbackConfiguration !== undefined && {
       rollbackConfiguration: serializeAws_restJson1RollbackConfiguration(input.RollbackConfiguration, context),
     }),
-    ...(input.SemanticVersion !== undefined && {
-      semanticVersion: input.SemanticVersion,
-    }),
+    ...(input.SemanticVersion !== undefined && { semanticVersion: input.SemanticVersion }),
     ...(input.StackName !== undefined && { stackName: input.StackName }),
-    ...(input.Tags !== undefined && {
-      tags: serializeAws_restJson1__listOfTag(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { tags: serializeAws_restJson1__listOfTag(input.Tags, context) }),
     ...(input.TemplateId !== undefined && { templateId: input.TemplateId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -246,9 +222,7 @@ export const serializeAws_restJson1CreateCloudFormationTemplateCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.SemanticVersion !== undefined && {
-      semanticVersion: input.SemanticVersion,
-    }),
+    ...(input.SemanticVersion !== undefined && { semanticVersion: input.SemanticVersion }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -310,9 +284,7 @@ export const serializeAws_restJson1GetApplicationCommand = async (
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   const query: any = {
-    ...(input.SemanticVersion !== undefined && {
-      semanticVersion: input.SemanticVersion,
-    }),
+    ...(input.SemanticVersion !== undefined && { semanticVersion: input.SemanticVersion }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -415,13 +387,9 @@ export const serializeAws_restJson1ListApplicationDependenciesCommand = async (
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   const query: any = {
-    ...(input.MaxItems !== undefined && {
-      maxItems: input.MaxItems.toString(),
-    }),
+    ...(input.MaxItems !== undefined && { maxItems: input.MaxItems.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.SemanticVersion !== undefined && {
-      semanticVersion: input.SemanticVersion,
-    }),
+    ...(input.SemanticVersion !== undefined && { semanticVersion: input.SemanticVersion }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -446,9 +414,7 @@ export const serializeAws_restJson1ListApplicationsCommand = async (
   };
   let resolvedPath = "/applications";
   const query: any = {
-    ...(input.MaxItems !== undefined && {
-      maxItems: input.MaxItems.toString(),
-    }),
+    ...(input.MaxItems !== undefined && { maxItems: input.MaxItems.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -483,9 +449,7 @@ export const serializeAws_restJson1ListApplicationVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   const query: any = {
-    ...(input.MaxItems !== undefined && {
-      maxItems: input.MaxItems.toString(),
-    }),
+    ...(input.MaxItems !== undefined && { maxItems: input.MaxItems.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -559,9 +523,7 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
     ...(input.Author !== undefined && { author: input.Author }),
     ...(input.Description !== undefined && { description: input.Description }),
     ...(input.HomePageUrl !== undefined && { homePageUrl: input.HomePageUrl }),
-    ...(input.Labels !== undefined && {
-      labels: serializeAws_restJson1__listOf__string(input.Labels, context),
-    }),
+    ...(input.Labels !== undefined && { labels: serializeAws_restJson1__listOf__string(input.Labels, context) }),
     ...(input.ReadmeBody !== undefined && { readmeBody: input.ReadmeBody }),
     ...(input.ReadmeUrl !== undefined && { readmeUrl: input.ReadmeUrl }),
   });
@@ -2121,9 +2083,7 @@ const serializeAws_restJson1ApplicationPolicyStatement = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Actions !== undefined && {
-      actions: serializeAws_restJson1__listOf__string(input.Actions, context),
-    }),
+    ...(input.Actions !== undefined && { actions: serializeAws_restJson1__listOf__string(input.Actions, context) }),
     ...(input.Principals !== undefined && {
       principals: serializeAws_restJson1__listOf__string(input.Principals, context),
     }),
@@ -2140,9 +2100,7 @@ const serializeAws_restJson1ParameterValue = (input: ParameterValue, context: __
 
 const serializeAws_restJson1RollbackConfiguration = (input: RollbackConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.MonitoringTimeInMinutes !== undefined && {
-      monitoringTimeInMinutes: input.MonitoringTimeInMinutes,
-    }),
+    ...(input.MonitoringTimeInMinutes !== undefined && { monitoringTimeInMinutes: input.MonitoringTimeInMinutes }),
     ...(input.RollbackTriggers !== undefined && {
       rollbackTriggers: serializeAws_restJson1__listOfRollbackTrigger(input.RollbackTriggers, context),
     }),

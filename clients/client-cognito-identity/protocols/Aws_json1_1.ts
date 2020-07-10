@@ -2544,12 +2544,8 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
 const serializeAws_json1_1CognitoIdentityProvider = (input: CognitoIdentityProvider, context: __SerdeContext): any => {
   return {
     ...(input.ClientId !== undefined && { ClientId: input.ClientId }),
-    ...(input.ProviderName !== undefined && {
-      ProviderName: input.ProviderName,
-    }),
-    ...(input.ServerSideTokenCheck !== undefined && {
-      ServerSideTokenCheck: input.ServerSideTokenCheck,
-    }),
+    ...(input.ProviderName !== undefined && { ProviderName: input.ProviderName }),
+    ...(input.ServerSideTokenCheck !== undefined && { ServerSideTokenCheck: input.ServerSideTokenCheck }),
   };
 };
 
@@ -2562,9 +2558,7 @@ const serializeAws_json1_1CognitoIdentityProviderList = (
 
 const serializeAws_json1_1CreateIdentityPoolInput = (input: CreateIdentityPoolInput, context: __SerdeContext): any => {
   return {
-    ...(input.AllowClassicFlow !== undefined && {
-      AllowClassicFlow: input.AllowClassicFlow,
-    }),
+    ...(input.AllowClassicFlow !== undefined && { AllowClassicFlow: input.AllowClassicFlow }),
     ...(input.AllowUnauthenticatedIdentities !== undefined && {
       AllowUnauthenticatedIdentities: input.AllowUnauthenticatedIdentities,
     }),
@@ -2574,12 +2568,8 @@ const serializeAws_json1_1CreateIdentityPoolInput = (input: CreateIdentityPoolIn
         context
       ),
     }),
-    ...(input.DeveloperProviderName !== undefined && {
-      DeveloperProviderName: input.DeveloperProviderName,
-    }),
-    ...(input.IdentityPoolName !== undefined && {
-      IdentityPoolName: input.IdentityPoolName,
-    }),
+    ...(input.DeveloperProviderName !== undefined && { DeveloperProviderName: input.DeveloperProviderName }),
+    ...(input.IdentityPoolName !== undefined && { IdentityPoolName: input.IdentityPoolName }),
     ...(input.IdentityPoolTags !== undefined && {
       IdentityPoolTags: serializeAws_json1_1IdentityPoolTagsType(input.IdentityPoolTags, context),
     }),
@@ -2605,9 +2595,7 @@ const serializeAws_json1_1DeleteIdentitiesInput = (input: DeleteIdentitiesInput,
 
 const serializeAws_json1_1DeleteIdentityPoolInput = (input: DeleteIdentityPoolInput, context: __SerdeContext): any => {
   return {
-    ...(input.IdentityPoolId !== undefined && {
-      IdentityPoolId: input.IdentityPoolId,
-    }),
+    ...(input.IdentityPoolId !== undefined && { IdentityPoolId: input.IdentityPoolId }),
   };
 };
 
@@ -2622,9 +2610,7 @@ const serializeAws_json1_1DescribeIdentityPoolInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IdentityPoolId !== undefined && {
-      IdentityPoolId: input.IdentityPoolId,
-    }),
+    ...(input.IdentityPoolId !== undefined && { IdentityPoolId: input.IdentityPoolId }),
   };
 };
 
@@ -2633,13 +2619,9 @@ const serializeAws_json1_1GetCredentialsForIdentityInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CustomRoleArn !== undefined && {
-      CustomRoleArn: input.CustomRoleArn,
-    }),
+    ...(input.CustomRoleArn !== undefined && { CustomRoleArn: input.CustomRoleArn }),
     ...(input.IdentityId !== undefined && { IdentityId: input.IdentityId }),
-    ...(input.Logins !== undefined && {
-      Logins: serializeAws_json1_1LoginsMap(input.Logins, context),
-    }),
+    ...(input.Logins !== undefined && { Logins: serializeAws_json1_1LoginsMap(input.Logins, context) }),
   };
 };
 
@@ -2648,21 +2630,15 @@ const serializeAws_json1_1GetIdentityPoolRolesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IdentityPoolId !== undefined && {
-      IdentityPoolId: input.IdentityPoolId,
-    }),
+    ...(input.IdentityPoolId !== undefined && { IdentityPoolId: input.IdentityPoolId }),
   };
 };
 
 const serializeAws_json1_1GetIdInput = (input: GetIdInput, context: __SerdeContext): any => {
   return {
     ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.IdentityPoolId !== undefined && {
-      IdentityPoolId: input.IdentityPoolId,
-    }),
-    ...(input.Logins !== undefined && {
-      Logins: serializeAws_json1_1LoginsMap(input.Logins, context),
-    }),
+    ...(input.IdentityPoolId !== undefined && { IdentityPoolId: input.IdentityPoolId }),
+    ...(input.Logins !== undefined && { Logins: serializeAws_json1_1LoginsMap(input.Logins, context) }),
   };
 };
 
@@ -2672,24 +2648,16 @@ const serializeAws_json1_1GetOpenIdTokenForDeveloperIdentityInput = (
 ): any => {
   return {
     ...(input.IdentityId !== undefined && { IdentityId: input.IdentityId }),
-    ...(input.IdentityPoolId !== undefined && {
-      IdentityPoolId: input.IdentityPoolId,
-    }),
-    ...(input.Logins !== undefined && {
-      Logins: serializeAws_json1_1LoginsMap(input.Logins, context),
-    }),
-    ...(input.TokenDuration !== undefined && {
-      TokenDuration: input.TokenDuration,
-    }),
+    ...(input.IdentityPoolId !== undefined && { IdentityPoolId: input.IdentityPoolId }),
+    ...(input.Logins !== undefined && { Logins: serializeAws_json1_1LoginsMap(input.Logins, context) }),
+    ...(input.TokenDuration !== undefined && { TokenDuration: input.TokenDuration }),
   };
 };
 
 const serializeAws_json1_1GetOpenIdTokenInput = (input: GetOpenIdTokenInput, context: __SerdeContext): any => {
   return {
     ...(input.IdentityId !== undefined && { IdentityId: input.IdentityId }),
-    ...(input.Logins !== undefined && {
-      Logins: serializeAws_json1_1LoginsMap(input.Logins, context),
-    }),
+    ...(input.Logins !== undefined && { Logins: serializeAws_json1_1LoginsMap(input.Logins, context) }),
   };
 };
 
@@ -2699,9 +2667,7 @@ const serializeAws_json1_1IdentityIdList = (input: string[], context: __SerdeCon
 
 const serializeAws_json1_1IdentityPool = (input: IdentityPool, context: __SerdeContext): any => {
   return {
-    ...(input.AllowClassicFlow !== undefined && {
-      AllowClassicFlow: input.AllowClassicFlow,
-    }),
+    ...(input.AllowClassicFlow !== undefined && { AllowClassicFlow: input.AllowClassicFlow }),
     ...(input.AllowUnauthenticatedIdentities !== undefined && {
       AllowUnauthenticatedIdentities: input.AllowUnauthenticatedIdentities,
     }),
@@ -2711,15 +2677,9 @@ const serializeAws_json1_1IdentityPool = (input: IdentityPool, context: __SerdeC
         context
       ),
     }),
-    ...(input.DeveloperProviderName !== undefined && {
-      DeveloperProviderName: input.DeveloperProviderName,
-    }),
-    ...(input.IdentityPoolId !== undefined && {
-      IdentityPoolId: input.IdentityPoolId,
-    }),
-    ...(input.IdentityPoolName !== undefined && {
-      IdentityPoolName: input.IdentityPoolName,
-    }),
+    ...(input.DeveloperProviderName !== undefined && { DeveloperProviderName: input.DeveloperProviderName }),
+    ...(input.IdentityPoolId !== undefined && { IdentityPoolId: input.IdentityPoolId }),
+    ...(input.IdentityPoolName !== undefined && { IdentityPoolName: input.IdentityPoolName }),
     ...(input.IdentityPoolTags !== undefined && {
       IdentityPoolTags: serializeAws_json1_1IdentityPoolTagsType(input.IdentityPoolTags, context),
     }),
@@ -2761,12 +2721,8 @@ const serializeAws_json1_1IdentityProviders = (input: { [key: string]: string },
 
 const serializeAws_json1_1ListIdentitiesInput = (input: ListIdentitiesInput, context: __SerdeContext): any => {
   return {
-    ...(input.HideDisabled !== undefined && {
-      HideDisabled: input.HideDisabled,
-    }),
-    ...(input.IdentityPoolId !== undefined && {
-      IdentityPoolId: input.IdentityPoolId,
-    }),
+    ...(input.HideDisabled !== undefined && { HideDisabled: input.HideDisabled }),
+    ...(input.IdentityPoolId !== undefined && { IdentityPoolId: input.IdentityPoolId }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -2807,13 +2763,9 @@ const serializeAws_json1_1LookupDeveloperIdentityInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeveloperUserIdentifier !== undefined && {
-      DeveloperUserIdentifier: input.DeveloperUserIdentifier,
-    }),
+    ...(input.DeveloperUserIdentifier !== undefined && { DeveloperUserIdentifier: input.DeveloperUserIdentifier }),
     ...(input.IdentityId !== undefined && { IdentityId: input.IdentityId }),
-    ...(input.IdentityPoolId !== undefined && {
-      IdentityPoolId: input.IdentityPoolId,
-    }),
+    ...(input.IdentityPoolId !== undefined && { IdentityPoolId: input.IdentityPoolId }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -2840,15 +2792,9 @@ const serializeAws_json1_1MergeDeveloperIdentitiesInput = (
     ...(input.DestinationUserIdentifier !== undefined && {
       DestinationUserIdentifier: input.DestinationUserIdentifier,
     }),
-    ...(input.DeveloperProviderName !== undefined && {
-      DeveloperProviderName: input.DeveloperProviderName,
-    }),
-    ...(input.IdentityPoolId !== undefined && {
-      IdentityPoolId: input.IdentityPoolId,
-    }),
-    ...(input.SourceUserIdentifier !== undefined && {
-      SourceUserIdentifier: input.SourceUserIdentifier,
-    }),
+    ...(input.DeveloperProviderName !== undefined && { DeveloperProviderName: input.DeveloperProviderName }),
+    ...(input.IdentityPoolId !== undefined && { IdentityPoolId: input.IdentityPoolId }),
+    ...(input.SourceUserIdentifier !== undefined && { SourceUserIdentifier: input.SourceUserIdentifier }),
   };
 };
 
@@ -2858,9 +2804,7 @@ const serializeAws_json1_1OIDCProviderList = (input: string[], context: __SerdeC
 
 const serializeAws_json1_1RoleMapping = (input: RoleMapping, context: __SerdeContext): any => {
   return {
-    ...(input.AmbiguousRoleResolution !== undefined && {
-      AmbiguousRoleResolution: input.AmbiguousRoleResolution,
-    }),
+    ...(input.AmbiguousRoleResolution !== undefined && { AmbiguousRoleResolution: input.AmbiguousRoleResolution }),
     ...(input.RulesConfiguration !== undefined && {
       RulesConfiguration: serializeAws_json1_1RulesConfigurationType(input.RulesConfiguration, context),
     }),
@@ -2890,9 +2834,7 @@ const serializeAws_json1_1RolesMap = (input: { [key: string]: string }, context:
 
 const serializeAws_json1_1RulesConfigurationType = (input: RulesConfigurationType, context: __SerdeContext): any => {
   return {
-    ...(input.Rules !== undefined && {
-      Rules: serializeAws_json1_1MappingRulesList(input.Rules, context),
-    }),
+    ...(input.Rules !== undefined && { Rules: serializeAws_json1_1MappingRulesList(input.Rules, context) }),
   };
 };
 
@@ -2905,24 +2847,18 @@ const serializeAws_json1_1SetIdentityPoolRolesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IdentityPoolId !== undefined && {
-      IdentityPoolId: input.IdentityPoolId,
-    }),
+    ...(input.IdentityPoolId !== undefined && { IdentityPoolId: input.IdentityPoolId }),
     ...(input.RoleMappings !== undefined && {
       RoleMappings: serializeAws_json1_1RoleMappingMap(input.RoleMappings, context),
     }),
-    ...(input.Roles !== undefined && {
-      Roles: serializeAws_json1_1RolesMap(input.Roles, context),
-    }),
+    ...(input.Roles !== undefined && { Roles: serializeAws_json1_1RolesMap(input.Roles, context) }),
   };
 };
 
 const serializeAws_json1_1TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1IdentityPoolTagsType(input.Tags, context),
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1IdentityPoolTagsType(input.Tags, context) }),
   };
 };
 
@@ -2931,25 +2867,17 @@ const serializeAws_json1_1UnlinkDeveloperIdentityInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeveloperProviderName !== undefined && {
-      DeveloperProviderName: input.DeveloperProviderName,
-    }),
-    ...(input.DeveloperUserIdentifier !== undefined && {
-      DeveloperUserIdentifier: input.DeveloperUserIdentifier,
-    }),
+    ...(input.DeveloperProviderName !== undefined && { DeveloperProviderName: input.DeveloperProviderName }),
+    ...(input.DeveloperUserIdentifier !== undefined && { DeveloperUserIdentifier: input.DeveloperUserIdentifier }),
     ...(input.IdentityId !== undefined && { IdentityId: input.IdentityId }),
-    ...(input.IdentityPoolId !== undefined && {
-      IdentityPoolId: input.IdentityPoolId,
-    }),
+    ...(input.IdentityPoolId !== undefined && { IdentityPoolId: input.IdentityPoolId }),
   };
 };
 
 const serializeAws_json1_1UnlinkIdentityInput = (input: UnlinkIdentityInput, context: __SerdeContext): any => {
   return {
     ...(input.IdentityId !== undefined && { IdentityId: input.IdentityId }),
-    ...(input.Logins !== undefined && {
-      Logins: serializeAws_json1_1LoginsMap(input.Logins, context),
-    }),
+    ...(input.Logins !== undefined && { Logins: serializeAws_json1_1LoginsMap(input.Logins, context) }),
     ...(input.LoginsToRemove !== undefined && {
       LoginsToRemove: serializeAws_json1_1LoginsList(input.LoginsToRemove, context),
     }),
