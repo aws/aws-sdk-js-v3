@@ -1,21 +1,11 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient";
-import {
-  CacheEngineVersionMessage,
-  DescribeCacheEngineVersionsMessage
-} from "../models/index";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
+import { CacheEngineVersionMessage, DescribeCacheEngineVersionsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeCacheEngineVersionsCommand,
-  serializeAws_queryDescribeCacheEngineVersionsCommand
+  serializeAws_queryDescribeCacheEngineVersionsCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeCacheEngineVersionsCommandInput = DescribeCacheEngineVersionsMessage;
-export type DescribeCacheEngineVersionsCommandOutput = CacheEngineVersionMessage &
-  __MetadataBearer;
+export type DescribeCacheEngineVersionsCommandOutput = CacheEngineVersionMessage & __MetadataBearer;
 
 export class DescribeCacheEngineVersionsCommand extends $Command<
   DescribeCacheEngineVersionsCommandInput,
@@ -49,18 +38,13 @@ export class DescribeCacheEngineVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeCacheEngineVersionsCommandInput,
-    DescribeCacheEngineVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeCacheEngineVersionsCommandInput, DescribeCacheEngineVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +54,7 @@ export class DescribeCacheEngineVersionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeCacheEngineVersionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeCacheEngineVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeCacheEngineVersionsCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class DescribeCacheEngineVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCacheEngineVersionsCommandOutput> {
-    return deserializeAws_queryDescribeCacheEngineVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeCacheEngineVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

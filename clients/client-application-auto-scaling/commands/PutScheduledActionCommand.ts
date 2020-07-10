@@ -1,21 +1,15 @@
 import {
   ApplicationAutoScalingClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
-import {
-  PutScheduledActionRequest,
-  PutScheduledActionResponse
-} from "../models/index";
+import { PutScheduledActionRequest, PutScheduledActionResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutScheduledActionCommand,
-  serializeAws_json1_1PutScheduledActionCommand
+  serializeAws_json1_1PutScheduledActionCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type PutScheduledActionCommandInput = PutScheduledActionRequest;
-export type PutScheduledActionCommandOutput = PutScheduledActionResponse &
-  __MetadataBearer;
+export type PutScheduledActionCommandOutput = PutScheduledActionResponse & __MetadataBearer;
 
 export class PutScheduledActionCommand extends $Command<
   PutScheduledActionCommandInput,
@@ -50,14 +43,12 @@ export class PutScheduledActionCommand extends $Command<
     configuration: ApplicationAutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutScheduledActionCommandInput, PutScheduledActionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +58,11 @@ export class PutScheduledActionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutScheduledActionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutScheduledActionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutScheduledActionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutScheduledActionCommandOutput> {
     return deserializeAws_json1_1PutScheduledActionCommand(output, context);
   }
 

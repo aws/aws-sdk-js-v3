@@ -1,106 +1,67 @@
-import {
-  BuildSuggestersCommandInput,
-  BuildSuggestersCommandOutput
-} from "../commands/BuildSuggestersCommand";
-import {
-  CreateDomainCommandInput,
-  CreateDomainCommandOutput
-} from "../commands/CreateDomainCommand";
+import { BuildSuggestersCommandInput, BuildSuggestersCommandOutput } from "../commands/BuildSuggestersCommand";
+import { CreateDomainCommandInput, CreateDomainCommandOutput } from "../commands/CreateDomainCommand";
 import {
   DefineAnalysisSchemeCommandInput,
-  DefineAnalysisSchemeCommandOutput
+  DefineAnalysisSchemeCommandOutput,
 } from "../commands/DefineAnalysisSchemeCommand";
-import {
-  DefineExpressionCommandInput,
-  DefineExpressionCommandOutput
-} from "../commands/DefineExpressionCommand";
-import {
-  DefineIndexFieldCommandInput,
-  DefineIndexFieldCommandOutput
-} from "../commands/DefineIndexFieldCommand";
-import {
-  DefineSuggesterCommandInput,
-  DefineSuggesterCommandOutput
-} from "../commands/DefineSuggesterCommand";
+import { DefineExpressionCommandInput, DefineExpressionCommandOutput } from "../commands/DefineExpressionCommand";
+import { DefineIndexFieldCommandInput, DefineIndexFieldCommandOutput } from "../commands/DefineIndexFieldCommand";
+import { DefineSuggesterCommandInput, DefineSuggesterCommandOutput } from "../commands/DefineSuggesterCommand";
 import {
   DeleteAnalysisSchemeCommandInput,
-  DeleteAnalysisSchemeCommandOutput
+  DeleteAnalysisSchemeCommandOutput,
 } from "../commands/DeleteAnalysisSchemeCommand";
-import {
-  DeleteDomainCommandInput,
-  DeleteDomainCommandOutput
-} from "../commands/DeleteDomainCommand";
-import {
-  DeleteExpressionCommandInput,
-  DeleteExpressionCommandOutput
-} from "../commands/DeleteExpressionCommand";
-import {
-  DeleteIndexFieldCommandInput,
-  DeleteIndexFieldCommandOutput
-} from "../commands/DeleteIndexFieldCommand";
-import {
-  DeleteSuggesterCommandInput,
-  DeleteSuggesterCommandOutput
-} from "../commands/DeleteSuggesterCommand";
+import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand";
+import { DeleteExpressionCommandInput, DeleteExpressionCommandOutput } from "../commands/DeleteExpressionCommand";
+import { DeleteIndexFieldCommandInput, DeleteIndexFieldCommandOutput } from "../commands/DeleteIndexFieldCommand";
+import { DeleteSuggesterCommandInput, DeleteSuggesterCommandOutput } from "../commands/DeleteSuggesterCommand";
 import {
   DescribeAnalysisSchemesCommandInput,
-  DescribeAnalysisSchemesCommandOutput
+  DescribeAnalysisSchemesCommandOutput,
 } from "../commands/DescribeAnalysisSchemesCommand";
 import {
   DescribeAvailabilityOptionsCommandInput,
-  DescribeAvailabilityOptionsCommandOutput
+  DescribeAvailabilityOptionsCommandOutput,
 } from "../commands/DescribeAvailabilityOptionsCommand";
 import {
   DescribeDomainEndpointOptionsCommandInput,
-  DescribeDomainEndpointOptionsCommandOutput
+  DescribeDomainEndpointOptionsCommandOutput,
 } from "../commands/DescribeDomainEndpointOptionsCommand";
-import {
-  DescribeDomainsCommandInput,
-  DescribeDomainsCommandOutput
-} from "../commands/DescribeDomainsCommand";
+import { DescribeDomainsCommandInput, DescribeDomainsCommandOutput } from "../commands/DescribeDomainsCommand";
 import {
   DescribeExpressionsCommandInput,
-  DescribeExpressionsCommandOutput
+  DescribeExpressionsCommandOutput,
 } from "../commands/DescribeExpressionsCommand";
 import {
   DescribeIndexFieldsCommandInput,
-  DescribeIndexFieldsCommandOutput
+  DescribeIndexFieldsCommandOutput,
 } from "../commands/DescribeIndexFieldsCommand";
 import {
   DescribeScalingParametersCommandInput,
-  DescribeScalingParametersCommandOutput
+  DescribeScalingParametersCommandOutput,
 } from "../commands/DescribeScalingParametersCommand";
 import {
   DescribeServiceAccessPoliciesCommandInput,
-  DescribeServiceAccessPoliciesCommandOutput
+  DescribeServiceAccessPoliciesCommandOutput,
 } from "../commands/DescribeServiceAccessPoliciesCommand";
-import {
-  DescribeSuggestersCommandInput,
-  DescribeSuggestersCommandOutput
-} from "../commands/DescribeSuggestersCommand";
-import {
-  IndexDocumentsCommandInput,
-  IndexDocumentsCommandOutput
-} from "../commands/IndexDocumentsCommand";
-import {
-  ListDomainNamesCommandInput,
-  ListDomainNamesCommandOutput
-} from "../commands/ListDomainNamesCommand";
+import { DescribeSuggestersCommandInput, DescribeSuggestersCommandOutput } from "../commands/DescribeSuggestersCommand";
+import { IndexDocumentsCommandInput, IndexDocumentsCommandOutput } from "../commands/IndexDocumentsCommand";
+import { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "../commands/ListDomainNamesCommand";
 import {
   UpdateAvailabilityOptionsCommandInput,
-  UpdateAvailabilityOptionsCommandOutput
+  UpdateAvailabilityOptionsCommandOutput,
 } from "../commands/UpdateAvailabilityOptionsCommand";
 import {
   UpdateDomainEndpointOptionsCommandInput,
-  UpdateDomainEndpointOptionsCommandOutput
+  UpdateDomainEndpointOptionsCommandOutput,
 } from "../commands/UpdateDomainEndpointOptionsCommand";
 import {
   UpdateScalingParametersCommandInput,
-  UpdateScalingParametersCommandOutput
+  UpdateScalingParametersCommandOutput,
 } from "../commands/UpdateScalingParametersCommand";
 import {
   UpdateServiceAccessPoliciesCommandInput,
-  UpdateServiceAccessPoliciesCommandOutput
+  UpdateServiceAccessPoliciesCommandOutput,
 } from "../commands/UpdateServiceAccessPoliciesCommand";
 import {
   AccessPoliciesStatus,
@@ -191,24 +152,21 @@ import {
   UpdateScalingParametersResponse,
   UpdateServiceAccessPoliciesRequest,
   UpdateServiceAccessPoliciesResponse,
-  ValidationException
+  ValidationException,
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
-  getValueFromTextNode as __getValueFromTextNode
+  getValueFromTextNode as __getValueFromTextNode,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { parse as xmlParse } from "fast-xml-parser";
 
@@ -217,13 +175,13 @@ export const serializeAws_queryBuildSuggestersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryBuildSuggestersRequest(input, context),
     Action: "BuildSuggesters",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -233,13 +191,13 @@ export const serializeAws_queryCreateDomainCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryCreateDomainRequest(input, context),
     Action: "CreateDomain",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -249,13 +207,13 @@ export const serializeAws_queryDefineAnalysisSchemeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDefineAnalysisSchemeRequest(input, context),
     Action: "DefineAnalysisScheme",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -265,13 +223,13 @@ export const serializeAws_queryDefineExpressionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDefineExpressionRequest(input, context),
     Action: "DefineExpression",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -281,13 +239,13 @@ export const serializeAws_queryDefineIndexFieldCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDefineIndexFieldRequest(input, context),
     Action: "DefineIndexField",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -297,13 +255,13 @@ export const serializeAws_queryDefineSuggesterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDefineSuggesterRequest(input, context),
     Action: "DefineSuggester",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -313,13 +271,13 @@ export const serializeAws_queryDeleteAnalysisSchemeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDeleteAnalysisSchemeRequest(input, context),
     Action: "DeleteAnalysisScheme",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -329,13 +287,13 @@ export const serializeAws_queryDeleteDomainCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDeleteDomainRequest(input, context),
     Action: "DeleteDomain",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -345,13 +303,13 @@ export const serializeAws_queryDeleteExpressionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDeleteExpressionRequest(input, context),
     Action: "DeleteExpression",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -361,13 +319,13 @@ export const serializeAws_queryDeleteIndexFieldCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDeleteIndexFieldRequest(input, context),
     Action: "DeleteIndexField",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -377,13 +335,13 @@ export const serializeAws_queryDeleteSuggesterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDeleteSuggesterRequest(input, context),
     Action: "DeleteSuggester",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -393,13 +351,13 @@ export const serializeAws_queryDescribeAnalysisSchemesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeAnalysisSchemesRequest(input, context),
     Action: "DescribeAnalysisSchemes",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -409,13 +367,13 @@ export const serializeAws_queryDescribeAvailabilityOptionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeAvailabilityOptionsRequest(input, context),
     Action: "DescribeAvailabilityOptions",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -425,13 +383,13 @@ export const serializeAws_queryDescribeDomainEndpointOptionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeDomainEndpointOptionsRequest(input, context),
     Action: "DescribeDomainEndpointOptions",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -441,13 +399,13 @@ export const serializeAws_queryDescribeDomainsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeDomainsRequest(input, context),
     Action: "DescribeDomains",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -457,13 +415,13 @@ export const serializeAws_queryDescribeExpressionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeExpressionsRequest(input, context),
     Action: "DescribeExpressions",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -473,13 +431,13 @@ export const serializeAws_queryDescribeIndexFieldsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeIndexFieldsRequest(input, context),
     Action: "DescribeIndexFields",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -489,13 +447,13 @@ export const serializeAws_queryDescribeScalingParametersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeScalingParametersRequest(input, context),
     Action: "DescribeScalingParameters",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -505,13 +463,13 @@ export const serializeAws_queryDescribeServiceAccessPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeServiceAccessPoliciesRequest(input, context),
     Action: "DescribeServiceAccessPolicies",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -521,13 +479,13 @@ export const serializeAws_queryDescribeSuggestersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeSuggestersRequest(input, context),
     Action: "DescribeSuggesters",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -537,13 +495,13 @@ export const serializeAws_queryIndexDocumentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryIndexDocumentsRequest(input, context),
     Action: "IndexDocuments",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -553,11 +511,11 @@ export const serializeAws_queryListDomainNamesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "ListDomainNames",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -567,13 +525,13 @@ export const serializeAws_queryUpdateAvailabilityOptionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryUpdateAvailabilityOptionsRequest(input, context),
     Action: "UpdateAvailabilityOptions",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -583,13 +541,13 @@ export const serializeAws_queryUpdateDomainEndpointOptionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryUpdateDomainEndpointOptionsRequest(input, context),
     Action: "UpdateDomainEndpointOptions",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -599,13 +557,13 @@ export const serializeAws_queryUpdateScalingParametersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryUpdateScalingParametersRequest(input, context),
     Action: "UpdateScalingParameters",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -615,13 +573,13 @@ export const serializeAws_queryUpdateServiceAccessPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryUpdateServiceAccessPoliciesRequest(input, context),
     Action: "UpdateServiceAccessPolicies",
-    Version: "2013-01-01"
+    Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -635,14 +593,11 @@ export const deserializeAws_queryBuildSuggestersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryBuildSuggestersResponse(
-    data.BuildSuggestersResult,
-    context
-  );
+  contents = deserializeAws_queryBuildSuggestersResponse(data.BuildSuggestersResult, context);
   const response: BuildSuggestersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BuildSuggestersResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -653,7 +608,7 @@ const deserializeAws_queryBuildSuggestersCommandError = async (
 ): Promise<BuildSuggestersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -662,34 +617,25 @@ const deserializeAws_queryBuildSuggestersCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -698,10 +644,9 @@ const deserializeAws_queryBuildSuggestersCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -719,14 +664,11 @@ export const deserializeAws_queryCreateDomainCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateDomainResponse(
-    data.CreateDomainResult,
-    context
-  );
+  contents = deserializeAws_queryCreateDomainResponse(data.CreateDomainResult, context);
   const response: CreateDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDomainResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -737,7 +679,7 @@ const deserializeAws_queryCreateDomainCommandError = async (
 ): Promise<CreateDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -746,34 +688,25 @@ const deserializeAws_queryCreateDomainCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -782,10 +715,9 @@ const deserializeAws_queryCreateDomainCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -799,21 +731,15 @@ export const deserializeAws_queryDefineAnalysisSchemeCommand = async (
   context: __SerdeContext
 ): Promise<DefineAnalysisSchemeCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDefineAnalysisSchemeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDefineAnalysisSchemeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDefineAnalysisSchemeResponse(
-    data.DefineAnalysisSchemeResult,
-    context
-  );
+  contents = deserializeAws_queryDefineAnalysisSchemeResponse(data.DefineAnalysisSchemeResult, context);
   const response: DefineAnalysisSchemeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DefineAnalysisSchemeResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -824,7 +750,7 @@ const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
 ): Promise<DefineAnalysisSchemeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -833,56 +759,41 @@ const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
-        ...(await deserializeAws_queryInvalidTypeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -891,10 +802,9 @@ const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -912,14 +822,11 @@ export const deserializeAws_queryDefineExpressionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDefineExpressionResponse(
-    data.DefineExpressionResult,
-    context
-  );
+  contents = deserializeAws_queryDefineExpressionResponse(data.DefineExpressionResult, context);
   const response: DefineExpressionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DefineExpressionResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -930,7 +837,7 @@ const deserializeAws_queryDefineExpressionCommandError = async (
 ): Promise<DefineExpressionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -939,56 +846,41 @@ const deserializeAws_queryDefineExpressionCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
-        ...(await deserializeAws_queryInvalidTypeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -997,10 +889,9 @@ const deserializeAws_queryDefineExpressionCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1018,14 +909,11 @@ export const deserializeAws_queryDefineIndexFieldCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDefineIndexFieldResponse(
-    data.DefineIndexFieldResult,
-    context
-  );
+  contents = deserializeAws_queryDefineIndexFieldResponse(data.DefineIndexFieldResult, context);
   const response: DefineIndexFieldCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DefineIndexFieldResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1036,7 +924,7 @@ const deserializeAws_queryDefineIndexFieldCommandError = async (
 ): Promise<DefineIndexFieldCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1045,56 +933,41 @@ const deserializeAws_queryDefineIndexFieldCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
-        ...(await deserializeAws_queryInvalidTypeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1103,10 +976,9 @@ const deserializeAws_queryDefineIndexFieldCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1124,14 +996,11 @@ export const deserializeAws_queryDefineSuggesterCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDefineSuggesterResponse(
-    data.DefineSuggesterResult,
-    context
-  );
+  contents = deserializeAws_queryDefineSuggesterResponse(data.DefineSuggesterResult, context);
   const response: DefineSuggesterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DefineSuggesterResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1142,7 +1011,7 @@ const deserializeAws_queryDefineSuggesterCommandError = async (
 ): Promise<DefineSuggesterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1151,56 +1020,41 @@ const deserializeAws_queryDefineSuggesterCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
-        ...(await deserializeAws_queryInvalidTypeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1209,10 +1063,9 @@ const deserializeAws_queryDefineSuggesterCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1226,21 +1079,15 @@ export const deserializeAws_queryDeleteAnalysisSchemeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAnalysisSchemeCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDeleteAnalysisSchemeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteAnalysisSchemeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteAnalysisSchemeResponse(
-    data.DeleteAnalysisSchemeResult,
-    context
-  );
+  contents = deserializeAws_queryDeleteAnalysisSchemeResponse(data.DeleteAnalysisSchemeResult, context);
   const response: DeleteAnalysisSchemeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteAnalysisSchemeResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1251,7 +1098,7 @@ const deserializeAws_queryDeleteAnalysisSchemeCommandError = async (
 ): Promise<DeleteAnalysisSchemeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1260,45 +1107,33 @@ const deserializeAws_queryDeleteAnalysisSchemeCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
-        ...(await deserializeAws_queryInvalidTypeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1307,10 +1142,9 @@ const deserializeAws_queryDeleteAnalysisSchemeCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1328,14 +1162,11 @@ export const deserializeAws_queryDeleteDomainCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteDomainResponse(
-    data.DeleteDomainResult,
-    context
-  );
+  contents = deserializeAws_queryDeleteDomainResponse(data.DeleteDomainResult, context);
   const response: DeleteDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDomainResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1346,7 +1177,7 @@ const deserializeAws_queryDeleteDomainCommandError = async (
 ): Promise<DeleteDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1355,23 +1186,17 @@ const deserializeAws_queryDeleteDomainCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1380,10 +1205,9 @@ const deserializeAws_queryDeleteDomainCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1401,14 +1225,11 @@ export const deserializeAws_queryDeleteExpressionCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteExpressionResponse(
-    data.DeleteExpressionResult,
-    context
-  );
+  contents = deserializeAws_queryDeleteExpressionResponse(data.DeleteExpressionResult, context);
   const response: DeleteExpressionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteExpressionResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1419,7 +1240,7 @@ const deserializeAws_queryDeleteExpressionCommandError = async (
 ): Promise<DeleteExpressionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1428,45 +1249,33 @@ const deserializeAws_queryDeleteExpressionCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
-        ...(await deserializeAws_queryInvalidTypeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1475,10 +1284,9 @@ const deserializeAws_queryDeleteExpressionCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1496,14 +1304,11 @@ export const deserializeAws_queryDeleteIndexFieldCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteIndexFieldResponse(
-    data.DeleteIndexFieldResult,
-    context
-  );
+  contents = deserializeAws_queryDeleteIndexFieldResponse(data.DeleteIndexFieldResult, context);
   const response: DeleteIndexFieldCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteIndexFieldResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1514,7 +1319,7 @@ const deserializeAws_queryDeleteIndexFieldCommandError = async (
 ): Promise<DeleteIndexFieldCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1523,45 +1328,33 @@ const deserializeAws_queryDeleteIndexFieldCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
-        ...(await deserializeAws_queryInvalidTypeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1570,10 +1363,9 @@ const deserializeAws_queryDeleteIndexFieldCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1591,14 +1383,11 @@ export const deserializeAws_queryDeleteSuggesterCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteSuggesterResponse(
-    data.DeleteSuggesterResult,
-    context
-  );
+  contents = deserializeAws_queryDeleteSuggesterResponse(data.DeleteSuggesterResult, context);
   const response: DeleteSuggesterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteSuggesterResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1609,7 +1398,7 @@ const deserializeAws_queryDeleteSuggesterCommandError = async (
 ): Promise<DeleteSuggesterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1618,45 +1407,33 @@ const deserializeAws_queryDeleteSuggesterCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
-        ...(await deserializeAws_queryInvalidTypeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1665,10 +1442,9 @@ const deserializeAws_queryDeleteSuggesterCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1682,21 +1458,15 @@ export const deserializeAws_queryDescribeAnalysisSchemesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAnalysisSchemesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeAnalysisSchemesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeAnalysisSchemesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeAnalysisSchemesResponse(
-    data.DescribeAnalysisSchemesResult,
-    context
-  );
+  contents = deserializeAws_queryDescribeAnalysisSchemesResponse(data.DescribeAnalysisSchemesResult, context);
   const response: DescribeAnalysisSchemesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAnalysisSchemesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1707,7 +1477,7 @@ const deserializeAws_queryDescribeAnalysisSchemesCommandError = async (
 ): Promise<DescribeAnalysisSchemesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1716,34 +1486,25 @@ const deserializeAws_queryDescribeAnalysisSchemesCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1752,10 +1513,9 @@ const deserializeAws_queryDescribeAnalysisSchemesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1769,21 +1529,15 @@ export const deserializeAws_queryDescribeAvailabilityOptionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAvailabilityOptionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeAvailabilityOptionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeAvailabilityOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeAvailabilityOptionsResponse(
-    data.DescribeAvailabilityOptionsResult,
-    context
-  );
+  contents = deserializeAws_queryDescribeAvailabilityOptionsResponse(data.DescribeAvailabilityOptionsResult, context);
   const response: DescribeAvailabilityOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAvailabilityOptionsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1794,7 +1548,7 @@ const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
 ): Promise<DescribeAvailabilityOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1803,67 +1557,49 @@ const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DisabledOperationException":
     case "com.amazonaws.cloudsearch#DisabledOperationException":
       response = {
-        ...(await deserializeAws_queryDisabledOperationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryDisabledOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
-        ...(await deserializeAws_queryInvalidTypeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1872,10 +1608,9 @@ const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1889,10 +1624,7 @@ export const deserializeAws_queryDescribeDomainEndpointOptionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDomainEndpointOptionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeDomainEndpointOptionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeDomainEndpointOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1903,7 +1635,7 @@ export const deserializeAws_queryDescribeDomainEndpointOptionsCommand = async (
   const response: DescribeDomainEndpointOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeDomainEndpointOptionsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1914,7 +1646,7 @@ const deserializeAws_queryDescribeDomainEndpointOptionsCommandError = async (
 ): Promise<DescribeDomainEndpointOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1923,56 +1655,41 @@ const deserializeAws_queryDescribeDomainEndpointOptionsCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DisabledOperationException":
     case "com.amazonaws.cloudsearch#DisabledOperationException":
       response = {
-        ...(await deserializeAws_queryDisabledOperationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryDisabledOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1981,10 +1698,9 @@ const deserializeAws_queryDescribeDomainEndpointOptionsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2002,14 +1718,11 @@ export const deserializeAws_queryDescribeDomainsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeDomainsResponse(
-    data.DescribeDomainsResult,
-    context
-  );
+  contents = deserializeAws_queryDescribeDomainsResponse(data.DescribeDomainsResult, context);
   const response: DescribeDomainsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeDomainsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2020,7 +1733,7 @@ const deserializeAws_queryDescribeDomainsCommandError = async (
 ): Promise<DescribeDomainsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2029,23 +1742,17 @@ const deserializeAws_queryDescribeDomainsCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2054,10 +1761,9 @@ const deserializeAws_queryDescribeDomainsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2075,14 +1781,11 @@ export const deserializeAws_queryDescribeExpressionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeExpressionsResponse(
-    data.DescribeExpressionsResult,
-    context
-  );
+  contents = deserializeAws_queryDescribeExpressionsResponse(data.DescribeExpressionsResult, context);
   const response: DescribeExpressionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeExpressionsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2093,7 +1796,7 @@ const deserializeAws_queryDescribeExpressionsCommandError = async (
 ): Promise<DescribeExpressionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2102,34 +1805,25 @@ const deserializeAws_queryDescribeExpressionsCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2138,10 +1832,9 @@ const deserializeAws_queryDescribeExpressionsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2159,14 +1852,11 @@ export const deserializeAws_queryDescribeIndexFieldsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeIndexFieldsResponse(
-    data.DescribeIndexFieldsResult,
-    context
-  );
+  contents = deserializeAws_queryDescribeIndexFieldsResponse(data.DescribeIndexFieldsResult, context);
   const response: DescribeIndexFieldsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeIndexFieldsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2177,7 +1867,7 @@ const deserializeAws_queryDescribeIndexFieldsCommandError = async (
 ): Promise<DescribeIndexFieldsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2186,34 +1876,25 @@ const deserializeAws_queryDescribeIndexFieldsCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2222,10 +1903,9 @@ const deserializeAws_queryDescribeIndexFieldsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2239,21 +1919,15 @@ export const deserializeAws_queryDescribeScalingParametersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeScalingParametersCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeScalingParametersCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeScalingParametersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeScalingParametersResponse(
-    data.DescribeScalingParametersResult,
-    context
-  );
+  contents = deserializeAws_queryDescribeScalingParametersResponse(data.DescribeScalingParametersResult, context);
   const response: DescribeScalingParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeScalingParametersResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2264,7 +1938,7 @@ const deserializeAws_queryDescribeScalingParametersCommandError = async (
 ): Promise<DescribeScalingParametersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2273,34 +1947,25 @@ const deserializeAws_queryDescribeScalingParametersCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2309,10 +1974,9 @@ const deserializeAws_queryDescribeScalingParametersCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2326,10 +1990,7 @@ export const deserializeAws_queryDescribeServiceAccessPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeServiceAccessPoliciesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeServiceAccessPoliciesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeServiceAccessPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2340,7 +2001,7 @@ export const deserializeAws_queryDescribeServiceAccessPoliciesCommand = async (
   const response: DescribeServiceAccessPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeServiceAccessPoliciesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2351,7 +2012,7 @@ const deserializeAws_queryDescribeServiceAccessPoliciesCommandError = async (
 ): Promise<DescribeServiceAccessPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2360,34 +2021,25 @@ const deserializeAws_queryDescribeServiceAccessPoliciesCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2396,10 +2048,9 @@ const deserializeAws_queryDescribeServiceAccessPoliciesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2417,14 +2068,11 @@ export const deserializeAws_queryDescribeSuggestersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeSuggestersResponse(
-    data.DescribeSuggestersResult,
-    context
-  );
+  contents = deserializeAws_queryDescribeSuggestersResponse(data.DescribeSuggestersResult, context);
   const response: DescribeSuggestersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeSuggestersResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2435,7 +2083,7 @@ const deserializeAws_queryDescribeSuggestersCommandError = async (
 ): Promise<DescribeSuggestersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2444,34 +2092,25 @@ const deserializeAws_queryDescribeSuggestersCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2480,10 +2119,9 @@ const deserializeAws_queryDescribeSuggestersCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2501,14 +2139,11 @@ export const deserializeAws_queryIndexDocumentsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryIndexDocumentsResponse(
-    data.IndexDocumentsResult,
-    context
-  );
+  contents = deserializeAws_queryIndexDocumentsResponse(data.IndexDocumentsResult, context);
   const response: IndexDocumentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "IndexDocumentsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2519,7 +2154,7 @@ const deserializeAws_queryIndexDocumentsCommandError = async (
 ): Promise<IndexDocumentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2528,34 +2163,25 @@ const deserializeAws_queryIndexDocumentsCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2564,10 +2190,9 @@ const deserializeAws_queryIndexDocumentsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2585,14 +2210,11 @@ export const deserializeAws_queryListDomainNamesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListDomainNamesResponse(
-    data.ListDomainNamesResult,
-    context
-  );
+  contents = deserializeAws_queryListDomainNamesResponse(data.ListDomainNamesResult, context);
   const response: ListDomainNamesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDomainNamesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2603,7 +2225,7 @@ const deserializeAws_queryListDomainNamesCommandError = async (
 ): Promise<ListDomainNamesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2612,12 +2234,9 @@ const deserializeAws_queryListDomainNamesCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2626,10 +2245,9 @@ const deserializeAws_queryListDomainNamesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2643,21 +2261,15 @@ export const deserializeAws_queryUpdateAvailabilityOptionsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAvailabilityOptionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryUpdateAvailabilityOptionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateAvailabilityOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUpdateAvailabilityOptionsResponse(
-    data.UpdateAvailabilityOptionsResult,
-    context
-  );
+  contents = deserializeAws_queryUpdateAvailabilityOptionsResponse(data.UpdateAvailabilityOptionsResult, context);
   const response: UpdateAvailabilityOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateAvailabilityOptionsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2668,7 +2280,7 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
 ): Promise<UpdateAvailabilityOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2677,78 +2289,57 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DisabledOperationException":
     case "com.amazonaws.cloudsearch#DisabledOperationException":
       response = {
-        ...(await deserializeAws_queryDisabledOperationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryDisabledOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
-        ...(await deserializeAws_queryInvalidTypeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.cloudsearch#ValidationException":
       response = {
-        ...(await deserializeAws_queryValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2757,10 +2348,9 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2774,21 +2364,15 @@ export const deserializeAws_queryUpdateDomainEndpointOptionsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDomainEndpointOptionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryUpdateDomainEndpointOptionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateDomainEndpointOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUpdateDomainEndpointOptionsResponse(
-    data.UpdateDomainEndpointOptionsResult,
-    context
-  );
+  contents = deserializeAws_queryUpdateDomainEndpointOptionsResponse(data.UpdateDomainEndpointOptionsResult, context);
   const response: UpdateDomainEndpointOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDomainEndpointOptionsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2799,7 +2383,7 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
 ): Promise<UpdateDomainEndpointOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2808,78 +2392,57 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DisabledOperationException":
     case "com.amazonaws.cloudsearch#DisabledOperationException":
       response = {
-        ...(await deserializeAws_queryDisabledOperationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryDisabledOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
-        ...(await deserializeAws_queryInvalidTypeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.cloudsearch#ValidationException":
       response = {
-        ...(await deserializeAws_queryValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2888,10 +2451,9 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2905,21 +2467,15 @@ export const deserializeAws_queryUpdateScalingParametersCommand = async (
   context: __SerdeContext
 ): Promise<UpdateScalingParametersCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryUpdateScalingParametersCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateScalingParametersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUpdateScalingParametersResponse(
-    data.UpdateScalingParametersResult,
-    context
-  );
+  contents = deserializeAws_queryUpdateScalingParametersResponse(data.UpdateScalingParametersResult, context);
   const response: UpdateScalingParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateScalingParametersResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2930,7 +2486,7 @@ const deserializeAws_queryUpdateScalingParametersCommandError = async (
 ): Promise<UpdateScalingParametersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2939,56 +2495,41 @@ const deserializeAws_queryUpdateScalingParametersCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
-        ...(await deserializeAws_queryInvalidTypeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2997,10 +2538,9 @@ const deserializeAws_queryUpdateScalingParametersCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3014,21 +2554,15 @@ export const deserializeAws_queryUpdateServiceAccessPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<UpdateServiceAccessPoliciesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryUpdateServiceAccessPoliciesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateServiceAccessPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUpdateServiceAccessPoliciesResponse(
-    data.UpdateServiceAccessPoliciesResult,
-    context
-  );
+  contents = deserializeAws_queryUpdateServiceAccessPoliciesResponse(data.UpdateServiceAccessPoliciesResult, context);
   const response: UpdateServiceAccessPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateServiceAccessPoliciesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3039,7 +2573,7 @@ const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
 ): Promise<UpdateServiceAccessPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3048,56 +2582,41 @@ const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
       response = {
-        ...(await deserializeAws_queryBaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       response = {
-        ...(await deserializeAws_queryInternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
-        ...(await deserializeAws_queryInvalidTypeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3106,10 +2625,9 @@ const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3123,15 +2641,12 @@ const deserializeAws_queryBaseExceptionResponse = async (
   context: __SerdeContext
 ): Promise<BaseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryBaseException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryBaseException(body.Error, context);
   const contents: BaseException = {
     name: "BaseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -3141,15 +2656,12 @@ const deserializeAws_queryDisabledOperationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<DisabledOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryDisabledOperationException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryDisabledOperationException(body.Error, context);
   const contents: DisabledOperationException = {
     name: "DisabledOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -3159,15 +2671,12 @@ const deserializeAws_queryInternalExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInternalException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryInternalException(body.Error, context);
   const contents: InternalException = {
     name: "InternalException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -3177,15 +2686,12 @@ const deserializeAws_queryInvalidTypeExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidTypeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidTypeException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryInvalidTypeException(body.Error, context);
   const contents: InvalidTypeException = {
     name: "InvalidTypeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -3195,15 +2701,12 @@ const deserializeAws_queryLimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryLimitExceededException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryLimitExceededException(body.Error, context);
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -3213,15 +2716,12 @@ const deserializeAws_queryResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryResourceNotFoundException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryResourceNotFoundException(body.Error, context);
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -3231,30 +2731,23 @@ const deserializeAws_queryValidationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryValidationException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryValidationException(body.Error, context);
   const contents: ValidationException = {
     name: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
 
-const serializeAws_queryAnalysisOptions = (
-  input: AnalysisOptions,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryAnalysisOptions = (input: AnalysisOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.AlgorithmicStemming !== undefined) {
     entries["AlgorithmicStemming"] = input.AlgorithmicStemming;
   }
   if (input.JapaneseTokenizationDictionary !== undefined) {
-    entries["JapaneseTokenizationDictionary"] =
-      input.JapaneseTokenizationDictionary;
+    entries["JapaneseTokenizationDictionary"] = input.JapaneseTokenizationDictionary;
   }
   if (input.StemmingDictionary !== undefined) {
     entries["StemmingDictionary"] = input.StemmingDictionary;
@@ -3268,16 +2761,10 @@ const serializeAws_queryAnalysisOptions = (
   return entries;
 };
 
-const serializeAws_queryAnalysisScheme = (
-  input: AnalysisScheme,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryAnalysisScheme = (input: AnalysisScheme, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.AnalysisOptions !== undefined) {
-    const memberEntries = serializeAws_queryAnalysisOptions(
-      input.AnalysisOptions,
-      context
-    );
+    const memberEntries = serializeAws_queryAnalysisOptions(input.AnalysisOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AnalysisOptions.${key}`;
       entries[loc] = value;
@@ -3292,10 +2779,7 @@ const serializeAws_queryAnalysisScheme = (
   return entries;
 };
 
-const serializeAws_queryBuildSuggestersRequest = (
-  input: BuildSuggestersRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryBuildSuggestersRequest = (input: BuildSuggestersRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName !== undefined) {
     entries["DomainName"] = input.DomainName;
@@ -3303,10 +2787,7 @@ const serializeAws_queryBuildSuggestersRequest = (
   return entries;
 };
 
-const serializeAws_queryCreateDomainRequest = (
-  input: CreateDomainRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryCreateDomainRequest = (input: CreateDomainRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName !== undefined) {
     entries["DomainName"] = input.DomainName;
@@ -3314,10 +2795,7 @@ const serializeAws_queryCreateDomainRequest = (
   return entries;
 };
 
-const serializeAws_queryDateArrayOptions = (
-  input: DateArrayOptions,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDateArrayOptions = (input: DateArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue !== undefined) {
     entries["DefaultValue"] = input.DefaultValue;
@@ -3337,10 +2815,7 @@ const serializeAws_queryDateArrayOptions = (
   return entries;
 };
 
-const serializeAws_queryDateOptions = (
-  input: DateOptions,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDateOptions = (input: DateOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue !== undefined) {
     entries["DefaultValue"] = input.DefaultValue;
@@ -3369,10 +2844,7 @@ const serializeAws_queryDefineAnalysisSchemeRequest = (
 ): any => {
   const entries: any = {};
   if (input.AnalysisScheme !== undefined) {
-    const memberEntries = serializeAws_queryAnalysisScheme(
-      input.AnalysisScheme,
-      context
-    );
+    const memberEntries = serializeAws_queryAnalysisScheme(input.AnalysisScheme, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AnalysisScheme.${key}`;
       entries[loc] = value;
@@ -3384,19 +2856,13 @@ const serializeAws_queryDefineAnalysisSchemeRequest = (
   return entries;
 };
 
-const serializeAws_queryDefineExpressionRequest = (
-  input: DefineExpressionRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDefineExpressionRequest = (input: DefineExpressionRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName !== undefined) {
     entries["DomainName"] = input.DomainName;
   }
   if (input.Expression !== undefined) {
-    const memberEntries = serializeAws_queryExpression(
-      input.Expression,
-      context
-    );
+    const memberEntries = serializeAws_queryExpression(input.Expression, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Expression.${key}`;
       entries[loc] = value;
@@ -3405,19 +2871,13 @@ const serializeAws_queryDefineExpressionRequest = (
   return entries;
 };
 
-const serializeAws_queryDefineIndexFieldRequest = (
-  input: DefineIndexFieldRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDefineIndexFieldRequest = (input: DefineIndexFieldRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName !== undefined) {
     entries["DomainName"] = input.DomainName;
   }
   if (input.IndexField !== undefined) {
-    const memberEntries = serializeAws_queryIndexField(
-      input.IndexField,
-      context
-    );
+    const memberEntries = serializeAws_queryIndexField(input.IndexField, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IndexField.${key}`;
       entries[loc] = value;
@@ -3426,10 +2886,7 @@ const serializeAws_queryDefineIndexFieldRequest = (
   return entries;
 };
 
-const serializeAws_queryDefineSuggesterRequest = (
-  input: DefineSuggesterRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDefineSuggesterRequest = (input: DefineSuggesterRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName !== undefined) {
     entries["DomainName"] = input.DomainName;
@@ -3458,10 +2915,7 @@ const serializeAws_queryDeleteAnalysisSchemeRequest = (
   return entries;
 };
 
-const serializeAws_queryDeleteDomainRequest = (
-  input: DeleteDomainRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDeleteDomainRequest = (input: DeleteDomainRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName !== undefined) {
     entries["DomainName"] = input.DomainName;
@@ -3469,10 +2923,7 @@ const serializeAws_queryDeleteDomainRequest = (
   return entries;
 };
 
-const serializeAws_queryDeleteExpressionRequest = (
-  input: DeleteExpressionRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDeleteExpressionRequest = (input: DeleteExpressionRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName !== undefined) {
     entries["DomainName"] = input.DomainName;
@@ -3483,10 +2934,7 @@ const serializeAws_queryDeleteExpressionRequest = (
   return entries;
 };
 
-const serializeAws_queryDeleteIndexFieldRequest = (
-  input: DeleteIndexFieldRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDeleteIndexFieldRequest = (input: DeleteIndexFieldRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName !== undefined) {
     entries["DomainName"] = input.DomainName;
@@ -3497,10 +2945,7 @@ const serializeAws_queryDeleteIndexFieldRequest = (
   return entries;
 };
 
-const serializeAws_queryDeleteSuggesterRequest = (
-  input: DeleteSuggesterRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDeleteSuggesterRequest = (input: DeleteSuggesterRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName !== undefined) {
     entries["DomainName"] = input.DomainName;
@@ -3517,10 +2962,7 @@ const serializeAws_queryDescribeAnalysisSchemesRequest = (
 ): any => {
   const entries: any = {};
   if (input.AnalysisSchemeNames !== undefined) {
-    const memberEntries = serializeAws_queryStandardNameList(
-      input.AnalysisSchemeNames,
-      context
-    );
+    const memberEntries = serializeAws_queryStandardNameList(input.AnalysisSchemeNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AnalysisSchemeNames.${key}`;
       entries[loc] = value;
@@ -3563,16 +3005,10 @@ const serializeAws_queryDescribeDomainEndpointOptionsRequest = (
   return entries;
 };
 
-const serializeAws_queryDescribeDomainsRequest = (
-  input: DescribeDomainsRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDescribeDomainsRequest = (input: DescribeDomainsRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainNames !== undefined) {
-    const memberEntries = serializeAws_queryDomainNameList(
-      input.DomainNames,
-      context
-    );
+    const memberEntries = serializeAws_queryDomainNameList(input.DomainNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DomainNames.${key}`;
       entries[loc] = value;
@@ -3593,10 +3029,7 @@ const serializeAws_queryDescribeExpressionsRequest = (
     entries["DomainName"] = input.DomainName;
   }
   if (input.ExpressionNames !== undefined) {
-    const memberEntries = serializeAws_queryStandardNameList(
-      input.ExpressionNames,
-      context
-    );
+    const memberEntries = serializeAws_queryStandardNameList(input.ExpressionNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExpressionNames.${key}`;
       entries[loc] = value;
@@ -3617,10 +3050,7 @@ const serializeAws_queryDescribeIndexFieldsRequest = (
     entries["DomainName"] = input.DomainName;
   }
   if (input.FieldNames !== undefined) {
-    const memberEntries = serializeAws_queryDynamicFieldNameList(
-      input.FieldNames,
-      context
-    );
+    const memberEntries = serializeAws_queryDynamicFieldNameList(input.FieldNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FieldNames.${key}`;
       entries[loc] = value;
@@ -3666,10 +3096,7 @@ const serializeAws_queryDescribeSuggestersRequest = (
     entries["DomainName"] = input.DomainName;
   }
   if (input.SuggesterNames !== undefined) {
-    const memberEntries = serializeAws_queryStandardNameList(
-      input.SuggesterNames,
-      context
-    );
+    const memberEntries = serializeAws_queryStandardNameList(input.SuggesterNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SuggesterNames.${key}`;
       entries[loc] = value;
@@ -3678,10 +3105,7 @@ const serializeAws_queryDescribeSuggestersRequest = (
   return entries;
 };
 
-const serializeAws_queryDocumentSuggesterOptions = (
-  input: DocumentSuggesterOptions,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDocumentSuggesterOptions = (input: DocumentSuggesterOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.FuzzyMatching !== undefined) {
     entries["FuzzyMatching"] = input.FuzzyMatching;
@@ -3695,10 +3119,7 @@ const serializeAws_queryDocumentSuggesterOptions = (
   return entries;
 };
 
-const serializeAws_queryDomainEndpointOptions = (
-  input: DomainEndpointOptions,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDomainEndpointOptions = (input: DomainEndpointOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.EnforceHTTPS !== undefined) {
     entries["EnforceHTTPS"] = input.EnforceHTTPS;
@@ -3709,10 +3130,7 @@ const serializeAws_queryDomainEndpointOptions = (
   return entries;
 };
 
-const serializeAws_queryDomainNameList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDomainNameList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -3722,10 +3140,7 @@ const serializeAws_queryDomainNameList = (
   return entries;
 };
 
-const serializeAws_queryDoubleArrayOptions = (
-  input: DoubleArrayOptions,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDoubleArrayOptions = (input: DoubleArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue !== undefined) {
     entries["DefaultValue"] = input.DefaultValue;
@@ -3745,10 +3160,7 @@ const serializeAws_queryDoubleArrayOptions = (
   return entries;
 };
 
-const serializeAws_queryDoubleOptions = (
-  input: DoubleOptions,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDoubleOptions = (input: DoubleOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue !== undefined) {
     entries["DefaultValue"] = input.DefaultValue;
@@ -3771,10 +3183,7 @@ const serializeAws_queryDoubleOptions = (
   return entries;
 };
 
-const serializeAws_queryDynamicFieldNameList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDynamicFieldNameList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -3784,10 +3193,7 @@ const serializeAws_queryDynamicFieldNameList = (
   return entries;
 };
 
-const serializeAws_queryExpression = (
-  input: Expression,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryExpression = (input: Expression, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ExpressionName !== undefined) {
     entries["ExpressionName"] = input.ExpressionName;
@@ -3798,10 +3204,7 @@ const serializeAws_queryExpression = (
   return entries;
 };
 
-const serializeAws_queryIndexDocumentsRequest = (
-  input: IndexDocumentsRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryIndexDocumentsRequest = (input: IndexDocumentsRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName !== undefined) {
     entries["DomainName"] = input.DomainName;
@@ -3809,46 +3212,31 @@ const serializeAws_queryIndexDocumentsRequest = (
   return entries;
 };
 
-const serializeAws_queryIndexField = (
-  input: IndexField,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryIndexField = (input: IndexField, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DateArrayOptions !== undefined) {
-    const memberEntries = serializeAws_queryDateArrayOptions(
-      input.DateArrayOptions,
-      context
-    );
+    const memberEntries = serializeAws_queryDateArrayOptions(input.DateArrayOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DateArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
   if (input.DateOptions !== undefined) {
-    const memberEntries = serializeAws_queryDateOptions(
-      input.DateOptions,
-      context
-    );
+    const memberEntries = serializeAws_queryDateOptions(input.DateOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DateOptions.${key}`;
       entries[loc] = value;
     });
   }
   if (input.DoubleArrayOptions !== undefined) {
-    const memberEntries = serializeAws_queryDoubleArrayOptions(
-      input.DoubleArrayOptions,
-      context
-    );
+    const memberEntries = serializeAws_queryDoubleArrayOptions(input.DoubleArrayOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DoubleArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
   if (input.DoubleOptions !== undefined) {
-    const memberEntries = serializeAws_queryDoubleOptions(
-      input.DoubleOptions,
-      context
-    );
+    const memberEntries = serializeAws_queryDoubleOptions(input.DoubleOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DoubleOptions.${key}`;
       entries[loc] = value;
@@ -3861,70 +3249,49 @@ const serializeAws_queryIndexField = (
     entries["IndexFieldType"] = input.IndexFieldType;
   }
   if (input.IntArrayOptions !== undefined) {
-    const memberEntries = serializeAws_queryIntArrayOptions(
-      input.IntArrayOptions,
-      context
-    );
+    const memberEntries = serializeAws_queryIntArrayOptions(input.IntArrayOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IntArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
   if (input.IntOptions !== undefined) {
-    const memberEntries = serializeAws_queryIntOptions(
-      input.IntOptions,
-      context
-    );
+    const memberEntries = serializeAws_queryIntOptions(input.IntOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IntOptions.${key}`;
       entries[loc] = value;
     });
   }
   if (input.LatLonOptions !== undefined) {
-    const memberEntries = serializeAws_queryLatLonOptions(
-      input.LatLonOptions,
-      context
-    );
+    const memberEntries = serializeAws_queryLatLonOptions(input.LatLonOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LatLonOptions.${key}`;
       entries[loc] = value;
     });
   }
   if (input.LiteralArrayOptions !== undefined) {
-    const memberEntries = serializeAws_queryLiteralArrayOptions(
-      input.LiteralArrayOptions,
-      context
-    );
+    const memberEntries = serializeAws_queryLiteralArrayOptions(input.LiteralArrayOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LiteralArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
   if (input.LiteralOptions !== undefined) {
-    const memberEntries = serializeAws_queryLiteralOptions(
-      input.LiteralOptions,
-      context
-    );
+    const memberEntries = serializeAws_queryLiteralOptions(input.LiteralOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LiteralOptions.${key}`;
       entries[loc] = value;
     });
   }
   if (input.TextArrayOptions !== undefined) {
-    const memberEntries = serializeAws_queryTextArrayOptions(
-      input.TextArrayOptions,
-      context
-    );
+    const memberEntries = serializeAws_queryTextArrayOptions(input.TextArrayOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TextArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
   if (input.TextOptions !== undefined) {
-    const memberEntries = serializeAws_queryTextOptions(
-      input.TextOptions,
-      context
-    );
+    const memberEntries = serializeAws_queryTextOptions(input.TextOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TextOptions.${key}`;
       entries[loc] = value;
@@ -3933,10 +3300,7 @@ const serializeAws_queryIndexField = (
   return entries;
 };
 
-const serializeAws_queryIntArrayOptions = (
-  input: IntArrayOptions,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryIntArrayOptions = (input: IntArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue !== undefined) {
     entries["DefaultValue"] = input.DefaultValue;
@@ -3956,10 +3320,7 @@ const serializeAws_queryIntArrayOptions = (
   return entries;
 };
 
-const serializeAws_queryIntOptions = (
-  input: IntOptions,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryIntOptions = (input: IntOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue !== undefined) {
     entries["DefaultValue"] = input.DefaultValue;
@@ -3982,10 +3343,7 @@ const serializeAws_queryIntOptions = (
   return entries;
 };
 
-const serializeAws_queryLatLonOptions = (
-  input: LatLonOptions,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryLatLonOptions = (input: LatLonOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue !== undefined) {
     entries["DefaultValue"] = input.DefaultValue;
@@ -4008,10 +3366,7 @@ const serializeAws_queryLatLonOptions = (
   return entries;
 };
 
-const serializeAws_queryLiteralArrayOptions = (
-  input: LiteralArrayOptions,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryLiteralArrayOptions = (input: LiteralArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue !== undefined) {
     entries["DefaultValue"] = input.DefaultValue;
@@ -4031,10 +3386,7 @@ const serializeAws_queryLiteralArrayOptions = (
   return entries;
 };
 
-const serializeAws_queryLiteralOptions = (
-  input: LiteralOptions,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryLiteralOptions = (input: LiteralOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue !== undefined) {
     entries["DefaultValue"] = input.DefaultValue;
@@ -4057,10 +3409,7 @@ const serializeAws_queryLiteralOptions = (
   return entries;
 };
 
-const serializeAws_queryScalingParameters = (
-  input: ScalingParameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryScalingParameters = (input: ScalingParameters, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DesiredInstanceType !== undefined) {
     entries["DesiredInstanceType"] = input.DesiredInstanceType;
@@ -4074,10 +3423,7 @@ const serializeAws_queryScalingParameters = (
   return entries;
 };
 
-const serializeAws_queryStandardNameList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryStandardNameList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -4087,16 +3433,10 @@ const serializeAws_queryStandardNameList = (
   return entries;
 };
 
-const serializeAws_querySuggester = (
-  input: Suggester,
-  context: __SerdeContext
-): any => {
+const serializeAws_querySuggester = (input: Suggester, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DocumentSuggesterOptions !== undefined) {
-    const memberEntries = serializeAws_queryDocumentSuggesterOptions(
-      input.DocumentSuggesterOptions,
-      context
-    );
+    const memberEntries = serializeAws_queryDocumentSuggesterOptions(input.DocumentSuggesterOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DocumentSuggesterOptions.${key}`;
       entries[loc] = value;
@@ -4108,10 +3448,7 @@ const serializeAws_querySuggester = (
   return entries;
 };
 
-const serializeAws_queryTextArrayOptions = (
-  input: TextArrayOptions,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryTextArrayOptions = (input: TextArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.AnalysisScheme !== undefined) {
     entries["AnalysisScheme"] = input.AnalysisScheme;
@@ -4131,10 +3468,7 @@ const serializeAws_queryTextArrayOptions = (
   return entries;
 };
 
-const serializeAws_queryTextOptions = (
-  input: TextOptions,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryTextOptions = (input: TextOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.AnalysisScheme !== undefined) {
     entries["AnalysisScheme"] = input.AnalysisScheme;
@@ -4177,10 +3511,7 @@ const serializeAws_queryUpdateDomainEndpointOptionsRequest = (
 ): any => {
   const entries: any = {};
   if (input.DomainEndpointOptions !== undefined) {
-    const memberEntries = serializeAws_queryDomainEndpointOptions(
-      input.DomainEndpointOptions,
-      context
-    );
+    const memberEntries = serializeAws_queryDomainEndpointOptions(input.DomainEndpointOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DomainEndpointOptions.${key}`;
       entries[loc] = value;
@@ -4201,10 +3532,7 @@ const serializeAws_queryUpdateScalingParametersRequest = (
     entries["DomainName"] = input.DomainName;
   }
   if (input.ScalingParameters !== undefined) {
-    const memberEntries = serializeAws_queryScalingParameters(
-      input.ScalingParameters,
-      context
-    );
+    const memberEntries = serializeAws_queryScalingParameters(input.ScalingParameters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScalingParameters.${key}`;
       entries[loc] = value;
@@ -4227,45 +3555,35 @@ const serializeAws_queryUpdateServiceAccessPoliciesRequest = (
   return entries;
 };
 
-const deserializeAws_queryAccessPoliciesStatus = (
-  output: any,
-  context: __SerdeContext
-): AccessPoliciesStatus => {
+const deserializeAws_queryAccessPoliciesStatus = (output: any, context: __SerdeContext): AccessPoliciesStatus => {
   let contents: any = {
     __type: "AccessPoliciesStatus",
     Options: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output["Options"] !== undefined) {
     contents.Options = output["Options"];
   }
   if (output["Status"] !== undefined) {
-    contents.Status = deserializeAws_queryOptionStatus(
-      output["Status"],
-      context
-    );
+    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryAnalysisOptions = (
-  output: any,
-  context: __SerdeContext
-): AnalysisOptions => {
+const deserializeAws_queryAnalysisOptions = (output: any, context: __SerdeContext): AnalysisOptions => {
   let contents: any = {
     __type: "AnalysisOptions",
     AlgorithmicStemming: undefined,
     JapaneseTokenizationDictionary: undefined,
     StemmingDictionary: undefined,
     Stopwords: undefined,
-    Synonyms: undefined
+    Synonyms: undefined,
   };
   if (output["AlgorithmicStemming"] !== undefined) {
     contents.AlgorithmicStemming = output["AlgorithmicStemming"];
   }
   if (output["JapaneseTokenizationDictionary"] !== undefined) {
-    contents.JapaneseTokenizationDictionary =
-      output["JapaneseTokenizationDictionary"];
+    contents.JapaneseTokenizationDictionary = output["JapaneseTokenizationDictionary"];
   }
   if (output["StemmingDictionary"] !== undefined) {
     contents.StemmingDictionary = output["StemmingDictionary"];
@@ -4279,21 +3597,15 @@ const deserializeAws_queryAnalysisOptions = (
   return contents;
 };
 
-const deserializeAws_queryAnalysisScheme = (
-  output: any,
-  context: __SerdeContext
-): AnalysisScheme => {
+const deserializeAws_queryAnalysisScheme = (output: any, context: __SerdeContext): AnalysisScheme => {
   let contents: any = {
     __type: "AnalysisScheme",
     AnalysisOptions: undefined,
     AnalysisSchemeLanguage: undefined,
-    AnalysisSchemeName: undefined
+    AnalysisSchemeName: undefined,
   };
   if (output["AnalysisOptions"] !== undefined) {
-    contents.AnalysisOptions = deserializeAws_queryAnalysisOptions(
-      output["AnalysisOptions"],
-      context
-    );
+    contents.AnalysisOptions = deserializeAws_queryAnalysisOptions(output["AnalysisOptions"], context);
   }
   if (output["AnalysisSchemeLanguage"] !== undefined) {
     contents.AnalysisSchemeLanguage = output["AnalysisSchemeLanguage"];
@@ -4304,37 +3616,23 @@ const deserializeAws_queryAnalysisScheme = (
   return contents;
 };
 
-const deserializeAws_queryAnalysisSchemeStatus = (
-  output: any,
-  context: __SerdeContext
-): AnalysisSchemeStatus => {
+const deserializeAws_queryAnalysisSchemeStatus = (output: any, context: __SerdeContext): AnalysisSchemeStatus => {
   let contents: any = {
     __type: "AnalysisSchemeStatus",
     Options: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output["Options"] !== undefined) {
-    contents.Options = deserializeAws_queryAnalysisScheme(
-      output["Options"],
-      context
-    );
+    contents.Options = deserializeAws_queryAnalysisScheme(output["Options"], context);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = deserializeAws_queryOptionStatus(
-      output["Status"],
-      context
-    );
+    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryAnalysisSchemeStatusList = (
-  output: any,
-  context: __SerdeContext
-): AnalysisSchemeStatus[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryAnalysisSchemeStatus(entry, context)
-  );
+const deserializeAws_queryAnalysisSchemeStatusList = (output: any, context: __SerdeContext): AnalysisSchemeStatus[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryAnalysisSchemeStatus(entry, context));
 };
 
 const deserializeAws_queryAvailabilityOptionsStatus = (
@@ -4344,28 +3642,22 @@ const deserializeAws_queryAvailabilityOptionsStatus = (
   let contents: any = {
     __type: "AvailabilityOptionsStatus",
     Options: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output["Options"] !== undefined) {
     contents.Options = output["Options"] == "true";
   }
   if (output["Status"] !== undefined) {
-    contents.Status = deserializeAws_queryOptionStatus(
-      output["Status"],
-      context
-    );
+    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryBaseException = (
-  output: any,
-  context: __SerdeContext
-): BaseException => {
+const deserializeAws_queryBaseException = (output: any, context: __SerdeContext): BaseException => {
   let contents: any = {
     __type: "BaseException",
     Code: undefined,
-    Message: undefined
+    Message: undefined,
   };
   if (output["Code"] !== undefined) {
     contents.Code = output["Code"];
@@ -4376,21 +3668,15 @@ const deserializeAws_queryBaseException = (
   return contents;
 };
 
-const deserializeAws_queryBuildSuggestersResponse = (
-  output: any,
-  context: __SerdeContext
-): BuildSuggestersResponse => {
+const deserializeAws_queryBuildSuggestersResponse = (output: any, context: __SerdeContext): BuildSuggestersResponse => {
   let contents: any = {
     __type: "BuildSuggestersResponse",
-    FieldNames: undefined
+    FieldNames: undefined,
   };
   if (output.FieldNames === "") {
     contents.FieldNames = [];
   }
-  if (
-    output["FieldNames"] !== undefined &&
-    output["FieldNames"]["member"] !== undefined
-  ) {
+  if (output["FieldNames"] !== undefined && output["FieldNames"]["member"] !== undefined) {
     contents.FieldNames = deserializeAws_queryFieldNameList(
       __getArrayIfSingleItem(output["FieldNames"]["member"]),
       context
@@ -4399,34 +3685,25 @@ const deserializeAws_queryBuildSuggestersResponse = (
   return contents;
 };
 
-const deserializeAws_queryCreateDomainResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateDomainResponse => {
+const deserializeAws_queryCreateDomainResponse = (output: any, context: __SerdeContext): CreateDomainResponse => {
   let contents: any = {
     __type: "CreateDomainResponse",
-    DomainStatus: undefined
+    DomainStatus: undefined,
   };
   if (output["DomainStatus"] !== undefined) {
-    contents.DomainStatus = deserializeAws_queryDomainStatus(
-      output["DomainStatus"],
-      context
-    );
+    contents.DomainStatus = deserializeAws_queryDomainStatus(output["DomainStatus"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDateArrayOptions = (
-  output: any,
-  context: __SerdeContext
-): DateArrayOptions => {
+const deserializeAws_queryDateArrayOptions = (output: any, context: __SerdeContext): DateArrayOptions => {
   let contents: any = {
     __type: "DateArrayOptions",
     DefaultValue: undefined,
     FacetEnabled: undefined,
     ReturnEnabled: undefined,
     SearchEnabled: undefined,
-    SourceFields: undefined
+    SourceFields: undefined,
   };
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = output["DefaultValue"];
@@ -4446,10 +3723,7 @@ const deserializeAws_queryDateArrayOptions = (
   return contents;
 };
 
-const deserializeAws_queryDateOptions = (
-  output: any,
-  context: __SerdeContext
-): DateOptions => {
+const deserializeAws_queryDateOptions = (output: any, context: __SerdeContext): DateOptions => {
   let contents: any = {
     __type: "DateOptions",
     DefaultValue: undefined,
@@ -4457,7 +3731,7 @@ const deserializeAws_queryDateOptions = (
     ReturnEnabled: undefined,
     SearchEnabled: undefined,
     SortEnabled: undefined,
-    SourceField: undefined
+    SourceField: undefined,
   };
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = output["DefaultValue"];
@@ -4486,13 +3760,10 @@ const deserializeAws_queryDefineAnalysisSchemeResponse = (
 ): DefineAnalysisSchemeResponse => {
   let contents: any = {
     __type: "DefineAnalysisSchemeResponse",
-    AnalysisScheme: undefined
+    AnalysisScheme: undefined,
   };
   if (output["AnalysisScheme"] !== undefined) {
-    contents.AnalysisScheme = deserializeAws_queryAnalysisSchemeStatus(
-      output["AnalysisScheme"],
-      context
-    );
+    contents.AnalysisScheme = deserializeAws_queryAnalysisSchemeStatus(output["AnalysisScheme"], context);
   }
   return contents;
 };
@@ -4503,13 +3774,10 @@ const deserializeAws_queryDefineExpressionResponse = (
 ): DefineExpressionResponse => {
   let contents: any = {
     __type: "DefineExpressionResponse",
-    Expression: undefined
+    Expression: undefined,
   };
   if (output["Expression"] !== undefined) {
-    contents.Expression = deserializeAws_queryExpressionStatus(
-      output["Expression"],
-      context
-    );
+    contents.Expression = deserializeAws_queryExpressionStatus(output["Expression"], context);
   }
   return contents;
 };
@@ -4520,30 +3788,21 @@ const deserializeAws_queryDefineIndexFieldResponse = (
 ): DefineIndexFieldResponse => {
   let contents: any = {
     __type: "DefineIndexFieldResponse",
-    IndexField: undefined
+    IndexField: undefined,
   };
   if (output["IndexField"] !== undefined) {
-    contents.IndexField = deserializeAws_queryIndexFieldStatus(
-      output["IndexField"],
-      context
-    );
+    contents.IndexField = deserializeAws_queryIndexFieldStatus(output["IndexField"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDefineSuggesterResponse = (
-  output: any,
-  context: __SerdeContext
-): DefineSuggesterResponse => {
+const deserializeAws_queryDefineSuggesterResponse = (output: any, context: __SerdeContext): DefineSuggesterResponse => {
   let contents: any = {
     __type: "DefineSuggesterResponse",
-    Suggester: undefined
+    Suggester: undefined,
   };
   if (output["Suggester"] !== undefined) {
-    contents.Suggester = deserializeAws_querySuggesterStatus(
-      output["Suggester"],
-      context
-    );
+    contents.Suggester = deserializeAws_querySuggesterStatus(output["Suggester"], context);
   }
   return contents;
 };
@@ -4554,30 +3813,21 @@ const deserializeAws_queryDeleteAnalysisSchemeResponse = (
 ): DeleteAnalysisSchemeResponse => {
   let contents: any = {
     __type: "DeleteAnalysisSchemeResponse",
-    AnalysisScheme: undefined
+    AnalysisScheme: undefined,
   };
   if (output["AnalysisScheme"] !== undefined) {
-    contents.AnalysisScheme = deserializeAws_queryAnalysisSchemeStatus(
-      output["AnalysisScheme"],
-      context
-    );
+    contents.AnalysisScheme = deserializeAws_queryAnalysisSchemeStatus(output["AnalysisScheme"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDeleteDomainResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteDomainResponse => {
+const deserializeAws_queryDeleteDomainResponse = (output: any, context: __SerdeContext): DeleteDomainResponse => {
   let contents: any = {
     __type: "DeleteDomainResponse",
-    DomainStatus: undefined
+    DomainStatus: undefined,
   };
   if (output["DomainStatus"] !== undefined) {
-    contents.DomainStatus = deserializeAws_queryDomainStatus(
-      output["DomainStatus"],
-      context
-    );
+    contents.DomainStatus = deserializeAws_queryDomainStatus(output["DomainStatus"], context);
   }
   return contents;
 };
@@ -4588,13 +3838,10 @@ const deserializeAws_queryDeleteExpressionResponse = (
 ): DeleteExpressionResponse => {
   let contents: any = {
     __type: "DeleteExpressionResponse",
-    Expression: undefined
+    Expression: undefined,
   };
   if (output["Expression"] !== undefined) {
-    contents.Expression = deserializeAws_queryExpressionStatus(
-      output["Expression"],
-      context
-    );
+    contents.Expression = deserializeAws_queryExpressionStatus(output["Expression"], context);
   }
   return contents;
 };
@@ -4605,30 +3852,21 @@ const deserializeAws_queryDeleteIndexFieldResponse = (
 ): DeleteIndexFieldResponse => {
   let contents: any = {
     __type: "DeleteIndexFieldResponse",
-    IndexField: undefined
+    IndexField: undefined,
   };
   if (output["IndexField"] !== undefined) {
-    contents.IndexField = deserializeAws_queryIndexFieldStatus(
-      output["IndexField"],
-      context
-    );
+    contents.IndexField = deserializeAws_queryIndexFieldStatus(output["IndexField"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDeleteSuggesterResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteSuggesterResponse => {
+const deserializeAws_queryDeleteSuggesterResponse = (output: any, context: __SerdeContext): DeleteSuggesterResponse => {
   let contents: any = {
     __type: "DeleteSuggesterResponse",
-    Suggester: undefined
+    Suggester: undefined,
   };
   if (output["Suggester"] !== undefined) {
-    contents.Suggester = deserializeAws_querySuggesterStatus(
-      output["Suggester"],
-      context
-    );
+    contents.Suggester = deserializeAws_querySuggesterStatus(output["Suggester"], context);
   }
   return contents;
 };
@@ -4639,15 +3877,12 @@ const deserializeAws_queryDescribeAnalysisSchemesResponse = (
 ): DescribeAnalysisSchemesResponse => {
   let contents: any = {
     __type: "DescribeAnalysisSchemesResponse",
-    AnalysisSchemes: undefined
+    AnalysisSchemes: undefined,
   };
   if (output.AnalysisSchemes === "") {
     contents.AnalysisSchemes = [];
   }
-  if (
-    output["AnalysisSchemes"] !== undefined &&
-    output["AnalysisSchemes"]["member"] !== undefined
-  ) {
+  if (output["AnalysisSchemes"] !== undefined && output["AnalysisSchemes"]["member"] !== undefined) {
     contents.AnalysisSchemes = deserializeAws_queryAnalysisSchemeStatusList(
       __getArrayIfSingleItem(output["AnalysisSchemes"]["member"]),
       context
@@ -4662,7 +3897,7 @@ const deserializeAws_queryDescribeAvailabilityOptionsResponse = (
 ): DescribeAvailabilityOptionsResponse => {
   let contents: any = {
     __type: "DescribeAvailabilityOptionsResponse",
-    AvailabilityOptions: undefined
+    AvailabilityOptions: undefined,
   };
   if (output["AvailabilityOptions"] !== undefined) {
     contents.AvailabilityOptions = deserializeAws_queryAvailabilityOptionsStatus(
@@ -4679,7 +3914,7 @@ const deserializeAws_queryDescribeDomainEndpointOptionsResponse = (
 ): DescribeDomainEndpointOptionsResponse => {
   let contents: any = {
     __type: "DescribeDomainEndpointOptionsResponse",
-    DomainEndpointOptions: undefined
+    DomainEndpointOptions: undefined,
   };
   if (output["DomainEndpointOptions"] !== undefined) {
     contents.DomainEndpointOptions = deserializeAws_queryDomainEndpointOptionsStatus(
@@ -4690,21 +3925,15 @@ const deserializeAws_queryDescribeDomainEndpointOptionsResponse = (
   return contents;
 };
 
-const deserializeAws_queryDescribeDomainsResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeDomainsResponse => {
+const deserializeAws_queryDescribeDomainsResponse = (output: any, context: __SerdeContext): DescribeDomainsResponse => {
   let contents: any = {
     __type: "DescribeDomainsResponse",
-    DomainStatusList: undefined
+    DomainStatusList: undefined,
   };
   if (output.DomainStatusList === "") {
     contents.DomainStatusList = [];
   }
-  if (
-    output["DomainStatusList"] !== undefined &&
-    output["DomainStatusList"]["member"] !== undefined
-  ) {
+  if (output["DomainStatusList"] !== undefined && output["DomainStatusList"]["member"] !== undefined) {
     contents.DomainStatusList = deserializeAws_queryDomainStatusList(
       __getArrayIfSingleItem(output["DomainStatusList"]["member"]),
       context
@@ -4719,15 +3948,12 @@ const deserializeAws_queryDescribeExpressionsResponse = (
 ): DescribeExpressionsResponse => {
   let contents: any = {
     __type: "DescribeExpressionsResponse",
-    Expressions: undefined
+    Expressions: undefined,
   };
   if (output.Expressions === "") {
     contents.Expressions = [];
   }
-  if (
-    output["Expressions"] !== undefined &&
-    output["Expressions"]["member"] !== undefined
-  ) {
+  if (output["Expressions"] !== undefined && output["Expressions"]["member"] !== undefined) {
     contents.Expressions = deserializeAws_queryExpressionStatusList(
       __getArrayIfSingleItem(output["Expressions"]["member"]),
       context
@@ -4742,15 +3968,12 @@ const deserializeAws_queryDescribeIndexFieldsResponse = (
 ): DescribeIndexFieldsResponse => {
   let contents: any = {
     __type: "DescribeIndexFieldsResponse",
-    IndexFields: undefined
+    IndexFields: undefined,
   };
   if (output.IndexFields === "") {
     contents.IndexFields = [];
   }
-  if (
-    output["IndexFields"] !== undefined &&
-    output["IndexFields"]["member"] !== undefined
-  ) {
+  if (output["IndexFields"] !== undefined && output["IndexFields"]["member"] !== undefined) {
     contents.IndexFields = deserializeAws_queryIndexFieldStatusList(
       __getArrayIfSingleItem(output["IndexFields"]["member"]),
       context
@@ -4765,13 +3988,10 @@ const deserializeAws_queryDescribeScalingParametersResponse = (
 ): DescribeScalingParametersResponse => {
   let contents: any = {
     __type: "DescribeScalingParametersResponse",
-    ScalingParameters: undefined
+    ScalingParameters: undefined,
   };
   if (output["ScalingParameters"] !== undefined) {
-    contents.ScalingParameters = deserializeAws_queryScalingParametersStatus(
-      output["ScalingParameters"],
-      context
-    );
+    contents.ScalingParameters = deserializeAws_queryScalingParametersStatus(output["ScalingParameters"], context);
   }
   return contents;
 };
@@ -4782,13 +4002,10 @@ const deserializeAws_queryDescribeServiceAccessPoliciesResponse = (
 ): DescribeServiceAccessPoliciesResponse => {
   let contents: any = {
     __type: "DescribeServiceAccessPoliciesResponse",
-    AccessPolicies: undefined
+    AccessPolicies: undefined,
   };
   if (output["AccessPolicies"] !== undefined) {
-    contents.AccessPolicies = deserializeAws_queryAccessPoliciesStatus(
-      output["AccessPolicies"],
-      context
-    );
+    contents.AccessPolicies = deserializeAws_queryAccessPoliciesStatus(output["AccessPolicies"], context);
   }
   return contents;
 };
@@ -4799,15 +4016,12 @@ const deserializeAws_queryDescribeSuggestersResponse = (
 ): DescribeSuggestersResponse => {
   let contents: any = {
     __type: "DescribeSuggestersResponse",
-    Suggesters: undefined
+    Suggesters: undefined,
   };
   if (output.Suggesters === "") {
     contents.Suggesters = [];
   }
-  if (
-    output["Suggesters"] !== undefined &&
-    output["Suggesters"]["member"] !== undefined
-  ) {
+  if (output["Suggesters"] !== undefined && output["Suggesters"]["member"] !== undefined) {
     contents.Suggesters = deserializeAws_querySuggesterStatusList(
       __getArrayIfSingleItem(output["Suggesters"]["member"]),
       context
@@ -4823,7 +4037,7 @@ const deserializeAws_queryDisabledOperationException = (
   let contents: any = {
     __type: "DisabledOperationException",
     Code: undefined,
-    Message: undefined
+    Message: undefined,
   };
   if (output["Code"] !== undefined) {
     contents.Code = output["Code"];
@@ -4842,7 +4056,7 @@ const deserializeAws_queryDocumentSuggesterOptions = (
     __type: "DocumentSuggesterOptions",
     FuzzyMatching: undefined,
     SortExpression: undefined,
-    SourceField: undefined
+    SourceField: undefined,
   };
   if (output["FuzzyMatching"] !== undefined) {
     contents.FuzzyMatching = output["FuzzyMatching"];
@@ -4856,14 +4070,11 @@ const deserializeAws_queryDocumentSuggesterOptions = (
   return contents;
 };
 
-const deserializeAws_queryDomainEndpointOptions = (
-  output: any,
-  context: __SerdeContext
-): DomainEndpointOptions => {
+const deserializeAws_queryDomainEndpointOptions = (output: any, context: __SerdeContext): DomainEndpointOptions => {
   let contents: any = {
     __type: "DomainEndpointOptions",
     EnforceHTTPS: undefined,
-    TLSSecurityPolicy: undefined
+    TLSSecurityPolicy: undefined,
   };
   if (output["EnforceHTTPS"] !== undefined) {
     contents.EnforceHTTPS = output["EnforceHTTPS"] == "true";
@@ -4881,40 +4092,28 @@ const deserializeAws_queryDomainEndpointOptionsStatus = (
   let contents: any = {
     __type: "DomainEndpointOptionsStatus",
     Options: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output["Options"] !== undefined) {
-    contents.Options = deserializeAws_queryDomainEndpointOptions(
-      output["Options"],
-      context
-    );
+    contents.Options = deserializeAws_queryDomainEndpointOptions(output["Options"], context);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = deserializeAws_queryOptionStatus(
-      output["Status"],
-      context
-    );
+    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDomainNameMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_queryDomainNameMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return output.reduce(
     (acc: any, pair: any) => ({
       ...acc,
-      [pair["key"]]: pair["value"]
+      [pair["key"]]: pair["value"],
     }),
     {}
   );
 };
 
-const deserializeAws_queryDomainStatus = (
-  output: any,
-  context: __SerdeContext
-): DomainStatus => {
+const deserializeAws_queryDomainStatus = (output: any, context: __SerdeContext): DomainStatus => {
   let contents: any = {
     __type: "DomainStatus",
     ARN: undefined,
@@ -4929,7 +4128,7 @@ const deserializeAws_queryDomainStatus = (
     SearchInstanceCount: undefined,
     SearchInstanceType: undefined,
     SearchPartitionCount: undefined,
-    SearchService: undefined
+    SearchService: undefined,
   };
   if (output["ARN"] !== undefined) {
     contents.ARN = output["ARN"];
@@ -4941,10 +4140,7 @@ const deserializeAws_queryDomainStatus = (
     contents.Deleted = output["Deleted"] == "true";
   }
   if (output["DocService"] !== undefined) {
-    contents.DocService = deserializeAws_queryServiceEndpoint(
-      output["DocService"],
-      context
-    );
+    contents.DocService = deserializeAws_queryServiceEndpoint(output["DocService"], context);
   }
   if (output["DomainId"] !== undefined) {
     contents.DomainId = output["DomainId"];
@@ -4959,8 +4155,7 @@ const deserializeAws_queryDomainStatus = (
     contents.Processing = output["Processing"] == "true";
   }
   if (output["RequiresIndexDocuments"] !== undefined) {
-    contents.RequiresIndexDocuments =
-      output["RequiresIndexDocuments"] == "true";
+    contents.RequiresIndexDocuments = output["RequiresIndexDocuments"] == "true";
   }
   if (output["SearchInstanceCount"] !== undefined) {
     contents.SearchInstanceCount = parseInt(output["SearchInstanceCount"]);
@@ -4972,34 +4167,23 @@ const deserializeAws_queryDomainStatus = (
     contents.SearchPartitionCount = parseInt(output["SearchPartitionCount"]);
   }
   if (output["SearchService"] !== undefined) {
-    contents.SearchService = deserializeAws_queryServiceEndpoint(
-      output["SearchService"],
-      context
-    );
+    contents.SearchService = deserializeAws_queryServiceEndpoint(output["SearchService"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDomainStatusList = (
-  output: any,
-  context: __SerdeContext
-): DomainStatus[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDomainStatus(entry, context)
-  );
+const deserializeAws_queryDomainStatusList = (output: any, context: __SerdeContext): DomainStatus[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryDomainStatus(entry, context));
 };
 
-const deserializeAws_queryDoubleArrayOptions = (
-  output: any,
-  context: __SerdeContext
-): DoubleArrayOptions => {
+const deserializeAws_queryDoubleArrayOptions = (output: any, context: __SerdeContext): DoubleArrayOptions => {
   let contents: any = {
     __type: "DoubleArrayOptions",
     DefaultValue: undefined,
     FacetEnabled: undefined,
     ReturnEnabled: undefined,
     SearchEnabled: undefined,
-    SourceFields: undefined
+    SourceFields: undefined,
   };
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = parseFloat(output["DefaultValue"]);
@@ -5019,10 +4203,7 @@ const deserializeAws_queryDoubleArrayOptions = (
   return contents;
 };
 
-const deserializeAws_queryDoubleOptions = (
-  output: any,
-  context: __SerdeContext
-): DoubleOptions => {
+const deserializeAws_queryDoubleOptions = (output: any, context: __SerdeContext): DoubleOptions => {
   let contents: any = {
     __type: "DoubleOptions",
     DefaultValue: undefined,
@@ -5030,7 +4211,7 @@ const deserializeAws_queryDoubleOptions = (
     ReturnEnabled: undefined,
     SearchEnabled: undefined,
     SortEnabled: undefined,
-    SourceField: undefined
+    SourceField: undefined,
   };
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = parseFloat(output["DefaultValue"]);
@@ -5053,14 +4234,11 @@ const deserializeAws_queryDoubleOptions = (
   return contents;
 };
 
-const deserializeAws_queryExpression = (
-  output: any,
-  context: __SerdeContext
-): Expression => {
+const deserializeAws_queryExpression = (output: any, context: __SerdeContext): Expression => {
   let contents: any = {
     __type: "Expression",
     ExpressionName: undefined,
-    ExpressionValue: undefined
+    ExpressionValue: undefined,
   };
   if (output["ExpressionName"] !== undefined) {
     contents.ExpressionName = output["ExpressionName"];
@@ -5071,61 +4249,38 @@ const deserializeAws_queryExpression = (
   return contents;
 };
 
-const deserializeAws_queryExpressionStatus = (
-  output: any,
-  context: __SerdeContext
-): ExpressionStatus => {
+const deserializeAws_queryExpressionStatus = (output: any, context: __SerdeContext): ExpressionStatus => {
   let contents: any = {
     __type: "ExpressionStatus",
     Options: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output["Options"] !== undefined) {
-    contents.Options = deserializeAws_queryExpression(
-      output["Options"],
-      context
-    );
+    contents.Options = deserializeAws_queryExpression(output["Options"], context);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = deserializeAws_queryOptionStatus(
-      output["Status"],
-      context
-    );
+    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryExpressionStatusList = (
-  output: any,
-  context: __SerdeContext
-): ExpressionStatus[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryExpressionStatus(entry, context)
-  );
+const deserializeAws_queryExpressionStatusList = (output: any, context: __SerdeContext): ExpressionStatus[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryExpressionStatus(entry, context));
 };
 
-const deserializeAws_queryFieldNameList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_queryFieldNameList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_queryIndexDocumentsResponse = (
-  output: any,
-  context: __SerdeContext
-): IndexDocumentsResponse => {
+const deserializeAws_queryIndexDocumentsResponse = (output: any, context: __SerdeContext): IndexDocumentsResponse => {
   let contents: any = {
     __type: "IndexDocumentsResponse",
-    FieldNames: undefined
+    FieldNames: undefined,
   };
   if (output.FieldNames === "") {
     contents.FieldNames = [];
   }
-  if (
-    output["FieldNames"] !== undefined &&
-    output["FieldNames"]["member"] !== undefined
-  ) {
+  if (output["FieldNames"] !== undefined && output["FieldNames"]["member"] !== undefined) {
     contents.FieldNames = deserializeAws_queryFieldNameList(
       __getArrayIfSingleItem(output["FieldNames"]["member"]),
       context
@@ -5134,10 +4289,7 @@ const deserializeAws_queryIndexDocumentsResponse = (
   return contents;
 };
 
-const deserializeAws_queryIndexField = (
-  output: any,
-  context: __SerdeContext
-): IndexField => {
+const deserializeAws_queryIndexField = (output: any, context: __SerdeContext): IndexField => {
   let contents: any = {
     __type: "IndexField",
     DateArrayOptions: undefined,
@@ -5152,31 +4304,19 @@ const deserializeAws_queryIndexField = (
     LiteralArrayOptions: undefined,
     LiteralOptions: undefined,
     TextArrayOptions: undefined,
-    TextOptions: undefined
+    TextOptions: undefined,
   };
   if (output["DateArrayOptions"] !== undefined) {
-    contents.DateArrayOptions = deserializeAws_queryDateArrayOptions(
-      output["DateArrayOptions"],
-      context
-    );
+    contents.DateArrayOptions = deserializeAws_queryDateArrayOptions(output["DateArrayOptions"], context);
   }
   if (output["DateOptions"] !== undefined) {
-    contents.DateOptions = deserializeAws_queryDateOptions(
-      output["DateOptions"],
-      context
-    );
+    contents.DateOptions = deserializeAws_queryDateOptions(output["DateOptions"], context);
   }
   if (output["DoubleArrayOptions"] !== undefined) {
-    contents.DoubleArrayOptions = deserializeAws_queryDoubleArrayOptions(
-      output["DoubleArrayOptions"],
-      context
-    );
+    contents.DoubleArrayOptions = deserializeAws_queryDoubleArrayOptions(output["DoubleArrayOptions"], context);
   }
   if (output["DoubleOptions"] !== undefined) {
-    contents.DoubleOptions = deserializeAws_queryDoubleOptions(
-      output["DoubleOptions"],
-      context
-    );
+    contents.DoubleOptions = deserializeAws_queryDoubleOptions(output["DoubleOptions"], context);
   }
   if (output["IndexFieldName"] !== undefined) {
     contents.IndexFieldName = output["IndexFieldName"];
@@ -5185,94 +4325,56 @@ const deserializeAws_queryIndexField = (
     contents.IndexFieldType = output["IndexFieldType"];
   }
   if (output["IntArrayOptions"] !== undefined) {
-    contents.IntArrayOptions = deserializeAws_queryIntArrayOptions(
-      output["IntArrayOptions"],
-      context
-    );
+    contents.IntArrayOptions = deserializeAws_queryIntArrayOptions(output["IntArrayOptions"], context);
   }
   if (output["IntOptions"] !== undefined) {
-    contents.IntOptions = deserializeAws_queryIntOptions(
-      output["IntOptions"],
-      context
-    );
+    contents.IntOptions = deserializeAws_queryIntOptions(output["IntOptions"], context);
   }
   if (output["LatLonOptions"] !== undefined) {
-    contents.LatLonOptions = deserializeAws_queryLatLonOptions(
-      output["LatLonOptions"],
-      context
-    );
+    contents.LatLonOptions = deserializeAws_queryLatLonOptions(output["LatLonOptions"], context);
   }
   if (output["LiteralArrayOptions"] !== undefined) {
-    contents.LiteralArrayOptions = deserializeAws_queryLiteralArrayOptions(
-      output["LiteralArrayOptions"],
-      context
-    );
+    contents.LiteralArrayOptions = deserializeAws_queryLiteralArrayOptions(output["LiteralArrayOptions"], context);
   }
   if (output["LiteralOptions"] !== undefined) {
-    contents.LiteralOptions = deserializeAws_queryLiteralOptions(
-      output["LiteralOptions"],
-      context
-    );
+    contents.LiteralOptions = deserializeAws_queryLiteralOptions(output["LiteralOptions"], context);
   }
   if (output["TextArrayOptions"] !== undefined) {
-    contents.TextArrayOptions = deserializeAws_queryTextArrayOptions(
-      output["TextArrayOptions"],
-      context
-    );
+    contents.TextArrayOptions = deserializeAws_queryTextArrayOptions(output["TextArrayOptions"], context);
   }
   if (output["TextOptions"] !== undefined) {
-    contents.TextOptions = deserializeAws_queryTextOptions(
-      output["TextOptions"],
-      context
-    );
+    contents.TextOptions = deserializeAws_queryTextOptions(output["TextOptions"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryIndexFieldStatus = (
-  output: any,
-  context: __SerdeContext
-): IndexFieldStatus => {
+const deserializeAws_queryIndexFieldStatus = (output: any, context: __SerdeContext): IndexFieldStatus => {
   let contents: any = {
     __type: "IndexFieldStatus",
     Options: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output["Options"] !== undefined) {
-    contents.Options = deserializeAws_queryIndexField(
-      output["Options"],
-      context
-    );
+    contents.Options = deserializeAws_queryIndexField(output["Options"], context);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = deserializeAws_queryOptionStatus(
-      output["Status"],
-      context
-    );
+    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryIndexFieldStatusList = (
-  output: any,
-  context: __SerdeContext
-): IndexFieldStatus[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryIndexFieldStatus(entry, context)
-  );
+const deserializeAws_queryIndexFieldStatusList = (output: any, context: __SerdeContext): IndexFieldStatus[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryIndexFieldStatus(entry, context));
 };
 
-const deserializeAws_queryIntArrayOptions = (
-  output: any,
-  context: __SerdeContext
-): IntArrayOptions => {
+const deserializeAws_queryIntArrayOptions = (output: any, context: __SerdeContext): IntArrayOptions => {
   let contents: any = {
     __type: "IntArrayOptions",
     DefaultValue: undefined,
     FacetEnabled: undefined,
     ReturnEnabled: undefined,
     SearchEnabled: undefined,
-    SourceFields: undefined
+    SourceFields: undefined,
   };
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = parseInt(output["DefaultValue"]);
@@ -5292,14 +4394,11 @@ const deserializeAws_queryIntArrayOptions = (
   return contents;
 };
 
-const deserializeAws_queryInternalException = (
-  output: any,
-  context: __SerdeContext
-): InternalException => {
+const deserializeAws_queryInternalException = (output: any, context: __SerdeContext): InternalException => {
   let contents: any = {
     __type: "InternalException",
     Code: undefined,
-    Message: undefined
+    Message: undefined,
   };
   if (output["Code"] !== undefined) {
     contents.Code = output["Code"];
@@ -5310,10 +4409,7 @@ const deserializeAws_queryInternalException = (
   return contents;
 };
 
-const deserializeAws_queryIntOptions = (
-  output: any,
-  context: __SerdeContext
-): IntOptions => {
+const deserializeAws_queryIntOptions = (output: any, context: __SerdeContext): IntOptions => {
   let contents: any = {
     __type: "IntOptions",
     DefaultValue: undefined,
@@ -5321,7 +4417,7 @@ const deserializeAws_queryIntOptions = (
     ReturnEnabled: undefined,
     SearchEnabled: undefined,
     SortEnabled: undefined,
-    SourceField: undefined
+    SourceField: undefined,
   };
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = parseInt(output["DefaultValue"]);
@@ -5344,14 +4440,11 @@ const deserializeAws_queryIntOptions = (
   return contents;
 };
 
-const deserializeAws_queryInvalidTypeException = (
-  output: any,
-  context: __SerdeContext
-): InvalidTypeException => {
+const deserializeAws_queryInvalidTypeException = (output: any, context: __SerdeContext): InvalidTypeException => {
   let contents: any = {
     __type: "InvalidTypeException",
     Code: undefined,
-    Message: undefined
+    Message: undefined,
   };
   if (output["Code"] !== undefined) {
     contents.Code = output["Code"];
@@ -5362,10 +4455,7 @@ const deserializeAws_queryInvalidTypeException = (
   return contents;
 };
 
-const deserializeAws_queryLatLonOptions = (
-  output: any,
-  context: __SerdeContext
-): LatLonOptions => {
+const deserializeAws_queryLatLonOptions = (output: any, context: __SerdeContext): LatLonOptions => {
   let contents: any = {
     __type: "LatLonOptions",
     DefaultValue: undefined,
@@ -5373,7 +4463,7 @@ const deserializeAws_queryLatLonOptions = (
     ReturnEnabled: undefined,
     SearchEnabled: undefined,
     SortEnabled: undefined,
-    SourceField: undefined
+    SourceField: undefined,
   };
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = output["DefaultValue"];
@@ -5396,14 +4486,11 @@ const deserializeAws_queryLatLonOptions = (
   return contents;
 };
 
-const deserializeAws_queryLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): LimitExceededException => {
+const deserializeAws_queryLimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   let contents: any = {
     __type: "LimitExceededException",
     Code: undefined,
-    Message: undefined
+    Message: undefined,
   };
   if (output["Code"] !== undefined) {
     contents.Code = output["Code"];
@@ -5414,41 +4501,30 @@ const deserializeAws_queryLimitExceededException = (
   return contents;
 };
 
-const deserializeAws_queryLimits = (
-  output: any,
-  context: __SerdeContext
-): Limits => {
+const deserializeAws_queryLimits = (output: any, context: __SerdeContext): Limits => {
   let contents: any = {
     __type: "Limits",
     MaximumPartitionCount: undefined,
-    MaximumReplicationCount: undefined
+    MaximumReplicationCount: undefined,
   };
   if (output["MaximumPartitionCount"] !== undefined) {
     contents.MaximumPartitionCount = parseInt(output["MaximumPartitionCount"]);
   }
   if (output["MaximumReplicationCount"] !== undefined) {
-    contents.MaximumReplicationCount = parseInt(
-      output["MaximumReplicationCount"]
-    );
+    contents.MaximumReplicationCount = parseInt(output["MaximumReplicationCount"]);
   }
   return contents;
 };
 
-const deserializeAws_queryListDomainNamesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListDomainNamesResponse => {
+const deserializeAws_queryListDomainNamesResponse = (output: any, context: __SerdeContext): ListDomainNamesResponse => {
   let contents: any = {
     __type: "ListDomainNamesResponse",
-    DomainNames: undefined
+    DomainNames: undefined,
   };
   if (output.DomainNames === "") {
     contents.DomainNames = {};
   }
-  if (
-    output["DomainNames"] !== undefined &&
-    output["DomainNames"]["entry"] !== undefined
-  ) {
+  if (output["DomainNames"] !== undefined && output["DomainNames"]["entry"] !== undefined) {
     contents.DomainNames = deserializeAws_queryDomainNameMap(
       __getArrayIfSingleItem(output["DomainNames"]["entry"]),
       context
@@ -5457,17 +4533,14 @@ const deserializeAws_queryListDomainNamesResponse = (
   return contents;
 };
 
-const deserializeAws_queryLiteralArrayOptions = (
-  output: any,
-  context: __SerdeContext
-): LiteralArrayOptions => {
+const deserializeAws_queryLiteralArrayOptions = (output: any, context: __SerdeContext): LiteralArrayOptions => {
   let contents: any = {
     __type: "LiteralArrayOptions",
     DefaultValue: undefined,
     FacetEnabled: undefined,
     ReturnEnabled: undefined,
     SearchEnabled: undefined,
-    SourceFields: undefined
+    SourceFields: undefined,
   };
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = output["DefaultValue"];
@@ -5487,10 +4560,7 @@ const deserializeAws_queryLiteralArrayOptions = (
   return contents;
 };
 
-const deserializeAws_queryLiteralOptions = (
-  output: any,
-  context: __SerdeContext
-): LiteralOptions => {
+const deserializeAws_queryLiteralOptions = (output: any, context: __SerdeContext): LiteralOptions => {
   let contents: any = {
     __type: "LiteralOptions",
     DefaultValue: undefined,
@@ -5498,7 +4568,7 @@ const deserializeAws_queryLiteralOptions = (
     ReturnEnabled: undefined,
     SearchEnabled: undefined,
     SortEnabled: undefined,
-    SourceField: undefined
+    SourceField: undefined,
   };
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = output["DefaultValue"];
@@ -5521,17 +4591,14 @@ const deserializeAws_queryLiteralOptions = (
   return contents;
 };
 
-const deserializeAws_queryOptionStatus = (
-  output: any,
-  context: __SerdeContext
-): OptionStatus => {
+const deserializeAws_queryOptionStatus = (output: any, context: __SerdeContext): OptionStatus => {
   let contents: any = {
     __type: "OptionStatus",
     CreationDate: undefined,
     PendingDeletion: undefined,
     State: undefined,
     UpdateDate: undefined,
-    UpdateVersion: undefined
+    UpdateVersion: undefined,
   };
   if (output["CreationDate"] !== undefined) {
     contents.CreationDate = new Date(output["CreationDate"]);
@@ -5558,7 +4625,7 @@ const deserializeAws_queryResourceNotFoundException = (
   let contents: any = {
     __type: "ResourceNotFoundException",
     Code: undefined,
-    Message: undefined
+    Message: undefined,
   };
   if (output["Code"] !== undefined) {
     contents.Code = output["Code"];
@@ -5569,15 +4636,12 @@ const deserializeAws_queryResourceNotFoundException = (
   return contents;
 };
 
-const deserializeAws_queryScalingParameters = (
-  output: any,
-  context: __SerdeContext
-): ScalingParameters => {
+const deserializeAws_queryScalingParameters = (output: any, context: __SerdeContext): ScalingParameters => {
   let contents: any = {
     __type: "ScalingParameters",
     DesiredInstanceType: undefined,
     DesiredPartitionCount: undefined,
-    DesiredReplicationCount: undefined
+    DesiredReplicationCount: undefined,
   };
   if (output["DesiredInstanceType"] !== undefined) {
     contents.DesiredInstanceType = output["DesiredInstanceType"];
@@ -5586,44 +4650,30 @@ const deserializeAws_queryScalingParameters = (
     contents.DesiredPartitionCount = parseInt(output["DesiredPartitionCount"]);
   }
   if (output["DesiredReplicationCount"] !== undefined) {
-    contents.DesiredReplicationCount = parseInt(
-      output["DesiredReplicationCount"]
-    );
+    contents.DesiredReplicationCount = parseInt(output["DesiredReplicationCount"]);
   }
   return contents;
 };
 
-const deserializeAws_queryScalingParametersStatus = (
-  output: any,
-  context: __SerdeContext
-): ScalingParametersStatus => {
+const deserializeAws_queryScalingParametersStatus = (output: any, context: __SerdeContext): ScalingParametersStatus => {
   let contents: any = {
     __type: "ScalingParametersStatus",
     Options: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output["Options"] !== undefined) {
-    contents.Options = deserializeAws_queryScalingParameters(
-      output["Options"],
-      context
-    );
+    contents.Options = deserializeAws_queryScalingParameters(output["Options"], context);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = deserializeAws_queryOptionStatus(
-      output["Status"],
-      context
-    );
+    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryServiceEndpoint = (
-  output: any,
-  context: __SerdeContext
-): ServiceEndpoint => {
+const deserializeAws_queryServiceEndpoint = (output: any, context: __SerdeContext): ServiceEndpoint => {
   let contents: any = {
     __type: "ServiceEndpoint",
-    Endpoint: undefined
+    Endpoint: undefined,
   };
   if (output["Endpoint"] !== undefined) {
     contents.Endpoint = output["Endpoint"];
@@ -5631,14 +4681,11 @@ const deserializeAws_queryServiceEndpoint = (
   return contents;
 };
 
-const deserializeAws_querySuggester = (
-  output: any,
-  context: __SerdeContext
-): Suggester => {
+const deserializeAws_querySuggester = (output: any, context: __SerdeContext): Suggester => {
   let contents: any = {
     __type: "Suggester",
     DocumentSuggesterOptions: undefined,
-    SuggesterName: undefined
+    SuggesterName: undefined,
   };
   if (output["DocumentSuggesterOptions"] !== undefined) {
     contents.DocumentSuggesterOptions = deserializeAws_queryDocumentSuggesterOptions(
@@ -5652,50 +4699,33 @@ const deserializeAws_querySuggester = (
   return contents;
 };
 
-const deserializeAws_querySuggesterStatus = (
-  output: any,
-  context: __SerdeContext
-): SuggesterStatus => {
+const deserializeAws_querySuggesterStatus = (output: any, context: __SerdeContext): SuggesterStatus => {
   let contents: any = {
     __type: "SuggesterStatus",
     Options: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output["Options"] !== undefined) {
-    contents.Options = deserializeAws_querySuggester(
-      output["Options"],
-      context
-    );
+    contents.Options = deserializeAws_querySuggester(output["Options"], context);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = deserializeAws_queryOptionStatus(
-      output["Status"],
-      context
-    );
+    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
   }
   return contents;
 };
 
-const deserializeAws_querySuggesterStatusList = (
-  output: any,
-  context: __SerdeContext
-): SuggesterStatus[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_querySuggesterStatus(entry, context)
-  );
+const deserializeAws_querySuggesterStatusList = (output: any, context: __SerdeContext): SuggesterStatus[] => {
+  return (output || []).map((entry: any) => deserializeAws_querySuggesterStatus(entry, context));
 };
 
-const deserializeAws_queryTextArrayOptions = (
-  output: any,
-  context: __SerdeContext
-): TextArrayOptions => {
+const deserializeAws_queryTextArrayOptions = (output: any, context: __SerdeContext): TextArrayOptions => {
   let contents: any = {
     __type: "TextArrayOptions",
     AnalysisScheme: undefined,
     DefaultValue: undefined,
     HighlightEnabled: undefined,
     ReturnEnabled: undefined,
-    SourceFields: undefined
+    SourceFields: undefined,
   };
   if (output["AnalysisScheme"] !== undefined) {
     contents.AnalysisScheme = output["AnalysisScheme"];
@@ -5715,10 +4745,7 @@ const deserializeAws_queryTextArrayOptions = (
   return contents;
 };
 
-const deserializeAws_queryTextOptions = (
-  output: any,
-  context: __SerdeContext
-): TextOptions => {
+const deserializeAws_queryTextOptions = (output: any, context: __SerdeContext): TextOptions => {
   let contents: any = {
     __type: "TextOptions",
     AnalysisScheme: undefined,
@@ -5726,7 +4753,7 @@ const deserializeAws_queryTextOptions = (
     HighlightEnabled: undefined,
     ReturnEnabled: undefined,
     SortEnabled: undefined,
-    SourceField: undefined
+    SourceField: undefined,
   };
   if (output["AnalysisScheme"] !== undefined) {
     contents.AnalysisScheme = output["AnalysisScheme"];
@@ -5755,7 +4782,7 @@ const deserializeAws_queryUpdateAvailabilityOptionsResponse = (
 ): UpdateAvailabilityOptionsResponse => {
   let contents: any = {
     __type: "UpdateAvailabilityOptionsResponse",
-    AvailabilityOptions: undefined
+    AvailabilityOptions: undefined,
   };
   if (output["AvailabilityOptions"] !== undefined) {
     contents.AvailabilityOptions = deserializeAws_queryAvailabilityOptionsStatus(
@@ -5772,7 +4799,7 @@ const deserializeAws_queryUpdateDomainEndpointOptionsResponse = (
 ): UpdateDomainEndpointOptionsResponse => {
   let contents: any = {
     __type: "UpdateDomainEndpointOptionsResponse",
-    DomainEndpointOptions: undefined
+    DomainEndpointOptions: undefined,
   };
   if (output["DomainEndpointOptions"] !== undefined) {
     contents.DomainEndpointOptions = deserializeAws_queryDomainEndpointOptionsStatus(
@@ -5789,13 +4816,10 @@ const deserializeAws_queryUpdateScalingParametersResponse = (
 ): UpdateScalingParametersResponse => {
   let contents: any = {
     __type: "UpdateScalingParametersResponse",
-    ScalingParameters: undefined
+    ScalingParameters: undefined,
   };
   if (output["ScalingParameters"] !== undefined) {
-    contents.ScalingParameters = deserializeAws_queryScalingParametersStatus(
-      output["ScalingParameters"],
-      context
-    );
+    contents.ScalingParameters = deserializeAws_queryScalingParametersStatus(output["ScalingParameters"], context);
   }
   return contents;
 };
@@ -5806,25 +4830,19 @@ const deserializeAws_queryUpdateServiceAccessPoliciesResponse = (
 ): UpdateServiceAccessPoliciesResponse => {
   let contents: any = {
     __type: "UpdateServiceAccessPoliciesResponse",
-    AccessPolicies: undefined
+    AccessPolicies: undefined,
   };
   if (output["AccessPolicies"] !== undefined) {
-    contents.AccessPolicies = deserializeAws_queryAccessPoliciesStatus(
-      output["AccessPolicies"],
-      context
-    );
+    contents.AccessPolicies = deserializeAws_queryAccessPoliciesStatus(output["AccessPolicies"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryValidationException = (
-  output: any,
-  context: __SerdeContext
-): ValidationException => {
+const deserializeAws_queryValidationException = (output: any, context: __SerdeContext): ValidationException => {
   let contents: any = {
     __type: "ValidationException",
     Code: undefined,
-    Message: undefined
+    Message: undefined,
   };
   if (output["Code"] !== undefined) {
     contents.Code = output["Code"];
@@ -5838,28 +4856,20 @@ const deserializeAws_queryValidationException = (
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"]
+  requestId: output.headers["x-amzn-requestid"],
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
-  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -5875,7 +4885,7 @@ const buildHttpRpcRequest = async (
     port,
     method: "POST",
     path,
-    headers
+    headers,
   };
   if (resolvedHostname !== undefined) {
     contents.hostname = resolvedHostname;
@@ -5895,13 +4905,13 @@ const decodeEscapedXML = (str: string) =>
     .replace(/&lt;/g, "<");
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then(encoded => {
+  collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       const parsedObj = xmlParse(encoded, {
         attributeNamePrefix: "",
         ignoreAttributes: false,
         parseNodeValue: false,
-        tagValueProcessor: (val, tagName) => decodeEscapedXML(val)
+        tagValueProcessor: (val, tagName) => decodeEscapedXML(val),
       });
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
@@ -5915,16 +4925,9 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
-const buildFormUrlencodedString = (formEntries: {
-  [key: string]: string;
-}): string =>
+const buildFormUrlencodedString = (formEntries: { [key: string]: string }): string =>
   Object.entries(formEntries)
-    .map(
-      ([key, value]) =>
-        __extendedEncodeURIComponent(key) +
-        "=" +
-        __extendedEncodeURIComponent(value)
-    )
+    .map(([key, value]) => __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value))
     .join("&");
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {

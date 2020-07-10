@@ -1,21 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient";
-import {
-  PurchaseReservedNodeOfferingMessage,
-  PurchaseReservedNodeOfferingResult
-} from "../models/index";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { PurchaseReservedNodeOfferingMessage, PurchaseReservedNodeOfferingResult } from "../models/index";
 import {
   deserializeAws_queryPurchaseReservedNodeOfferingCommand,
-  serializeAws_queryPurchaseReservedNodeOfferingCommand
+  serializeAws_queryPurchaseReservedNodeOfferingCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type PurchaseReservedNodeOfferingCommandInput = PurchaseReservedNodeOfferingMessage;
-export type PurchaseReservedNodeOfferingCommandOutput = PurchaseReservedNodeOfferingResult &
-  __MetadataBearer;
+export type PurchaseReservedNodeOfferingCommandOutput = PurchaseReservedNodeOfferingResult & __MetadataBearer;
 
 export class PurchaseReservedNodeOfferingCommand extends $Command<
   PurchaseReservedNodeOfferingCommandInput,
@@ -49,18 +38,13 @@ export class PurchaseReservedNodeOfferingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PurchaseReservedNodeOfferingCommandInput,
-    PurchaseReservedNodeOfferingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PurchaseReservedNodeOfferingCommandInput, PurchaseReservedNodeOfferingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class PurchaseReservedNodeOfferingCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PurchaseReservedNodeOfferingCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_queryPurchaseReservedNodeOfferingCommand(
-      input,
-      context
-    );
+  private serialize(input: PurchaseReservedNodeOfferingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryPurchaseReservedNodeOfferingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseReservedNodeOfferingCommandOutput> {
-    return deserializeAws_queryPurchaseReservedNodeOfferingCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryPurchaseReservedNodeOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -2,1997 +2,1945 @@ import { EC2Client } from "./EC2Client";
 import {
   AcceptReservedInstancesExchangeQuoteCommand,
   AcceptReservedInstancesExchangeQuoteCommandInput,
-  AcceptReservedInstancesExchangeQuoteCommandOutput
+  AcceptReservedInstancesExchangeQuoteCommandOutput,
 } from "./commands/AcceptReservedInstancesExchangeQuoteCommand";
 import {
   AcceptTransitGatewayPeeringAttachmentCommand,
   AcceptTransitGatewayPeeringAttachmentCommandInput,
-  AcceptTransitGatewayPeeringAttachmentCommandOutput
+  AcceptTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/AcceptTransitGatewayPeeringAttachmentCommand";
 import {
   AcceptTransitGatewayVpcAttachmentCommand,
   AcceptTransitGatewayVpcAttachmentCommandInput,
-  AcceptTransitGatewayVpcAttachmentCommandOutput
+  AcceptTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/AcceptTransitGatewayVpcAttachmentCommand";
 import {
   AcceptVpcEndpointConnectionsCommand,
   AcceptVpcEndpointConnectionsCommandInput,
-  AcceptVpcEndpointConnectionsCommandOutput
+  AcceptVpcEndpointConnectionsCommandOutput,
 } from "./commands/AcceptVpcEndpointConnectionsCommand";
 import {
   AcceptVpcPeeringConnectionCommand,
   AcceptVpcPeeringConnectionCommandInput,
-  AcceptVpcPeeringConnectionCommandOutput
+  AcceptVpcPeeringConnectionCommandOutput,
 } from "./commands/AcceptVpcPeeringConnectionCommand";
 import {
   AdvertiseByoipCidrCommand,
   AdvertiseByoipCidrCommandInput,
-  AdvertiseByoipCidrCommandOutput
+  AdvertiseByoipCidrCommandOutput,
 } from "./commands/AdvertiseByoipCidrCommand";
 import {
   AllocateAddressCommand,
   AllocateAddressCommandInput,
-  AllocateAddressCommandOutput
+  AllocateAddressCommandOutput,
 } from "./commands/AllocateAddressCommand";
 import {
   AllocateHostsCommand,
   AllocateHostsCommandInput,
-  AllocateHostsCommandOutput
+  AllocateHostsCommandOutput,
 } from "./commands/AllocateHostsCommand";
 import {
   ApplySecurityGroupsToClientVpnTargetNetworkCommand,
   ApplySecurityGroupsToClientVpnTargetNetworkCommandInput,
-  ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
+  ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput,
 } from "./commands/ApplySecurityGroupsToClientVpnTargetNetworkCommand";
 import {
   AssignIpv6AddressesCommand,
   AssignIpv6AddressesCommandInput,
-  AssignIpv6AddressesCommandOutput
+  AssignIpv6AddressesCommandOutput,
 } from "./commands/AssignIpv6AddressesCommand";
 import {
   AssignPrivateIpAddressesCommand,
   AssignPrivateIpAddressesCommandInput,
-  AssignPrivateIpAddressesCommandOutput
+  AssignPrivateIpAddressesCommandOutput,
 } from "./commands/AssignPrivateIpAddressesCommand";
 import {
   AssociateAddressCommand,
   AssociateAddressCommandInput,
-  AssociateAddressCommandOutput
+  AssociateAddressCommandOutput,
 } from "./commands/AssociateAddressCommand";
 import {
   AssociateClientVpnTargetNetworkCommand,
   AssociateClientVpnTargetNetworkCommandInput,
-  AssociateClientVpnTargetNetworkCommandOutput
+  AssociateClientVpnTargetNetworkCommandOutput,
 } from "./commands/AssociateClientVpnTargetNetworkCommand";
 import {
   AssociateDhcpOptionsCommand,
   AssociateDhcpOptionsCommandInput,
-  AssociateDhcpOptionsCommandOutput
+  AssociateDhcpOptionsCommandOutput,
 } from "./commands/AssociateDhcpOptionsCommand";
 import {
   AssociateIamInstanceProfileCommand,
   AssociateIamInstanceProfileCommandInput,
-  AssociateIamInstanceProfileCommandOutput
+  AssociateIamInstanceProfileCommandOutput,
 } from "./commands/AssociateIamInstanceProfileCommand";
 import {
   AssociateRouteTableCommand,
   AssociateRouteTableCommandInput,
-  AssociateRouteTableCommandOutput
+  AssociateRouteTableCommandOutput,
 } from "./commands/AssociateRouteTableCommand";
 import {
   AssociateSubnetCidrBlockCommand,
   AssociateSubnetCidrBlockCommandInput,
-  AssociateSubnetCidrBlockCommandOutput
+  AssociateSubnetCidrBlockCommandOutput,
 } from "./commands/AssociateSubnetCidrBlockCommand";
 import {
   AssociateTransitGatewayMulticastDomainCommand,
   AssociateTransitGatewayMulticastDomainCommandInput,
-  AssociateTransitGatewayMulticastDomainCommandOutput
+  AssociateTransitGatewayMulticastDomainCommandOutput,
 } from "./commands/AssociateTransitGatewayMulticastDomainCommand";
 import {
   AssociateTransitGatewayRouteTableCommand,
   AssociateTransitGatewayRouteTableCommandInput,
-  AssociateTransitGatewayRouteTableCommandOutput
+  AssociateTransitGatewayRouteTableCommandOutput,
 } from "./commands/AssociateTransitGatewayRouteTableCommand";
 import {
   AssociateVpcCidrBlockCommand,
   AssociateVpcCidrBlockCommandInput,
-  AssociateVpcCidrBlockCommandOutput
+  AssociateVpcCidrBlockCommandOutput,
 } from "./commands/AssociateVpcCidrBlockCommand";
 import {
   AttachClassicLinkVpcCommand,
   AttachClassicLinkVpcCommandInput,
-  AttachClassicLinkVpcCommandOutput
+  AttachClassicLinkVpcCommandOutput,
 } from "./commands/AttachClassicLinkVpcCommand";
 import {
   AttachInternetGatewayCommand,
   AttachInternetGatewayCommandInput,
-  AttachInternetGatewayCommandOutput
+  AttachInternetGatewayCommandOutput,
 } from "./commands/AttachInternetGatewayCommand";
 import {
   AttachNetworkInterfaceCommand,
   AttachNetworkInterfaceCommandInput,
-  AttachNetworkInterfaceCommandOutput
+  AttachNetworkInterfaceCommandOutput,
 } from "./commands/AttachNetworkInterfaceCommand";
 import {
   AttachVolumeCommand,
   AttachVolumeCommandInput,
-  AttachVolumeCommandOutput
+  AttachVolumeCommandOutput,
 } from "./commands/AttachVolumeCommand";
 import {
   AttachVpnGatewayCommand,
   AttachVpnGatewayCommandInput,
-  AttachVpnGatewayCommandOutput
+  AttachVpnGatewayCommandOutput,
 } from "./commands/AttachVpnGatewayCommand";
 import {
   AuthorizeClientVpnIngressCommand,
   AuthorizeClientVpnIngressCommandInput,
-  AuthorizeClientVpnIngressCommandOutput
+  AuthorizeClientVpnIngressCommandOutput,
 } from "./commands/AuthorizeClientVpnIngressCommand";
 import {
   AuthorizeSecurityGroupEgressCommand,
   AuthorizeSecurityGroupEgressCommandInput,
-  AuthorizeSecurityGroupEgressCommandOutput
+  AuthorizeSecurityGroupEgressCommandOutput,
 } from "./commands/AuthorizeSecurityGroupEgressCommand";
 import {
   AuthorizeSecurityGroupIngressCommand,
   AuthorizeSecurityGroupIngressCommandInput,
-  AuthorizeSecurityGroupIngressCommandOutput
+  AuthorizeSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeSecurityGroupIngressCommand";
 import {
   BundleInstanceCommand,
   BundleInstanceCommandInput,
-  BundleInstanceCommandOutput
+  BundleInstanceCommandOutput,
 } from "./commands/BundleInstanceCommand";
 import {
   CancelBundleTaskCommand,
   CancelBundleTaskCommandInput,
-  CancelBundleTaskCommandOutput
+  CancelBundleTaskCommandOutput,
 } from "./commands/CancelBundleTaskCommand";
 import {
   CancelCapacityReservationCommand,
   CancelCapacityReservationCommandInput,
-  CancelCapacityReservationCommandOutput
+  CancelCapacityReservationCommandOutput,
 } from "./commands/CancelCapacityReservationCommand";
 import {
   CancelConversionTaskCommand,
   CancelConversionTaskCommandInput,
-  CancelConversionTaskCommandOutput
+  CancelConversionTaskCommandOutput,
 } from "./commands/CancelConversionTaskCommand";
 import {
   CancelExportTaskCommand,
   CancelExportTaskCommandInput,
-  CancelExportTaskCommandOutput
+  CancelExportTaskCommandOutput,
 } from "./commands/CancelExportTaskCommand";
 import {
   CancelImportTaskCommand,
   CancelImportTaskCommandInput,
-  CancelImportTaskCommandOutput
+  CancelImportTaskCommandOutput,
 } from "./commands/CancelImportTaskCommand";
 import {
   CancelReservedInstancesListingCommand,
   CancelReservedInstancesListingCommandInput,
-  CancelReservedInstancesListingCommandOutput
+  CancelReservedInstancesListingCommandOutput,
 } from "./commands/CancelReservedInstancesListingCommand";
 import {
   CancelSpotFleetRequestsCommand,
   CancelSpotFleetRequestsCommandInput,
-  CancelSpotFleetRequestsCommandOutput
+  CancelSpotFleetRequestsCommandOutput,
 } from "./commands/CancelSpotFleetRequestsCommand";
 import {
   CancelSpotInstanceRequestsCommand,
   CancelSpotInstanceRequestsCommandInput,
-  CancelSpotInstanceRequestsCommandOutput
+  CancelSpotInstanceRequestsCommandOutput,
 } from "./commands/CancelSpotInstanceRequestsCommand";
 import {
   ConfirmProductInstanceCommand,
   ConfirmProductInstanceCommandInput,
-  ConfirmProductInstanceCommandOutput
+  ConfirmProductInstanceCommandOutput,
 } from "./commands/ConfirmProductInstanceCommand";
 import {
   CopyFpgaImageCommand,
   CopyFpgaImageCommandInput,
-  CopyFpgaImageCommandOutput
+  CopyFpgaImageCommandOutput,
 } from "./commands/CopyFpgaImageCommand";
-import {
-  CopyImageCommand,
-  CopyImageCommandInput,
-  CopyImageCommandOutput
-} from "./commands/CopyImageCommand";
+import { CopyImageCommand, CopyImageCommandInput, CopyImageCommandOutput } from "./commands/CopyImageCommand";
 import {
   CopySnapshotCommand,
   CopySnapshotCommandInput,
-  CopySnapshotCommandOutput
+  CopySnapshotCommandOutput,
 } from "./commands/CopySnapshotCommand";
 import {
   CreateCapacityReservationCommand,
   CreateCapacityReservationCommandInput,
-  CreateCapacityReservationCommandOutput
+  CreateCapacityReservationCommandOutput,
 } from "./commands/CreateCapacityReservationCommand";
 import {
   CreateClientVpnEndpointCommand,
   CreateClientVpnEndpointCommandInput,
-  CreateClientVpnEndpointCommandOutput
+  CreateClientVpnEndpointCommandOutput,
 } from "./commands/CreateClientVpnEndpointCommand";
 import {
   CreateClientVpnRouteCommand,
   CreateClientVpnRouteCommandInput,
-  CreateClientVpnRouteCommandOutput
+  CreateClientVpnRouteCommandOutput,
 } from "./commands/CreateClientVpnRouteCommand";
 import {
   CreateCustomerGatewayCommand,
   CreateCustomerGatewayCommandInput,
-  CreateCustomerGatewayCommandOutput
+  CreateCustomerGatewayCommandOutput,
 } from "./commands/CreateCustomerGatewayCommand";
 import {
   CreateDefaultSubnetCommand,
   CreateDefaultSubnetCommandInput,
-  CreateDefaultSubnetCommandOutput
+  CreateDefaultSubnetCommandOutput,
 } from "./commands/CreateDefaultSubnetCommand";
 import {
   CreateDefaultVpcCommand,
   CreateDefaultVpcCommandInput,
-  CreateDefaultVpcCommandOutput
+  CreateDefaultVpcCommandOutput,
 } from "./commands/CreateDefaultVpcCommand";
 import {
   CreateDhcpOptionsCommand,
   CreateDhcpOptionsCommandInput,
-  CreateDhcpOptionsCommandOutput
+  CreateDhcpOptionsCommandOutput,
 } from "./commands/CreateDhcpOptionsCommand";
 import {
   CreateEgressOnlyInternetGatewayCommand,
   CreateEgressOnlyInternetGatewayCommandInput,
-  CreateEgressOnlyInternetGatewayCommandOutput
+  CreateEgressOnlyInternetGatewayCommandOutput,
 } from "./commands/CreateEgressOnlyInternetGatewayCommand";
-import {
-  CreateFleetCommand,
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput
-} from "./commands/CreateFleetCommand";
+import { CreateFleetCommand, CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
 import {
   CreateFlowLogsCommand,
   CreateFlowLogsCommandInput,
-  CreateFlowLogsCommandOutput
+  CreateFlowLogsCommandOutput,
 } from "./commands/CreateFlowLogsCommand";
 import {
   CreateFpgaImageCommand,
   CreateFpgaImageCommandInput,
-  CreateFpgaImageCommandOutput
+  CreateFpgaImageCommandOutput,
 } from "./commands/CreateFpgaImageCommand";
-import {
-  CreateImageCommand,
-  CreateImageCommandInput,
-  CreateImageCommandOutput
-} from "./commands/CreateImageCommand";
+import { CreateImageCommand, CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand";
 import {
   CreateInstanceExportTaskCommand,
   CreateInstanceExportTaskCommandInput,
-  CreateInstanceExportTaskCommandOutput
+  CreateInstanceExportTaskCommandOutput,
 } from "./commands/CreateInstanceExportTaskCommand";
 import {
   CreateInternetGatewayCommand,
   CreateInternetGatewayCommandInput,
-  CreateInternetGatewayCommandOutput
+  CreateInternetGatewayCommandOutput,
 } from "./commands/CreateInternetGatewayCommand";
 import {
   CreateKeyPairCommand,
   CreateKeyPairCommandInput,
-  CreateKeyPairCommandOutput
+  CreateKeyPairCommandOutput,
 } from "./commands/CreateKeyPairCommand";
 import {
   CreateLaunchTemplateCommand,
   CreateLaunchTemplateCommandInput,
-  CreateLaunchTemplateCommandOutput
+  CreateLaunchTemplateCommandOutput,
 } from "./commands/CreateLaunchTemplateCommand";
 import {
   CreateLaunchTemplateVersionCommand,
   CreateLaunchTemplateVersionCommandInput,
-  CreateLaunchTemplateVersionCommandOutput
+  CreateLaunchTemplateVersionCommandOutput,
 } from "./commands/CreateLaunchTemplateVersionCommand";
 import {
   CreateLocalGatewayRouteCommand,
   CreateLocalGatewayRouteCommandInput,
-  CreateLocalGatewayRouteCommandOutput
+  CreateLocalGatewayRouteCommandOutput,
 } from "./commands/CreateLocalGatewayRouteCommand";
 import {
   CreateLocalGatewayRouteTableVpcAssociationCommand,
   CreateLocalGatewayRouteTableVpcAssociationCommandInput,
-  CreateLocalGatewayRouteTableVpcAssociationCommandOutput
+  CreateLocalGatewayRouteTableVpcAssociationCommandOutput,
 } from "./commands/CreateLocalGatewayRouteTableVpcAssociationCommand";
 import {
   CreateNatGatewayCommand,
   CreateNatGatewayCommandInput,
-  CreateNatGatewayCommandOutput
+  CreateNatGatewayCommandOutput,
 } from "./commands/CreateNatGatewayCommand";
 import {
   CreateNetworkAclCommand,
   CreateNetworkAclCommandInput,
-  CreateNetworkAclCommandOutput
+  CreateNetworkAclCommandOutput,
 } from "./commands/CreateNetworkAclCommand";
 import {
   CreateNetworkAclEntryCommand,
   CreateNetworkAclEntryCommandInput,
-  CreateNetworkAclEntryCommandOutput
+  CreateNetworkAclEntryCommandOutput,
 } from "./commands/CreateNetworkAclEntryCommand";
 import {
   CreateNetworkInterfaceCommand,
   CreateNetworkInterfaceCommandInput,
-  CreateNetworkInterfaceCommandOutput
+  CreateNetworkInterfaceCommandOutput,
 } from "./commands/CreateNetworkInterfaceCommand";
 import {
   CreateNetworkInterfacePermissionCommand,
   CreateNetworkInterfacePermissionCommandInput,
-  CreateNetworkInterfacePermissionCommandOutput
+  CreateNetworkInterfacePermissionCommandOutput,
 } from "./commands/CreateNetworkInterfacePermissionCommand";
 import {
   CreatePlacementGroupCommand,
   CreatePlacementGroupCommandInput,
-  CreatePlacementGroupCommandOutput
+  CreatePlacementGroupCommandOutput,
 } from "./commands/CreatePlacementGroupCommand";
 import {
   CreateReservedInstancesListingCommand,
   CreateReservedInstancesListingCommandInput,
-  CreateReservedInstancesListingCommandOutput
+  CreateReservedInstancesListingCommandOutput,
 } from "./commands/CreateReservedInstancesListingCommand";
-import {
-  CreateRouteCommand,
-  CreateRouteCommandInput,
-  CreateRouteCommandOutput
-} from "./commands/CreateRouteCommand";
+import { CreateRouteCommand, CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand";
 import {
   CreateRouteTableCommand,
   CreateRouteTableCommandInput,
-  CreateRouteTableCommandOutput
+  CreateRouteTableCommandOutput,
 } from "./commands/CreateRouteTableCommand";
 import {
   CreateSecurityGroupCommand,
   CreateSecurityGroupCommandInput,
-  CreateSecurityGroupCommandOutput
+  CreateSecurityGroupCommandOutput,
 } from "./commands/CreateSecurityGroupCommand";
 import {
   CreateSnapshotCommand,
   CreateSnapshotCommandInput,
-  CreateSnapshotCommandOutput
+  CreateSnapshotCommandOutput,
 } from "./commands/CreateSnapshotCommand";
 import {
   CreateSnapshotsCommand,
   CreateSnapshotsCommandInput,
-  CreateSnapshotsCommandOutput
+  CreateSnapshotsCommandOutput,
 } from "./commands/CreateSnapshotsCommand";
 import {
   CreateSpotDatafeedSubscriptionCommand,
   CreateSpotDatafeedSubscriptionCommandInput,
-  CreateSpotDatafeedSubscriptionCommandOutput
+  CreateSpotDatafeedSubscriptionCommandOutput,
 } from "./commands/CreateSpotDatafeedSubscriptionCommand";
 import {
   CreateSubnetCommand,
   CreateSubnetCommandInput,
-  CreateSubnetCommandOutput
+  CreateSubnetCommandOutput,
 } from "./commands/CreateSubnetCommand";
-import {
-  CreateTagsCommand,
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "./commands/CreateTagsCommand";
+import { CreateTagsCommand, CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
   CreateTrafficMirrorFilterCommand,
   CreateTrafficMirrorFilterCommandInput,
-  CreateTrafficMirrorFilterCommandOutput
+  CreateTrafficMirrorFilterCommandOutput,
 } from "./commands/CreateTrafficMirrorFilterCommand";
 import {
   CreateTrafficMirrorFilterRuleCommand,
   CreateTrafficMirrorFilterRuleCommandInput,
-  CreateTrafficMirrorFilterRuleCommandOutput
+  CreateTrafficMirrorFilterRuleCommandOutput,
 } from "./commands/CreateTrafficMirrorFilterRuleCommand";
 import {
   CreateTrafficMirrorSessionCommand,
   CreateTrafficMirrorSessionCommandInput,
-  CreateTrafficMirrorSessionCommandOutput
+  CreateTrafficMirrorSessionCommandOutput,
 } from "./commands/CreateTrafficMirrorSessionCommand";
 import {
   CreateTrafficMirrorTargetCommand,
   CreateTrafficMirrorTargetCommandInput,
-  CreateTrafficMirrorTargetCommandOutput
+  CreateTrafficMirrorTargetCommandOutput,
 } from "./commands/CreateTrafficMirrorTargetCommand";
 import {
   CreateTransitGatewayCommand,
   CreateTransitGatewayCommandInput,
-  CreateTransitGatewayCommandOutput
+  CreateTransitGatewayCommandOutput,
 } from "./commands/CreateTransitGatewayCommand";
 import {
   CreateTransitGatewayMulticastDomainCommand,
   CreateTransitGatewayMulticastDomainCommandInput,
-  CreateTransitGatewayMulticastDomainCommandOutput
+  CreateTransitGatewayMulticastDomainCommandOutput,
 } from "./commands/CreateTransitGatewayMulticastDomainCommand";
 import {
   CreateTransitGatewayPeeringAttachmentCommand,
   CreateTransitGatewayPeeringAttachmentCommandInput,
-  CreateTransitGatewayPeeringAttachmentCommandOutput
+  CreateTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/CreateTransitGatewayPeeringAttachmentCommand";
 import {
   CreateTransitGatewayRouteCommand,
   CreateTransitGatewayRouteCommandInput,
-  CreateTransitGatewayRouteCommandOutput
+  CreateTransitGatewayRouteCommandOutput,
 } from "./commands/CreateTransitGatewayRouteCommand";
 import {
   CreateTransitGatewayRouteTableCommand,
   CreateTransitGatewayRouteTableCommandInput,
-  CreateTransitGatewayRouteTableCommandOutput
+  CreateTransitGatewayRouteTableCommandOutput,
 } from "./commands/CreateTransitGatewayRouteTableCommand";
 import {
   CreateTransitGatewayVpcAttachmentCommand,
   CreateTransitGatewayVpcAttachmentCommandInput,
-  CreateTransitGatewayVpcAttachmentCommandOutput
+  CreateTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/CreateTransitGatewayVpcAttachmentCommand";
 import {
   CreateVolumeCommand,
   CreateVolumeCommandInput,
-  CreateVolumeCommandOutput
+  CreateVolumeCommandOutput,
 } from "./commands/CreateVolumeCommand";
-import {
-  CreateVpcCommand,
-  CreateVpcCommandInput,
-  CreateVpcCommandOutput
-} from "./commands/CreateVpcCommand";
+import { CreateVpcCommand, CreateVpcCommandInput, CreateVpcCommandOutput } from "./commands/CreateVpcCommand";
 import {
   CreateVpcEndpointCommand,
   CreateVpcEndpointCommandInput,
-  CreateVpcEndpointCommandOutput
+  CreateVpcEndpointCommandOutput,
 } from "./commands/CreateVpcEndpointCommand";
 import {
   CreateVpcEndpointConnectionNotificationCommand,
   CreateVpcEndpointConnectionNotificationCommandInput,
-  CreateVpcEndpointConnectionNotificationCommandOutput
+  CreateVpcEndpointConnectionNotificationCommandOutput,
 } from "./commands/CreateVpcEndpointConnectionNotificationCommand";
 import {
   CreateVpcEndpointServiceConfigurationCommand,
   CreateVpcEndpointServiceConfigurationCommandInput,
-  CreateVpcEndpointServiceConfigurationCommandOutput
+  CreateVpcEndpointServiceConfigurationCommandOutput,
 } from "./commands/CreateVpcEndpointServiceConfigurationCommand";
 import {
   CreateVpcPeeringConnectionCommand,
   CreateVpcPeeringConnectionCommandInput,
-  CreateVpcPeeringConnectionCommandOutput
+  CreateVpcPeeringConnectionCommandOutput,
 } from "./commands/CreateVpcPeeringConnectionCommand";
 import {
   CreateVpnConnectionCommand,
   CreateVpnConnectionCommandInput,
-  CreateVpnConnectionCommandOutput
+  CreateVpnConnectionCommandOutput,
 } from "./commands/CreateVpnConnectionCommand";
 import {
   CreateVpnConnectionRouteCommand,
   CreateVpnConnectionRouteCommandInput,
-  CreateVpnConnectionRouteCommandOutput
+  CreateVpnConnectionRouteCommandOutput,
 } from "./commands/CreateVpnConnectionRouteCommand";
 import {
   CreateVpnGatewayCommand,
   CreateVpnGatewayCommandInput,
-  CreateVpnGatewayCommandOutput
+  CreateVpnGatewayCommandOutput,
 } from "./commands/CreateVpnGatewayCommand";
 import {
   DeleteClientVpnEndpointCommand,
   DeleteClientVpnEndpointCommandInput,
-  DeleteClientVpnEndpointCommandOutput
+  DeleteClientVpnEndpointCommandOutput,
 } from "./commands/DeleteClientVpnEndpointCommand";
 import {
   DeleteClientVpnRouteCommand,
   DeleteClientVpnRouteCommandInput,
-  DeleteClientVpnRouteCommandOutput
+  DeleteClientVpnRouteCommandOutput,
 } from "./commands/DeleteClientVpnRouteCommand";
 import {
   DeleteCustomerGatewayCommand,
   DeleteCustomerGatewayCommandInput,
-  DeleteCustomerGatewayCommandOutput
+  DeleteCustomerGatewayCommandOutput,
 } from "./commands/DeleteCustomerGatewayCommand";
 import {
   DeleteDhcpOptionsCommand,
   DeleteDhcpOptionsCommandInput,
-  DeleteDhcpOptionsCommandOutput
+  DeleteDhcpOptionsCommandOutput,
 } from "./commands/DeleteDhcpOptionsCommand";
 import {
   DeleteEgressOnlyInternetGatewayCommand,
   DeleteEgressOnlyInternetGatewayCommandInput,
-  DeleteEgressOnlyInternetGatewayCommandOutput
+  DeleteEgressOnlyInternetGatewayCommandOutput,
 } from "./commands/DeleteEgressOnlyInternetGatewayCommand";
 import {
   DeleteFleetsCommand,
   DeleteFleetsCommandInput,
-  DeleteFleetsCommandOutput
+  DeleteFleetsCommandOutput,
 } from "./commands/DeleteFleetsCommand";
 import {
   DeleteFlowLogsCommand,
   DeleteFlowLogsCommandInput,
-  DeleteFlowLogsCommandOutput
+  DeleteFlowLogsCommandOutput,
 } from "./commands/DeleteFlowLogsCommand";
 import {
   DeleteFpgaImageCommand,
   DeleteFpgaImageCommandInput,
-  DeleteFpgaImageCommandOutput
+  DeleteFpgaImageCommandOutput,
 } from "./commands/DeleteFpgaImageCommand";
 import {
   DeleteInternetGatewayCommand,
   DeleteInternetGatewayCommandInput,
-  DeleteInternetGatewayCommandOutput
+  DeleteInternetGatewayCommandOutput,
 } from "./commands/DeleteInternetGatewayCommand";
 import {
   DeleteKeyPairCommand,
   DeleteKeyPairCommandInput,
-  DeleteKeyPairCommandOutput
+  DeleteKeyPairCommandOutput,
 } from "./commands/DeleteKeyPairCommand";
 import {
   DeleteLaunchTemplateCommand,
   DeleteLaunchTemplateCommandInput,
-  DeleteLaunchTemplateCommandOutput
+  DeleteLaunchTemplateCommandOutput,
 } from "./commands/DeleteLaunchTemplateCommand";
 import {
   DeleteLaunchTemplateVersionsCommand,
   DeleteLaunchTemplateVersionsCommandInput,
-  DeleteLaunchTemplateVersionsCommandOutput
+  DeleteLaunchTemplateVersionsCommandOutput,
 } from "./commands/DeleteLaunchTemplateVersionsCommand";
 import {
   DeleteLocalGatewayRouteCommand,
   DeleteLocalGatewayRouteCommandInput,
-  DeleteLocalGatewayRouteCommandOutput
+  DeleteLocalGatewayRouteCommandOutput,
 } from "./commands/DeleteLocalGatewayRouteCommand";
 import {
   DeleteLocalGatewayRouteTableVpcAssociationCommand,
   DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
-  DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
+  DeleteLocalGatewayRouteTableVpcAssociationCommandOutput,
 } from "./commands/DeleteLocalGatewayRouteTableVpcAssociationCommand";
 import {
   DeleteNatGatewayCommand,
   DeleteNatGatewayCommandInput,
-  DeleteNatGatewayCommandOutput
+  DeleteNatGatewayCommandOutput,
 } from "./commands/DeleteNatGatewayCommand";
 import {
   DeleteNetworkAclCommand,
   DeleteNetworkAclCommandInput,
-  DeleteNetworkAclCommandOutput
+  DeleteNetworkAclCommandOutput,
 } from "./commands/DeleteNetworkAclCommand";
 import {
   DeleteNetworkAclEntryCommand,
   DeleteNetworkAclEntryCommandInput,
-  DeleteNetworkAclEntryCommandOutput
+  DeleteNetworkAclEntryCommandOutput,
 } from "./commands/DeleteNetworkAclEntryCommand";
 import {
   DeleteNetworkInterfaceCommand,
   DeleteNetworkInterfaceCommandInput,
-  DeleteNetworkInterfaceCommandOutput
+  DeleteNetworkInterfaceCommandOutput,
 } from "./commands/DeleteNetworkInterfaceCommand";
 import {
   DeleteNetworkInterfacePermissionCommand,
   DeleteNetworkInterfacePermissionCommandInput,
-  DeleteNetworkInterfacePermissionCommandOutput
+  DeleteNetworkInterfacePermissionCommandOutput,
 } from "./commands/DeleteNetworkInterfacePermissionCommand";
 import {
   DeletePlacementGroupCommand,
   DeletePlacementGroupCommandInput,
-  DeletePlacementGroupCommandOutput
+  DeletePlacementGroupCommandOutput,
 } from "./commands/DeletePlacementGroupCommand";
 import {
   DeleteQueuedReservedInstancesCommand,
   DeleteQueuedReservedInstancesCommandInput,
-  DeleteQueuedReservedInstancesCommandOutput
+  DeleteQueuedReservedInstancesCommandOutput,
 } from "./commands/DeleteQueuedReservedInstancesCommand";
-import {
-  DeleteRouteCommand,
-  DeleteRouteCommandInput,
-  DeleteRouteCommandOutput
-} from "./commands/DeleteRouteCommand";
+import { DeleteRouteCommand, DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand";
 import {
   DeleteRouteTableCommand,
   DeleteRouteTableCommandInput,
-  DeleteRouteTableCommandOutput
+  DeleteRouteTableCommandOutput,
 } from "./commands/DeleteRouteTableCommand";
 import {
   DeleteSecurityGroupCommand,
   DeleteSecurityGroupCommandInput,
-  DeleteSecurityGroupCommandOutput
+  DeleteSecurityGroupCommandOutput,
 } from "./commands/DeleteSecurityGroupCommand";
 import {
   DeleteSnapshotCommand,
   DeleteSnapshotCommandInput,
-  DeleteSnapshotCommandOutput
+  DeleteSnapshotCommandOutput,
 } from "./commands/DeleteSnapshotCommand";
 import {
   DeleteSpotDatafeedSubscriptionCommand,
   DeleteSpotDatafeedSubscriptionCommandInput,
-  DeleteSpotDatafeedSubscriptionCommandOutput
+  DeleteSpotDatafeedSubscriptionCommandOutput,
 } from "./commands/DeleteSpotDatafeedSubscriptionCommand";
 import {
   DeleteSubnetCommand,
   DeleteSubnetCommandInput,
-  DeleteSubnetCommandOutput
+  DeleteSubnetCommandOutput,
 } from "./commands/DeleteSubnetCommand";
-import {
-  DeleteTagsCommand,
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
+import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
   DeleteTrafficMirrorFilterCommand,
   DeleteTrafficMirrorFilterCommandInput,
-  DeleteTrafficMirrorFilterCommandOutput
+  DeleteTrafficMirrorFilterCommandOutput,
 } from "./commands/DeleteTrafficMirrorFilterCommand";
 import {
   DeleteTrafficMirrorFilterRuleCommand,
   DeleteTrafficMirrorFilterRuleCommandInput,
-  DeleteTrafficMirrorFilterRuleCommandOutput
+  DeleteTrafficMirrorFilterRuleCommandOutput,
 } from "./commands/DeleteTrafficMirrorFilterRuleCommand";
 import {
   DeleteTrafficMirrorSessionCommand,
   DeleteTrafficMirrorSessionCommandInput,
-  DeleteTrafficMirrorSessionCommandOutput
+  DeleteTrafficMirrorSessionCommandOutput,
 } from "./commands/DeleteTrafficMirrorSessionCommand";
 import {
   DeleteTrafficMirrorTargetCommand,
   DeleteTrafficMirrorTargetCommandInput,
-  DeleteTrafficMirrorTargetCommandOutput
+  DeleteTrafficMirrorTargetCommandOutput,
 } from "./commands/DeleteTrafficMirrorTargetCommand";
 import {
   DeleteTransitGatewayCommand,
   DeleteTransitGatewayCommandInput,
-  DeleteTransitGatewayCommandOutput
+  DeleteTransitGatewayCommandOutput,
 } from "./commands/DeleteTransitGatewayCommand";
 import {
   DeleteTransitGatewayMulticastDomainCommand,
   DeleteTransitGatewayMulticastDomainCommandInput,
-  DeleteTransitGatewayMulticastDomainCommandOutput
+  DeleteTransitGatewayMulticastDomainCommandOutput,
 } from "./commands/DeleteTransitGatewayMulticastDomainCommand";
 import {
   DeleteTransitGatewayPeeringAttachmentCommand,
   DeleteTransitGatewayPeeringAttachmentCommandInput,
-  DeleteTransitGatewayPeeringAttachmentCommandOutput
+  DeleteTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/DeleteTransitGatewayPeeringAttachmentCommand";
 import {
   DeleteTransitGatewayRouteCommand,
   DeleteTransitGatewayRouteCommandInput,
-  DeleteTransitGatewayRouteCommandOutput
+  DeleteTransitGatewayRouteCommandOutput,
 } from "./commands/DeleteTransitGatewayRouteCommand";
 import {
   DeleteTransitGatewayRouteTableCommand,
   DeleteTransitGatewayRouteTableCommandInput,
-  DeleteTransitGatewayRouteTableCommandOutput
+  DeleteTransitGatewayRouteTableCommandOutput,
 } from "./commands/DeleteTransitGatewayRouteTableCommand";
 import {
   DeleteTransitGatewayVpcAttachmentCommand,
   DeleteTransitGatewayVpcAttachmentCommandInput,
-  DeleteTransitGatewayVpcAttachmentCommandOutput
+  DeleteTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/DeleteTransitGatewayVpcAttachmentCommand";
 import {
   DeleteVolumeCommand,
   DeleteVolumeCommandInput,
-  DeleteVolumeCommandOutput
+  DeleteVolumeCommandOutput,
 } from "./commands/DeleteVolumeCommand";
-import {
-  DeleteVpcCommand,
-  DeleteVpcCommandInput,
-  DeleteVpcCommandOutput
-} from "./commands/DeleteVpcCommand";
+import { DeleteVpcCommand, DeleteVpcCommandInput, DeleteVpcCommandOutput } from "./commands/DeleteVpcCommand";
 import {
   DeleteVpcEndpointConnectionNotificationsCommand,
   DeleteVpcEndpointConnectionNotificationsCommandInput,
-  DeleteVpcEndpointConnectionNotificationsCommandOutput
+  DeleteVpcEndpointConnectionNotificationsCommandOutput,
 } from "./commands/DeleteVpcEndpointConnectionNotificationsCommand";
 import {
   DeleteVpcEndpointServiceConfigurationsCommand,
   DeleteVpcEndpointServiceConfigurationsCommandInput,
-  DeleteVpcEndpointServiceConfigurationsCommandOutput
+  DeleteVpcEndpointServiceConfigurationsCommandOutput,
 } from "./commands/DeleteVpcEndpointServiceConfigurationsCommand";
 import {
   DeleteVpcEndpointsCommand,
   DeleteVpcEndpointsCommandInput,
-  DeleteVpcEndpointsCommandOutput
+  DeleteVpcEndpointsCommandOutput,
 } from "./commands/DeleteVpcEndpointsCommand";
 import {
   DeleteVpcPeeringConnectionCommand,
   DeleteVpcPeeringConnectionCommandInput,
-  DeleteVpcPeeringConnectionCommandOutput
+  DeleteVpcPeeringConnectionCommandOutput,
 } from "./commands/DeleteVpcPeeringConnectionCommand";
 import {
   DeleteVpnConnectionCommand,
   DeleteVpnConnectionCommandInput,
-  DeleteVpnConnectionCommandOutput
+  DeleteVpnConnectionCommandOutput,
 } from "./commands/DeleteVpnConnectionCommand";
 import {
   DeleteVpnConnectionRouteCommand,
   DeleteVpnConnectionRouteCommandInput,
-  DeleteVpnConnectionRouteCommandOutput
+  DeleteVpnConnectionRouteCommandOutput,
 } from "./commands/DeleteVpnConnectionRouteCommand";
 import {
   DeleteVpnGatewayCommand,
   DeleteVpnGatewayCommandInput,
-  DeleteVpnGatewayCommandOutput
+  DeleteVpnGatewayCommandOutput,
 } from "./commands/DeleteVpnGatewayCommand";
 import {
   DeprovisionByoipCidrCommand,
   DeprovisionByoipCidrCommandInput,
-  DeprovisionByoipCidrCommandOutput
+  DeprovisionByoipCidrCommandOutput,
 } from "./commands/DeprovisionByoipCidrCommand";
 import {
   DeregisterImageCommand,
   DeregisterImageCommandInput,
-  DeregisterImageCommandOutput
+  DeregisterImageCommandOutput,
 } from "./commands/DeregisterImageCommand";
 import {
   DeregisterTransitGatewayMulticastGroupMembersCommand,
   DeregisterTransitGatewayMulticastGroupMembersCommandInput,
-  DeregisterTransitGatewayMulticastGroupMembersCommandOutput
+  DeregisterTransitGatewayMulticastGroupMembersCommandOutput,
 } from "./commands/DeregisterTransitGatewayMulticastGroupMembersCommand";
 import {
   DeregisterTransitGatewayMulticastGroupSourcesCommand,
   DeregisterTransitGatewayMulticastGroupSourcesCommandInput,
-  DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
+  DeregisterTransitGatewayMulticastGroupSourcesCommandOutput,
 } from "./commands/DeregisterTransitGatewayMulticastGroupSourcesCommand";
 import {
   DescribeAccountAttributesCommand,
   DescribeAccountAttributesCommandInput,
-  DescribeAccountAttributesCommandOutput
+  DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
 import {
   DescribeAddressesCommand,
   DescribeAddressesCommandInput,
-  DescribeAddressesCommandOutput
+  DescribeAddressesCommandOutput,
 } from "./commands/DescribeAddressesCommand";
 import {
   DescribeAggregateIdFormatCommand,
   DescribeAggregateIdFormatCommandInput,
-  DescribeAggregateIdFormatCommandOutput
+  DescribeAggregateIdFormatCommandOutput,
 } from "./commands/DescribeAggregateIdFormatCommand";
 import {
   DescribeAvailabilityZonesCommand,
   DescribeAvailabilityZonesCommandInput,
-  DescribeAvailabilityZonesCommandOutput
+  DescribeAvailabilityZonesCommandOutput,
 } from "./commands/DescribeAvailabilityZonesCommand";
 import {
   DescribeBundleTasksCommand,
   DescribeBundleTasksCommandInput,
-  DescribeBundleTasksCommandOutput
+  DescribeBundleTasksCommandOutput,
 } from "./commands/DescribeBundleTasksCommand";
 import {
   DescribeByoipCidrsCommand,
   DescribeByoipCidrsCommandInput,
-  DescribeByoipCidrsCommandOutput
+  DescribeByoipCidrsCommandOutput,
 } from "./commands/DescribeByoipCidrsCommand";
 import {
   DescribeCapacityReservationsCommand,
   DescribeCapacityReservationsCommandInput,
-  DescribeCapacityReservationsCommandOutput
+  DescribeCapacityReservationsCommandOutput,
 } from "./commands/DescribeCapacityReservationsCommand";
 import {
   DescribeClassicLinkInstancesCommand,
   DescribeClassicLinkInstancesCommandInput,
-  DescribeClassicLinkInstancesCommandOutput
+  DescribeClassicLinkInstancesCommandOutput,
 } from "./commands/DescribeClassicLinkInstancesCommand";
 import {
   DescribeClientVpnAuthorizationRulesCommand,
   DescribeClientVpnAuthorizationRulesCommandInput,
-  DescribeClientVpnAuthorizationRulesCommandOutput
+  DescribeClientVpnAuthorizationRulesCommandOutput,
 } from "./commands/DescribeClientVpnAuthorizationRulesCommand";
 import {
   DescribeClientVpnConnectionsCommand,
   DescribeClientVpnConnectionsCommandInput,
-  DescribeClientVpnConnectionsCommandOutput
+  DescribeClientVpnConnectionsCommandOutput,
 } from "./commands/DescribeClientVpnConnectionsCommand";
 import {
   DescribeClientVpnEndpointsCommand,
   DescribeClientVpnEndpointsCommandInput,
-  DescribeClientVpnEndpointsCommandOutput
+  DescribeClientVpnEndpointsCommandOutput,
 } from "./commands/DescribeClientVpnEndpointsCommand";
 import {
   DescribeClientVpnRoutesCommand,
   DescribeClientVpnRoutesCommandInput,
-  DescribeClientVpnRoutesCommandOutput
+  DescribeClientVpnRoutesCommandOutput,
 } from "./commands/DescribeClientVpnRoutesCommand";
 import {
   DescribeClientVpnTargetNetworksCommand,
   DescribeClientVpnTargetNetworksCommandInput,
-  DescribeClientVpnTargetNetworksCommandOutput
+  DescribeClientVpnTargetNetworksCommandOutput,
 } from "./commands/DescribeClientVpnTargetNetworksCommand";
 import {
   DescribeCoipPoolsCommand,
   DescribeCoipPoolsCommandInput,
-  DescribeCoipPoolsCommandOutput
+  DescribeCoipPoolsCommandOutput,
 } from "./commands/DescribeCoipPoolsCommand";
 import {
   DescribeConversionTasksCommand,
   DescribeConversionTasksCommandInput,
-  DescribeConversionTasksCommandOutput
+  DescribeConversionTasksCommandOutput,
 } from "./commands/DescribeConversionTasksCommand";
 import {
   DescribeCustomerGatewaysCommand,
   DescribeCustomerGatewaysCommandInput,
-  DescribeCustomerGatewaysCommandOutput
+  DescribeCustomerGatewaysCommandOutput,
 } from "./commands/DescribeCustomerGatewaysCommand";
 import {
   DescribeDhcpOptionsCommand,
   DescribeDhcpOptionsCommandInput,
-  DescribeDhcpOptionsCommandOutput
+  DescribeDhcpOptionsCommandOutput,
 } from "./commands/DescribeDhcpOptionsCommand";
 import {
   DescribeEgressOnlyInternetGatewaysCommand,
   DescribeEgressOnlyInternetGatewaysCommandInput,
-  DescribeEgressOnlyInternetGatewaysCommandOutput
+  DescribeEgressOnlyInternetGatewaysCommandOutput,
 } from "./commands/DescribeEgressOnlyInternetGatewaysCommand";
 import {
   DescribeElasticGpusCommand,
   DescribeElasticGpusCommandInput,
-  DescribeElasticGpusCommandOutput
+  DescribeElasticGpusCommandOutput,
 } from "./commands/DescribeElasticGpusCommand";
 import {
   DescribeExportImageTasksCommand,
   DescribeExportImageTasksCommandInput,
-  DescribeExportImageTasksCommandOutput
+  DescribeExportImageTasksCommandOutput,
 } from "./commands/DescribeExportImageTasksCommand";
 import {
   DescribeExportTasksCommand,
   DescribeExportTasksCommandInput,
-  DescribeExportTasksCommandOutput
+  DescribeExportTasksCommandOutput,
 } from "./commands/DescribeExportTasksCommand";
 import {
   DescribeFastSnapshotRestoresCommand,
   DescribeFastSnapshotRestoresCommandInput,
-  DescribeFastSnapshotRestoresCommandOutput
+  DescribeFastSnapshotRestoresCommandOutput,
 } from "./commands/DescribeFastSnapshotRestoresCommand";
 import {
   DescribeFleetHistoryCommand,
   DescribeFleetHistoryCommandInput,
-  DescribeFleetHistoryCommandOutput
+  DescribeFleetHistoryCommandOutput,
 } from "./commands/DescribeFleetHistoryCommand";
 import {
   DescribeFleetInstancesCommand,
   DescribeFleetInstancesCommandInput,
-  DescribeFleetInstancesCommandOutput
+  DescribeFleetInstancesCommandOutput,
 } from "./commands/DescribeFleetInstancesCommand";
 import {
   DescribeFleetsCommand,
   DescribeFleetsCommandInput,
-  DescribeFleetsCommandOutput
+  DescribeFleetsCommandOutput,
 } from "./commands/DescribeFleetsCommand";
 import {
   DescribeFlowLogsCommand,
   DescribeFlowLogsCommandInput,
-  DescribeFlowLogsCommandOutput
+  DescribeFlowLogsCommandOutput,
 } from "./commands/DescribeFlowLogsCommand";
 import {
   DescribeFpgaImageAttributeCommand,
   DescribeFpgaImageAttributeCommandInput,
-  DescribeFpgaImageAttributeCommandOutput
+  DescribeFpgaImageAttributeCommandOutput,
 } from "./commands/DescribeFpgaImageAttributeCommand";
 import {
   DescribeFpgaImagesCommand,
   DescribeFpgaImagesCommandInput,
-  DescribeFpgaImagesCommandOutput
+  DescribeFpgaImagesCommandOutput,
 } from "./commands/DescribeFpgaImagesCommand";
 import {
   DescribeHostReservationOfferingsCommand,
   DescribeHostReservationOfferingsCommandInput,
-  DescribeHostReservationOfferingsCommandOutput
+  DescribeHostReservationOfferingsCommandOutput,
 } from "./commands/DescribeHostReservationOfferingsCommand";
 import {
   DescribeHostReservationsCommand,
   DescribeHostReservationsCommandInput,
-  DescribeHostReservationsCommandOutput
+  DescribeHostReservationsCommandOutput,
 } from "./commands/DescribeHostReservationsCommand";
 import {
   DescribeHostsCommand,
   DescribeHostsCommandInput,
-  DescribeHostsCommandOutput
+  DescribeHostsCommandOutput,
 } from "./commands/DescribeHostsCommand";
 import {
   DescribeIamInstanceProfileAssociationsCommand,
   DescribeIamInstanceProfileAssociationsCommandInput,
-  DescribeIamInstanceProfileAssociationsCommandOutput
+  DescribeIamInstanceProfileAssociationsCommandOutput,
 } from "./commands/DescribeIamInstanceProfileAssociationsCommand";
 import {
   DescribeIdFormatCommand,
   DescribeIdFormatCommandInput,
-  DescribeIdFormatCommandOutput
+  DescribeIdFormatCommandOutput,
 } from "./commands/DescribeIdFormatCommand";
 import {
   DescribeIdentityIdFormatCommand,
   DescribeIdentityIdFormatCommandInput,
-  DescribeIdentityIdFormatCommandOutput
+  DescribeIdentityIdFormatCommandOutput,
 } from "./commands/DescribeIdentityIdFormatCommand";
 import {
   DescribeImageAttributeCommand,
   DescribeImageAttributeCommandInput,
-  DescribeImageAttributeCommandOutput
+  DescribeImageAttributeCommandOutput,
 } from "./commands/DescribeImageAttributeCommand";
 import {
   DescribeImagesCommand,
   DescribeImagesCommandInput,
-  DescribeImagesCommandOutput
+  DescribeImagesCommandOutput,
 } from "./commands/DescribeImagesCommand";
 import {
   DescribeImportImageTasksCommand,
   DescribeImportImageTasksCommandInput,
-  DescribeImportImageTasksCommandOutput
+  DescribeImportImageTasksCommandOutput,
 } from "./commands/DescribeImportImageTasksCommand";
 import {
   DescribeImportSnapshotTasksCommand,
   DescribeImportSnapshotTasksCommandInput,
-  DescribeImportSnapshotTasksCommandOutput
+  DescribeImportSnapshotTasksCommandOutput,
 } from "./commands/DescribeImportSnapshotTasksCommand";
 import {
   DescribeInstanceAttributeCommand,
   DescribeInstanceAttributeCommandInput,
-  DescribeInstanceAttributeCommandOutput
+  DescribeInstanceAttributeCommandOutput,
 } from "./commands/DescribeInstanceAttributeCommand";
 import {
   DescribeInstanceCreditSpecificationsCommand,
   DescribeInstanceCreditSpecificationsCommandInput,
-  DescribeInstanceCreditSpecificationsCommandOutput
+  DescribeInstanceCreditSpecificationsCommandOutput,
 } from "./commands/DescribeInstanceCreditSpecificationsCommand";
 import {
   DescribeInstanceStatusCommand,
   DescribeInstanceStatusCommandInput,
-  DescribeInstanceStatusCommandOutput
+  DescribeInstanceStatusCommandOutput,
 } from "./commands/DescribeInstanceStatusCommand";
 import {
   DescribeInstanceTypeOfferingsCommand,
   DescribeInstanceTypeOfferingsCommandInput,
-  DescribeInstanceTypeOfferingsCommandOutput
+  DescribeInstanceTypeOfferingsCommandOutput,
 } from "./commands/DescribeInstanceTypeOfferingsCommand";
 import {
   DescribeInstanceTypesCommand,
   DescribeInstanceTypesCommandInput,
-  DescribeInstanceTypesCommandOutput
+  DescribeInstanceTypesCommandOutput,
 } from "./commands/DescribeInstanceTypesCommand";
 import {
   DescribeInstancesCommand,
   DescribeInstancesCommandInput,
-  DescribeInstancesCommandOutput
+  DescribeInstancesCommandOutput,
 } from "./commands/DescribeInstancesCommand";
 import {
   DescribeInternetGatewaysCommand,
   DescribeInternetGatewaysCommandInput,
-  DescribeInternetGatewaysCommandOutput
+  DescribeInternetGatewaysCommandOutput,
 } from "./commands/DescribeInternetGatewaysCommand";
 import {
   DescribeIpv6PoolsCommand,
   DescribeIpv6PoolsCommandInput,
-  DescribeIpv6PoolsCommandOutput
+  DescribeIpv6PoolsCommandOutput,
 } from "./commands/DescribeIpv6PoolsCommand";
 import {
   DescribeKeyPairsCommand,
   DescribeKeyPairsCommandInput,
-  DescribeKeyPairsCommandOutput
+  DescribeKeyPairsCommandOutput,
 } from "./commands/DescribeKeyPairsCommand";
 import {
   DescribeLaunchTemplateVersionsCommand,
   DescribeLaunchTemplateVersionsCommandInput,
-  DescribeLaunchTemplateVersionsCommandOutput
+  DescribeLaunchTemplateVersionsCommandOutput,
 } from "./commands/DescribeLaunchTemplateVersionsCommand";
 import {
   DescribeLaunchTemplatesCommand,
   DescribeLaunchTemplatesCommandInput,
-  DescribeLaunchTemplatesCommandOutput
+  DescribeLaunchTemplatesCommandOutput,
 } from "./commands/DescribeLaunchTemplatesCommand";
 import {
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand,
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
-  DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput
+  DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput,
 } from "./commands/DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand";
 import {
   DescribeLocalGatewayRouteTableVpcAssociationsCommand,
   DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,
-  DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput
+  DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput,
 } from "./commands/DescribeLocalGatewayRouteTableVpcAssociationsCommand";
 import {
   DescribeLocalGatewayRouteTablesCommand,
   DescribeLocalGatewayRouteTablesCommandInput,
-  DescribeLocalGatewayRouteTablesCommandOutput
+  DescribeLocalGatewayRouteTablesCommandOutput,
 } from "./commands/DescribeLocalGatewayRouteTablesCommand";
 import {
   DescribeLocalGatewayVirtualInterfaceGroupsCommand,
   DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,
-  DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
+  DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput,
 } from "./commands/DescribeLocalGatewayVirtualInterfaceGroupsCommand";
 import {
   DescribeLocalGatewayVirtualInterfacesCommand,
   DescribeLocalGatewayVirtualInterfacesCommandInput,
-  DescribeLocalGatewayVirtualInterfacesCommandOutput
+  DescribeLocalGatewayVirtualInterfacesCommandOutput,
 } from "./commands/DescribeLocalGatewayVirtualInterfacesCommand";
 import {
   DescribeLocalGatewaysCommand,
   DescribeLocalGatewaysCommandInput,
-  DescribeLocalGatewaysCommandOutput
+  DescribeLocalGatewaysCommandOutput,
 } from "./commands/DescribeLocalGatewaysCommand";
 import {
   DescribeMovingAddressesCommand,
   DescribeMovingAddressesCommandInput,
-  DescribeMovingAddressesCommandOutput
+  DescribeMovingAddressesCommandOutput,
 } from "./commands/DescribeMovingAddressesCommand";
 import {
   DescribeNatGatewaysCommand,
   DescribeNatGatewaysCommandInput,
-  DescribeNatGatewaysCommandOutput
+  DescribeNatGatewaysCommandOutput,
 } from "./commands/DescribeNatGatewaysCommand";
 import {
   DescribeNetworkAclsCommand,
   DescribeNetworkAclsCommandInput,
-  DescribeNetworkAclsCommandOutput
+  DescribeNetworkAclsCommandOutput,
 } from "./commands/DescribeNetworkAclsCommand";
 import {
   DescribeNetworkInterfaceAttributeCommand,
   DescribeNetworkInterfaceAttributeCommandInput,
-  DescribeNetworkInterfaceAttributeCommandOutput
+  DescribeNetworkInterfaceAttributeCommandOutput,
 } from "./commands/DescribeNetworkInterfaceAttributeCommand";
 import {
   DescribeNetworkInterfacePermissionsCommand,
   DescribeNetworkInterfacePermissionsCommandInput,
-  DescribeNetworkInterfacePermissionsCommandOutput
+  DescribeNetworkInterfacePermissionsCommandOutput,
 } from "./commands/DescribeNetworkInterfacePermissionsCommand";
 import {
   DescribeNetworkInterfacesCommand,
   DescribeNetworkInterfacesCommandInput,
-  DescribeNetworkInterfacesCommandOutput
+  DescribeNetworkInterfacesCommandOutput,
 } from "./commands/DescribeNetworkInterfacesCommand";
 import {
   DescribePlacementGroupsCommand,
   DescribePlacementGroupsCommandInput,
-  DescribePlacementGroupsCommandOutput
+  DescribePlacementGroupsCommandOutput,
 } from "./commands/DescribePlacementGroupsCommand";
 import {
   DescribePrefixListsCommand,
   DescribePrefixListsCommandInput,
-  DescribePrefixListsCommandOutput
+  DescribePrefixListsCommandOutput,
 } from "./commands/DescribePrefixListsCommand";
 import {
   DescribePrincipalIdFormatCommand,
   DescribePrincipalIdFormatCommandInput,
-  DescribePrincipalIdFormatCommandOutput
+  DescribePrincipalIdFormatCommandOutput,
 } from "./commands/DescribePrincipalIdFormatCommand";
 import {
   DescribePublicIpv4PoolsCommand,
   DescribePublicIpv4PoolsCommandInput,
-  DescribePublicIpv4PoolsCommandOutput
+  DescribePublicIpv4PoolsCommandOutput,
 } from "./commands/DescribePublicIpv4PoolsCommand";
 import {
   DescribeRegionsCommand,
   DescribeRegionsCommandInput,
-  DescribeRegionsCommandOutput
+  DescribeRegionsCommandOutput,
 } from "./commands/DescribeRegionsCommand";
 import {
   DescribeReservedInstancesCommand,
   DescribeReservedInstancesCommandInput,
-  DescribeReservedInstancesCommandOutput
+  DescribeReservedInstancesCommandOutput,
 } from "./commands/DescribeReservedInstancesCommand";
 import {
   DescribeReservedInstancesListingsCommand,
   DescribeReservedInstancesListingsCommandInput,
-  DescribeReservedInstancesListingsCommandOutput
+  DescribeReservedInstancesListingsCommandOutput,
 } from "./commands/DescribeReservedInstancesListingsCommand";
 import {
   DescribeReservedInstancesModificationsCommand,
   DescribeReservedInstancesModificationsCommandInput,
-  DescribeReservedInstancesModificationsCommandOutput
+  DescribeReservedInstancesModificationsCommandOutput,
 } from "./commands/DescribeReservedInstancesModificationsCommand";
 import {
   DescribeReservedInstancesOfferingsCommand,
   DescribeReservedInstancesOfferingsCommandInput,
-  DescribeReservedInstancesOfferingsCommandOutput
+  DescribeReservedInstancesOfferingsCommandOutput,
 } from "./commands/DescribeReservedInstancesOfferingsCommand";
 import {
   DescribeRouteTablesCommand,
   DescribeRouteTablesCommandInput,
-  DescribeRouteTablesCommandOutput
+  DescribeRouteTablesCommandOutput,
 } from "./commands/DescribeRouteTablesCommand";
 import {
   DescribeScheduledInstanceAvailabilityCommand,
   DescribeScheduledInstanceAvailabilityCommandInput,
-  DescribeScheduledInstanceAvailabilityCommandOutput
+  DescribeScheduledInstanceAvailabilityCommandOutput,
 } from "./commands/DescribeScheduledInstanceAvailabilityCommand";
 import {
   DescribeScheduledInstancesCommand,
   DescribeScheduledInstancesCommandInput,
-  DescribeScheduledInstancesCommandOutput
+  DescribeScheduledInstancesCommandOutput,
 } from "./commands/DescribeScheduledInstancesCommand";
 import {
   DescribeSecurityGroupReferencesCommand,
   DescribeSecurityGroupReferencesCommandInput,
-  DescribeSecurityGroupReferencesCommandOutput
+  DescribeSecurityGroupReferencesCommandOutput,
 } from "./commands/DescribeSecurityGroupReferencesCommand";
 import {
   DescribeSecurityGroupsCommand,
   DescribeSecurityGroupsCommandInput,
-  DescribeSecurityGroupsCommandOutput
+  DescribeSecurityGroupsCommandOutput,
 } from "./commands/DescribeSecurityGroupsCommand";
 import {
   DescribeSnapshotAttributeCommand,
   DescribeSnapshotAttributeCommandInput,
-  DescribeSnapshotAttributeCommandOutput
+  DescribeSnapshotAttributeCommandOutput,
 } from "./commands/DescribeSnapshotAttributeCommand";
 import {
   DescribeSnapshotsCommand,
   DescribeSnapshotsCommandInput,
-  DescribeSnapshotsCommandOutput
+  DescribeSnapshotsCommandOutput,
 } from "./commands/DescribeSnapshotsCommand";
 import {
   DescribeSpotDatafeedSubscriptionCommand,
   DescribeSpotDatafeedSubscriptionCommandInput,
-  DescribeSpotDatafeedSubscriptionCommandOutput
+  DescribeSpotDatafeedSubscriptionCommandOutput,
 } from "./commands/DescribeSpotDatafeedSubscriptionCommand";
 import {
   DescribeSpotFleetInstancesCommand,
   DescribeSpotFleetInstancesCommandInput,
-  DescribeSpotFleetInstancesCommandOutput
+  DescribeSpotFleetInstancesCommandOutput,
 } from "./commands/DescribeSpotFleetInstancesCommand";
 import {
   DescribeSpotFleetRequestHistoryCommand,
   DescribeSpotFleetRequestHistoryCommandInput,
-  DescribeSpotFleetRequestHistoryCommandOutput
+  DescribeSpotFleetRequestHistoryCommandOutput,
 } from "./commands/DescribeSpotFleetRequestHistoryCommand";
 import {
   DescribeSpotFleetRequestsCommand,
   DescribeSpotFleetRequestsCommandInput,
-  DescribeSpotFleetRequestsCommandOutput
+  DescribeSpotFleetRequestsCommandOutput,
 } from "./commands/DescribeSpotFleetRequestsCommand";
 import {
   DescribeSpotInstanceRequestsCommand,
   DescribeSpotInstanceRequestsCommandInput,
-  DescribeSpotInstanceRequestsCommandOutput
+  DescribeSpotInstanceRequestsCommandOutput,
 } from "./commands/DescribeSpotInstanceRequestsCommand";
 import {
   DescribeSpotPriceHistoryCommand,
   DescribeSpotPriceHistoryCommandInput,
-  DescribeSpotPriceHistoryCommandOutput
+  DescribeSpotPriceHistoryCommandOutput,
 } from "./commands/DescribeSpotPriceHistoryCommand";
 import {
   DescribeStaleSecurityGroupsCommand,
   DescribeStaleSecurityGroupsCommandInput,
-  DescribeStaleSecurityGroupsCommandOutput
+  DescribeStaleSecurityGroupsCommandOutput,
 } from "./commands/DescribeStaleSecurityGroupsCommand";
 import {
   DescribeSubnetsCommand,
   DescribeSubnetsCommandInput,
-  DescribeSubnetsCommandOutput
+  DescribeSubnetsCommandOutput,
 } from "./commands/DescribeSubnetsCommand";
 import {
   DescribeTagsCommand,
   DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
+  DescribeTagsCommandOutput,
 } from "./commands/DescribeTagsCommand";
 import {
   DescribeTrafficMirrorFiltersCommand,
   DescribeTrafficMirrorFiltersCommandInput,
-  DescribeTrafficMirrorFiltersCommandOutput
+  DescribeTrafficMirrorFiltersCommandOutput,
 } from "./commands/DescribeTrafficMirrorFiltersCommand";
 import {
   DescribeTrafficMirrorSessionsCommand,
   DescribeTrafficMirrorSessionsCommandInput,
-  DescribeTrafficMirrorSessionsCommandOutput
+  DescribeTrafficMirrorSessionsCommandOutput,
 } from "./commands/DescribeTrafficMirrorSessionsCommand";
 import {
   DescribeTrafficMirrorTargetsCommand,
   DescribeTrafficMirrorTargetsCommandInput,
-  DescribeTrafficMirrorTargetsCommandOutput
+  DescribeTrafficMirrorTargetsCommandOutput,
 } from "./commands/DescribeTrafficMirrorTargetsCommand";
 import {
   DescribeTransitGatewayAttachmentsCommand,
   DescribeTransitGatewayAttachmentsCommandInput,
-  DescribeTransitGatewayAttachmentsCommandOutput
+  DescribeTransitGatewayAttachmentsCommandOutput,
 } from "./commands/DescribeTransitGatewayAttachmentsCommand";
 import {
   DescribeTransitGatewayMulticastDomainsCommand,
   DescribeTransitGatewayMulticastDomainsCommandInput,
-  DescribeTransitGatewayMulticastDomainsCommandOutput
+  DescribeTransitGatewayMulticastDomainsCommandOutput,
 } from "./commands/DescribeTransitGatewayMulticastDomainsCommand";
 import {
   DescribeTransitGatewayPeeringAttachmentsCommand,
   DescribeTransitGatewayPeeringAttachmentsCommandInput,
-  DescribeTransitGatewayPeeringAttachmentsCommandOutput
+  DescribeTransitGatewayPeeringAttachmentsCommandOutput,
 } from "./commands/DescribeTransitGatewayPeeringAttachmentsCommand";
 import {
   DescribeTransitGatewayRouteTablesCommand,
   DescribeTransitGatewayRouteTablesCommandInput,
-  DescribeTransitGatewayRouteTablesCommandOutput
+  DescribeTransitGatewayRouteTablesCommandOutput,
 } from "./commands/DescribeTransitGatewayRouteTablesCommand";
 import {
   DescribeTransitGatewayVpcAttachmentsCommand,
   DescribeTransitGatewayVpcAttachmentsCommandInput,
-  DescribeTransitGatewayVpcAttachmentsCommandOutput
+  DescribeTransitGatewayVpcAttachmentsCommandOutput,
 } from "./commands/DescribeTransitGatewayVpcAttachmentsCommand";
 import {
   DescribeTransitGatewaysCommand,
   DescribeTransitGatewaysCommandInput,
-  DescribeTransitGatewaysCommandOutput
+  DescribeTransitGatewaysCommandOutput,
 } from "./commands/DescribeTransitGatewaysCommand";
 import {
   DescribeVolumeAttributeCommand,
   DescribeVolumeAttributeCommandInput,
-  DescribeVolumeAttributeCommandOutput
+  DescribeVolumeAttributeCommandOutput,
 } from "./commands/DescribeVolumeAttributeCommand";
 import {
   DescribeVolumeStatusCommand,
   DescribeVolumeStatusCommandInput,
-  DescribeVolumeStatusCommandOutput
+  DescribeVolumeStatusCommandOutput,
 } from "./commands/DescribeVolumeStatusCommand";
 import {
   DescribeVolumesCommand,
   DescribeVolumesCommandInput,
-  DescribeVolumesCommandOutput
+  DescribeVolumesCommandOutput,
 } from "./commands/DescribeVolumesCommand";
 import {
   DescribeVolumesModificationsCommand,
   DescribeVolumesModificationsCommandInput,
-  DescribeVolumesModificationsCommandOutput
+  DescribeVolumesModificationsCommandOutput,
 } from "./commands/DescribeVolumesModificationsCommand";
 import {
   DescribeVpcAttributeCommand,
   DescribeVpcAttributeCommandInput,
-  DescribeVpcAttributeCommandOutput
+  DescribeVpcAttributeCommandOutput,
 } from "./commands/DescribeVpcAttributeCommand";
 import {
   DescribeVpcClassicLinkCommand,
   DescribeVpcClassicLinkCommandInput,
-  DescribeVpcClassicLinkCommandOutput
+  DescribeVpcClassicLinkCommandOutput,
 } from "./commands/DescribeVpcClassicLinkCommand";
 import {
   DescribeVpcClassicLinkDnsSupportCommand,
   DescribeVpcClassicLinkDnsSupportCommandInput,
-  DescribeVpcClassicLinkDnsSupportCommandOutput
+  DescribeVpcClassicLinkDnsSupportCommandOutput,
 } from "./commands/DescribeVpcClassicLinkDnsSupportCommand";
 import {
   DescribeVpcEndpointConnectionNotificationsCommand,
   DescribeVpcEndpointConnectionNotificationsCommandInput,
-  DescribeVpcEndpointConnectionNotificationsCommandOutput
+  DescribeVpcEndpointConnectionNotificationsCommandOutput,
 } from "./commands/DescribeVpcEndpointConnectionNotificationsCommand";
 import {
   DescribeVpcEndpointConnectionsCommand,
   DescribeVpcEndpointConnectionsCommandInput,
-  DescribeVpcEndpointConnectionsCommandOutput
+  DescribeVpcEndpointConnectionsCommandOutput,
 } from "./commands/DescribeVpcEndpointConnectionsCommand";
 import {
   DescribeVpcEndpointServiceConfigurationsCommand,
   DescribeVpcEndpointServiceConfigurationsCommandInput,
-  DescribeVpcEndpointServiceConfigurationsCommandOutput
+  DescribeVpcEndpointServiceConfigurationsCommandOutput,
 } from "./commands/DescribeVpcEndpointServiceConfigurationsCommand";
 import {
   DescribeVpcEndpointServicePermissionsCommand,
   DescribeVpcEndpointServicePermissionsCommandInput,
-  DescribeVpcEndpointServicePermissionsCommandOutput
+  DescribeVpcEndpointServicePermissionsCommandOutput,
 } from "./commands/DescribeVpcEndpointServicePermissionsCommand";
 import {
   DescribeVpcEndpointServicesCommand,
   DescribeVpcEndpointServicesCommandInput,
-  DescribeVpcEndpointServicesCommandOutput
+  DescribeVpcEndpointServicesCommandOutput,
 } from "./commands/DescribeVpcEndpointServicesCommand";
 import {
   DescribeVpcEndpointsCommand,
   DescribeVpcEndpointsCommandInput,
-  DescribeVpcEndpointsCommandOutput
+  DescribeVpcEndpointsCommandOutput,
 } from "./commands/DescribeVpcEndpointsCommand";
 import {
   DescribeVpcPeeringConnectionsCommand,
   DescribeVpcPeeringConnectionsCommandInput,
-  DescribeVpcPeeringConnectionsCommandOutput
+  DescribeVpcPeeringConnectionsCommandOutput,
 } from "./commands/DescribeVpcPeeringConnectionsCommand";
 import {
   DescribeVpcsCommand,
   DescribeVpcsCommandInput,
-  DescribeVpcsCommandOutput
+  DescribeVpcsCommandOutput,
 } from "./commands/DescribeVpcsCommand";
 import {
   DescribeVpnConnectionsCommand,
   DescribeVpnConnectionsCommandInput,
-  DescribeVpnConnectionsCommandOutput
+  DescribeVpnConnectionsCommandOutput,
 } from "./commands/DescribeVpnConnectionsCommand";
 import {
   DescribeVpnGatewaysCommand,
   DescribeVpnGatewaysCommandInput,
-  DescribeVpnGatewaysCommandOutput
+  DescribeVpnGatewaysCommandOutput,
 } from "./commands/DescribeVpnGatewaysCommand";
 import {
   DetachClassicLinkVpcCommand,
   DetachClassicLinkVpcCommandInput,
-  DetachClassicLinkVpcCommandOutput
+  DetachClassicLinkVpcCommandOutput,
 } from "./commands/DetachClassicLinkVpcCommand";
 import {
   DetachInternetGatewayCommand,
   DetachInternetGatewayCommandInput,
-  DetachInternetGatewayCommandOutput
+  DetachInternetGatewayCommandOutput,
 } from "./commands/DetachInternetGatewayCommand";
 import {
   DetachNetworkInterfaceCommand,
   DetachNetworkInterfaceCommandInput,
-  DetachNetworkInterfaceCommandOutput
+  DetachNetworkInterfaceCommandOutput,
 } from "./commands/DetachNetworkInterfaceCommand";
 import {
   DetachVolumeCommand,
   DetachVolumeCommandInput,
-  DetachVolumeCommandOutput
+  DetachVolumeCommandOutput,
 } from "./commands/DetachVolumeCommand";
 import {
   DetachVpnGatewayCommand,
   DetachVpnGatewayCommandInput,
-  DetachVpnGatewayCommandOutput
+  DetachVpnGatewayCommandOutput,
 } from "./commands/DetachVpnGatewayCommand";
 import {
   DisableEbsEncryptionByDefaultCommand,
   DisableEbsEncryptionByDefaultCommandInput,
-  DisableEbsEncryptionByDefaultCommandOutput
+  DisableEbsEncryptionByDefaultCommandOutput,
 } from "./commands/DisableEbsEncryptionByDefaultCommand";
 import {
   DisableFastSnapshotRestoresCommand,
   DisableFastSnapshotRestoresCommandInput,
-  DisableFastSnapshotRestoresCommandOutput
+  DisableFastSnapshotRestoresCommandOutput,
 } from "./commands/DisableFastSnapshotRestoresCommand";
 import {
   DisableTransitGatewayRouteTablePropagationCommand,
   DisableTransitGatewayRouteTablePropagationCommandInput,
-  DisableTransitGatewayRouteTablePropagationCommandOutput
+  DisableTransitGatewayRouteTablePropagationCommandOutput,
 } from "./commands/DisableTransitGatewayRouteTablePropagationCommand";
 import {
   DisableVgwRoutePropagationCommand,
   DisableVgwRoutePropagationCommandInput,
-  DisableVgwRoutePropagationCommandOutput
+  DisableVgwRoutePropagationCommandOutput,
 } from "./commands/DisableVgwRoutePropagationCommand";
 import {
   DisableVpcClassicLinkCommand,
   DisableVpcClassicLinkCommandInput,
-  DisableVpcClassicLinkCommandOutput
+  DisableVpcClassicLinkCommandOutput,
 } from "./commands/DisableVpcClassicLinkCommand";
 import {
   DisableVpcClassicLinkDnsSupportCommand,
   DisableVpcClassicLinkDnsSupportCommandInput,
-  DisableVpcClassicLinkDnsSupportCommandOutput
+  DisableVpcClassicLinkDnsSupportCommandOutput,
 } from "./commands/DisableVpcClassicLinkDnsSupportCommand";
 import {
   DisassociateAddressCommand,
   DisassociateAddressCommandInput,
-  DisassociateAddressCommandOutput
+  DisassociateAddressCommandOutput,
 } from "./commands/DisassociateAddressCommand";
 import {
   DisassociateClientVpnTargetNetworkCommand,
   DisassociateClientVpnTargetNetworkCommandInput,
-  DisassociateClientVpnTargetNetworkCommandOutput
+  DisassociateClientVpnTargetNetworkCommandOutput,
 } from "./commands/DisassociateClientVpnTargetNetworkCommand";
 import {
   DisassociateIamInstanceProfileCommand,
   DisassociateIamInstanceProfileCommandInput,
-  DisassociateIamInstanceProfileCommandOutput
+  DisassociateIamInstanceProfileCommandOutput,
 } from "./commands/DisassociateIamInstanceProfileCommand";
 import {
   DisassociateRouteTableCommand,
   DisassociateRouteTableCommandInput,
-  DisassociateRouteTableCommandOutput
+  DisassociateRouteTableCommandOutput,
 } from "./commands/DisassociateRouteTableCommand";
 import {
   DisassociateSubnetCidrBlockCommand,
   DisassociateSubnetCidrBlockCommandInput,
-  DisassociateSubnetCidrBlockCommandOutput
+  DisassociateSubnetCidrBlockCommandOutput,
 } from "./commands/DisassociateSubnetCidrBlockCommand";
 import {
   DisassociateTransitGatewayMulticastDomainCommand,
   DisassociateTransitGatewayMulticastDomainCommandInput,
-  DisassociateTransitGatewayMulticastDomainCommandOutput
+  DisassociateTransitGatewayMulticastDomainCommandOutput,
 } from "./commands/DisassociateTransitGatewayMulticastDomainCommand";
 import {
   DisassociateTransitGatewayRouteTableCommand,
   DisassociateTransitGatewayRouteTableCommandInput,
-  DisassociateTransitGatewayRouteTableCommandOutput
+  DisassociateTransitGatewayRouteTableCommandOutput,
 } from "./commands/DisassociateTransitGatewayRouteTableCommand";
 import {
   DisassociateVpcCidrBlockCommand,
   DisassociateVpcCidrBlockCommandInput,
-  DisassociateVpcCidrBlockCommandOutput
+  DisassociateVpcCidrBlockCommandOutput,
 } from "./commands/DisassociateVpcCidrBlockCommand";
 import {
   EnableEbsEncryptionByDefaultCommand,
   EnableEbsEncryptionByDefaultCommandInput,
-  EnableEbsEncryptionByDefaultCommandOutput
+  EnableEbsEncryptionByDefaultCommandOutput,
 } from "./commands/EnableEbsEncryptionByDefaultCommand";
 import {
   EnableFastSnapshotRestoresCommand,
   EnableFastSnapshotRestoresCommandInput,
-  EnableFastSnapshotRestoresCommandOutput
+  EnableFastSnapshotRestoresCommandOutput,
 } from "./commands/EnableFastSnapshotRestoresCommand";
 import {
   EnableTransitGatewayRouteTablePropagationCommand,
   EnableTransitGatewayRouteTablePropagationCommandInput,
-  EnableTransitGatewayRouteTablePropagationCommandOutput
+  EnableTransitGatewayRouteTablePropagationCommandOutput,
 } from "./commands/EnableTransitGatewayRouteTablePropagationCommand";
 import {
   EnableVgwRoutePropagationCommand,
   EnableVgwRoutePropagationCommandInput,
-  EnableVgwRoutePropagationCommandOutput
+  EnableVgwRoutePropagationCommandOutput,
 } from "./commands/EnableVgwRoutePropagationCommand";
 import {
   EnableVolumeIOCommand,
   EnableVolumeIOCommandInput,
-  EnableVolumeIOCommandOutput
+  EnableVolumeIOCommandOutput,
 } from "./commands/EnableVolumeIOCommand";
 import {
   EnableVpcClassicLinkCommand,
   EnableVpcClassicLinkCommandInput,
-  EnableVpcClassicLinkCommandOutput
+  EnableVpcClassicLinkCommandOutput,
 } from "./commands/EnableVpcClassicLinkCommand";
 import {
   EnableVpcClassicLinkDnsSupportCommand,
   EnableVpcClassicLinkDnsSupportCommandInput,
-  EnableVpcClassicLinkDnsSupportCommandOutput
+  EnableVpcClassicLinkDnsSupportCommandOutput,
 } from "./commands/EnableVpcClassicLinkDnsSupportCommand";
 import {
   ExportClientVpnClientCertificateRevocationListCommand,
   ExportClientVpnClientCertificateRevocationListCommandInput,
-  ExportClientVpnClientCertificateRevocationListCommandOutput
+  ExportClientVpnClientCertificateRevocationListCommandOutput,
 } from "./commands/ExportClientVpnClientCertificateRevocationListCommand";
 import {
   ExportClientVpnClientConfigurationCommand,
   ExportClientVpnClientConfigurationCommandInput,
-  ExportClientVpnClientConfigurationCommandOutput
+  ExportClientVpnClientConfigurationCommandOutput,
 } from "./commands/ExportClientVpnClientConfigurationCommand";
-import {
-  ExportImageCommand,
-  ExportImageCommandInput,
-  ExportImageCommandOutput
-} from "./commands/ExportImageCommand";
+import { ExportImageCommand, ExportImageCommandInput, ExportImageCommandOutput } from "./commands/ExportImageCommand";
 import {
   ExportTransitGatewayRoutesCommand,
   ExportTransitGatewayRoutesCommandInput,
-  ExportTransitGatewayRoutesCommandOutput
+  ExportTransitGatewayRoutesCommandOutput,
 } from "./commands/ExportTransitGatewayRoutesCommand";
 import {
   GetAssociatedIpv6PoolCidrsCommand,
   GetAssociatedIpv6PoolCidrsCommandInput,
-  GetAssociatedIpv6PoolCidrsCommandOutput
+  GetAssociatedIpv6PoolCidrsCommandOutput,
 } from "./commands/GetAssociatedIpv6PoolCidrsCommand";
 import {
   GetCapacityReservationUsageCommand,
   GetCapacityReservationUsageCommandInput,
-  GetCapacityReservationUsageCommandOutput
+  GetCapacityReservationUsageCommandOutput,
 } from "./commands/GetCapacityReservationUsageCommand";
 import {
   GetCoipPoolUsageCommand,
   GetCoipPoolUsageCommandInput,
-  GetCoipPoolUsageCommandOutput
+  GetCoipPoolUsageCommandOutput,
 } from "./commands/GetCoipPoolUsageCommand";
 import {
   GetConsoleOutputCommand,
   GetConsoleOutputCommandInput,
-  GetConsoleOutputCommandOutput
+  GetConsoleOutputCommandOutput,
 } from "./commands/GetConsoleOutputCommand";
 import {
   GetConsoleScreenshotCommand,
   GetConsoleScreenshotCommandInput,
-  GetConsoleScreenshotCommandOutput
+  GetConsoleScreenshotCommandOutput,
 } from "./commands/GetConsoleScreenshotCommand";
 import {
   GetDefaultCreditSpecificationCommand,
   GetDefaultCreditSpecificationCommandInput,
-  GetDefaultCreditSpecificationCommandOutput
+  GetDefaultCreditSpecificationCommandOutput,
 } from "./commands/GetDefaultCreditSpecificationCommand";
 import {
   GetEbsDefaultKmsKeyIdCommand,
   GetEbsDefaultKmsKeyIdCommandInput,
-  GetEbsDefaultKmsKeyIdCommandOutput
+  GetEbsDefaultKmsKeyIdCommandOutput,
 } from "./commands/GetEbsDefaultKmsKeyIdCommand";
 import {
   GetEbsEncryptionByDefaultCommand,
   GetEbsEncryptionByDefaultCommandInput,
-  GetEbsEncryptionByDefaultCommandOutput
+  GetEbsEncryptionByDefaultCommandOutput,
 } from "./commands/GetEbsEncryptionByDefaultCommand";
 import {
   GetHostReservationPurchasePreviewCommand,
   GetHostReservationPurchasePreviewCommandInput,
-  GetHostReservationPurchasePreviewCommandOutput
+  GetHostReservationPurchasePreviewCommandOutput,
 } from "./commands/GetHostReservationPurchasePreviewCommand";
 import {
   GetLaunchTemplateDataCommand,
   GetLaunchTemplateDataCommandInput,
-  GetLaunchTemplateDataCommandOutput
+  GetLaunchTemplateDataCommandOutput,
 } from "./commands/GetLaunchTemplateDataCommand";
 import {
   GetPasswordDataCommand,
   GetPasswordDataCommandInput,
-  GetPasswordDataCommandOutput
+  GetPasswordDataCommandOutput,
 } from "./commands/GetPasswordDataCommand";
 import {
   GetReservedInstancesExchangeQuoteCommand,
   GetReservedInstancesExchangeQuoteCommandInput,
-  GetReservedInstancesExchangeQuoteCommandOutput
+  GetReservedInstancesExchangeQuoteCommandOutput,
 } from "./commands/GetReservedInstancesExchangeQuoteCommand";
 import {
   GetTransitGatewayAttachmentPropagationsCommand,
   GetTransitGatewayAttachmentPropagationsCommandInput,
-  GetTransitGatewayAttachmentPropagationsCommandOutput
+  GetTransitGatewayAttachmentPropagationsCommandOutput,
 } from "./commands/GetTransitGatewayAttachmentPropagationsCommand";
 import {
   GetTransitGatewayMulticastDomainAssociationsCommand,
   GetTransitGatewayMulticastDomainAssociationsCommandInput,
-  GetTransitGatewayMulticastDomainAssociationsCommandOutput
+  GetTransitGatewayMulticastDomainAssociationsCommandOutput,
 } from "./commands/GetTransitGatewayMulticastDomainAssociationsCommand";
 import {
   GetTransitGatewayRouteTableAssociationsCommand,
   GetTransitGatewayRouteTableAssociationsCommandInput,
-  GetTransitGatewayRouteTableAssociationsCommandOutput
+  GetTransitGatewayRouteTableAssociationsCommandOutput,
 } from "./commands/GetTransitGatewayRouteTableAssociationsCommand";
 import {
   GetTransitGatewayRouteTablePropagationsCommand,
   GetTransitGatewayRouteTablePropagationsCommandInput,
-  GetTransitGatewayRouteTablePropagationsCommandOutput
+  GetTransitGatewayRouteTablePropagationsCommandOutput,
 } from "./commands/GetTransitGatewayRouteTablePropagationsCommand";
 import {
   ImportClientVpnClientCertificateRevocationListCommand,
   ImportClientVpnClientCertificateRevocationListCommandInput,
-  ImportClientVpnClientCertificateRevocationListCommandOutput
+  ImportClientVpnClientCertificateRevocationListCommandOutput,
 } from "./commands/ImportClientVpnClientCertificateRevocationListCommand";
-import {
-  ImportImageCommand,
-  ImportImageCommandInput,
-  ImportImageCommandOutput
-} from "./commands/ImportImageCommand";
+import { ImportImageCommand, ImportImageCommandInput, ImportImageCommandOutput } from "./commands/ImportImageCommand";
 import {
   ImportInstanceCommand,
   ImportInstanceCommandInput,
-  ImportInstanceCommandOutput
+  ImportInstanceCommandOutput,
 } from "./commands/ImportInstanceCommand";
 import {
   ImportKeyPairCommand,
   ImportKeyPairCommandInput,
-  ImportKeyPairCommandOutput
+  ImportKeyPairCommandOutput,
 } from "./commands/ImportKeyPairCommand";
 import {
   ImportSnapshotCommand,
   ImportSnapshotCommandInput,
-  ImportSnapshotCommandOutput
+  ImportSnapshotCommandOutput,
 } from "./commands/ImportSnapshotCommand";
 import {
   ImportVolumeCommand,
   ImportVolumeCommandInput,
-  ImportVolumeCommandOutput
+  ImportVolumeCommandOutput,
 } from "./commands/ImportVolumeCommand";
 import {
   ModifyCapacityReservationCommand,
   ModifyCapacityReservationCommandInput,
-  ModifyCapacityReservationCommandOutput
+  ModifyCapacityReservationCommandOutput,
 } from "./commands/ModifyCapacityReservationCommand";
 import {
   ModifyClientVpnEndpointCommand,
   ModifyClientVpnEndpointCommandInput,
-  ModifyClientVpnEndpointCommandOutput
+  ModifyClientVpnEndpointCommandOutput,
 } from "./commands/ModifyClientVpnEndpointCommand";
 import {
   ModifyDefaultCreditSpecificationCommand,
   ModifyDefaultCreditSpecificationCommandInput,
-  ModifyDefaultCreditSpecificationCommandOutput
+  ModifyDefaultCreditSpecificationCommandOutput,
 } from "./commands/ModifyDefaultCreditSpecificationCommand";
 import {
   ModifyEbsDefaultKmsKeyIdCommand,
   ModifyEbsDefaultKmsKeyIdCommandInput,
-  ModifyEbsDefaultKmsKeyIdCommandOutput
+  ModifyEbsDefaultKmsKeyIdCommandOutput,
 } from "./commands/ModifyEbsDefaultKmsKeyIdCommand";
-import {
-  ModifyFleetCommand,
-  ModifyFleetCommandInput,
-  ModifyFleetCommandOutput
-} from "./commands/ModifyFleetCommand";
+import { ModifyFleetCommand, ModifyFleetCommandInput, ModifyFleetCommandOutput } from "./commands/ModifyFleetCommand";
 import {
   ModifyFpgaImageAttributeCommand,
   ModifyFpgaImageAttributeCommandInput,
-  ModifyFpgaImageAttributeCommandOutput
+  ModifyFpgaImageAttributeCommandOutput,
 } from "./commands/ModifyFpgaImageAttributeCommand";
-import {
-  ModifyHostsCommand,
-  ModifyHostsCommandInput,
-  ModifyHostsCommandOutput
-} from "./commands/ModifyHostsCommand";
+import { ModifyHostsCommand, ModifyHostsCommandInput, ModifyHostsCommandOutput } from "./commands/ModifyHostsCommand";
 import {
   ModifyIdFormatCommand,
   ModifyIdFormatCommandInput,
-  ModifyIdFormatCommandOutput
+  ModifyIdFormatCommandOutput,
 } from "./commands/ModifyIdFormatCommand";
 import {
   ModifyIdentityIdFormatCommand,
   ModifyIdentityIdFormatCommandInput,
-  ModifyIdentityIdFormatCommandOutput
+  ModifyIdentityIdFormatCommandOutput,
 } from "./commands/ModifyIdentityIdFormatCommand";
 import {
   ModifyImageAttributeCommand,
   ModifyImageAttributeCommandInput,
-  ModifyImageAttributeCommandOutput
+  ModifyImageAttributeCommandOutput,
 } from "./commands/ModifyImageAttributeCommand";
 import {
   ModifyInstanceAttributeCommand,
   ModifyInstanceAttributeCommandInput,
-  ModifyInstanceAttributeCommandOutput
+  ModifyInstanceAttributeCommandOutput,
 } from "./commands/ModifyInstanceAttributeCommand";
 import {
   ModifyInstanceCapacityReservationAttributesCommand,
   ModifyInstanceCapacityReservationAttributesCommandInput,
-  ModifyInstanceCapacityReservationAttributesCommandOutput
+  ModifyInstanceCapacityReservationAttributesCommandOutput,
 } from "./commands/ModifyInstanceCapacityReservationAttributesCommand";
 import {
   ModifyInstanceCreditSpecificationCommand,
   ModifyInstanceCreditSpecificationCommandInput,
-  ModifyInstanceCreditSpecificationCommandOutput
+  ModifyInstanceCreditSpecificationCommandOutput,
 } from "./commands/ModifyInstanceCreditSpecificationCommand";
 import {
   ModifyInstanceEventStartTimeCommand,
   ModifyInstanceEventStartTimeCommandInput,
-  ModifyInstanceEventStartTimeCommandOutput
+  ModifyInstanceEventStartTimeCommandOutput,
 } from "./commands/ModifyInstanceEventStartTimeCommand";
 import {
   ModifyInstanceMetadataOptionsCommand,
   ModifyInstanceMetadataOptionsCommandInput,
-  ModifyInstanceMetadataOptionsCommandOutput
+  ModifyInstanceMetadataOptionsCommandOutput,
 } from "./commands/ModifyInstanceMetadataOptionsCommand";
 import {
   ModifyInstancePlacementCommand,
   ModifyInstancePlacementCommandInput,
-  ModifyInstancePlacementCommandOutput
+  ModifyInstancePlacementCommandOutput,
 } from "./commands/ModifyInstancePlacementCommand";
 import {
   ModifyLaunchTemplateCommand,
   ModifyLaunchTemplateCommandInput,
-  ModifyLaunchTemplateCommandOutput
+  ModifyLaunchTemplateCommandOutput,
 } from "./commands/ModifyLaunchTemplateCommand";
 import {
   ModifyNetworkInterfaceAttributeCommand,
   ModifyNetworkInterfaceAttributeCommandInput,
-  ModifyNetworkInterfaceAttributeCommandOutput
+  ModifyNetworkInterfaceAttributeCommandOutput,
 } from "./commands/ModifyNetworkInterfaceAttributeCommand";
 import {
   ModifyReservedInstancesCommand,
   ModifyReservedInstancesCommandInput,
-  ModifyReservedInstancesCommandOutput
+  ModifyReservedInstancesCommandOutput,
 } from "./commands/ModifyReservedInstancesCommand";
 import {
   ModifySnapshotAttributeCommand,
   ModifySnapshotAttributeCommandInput,
-  ModifySnapshotAttributeCommandOutput
+  ModifySnapshotAttributeCommandOutput,
 } from "./commands/ModifySnapshotAttributeCommand";
 import {
   ModifySpotFleetRequestCommand,
   ModifySpotFleetRequestCommandInput,
-  ModifySpotFleetRequestCommandOutput
+  ModifySpotFleetRequestCommandOutput,
 } from "./commands/ModifySpotFleetRequestCommand";
 import {
   ModifySubnetAttributeCommand,
   ModifySubnetAttributeCommandInput,
-  ModifySubnetAttributeCommandOutput
+  ModifySubnetAttributeCommandOutput,
 } from "./commands/ModifySubnetAttributeCommand";
 import {
   ModifyTrafficMirrorFilterNetworkServicesCommand,
   ModifyTrafficMirrorFilterNetworkServicesCommandInput,
-  ModifyTrafficMirrorFilterNetworkServicesCommandOutput
+  ModifyTrafficMirrorFilterNetworkServicesCommandOutput,
 } from "./commands/ModifyTrafficMirrorFilterNetworkServicesCommand";
 import {
   ModifyTrafficMirrorFilterRuleCommand,
   ModifyTrafficMirrorFilterRuleCommandInput,
-  ModifyTrafficMirrorFilterRuleCommandOutput
+  ModifyTrafficMirrorFilterRuleCommandOutput,
 } from "./commands/ModifyTrafficMirrorFilterRuleCommand";
 import {
   ModifyTrafficMirrorSessionCommand,
   ModifyTrafficMirrorSessionCommandInput,
-  ModifyTrafficMirrorSessionCommandOutput
+  ModifyTrafficMirrorSessionCommandOutput,
 } from "./commands/ModifyTrafficMirrorSessionCommand";
 import {
   ModifyTransitGatewayVpcAttachmentCommand,
   ModifyTransitGatewayVpcAttachmentCommandInput,
-  ModifyTransitGatewayVpcAttachmentCommandOutput
+  ModifyTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/ModifyTransitGatewayVpcAttachmentCommand";
 import {
   ModifyVolumeAttributeCommand,
   ModifyVolumeAttributeCommandInput,
-  ModifyVolumeAttributeCommandOutput
+  ModifyVolumeAttributeCommandOutput,
 } from "./commands/ModifyVolumeAttributeCommand";
 import {
   ModifyVolumeCommand,
   ModifyVolumeCommandInput,
-  ModifyVolumeCommandOutput
+  ModifyVolumeCommandOutput,
 } from "./commands/ModifyVolumeCommand";
 import {
   ModifyVpcAttributeCommand,
   ModifyVpcAttributeCommandInput,
-  ModifyVpcAttributeCommandOutput
+  ModifyVpcAttributeCommandOutput,
 } from "./commands/ModifyVpcAttributeCommand";
 import {
   ModifyVpcEndpointCommand,
   ModifyVpcEndpointCommandInput,
-  ModifyVpcEndpointCommandOutput
+  ModifyVpcEndpointCommandOutput,
 } from "./commands/ModifyVpcEndpointCommand";
 import {
   ModifyVpcEndpointConnectionNotificationCommand,
   ModifyVpcEndpointConnectionNotificationCommandInput,
-  ModifyVpcEndpointConnectionNotificationCommandOutput
+  ModifyVpcEndpointConnectionNotificationCommandOutput,
 } from "./commands/ModifyVpcEndpointConnectionNotificationCommand";
 import {
   ModifyVpcEndpointServiceConfigurationCommand,
   ModifyVpcEndpointServiceConfigurationCommandInput,
-  ModifyVpcEndpointServiceConfigurationCommandOutput
+  ModifyVpcEndpointServiceConfigurationCommandOutput,
 } from "./commands/ModifyVpcEndpointServiceConfigurationCommand";
 import {
   ModifyVpcEndpointServicePermissionsCommand,
   ModifyVpcEndpointServicePermissionsCommandInput,
-  ModifyVpcEndpointServicePermissionsCommandOutput
+  ModifyVpcEndpointServicePermissionsCommandOutput,
 } from "./commands/ModifyVpcEndpointServicePermissionsCommand";
 import {
   ModifyVpcPeeringConnectionOptionsCommand,
   ModifyVpcPeeringConnectionOptionsCommandInput,
-  ModifyVpcPeeringConnectionOptionsCommandOutput
+  ModifyVpcPeeringConnectionOptionsCommandOutput,
 } from "./commands/ModifyVpcPeeringConnectionOptionsCommand";
 import {
   ModifyVpcTenancyCommand,
   ModifyVpcTenancyCommandInput,
-  ModifyVpcTenancyCommandOutput
+  ModifyVpcTenancyCommandOutput,
 } from "./commands/ModifyVpcTenancyCommand";
 import {
   ModifyVpnConnectionCommand,
   ModifyVpnConnectionCommandInput,
-  ModifyVpnConnectionCommandOutput
+  ModifyVpnConnectionCommandOutput,
 } from "./commands/ModifyVpnConnectionCommand";
 import {
   ModifyVpnTunnelCertificateCommand,
   ModifyVpnTunnelCertificateCommandInput,
-  ModifyVpnTunnelCertificateCommandOutput
+  ModifyVpnTunnelCertificateCommandOutput,
 } from "./commands/ModifyVpnTunnelCertificateCommand";
 import {
   ModifyVpnTunnelOptionsCommand,
   ModifyVpnTunnelOptionsCommandInput,
-  ModifyVpnTunnelOptionsCommandOutput
+  ModifyVpnTunnelOptionsCommandOutput,
 } from "./commands/ModifyVpnTunnelOptionsCommand";
 import {
   MonitorInstancesCommand,
   MonitorInstancesCommandInput,
-  MonitorInstancesCommandOutput
+  MonitorInstancesCommandOutput,
 } from "./commands/MonitorInstancesCommand";
 import {
   MoveAddressToVpcCommand,
   MoveAddressToVpcCommandInput,
-  MoveAddressToVpcCommandOutput
+  MoveAddressToVpcCommandOutput,
 } from "./commands/MoveAddressToVpcCommand";
 import {
   ProvisionByoipCidrCommand,
   ProvisionByoipCidrCommandInput,
-  ProvisionByoipCidrCommandOutput
+  ProvisionByoipCidrCommandOutput,
 } from "./commands/ProvisionByoipCidrCommand";
 import {
   PurchaseHostReservationCommand,
   PurchaseHostReservationCommandInput,
-  PurchaseHostReservationCommandOutput
+  PurchaseHostReservationCommandOutput,
 } from "./commands/PurchaseHostReservationCommand";
 import {
   PurchaseReservedInstancesOfferingCommand,
   PurchaseReservedInstancesOfferingCommandInput,
-  PurchaseReservedInstancesOfferingCommandOutput
+  PurchaseReservedInstancesOfferingCommandOutput,
 } from "./commands/PurchaseReservedInstancesOfferingCommand";
 import {
   PurchaseScheduledInstancesCommand,
   PurchaseScheduledInstancesCommandInput,
-  PurchaseScheduledInstancesCommandOutput
+  PurchaseScheduledInstancesCommandOutput,
 } from "./commands/PurchaseScheduledInstancesCommand";
 import {
   RebootInstancesCommand,
   RebootInstancesCommandInput,
-  RebootInstancesCommandOutput
+  RebootInstancesCommandOutput,
 } from "./commands/RebootInstancesCommand";
 import {
   RegisterImageCommand,
   RegisterImageCommandInput,
-  RegisterImageCommandOutput
+  RegisterImageCommandOutput,
 } from "./commands/RegisterImageCommand";
 import {
   RegisterTransitGatewayMulticastGroupMembersCommand,
   RegisterTransitGatewayMulticastGroupMembersCommandInput,
-  RegisterTransitGatewayMulticastGroupMembersCommandOutput
+  RegisterTransitGatewayMulticastGroupMembersCommandOutput,
 } from "./commands/RegisterTransitGatewayMulticastGroupMembersCommand";
 import {
   RegisterTransitGatewayMulticastGroupSourcesCommand,
   RegisterTransitGatewayMulticastGroupSourcesCommandInput,
-  RegisterTransitGatewayMulticastGroupSourcesCommandOutput
+  RegisterTransitGatewayMulticastGroupSourcesCommandOutput,
 } from "./commands/RegisterTransitGatewayMulticastGroupSourcesCommand";
 import {
   RejectTransitGatewayPeeringAttachmentCommand,
   RejectTransitGatewayPeeringAttachmentCommandInput,
-  RejectTransitGatewayPeeringAttachmentCommandOutput
+  RejectTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/RejectTransitGatewayPeeringAttachmentCommand";
 import {
   RejectTransitGatewayVpcAttachmentCommand,
   RejectTransitGatewayVpcAttachmentCommandInput,
-  RejectTransitGatewayVpcAttachmentCommandOutput
+  RejectTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/RejectTransitGatewayVpcAttachmentCommand";
 import {
   RejectVpcEndpointConnectionsCommand,
   RejectVpcEndpointConnectionsCommandInput,
-  RejectVpcEndpointConnectionsCommandOutput
+  RejectVpcEndpointConnectionsCommandOutput,
 } from "./commands/RejectVpcEndpointConnectionsCommand";
 import {
   RejectVpcPeeringConnectionCommand,
   RejectVpcPeeringConnectionCommandInput,
-  RejectVpcPeeringConnectionCommandOutput
+  RejectVpcPeeringConnectionCommandOutput,
 } from "./commands/RejectVpcPeeringConnectionCommand";
 import {
   ReleaseAddressCommand,
   ReleaseAddressCommandInput,
-  ReleaseAddressCommandOutput
+  ReleaseAddressCommandOutput,
 } from "./commands/ReleaseAddressCommand";
 import {
   ReleaseHostsCommand,
   ReleaseHostsCommandInput,
-  ReleaseHostsCommandOutput
+  ReleaseHostsCommandOutput,
 } from "./commands/ReleaseHostsCommand";
 import {
   ReplaceIamInstanceProfileAssociationCommand,
   ReplaceIamInstanceProfileAssociationCommandInput,
-  ReplaceIamInstanceProfileAssociationCommandOutput
+  ReplaceIamInstanceProfileAssociationCommandOutput,
 } from "./commands/ReplaceIamInstanceProfileAssociationCommand";
 import {
   ReplaceNetworkAclAssociationCommand,
   ReplaceNetworkAclAssociationCommandInput,
-  ReplaceNetworkAclAssociationCommandOutput
+  ReplaceNetworkAclAssociationCommandOutput,
 } from "./commands/ReplaceNetworkAclAssociationCommand";
 import {
   ReplaceNetworkAclEntryCommand,
   ReplaceNetworkAclEntryCommandInput,
-  ReplaceNetworkAclEntryCommandOutput
+  ReplaceNetworkAclEntryCommandOutput,
 } from "./commands/ReplaceNetworkAclEntryCommand";
 import {
   ReplaceRouteCommand,
   ReplaceRouteCommandInput,
-  ReplaceRouteCommandOutput
+  ReplaceRouteCommandOutput,
 } from "./commands/ReplaceRouteCommand";
 import {
   ReplaceRouteTableAssociationCommand,
   ReplaceRouteTableAssociationCommandInput,
-  ReplaceRouteTableAssociationCommandOutput
+  ReplaceRouteTableAssociationCommandOutput,
 } from "./commands/ReplaceRouteTableAssociationCommand";
 import {
   ReplaceTransitGatewayRouteCommand,
   ReplaceTransitGatewayRouteCommandInput,
-  ReplaceTransitGatewayRouteCommandOutput
+  ReplaceTransitGatewayRouteCommandOutput,
 } from "./commands/ReplaceTransitGatewayRouteCommand";
 import {
   ReportInstanceStatusCommand,
   ReportInstanceStatusCommandInput,
-  ReportInstanceStatusCommandOutput
+  ReportInstanceStatusCommandOutput,
 } from "./commands/ReportInstanceStatusCommand";
 import {
   RequestSpotFleetCommand,
   RequestSpotFleetCommandInput,
-  RequestSpotFleetCommandOutput
+  RequestSpotFleetCommandOutput,
 } from "./commands/RequestSpotFleetCommand";
 import {
   RequestSpotInstancesCommand,
   RequestSpotInstancesCommandInput,
-  RequestSpotInstancesCommandOutput
+  RequestSpotInstancesCommandOutput,
 } from "./commands/RequestSpotInstancesCommand";
 import {
   ResetEbsDefaultKmsKeyIdCommand,
   ResetEbsDefaultKmsKeyIdCommandInput,
-  ResetEbsDefaultKmsKeyIdCommandOutput
+  ResetEbsDefaultKmsKeyIdCommandOutput,
 } from "./commands/ResetEbsDefaultKmsKeyIdCommand";
 import {
   ResetFpgaImageAttributeCommand,
   ResetFpgaImageAttributeCommandInput,
-  ResetFpgaImageAttributeCommandOutput
+  ResetFpgaImageAttributeCommandOutput,
 } from "./commands/ResetFpgaImageAttributeCommand";
 import {
   ResetImageAttributeCommand,
   ResetImageAttributeCommandInput,
-  ResetImageAttributeCommandOutput
+  ResetImageAttributeCommandOutput,
 } from "./commands/ResetImageAttributeCommand";
 import {
   ResetInstanceAttributeCommand,
   ResetInstanceAttributeCommandInput,
-  ResetInstanceAttributeCommandOutput
+  ResetInstanceAttributeCommandOutput,
 } from "./commands/ResetInstanceAttributeCommand";
 import {
   ResetNetworkInterfaceAttributeCommand,
   ResetNetworkInterfaceAttributeCommandInput,
-  ResetNetworkInterfaceAttributeCommandOutput
+  ResetNetworkInterfaceAttributeCommandOutput,
 } from "./commands/ResetNetworkInterfaceAttributeCommand";
 import {
   ResetSnapshotAttributeCommand,
   ResetSnapshotAttributeCommandInput,
-  ResetSnapshotAttributeCommandOutput
+  ResetSnapshotAttributeCommandOutput,
 } from "./commands/ResetSnapshotAttributeCommand";
 import {
   RestoreAddressToClassicCommand,
   RestoreAddressToClassicCommandInput,
-  RestoreAddressToClassicCommandOutput
+  RestoreAddressToClassicCommandOutput,
 } from "./commands/RestoreAddressToClassicCommand";
 import {
   RevokeClientVpnIngressCommand,
   RevokeClientVpnIngressCommandInput,
-  RevokeClientVpnIngressCommandOutput
+  RevokeClientVpnIngressCommandOutput,
 } from "./commands/RevokeClientVpnIngressCommand";
 import {
   RevokeSecurityGroupEgressCommand,
   RevokeSecurityGroupEgressCommandInput,
-  RevokeSecurityGroupEgressCommandOutput
+  RevokeSecurityGroupEgressCommandOutput,
 } from "./commands/RevokeSecurityGroupEgressCommand";
 import {
   RevokeSecurityGroupIngressCommand,
   RevokeSecurityGroupIngressCommandInput,
-  RevokeSecurityGroupIngressCommandOutput
+  RevokeSecurityGroupIngressCommandOutput,
 } from "./commands/RevokeSecurityGroupIngressCommand";
 import {
   RunInstancesCommand,
   RunInstancesCommandInput,
-  RunInstancesCommandOutput
+  RunInstancesCommandOutput,
 } from "./commands/RunInstancesCommand";
 import {
   RunScheduledInstancesCommand,
   RunScheduledInstancesCommandInput,
-  RunScheduledInstancesCommandOutput
+  RunScheduledInstancesCommandOutput,
 } from "./commands/RunScheduledInstancesCommand";
 import {
   SearchLocalGatewayRoutesCommand,
   SearchLocalGatewayRoutesCommandInput,
-  SearchLocalGatewayRoutesCommandOutput
+  SearchLocalGatewayRoutesCommandOutput,
 } from "./commands/SearchLocalGatewayRoutesCommand";
 import {
   SearchTransitGatewayMulticastGroupsCommand,
   SearchTransitGatewayMulticastGroupsCommandInput,
-  SearchTransitGatewayMulticastGroupsCommandOutput
+  SearchTransitGatewayMulticastGroupsCommandOutput,
 } from "./commands/SearchTransitGatewayMulticastGroupsCommand";
 import {
   SearchTransitGatewayRoutesCommand,
   SearchTransitGatewayRoutesCommandInput,
-  SearchTransitGatewayRoutesCommandOutput
+  SearchTransitGatewayRoutesCommandOutput,
 } from "./commands/SearchTransitGatewayRoutesCommand";
 import {
   SendDiagnosticInterruptCommand,
   SendDiagnosticInterruptCommandInput,
-  SendDiagnosticInterruptCommandOutput
+  SendDiagnosticInterruptCommandOutput,
 } from "./commands/SendDiagnosticInterruptCommand";
 import {
   StartInstancesCommand,
   StartInstancesCommandInput,
-  StartInstancesCommandOutput
+  StartInstancesCommandOutput,
 } from "./commands/StartInstancesCommand";
 import {
   StartVpcEndpointServicePrivateDnsVerificationCommand,
   StartVpcEndpointServicePrivateDnsVerificationCommandInput,
-  StartVpcEndpointServicePrivateDnsVerificationCommandOutput
+  StartVpcEndpointServicePrivateDnsVerificationCommandOutput,
 } from "./commands/StartVpcEndpointServicePrivateDnsVerificationCommand";
 import {
   StopInstancesCommand,
   StopInstancesCommandInput,
-  StopInstancesCommandOutput
+  StopInstancesCommandOutput,
 } from "./commands/StopInstancesCommand";
 import {
   TerminateClientVpnConnectionsCommand,
   TerminateClientVpnConnectionsCommandInput,
-  TerminateClientVpnConnectionsCommandOutput
+  TerminateClientVpnConnectionsCommandOutput,
 } from "./commands/TerminateClientVpnConnectionsCommand";
 import {
   TerminateInstancesCommand,
   TerminateInstancesCommandInput,
-  TerminateInstancesCommandOutput
+  TerminateInstancesCommandOutput,
 } from "./commands/TerminateInstancesCommand";
 import {
   UnassignIpv6AddressesCommand,
   UnassignIpv6AddressesCommandInput,
-  UnassignIpv6AddressesCommandOutput
+  UnassignIpv6AddressesCommandOutput,
 } from "./commands/UnassignIpv6AddressesCommand";
 import {
   UnassignPrivateIpAddressesCommand,
   UnassignPrivateIpAddressesCommandInput,
-  UnassignPrivateIpAddressesCommandOutput
+  UnassignPrivateIpAddressesCommandOutput,
 } from "./commands/UnassignPrivateIpAddressesCommand";
 import {
   UnmonitorInstancesCommand,
   UnmonitorInstancesCommandInput,
-  UnmonitorInstancesCommandOutput
+  UnmonitorInstancesCommandOutput,
 } from "./commands/UnmonitorInstancesCommand";
 import {
   UpdateSecurityGroupRuleDescriptionsEgressCommand,
   UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
-  UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
+  UpdateSecurityGroupRuleDescriptionsEgressCommandOutput,
 } from "./commands/UpdateSecurityGroupRuleDescriptionsEgressCommand";
 import {
   UpdateSecurityGroupRuleDescriptionsIngressCommand,
   UpdateSecurityGroupRuleDescriptionsIngressCommandInput,
-  UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
+  UpdateSecurityGroupRuleDescriptionsIngressCommandOutput,
 } from "./commands/UpdateSecurityGroupRuleDescriptionsIngressCommand";
 import {
   WithdrawByoipCidrCommand,
   WithdrawByoipCidrCommandInput,
-  WithdrawByoipCidrCommandOutput
+  WithdrawByoipCidrCommandOutput,
 } from "./commands/WithdrawByoipCidrCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -2031,38 +1979,23 @@ export class EC2 extends EC2Client {
   ): Promise<AcceptReservedInstancesExchangeQuoteCommandOutput>;
   public acceptReservedInstancesExchangeQuote(
     args: AcceptReservedInstancesExchangeQuoteCommandInput,
-    cb: (
-      err: any,
-      data?: AcceptReservedInstancesExchangeQuoteCommandOutput
-    ) => void
+    cb: (err: any, data?: AcceptReservedInstancesExchangeQuoteCommandOutput) => void
   ): void;
   public acceptReservedInstancesExchangeQuote(
     args: AcceptReservedInstancesExchangeQuoteCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AcceptReservedInstancesExchangeQuoteCommandOutput
-    ) => void
+    cb: (err: any, data?: AcceptReservedInstancesExchangeQuoteCommandOutput) => void
   ): void;
   public acceptReservedInstancesExchangeQuote(
     args: AcceptReservedInstancesExchangeQuoteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AcceptReservedInstancesExchangeQuoteCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AcceptReservedInstancesExchangeQuoteCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptReservedInstancesExchangeQuoteCommandOutput) => void),
+    cb?: (err: any, data?: AcceptReservedInstancesExchangeQuoteCommandOutput) => void
   ): Promise<AcceptReservedInstancesExchangeQuoteCommandOutput> | void {
     const command = new AcceptReservedInstancesExchangeQuoteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2079,38 +2012,25 @@ export class EC2 extends EC2Client {
   ): Promise<AcceptTransitGatewayPeeringAttachmentCommandOutput>;
   public acceptTransitGatewayPeeringAttachment(
     args: AcceptTransitGatewayPeeringAttachmentCommandInput,
-    cb: (
-      err: any,
-      data?: AcceptTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: AcceptTransitGatewayPeeringAttachmentCommandOutput) => void
   ): void;
   public acceptTransitGatewayPeeringAttachment(
     args: AcceptTransitGatewayPeeringAttachmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AcceptTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: AcceptTransitGatewayPeeringAttachmentCommandOutput) => void
   ): void;
   public acceptTransitGatewayPeeringAttachment(
     args: AcceptTransitGatewayPeeringAttachmentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AcceptTransitGatewayPeeringAttachmentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AcceptTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+      | ((err: any, data?: AcceptTransitGatewayPeeringAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: AcceptTransitGatewayPeeringAttachmentCommandOutput) => void
   ): Promise<AcceptTransitGatewayPeeringAttachmentCommandOutput> | void {
     const command = new AcceptTransitGatewayPeeringAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2129,38 +2049,23 @@ export class EC2 extends EC2Client {
   ): Promise<AcceptTransitGatewayVpcAttachmentCommandOutput>;
   public acceptTransitGatewayVpcAttachment(
     args: AcceptTransitGatewayVpcAttachmentCommandInput,
-    cb: (
-      err: any,
-      data?: AcceptTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: AcceptTransitGatewayVpcAttachmentCommandOutput) => void
   ): void;
   public acceptTransitGatewayVpcAttachment(
     args: AcceptTransitGatewayVpcAttachmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AcceptTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: AcceptTransitGatewayVpcAttachmentCommandOutput) => void
   ): void;
   public acceptTransitGatewayVpcAttachment(
     args: AcceptTransitGatewayVpcAttachmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AcceptTransitGatewayVpcAttachmentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AcceptTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptTransitGatewayVpcAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: AcceptTransitGatewayVpcAttachmentCommandOutput) => void
   ): Promise<AcceptTransitGatewayVpcAttachmentCommandOutput> | void {
     const command = new AcceptTransitGatewayVpcAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2186,17 +2091,14 @@ export class EC2 extends EC2Client {
   ): void;
   public acceptVpcEndpointConnections(
     args: AcceptVpcEndpointConnectionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AcceptVpcEndpointConnectionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptVpcEndpointConnectionsCommandOutput) => void),
     cb?: (err: any, data?: AcceptVpcEndpointConnectionsCommandOutput) => void
   ): Promise<AcceptVpcEndpointConnectionsCommandOutput> | void {
     const command = new AcceptVpcEndpointConnectionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2226,17 +2128,14 @@ export class EC2 extends EC2Client {
   ): void;
   public acceptVpcPeeringConnection(
     args: AcceptVpcPeeringConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AcceptVpcPeeringConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptVpcPeeringConnectionCommandOutput) => void),
     cb?: (err: any, data?: AcceptVpcPeeringConnectionCommandOutput) => void
   ): Promise<AcceptVpcPeeringConnectionCommandOutput> | void {
     const command = new AcceptVpcPeeringConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2271,17 +2170,14 @@ export class EC2 extends EC2Client {
   ): void;
   public advertiseByoipCidr(
     args: AdvertiseByoipCidrCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdvertiseByoipCidrCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdvertiseByoipCidrCommandOutput) => void),
     cb?: (err: any, data?: AdvertiseByoipCidrCommandOutput) => void
   ): Promise<AdvertiseByoipCidrCommandOutput> | void {
     const command = new AdvertiseByoipCidrCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2317,17 +2213,14 @@ export class EC2 extends EC2Client {
   ): void;
   public allocateAddress(
     args: AllocateAddressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AllocateAddressCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AllocateAddressCommandOutput) => void),
     cb?: (err: any, data?: AllocateAddressCommandOutput) => void
   ): Promise<AllocateAddressCommandOutput> | void {
     const command = new AllocateAddressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2354,17 +2247,14 @@ export class EC2 extends EC2Client {
   ): void;
   public allocateHosts(
     args: AllocateHostsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AllocateHostsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AllocateHostsCommandOutput) => void),
     cb?: (err: any, data?: AllocateHostsCommandOutput) => void
   ): Promise<AllocateHostsCommandOutput> | void {
     const command = new AllocateHostsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2381,40 +2271,25 @@ export class EC2 extends EC2Client {
   ): Promise<ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput>;
   public applySecurityGroupsToClientVpnTargetNetwork(
     args: ApplySecurityGroupsToClientVpnTargetNetworkCommandInput,
-    cb: (
-      err: any,
-      data?: ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
-    ) => void
+    cb: (err: any, data?: ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput) => void
   ): void;
   public applySecurityGroupsToClientVpnTargetNetwork(
     args: ApplySecurityGroupsToClientVpnTargetNetworkCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
-    ) => void
+    cb: (err: any, data?: ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput) => void
   ): void;
   public applySecurityGroupsToClientVpnTargetNetwork(
     args: ApplySecurityGroupsToClientVpnTargetNetworkCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
-    ) => void
+      | ((err: any, data?: ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput) => void),
+    cb?: (err: any, data?: ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput) => void
   ): Promise<ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput> | void {
-    const command = new ApplySecurityGroupsToClientVpnTargetNetworkCommand(
-      args
-    );
+    const command = new ApplySecurityGroupsToClientVpnTargetNetworkCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2444,17 +2319,14 @@ export class EC2 extends EC2Client {
   ): void;
   public assignIpv6Addresses(
     args: AssignIpv6AddressesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssignIpv6AddressesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssignIpv6AddressesCommandOutput) => void),
     cb?: (err: any, data?: AssignIpv6AddressesCommandOutput) => void
   ): Promise<AssignIpv6AddressesCommandOutput> | void {
     const command = new AssignIpv6AddressesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2489,17 +2361,14 @@ export class EC2 extends EC2Client {
   ): void;
   public assignPrivateIpAddresses(
     args: AssignPrivateIpAddressesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssignPrivateIpAddressesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssignPrivateIpAddressesCommandOutput) => void),
     cb?: (err: any, data?: AssignPrivateIpAddressesCommandOutput) => void
   ): Promise<AssignPrivateIpAddressesCommandOutput> | void {
     const command = new AssignPrivateIpAddressesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2545,17 +2414,14 @@ export class EC2 extends EC2Client {
   ): void;
   public associateAddress(
     args: AssociateAddressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateAddressCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateAddressCommandOutput) => void),
     cb?: (err: any, data?: AssociateAddressCommandOutput) => void
   ): Promise<AssociateAddressCommandOutput> | void {
     const command = new AssociateAddressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2580,20 +2446,14 @@ export class EC2 extends EC2Client {
   ): void;
   public associateClientVpnTargetNetwork(
     args: AssociateClientVpnTargetNetworkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateClientVpnTargetNetworkCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateClientVpnTargetNetworkCommandOutput) => void),
     cb?: (err: any, data?: AssociateClientVpnTargetNetworkCommandOutput) => void
   ): Promise<AssociateClientVpnTargetNetworkCommandOutput> | void {
     const command = new AssociateClientVpnTargetNetworkCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2621,17 +2481,14 @@ export class EC2 extends EC2Client {
   ): void;
   public associateDhcpOptions(
     args: AssociateDhcpOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateDhcpOptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateDhcpOptionsCommandOutput) => void),
     cb?: (err: any, data?: AssociateDhcpOptionsCommandOutput) => void
   ): Promise<AssociateDhcpOptionsCommandOutput> | void {
     const command = new AssociateDhcpOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2657,17 +2514,14 @@ export class EC2 extends EC2Client {
   ): void;
   public associateIamInstanceProfile(
     args: AssociateIamInstanceProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateIamInstanceProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateIamInstanceProfileCommandOutput) => void),
     cb?: (err: any, data?: AssociateIamInstanceProfileCommandOutput) => void
   ): Promise<AssociateIamInstanceProfileCommandOutput> | void {
     const command = new AssociateIamInstanceProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2698,17 +2552,14 @@ export class EC2 extends EC2Client {
   ): void;
   public associateRouteTable(
     args: AssociateRouteTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateRouteTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateRouteTableCommandOutput) => void),
     cb?: (err: any, data?: AssociateRouteTableCommandOutput) => void
   ): Promise<AssociateRouteTableCommandOutput> | void {
     const command = new AssociateRouteTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2734,17 +2585,14 @@ export class EC2 extends EC2Client {
   ): void;
   public associateSubnetCidrBlock(
     args: AssociateSubnetCidrBlockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateSubnetCidrBlockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateSubnetCidrBlockCommandOutput) => void),
     cb?: (err: any, data?: AssociateSubnetCidrBlockCommandOutput) => void
   ): Promise<AssociateSubnetCidrBlockCommandOutput> | void {
     const command = new AssociateSubnetCidrBlockCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2761,38 +2609,25 @@ export class EC2 extends EC2Client {
   ): Promise<AssociateTransitGatewayMulticastDomainCommandOutput>;
   public associateTransitGatewayMulticastDomain(
     args: AssociateTransitGatewayMulticastDomainCommandInput,
-    cb: (
-      err: any,
-      data?: AssociateTransitGatewayMulticastDomainCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateTransitGatewayMulticastDomainCommandOutput) => void
   ): void;
   public associateTransitGatewayMulticastDomain(
     args: AssociateTransitGatewayMulticastDomainCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AssociateTransitGatewayMulticastDomainCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateTransitGatewayMulticastDomainCommandOutput) => void
   ): void;
   public associateTransitGatewayMulticastDomain(
     args: AssociateTransitGatewayMulticastDomainCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateTransitGatewayMulticastDomainCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateTransitGatewayMulticastDomainCommandOutput
-    ) => void
+      | ((err: any, data?: AssociateTransitGatewayMulticastDomainCommandOutput) => void),
+    cb?: (err: any, data?: AssociateTransitGatewayMulticastDomainCommandOutput) => void
   ): Promise<AssociateTransitGatewayMulticastDomainCommandOutput> | void {
     const command = new AssociateTransitGatewayMulticastDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2809,38 +2644,23 @@ export class EC2 extends EC2Client {
   ): Promise<AssociateTransitGatewayRouteTableCommandOutput>;
   public associateTransitGatewayRouteTable(
     args: AssociateTransitGatewayRouteTableCommandInput,
-    cb: (
-      err: any,
-      data?: AssociateTransitGatewayRouteTableCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateTransitGatewayRouteTableCommandOutput) => void
   ): void;
   public associateTransitGatewayRouteTable(
     args: AssociateTransitGatewayRouteTableCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AssociateTransitGatewayRouteTableCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateTransitGatewayRouteTableCommandOutput) => void
   ): void;
   public associateTransitGatewayRouteTable(
     args: AssociateTransitGatewayRouteTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateTransitGatewayRouteTableCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateTransitGatewayRouteTableCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateTransitGatewayRouteTableCommandOutput) => void),
+    cb?: (err: any, data?: AssociateTransitGatewayRouteTableCommandOutput) => void
   ): Promise<AssociateTransitGatewayRouteTableCommandOutput> | void {
     const command = new AssociateTransitGatewayRouteTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2870,17 +2690,14 @@ export class EC2 extends EC2Client {
   ): void;
   public associateVpcCidrBlock(
     args: AssociateVpcCidrBlockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateVpcCidrBlockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateVpcCidrBlockCommandOutput) => void),
     cb?: (err: any, data?: AssociateVpcCidrBlockCommandOutput) => void
   ): Promise<AssociateVpcCidrBlockCommandOutput> | void {
     const command = new AssociateVpcCidrBlockCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2911,17 +2728,14 @@ export class EC2 extends EC2Client {
   ): void;
   public attachClassicLinkVpc(
     args: AttachClassicLinkVpcCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachClassicLinkVpcCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachClassicLinkVpcCommandOutput) => void),
     cb?: (err: any, data?: AttachClassicLinkVpcCommandOutput) => void
   ): Promise<AttachClassicLinkVpcCommandOutput> | void {
     const command = new AttachClassicLinkVpcCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2947,17 +2761,14 @@ export class EC2 extends EC2Client {
   ): void;
   public attachInternetGateway(
     args: AttachInternetGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachInternetGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachInternetGatewayCommandOutput) => void),
     cb?: (err: any, data?: AttachInternetGatewayCommandOutput) => void
   ): Promise<AttachInternetGatewayCommandOutput> | void {
     const command = new AttachInternetGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2982,17 +2793,14 @@ export class EC2 extends EC2Client {
   ): void;
   public attachNetworkInterface(
     args: AttachNetworkInterfaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachNetworkInterfaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachNetworkInterfaceCommandOutput) => void),
     cb?: (err: any, data?: AttachNetworkInterfaceCommandOutput) => void
   ): Promise<AttachNetworkInterfaceCommandOutput> | void {
     const command = new AttachNetworkInterfaceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3030,10 +2838,7 @@ export class EC2 extends EC2Client {
     args: AttachVolumeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AttachVolumeCommandOutput>;
-  public attachVolume(
-    args: AttachVolumeCommandInput,
-    cb: (err: any, data?: AttachVolumeCommandOutput) => void
-  ): void;
+  public attachVolume(args: AttachVolumeCommandInput, cb: (err: any, data?: AttachVolumeCommandOutput) => void): void;
   public attachVolume(
     args: AttachVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -3041,17 +2846,14 @@ export class EC2 extends EC2Client {
   ): void;
   public attachVolume(
     args: AttachVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachVolumeCommandOutput) => void),
     cb?: (err: any, data?: AttachVolumeCommandOutput) => void
   ): Promise<AttachVolumeCommandOutput> | void {
     const command = new AttachVolumeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3078,17 +2880,14 @@ export class EC2 extends EC2Client {
   ): void;
   public attachVpnGateway(
     args: AttachVpnGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachVpnGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachVpnGatewayCommandOutput) => void),
     cb?: (err: any, data?: AttachVpnGatewayCommandOutput) => void
   ): Promise<AttachVpnGatewayCommandOutput> | void {
     const command = new AttachVpnGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3115,17 +2914,14 @@ export class EC2 extends EC2Client {
   ): void;
   public authorizeClientVpnIngress(
     args: AuthorizeClientVpnIngressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AuthorizeClientVpnIngressCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AuthorizeClientVpnIngressCommandOutput) => void),
     cb?: (err: any, data?: AuthorizeClientVpnIngressCommandOutput) => void
   ): Promise<AuthorizeClientVpnIngressCommandOutput> | void {
     const command = new AuthorizeClientVpnIngressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3158,17 +2954,14 @@ export class EC2 extends EC2Client {
   ): void;
   public authorizeSecurityGroupEgress(
     args: AuthorizeSecurityGroupEgressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AuthorizeSecurityGroupEgressCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AuthorizeSecurityGroupEgressCommandOutput) => void),
     cb?: (err: any, data?: AuthorizeSecurityGroupEgressCommandOutput) => void
   ): Promise<AuthorizeSecurityGroupEgressCommandOutput> | void {
     const command = new AuthorizeSecurityGroupEgressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3202,17 +2995,14 @@ export class EC2 extends EC2Client {
   ): void;
   public authorizeSecurityGroupIngress(
     args: AuthorizeSecurityGroupIngressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AuthorizeSecurityGroupIngressCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AuthorizeSecurityGroupIngressCommandOutput) => void),
     cb?: (err: any, data?: AuthorizeSecurityGroupIngressCommandOutput) => void
   ): Promise<AuthorizeSecurityGroupIngressCommandOutput> | void {
     const command = new AuthorizeSecurityGroupIngressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3241,17 +3031,14 @@ export class EC2 extends EC2Client {
   ): void;
   public bundleInstance(
     args: BundleInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BundleInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BundleInstanceCommandOutput) => void),
     cb?: (err: any, data?: BundleInstanceCommandOutput) => void
   ): Promise<BundleInstanceCommandOutput> | void {
     const command = new BundleInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3276,17 +3063,14 @@ export class EC2 extends EC2Client {
   ): void;
   public cancelBundleTask(
     args: CancelBundleTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelBundleTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelBundleTaskCommandOutput) => void),
     cb?: (err: any, data?: CancelBundleTaskCommandOutput) => void
   ): Promise<CancelBundleTaskCommandOutput> | void {
     const command = new CancelBundleTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3316,17 +3100,14 @@ export class EC2 extends EC2Client {
   ): void;
   public cancelCapacityReservation(
     args: CancelCapacityReservationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelCapacityReservationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelCapacityReservationCommandOutput) => void),
     cb?: (err: any, data?: CancelCapacityReservationCommandOutput) => void
   ): Promise<CancelCapacityReservationCommandOutput> | void {
     const command = new CancelCapacityReservationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3355,17 +3136,14 @@ export class EC2 extends EC2Client {
   ): void;
   public cancelConversionTask(
     args: CancelConversionTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelConversionTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelConversionTaskCommandOutput) => void),
     cb?: (err: any, data?: CancelConversionTaskCommandOutput) => void
   ): Promise<CancelConversionTaskCommandOutput> | void {
     const command = new CancelConversionTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3392,17 +3170,14 @@ export class EC2 extends EC2Client {
   ): void;
   public cancelExportTask(
     args: CancelExportTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelExportTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelExportTaskCommandOutput) => void),
     cb?: (err: any, data?: CancelExportTaskCommandOutput) => void
   ): Promise<CancelExportTaskCommandOutput> | void {
     const command = new CancelExportTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3427,17 +3202,14 @@ export class EC2 extends EC2Client {
   ): void;
   public cancelImportTask(
     args: CancelImportTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelImportTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelImportTaskCommandOutput) => void),
     cb?: (err: any, data?: CancelImportTaskCommandOutput) => void
   ): Promise<CancelImportTaskCommandOutput> | void {
     const command = new CancelImportTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3465,20 +3237,14 @@ export class EC2 extends EC2Client {
   ): void;
   public cancelReservedInstancesListing(
     args: CancelReservedInstancesListingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CancelReservedInstancesListingCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelReservedInstancesListingCommandOutput) => void),
     cb?: (err: any, data?: CancelReservedInstancesListingCommandOutput) => void
   ): Promise<CancelReservedInstancesListingCommandOutput> | void {
     const command = new CancelReservedInstancesListingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3508,17 +3274,14 @@ export class EC2 extends EC2Client {
   ): void;
   public cancelSpotFleetRequests(
     args: CancelSpotFleetRequestsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelSpotFleetRequestsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelSpotFleetRequestsCommandOutput) => void),
     cb?: (err: any, data?: CancelSpotFleetRequestsCommandOutput) => void
   ): Promise<CancelSpotFleetRequestsCommandOutput> | void {
     const command = new CancelSpotFleetRequestsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3546,17 +3309,14 @@ export class EC2 extends EC2Client {
   ): void;
   public cancelSpotInstanceRequests(
     args: CancelSpotInstanceRequestsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelSpotInstanceRequestsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelSpotInstanceRequestsCommandOutput) => void),
     cb?: (err: any, data?: CancelSpotInstanceRequestsCommandOutput) => void
   ): Promise<CancelSpotInstanceRequestsCommandOutput> | void {
     const command = new CancelSpotInstanceRequestsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3583,17 +3343,14 @@ export class EC2 extends EC2Client {
   ): void;
   public confirmProductInstance(
     args: ConfirmProductInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ConfirmProductInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ConfirmProductInstanceCommandOutput) => void),
     cb?: (err: any, data?: ConfirmProductInstanceCommandOutput) => void
   ): Promise<ConfirmProductInstanceCommandOutput> | void {
     const command = new ConfirmProductInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3618,17 +3375,14 @@ export class EC2 extends EC2Client {
   ): void;
   public copyFpgaImage(
     args: CopyFpgaImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopyFpgaImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyFpgaImageCommandOutput) => void),
     cb?: (err: any, data?: CopyFpgaImageCommandOutput) => void
   ): Promise<CopyFpgaImageCommandOutput> | void {
     const command = new CopyFpgaImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3643,14 +3397,8 @@ export class EC2 extends EC2Client {
    *          <p>For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copying an AMI</a>
    *         in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
-  public copyImage(
-    args: CopyImageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CopyImageCommandOutput>;
-  public copyImage(
-    args: CopyImageCommandInput,
-    cb: (err: any, data?: CopyImageCommandOutput) => void
-  ): void;
+  public copyImage(args: CopyImageCommandInput, options?: __HttpHandlerOptions): Promise<CopyImageCommandOutput>;
+  public copyImage(args: CopyImageCommandInput, cb: (err: any, data?: CopyImageCommandOutput) => void): void;
   public copyImage(
     args: CopyImageCommandInput,
     options: __HttpHandlerOptions,
@@ -3658,17 +3406,14 @@ export class EC2 extends EC2Client {
   ): void;
   public copyImage(
     args: CopyImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopyImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyImageCommandOutput) => void),
     cb?: (err: any, data?: CopyImageCommandOutput) => void
   ): Promise<CopyImageCommandOutput> | void {
     const command = new CopyImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3694,10 +3439,7 @@ export class EC2 extends EC2Client {
     args: CopySnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CopySnapshotCommandOutput>;
-  public copySnapshot(
-    args: CopySnapshotCommandInput,
-    cb: (err: any, data?: CopySnapshotCommandOutput) => void
-  ): void;
+  public copySnapshot(args: CopySnapshotCommandInput, cb: (err: any, data?: CopySnapshotCommandOutput) => void): void;
   public copySnapshot(
     args: CopySnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -3705,17 +3447,14 @@ export class EC2 extends EC2Client {
   ): void;
   public copySnapshot(
     args: CopySnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopySnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopySnapshotCommandOutput) => void),
     cb?: (err: any, data?: CopySnapshotCommandOutput) => void
   ): Promise<CopySnapshotCommandOutput> | void {
     const command = new CopySnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3756,17 +3495,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createCapacityReservation(
     args: CreateCapacityReservationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCapacityReservationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCapacityReservationCommandOutput) => void),
     cb?: (err: any, data?: CreateCapacityReservationCommandOutput) => void
   ): Promise<CreateCapacityReservationCommandOutput> | void {
     const command = new CreateCapacityReservationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3793,17 +3529,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createClientVpnEndpoint(
     args: CreateClientVpnEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateClientVpnEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClientVpnEndpointCommandOutput) => void),
     cb?: (err: any, data?: CreateClientVpnEndpointCommandOutput) => void
   ): Promise<CreateClientVpnEndpointCommandOutput> | void {
     const command = new CreateClientVpnEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3829,17 +3562,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createClientVpnRoute(
     args: CreateClientVpnRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateClientVpnRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClientVpnRouteCommandOutput) => void),
     cb?: (err: any, data?: CreateClientVpnRouteCommandOutput) => void
   ): Promise<CreateClientVpnRouteCommandOutput> | void {
     const command = new CreateClientVpnRouteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3886,17 +3616,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createCustomerGateway(
     args: CreateCustomerGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCustomerGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCustomerGatewayCommandOutput) => void),
     cb?: (err: any, data?: CreateCustomerGatewayCommandOutput) => void
   ): Promise<CreateCustomerGatewayCommandOutput> | void {
     const command = new CreateCustomerGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3924,17 +3651,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createDefaultSubnet(
     args: CreateDefaultSubnetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDefaultSubnetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDefaultSubnetCommandOutput) => void),
     cb?: (err: any, data?: CreateDefaultSubnetCommandOutput) => void
   ): Promise<CreateDefaultSubnetCommandOutput> | void {
     const command = new CreateDefaultSubnetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3970,17 +3694,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createDefaultVpc(
     args: CreateDefaultVpcCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDefaultVpcCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDefaultVpcCommandOutput) => void),
     cb?: (err: any, data?: CreateDefaultVpcCommandOutput) => void
   ): Promise<CreateDefaultVpcCommandOutput> | void {
     const command = new CreateDefaultVpcCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4057,17 +3778,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createDhcpOptions(
     args: CreateDhcpOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDhcpOptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDhcpOptionsCommandOutput) => void),
     cb?: (err: any, data?: CreateDhcpOptionsCommandOutput) => void
   ): Promise<CreateDhcpOptionsCommandOutput> | void {
     const command = new CreateDhcpOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4095,20 +3813,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createEgressOnlyInternetGateway(
     args: CreateEgressOnlyInternetGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateEgressOnlyInternetGatewayCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEgressOnlyInternetGatewayCommandOutput) => void),
     cb?: (err: any, data?: CreateEgressOnlyInternetGatewayCommandOutput) => void
   ): Promise<CreateEgressOnlyInternetGatewayCommandOutput> | void {
     const command = new CreateEgressOnlyInternetGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4121,14 +3833,8 @@ export class EC2 extends EC2Client {
    *          instance type, AMI, Availability Zone, or subnet.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html">Launching an EC2 Fleet</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
-  public createFleet(
-    args: CreateFleetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateFleetCommandOutput>;
-  public createFleet(
-    args: CreateFleetCommandInput,
-    cb: (err: any, data?: CreateFleetCommandOutput) => void
-  ): void;
+  public createFleet(args: CreateFleetCommandInput, options?: __HttpHandlerOptions): Promise<CreateFleetCommandOutput>;
+  public createFleet(args: CreateFleetCommandInput, cb: (err: any, data?: CreateFleetCommandOutput) => void): void;
   public createFleet(
     args: CreateFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -4136,17 +3842,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createFleet(
     args: CreateFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFleetCommandOutput) => void),
     cb?: (err: any, data?: CreateFleetCommandOutput) => void
   ): Promise<CreateFleetCommandOutput> | void {
     const command = new CreateFleetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4184,17 +3887,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createFlowLogs(
     args: CreateFlowLogsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFlowLogsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFlowLogsCommandOutput) => void),
     cb?: (err: any, data?: CreateFlowLogsCommandOutput) => void
   ): Promise<CreateFlowLogsCommandOutput> | void {
     const command = new CreateFlowLogsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4224,17 +3924,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createFpgaImage(
     args: CreateFpgaImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFpgaImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFpgaImageCommandOutput) => void),
     cb?: (err: any, data?: CreateFpgaImageCommandOutput) => void
   ): Promise<CreateFpgaImageCommandOutput> | void {
     const command = new CreateFpgaImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4247,14 +3944,8 @@ export class EC2 extends EC2Client {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating Amazon EBS-Backed Linux AMIs</a>
    * 				in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
-  public createImage(
-    args: CreateImageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateImageCommandOutput>;
-  public createImage(
-    args: CreateImageCommandInput,
-    cb: (err: any, data?: CreateImageCommandOutput) => void
-  ): void;
+  public createImage(args: CreateImageCommandInput, options?: __HttpHandlerOptions): Promise<CreateImageCommandOutput>;
+  public createImage(args: CreateImageCommandInput, cb: (err: any, data?: CreateImageCommandOutput) => void): void;
   public createImage(
     args: CreateImageCommandInput,
     options: __HttpHandlerOptions,
@@ -4262,17 +3953,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createImage(
     args: CreateImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateImageCommandOutput) => void),
     cb?: (err: any, data?: CreateImageCommandOutput) => void
   ): Promise<CreateImageCommandOutput> | void {
     const command = new CreateImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4300,17 +3988,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createInstanceExportTask(
     args: CreateInstanceExportTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateInstanceExportTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInstanceExportTaskCommandOutput) => void),
     cb?: (err: any, data?: CreateInstanceExportTaskCommandOutput) => void
   ): Promise<CreateInstanceExportTaskCommandOutput> | void {
     const command = new CreateInstanceExportTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4337,17 +4022,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createInternetGateway(
     args: CreateInternetGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateInternetGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInternetGatewayCommandOutput) => void),
     cb?: (err: any, data?: CreateInternetGatewayCommandOutput) => void
   ): Promise<CreateInternetGatewayCommandOutput> | void {
     const command = new CreateInternetGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4381,17 +4063,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createKeyPair(
     args: CreateKeyPairCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateKeyPairCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateKeyPairCommandOutput) => void),
     cb?: (err: any, data?: CreateKeyPairCommandOutput) => void
   ): Promise<CreateKeyPairCommandOutput> | void {
     const command = new CreateKeyPairCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4419,17 +4098,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createLaunchTemplate(
     args: CreateLaunchTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLaunchTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLaunchTemplateCommandOutput) => void),
     cb?: (err: any, data?: CreateLaunchTemplateCommandOutput) => void
   ): Promise<CreateLaunchTemplateCommandOutput> | void {
     const command = new CreateLaunchTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4457,17 +4133,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createLaunchTemplateVersion(
     args: CreateLaunchTemplateVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLaunchTemplateVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLaunchTemplateVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateLaunchTemplateVersionCommandOutput) => void
   ): Promise<CreateLaunchTemplateVersionCommandOutput> | void {
     const command = new CreateLaunchTemplateVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4492,17 +4165,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createLocalGatewayRoute(
     args: CreateLocalGatewayRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLocalGatewayRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocalGatewayRouteCommandOutput) => void),
     cb?: (err: any, data?: CreateLocalGatewayRouteCommandOutput) => void
   ): Promise<CreateLocalGatewayRouteCommandOutput> | void {
     const command = new CreateLocalGatewayRouteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4518,38 +4188,25 @@ export class EC2 extends EC2Client {
   ): Promise<CreateLocalGatewayRouteTableVpcAssociationCommandOutput>;
   public createLocalGatewayRouteTableVpcAssociation(
     args: CreateLocalGatewayRouteTableVpcAssociationCommandInput,
-    cb: (
-      err: any,
-      data?: CreateLocalGatewayRouteTableVpcAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateLocalGatewayRouteTableVpcAssociationCommandOutput) => void
   ): void;
   public createLocalGatewayRouteTableVpcAssociation(
     args: CreateLocalGatewayRouteTableVpcAssociationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateLocalGatewayRouteTableVpcAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateLocalGatewayRouteTableVpcAssociationCommandOutput) => void
   ): void;
   public createLocalGatewayRouteTableVpcAssociation(
     args: CreateLocalGatewayRouteTableVpcAssociationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateLocalGatewayRouteTableVpcAssociationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateLocalGatewayRouteTableVpcAssociationCommandOutput
-    ) => void
+      | ((err: any, data?: CreateLocalGatewayRouteTableVpcAssociationCommandOutput) => void),
+    cb?: (err: any, data?: CreateLocalGatewayRouteTableVpcAssociationCommandOutput) => void
   ): Promise<CreateLocalGatewayRouteTableVpcAssociationCommandOutput> | void {
     const command = new CreateLocalGatewayRouteTableVpcAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4579,17 +4236,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createNatGateway(
     args: CreateNatGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateNatGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNatGatewayCommandOutput) => void),
     cb?: (err: any, data?: CreateNatGatewayCommandOutput) => void
   ): Promise<CreateNatGatewayCommandOutput> | void {
     const command = new CreateNatGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4616,17 +4270,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createNetworkAcl(
     args: CreateNetworkAclCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateNetworkAclCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNetworkAclCommandOutput) => void),
     cb?: (err: any, data?: CreateNetworkAclCommandOutput) => void
   ): Promise<CreateNetworkAclCommandOutput> | void {
     const command = new CreateNetworkAclCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4658,17 +4309,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createNetworkAclEntry(
     args: CreateNetworkAclEntryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateNetworkAclEntryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNetworkAclEntryCommandOutput) => void),
     cb?: (err: any, data?: CreateNetworkAclEntryCommandOutput) => void
   ): Promise<CreateNetworkAclEntryCommandOutput> | void {
     const command = new CreateNetworkAclEntryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4695,17 +4343,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createNetworkInterface(
     args: CreateNetworkInterfaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateNetworkInterfaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNetworkInterfaceCommandOutput) => void),
     cb?: (err: any, data?: CreateNetworkInterfaceCommandOutput) => void
   ): Promise<CreateNetworkInterfaceCommandOutput> | void {
     const command = new CreateNetworkInterfaceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4732,23 +4377,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createNetworkInterfacePermission(
     args: CreateNetworkInterfacePermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateNetworkInterfacePermissionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateNetworkInterfacePermissionCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNetworkInterfacePermissionCommandOutput) => void),
+    cb?: (err: any, data?: CreateNetworkInterfacePermissionCommandOutput) => void
   ): Promise<CreateNetworkInterfacePermissionCommandOutput> | void {
     const command = new CreateNetworkInterfacePermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4782,17 +4418,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createPlacementGroup(
     args: CreatePlacementGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePlacementGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePlacementGroupCommandOutput) => void),
     cb?: (err: any, data?: CreatePlacementGroupCommandOutput) => void
   ): Promise<CreatePlacementGroupCommandOutput> | void {
     const command = new CreatePlacementGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4832,20 +4465,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createReservedInstancesListing(
     args: CreateReservedInstancesListingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateReservedInstancesListingCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateReservedInstancesListingCommandOutput) => void),
     cb?: (err: any, data?: CreateReservedInstancesListingCommandOutput) => void
   ): Promise<CreateReservedInstancesListingCommandOutput> | void {
     const command = new CreateReservedInstancesListingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4875,14 +4502,8 @@ export class EC2 extends EC2Client {
    *          <p>For more information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the
    *          <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
-  public createRoute(
-    args: CreateRouteCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateRouteCommandOutput>;
-  public createRoute(
-    args: CreateRouteCommandInput,
-    cb: (err: any, data?: CreateRouteCommandOutput) => void
-  ): void;
+  public createRoute(args: CreateRouteCommandInput, options?: __HttpHandlerOptions): Promise<CreateRouteCommandOutput>;
+  public createRoute(args: CreateRouteCommandInput, cb: (err: any, data?: CreateRouteCommandOutput) => void): void;
   public createRoute(
     args: CreateRouteCommandInput,
     options: __HttpHandlerOptions,
@@ -4890,17 +4511,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createRoute(
     args: CreateRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRouteCommandOutput) => void),
     cb?: (err: any, data?: CreateRouteCommandOutput) => void
   ): Promise<CreateRouteCommandOutput> | void {
     const command = new CreateRouteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4927,17 +4545,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createRouteTable(
     args: CreateRouteTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRouteTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRouteTableCommandOutput) => void),
     cb?: (err: any, data?: CreateRouteTableCommandOutput) => void
   ): Promise<CreateRouteTableCommandOutput> | void {
     const command = new CreateRouteTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4976,17 +4591,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createSecurityGroup(
     args: CreateSecurityGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSecurityGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSecurityGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateSecurityGroupCommandOutput) => void
   ): Promise<CreateSecurityGroupCommandOutput> | void {
     const command = new CreateSecurityGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5031,17 +4643,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createSnapshot(
     args: CreateSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CreateSnapshotCommandOutput) => void
   ): Promise<CreateSnapshotCommandOutput> | void {
     const command = new CreateSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5069,17 +4678,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createSnapshots(
     args: CreateSnapshotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSnapshotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSnapshotsCommandOutput) => void),
     cb?: (err: any, data?: CreateSnapshotsCommandOutput) => void
   ): Promise<CreateSnapshotsCommandOutput> | void {
     const command = new CreateSnapshotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5107,20 +4713,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createSpotDatafeedSubscription(
     args: CreateSpotDatafeedSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateSpotDatafeedSubscriptionCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSpotDatafeedSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: CreateSpotDatafeedSubscriptionCommandOutput) => void
   ): Promise<CreateSpotDatafeedSubscriptionCommandOutput> | void {
     const command = new CreateSpotDatafeedSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5151,10 +4751,7 @@ export class EC2 extends EC2Client {
     args: CreateSubnetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateSubnetCommandOutput>;
-  public createSubnet(
-    args: CreateSubnetCommandInput,
-    cb: (err: any, data?: CreateSubnetCommandOutput) => void
-  ): void;
+  public createSubnet(args: CreateSubnetCommandInput, cb: (err: any, data?: CreateSubnetCommandOutput) => void): void;
   public createSubnet(
     args: CreateSubnetCommandInput,
     options: __HttpHandlerOptions,
@@ -5162,17 +4759,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createSubnet(
     args: CreateSubnetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSubnetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSubnetCommandOutput) => void),
     cb?: (err: any, data?: CreateSubnetCommandOutput) => void
   ): Promise<CreateSubnetCommandOutput> | void {
     const command = new CreateSubnetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5189,14 +4783,8 @@ export class EC2 extends EC2Client {
    *             Resource-Level Permissions for Amazon EC2 API Actions</a> in the <i>Amazon
    *             Elastic Compute Cloud User Guide</i>.</p>
    */
-  public createTags(
-    args: CreateTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateTagsCommandOutput>;
-  public createTags(
-    args: CreateTagsCommandInput,
-    cb: (err: any, data?: CreateTagsCommandOutput) => void
-  ): void;
+  public createTags(args: CreateTagsCommandInput, options?: __HttpHandlerOptions): Promise<CreateTagsCommandOutput>;
+  public createTags(args: CreateTagsCommandInput, cb: (err: any, data?: CreateTagsCommandOutput) => void): void;
   public createTags(
     args: CreateTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -5204,17 +4792,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createTags(
     args: CreateTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTagsCommandOutput) => void),
     cb?: (err: any, data?: CreateTagsCommandOutput) => void
   ): Promise<CreateTagsCommandOutput> | void {
     const command = new CreateTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5242,17 +4827,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createTrafficMirrorFilter(
     args: CreateTrafficMirrorFilterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTrafficMirrorFilterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTrafficMirrorFilterCommandOutput) => void),
     cb?: (err: any, data?: CreateTrafficMirrorFilterCommandOutput) => void
   ): Promise<CreateTrafficMirrorFilterCommandOutput> | void {
     const command = new CreateTrafficMirrorFilterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5279,17 +4861,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createTrafficMirrorFilterRule(
     args: CreateTrafficMirrorFilterRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTrafficMirrorFilterRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTrafficMirrorFilterRuleCommandOutput) => void),
     cb?: (err: any, data?: CreateTrafficMirrorFilterRuleCommandOutput) => void
   ): Promise<CreateTrafficMirrorFilterRuleCommandOutput> | void {
     const command = new CreateTrafficMirrorFilterRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5320,17 +4899,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createTrafficMirrorSession(
     args: CreateTrafficMirrorSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTrafficMirrorSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTrafficMirrorSessionCommandOutput) => void),
     cb?: (err: any, data?: CreateTrafficMirrorSessionCommandOutput) => void
   ): Promise<CreateTrafficMirrorSessionCommandOutput> | void {
     const command = new CreateTrafficMirrorSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5360,17 +4936,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createTrafficMirrorTarget(
     args: CreateTrafficMirrorTargetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTrafficMirrorTargetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTrafficMirrorTargetCommandOutput) => void),
     cb?: (err: any, data?: CreateTrafficMirrorTargetCommandOutput) => void
   ): Promise<CreateTrafficMirrorTargetCommandOutput> | void {
     const command = new CreateTrafficMirrorTargetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5407,17 +4980,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createTransitGateway(
     args: CreateTransitGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTransitGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTransitGatewayCommandOutput) => void),
     cb?: (err: any, data?: CreateTransitGatewayCommandOutput) => void
   ): Promise<CreateTransitGatewayCommandOutput> | void {
     const command = new CreateTransitGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5434,38 +5004,23 @@ export class EC2 extends EC2Client {
   ): Promise<CreateTransitGatewayMulticastDomainCommandOutput>;
   public createTransitGatewayMulticastDomain(
     args: CreateTransitGatewayMulticastDomainCommandInput,
-    cb: (
-      err: any,
-      data?: CreateTransitGatewayMulticastDomainCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateTransitGatewayMulticastDomainCommandOutput) => void
   ): void;
   public createTransitGatewayMulticastDomain(
     args: CreateTransitGatewayMulticastDomainCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateTransitGatewayMulticastDomainCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateTransitGatewayMulticastDomainCommandOutput) => void
   ): void;
   public createTransitGatewayMulticastDomain(
     args: CreateTransitGatewayMulticastDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateTransitGatewayMulticastDomainCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateTransitGatewayMulticastDomainCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTransitGatewayMulticastDomainCommandOutput) => void),
+    cb?: (err: any, data?: CreateTransitGatewayMulticastDomainCommandOutput) => void
   ): Promise<CreateTransitGatewayMulticastDomainCommandOutput> | void {
     const command = new CreateTransitGatewayMulticastDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5486,38 +5041,25 @@ export class EC2 extends EC2Client {
   ): Promise<CreateTransitGatewayPeeringAttachmentCommandOutput>;
   public createTransitGatewayPeeringAttachment(
     args: CreateTransitGatewayPeeringAttachmentCommandInput,
-    cb: (
-      err: any,
-      data?: CreateTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateTransitGatewayPeeringAttachmentCommandOutput) => void
   ): void;
   public createTransitGatewayPeeringAttachment(
     args: CreateTransitGatewayPeeringAttachmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateTransitGatewayPeeringAttachmentCommandOutput) => void
   ): void;
   public createTransitGatewayPeeringAttachment(
     args: CreateTransitGatewayPeeringAttachmentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateTransitGatewayPeeringAttachmentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+      | ((err: any, data?: CreateTransitGatewayPeeringAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: CreateTransitGatewayPeeringAttachmentCommandOutput) => void
   ): Promise<CreateTransitGatewayPeeringAttachmentCommandOutput> | void {
     const command = new CreateTransitGatewayPeeringAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5542,17 +5084,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createTransitGatewayRoute(
     args: CreateTransitGatewayRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTransitGatewayRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTransitGatewayRouteCommandOutput) => void),
     cb?: (err: any, data?: CreateTransitGatewayRouteCommandOutput) => void
   ): Promise<CreateTransitGatewayRouteCommandOutput> | void {
     const command = new CreateTransitGatewayRouteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5577,20 +5116,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createTransitGatewayRouteTable(
     args: CreateTransitGatewayRouteTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateTransitGatewayRouteTableCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTransitGatewayRouteTableCommandOutput) => void),
     cb?: (err: any, data?: CreateTransitGatewayRouteTableCommandOutput) => void
   ): Promise<CreateTransitGatewayRouteTableCommandOutput> | void {
     const command = new CreateTransitGatewayRouteTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5609,38 +5142,23 @@ export class EC2 extends EC2Client {
   ): Promise<CreateTransitGatewayVpcAttachmentCommandOutput>;
   public createTransitGatewayVpcAttachment(
     args: CreateTransitGatewayVpcAttachmentCommandInput,
-    cb: (
-      err: any,
-      data?: CreateTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateTransitGatewayVpcAttachmentCommandOutput) => void
   ): void;
   public createTransitGatewayVpcAttachment(
     args: CreateTransitGatewayVpcAttachmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateTransitGatewayVpcAttachmentCommandOutput) => void
   ): void;
   public createTransitGatewayVpcAttachment(
     args: CreateTransitGatewayVpcAttachmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateTransitGatewayVpcAttachmentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTransitGatewayVpcAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: CreateTransitGatewayVpcAttachmentCommandOutput) => void
   ): Promise<CreateTransitGatewayVpcAttachmentCommandOutput> | void {
     const command = new CreateTransitGatewayVpcAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5667,10 +5185,7 @@ export class EC2 extends EC2Client {
     args: CreateVolumeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateVolumeCommandOutput>;
-  public createVolume(
-    args: CreateVolumeCommandInput,
-    cb: (err: any, data?: CreateVolumeCommandOutput) => void
-  ): void;
+  public createVolume(args: CreateVolumeCommandInput, cb: (err: any, data?: CreateVolumeCommandOutput) => void): void;
   public createVolume(
     args: CreateVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -5678,17 +5193,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createVolume(
     args: CreateVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVolumeCommandOutput) => void),
     cb?: (err: any, data?: CreateVolumeCommandOutput) => void
   ): Promise<CreateVolumeCommandOutput> | void {
     const command = new CreateVolumeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5708,14 +5220,8 @@ export class EC2 extends EC2Client {
    *       this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the
    *           <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
-  public createVpc(
-    args: CreateVpcCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateVpcCommandOutput>;
-  public createVpc(
-    args: CreateVpcCommandInput,
-    cb: (err: any, data?: CreateVpcCommandOutput) => void
-  ): void;
+  public createVpc(args: CreateVpcCommandInput, options?: __HttpHandlerOptions): Promise<CreateVpcCommandOutput>;
+  public createVpc(args: CreateVpcCommandInput, cb: (err: any, data?: CreateVpcCommandOutput) => void): void;
   public createVpc(
     args: CreateVpcCommandInput,
     options: __HttpHandlerOptions,
@@ -5723,17 +5229,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createVpc(
     args: CreateVpcCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVpcCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVpcCommandOutput) => void),
     cb?: (err: any, data?: CreateVpcCommandOutput) => void
   ): Promise<CreateVpcCommandOutput> | void {
     const command = new CreateVpcCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5771,17 +5274,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createVpcEndpoint(
     args: CreateVpcEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVpcEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVpcEndpointCommandOutput) => void),
     cb?: (err: any, data?: CreateVpcEndpointCommandOutput) => void
   ): Promise<CreateVpcEndpointCommandOutput> | void {
     const command = new CreateVpcEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5801,38 +5301,25 @@ export class EC2 extends EC2Client {
   ): Promise<CreateVpcEndpointConnectionNotificationCommandOutput>;
   public createVpcEndpointConnectionNotification(
     args: CreateVpcEndpointConnectionNotificationCommandInput,
-    cb: (
-      err: any,
-      data?: CreateVpcEndpointConnectionNotificationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateVpcEndpointConnectionNotificationCommandOutput) => void
   ): void;
   public createVpcEndpointConnectionNotification(
     args: CreateVpcEndpointConnectionNotificationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateVpcEndpointConnectionNotificationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateVpcEndpointConnectionNotificationCommandOutput) => void
   ): void;
   public createVpcEndpointConnectionNotification(
     args: CreateVpcEndpointConnectionNotificationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateVpcEndpointConnectionNotificationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateVpcEndpointConnectionNotificationCommandOutput
-    ) => void
+      | ((err: any, data?: CreateVpcEndpointConnectionNotificationCommandOutput) => void),
+    cb?: (err: any, data?: CreateVpcEndpointConnectionNotificationCommandOutput) => void
   ): Promise<CreateVpcEndpointConnectionNotificationCommandOutput> | void {
     const command = new CreateVpcEndpointConnectionNotificationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5854,38 +5341,25 @@ export class EC2 extends EC2Client {
   ): Promise<CreateVpcEndpointServiceConfigurationCommandOutput>;
   public createVpcEndpointServiceConfiguration(
     args: CreateVpcEndpointServiceConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: CreateVpcEndpointServiceConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateVpcEndpointServiceConfigurationCommandOutput) => void
   ): void;
   public createVpcEndpointServiceConfiguration(
     args: CreateVpcEndpointServiceConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateVpcEndpointServiceConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateVpcEndpointServiceConfigurationCommandOutput) => void
   ): void;
   public createVpcEndpointServiceConfiguration(
     args: CreateVpcEndpointServiceConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateVpcEndpointServiceConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateVpcEndpointServiceConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: CreateVpcEndpointServiceConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: CreateVpcEndpointServiceConfigurationCommandOutput) => void
   ): Promise<CreateVpcEndpointServiceConfigurationCommandOutput> | void {
     const command = new CreateVpcEndpointServiceConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5921,17 +5395,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createVpcPeeringConnection(
     args: CreateVpcPeeringConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVpcPeeringConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVpcPeeringConnectionCommandOutput) => void),
     cb?: (err: any, data?: CreateVpcPeeringConnectionCommandOutput) => void
   ): Promise<CreateVpcPeeringConnectionCommandOutput> | void {
     const command = new CreateVpcPeeringConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5971,17 +5442,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createVpnConnection(
     args: CreateVpnConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVpnConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVpnConnectionCommandOutput) => void),
     cb?: (err: any, data?: CreateVpnConnectionCommandOutput) => void
   ): Promise<CreateVpnConnectionCommandOutput> | void {
     const command = new CreateVpnConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6007,17 +5475,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createVpnConnectionRoute(
     args: CreateVpnConnectionRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVpnConnectionRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVpnConnectionRouteCommandOutput) => void),
     cb?: (err: any, data?: CreateVpnConnectionRouteCommandOutput) => void
   ): Promise<CreateVpnConnectionRouteCommandOutput> | void {
     const command = new CreateVpnConnectionRouteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6043,17 +5508,14 @@ export class EC2 extends EC2Client {
   ): void;
   public createVpnGateway(
     args: CreateVpnGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVpnGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVpnGatewayCommandOutput) => void),
     cb?: (err: any, data?: CreateVpnGatewayCommandOutput) => void
   ): Promise<CreateVpnGatewayCommandOutput> | void {
     const command = new CreateVpnGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6079,17 +5541,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteClientVpnEndpoint(
     args: DeleteClientVpnEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteClientVpnEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteClientVpnEndpointCommandOutput) => void),
     cb?: (err: any, data?: DeleteClientVpnEndpointCommandOutput) => void
   ): Promise<DeleteClientVpnEndpointCommandOutput> | void {
     const command = new DeleteClientVpnEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6117,17 +5576,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteClientVpnRoute(
     args: DeleteClientVpnRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteClientVpnRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteClientVpnRouteCommandOutput) => void),
     cb?: (err: any, data?: DeleteClientVpnRouteCommandOutput) => void
   ): Promise<DeleteClientVpnRouteCommandOutput> | void {
     const command = new DeleteClientVpnRouteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6152,17 +5608,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteCustomerGateway(
     args: DeleteCustomerGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCustomerGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCustomerGatewayCommandOutput) => void),
     cb?: (err: any, data?: DeleteCustomerGatewayCommandOutput) => void
   ): Promise<DeleteCustomerGatewayCommandOutput> | void {
     const command = new DeleteCustomerGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6187,17 +5640,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteDhcpOptions(
     args: DeleteDhcpOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDhcpOptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDhcpOptionsCommandOutput) => void),
     cb?: (err: any, data?: DeleteDhcpOptionsCommandOutput) => void
   ): Promise<DeleteDhcpOptionsCommandOutput> | void {
     const command = new DeleteDhcpOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6222,20 +5672,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteEgressOnlyInternetGateway(
     args: DeleteEgressOnlyInternetGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteEgressOnlyInternetGatewayCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEgressOnlyInternetGatewayCommandOutput) => void),
     cb?: (err: any, data?: DeleteEgressOnlyInternetGatewayCommandOutput) => void
   ): Promise<DeleteEgressOnlyInternetGatewayCommandOutput> | void {
     const command = new DeleteEgressOnlyInternetGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6254,10 +5698,7 @@ export class EC2 extends EC2Client {
     args: DeleteFleetsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteFleetsCommandOutput>;
-  public deleteFleets(
-    args: DeleteFleetsCommandInput,
-    cb: (err: any, data?: DeleteFleetsCommandOutput) => void
-  ): void;
+  public deleteFleets(args: DeleteFleetsCommandInput, cb: (err: any, data?: DeleteFleetsCommandOutput) => void): void;
   public deleteFleets(
     args: DeleteFleetsCommandInput,
     options: __HttpHandlerOptions,
@@ -6265,17 +5706,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteFleets(
     args: DeleteFleetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFleetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFleetsCommandOutput) => void),
     cb?: (err: any, data?: DeleteFleetsCommandOutput) => void
   ): Promise<DeleteFleetsCommandOutput> | void {
     const command = new DeleteFleetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6300,17 +5738,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteFlowLogs(
     args: DeleteFlowLogsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFlowLogsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFlowLogsCommandOutput) => void),
     cb?: (err: any, data?: DeleteFlowLogsCommandOutput) => void
   ): Promise<DeleteFlowLogsCommandOutput> | void {
     const command = new DeleteFlowLogsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6335,17 +5770,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteFpgaImage(
     args: DeleteFpgaImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFpgaImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFpgaImageCommandOutput) => void),
     cb?: (err: any, data?: DeleteFpgaImageCommandOutput) => void
   ): Promise<DeleteFpgaImageCommandOutput> | void {
     const command = new DeleteFpgaImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6371,17 +5803,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteInternetGateway(
     args: DeleteInternetGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteInternetGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInternetGatewayCommandOutput) => void),
     cb?: (err: any, data?: DeleteInternetGatewayCommandOutput) => void
   ): Promise<DeleteInternetGatewayCommandOutput> | void {
     const command = new DeleteInternetGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6406,17 +5835,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteKeyPair(
     args: DeleteKeyPairCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteKeyPairCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteKeyPairCommandOutput) => void),
     cb?: (err: any, data?: DeleteKeyPairCommandOutput) => void
   ): Promise<DeleteKeyPairCommandOutput> | void {
     const command = new DeleteKeyPairCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6441,17 +5867,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteLaunchTemplate(
     args: DeleteLaunchTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLaunchTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLaunchTemplateCommandOutput) => void),
     cb?: (err: any, data?: DeleteLaunchTemplateCommandOutput) => void
   ): Promise<DeleteLaunchTemplateCommandOutput> | void {
     const command = new DeleteLaunchTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6479,17 +5902,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteLaunchTemplateVersions(
     args: DeleteLaunchTemplateVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLaunchTemplateVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLaunchTemplateVersionsCommandOutput) => void),
     cb?: (err: any, data?: DeleteLaunchTemplateVersionsCommandOutput) => void
   ): Promise<DeleteLaunchTemplateVersionsCommandOutput> | void {
     const command = new DeleteLaunchTemplateVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6514,17 +5934,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteLocalGatewayRoute(
     args: DeleteLocalGatewayRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLocalGatewayRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLocalGatewayRouteCommandOutput) => void),
     cb?: (err: any, data?: DeleteLocalGatewayRouteCommandOutput) => void
   ): Promise<DeleteLocalGatewayRouteCommandOutput> | void {
     const command = new DeleteLocalGatewayRouteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6540,38 +5957,25 @@ export class EC2 extends EC2Client {
   ): Promise<DeleteLocalGatewayRouteTableVpcAssociationCommandOutput>;
   public deleteLocalGatewayRouteTableVpcAssociation(
     args: DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteLocalGatewayRouteTableVpcAssociationCommandOutput) => void
   ): void;
   public deleteLocalGatewayRouteTableVpcAssociation(
     args: DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteLocalGatewayRouteTableVpcAssociationCommandOutput) => void
   ): void;
   public deleteLocalGatewayRouteTableVpcAssociation(
     args: DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteLocalGatewayRouteTableVpcAssociationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLocalGatewayRouteTableVpcAssociationCommandOutput) => void
   ): Promise<DeleteLocalGatewayRouteTableVpcAssociationCommandOutput> | void {
     const command = new DeleteLocalGatewayRouteTableVpcAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6596,17 +6000,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteNatGateway(
     args: DeleteNatGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteNatGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNatGatewayCommandOutput) => void),
     cb?: (err: any, data?: DeleteNatGatewayCommandOutput) => void
   ): Promise<DeleteNatGatewayCommandOutput> | void {
     const command = new DeleteNatGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6631,17 +6032,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteNetworkAcl(
     args: DeleteNetworkAclCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteNetworkAclCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNetworkAclCommandOutput) => void),
     cb?: (err: any, data?: DeleteNetworkAclCommandOutput) => void
   ): Promise<DeleteNetworkAclCommandOutput> | void {
     const command = new DeleteNetworkAclCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6666,17 +6064,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteNetworkAclEntry(
     args: DeleteNetworkAclEntryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteNetworkAclEntryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNetworkAclEntryCommandOutput) => void),
     cb?: (err: any, data?: DeleteNetworkAclEntryCommandOutput) => void
   ): Promise<DeleteNetworkAclEntryCommandOutput> | void {
     const command = new DeleteNetworkAclEntryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6701,17 +6096,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteNetworkInterface(
     args: DeleteNetworkInterfaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteNetworkInterfaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNetworkInterfaceCommandOutput) => void),
     cb?: (err: any, data?: DeleteNetworkInterfaceCommandOutput) => void
   ): Promise<DeleteNetworkInterfaceCommandOutput> | void {
     const command = new DeleteNetworkInterfaceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6739,23 +6131,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteNetworkInterfacePermission(
     args: DeleteNetworkInterfacePermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteNetworkInterfacePermissionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteNetworkInterfacePermissionCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNetworkInterfacePermissionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteNetworkInterfacePermissionCommandOutput) => void
   ): Promise<DeleteNetworkInterfacePermissionCommandOutput> | void {
     const command = new DeleteNetworkInterfacePermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6783,17 +6166,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deletePlacementGroup(
     args: DeletePlacementGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePlacementGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePlacementGroupCommandOutput) => void),
     cb?: (err: any, data?: DeletePlacementGroupCommandOutput) => void
   ): Promise<DeletePlacementGroupCommandOutput> | void {
     const command = new DeletePlacementGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6818,17 +6198,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteQueuedReservedInstances(
     args: DeleteQueuedReservedInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteQueuedReservedInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteQueuedReservedInstancesCommandOutput) => void),
     cb?: (err: any, data?: DeleteQueuedReservedInstancesCommandOutput) => void
   ): Promise<DeleteQueuedReservedInstancesCommandOutput> | void {
     const command = new DeleteQueuedReservedInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6838,14 +6215,8 @@ export class EC2 extends EC2Client {
   /**
    * <p>Deletes the specified route from the specified route table.</p>
    */
-  public deleteRoute(
-    args: DeleteRouteCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteRouteCommandOutput>;
-  public deleteRoute(
-    args: DeleteRouteCommandInput,
-    cb: (err: any, data?: DeleteRouteCommandOutput) => void
-  ): void;
+  public deleteRoute(args: DeleteRouteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRouteCommandOutput>;
+  public deleteRoute(args: DeleteRouteCommandInput, cb: (err: any, data?: DeleteRouteCommandOutput) => void): void;
   public deleteRoute(
     args: DeleteRouteCommandInput,
     options: __HttpHandlerOptions,
@@ -6853,17 +6224,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteRoute(
     args: DeleteRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRouteCommandOutput) => void),
     cb?: (err: any, data?: DeleteRouteCommandOutput) => void
   ): Promise<DeleteRouteCommandOutput> | void {
     const command = new DeleteRouteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6888,17 +6256,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteRouteTable(
     args: DeleteRouteTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRouteTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRouteTableCommandOutput) => void),
     cb?: (err: any, data?: DeleteRouteTableCommandOutput) => void
   ): Promise<DeleteRouteTableCommandOutput> | void {
     const command = new DeleteRouteTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6927,17 +6292,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteSecurityGroup(
     args: DeleteSecurityGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSecurityGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSecurityGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteSecurityGroupCommandOutput) => void
   ): Promise<DeleteSecurityGroupCommandOutput> | void {
     const command = new DeleteSecurityGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6971,17 +6333,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteSnapshot(
     args: DeleteSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSnapshotCommandOutput) => void),
     cb?: (err: any, data?: DeleteSnapshotCommandOutput) => void
   ): Promise<DeleteSnapshotCommandOutput> | void {
     const command = new DeleteSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7006,20 +6365,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteSpotDatafeedSubscription(
     args: DeleteSpotDatafeedSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteSpotDatafeedSubscriptionCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSpotDatafeedSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: DeleteSpotDatafeedSubscriptionCommandOutput) => void
   ): Promise<DeleteSpotDatafeedSubscriptionCommandOutput> | void {
     const command = new DeleteSpotDatafeedSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7033,10 +6386,7 @@ export class EC2 extends EC2Client {
     args: DeleteSubnetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteSubnetCommandOutput>;
-  public deleteSubnet(
-    args: DeleteSubnetCommandInput,
-    cb: (err: any, data?: DeleteSubnetCommandOutput) => void
-  ): void;
+  public deleteSubnet(args: DeleteSubnetCommandInput, cb: (err: any, data?: DeleteSubnetCommandOutput) => void): void;
   public deleteSubnet(
     args: DeleteSubnetCommandInput,
     options: __HttpHandlerOptions,
@@ -7044,17 +6394,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteSubnet(
     args: DeleteSubnetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSubnetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSubnetCommandOutput) => void),
     cb?: (err: any, data?: DeleteSubnetCommandOutput) => void
   ): Promise<DeleteSubnetCommandOutput> | void {
     const command = new DeleteSubnetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7067,14 +6414,8 @@ export class EC2 extends EC2Client {
    *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Resources</a>
    *          in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
-  public deleteTags(
-    args: DeleteTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteTagsCommandOutput>;
-  public deleteTags(
-    args: DeleteTagsCommandInput,
-    cb: (err: any, data?: DeleteTagsCommandOutput) => void
-  ): void;
+  public deleteTags(args: DeleteTagsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTagsCommandOutput>;
+  public deleteTags(args: DeleteTagsCommandInput, cb: (err: any, data?: DeleteTagsCommandOutput) => void): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -7082,17 +6423,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7118,17 +6456,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteTrafficMirrorFilter(
     args: DeleteTrafficMirrorFilterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTrafficMirrorFilterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTrafficMirrorFilterCommandOutput) => void),
     cb?: (err: any, data?: DeleteTrafficMirrorFilterCommandOutput) => void
   ): Promise<DeleteTrafficMirrorFilterCommandOutput> | void {
     const command = new DeleteTrafficMirrorFilterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7153,17 +6488,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteTrafficMirrorFilterRule(
     args: DeleteTrafficMirrorFilterRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTrafficMirrorFilterRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTrafficMirrorFilterRuleCommandOutput) => void),
     cb?: (err: any, data?: DeleteTrafficMirrorFilterRuleCommandOutput) => void
   ): Promise<DeleteTrafficMirrorFilterRuleCommandOutput> | void {
     const command = new DeleteTrafficMirrorFilterRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7188,17 +6520,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteTrafficMirrorSession(
     args: DeleteTrafficMirrorSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTrafficMirrorSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTrafficMirrorSessionCommandOutput) => void),
     cb?: (err: any, data?: DeleteTrafficMirrorSessionCommandOutput) => void
   ): Promise<DeleteTrafficMirrorSessionCommandOutput> | void {
     const command = new DeleteTrafficMirrorSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7224,17 +6553,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteTrafficMirrorTarget(
     args: DeleteTrafficMirrorTargetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTrafficMirrorTargetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTrafficMirrorTargetCommandOutput) => void),
     cb?: (err: any, data?: DeleteTrafficMirrorTargetCommandOutput) => void
   ): Promise<DeleteTrafficMirrorTargetCommandOutput> | void {
     const command = new DeleteTrafficMirrorTargetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7259,17 +6585,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteTransitGateway(
     args: DeleteTransitGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTransitGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTransitGatewayCommandOutput) => void),
     cb?: (err: any, data?: DeleteTransitGatewayCommandOutput) => void
   ): Promise<DeleteTransitGatewayCommandOutput> | void {
     const command = new DeleteTransitGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7285,38 +6608,23 @@ export class EC2 extends EC2Client {
   ): Promise<DeleteTransitGatewayMulticastDomainCommandOutput>;
   public deleteTransitGatewayMulticastDomain(
     args: DeleteTransitGatewayMulticastDomainCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteTransitGatewayMulticastDomainCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteTransitGatewayMulticastDomainCommandOutput) => void
   ): void;
   public deleteTransitGatewayMulticastDomain(
     args: DeleteTransitGatewayMulticastDomainCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteTransitGatewayMulticastDomainCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteTransitGatewayMulticastDomainCommandOutput) => void
   ): void;
   public deleteTransitGatewayMulticastDomain(
     args: DeleteTransitGatewayMulticastDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteTransitGatewayMulticastDomainCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteTransitGatewayMulticastDomainCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTransitGatewayMulticastDomainCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTransitGatewayMulticastDomainCommandOutput) => void
   ): Promise<DeleteTransitGatewayMulticastDomainCommandOutput> | void {
     const command = new DeleteTransitGatewayMulticastDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7332,38 +6640,25 @@ export class EC2 extends EC2Client {
   ): Promise<DeleteTransitGatewayPeeringAttachmentCommandOutput>;
   public deleteTransitGatewayPeeringAttachment(
     args: DeleteTransitGatewayPeeringAttachmentCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteTransitGatewayPeeringAttachmentCommandOutput) => void
   ): void;
   public deleteTransitGatewayPeeringAttachment(
     args: DeleteTransitGatewayPeeringAttachmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteTransitGatewayPeeringAttachmentCommandOutput) => void
   ): void;
   public deleteTransitGatewayPeeringAttachment(
     args: DeleteTransitGatewayPeeringAttachmentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteTransitGatewayPeeringAttachmentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteTransitGatewayPeeringAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTransitGatewayPeeringAttachmentCommandOutput) => void
   ): Promise<DeleteTransitGatewayPeeringAttachmentCommandOutput> | void {
     const command = new DeleteTransitGatewayPeeringAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7388,17 +6683,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteTransitGatewayRoute(
     args: DeleteTransitGatewayRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTransitGatewayRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTransitGatewayRouteCommandOutput) => void),
     cb?: (err: any, data?: DeleteTransitGatewayRouteCommandOutput) => void
   ): Promise<DeleteTransitGatewayRouteCommandOutput> | void {
     const command = new DeleteTransitGatewayRouteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7424,20 +6716,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteTransitGatewayRouteTable(
     args: DeleteTransitGatewayRouteTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteTransitGatewayRouteTableCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTransitGatewayRouteTableCommandOutput) => void),
     cb?: (err: any, data?: DeleteTransitGatewayRouteTableCommandOutput) => void
   ): Promise<DeleteTransitGatewayRouteTableCommandOutput> | void {
     const command = new DeleteTransitGatewayRouteTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7453,38 +6739,23 @@ export class EC2 extends EC2Client {
   ): Promise<DeleteTransitGatewayVpcAttachmentCommandOutput>;
   public deleteTransitGatewayVpcAttachment(
     args: DeleteTransitGatewayVpcAttachmentCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteTransitGatewayVpcAttachmentCommandOutput) => void
   ): void;
   public deleteTransitGatewayVpcAttachment(
     args: DeleteTransitGatewayVpcAttachmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteTransitGatewayVpcAttachmentCommandOutput) => void
   ): void;
   public deleteTransitGatewayVpcAttachment(
     args: DeleteTransitGatewayVpcAttachmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteTransitGatewayVpcAttachmentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTransitGatewayVpcAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTransitGatewayVpcAttachmentCommandOutput) => void
   ): Promise<DeleteTransitGatewayVpcAttachmentCommandOutput> | void {
     const command = new DeleteTransitGatewayVpcAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7502,10 +6773,7 @@ export class EC2 extends EC2Client {
     args: DeleteVolumeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteVolumeCommandOutput>;
-  public deleteVolume(
-    args: DeleteVolumeCommandInput,
-    cb: (err: any, data?: DeleteVolumeCommandOutput) => void
-  ): void;
+  public deleteVolume(args: DeleteVolumeCommandInput, cb: (err: any, data?: DeleteVolumeCommandOutput) => void): void;
   public deleteVolume(
     args: DeleteVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -7513,17 +6781,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteVolume(
     args: DeleteVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVolumeCommandOutput) => void),
     cb?: (err: any, data?: DeleteVolumeCommandOutput) => void
   ): Promise<DeleteVolumeCommandOutput> | void {
     const command = new DeleteVolumeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7533,14 +6798,8 @@ export class EC2 extends EC2Client {
   /**
    * <p>Deletes the specified VPC. You must detach or delete all gateways and resources that are associated with the VPC before you can delete it. For example, you must terminate all instances running in the VPC, delete all security groups associated with the VPC (except the default one), delete all route tables associated with the VPC (except the default one), and so on.</p>
    */
-  public deleteVpc(
-    args: DeleteVpcCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteVpcCommandOutput>;
-  public deleteVpc(
-    args: DeleteVpcCommandInput,
-    cb: (err: any, data?: DeleteVpcCommandOutput) => void
-  ): void;
+  public deleteVpc(args: DeleteVpcCommandInput, options?: __HttpHandlerOptions): Promise<DeleteVpcCommandOutput>;
+  public deleteVpc(args: DeleteVpcCommandInput, cb: (err: any, data?: DeleteVpcCommandOutput) => void): void;
   public deleteVpc(
     args: DeleteVpcCommandInput,
     options: __HttpHandlerOptions,
@@ -7548,17 +6807,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteVpc(
     args: DeleteVpcCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVpcCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVpcCommandOutput) => void),
     cb?: (err: any, data?: DeleteVpcCommandOutput) => void
   ): Promise<DeleteVpcCommandOutput> | void {
     const command = new DeleteVpcCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7574,38 +6830,25 @@ export class EC2 extends EC2Client {
   ): Promise<DeleteVpcEndpointConnectionNotificationsCommandOutput>;
   public deleteVpcEndpointConnectionNotifications(
     args: DeleteVpcEndpointConnectionNotificationsCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteVpcEndpointConnectionNotificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteVpcEndpointConnectionNotificationsCommandOutput) => void
   ): void;
   public deleteVpcEndpointConnectionNotifications(
     args: DeleteVpcEndpointConnectionNotificationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteVpcEndpointConnectionNotificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteVpcEndpointConnectionNotificationsCommandOutput) => void
   ): void;
   public deleteVpcEndpointConnectionNotifications(
     args: DeleteVpcEndpointConnectionNotificationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteVpcEndpointConnectionNotificationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteVpcEndpointConnectionNotificationsCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteVpcEndpointConnectionNotificationsCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVpcEndpointConnectionNotificationsCommandOutput) => void
   ): Promise<DeleteVpcEndpointConnectionNotificationsCommandOutput> | void {
     const command = new DeleteVpcEndpointConnectionNotificationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7632,17 +6875,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteVpcEndpoints(
     args: DeleteVpcEndpointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVpcEndpointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVpcEndpointsCommandOutput) => void),
     cb?: (err: any, data?: DeleteVpcEndpointsCommandOutput) => void
   ): Promise<DeleteVpcEndpointsCommandOutput> | void {
     const command = new DeleteVpcEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7661,38 +6901,25 @@ export class EC2 extends EC2Client {
   ): Promise<DeleteVpcEndpointServiceConfigurationsCommandOutput>;
   public deleteVpcEndpointServiceConfigurations(
     args: DeleteVpcEndpointServiceConfigurationsCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteVpcEndpointServiceConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteVpcEndpointServiceConfigurationsCommandOutput) => void
   ): void;
   public deleteVpcEndpointServiceConfigurations(
     args: DeleteVpcEndpointServiceConfigurationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteVpcEndpointServiceConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteVpcEndpointServiceConfigurationsCommandOutput) => void
   ): void;
   public deleteVpcEndpointServiceConfigurations(
     args: DeleteVpcEndpointServiceConfigurationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteVpcEndpointServiceConfigurationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteVpcEndpointServiceConfigurationsCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteVpcEndpointServiceConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVpcEndpointServiceConfigurationsCommandOutput) => void
   ): Promise<DeleteVpcEndpointServiceConfigurationsCommandOutput> | void {
     const command = new DeleteVpcEndpointServiceConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7721,17 +6948,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteVpcPeeringConnection(
     args: DeleteVpcPeeringConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVpcPeeringConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVpcPeeringConnectionCommandOutput) => void),
     cb?: (err: any, data?: DeleteVpcPeeringConnectionCommandOutput) => void
   ): Promise<DeleteVpcPeeringConnectionCommandOutput> | void {
     const command = new DeleteVpcPeeringConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7757,17 +6981,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteVpnConnection(
     args: DeleteVpnConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVpnConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVpnConnectionCommandOutput) => void),
     cb?: (err: any, data?: DeleteVpnConnectionCommandOutput) => void
   ): Promise<DeleteVpnConnectionCommandOutput> | void {
     const command = new DeleteVpnConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7792,17 +7013,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteVpnConnectionRoute(
     args: DeleteVpnConnectionRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVpnConnectionRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVpnConnectionRouteCommandOutput) => void),
     cb?: (err: any, data?: DeleteVpnConnectionRouteCommandOutput) => void
   ): Promise<DeleteVpnConnectionRouteCommandOutput> | void {
     const command = new DeleteVpnConnectionRouteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7827,17 +7045,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteVpnGateway(
     args: DeleteVpnGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVpnGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVpnGatewayCommandOutput) => void),
     cb?: (err: any, data?: DeleteVpnGatewayCommandOutput) => void
   ): Promise<DeleteVpnGatewayCommandOutput> | void {
     const command = new DeleteVpnGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7865,17 +7080,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deprovisionByoipCidr(
     args: DeprovisionByoipCidrCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeprovisionByoipCidrCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeprovisionByoipCidrCommandOutput) => void),
     cb?: (err: any, data?: DeprovisionByoipCidrCommandOutput) => void
   ): Promise<DeprovisionByoipCidrCommandOutput> | void {
     const command = new DeprovisionByoipCidrCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7907,17 +7119,14 @@ export class EC2 extends EC2Client {
   ): void;
   public deregisterImage(
     args: DeregisterImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterImageCommandOutput) => void),
     cb?: (err: any, data?: DeregisterImageCommandOutput) => void
   ): Promise<DeregisterImageCommandOutput> | void {
     const command = new DeregisterImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7933,42 +7142,25 @@ export class EC2 extends EC2Client {
   ): Promise<DeregisterTransitGatewayMulticastGroupMembersCommandOutput>;
   public deregisterTransitGatewayMulticastGroupMembers(
     args: DeregisterTransitGatewayMulticastGroupMembersCommandInput,
-    cb: (
-      err: any,
-      data?: DeregisterTransitGatewayMulticastGroupMembersCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterTransitGatewayMulticastGroupMembersCommandOutput) => void
   ): void;
   public deregisterTransitGatewayMulticastGroupMembers(
     args: DeregisterTransitGatewayMulticastGroupMembersCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeregisterTransitGatewayMulticastGroupMembersCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterTransitGatewayMulticastGroupMembersCommandOutput) => void
   ): void;
   public deregisterTransitGatewayMulticastGroupMembers(
     args: DeregisterTransitGatewayMulticastGroupMembersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeregisterTransitGatewayMulticastGroupMembersCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeregisterTransitGatewayMulticastGroupMembersCommandOutput
-    ) => void
-  ): Promise<
-    DeregisterTransitGatewayMulticastGroupMembersCommandOutput
-  > | void {
-    const command = new DeregisterTransitGatewayMulticastGroupMembersCommand(
-      args
-    );
+      | ((err: any, data?: DeregisterTransitGatewayMulticastGroupMembersCommandOutput) => void),
+    cb?: (err: any, data?: DeregisterTransitGatewayMulticastGroupMembersCommandOutput) => void
+  ): Promise<DeregisterTransitGatewayMulticastGroupMembersCommandOutput> | void {
+    const command = new DeregisterTransitGatewayMulticastGroupMembersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7984,42 +7176,25 @@ export class EC2 extends EC2Client {
   ): Promise<DeregisterTransitGatewayMulticastGroupSourcesCommandOutput>;
   public deregisterTransitGatewayMulticastGroupSources(
     args: DeregisterTransitGatewayMulticastGroupSourcesCommandInput,
-    cb: (
-      err: any,
-      data?: DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterTransitGatewayMulticastGroupSourcesCommandOutput) => void
   ): void;
   public deregisterTransitGatewayMulticastGroupSources(
     args: DeregisterTransitGatewayMulticastGroupSourcesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterTransitGatewayMulticastGroupSourcesCommandOutput) => void
   ): void;
   public deregisterTransitGatewayMulticastGroupSources(
     args: DeregisterTransitGatewayMulticastGroupSourcesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
-    ) => void
-  ): Promise<
-    DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
-  > | void {
-    const command = new DeregisterTransitGatewayMulticastGroupSourcesCommand(
-      args
-    );
+      | ((err: any, data?: DeregisterTransitGatewayMulticastGroupSourcesCommandOutput) => void),
+    cb?: (err: any, data?: DeregisterTransitGatewayMulticastGroupSourcesCommandOutput) => void
+  ): Promise<DeregisterTransitGatewayMulticastGroupSourcesCommandOutput> | void {
+    const command = new DeregisterTransitGatewayMulticastGroupSourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8078,17 +7253,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAccountAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAccountAttributesCommandOutput) => void),
     cb?: (err: any, data?: DescribeAccountAttributesCommandOutput) => void
   ): Promise<DescribeAccountAttributesCommandOutput> | void {
     const command = new DescribeAccountAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8115,17 +7287,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeAddresses(
     args: DescribeAddressesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAddressesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAddressesCommandOutput) => void),
     cb?: (err: any, data?: DescribeAddressesCommandOutput) => void
   ): Promise<DescribeAddressesCommandOutput> | void {
     const command = new DescribeAddressesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8167,17 +7336,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeAggregateIdFormat(
     args: DescribeAggregateIdFormatCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAggregateIdFormatCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAggregateIdFormatCommandOutput) => void),
     cb?: (err: any, data?: DescribeAggregateIdFormatCommandOutput) => void
   ): Promise<DescribeAggregateIdFormatCommandOutput> | void {
     const command = new DescribeAggregateIdFormatCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8205,17 +7371,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeAvailabilityZones(
     args: DescribeAvailabilityZonesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAvailabilityZonesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAvailabilityZonesCommandOutput) => void),
     cb?: (err: any, data?: DescribeAvailabilityZonesCommandOutput) => void
   ): Promise<DescribeAvailabilityZonesCommandOutput> | void {
     const command = new DescribeAvailabilityZonesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8243,17 +7406,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeBundleTasks(
     args: DescribeBundleTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBundleTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBundleTasksCommandOutput) => void),
     cb?: (err: any, data?: DescribeBundleTasksCommandOutput) => void
   ): Promise<DescribeBundleTasksCommandOutput> | void {
     const command = new DescribeBundleTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8280,17 +7440,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeByoipCidrs(
     args: DescribeByoipCidrsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeByoipCidrsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeByoipCidrsCommandOutput) => void),
     cb?: (err: any, data?: DescribeByoipCidrsCommandOutput) => void
   ): Promise<DescribeByoipCidrsCommandOutput> | void {
     const command = new DescribeByoipCidrsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8316,17 +7473,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeCapacityReservations(
     args: DescribeCapacityReservationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCapacityReservationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCapacityReservationsCommandOutput) => void),
     cb?: (err: any, data?: DescribeCapacityReservationsCommandOutput) => void
   ): Promise<DescribeCapacityReservationsCommandOutput> | void {
     const command = new DescribeCapacityReservationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8353,17 +7507,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeClassicLinkInstances(
     args: DescribeClassicLinkInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClassicLinkInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClassicLinkInstancesCommandOutput) => void),
     cb?: (err: any, data?: DescribeClassicLinkInstancesCommandOutput) => void
   ): Promise<DescribeClassicLinkInstancesCommandOutput> | void {
     const command = new DescribeClassicLinkInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8379,38 +7530,23 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeClientVpnAuthorizationRulesCommandOutput>;
   public describeClientVpnAuthorizationRules(
     args: DescribeClientVpnAuthorizationRulesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeClientVpnAuthorizationRulesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeClientVpnAuthorizationRulesCommandOutput) => void
   ): void;
   public describeClientVpnAuthorizationRules(
     args: DescribeClientVpnAuthorizationRulesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeClientVpnAuthorizationRulesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeClientVpnAuthorizationRulesCommandOutput) => void
   ): void;
   public describeClientVpnAuthorizationRules(
     args: DescribeClientVpnAuthorizationRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeClientVpnAuthorizationRulesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeClientVpnAuthorizationRulesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClientVpnAuthorizationRulesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeClientVpnAuthorizationRulesCommandOutput) => void
   ): Promise<DescribeClientVpnAuthorizationRulesCommandOutput> | void {
     const command = new DescribeClientVpnAuthorizationRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8436,17 +7572,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeClientVpnConnections(
     args: DescribeClientVpnConnectionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClientVpnConnectionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClientVpnConnectionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeClientVpnConnectionsCommandOutput) => void
   ): Promise<DescribeClientVpnConnectionsCommandOutput> | void {
     const command = new DescribeClientVpnConnectionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8471,17 +7604,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeClientVpnEndpoints(
     args: DescribeClientVpnEndpointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClientVpnEndpointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClientVpnEndpointsCommandOutput) => void),
     cb?: (err: any, data?: DescribeClientVpnEndpointsCommandOutput) => void
   ): Promise<DescribeClientVpnEndpointsCommandOutput> | void {
     const command = new DescribeClientVpnEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8506,17 +7636,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeClientVpnRoutes(
     args: DescribeClientVpnRoutesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClientVpnRoutesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClientVpnRoutesCommandOutput) => void),
     cb?: (err: any, data?: DescribeClientVpnRoutesCommandOutput) => void
   ): Promise<DescribeClientVpnRoutesCommandOutput> | void {
     const command = new DescribeClientVpnRoutesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8541,20 +7668,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeClientVpnTargetNetworks(
     args: DescribeClientVpnTargetNetworksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeClientVpnTargetNetworksCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClientVpnTargetNetworksCommandOutput) => void),
     cb?: (err: any, data?: DescribeClientVpnTargetNetworksCommandOutput) => void
   ): Promise<DescribeClientVpnTargetNetworksCommandOutput> | void {
     const command = new DescribeClientVpnTargetNetworksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8579,17 +7700,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeCoipPools(
     args: DescribeCoipPoolsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCoipPoolsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCoipPoolsCommandOutput) => void),
     cb?: (err: any, data?: DescribeCoipPoolsCommandOutput) => void
   ): Promise<DescribeCoipPoolsCommandOutput> | void {
     const command = new DescribeCoipPoolsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8616,17 +7734,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeConversionTasks(
     args: DescribeConversionTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeConversionTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConversionTasksCommandOutput) => void),
     cb?: (err: any, data?: DescribeConversionTasksCommandOutput) => void
   ): Promise<DescribeConversionTasksCommandOutput> | void {
     const command = new DescribeConversionTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8652,17 +7767,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeCustomerGateways(
     args: DescribeCustomerGatewaysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCustomerGatewaysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCustomerGatewaysCommandOutput) => void),
     cb?: (err: any, data?: DescribeCustomerGatewaysCommandOutput) => void
   ): Promise<DescribeCustomerGatewaysCommandOutput> | void {
     const command = new DescribeCustomerGatewaysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8689,17 +7801,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeDhcpOptions(
     args: DescribeDhcpOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDhcpOptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDhcpOptionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDhcpOptionsCommandOutput) => void
   ): Promise<DescribeDhcpOptionsCommandOutput> | void {
     const command = new DescribeDhcpOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8715,38 +7824,23 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeEgressOnlyInternetGatewaysCommandOutput>;
   public describeEgressOnlyInternetGateways(
     args: DescribeEgressOnlyInternetGatewaysCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeEgressOnlyInternetGatewaysCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEgressOnlyInternetGatewaysCommandOutput) => void
   ): void;
   public describeEgressOnlyInternetGateways(
     args: DescribeEgressOnlyInternetGatewaysCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeEgressOnlyInternetGatewaysCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEgressOnlyInternetGatewaysCommandOutput) => void
   ): void;
   public describeEgressOnlyInternetGateways(
     args: DescribeEgressOnlyInternetGatewaysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEgressOnlyInternetGatewaysCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeEgressOnlyInternetGatewaysCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEgressOnlyInternetGatewaysCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEgressOnlyInternetGatewaysCommandOutput) => void
   ): Promise<DescribeEgressOnlyInternetGatewaysCommandOutput> | void {
     const command = new DescribeEgressOnlyInternetGatewaysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8772,17 +7866,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeElasticGpus(
     args: DescribeElasticGpusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeElasticGpusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeElasticGpusCommandOutput) => void),
     cb?: (err: any, data?: DescribeElasticGpusCommandOutput) => void
   ): Promise<DescribeElasticGpusCommandOutput> | void {
     const command = new DescribeElasticGpusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8807,17 +7898,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeExportImageTasks(
     args: DescribeExportImageTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeExportImageTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeExportImageTasksCommandOutput) => void),
     cb?: (err: any, data?: DescribeExportImageTasksCommandOutput) => void
   ): Promise<DescribeExportImageTasksCommandOutput> | void {
     const command = new DescribeExportImageTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8842,17 +7930,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeExportTasks(
     args: DescribeExportTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeExportTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeExportTasksCommandOutput) => void),
     cb?: (err: any, data?: DescribeExportTasksCommandOutput) => void
   ): Promise<DescribeExportTasksCommandOutput> | void {
     const command = new DescribeExportTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8877,17 +7962,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeFastSnapshotRestores(
     args: DescribeFastSnapshotRestoresCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFastSnapshotRestoresCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFastSnapshotRestoresCommandOutput) => void),
     cb?: (err: any, data?: DescribeFastSnapshotRestoresCommandOutput) => void
   ): Promise<DescribeFastSnapshotRestoresCommandOutput> | void {
     const command = new DescribeFastSnapshotRestoresCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8915,17 +7997,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeFleetHistory(
     args: DescribeFleetHistoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFleetHistoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetHistoryCommandOutput) => void),
     cb?: (err: any, data?: DescribeFleetHistoryCommandOutput) => void
   ): Promise<DescribeFleetHistoryCommandOutput> | void {
     const command = new DescribeFleetHistoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8950,17 +8029,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeFleetInstances(
     args: DescribeFleetInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFleetInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetInstancesCommandOutput) => void),
     cb?: (err: any, data?: DescribeFleetInstancesCommandOutput) => void
   ): Promise<DescribeFleetInstancesCommandOutput> | void {
     const command = new DescribeFleetInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -8985,17 +8061,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeFleets(
     args: DescribeFleetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFleetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetsCommandOutput) => void),
     cb?: (err: any, data?: DescribeFleetsCommandOutput) => void
   ): Promise<DescribeFleetsCommandOutput> | void {
     const command = new DescribeFleetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9022,17 +8095,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeFlowLogs(
     args: DescribeFlowLogsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFlowLogsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFlowLogsCommandOutput) => void),
     cb?: (err: any, data?: DescribeFlowLogsCommandOutput) => void
   ): Promise<DescribeFlowLogsCommandOutput> | void {
     const command = new DescribeFlowLogsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9057,17 +8127,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeFpgaImageAttribute(
     args: DescribeFpgaImageAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFpgaImageAttributeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFpgaImageAttributeCommandOutput) => void),
     cb?: (err: any, data?: DescribeFpgaImageAttributeCommandOutput) => void
   ): Promise<DescribeFpgaImageAttributeCommandOutput> | void {
     const command = new DescribeFpgaImageAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9094,17 +8161,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeFpgaImages(
     args: DescribeFpgaImagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFpgaImagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFpgaImagesCommandOutput) => void),
     cb?: (err: any, data?: DescribeFpgaImagesCommandOutput) => void
   ): Promise<DescribeFpgaImagesCommandOutput> | void {
     const command = new DescribeFpgaImagesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9135,23 +8199,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeHostReservationOfferings(
     args: DescribeHostReservationOfferingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeHostReservationOfferingsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeHostReservationOfferingsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHostReservationOfferingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeHostReservationOfferingsCommandOutput) => void
   ): Promise<DescribeHostReservationOfferingsCommandOutput> | void {
     const command = new DescribeHostReservationOfferingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9177,17 +8232,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeHostReservations(
     args: DescribeHostReservationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeHostReservationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHostReservationsCommandOutput) => void),
     cb?: (err: any, data?: DescribeHostReservationsCommandOutput) => void
   ): Promise<DescribeHostReservationsCommandOutput> | void {
     const command = new DescribeHostReservationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9215,17 +8267,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeHosts(
     args: DescribeHostsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeHostsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHostsCommandOutput) => void),
     cb?: (err: any, data?: DescribeHostsCommandOutput) => void
   ): Promise<DescribeHostsCommandOutput> | void {
     const command = new DescribeHostsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9241,38 +8290,25 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeIamInstanceProfileAssociationsCommandOutput>;
   public describeIamInstanceProfileAssociations(
     args: DescribeIamInstanceProfileAssociationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeIamInstanceProfileAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeIamInstanceProfileAssociationsCommandOutput) => void
   ): void;
   public describeIamInstanceProfileAssociations(
     args: DescribeIamInstanceProfileAssociationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeIamInstanceProfileAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeIamInstanceProfileAssociationsCommandOutput) => void
   ): void;
   public describeIamInstanceProfileAssociations(
     args: DescribeIamInstanceProfileAssociationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeIamInstanceProfileAssociationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeIamInstanceProfileAssociationsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeIamInstanceProfileAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeIamInstanceProfileAssociationsCommandOutput) => void
   ): Promise<DescribeIamInstanceProfileAssociationsCommandOutput> | void {
     const command = new DescribeIamInstanceProfileAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9315,17 +8351,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeIdentityIdFormat(
     args: DescribeIdentityIdFormatCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeIdentityIdFormatCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIdentityIdFormatCommandOutput) => void),
     cb?: (err: any, data?: DescribeIdentityIdFormatCommandOutput) => void
   ): Promise<DescribeIdentityIdFormatCommandOutput> | void {
     const command = new DescribeIdentityIdFormatCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9369,17 +8402,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeIdFormat(
     args: DescribeIdFormatCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeIdFormatCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIdFormatCommandOutput) => void),
     cb?: (err: any, data?: DescribeIdFormatCommandOutput) => void
   ): Promise<DescribeIdFormatCommandOutput> | void {
     const command = new DescribeIdFormatCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9404,17 +8434,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeImageAttribute(
     args: DescribeImageAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeImageAttributeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeImageAttributeCommandOutput) => void),
     cb?: (err: any, data?: DescribeImageAttributeCommandOutput) => void
   ): Promise<DescribeImageAttributeCommandOutput> | void {
     const command = new DescribeImageAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9443,17 +8470,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeImages(
     args: DescribeImagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeImagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeImagesCommandOutput) => void),
     cb?: (err: any, data?: DescribeImagesCommandOutput) => void
   ): Promise<DescribeImagesCommandOutput> | void {
     const command = new DescribeImagesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9478,17 +8502,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeImportImageTasks(
     args: DescribeImportImageTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeImportImageTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeImportImageTasksCommandOutput) => void),
     cb?: (err: any, data?: DescribeImportImageTasksCommandOutput) => void
   ): Promise<DescribeImportImageTasksCommandOutput> | void {
     const command = new DescribeImportImageTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9513,17 +8534,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeImportSnapshotTasks(
     args: DescribeImportSnapshotTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeImportSnapshotTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeImportSnapshotTasksCommandOutput) => void),
     cb?: (err: any, data?: DescribeImportSnapshotTasksCommandOutput) => void
   ): Promise<DescribeImportSnapshotTasksCommandOutput> | void {
     const command = new DescribeImportSnapshotTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9555,17 +8573,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeInstanceAttribute(
     args: DescribeInstanceAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInstanceAttributeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstanceAttributeCommandOutput) => void),
     cb?: (err: any, data?: DescribeInstanceAttributeCommandOutput) => void
   ): Promise<DescribeInstanceAttributeCommandOutput> | void {
     const command = new DescribeInstanceAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9601,38 +8616,23 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeInstanceCreditSpecificationsCommandOutput>;
   public describeInstanceCreditSpecifications(
     args: DescribeInstanceCreditSpecificationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeInstanceCreditSpecificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeInstanceCreditSpecificationsCommandOutput) => void
   ): void;
   public describeInstanceCreditSpecifications(
     args: DescribeInstanceCreditSpecificationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeInstanceCreditSpecificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeInstanceCreditSpecificationsCommandOutput) => void
   ): void;
   public describeInstanceCreditSpecifications(
     args: DescribeInstanceCreditSpecificationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeInstanceCreditSpecificationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeInstanceCreditSpecificationsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstanceCreditSpecificationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeInstanceCreditSpecificationsCommandOutput) => void
   ): Promise<DescribeInstanceCreditSpecificationsCommandOutput> | void {
     const command = new DescribeInstanceCreditSpecificationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9669,17 +8669,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeInstances(
     args: DescribeInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstancesCommandOutput) => void),
     cb?: (err: any, data?: DescribeInstancesCommandOutput) => void
   ): Promise<DescribeInstancesCommandOutput> | void {
     const command = new DescribeInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9733,17 +8730,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeInstanceStatus(
     args: DescribeInstanceStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInstanceStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstanceStatusCommandOutput) => void),
     cb?: (err: any, data?: DescribeInstanceStatusCommandOutput) => void
   ): Promise<DescribeInstanceStatusCommandOutput> | void {
     const command = new DescribeInstanceStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9769,17 +8763,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeInstanceTypeOfferings(
     args: DescribeInstanceTypeOfferingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInstanceTypeOfferingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstanceTypeOfferingsCommandOutput) => void),
     cb?: (err: any, data?: DescribeInstanceTypeOfferingsCommandOutput) => void
   ): Promise<DescribeInstanceTypeOfferingsCommandOutput> | void {
     const command = new DescribeInstanceTypeOfferingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9805,17 +8796,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeInstanceTypes(
     args: DescribeInstanceTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInstanceTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstanceTypesCommandOutput) => void),
     cb?: (err: any, data?: DescribeInstanceTypesCommandOutput) => void
   ): Promise<DescribeInstanceTypesCommandOutput> | void {
     const command = new DescribeInstanceTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9840,17 +8828,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeInternetGateways(
     args: DescribeInternetGatewaysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInternetGatewaysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInternetGatewaysCommandOutput) => void),
     cb?: (err: any, data?: DescribeInternetGatewaysCommandOutput) => void
   ): Promise<DescribeInternetGatewaysCommandOutput> | void {
     const command = new DescribeInternetGatewaysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9875,17 +8860,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeIpv6Pools(
     args: DescribeIpv6PoolsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeIpv6PoolsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIpv6PoolsCommandOutput) => void),
     cb?: (err: any, data?: DescribeIpv6PoolsCommandOutput) => void
   ): Promise<DescribeIpv6PoolsCommandOutput> | void {
     const command = new DescribeIpv6PoolsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9912,17 +8894,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeKeyPairs(
     args: DescribeKeyPairsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeKeyPairsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeKeyPairsCommandOutput) => void),
     cb?: (err: any, data?: DescribeKeyPairsCommandOutput) => void
   ): Promise<DescribeKeyPairsCommandOutput> | void {
     const command = new DescribeKeyPairsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9947,17 +8926,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeLaunchTemplates(
     args: DescribeLaunchTemplatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLaunchTemplatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLaunchTemplatesCommandOutput) => void),
     cb?: (err: any, data?: DescribeLaunchTemplatesCommandOutput) => void
   ): Promise<DescribeLaunchTemplatesCommandOutput> | void {
     const command = new DescribeLaunchTemplatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -9983,20 +8959,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeLaunchTemplateVersions(
     args: DescribeLaunchTemplateVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeLaunchTemplateVersionsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLaunchTemplateVersionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeLaunchTemplateVersionsCommandOutput) => void
   ): Promise<DescribeLaunchTemplateVersionsCommandOutput> | void {
     const command = new DescribeLaunchTemplateVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10022,20 +8992,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeLocalGatewayRouteTables(
     args: DescribeLocalGatewayRouteTablesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeLocalGatewayRouteTablesCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocalGatewayRouteTablesCommandOutput) => void),
     cb?: (err: any, data?: DescribeLocalGatewayRouteTablesCommandOutput) => void
   ): Promise<DescribeLocalGatewayRouteTablesCommandOutput> | void {
     const command = new DescribeLocalGatewayRouteTablesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10048,47 +9012,28 @@ export class EC2 extends EC2Client {
   public describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
     args: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<
-    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput
-  >;
+  ): Promise<DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput>;
   public describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
     args: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput) => void
   ): void;
   public describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
     args: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput) => void
   ): void;
   public describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
     args: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput
-    ) => void
-  ): Promise<
-    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput
-  > | void {
-    const command = new DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand(
-      args
-    );
+      | ((err: any, data?: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput) => void
+  ): Promise<DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput> | void {
+    const command = new DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10104,42 +9049,25 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput>;
   public describeLocalGatewayRouteTableVpcAssociations(
     args: DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput) => void
   ): void;
   public describeLocalGatewayRouteTableVpcAssociations(
     args: DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput) => void
   ): void;
   public describeLocalGatewayRouteTableVpcAssociations(
     args: DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput
-    ) => void
-  ): Promise<
-    DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput
-  > | void {
-    const command = new DescribeLocalGatewayRouteTableVpcAssociationsCommand(
-      args
-    );
+      | ((err: any, data?: DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput) => void
+  ): Promise<DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput> | void {
+    const command = new DescribeLocalGatewayRouteTableVpcAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10165,17 +9093,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeLocalGateways(
     args: DescribeLocalGatewaysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLocalGatewaysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocalGatewaysCommandOutput) => void),
     cb?: (err: any, data?: DescribeLocalGatewaysCommandOutput) => void
   ): Promise<DescribeLocalGatewaysCommandOutput> | void {
     const command = new DescribeLocalGatewaysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10191,38 +9116,25 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput>;
   public describeLocalGatewayVirtualInterfaceGroups(
     args: DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput) => void
   ): void;
   public describeLocalGatewayVirtualInterfaceGroups(
     args: DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput) => void
   ): void;
   public describeLocalGatewayVirtualInterfaceGroups(
     args: DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput) => void
   ): Promise<DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput> | void {
     const command = new DescribeLocalGatewayVirtualInterfaceGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10238,38 +9150,25 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeLocalGatewayVirtualInterfacesCommandOutput>;
   public describeLocalGatewayVirtualInterfaces(
     args: DescribeLocalGatewayVirtualInterfacesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeLocalGatewayVirtualInterfacesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeLocalGatewayVirtualInterfacesCommandOutput) => void
   ): void;
   public describeLocalGatewayVirtualInterfaces(
     args: DescribeLocalGatewayVirtualInterfacesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeLocalGatewayVirtualInterfacesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeLocalGatewayVirtualInterfacesCommandOutput) => void
   ): void;
   public describeLocalGatewayVirtualInterfaces(
     args: DescribeLocalGatewayVirtualInterfacesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeLocalGatewayVirtualInterfacesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeLocalGatewayVirtualInterfacesCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeLocalGatewayVirtualInterfacesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLocalGatewayVirtualInterfacesCommandOutput) => void
   ): Promise<DescribeLocalGatewayVirtualInterfacesCommandOutput> | void {
     const command = new DescribeLocalGatewayVirtualInterfacesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10294,17 +9193,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeMovingAddresses(
     args: DescribeMovingAddressesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMovingAddressesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMovingAddressesCommandOutput) => void),
     cb?: (err: any, data?: DescribeMovingAddressesCommandOutput) => void
   ): Promise<DescribeMovingAddressesCommandOutput> | void {
     const command = new DescribeMovingAddressesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10329,17 +9225,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeNatGateways(
     args: DescribeNatGatewaysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeNatGatewaysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNatGatewaysCommandOutput) => void),
     cb?: (err: any, data?: DescribeNatGatewaysCommandOutput) => void
   ): Promise<DescribeNatGatewaysCommandOutput> | void {
     const command = new DescribeNatGatewaysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10366,17 +9259,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeNetworkAcls(
     args: DescribeNetworkAclsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeNetworkAclsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNetworkAclsCommandOutput) => void),
     cb?: (err: any, data?: DescribeNetworkAclsCommandOutput) => void
   ): Promise<DescribeNetworkAclsCommandOutput> | void {
     const command = new DescribeNetworkAclsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10392,38 +9282,23 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeNetworkInterfaceAttributeCommandOutput>;
   public describeNetworkInterfaceAttribute(
     args: DescribeNetworkInterfaceAttributeCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeNetworkInterfaceAttributeCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeNetworkInterfaceAttributeCommandOutput) => void
   ): void;
   public describeNetworkInterfaceAttribute(
     args: DescribeNetworkInterfaceAttributeCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeNetworkInterfaceAttributeCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeNetworkInterfaceAttributeCommandOutput) => void
   ): void;
   public describeNetworkInterfaceAttribute(
     args: DescribeNetworkInterfaceAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeNetworkInterfaceAttributeCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeNetworkInterfaceAttributeCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNetworkInterfaceAttributeCommandOutput) => void),
+    cb?: (err: any, data?: DescribeNetworkInterfaceAttributeCommandOutput) => void
   ): Promise<DescribeNetworkInterfaceAttributeCommandOutput> | void {
     const command = new DescribeNetworkInterfaceAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10439,38 +9314,23 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeNetworkInterfacePermissionsCommandOutput>;
   public describeNetworkInterfacePermissions(
     args: DescribeNetworkInterfacePermissionsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeNetworkInterfacePermissionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeNetworkInterfacePermissionsCommandOutput) => void
   ): void;
   public describeNetworkInterfacePermissions(
     args: DescribeNetworkInterfacePermissionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeNetworkInterfacePermissionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeNetworkInterfacePermissionsCommandOutput) => void
   ): void;
   public describeNetworkInterfacePermissions(
     args: DescribeNetworkInterfacePermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeNetworkInterfacePermissionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeNetworkInterfacePermissionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNetworkInterfacePermissionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeNetworkInterfacePermissionsCommandOutput) => void
   ): Promise<DescribeNetworkInterfacePermissionsCommandOutput> | void {
     const command = new DescribeNetworkInterfacePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10495,17 +9355,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeNetworkInterfaces(
     args: DescribeNetworkInterfacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeNetworkInterfacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNetworkInterfacesCommandOutput) => void),
     cb?: (err: any, data?: DescribeNetworkInterfacesCommandOutput) => void
   ): Promise<DescribeNetworkInterfacesCommandOutput> | void {
     const command = new DescribeNetworkInterfacesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10532,17 +9389,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describePlacementGroups(
     args: DescribePlacementGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePlacementGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePlacementGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribePlacementGroupsCommandOutput) => void
   ): Promise<DescribePlacementGroupsCommandOutput> | void {
     const command = new DescribePlacementGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10571,17 +9425,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describePrefixLists(
     args: DescribePrefixListsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePrefixListsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePrefixListsCommandOutput) => void),
     cb?: (err: any, data?: DescribePrefixListsCommandOutput) => void
   ): Promise<DescribePrefixListsCommandOutput> | void {
     const command = new DescribePrefixListsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10623,17 +9474,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describePrincipalIdFormat(
     args: DescribePrincipalIdFormatCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePrincipalIdFormatCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePrincipalIdFormatCommandOutput) => void),
     cb?: (err: any, data?: DescribePrincipalIdFormatCommandOutput) => void
   ): Promise<DescribePrincipalIdFormatCommandOutput> | void {
     const command = new DescribePrincipalIdFormatCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10658,17 +9506,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describePublicIpv4Pools(
     args: DescribePublicIpv4PoolsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePublicIpv4PoolsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePublicIpv4PoolsCommandOutput) => void),
     cb?: (err: any, data?: DescribePublicIpv4PoolsCommandOutput) => void
   ): Promise<DescribePublicIpv4PoolsCommandOutput> | void {
     const command = new DescribePublicIpv4PoolsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10696,17 +9541,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeRegions(
     args: DescribeRegionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRegionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRegionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeRegionsCommandOutput) => void
   ): Promise<DescribeRegionsCommandOutput> | void {
     const command = new DescribeRegionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10733,17 +9575,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeReservedInstances(
     args: DescribeReservedInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeReservedInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReservedInstancesCommandOutput) => void),
     cb?: (err: any, data?: DescribeReservedInstancesCommandOutput) => void
   ): Promise<DescribeReservedInstancesCommandOutput> | void {
     const command = new DescribeReservedInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10764,38 +9603,23 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeReservedInstancesListingsCommandOutput>;
   public describeReservedInstancesListings(
     args: DescribeReservedInstancesListingsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeReservedInstancesListingsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReservedInstancesListingsCommandOutput) => void
   ): void;
   public describeReservedInstancesListings(
     args: DescribeReservedInstancesListingsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeReservedInstancesListingsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReservedInstancesListingsCommandOutput) => void
   ): void;
   public describeReservedInstancesListings(
     args: DescribeReservedInstancesListingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeReservedInstancesListingsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeReservedInstancesListingsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReservedInstancesListingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReservedInstancesListingsCommandOutput) => void
   ): Promise<DescribeReservedInstancesListingsCommandOutput> | void {
     const command = new DescribeReservedInstancesListingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10812,38 +9636,25 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeReservedInstancesModificationsCommandOutput>;
   public describeReservedInstancesModifications(
     args: DescribeReservedInstancesModificationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeReservedInstancesModificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReservedInstancesModificationsCommandOutput) => void
   ): void;
   public describeReservedInstancesModifications(
     args: DescribeReservedInstancesModificationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeReservedInstancesModificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReservedInstancesModificationsCommandOutput) => void
   ): void;
   public describeReservedInstancesModifications(
     args: DescribeReservedInstancesModificationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeReservedInstancesModificationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeReservedInstancesModificationsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeReservedInstancesModificationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReservedInstancesModificationsCommandOutput) => void
   ): Promise<DescribeReservedInstancesModificationsCommandOutput> | void {
     const command = new DescribeReservedInstancesModificationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10862,38 +9673,23 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeReservedInstancesOfferingsCommandOutput>;
   public describeReservedInstancesOfferings(
     args: DescribeReservedInstancesOfferingsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeReservedInstancesOfferingsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReservedInstancesOfferingsCommandOutput) => void
   ): void;
   public describeReservedInstancesOfferings(
     args: DescribeReservedInstancesOfferingsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeReservedInstancesOfferingsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReservedInstancesOfferingsCommandOutput) => void
   ): void;
   public describeReservedInstancesOfferings(
     args: DescribeReservedInstancesOfferingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeReservedInstancesOfferingsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeReservedInstancesOfferingsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReservedInstancesOfferingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReservedInstancesOfferingsCommandOutput) => void
   ): Promise<DescribeReservedInstancesOfferingsCommandOutput> | void {
     const command = new DescribeReservedInstancesOfferingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10921,17 +9717,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeRouteTables(
     args: DescribeRouteTablesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRouteTablesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRouteTablesCommandOutput) => void),
     cb?: (err: any, data?: DescribeRouteTablesCommandOutput) => void
   ): Promise<DescribeRouteTablesCommandOutput> | void {
     const command = new DescribeRouteTablesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -10950,38 +9743,25 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeScheduledInstanceAvailabilityCommandOutput>;
   public describeScheduledInstanceAvailability(
     args: DescribeScheduledInstanceAvailabilityCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeScheduledInstanceAvailabilityCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeScheduledInstanceAvailabilityCommandOutput) => void
   ): void;
   public describeScheduledInstanceAvailability(
     args: DescribeScheduledInstanceAvailabilityCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeScheduledInstanceAvailabilityCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeScheduledInstanceAvailabilityCommandOutput) => void
   ): void;
   public describeScheduledInstanceAvailability(
     args: DescribeScheduledInstanceAvailabilityCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeScheduledInstanceAvailabilityCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeScheduledInstanceAvailabilityCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeScheduledInstanceAvailabilityCommandOutput) => void),
+    cb?: (err: any, data?: DescribeScheduledInstanceAvailabilityCommandOutput) => void
   ): Promise<DescribeScheduledInstanceAvailabilityCommandOutput> | void {
     const command = new DescribeScheduledInstanceAvailabilityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11006,17 +9786,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeScheduledInstances(
     args: DescribeScheduledInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScheduledInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScheduledInstancesCommandOutput) => void),
     cb?: (err: any, data?: DescribeScheduledInstancesCommandOutput) => void
   ): Promise<DescribeScheduledInstancesCommandOutput> | void {
     const command = new DescribeScheduledInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11041,20 +9818,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeSecurityGroupReferences(
     args: DescribeSecurityGroupReferencesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeSecurityGroupReferencesCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSecurityGroupReferencesCommandOutput) => void),
     cb?: (err: any, data?: DescribeSecurityGroupReferencesCommandOutput) => void
   ): Promise<DescribeSecurityGroupReferencesCommandOutput> | void {
     const command = new DescribeSecurityGroupReferencesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11085,17 +9856,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeSecurityGroups(
     args: DescribeSecurityGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSecurityGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSecurityGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeSecurityGroupsCommandOutput) => void
   ): Promise<DescribeSecurityGroupsCommandOutput> | void {
     const command = new DescribeSecurityGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11122,17 +9890,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeSnapshotAttribute(
     args: DescribeSnapshotAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSnapshotAttributeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSnapshotAttributeCommandOutput) => void),
     cb?: (err: any, data?: DescribeSnapshotAttributeCommandOutput) => void
   ): Promise<DescribeSnapshotAttributeCommandOutput> | void {
     const command = new DescribeSnapshotAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11202,17 +9967,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeSnapshots(
     args: DescribeSnapshotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSnapshotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSnapshotsCommandOutput) => void),
     cb?: (err: any, data?: DescribeSnapshotsCommandOutput) => void
   ): Promise<DescribeSnapshotsCommandOutput> | void {
     const command = new DescribeSnapshotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11238,23 +10000,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeSpotDatafeedSubscription(
     args: DescribeSpotDatafeedSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeSpotDatafeedSubscriptionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeSpotDatafeedSubscriptionCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSpotDatafeedSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeSpotDatafeedSubscriptionCommandOutput) => void
   ): Promise<DescribeSpotDatafeedSubscriptionCommandOutput> | void {
     const command = new DescribeSpotDatafeedSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11279,17 +10032,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeSpotFleetInstances(
     args: DescribeSpotFleetInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSpotFleetInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSpotFleetInstancesCommandOutput) => void),
     cb?: (err: any, data?: DescribeSpotFleetInstancesCommandOutput) => void
   ): Promise<DescribeSpotFleetInstancesCommandOutput> | void {
     const command = new DescribeSpotFleetInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11316,20 +10066,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeSpotFleetRequestHistory(
     args: DescribeSpotFleetRequestHistoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeSpotFleetRequestHistoryCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSpotFleetRequestHistoryCommandOutput) => void),
     cb?: (err: any, data?: DescribeSpotFleetRequestHistoryCommandOutput) => void
   ): Promise<DescribeSpotFleetRequestHistoryCommandOutput> | void {
     const command = new DescribeSpotFleetRequestHistoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11355,17 +10099,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeSpotFleetRequests(
     args: DescribeSpotFleetRequestsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSpotFleetRequestsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSpotFleetRequestsCommandOutput) => void),
     cb?: (err: any, data?: DescribeSpotFleetRequestsCommandOutput) => void
   ): Promise<DescribeSpotFleetRequestsCommandOutput> | void {
     const command = new DescribeSpotFleetRequestsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11405,17 +10146,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeSpotInstanceRequests(
     args: DescribeSpotInstanceRequestsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSpotInstanceRequestsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSpotInstanceRequestsCommandOutput) => void),
     cb?: (err: any, data?: DescribeSpotInstanceRequestsCommandOutput) => void
   ): Promise<DescribeSpotInstanceRequestsCommandOutput> | void {
     const command = new DescribeSpotInstanceRequestsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11444,17 +10182,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeSpotPriceHistory(
     args: DescribeSpotPriceHistoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSpotPriceHistoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSpotPriceHistoryCommandOutput) => void),
     cb?: (err: any, data?: DescribeSpotPriceHistoryCommandOutput) => void
   ): Promise<DescribeSpotPriceHistoryCommandOutput> | void {
     const command = new DescribeSpotPriceHistoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11479,17 +10214,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeStaleSecurityGroups(
     args: DescribeStaleSecurityGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStaleSecurityGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStaleSecurityGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeStaleSecurityGroupsCommandOutput) => void
   ): Promise<DescribeStaleSecurityGroupsCommandOutput> | void {
     const command = new DescribeStaleSecurityGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11516,17 +10248,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeSubnets(
     args: DescribeSubnetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSubnetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSubnetsCommandOutput) => void),
     cb?: (err: any, data?: DescribeSubnetsCommandOutput) => void
   ): Promise<DescribeSubnetsCommandOutput> | void {
     const command = new DescribeSubnetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11542,10 +10271,7 @@ export class EC2 extends EC2Client {
     args: DescribeTagsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeTagsCommandOutput>;
-  public describeTags(
-    args: DescribeTagsCommandInput,
-    cb: (err: any, data?: DescribeTagsCommandOutput) => void
-  ): void;
+  public describeTags(args: DescribeTagsCommandInput, cb: (err: any, data?: DescribeTagsCommandOutput) => void): void;
   public describeTags(
     args: DescribeTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -11553,17 +10279,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeTags(
     args: DescribeTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTagsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTagsCommandOutput) => void
   ): Promise<DescribeTagsCommandOutput> | void {
     const command = new DescribeTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11588,17 +10311,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeTrafficMirrorFilters(
     args: DescribeTrafficMirrorFiltersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTrafficMirrorFiltersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTrafficMirrorFiltersCommandOutput) => void),
     cb?: (err: any, data?: DescribeTrafficMirrorFiltersCommandOutput) => void
   ): Promise<DescribeTrafficMirrorFiltersCommandOutput> | void {
     const command = new DescribeTrafficMirrorFiltersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11623,17 +10343,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeTrafficMirrorSessions(
     args: DescribeTrafficMirrorSessionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTrafficMirrorSessionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTrafficMirrorSessionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTrafficMirrorSessionsCommandOutput) => void
   ): Promise<DescribeTrafficMirrorSessionsCommandOutput> | void {
     const command = new DescribeTrafficMirrorSessionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11658,17 +10375,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeTrafficMirrorTargets(
     args: DescribeTrafficMirrorTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTrafficMirrorTargetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTrafficMirrorTargetsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTrafficMirrorTargetsCommandOutput) => void
   ): Promise<DescribeTrafficMirrorTargetsCommandOutput> | void {
     const command = new DescribeTrafficMirrorTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11685,38 +10399,23 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeTransitGatewayAttachmentsCommandOutput>;
   public describeTransitGatewayAttachments(
     args: DescribeTransitGatewayAttachmentsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeTransitGatewayAttachmentsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTransitGatewayAttachmentsCommandOutput) => void
   ): void;
   public describeTransitGatewayAttachments(
     args: DescribeTransitGatewayAttachmentsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeTransitGatewayAttachmentsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTransitGatewayAttachmentsCommandOutput) => void
   ): void;
   public describeTransitGatewayAttachments(
     args: DescribeTransitGatewayAttachmentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeTransitGatewayAttachmentsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeTransitGatewayAttachmentsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTransitGatewayAttachmentsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTransitGatewayAttachmentsCommandOutput) => void
   ): Promise<DescribeTransitGatewayAttachmentsCommandOutput> | void {
     const command = new DescribeTransitGatewayAttachmentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11732,38 +10431,25 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeTransitGatewayMulticastDomainsCommandOutput>;
   public describeTransitGatewayMulticastDomains(
     args: DescribeTransitGatewayMulticastDomainsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeTransitGatewayMulticastDomainsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTransitGatewayMulticastDomainsCommandOutput) => void
   ): void;
   public describeTransitGatewayMulticastDomains(
     args: DescribeTransitGatewayMulticastDomainsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeTransitGatewayMulticastDomainsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTransitGatewayMulticastDomainsCommandOutput) => void
   ): void;
   public describeTransitGatewayMulticastDomains(
     args: DescribeTransitGatewayMulticastDomainsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeTransitGatewayMulticastDomainsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeTransitGatewayMulticastDomainsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeTransitGatewayMulticastDomainsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTransitGatewayMulticastDomainsCommandOutput) => void
   ): Promise<DescribeTransitGatewayMulticastDomainsCommandOutput> | void {
     const command = new DescribeTransitGatewayMulticastDomainsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11779,38 +10465,25 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeTransitGatewayPeeringAttachmentsCommandOutput>;
   public describeTransitGatewayPeeringAttachments(
     args: DescribeTransitGatewayPeeringAttachmentsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeTransitGatewayPeeringAttachmentsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTransitGatewayPeeringAttachmentsCommandOutput) => void
   ): void;
   public describeTransitGatewayPeeringAttachments(
     args: DescribeTransitGatewayPeeringAttachmentsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeTransitGatewayPeeringAttachmentsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTransitGatewayPeeringAttachmentsCommandOutput) => void
   ): void;
   public describeTransitGatewayPeeringAttachments(
     args: DescribeTransitGatewayPeeringAttachmentsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeTransitGatewayPeeringAttachmentsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeTransitGatewayPeeringAttachmentsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeTransitGatewayPeeringAttachmentsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTransitGatewayPeeringAttachmentsCommandOutput) => void
   ): Promise<DescribeTransitGatewayPeeringAttachmentsCommandOutput> | void {
     const command = new DescribeTransitGatewayPeeringAttachmentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11827,38 +10500,23 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeTransitGatewayRouteTablesCommandOutput>;
   public describeTransitGatewayRouteTables(
     args: DescribeTransitGatewayRouteTablesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeTransitGatewayRouteTablesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTransitGatewayRouteTablesCommandOutput) => void
   ): void;
   public describeTransitGatewayRouteTables(
     args: DescribeTransitGatewayRouteTablesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeTransitGatewayRouteTablesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTransitGatewayRouteTablesCommandOutput) => void
   ): void;
   public describeTransitGatewayRouteTables(
     args: DescribeTransitGatewayRouteTablesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeTransitGatewayRouteTablesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeTransitGatewayRouteTablesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTransitGatewayRouteTablesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTransitGatewayRouteTablesCommandOutput) => void
   ): Promise<DescribeTransitGatewayRouteTablesCommandOutput> | void {
     const command = new DescribeTransitGatewayRouteTablesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11884,17 +10542,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeTransitGateways(
     args: DescribeTransitGatewaysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTransitGatewaysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTransitGatewaysCommandOutput) => void),
     cb?: (err: any, data?: DescribeTransitGatewaysCommandOutput) => void
   ): Promise<DescribeTransitGatewaysCommandOutput> | void {
     const command = new DescribeTransitGatewaysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11911,38 +10566,23 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeTransitGatewayVpcAttachmentsCommandOutput>;
   public describeTransitGatewayVpcAttachments(
     args: DescribeTransitGatewayVpcAttachmentsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeTransitGatewayVpcAttachmentsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTransitGatewayVpcAttachmentsCommandOutput) => void
   ): void;
   public describeTransitGatewayVpcAttachments(
     args: DescribeTransitGatewayVpcAttachmentsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeTransitGatewayVpcAttachmentsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTransitGatewayVpcAttachmentsCommandOutput) => void
   ): void;
   public describeTransitGatewayVpcAttachments(
     args: DescribeTransitGatewayVpcAttachmentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeTransitGatewayVpcAttachmentsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeTransitGatewayVpcAttachmentsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTransitGatewayVpcAttachmentsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTransitGatewayVpcAttachmentsCommandOutput) => void
   ): Promise<DescribeTransitGatewayVpcAttachmentsCommandOutput> | void {
     const command = new DescribeTransitGatewayVpcAttachmentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -11969,17 +10609,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeVolumeAttribute(
     args: DescribeVolumeAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVolumeAttributeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVolumeAttributeCommandOutput) => void),
     cb?: (err: any, data?: DescribeVolumeAttributeCommandOutput) => void
   ): Promise<DescribeVolumeAttributeCommandOutput> | void {
     const command = new DescribeVolumeAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12011,17 +10648,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeVolumes(
     args: DescribeVolumesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVolumesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVolumesCommandOutput) => void),
     cb?: (err: any, data?: DescribeVolumesCommandOutput) => void
   ): Promise<DescribeVolumesCommandOutput> | void {
     const command = new DescribeVolumesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12056,17 +10690,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeVolumesModifications(
     args: DescribeVolumesModificationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVolumesModificationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVolumesModificationsCommandOutput) => void),
     cb?: (err: any, data?: DescribeVolumesModificationsCommandOutput) => void
   ): Promise<DescribeVolumesModificationsCommandOutput> | void {
     const command = new DescribeVolumesModificationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12124,17 +10755,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeVolumeStatus(
     args: DescribeVolumeStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVolumeStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVolumeStatusCommandOutput) => void),
     cb?: (err: any, data?: DescribeVolumeStatusCommandOutput) => void
   ): Promise<DescribeVolumeStatusCommandOutput> | void {
     const command = new DescribeVolumeStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12159,17 +10787,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeVpcAttribute(
     args: DescribeVpcAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVpcAttributeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVpcAttributeCommandOutput) => void),
     cb?: (err: any, data?: DescribeVpcAttributeCommandOutput) => void
   ): Promise<DescribeVpcAttributeCommandOutput> | void {
     const command = new DescribeVpcAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12194,17 +10819,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeVpcClassicLink(
     args: DescribeVpcClassicLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVpcClassicLinkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVpcClassicLinkCommandOutput) => void),
     cb?: (err: any, data?: DescribeVpcClassicLinkCommandOutput) => void
   ): Promise<DescribeVpcClassicLinkCommandOutput> | void {
     const command = new DescribeVpcClassicLinkCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12233,23 +10855,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeVpcClassicLinkDnsSupport(
     args: DescribeVpcClassicLinkDnsSupportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeVpcClassicLinkDnsSupportCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeVpcClassicLinkDnsSupportCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVpcClassicLinkDnsSupportCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVpcClassicLinkDnsSupportCommandOutput) => void
   ): Promise<DescribeVpcClassicLinkDnsSupportCommandOutput> | void {
     const command = new DescribeVpcClassicLinkDnsSupportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12266,38 +10879,25 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeVpcEndpointConnectionNotificationsCommandOutput>;
   public describeVpcEndpointConnectionNotifications(
     args: DescribeVpcEndpointConnectionNotificationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeVpcEndpointConnectionNotificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeVpcEndpointConnectionNotificationsCommandOutput) => void
   ): void;
   public describeVpcEndpointConnectionNotifications(
     args: DescribeVpcEndpointConnectionNotificationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeVpcEndpointConnectionNotificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeVpcEndpointConnectionNotificationsCommandOutput) => void
   ): void;
   public describeVpcEndpointConnectionNotifications(
     args: DescribeVpcEndpointConnectionNotificationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeVpcEndpointConnectionNotificationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeVpcEndpointConnectionNotificationsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeVpcEndpointConnectionNotificationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVpcEndpointConnectionNotificationsCommandOutput) => void
   ): Promise<DescribeVpcEndpointConnectionNotificationsCommandOutput> | void {
     const command = new DescribeVpcEndpointConnectionNotificationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12323,20 +10923,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeVpcEndpointConnections(
     args: DescribeVpcEndpointConnectionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeVpcEndpointConnectionsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVpcEndpointConnectionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeVpcEndpointConnectionsCommandOutput) => void
   ): Promise<DescribeVpcEndpointConnectionsCommandOutput> | void {
     const command = new DescribeVpcEndpointConnectionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12361,17 +10955,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeVpcEndpoints(
     args: DescribeVpcEndpointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVpcEndpointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVpcEndpointsCommandOutput) => void),
     cb?: (err: any, data?: DescribeVpcEndpointsCommandOutput) => void
   ): Promise<DescribeVpcEndpointsCommandOutput> | void {
     const command = new DescribeVpcEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12387,38 +10978,25 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeVpcEndpointServiceConfigurationsCommandOutput>;
   public describeVpcEndpointServiceConfigurations(
     args: DescribeVpcEndpointServiceConfigurationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeVpcEndpointServiceConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeVpcEndpointServiceConfigurationsCommandOutput) => void
   ): void;
   public describeVpcEndpointServiceConfigurations(
     args: DescribeVpcEndpointServiceConfigurationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeVpcEndpointServiceConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeVpcEndpointServiceConfigurationsCommandOutput) => void
   ): void;
   public describeVpcEndpointServiceConfigurations(
     args: DescribeVpcEndpointServiceConfigurationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeVpcEndpointServiceConfigurationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeVpcEndpointServiceConfigurationsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeVpcEndpointServiceConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVpcEndpointServiceConfigurationsCommandOutput) => void
   ): Promise<DescribeVpcEndpointServiceConfigurationsCommandOutput> | void {
     const command = new DescribeVpcEndpointServiceConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12435,38 +11013,25 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeVpcEndpointServicePermissionsCommandOutput>;
   public describeVpcEndpointServicePermissions(
     args: DescribeVpcEndpointServicePermissionsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeVpcEndpointServicePermissionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeVpcEndpointServicePermissionsCommandOutput) => void
   ): void;
   public describeVpcEndpointServicePermissions(
     args: DescribeVpcEndpointServicePermissionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeVpcEndpointServicePermissionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeVpcEndpointServicePermissionsCommandOutput) => void
   ): void;
   public describeVpcEndpointServicePermissions(
     args: DescribeVpcEndpointServicePermissionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeVpcEndpointServicePermissionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeVpcEndpointServicePermissionsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeVpcEndpointServicePermissionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVpcEndpointServicePermissionsCommandOutput) => void
   ): Promise<DescribeVpcEndpointServicePermissionsCommandOutput> | void {
     const command = new DescribeVpcEndpointServicePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12491,17 +11056,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeVpcEndpointServices(
     args: DescribeVpcEndpointServicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVpcEndpointServicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVpcEndpointServicesCommandOutput) => void),
     cb?: (err: any, data?: DescribeVpcEndpointServicesCommandOutput) => void
   ): Promise<DescribeVpcEndpointServicesCommandOutput> | void {
     const command = new DescribeVpcEndpointServicesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12526,17 +11088,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeVpcPeeringConnections(
     args: DescribeVpcPeeringConnectionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVpcPeeringConnectionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVpcPeeringConnectionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeVpcPeeringConnectionsCommandOutput) => void
   ): Promise<DescribeVpcPeeringConnectionsCommandOutput> | void {
     const command = new DescribeVpcPeeringConnectionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12550,10 +11109,7 @@ export class EC2 extends EC2Client {
     args: DescribeVpcsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeVpcsCommandOutput>;
-  public describeVpcs(
-    args: DescribeVpcsCommandInput,
-    cb: (err: any, data?: DescribeVpcsCommandOutput) => void
-  ): void;
+  public describeVpcs(args: DescribeVpcsCommandInput, cb: (err: any, data?: DescribeVpcsCommandOutput) => void): void;
   public describeVpcs(
     args: DescribeVpcsCommandInput,
     options: __HttpHandlerOptions,
@@ -12561,17 +11117,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeVpcs(
     args: DescribeVpcsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVpcsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVpcsCommandOutput) => void),
     cb?: (err: any, data?: DescribeVpcsCommandOutput) => void
   ): Promise<DescribeVpcsCommandOutput> | void {
     const command = new DescribeVpcsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12597,17 +11150,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeVpnConnections(
     args: DescribeVpnConnectionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVpnConnectionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVpnConnectionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeVpnConnectionsCommandOutput) => void
   ): Promise<DescribeVpnConnectionsCommandOutput> | void {
     const command = new DescribeVpnConnectionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12633,17 +11183,14 @@ export class EC2 extends EC2Client {
   ): void;
   public describeVpnGateways(
     args: DescribeVpnGatewaysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVpnGatewaysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVpnGatewaysCommandOutput) => void),
     cb?: (err: any, data?: DescribeVpnGatewaysCommandOutput) => void
   ): Promise<DescribeVpnGatewaysCommandOutput> | void {
     const command = new DescribeVpnGatewaysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12668,17 +11215,14 @@ export class EC2 extends EC2Client {
   ): void;
   public detachClassicLinkVpc(
     args: DetachClassicLinkVpcCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachClassicLinkVpcCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachClassicLinkVpcCommandOutput) => void),
     cb?: (err: any, data?: DetachClassicLinkVpcCommandOutput) => void
   ): Promise<DetachClassicLinkVpcCommandOutput> | void {
     const command = new DetachClassicLinkVpcCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12705,17 +11249,14 @@ export class EC2 extends EC2Client {
   ): void;
   public detachInternetGateway(
     args: DetachInternetGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachInternetGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachInternetGatewayCommandOutput) => void),
     cb?: (err: any, data?: DetachInternetGatewayCommandOutput) => void
   ): Promise<DetachInternetGatewayCommandOutput> | void {
     const command = new DetachInternetGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12740,17 +11281,14 @@ export class EC2 extends EC2Client {
   ): void;
   public detachNetworkInterface(
     args: DetachNetworkInterfaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachNetworkInterfaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachNetworkInterfaceCommandOutput) => void),
     cb?: (err: any, data?: DetachNetworkInterfaceCommandOutput) => void
   ): Promise<DetachNetworkInterfaceCommandOutput> | void {
     const command = new DetachNetworkInterfaceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12774,10 +11312,7 @@ export class EC2 extends EC2Client {
     args: DetachVolumeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DetachVolumeCommandOutput>;
-  public detachVolume(
-    args: DetachVolumeCommandInput,
-    cb: (err: any, data?: DetachVolumeCommandOutput) => void
-  ): void;
+  public detachVolume(args: DetachVolumeCommandInput, cb: (err: any, data?: DetachVolumeCommandOutput) => void): void;
   public detachVolume(
     args: DetachVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -12785,17 +11320,14 @@ export class EC2 extends EC2Client {
   ): void;
   public detachVolume(
     args: DetachVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachVolumeCommandOutput) => void),
     cb?: (err: any, data?: DetachVolumeCommandOutput) => void
   ): Promise<DetachVolumeCommandOutput> | void {
     const command = new DetachVolumeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12822,17 +11354,14 @@ export class EC2 extends EC2Client {
   ): void;
   public detachVpnGateway(
     args: DetachVpnGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachVpnGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachVpnGatewayCommandOutput) => void),
     cb?: (err: any, data?: DetachVpnGatewayCommandOutput) => void
   ): Promise<DetachVpnGatewayCommandOutput> | void {
     const command = new DetachVpnGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12863,17 +11392,14 @@ export class EC2 extends EC2Client {
   ): void;
   public disableEbsEncryptionByDefault(
     args: DisableEbsEncryptionByDefaultCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableEbsEncryptionByDefaultCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableEbsEncryptionByDefaultCommandOutput) => void),
     cb?: (err: any, data?: DisableEbsEncryptionByDefaultCommandOutput) => void
   ): Promise<DisableEbsEncryptionByDefaultCommandOutput> | void {
     const command = new DisableEbsEncryptionByDefaultCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12898,17 +11424,14 @@ export class EC2 extends EC2Client {
   ): void;
   public disableFastSnapshotRestores(
     args: DisableFastSnapshotRestoresCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableFastSnapshotRestoresCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableFastSnapshotRestoresCommandOutput) => void),
     cb?: (err: any, data?: DisableFastSnapshotRestoresCommandOutput) => void
   ): Promise<DisableFastSnapshotRestoresCommandOutput> | void {
     const command = new DisableFastSnapshotRestoresCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12925,38 +11448,25 @@ export class EC2 extends EC2Client {
   ): Promise<DisableTransitGatewayRouteTablePropagationCommandOutput>;
   public disableTransitGatewayRouteTablePropagation(
     args: DisableTransitGatewayRouteTablePropagationCommandInput,
-    cb: (
-      err: any,
-      data?: DisableTransitGatewayRouteTablePropagationCommandOutput
-    ) => void
+    cb: (err: any, data?: DisableTransitGatewayRouteTablePropagationCommandOutput) => void
   ): void;
   public disableTransitGatewayRouteTablePropagation(
     args: DisableTransitGatewayRouteTablePropagationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisableTransitGatewayRouteTablePropagationCommandOutput
-    ) => void
+    cb: (err: any, data?: DisableTransitGatewayRouteTablePropagationCommandOutput) => void
   ): void;
   public disableTransitGatewayRouteTablePropagation(
     args: DisableTransitGatewayRouteTablePropagationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisableTransitGatewayRouteTablePropagationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisableTransitGatewayRouteTablePropagationCommandOutput
-    ) => void
+      | ((err: any, data?: DisableTransitGatewayRouteTablePropagationCommandOutput) => void),
+    cb?: (err: any, data?: DisableTransitGatewayRouteTablePropagationCommandOutput) => void
   ): Promise<DisableTransitGatewayRouteTablePropagationCommandOutput> | void {
     const command = new DisableTransitGatewayRouteTablePropagationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -12981,17 +11491,14 @@ export class EC2 extends EC2Client {
   ): void;
   public disableVgwRoutePropagation(
     args: DisableVgwRoutePropagationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableVgwRoutePropagationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableVgwRoutePropagationCommandOutput) => void),
     cb?: (err: any, data?: DisableVgwRoutePropagationCommandOutput) => void
   ): Promise<DisableVgwRoutePropagationCommandOutput> | void {
     const command = new DisableVgwRoutePropagationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13016,17 +11523,14 @@ export class EC2 extends EC2Client {
   ): void;
   public disableVpcClassicLink(
     args: DisableVpcClassicLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableVpcClassicLinkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableVpcClassicLinkCommandOutput) => void),
     cb?: (err: any, data?: DisableVpcClassicLinkCommandOutput) => void
   ): Promise<DisableVpcClassicLinkCommandOutput> | void {
     const command = new DisableVpcClassicLinkCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13054,20 +11558,14 @@ export class EC2 extends EC2Client {
   ): void;
   public disableVpcClassicLinkDnsSupport(
     args: DisableVpcClassicLinkDnsSupportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisableVpcClassicLinkDnsSupportCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableVpcClassicLinkDnsSupportCommandOutput) => void),
     cb?: (err: any, data?: DisableVpcClassicLinkDnsSupportCommandOutput) => void
   ): Promise<DisableVpcClassicLinkDnsSupportCommandOutput> | void {
     const command = new DisableVpcClassicLinkDnsSupportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13096,17 +11594,14 @@ export class EC2 extends EC2Client {
   ): void;
   public disassociateAddress(
     args: DisassociateAddressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateAddressCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateAddressCommandOutput) => void),
     cb?: (err: any, data?: DisassociateAddressCommandOutput) => void
   ): Promise<DisassociateAddressCommandOutput> | void {
     const command = new DisassociateAddressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13138,38 +11633,23 @@ export class EC2 extends EC2Client {
   ): Promise<DisassociateClientVpnTargetNetworkCommandOutput>;
   public disassociateClientVpnTargetNetwork(
     args: DisassociateClientVpnTargetNetworkCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateClientVpnTargetNetworkCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateClientVpnTargetNetworkCommandOutput) => void
   ): void;
   public disassociateClientVpnTargetNetwork(
     args: DisassociateClientVpnTargetNetworkCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateClientVpnTargetNetworkCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateClientVpnTargetNetworkCommandOutput) => void
   ): void;
   public disassociateClientVpnTargetNetwork(
     args: DisassociateClientVpnTargetNetworkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateClientVpnTargetNetworkCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateClientVpnTargetNetworkCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateClientVpnTargetNetworkCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateClientVpnTargetNetworkCommandOutput) => void
   ): Promise<DisassociateClientVpnTargetNetworkCommandOutput> | void {
     const command = new DisassociateClientVpnTargetNetworkCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13196,20 +11676,14 @@ export class EC2 extends EC2Client {
   ): void;
   public disassociateIamInstanceProfile(
     args: DisassociateIamInstanceProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateIamInstanceProfileCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateIamInstanceProfileCommandOutput) => void),
     cb?: (err: any, data?: DisassociateIamInstanceProfileCommandOutput) => void
   ): Promise<DisassociateIamInstanceProfileCommandOutput> | void {
     const command = new DisassociateIamInstanceProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13238,17 +11712,14 @@ export class EC2 extends EC2Client {
   ): void;
   public disassociateRouteTable(
     args: DisassociateRouteTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateRouteTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateRouteTableCommandOutput) => void),
     cb?: (err: any, data?: DisassociateRouteTableCommandOutput) => void
   ): Promise<DisassociateRouteTableCommandOutput> | void {
     const command = new DisassociateRouteTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13273,17 +11744,14 @@ export class EC2 extends EC2Client {
   ): void;
   public disassociateSubnetCidrBlock(
     args: DisassociateSubnetCidrBlockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateSubnetCidrBlockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateSubnetCidrBlockCommandOutput) => void),
     cb?: (err: any, data?: DisassociateSubnetCidrBlockCommandOutput) => void
   ): Promise<DisassociateSubnetCidrBlockCommandOutput> | void {
     const command = new DisassociateSubnetCidrBlockCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13299,38 +11767,25 @@ export class EC2 extends EC2Client {
   ): Promise<DisassociateTransitGatewayMulticastDomainCommandOutput>;
   public disassociateTransitGatewayMulticastDomain(
     args: DisassociateTransitGatewayMulticastDomainCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateTransitGatewayMulticastDomainCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateTransitGatewayMulticastDomainCommandOutput) => void
   ): void;
   public disassociateTransitGatewayMulticastDomain(
     args: DisassociateTransitGatewayMulticastDomainCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateTransitGatewayMulticastDomainCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateTransitGatewayMulticastDomainCommandOutput) => void
   ): void;
   public disassociateTransitGatewayMulticastDomain(
     args: DisassociateTransitGatewayMulticastDomainCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateTransitGatewayMulticastDomainCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateTransitGatewayMulticastDomainCommandOutput
-    ) => void
+      | ((err: any, data?: DisassociateTransitGatewayMulticastDomainCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateTransitGatewayMulticastDomainCommandOutput) => void
   ): Promise<DisassociateTransitGatewayMulticastDomainCommandOutput> | void {
     const command = new DisassociateTransitGatewayMulticastDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13346,38 +11801,23 @@ export class EC2 extends EC2Client {
   ): Promise<DisassociateTransitGatewayRouteTableCommandOutput>;
   public disassociateTransitGatewayRouteTable(
     args: DisassociateTransitGatewayRouteTableCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateTransitGatewayRouteTableCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateTransitGatewayRouteTableCommandOutput) => void
   ): void;
   public disassociateTransitGatewayRouteTable(
     args: DisassociateTransitGatewayRouteTableCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateTransitGatewayRouteTableCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateTransitGatewayRouteTableCommandOutput) => void
   ): void;
   public disassociateTransitGatewayRouteTable(
     args: DisassociateTransitGatewayRouteTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateTransitGatewayRouteTableCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateTransitGatewayRouteTableCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateTransitGatewayRouteTableCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateTransitGatewayRouteTableCommandOutput) => void
   ): Promise<DisassociateTransitGatewayRouteTableCommandOutput> | void {
     const command = new DisassociateTransitGatewayRouteTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13407,17 +11847,14 @@ export class EC2 extends EC2Client {
   ): void;
   public disassociateVpcCidrBlock(
     args: DisassociateVpcCidrBlockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateVpcCidrBlockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateVpcCidrBlockCommandOutput) => void),
     cb?: (err: any, data?: DisassociateVpcCidrBlockCommandOutput) => void
   ): Promise<DisassociateVpcCidrBlockCommandOutput> | void {
     const command = new DisassociateVpcCidrBlockCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13453,17 +11890,14 @@ export class EC2 extends EC2Client {
   ): void;
   public enableEbsEncryptionByDefault(
     args: EnableEbsEncryptionByDefaultCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableEbsEncryptionByDefaultCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableEbsEncryptionByDefaultCommandOutput) => void),
     cb?: (err: any, data?: EnableEbsEncryptionByDefaultCommandOutput) => void
   ): Promise<EnableEbsEncryptionByDefaultCommandOutput> | void {
     const command = new EnableEbsEncryptionByDefaultCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13491,17 +11925,14 @@ export class EC2 extends EC2Client {
   ): void;
   public enableFastSnapshotRestores(
     args: EnableFastSnapshotRestoresCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableFastSnapshotRestoresCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableFastSnapshotRestoresCommandOutput) => void),
     cb?: (err: any, data?: EnableFastSnapshotRestoresCommandOutput) => void
   ): Promise<EnableFastSnapshotRestoresCommandOutput> | void {
     const command = new EnableFastSnapshotRestoresCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13518,38 +11949,25 @@ export class EC2 extends EC2Client {
   ): Promise<EnableTransitGatewayRouteTablePropagationCommandOutput>;
   public enableTransitGatewayRouteTablePropagation(
     args: EnableTransitGatewayRouteTablePropagationCommandInput,
-    cb: (
-      err: any,
-      data?: EnableTransitGatewayRouteTablePropagationCommandOutput
-    ) => void
+    cb: (err: any, data?: EnableTransitGatewayRouteTablePropagationCommandOutput) => void
   ): void;
   public enableTransitGatewayRouteTablePropagation(
     args: EnableTransitGatewayRouteTablePropagationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: EnableTransitGatewayRouteTablePropagationCommandOutput
-    ) => void
+    cb: (err: any, data?: EnableTransitGatewayRouteTablePropagationCommandOutput) => void
   ): void;
   public enableTransitGatewayRouteTablePropagation(
     args: EnableTransitGatewayRouteTablePropagationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: EnableTransitGatewayRouteTablePropagationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: EnableTransitGatewayRouteTablePropagationCommandOutput
-    ) => void
+      | ((err: any, data?: EnableTransitGatewayRouteTablePropagationCommandOutput) => void),
+    cb?: (err: any, data?: EnableTransitGatewayRouteTablePropagationCommandOutput) => void
   ): Promise<EnableTransitGatewayRouteTablePropagationCommandOutput> | void {
     const command = new EnableTransitGatewayRouteTablePropagationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13574,17 +11992,14 @@ export class EC2 extends EC2Client {
   ): void;
   public enableVgwRoutePropagation(
     args: EnableVgwRoutePropagationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableVgwRoutePropagationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableVgwRoutePropagationCommandOutput) => void),
     cb?: (err: any, data?: EnableVgwRoutePropagationCommandOutput) => void
   ): Promise<EnableVgwRoutePropagationCommandOutput> | void {
     const command = new EnableVgwRoutePropagationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13610,17 +12025,14 @@ export class EC2 extends EC2Client {
   ): void;
   public enableVolumeIO(
     args: EnableVolumeIOCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableVolumeIOCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableVolumeIOCommandOutput) => void),
     cb?: (err: any, data?: EnableVolumeIOCommandOutput) => void
   ): Promise<EnableVolumeIOCommandOutput> | void {
     const command = new EnableVolumeIOCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13651,17 +12063,14 @@ export class EC2 extends EC2Client {
   ): void;
   public enableVpcClassicLink(
     args: EnableVpcClassicLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableVpcClassicLinkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableVpcClassicLinkCommandOutput) => void),
     cb?: (err: any, data?: EnableVpcClassicLinkCommandOutput) => void
   ): Promise<EnableVpcClassicLinkCommandOutput> | void {
     const command = new EnableVpcClassicLinkCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13691,20 +12100,14 @@ export class EC2 extends EC2Client {
   ): void;
   public enableVpcClassicLinkDnsSupport(
     args: EnableVpcClassicLinkDnsSupportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: EnableVpcClassicLinkDnsSupportCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableVpcClassicLinkDnsSupportCommandOutput) => void),
     cb?: (err: any, data?: EnableVpcClassicLinkDnsSupportCommandOutput) => void
   ): Promise<EnableVpcClassicLinkDnsSupportCommandOutput> | void {
     const command = new EnableVpcClassicLinkDnsSupportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13720,42 +12123,25 @@ export class EC2 extends EC2Client {
   ): Promise<ExportClientVpnClientCertificateRevocationListCommandOutput>;
   public exportClientVpnClientCertificateRevocationList(
     args: ExportClientVpnClientCertificateRevocationListCommandInput,
-    cb: (
-      err: any,
-      data?: ExportClientVpnClientCertificateRevocationListCommandOutput
-    ) => void
+    cb: (err: any, data?: ExportClientVpnClientCertificateRevocationListCommandOutput) => void
   ): void;
   public exportClientVpnClientCertificateRevocationList(
     args: ExportClientVpnClientCertificateRevocationListCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ExportClientVpnClientCertificateRevocationListCommandOutput
-    ) => void
+    cb: (err: any, data?: ExportClientVpnClientCertificateRevocationListCommandOutput) => void
   ): void;
   public exportClientVpnClientCertificateRevocationList(
     args: ExportClientVpnClientCertificateRevocationListCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ExportClientVpnClientCertificateRevocationListCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ExportClientVpnClientCertificateRevocationListCommandOutput
-    ) => void
-  ): Promise<
-    ExportClientVpnClientCertificateRevocationListCommandOutput
-  > | void {
-    const command = new ExportClientVpnClientCertificateRevocationListCommand(
-      args
-    );
+      | ((err: any, data?: ExportClientVpnClientCertificateRevocationListCommandOutput) => void),
+    cb?: (err: any, data?: ExportClientVpnClientCertificateRevocationListCommandOutput) => void
+  ): Promise<ExportClientVpnClientCertificateRevocationListCommandOutput> | void {
+    const command = new ExportClientVpnClientCertificateRevocationListCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13773,38 +12159,23 @@ export class EC2 extends EC2Client {
   ): Promise<ExportClientVpnClientConfigurationCommandOutput>;
   public exportClientVpnClientConfiguration(
     args: ExportClientVpnClientConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: ExportClientVpnClientConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: ExportClientVpnClientConfigurationCommandOutput) => void
   ): void;
   public exportClientVpnClientConfiguration(
     args: ExportClientVpnClientConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ExportClientVpnClientConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: ExportClientVpnClientConfigurationCommandOutput) => void
   ): void;
   public exportClientVpnClientConfiguration(
     args: ExportClientVpnClientConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ExportClientVpnClientConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ExportClientVpnClientConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportClientVpnClientConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: ExportClientVpnClientConfigurationCommandOutput) => void
   ): Promise<ExportClientVpnClientConfigurationCommandOutput> | void {
     const command = new ExportClientVpnClientConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13815,14 +12186,8 @@ export class EC2 extends EC2Client {
    * <p>Exports an Amazon Machine Image (AMI) to a VM file. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport_image.html">Exporting a VM Directory from an Amazon Machine Image
    *     (AMI)</a> in the <i>VM Import/Export User Guide</i>.</p>
    */
-  public exportImage(
-    args: ExportImageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ExportImageCommandOutput>;
-  public exportImage(
-    args: ExportImageCommandInput,
-    cb: (err: any, data?: ExportImageCommandOutput) => void
-  ): void;
+  public exportImage(args: ExportImageCommandInput, options?: __HttpHandlerOptions): Promise<ExportImageCommandOutput>;
+  public exportImage(args: ExportImageCommandInput, cb: (err: any, data?: ExportImageCommandOutput) => void): void;
   public exportImage(
     args: ExportImageCommandInput,
     options: __HttpHandlerOptions,
@@ -13830,17 +12195,14 @@ export class EC2 extends EC2Client {
   ): void;
   public exportImage(
     args: ExportImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExportImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportImageCommandOutput) => void),
     cb?: (err: any, data?: ExportImageCommandOutput) => void
   ): Promise<ExportImageCommandOutput> | void {
     const command = new ExportImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13866,17 +12228,14 @@ export class EC2 extends EC2Client {
   ): void;
   public exportTransitGatewayRoutes(
     args: ExportTransitGatewayRoutesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExportTransitGatewayRoutesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportTransitGatewayRoutesCommandOutput) => void),
     cb?: (err: any, data?: ExportTransitGatewayRoutesCommandOutput) => void
   ): Promise<ExportTransitGatewayRoutesCommandOutput> | void {
     const command = new ExportTransitGatewayRoutesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13901,17 +12260,14 @@ export class EC2 extends EC2Client {
   ): void;
   public getAssociatedIpv6PoolCidrs(
     args: GetAssociatedIpv6PoolCidrsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAssociatedIpv6PoolCidrsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAssociatedIpv6PoolCidrsCommandOutput) => void),
     cb?: (err: any, data?: GetAssociatedIpv6PoolCidrsCommandOutput) => void
   ): Promise<GetAssociatedIpv6PoolCidrsCommandOutput> | void {
     const command = new GetAssociatedIpv6PoolCidrsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13938,17 +12294,14 @@ export class EC2 extends EC2Client {
   ): void;
   public getCapacityReservationUsage(
     args: GetCapacityReservationUsageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCapacityReservationUsageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCapacityReservationUsageCommandOutput) => void),
     cb?: (err: any, data?: GetCapacityReservationUsageCommandOutput) => void
   ): Promise<GetCapacityReservationUsageCommandOutput> | void {
     const command = new GetCapacityReservationUsageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -13973,17 +12326,14 @@ export class EC2 extends EC2Client {
   ): void;
   public getCoipPoolUsage(
     args: GetCoipPoolUsageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCoipPoolUsageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCoipPoolUsageCommandOutput) => void),
     cb?: (err: any, data?: GetCoipPoolUsageCommandOutput) => void
   ): Promise<GetCoipPoolUsageCommandOutput> | void {
     const command = new GetCoipPoolUsageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14020,17 +12370,14 @@ export class EC2 extends EC2Client {
   ): void;
   public getConsoleOutput(
     args: GetConsoleOutputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConsoleOutputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConsoleOutputCommandOutput) => void),
     cb?: (err: any, data?: GetConsoleOutputCommandOutput) => void
   ): Promise<GetConsoleOutputCommandOutput> | void {
     const command = new GetConsoleOutputCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14057,17 +12404,14 @@ export class EC2 extends EC2Client {
   ): void;
   public getConsoleScreenshot(
     args: GetConsoleScreenshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConsoleScreenshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConsoleScreenshotCommandOutput) => void),
     cb?: (err: any, data?: GetConsoleScreenshotCommandOutput) => void
   ): Promise<GetConsoleScreenshotCommandOutput> | void {
     const command = new GetConsoleScreenshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14095,17 +12439,14 @@ export class EC2 extends EC2Client {
   ): void;
   public getDefaultCreditSpecification(
     args: GetDefaultCreditSpecificationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDefaultCreditSpecificationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDefaultCreditSpecificationCommandOutput) => void),
     cb?: (err: any, data?: GetDefaultCreditSpecificationCommandOutput) => void
   ): Promise<GetDefaultCreditSpecificationCommandOutput> | void {
     const command = new GetDefaultCreditSpecificationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14134,17 +12475,14 @@ export class EC2 extends EC2Client {
   ): void;
   public getEbsDefaultKmsKeyId(
     args: GetEbsDefaultKmsKeyIdCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEbsDefaultKmsKeyIdCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEbsDefaultKmsKeyIdCommandOutput) => void),
     cb?: (err: any, data?: GetEbsDefaultKmsKeyIdCommandOutput) => void
   ): Promise<GetEbsDefaultKmsKeyIdCommandOutput> | void {
     const command = new GetEbsDefaultKmsKeyIdCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14172,17 +12510,14 @@ export class EC2 extends EC2Client {
   ): void;
   public getEbsEncryptionByDefault(
     args: GetEbsEncryptionByDefaultCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEbsEncryptionByDefaultCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEbsEncryptionByDefaultCommandOutput) => void),
     cb?: (err: any, data?: GetEbsEncryptionByDefaultCommandOutput) => void
   ): Promise<GetEbsEncryptionByDefaultCommandOutput> | void {
     const command = new GetEbsEncryptionByDefaultCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14202,38 +12537,23 @@ export class EC2 extends EC2Client {
   ): Promise<GetHostReservationPurchasePreviewCommandOutput>;
   public getHostReservationPurchasePreview(
     args: GetHostReservationPurchasePreviewCommandInput,
-    cb: (
-      err: any,
-      data?: GetHostReservationPurchasePreviewCommandOutput
-    ) => void
+    cb: (err: any, data?: GetHostReservationPurchasePreviewCommandOutput) => void
   ): void;
   public getHostReservationPurchasePreview(
     args: GetHostReservationPurchasePreviewCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetHostReservationPurchasePreviewCommandOutput
-    ) => void
+    cb: (err: any, data?: GetHostReservationPurchasePreviewCommandOutput) => void
   ): void;
   public getHostReservationPurchasePreview(
     args: GetHostReservationPurchasePreviewCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetHostReservationPurchasePreviewCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetHostReservationPurchasePreviewCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHostReservationPurchasePreviewCommandOutput) => void),
+    cb?: (err: any, data?: GetHostReservationPurchasePreviewCommandOutput) => void
   ): Promise<GetHostReservationPurchasePreviewCommandOutput> | void {
     const command = new GetHostReservationPurchasePreviewCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14259,17 +12579,14 @@ export class EC2 extends EC2Client {
   ): void;
   public getLaunchTemplateData(
     args: GetLaunchTemplateDataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLaunchTemplateDataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLaunchTemplateDataCommandOutput) => void),
     cb?: (err: any, data?: GetLaunchTemplateDataCommandOutput) => void
   ): Promise<GetLaunchTemplateDataCommandOutput> | void {
     const command = new GetLaunchTemplateDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14306,17 +12623,14 @@ export class EC2 extends EC2Client {
   ): void;
   public getPasswordData(
     args: GetPasswordDataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPasswordDataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPasswordDataCommandOutput) => void),
     cb?: (err: any, data?: GetPasswordDataCommandOutput) => void
   ): Promise<GetPasswordDataCommandOutput> | void {
     const command = new GetPasswordDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14334,38 +12648,23 @@ export class EC2 extends EC2Client {
   ): Promise<GetReservedInstancesExchangeQuoteCommandOutput>;
   public getReservedInstancesExchangeQuote(
     args: GetReservedInstancesExchangeQuoteCommandInput,
-    cb: (
-      err: any,
-      data?: GetReservedInstancesExchangeQuoteCommandOutput
-    ) => void
+    cb: (err: any, data?: GetReservedInstancesExchangeQuoteCommandOutput) => void
   ): void;
   public getReservedInstancesExchangeQuote(
     args: GetReservedInstancesExchangeQuoteCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetReservedInstancesExchangeQuoteCommandOutput
-    ) => void
+    cb: (err: any, data?: GetReservedInstancesExchangeQuoteCommandOutput) => void
   ): void;
   public getReservedInstancesExchangeQuote(
     args: GetReservedInstancesExchangeQuoteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetReservedInstancesExchangeQuoteCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetReservedInstancesExchangeQuoteCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReservedInstancesExchangeQuoteCommandOutput) => void),
+    cb?: (err: any, data?: GetReservedInstancesExchangeQuoteCommandOutput) => void
   ): Promise<GetReservedInstancesExchangeQuoteCommandOutput> | void {
     const command = new GetReservedInstancesExchangeQuoteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14381,38 +12680,25 @@ export class EC2 extends EC2Client {
   ): Promise<GetTransitGatewayAttachmentPropagationsCommandOutput>;
   public getTransitGatewayAttachmentPropagations(
     args: GetTransitGatewayAttachmentPropagationsCommandInput,
-    cb: (
-      err: any,
-      data?: GetTransitGatewayAttachmentPropagationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetTransitGatewayAttachmentPropagationsCommandOutput) => void
   ): void;
   public getTransitGatewayAttachmentPropagations(
     args: GetTransitGatewayAttachmentPropagationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetTransitGatewayAttachmentPropagationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetTransitGatewayAttachmentPropagationsCommandOutput) => void
   ): void;
   public getTransitGatewayAttachmentPropagations(
     args: GetTransitGatewayAttachmentPropagationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetTransitGatewayAttachmentPropagationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetTransitGatewayAttachmentPropagationsCommandOutput
-    ) => void
+      | ((err: any, data?: GetTransitGatewayAttachmentPropagationsCommandOutput) => void),
+    cb?: (err: any, data?: GetTransitGatewayAttachmentPropagationsCommandOutput) => void
   ): Promise<GetTransitGatewayAttachmentPropagationsCommandOutput> | void {
     const command = new GetTransitGatewayAttachmentPropagationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14428,40 +12714,25 @@ export class EC2 extends EC2Client {
   ): Promise<GetTransitGatewayMulticastDomainAssociationsCommandOutput>;
   public getTransitGatewayMulticastDomainAssociations(
     args: GetTransitGatewayMulticastDomainAssociationsCommandInput,
-    cb: (
-      err: any,
-      data?: GetTransitGatewayMulticastDomainAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetTransitGatewayMulticastDomainAssociationsCommandOutput) => void
   ): void;
   public getTransitGatewayMulticastDomainAssociations(
     args: GetTransitGatewayMulticastDomainAssociationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetTransitGatewayMulticastDomainAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetTransitGatewayMulticastDomainAssociationsCommandOutput) => void
   ): void;
   public getTransitGatewayMulticastDomainAssociations(
     args: GetTransitGatewayMulticastDomainAssociationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetTransitGatewayMulticastDomainAssociationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetTransitGatewayMulticastDomainAssociationsCommandOutput
-    ) => void
+      | ((err: any, data?: GetTransitGatewayMulticastDomainAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: GetTransitGatewayMulticastDomainAssociationsCommandOutput) => void
   ): Promise<GetTransitGatewayMulticastDomainAssociationsCommandOutput> | void {
-    const command = new GetTransitGatewayMulticastDomainAssociationsCommand(
-      args
-    );
+    const command = new GetTransitGatewayMulticastDomainAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14477,38 +12748,25 @@ export class EC2 extends EC2Client {
   ): Promise<GetTransitGatewayRouteTableAssociationsCommandOutput>;
   public getTransitGatewayRouteTableAssociations(
     args: GetTransitGatewayRouteTableAssociationsCommandInput,
-    cb: (
-      err: any,
-      data?: GetTransitGatewayRouteTableAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetTransitGatewayRouteTableAssociationsCommandOutput) => void
   ): void;
   public getTransitGatewayRouteTableAssociations(
     args: GetTransitGatewayRouteTableAssociationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetTransitGatewayRouteTableAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetTransitGatewayRouteTableAssociationsCommandOutput) => void
   ): void;
   public getTransitGatewayRouteTableAssociations(
     args: GetTransitGatewayRouteTableAssociationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetTransitGatewayRouteTableAssociationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetTransitGatewayRouteTableAssociationsCommandOutput
-    ) => void
+      | ((err: any, data?: GetTransitGatewayRouteTableAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: GetTransitGatewayRouteTableAssociationsCommandOutput) => void
   ): Promise<GetTransitGatewayRouteTableAssociationsCommandOutput> | void {
     const command = new GetTransitGatewayRouteTableAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14524,38 +12782,25 @@ export class EC2 extends EC2Client {
   ): Promise<GetTransitGatewayRouteTablePropagationsCommandOutput>;
   public getTransitGatewayRouteTablePropagations(
     args: GetTransitGatewayRouteTablePropagationsCommandInput,
-    cb: (
-      err: any,
-      data?: GetTransitGatewayRouteTablePropagationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetTransitGatewayRouteTablePropagationsCommandOutput) => void
   ): void;
   public getTransitGatewayRouteTablePropagations(
     args: GetTransitGatewayRouteTablePropagationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetTransitGatewayRouteTablePropagationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetTransitGatewayRouteTablePropagationsCommandOutput) => void
   ): void;
   public getTransitGatewayRouteTablePropagations(
     args: GetTransitGatewayRouteTablePropagationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetTransitGatewayRouteTablePropagationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetTransitGatewayRouteTablePropagationsCommandOutput
-    ) => void
+      | ((err: any, data?: GetTransitGatewayRouteTablePropagationsCommandOutput) => void),
+    cb?: (err: any, data?: GetTransitGatewayRouteTablePropagationsCommandOutput) => void
   ): Promise<GetTransitGatewayRouteTablePropagationsCommandOutput> | void {
     const command = new GetTransitGatewayRouteTablePropagationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14572,42 +12817,25 @@ export class EC2 extends EC2Client {
   ): Promise<ImportClientVpnClientCertificateRevocationListCommandOutput>;
   public importClientVpnClientCertificateRevocationList(
     args: ImportClientVpnClientCertificateRevocationListCommandInput,
-    cb: (
-      err: any,
-      data?: ImportClientVpnClientCertificateRevocationListCommandOutput
-    ) => void
+    cb: (err: any, data?: ImportClientVpnClientCertificateRevocationListCommandOutput) => void
   ): void;
   public importClientVpnClientCertificateRevocationList(
     args: ImportClientVpnClientCertificateRevocationListCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ImportClientVpnClientCertificateRevocationListCommandOutput
-    ) => void
+    cb: (err: any, data?: ImportClientVpnClientCertificateRevocationListCommandOutput) => void
   ): void;
   public importClientVpnClientCertificateRevocationList(
     args: ImportClientVpnClientCertificateRevocationListCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ImportClientVpnClientCertificateRevocationListCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ImportClientVpnClientCertificateRevocationListCommandOutput
-    ) => void
-  ): Promise<
-    ImportClientVpnClientCertificateRevocationListCommandOutput
-  > | void {
-    const command = new ImportClientVpnClientCertificateRevocationListCommand(
-      args
-    );
+      | ((err: any, data?: ImportClientVpnClientCertificateRevocationListCommandOutput) => void),
+    cb?: (err: any, data?: ImportClientVpnClientCertificateRevocationListCommandOutput) => void
+  ): Promise<ImportClientVpnClientCertificateRevocationListCommandOutput> | void {
+    const command = new ImportClientVpnClientCertificateRevocationListCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14619,14 +12847,8 @@ export class EC2 extends EC2Client {
    *    information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Importing a VM as an
    *     Image Using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
    */
-  public importImage(
-    args: ImportImageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ImportImageCommandOutput>;
-  public importImage(
-    args: ImportImageCommandInput,
-    cb: (err: any, data?: ImportImageCommandOutput) => void
-  ): void;
+  public importImage(args: ImportImageCommandInput, options?: __HttpHandlerOptions): Promise<ImportImageCommandOutput>;
+  public importImage(args: ImportImageCommandInput, cb: (err: any, data?: ImportImageCommandOutput) => void): void;
   public importImage(
     args: ImportImageCommandInput,
     options: __HttpHandlerOptions,
@@ -14634,17 +12856,14 @@ export class EC2 extends EC2Client {
   ): void;
   public importImage(
     args: ImportImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportImageCommandOutput) => void),
     cb?: (err: any, data?: ImportImageCommandOutput) => void
   ): Promise<ImportImageCommandOutput> | void {
     const command = new ImportImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14673,17 +12892,14 @@ export class EC2 extends EC2Client {
   ): void;
   public importInstance(
     args: ImportInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportInstanceCommandOutput) => void),
     cb?: (err: any, data?: ImportInstanceCommandOutput) => void
   ): Promise<ImportInstanceCommandOutput> | void {
     const command = new ImportInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14713,17 +12929,14 @@ export class EC2 extends EC2Client {
   ): void;
   public importKeyPair(
     args: ImportKeyPairCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportKeyPairCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportKeyPairCommandOutput) => void),
     cb?: (err: any, data?: ImportKeyPairCommandOutput) => void
   ): Promise<ImportKeyPairCommandOutput> | void {
     const command = new ImportKeyPairCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14748,17 +12961,14 @@ export class EC2 extends EC2Client {
   ): void;
   public importSnapshot(
     args: ImportSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportSnapshotCommandOutput) => void),
     cb?: (err: any, data?: ImportSnapshotCommandOutput) => void
   ): Promise<ImportSnapshotCommandOutput> | void {
     const command = new ImportSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14774,10 +12984,7 @@ export class EC2 extends EC2Client {
     args: ImportVolumeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ImportVolumeCommandOutput>;
-  public importVolume(
-    args: ImportVolumeCommandInput,
-    cb: (err: any, data?: ImportVolumeCommandOutput) => void
-  ): void;
+  public importVolume(args: ImportVolumeCommandInput, cb: (err: any, data?: ImportVolumeCommandOutput) => void): void;
   public importVolume(
     args: ImportVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -14785,17 +12992,14 @@ export class EC2 extends EC2Client {
   ): void;
   public importVolume(
     args: ImportVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportVolumeCommandOutput) => void),
     cb?: (err: any, data?: ImportVolumeCommandOutput) => void
   ): Promise<ImportVolumeCommandOutput> | void {
     const command = new ImportVolumeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14824,17 +13028,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyCapacityReservation(
     args: ModifyCapacityReservationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyCapacityReservationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyCapacityReservationCommandOutput) => void),
     cb?: (err: any, data?: ModifyCapacityReservationCommandOutput) => void
   ): Promise<ModifyCapacityReservationCommandOutput> | void {
     const command = new ModifyCapacityReservationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14860,17 +13061,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyClientVpnEndpoint(
     args: ModifyClientVpnEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyClientVpnEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyClientVpnEndpointCommandOutput) => void),
     cb?: (err: any, data?: ModifyClientVpnEndpointCommandOutput) => void
   ): Promise<ModifyClientVpnEndpointCommandOutput> | void {
     const command = new ModifyClientVpnEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14908,23 +13106,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyDefaultCreditSpecification(
     args: ModifyDefaultCreditSpecificationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyDefaultCreditSpecificationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyDefaultCreditSpecificationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDefaultCreditSpecificationCommandOutput) => void),
+    cb?: (err: any, data?: ModifyDefaultCreditSpecificationCommandOutput) => void
   ): Promise<ModifyDefaultCreditSpecificationCommandOutput> | void {
     const command = new ModifyDefaultCreditSpecificationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14956,17 +13145,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyEbsDefaultKmsKeyId(
     args: ModifyEbsDefaultKmsKeyIdCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyEbsDefaultKmsKeyIdCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyEbsDefaultKmsKeyIdCommandOutput) => void),
     cb?: (err: any, data?: ModifyEbsDefaultKmsKeyIdCommandOutput) => void
   ): Promise<ModifyEbsDefaultKmsKeyIdCommandOutput> | void {
     const command = new ModifyEbsDefaultKmsKeyIdCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -14997,14 +13183,8 @@ export class EC2 extends EC2Client {
    *          <p>If you are finished with your EC2 Fleet for now, but will use it again later, you can set the
    *          target capacity to 0.</p>
    */
-  public modifyFleet(
-    args: ModifyFleetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ModifyFleetCommandOutput>;
-  public modifyFleet(
-    args: ModifyFleetCommandInput,
-    cb: (err: any, data?: ModifyFleetCommandOutput) => void
-  ): void;
+  public modifyFleet(args: ModifyFleetCommandInput, options?: __HttpHandlerOptions): Promise<ModifyFleetCommandOutput>;
+  public modifyFleet(args: ModifyFleetCommandInput, cb: (err: any, data?: ModifyFleetCommandOutput) => void): void;
   public modifyFleet(
     args: ModifyFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -15012,17 +13192,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyFleet(
     args: ModifyFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyFleetCommandOutput) => void),
     cb?: (err: any, data?: ModifyFleetCommandOutput) => void
   ): Promise<ModifyFleetCommandOutput> | void {
     const command = new ModifyFleetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15047,17 +13224,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyFpgaImageAttribute(
     args: ModifyFpgaImageAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyFpgaImageAttributeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyFpgaImageAttributeCommandOutput) => void),
     cb?: (err: any, data?: ModifyFpgaImageAttributeCommandOutput) => void
   ): Promise<ModifyFpgaImageAttributeCommandOutput> | void {
     const command = new ModifyFpgaImageAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15074,14 +13248,8 @@ export class EC2 extends EC2Client {
    *     	    <p>You can also use this API action to modify a Dedicated Host to support either multiple
    *     		instance types in an instance family, or to support a specific instance type only.</p>
    */
-  public modifyHosts(
-    args: ModifyHostsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ModifyHostsCommandOutput>;
-  public modifyHosts(
-    args: ModifyHostsCommandInput,
-    cb: (err: any, data?: ModifyHostsCommandOutput) => void
-  ): void;
+  public modifyHosts(args: ModifyHostsCommandInput, options?: __HttpHandlerOptions): Promise<ModifyHostsCommandOutput>;
+  public modifyHosts(args: ModifyHostsCommandInput, cb: (err: any, data?: ModifyHostsCommandOutput) => void): void;
   public modifyHosts(
     args: ModifyHostsCommandInput,
     options: __HttpHandlerOptions,
@@ -15089,17 +13257,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyHosts(
     args: ModifyHostsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyHostsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyHostsCommandOutput) => void),
     cb?: (err: any, data?: ModifyHostsCommandOutput) => void
   ): Promise<ModifyHostsCommandOutput> | void {
     const command = new ModifyHostsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15145,17 +13310,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyIdentityIdFormat(
     args: ModifyIdentityIdFormatCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyIdentityIdFormatCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyIdentityIdFormatCommandOutput) => void),
     cb?: (err: any, data?: ModifyIdentityIdFormatCommandOutput) => void
   ): Promise<ModifyIdentityIdFormatCommandOutput> | void {
     const command = new ModifyIdentityIdFormatCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15203,17 +13365,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyIdFormat(
     args: ModifyIdFormatCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyIdFormatCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyIdFormatCommandOutput) => void),
     cb?: (err: any, data?: ModifyIdFormatCommandOutput) => void
   ): Promise<ModifyIdFormatCommandOutput> | void {
     const command = new ModifyIdFormatCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15243,17 +13402,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyImageAttribute(
     args: ModifyImageAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyImageAttributeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyImageAttributeCommandOutput) => void),
     cb?: (err: any, data?: ModifyImageAttributeCommandOutput) => void
   ): Promise<ModifyImageAttributeCommandOutput> | void {
     const command = new ModifyImageAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15288,17 +13444,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyInstanceAttribute(
     args: ModifyInstanceAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyInstanceAttributeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyInstanceAttributeCommandOutput) => void),
     cb?: (err: any, data?: ModifyInstanceAttributeCommandOutput) => void
   ): Promise<ModifyInstanceAttributeCommandOutput> | void {
     const command = new ModifyInstanceAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15316,40 +13469,25 @@ export class EC2 extends EC2Client {
   ): Promise<ModifyInstanceCapacityReservationAttributesCommandOutput>;
   public modifyInstanceCapacityReservationAttributes(
     args: ModifyInstanceCapacityReservationAttributesCommandInput,
-    cb: (
-      err: any,
-      data?: ModifyInstanceCapacityReservationAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyInstanceCapacityReservationAttributesCommandOutput) => void
   ): void;
   public modifyInstanceCapacityReservationAttributes(
     args: ModifyInstanceCapacityReservationAttributesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifyInstanceCapacityReservationAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyInstanceCapacityReservationAttributesCommandOutput) => void
   ): void;
   public modifyInstanceCapacityReservationAttributes(
     args: ModifyInstanceCapacityReservationAttributesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyInstanceCapacityReservationAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyInstanceCapacityReservationAttributesCommandOutput
-    ) => void
+      | ((err: any, data?: ModifyInstanceCapacityReservationAttributesCommandOutput) => void),
+    cb?: (err: any, data?: ModifyInstanceCapacityReservationAttributesCommandOutput) => void
   ): Promise<ModifyInstanceCapacityReservationAttributesCommandOutput> | void {
-    const command = new ModifyInstanceCapacityReservationAttributesCommand(
-      args
-    );
+    const command = new ModifyInstanceCapacityReservationAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15370,38 +13508,23 @@ export class EC2 extends EC2Client {
   ): Promise<ModifyInstanceCreditSpecificationCommandOutput>;
   public modifyInstanceCreditSpecification(
     args: ModifyInstanceCreditSpecificationCommandInput,
-    cb: (
-      err: any,
-      data?: ModifyInstanceCreditSpecificationCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyInstanceCreditSpecificationCommandOutput) => void
   ): void;
   public modifyInstanceCreditSpecification(
     args: ModifyInstanceCreditSpecificationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifyInstanceCreditSpecificationCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyInstanceCreditSpecificationCommandOutput) => void
   ): void;
   public modifyInstanceCreditSpecification(
     args: ModifyInstanceCreditSpecificationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyInstanceCreditSpecificationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyInstanceCreditSpecificationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyInstanceCreditSpecificationCommandOutput) => void),
+    cb?: (err: any, data?: ModifyInstanceCreditSpecificationCommandOutput) => void
   ): Promise<ModifyInstanceCreditSpecificationCommandOutput> | void {
     const command = new ModifyInstanceCreditSpecificationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15426,17 +13549,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyInstanceEventStartTime(
     args: ModifyInstanceEventStartTimeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyInstanceEventStartTimeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyInstanceEventStartTimeCommandOutput) => void),
     cb?: (err: any, data?: ModifyInstanceEventStartTimeCommandOutput) => void
   ): Promise<ModifyInstanceEventStartTimeCommandOutput> | void {
     const command = new ModifyInstanceEventStartTimeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15466,17 +13586,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyInstanceMetadataOptions(
     args: ModifyInstanceMetadataOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyInstanceMetadataOptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyInstanceMetadataOptionsCommandOutput) => void),
     cb?: (err: any, data?: ModifyInstanceMetadataOptionsCommandOutput) => void
   ): Promise<ModifyInstanceMetadataOptionsCommandOutput> | void {
     const command = new ModifyInstanceMetadataOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15528,17 +13645,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyInstancePlacement(
     args: ModifyInstancePlacementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyInstancePlacementCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyInstancePlacementCommandOutput) => void),
     cb?: (err: any, data?: ModifyInstancePlacementCommandOutput) => void
   ): Promise<ModifyInstancePlacementCommandOutput> | void {
     const command = new ModifyInstancePlacementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15565,17 +13679,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyLaunchTemplate(
     args: ModifyLaunchTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyLaunchTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyLaunchTemplateCommandOutput) => void),
     cb?: (err: any, data?: ModifyLaunchTemplateCommandOutput) => void
   ): Promise<ModifyLaunchTemplateCommandOutput> | void {
     const command = new ModifyLaunchTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15602,20 +13713,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyNetworkInterfaceAttribute(
     args: ModifyNetworkInterfaceAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyNetworkInterfaceAttributeCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyNetworkInterfaceAttributeCommandOutput) => void),
     cb?: (err: any, data?: ModifyNetworkInterfaceAttributeCommandOutput) => void
   ): Promise<ModifyNetworkInterfaceAttributeCommandOutput> | void {
     const command = new ModifyNetworkInterfaceAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15645,17 +13750,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyReservedInstances(
     args: ModifyReservedInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyReservedInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyReservedInstancesCommandOutput) => void),
     cb?: (err: any, data?: ModifyReservedInstancesCommandOutput) => void
   ): Promise<ModifyReservedInstancesCommandOutput> | void {
     const command = new ModifyReservedInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15687,17 +13789,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifySnapshotAttribute(
     args: ModifySnapshotAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifySnapshotAttributeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifySnapshotAttributeCommandOutput) => void),
     cb?: (err: any, data?: ModifySnapshotAttributeCommandOutput) => void
   ): Promise<ModifySnapshotAttributeCommandOutput> | void {
     const command = new ModifySnapshotAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15745,17 +13844,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifySpotFleetRequest(
     args: ModifySpotFleetRequestCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifySpotFleetRequestCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifySpotFleetRequestCommandOutput) => void),
     cb?: (err: any, data?: ModifySpotFleetRequestCommandOutput) => void
   ): Promise<ModifySpotFleetRequestCommandOutput> | void {
     const command = new ModifySpotFleetRequestCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15780,17 +13876,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifySubnetAttribute(
     args: ModifySubnetAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifySubnetAttributeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifySubnetAttributeCommandOutput) => void),
     cb?: (err: any, data?: ModifySubnetAttributeCommandOutput) => void
   ): Promise<ModifySubnetAttributeCommandOutput> | void {
     const command = new ModifySubnetAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15811,38 +13904,25 @@ export class EC2 extends EC2Client {
   ): Promise<ModifyTrafficMirrorFilterNetworkServicesCommandOutput>;
   public modifyTrafficMirrorFilterNetworkServices(
     args: ModifyTrafficMirrorFilterNetworkServicesCommandInput,
-    cb: (
-      err: any,
-      data?: ModifyTrafficMirrorFilterNetworkServicesCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyTrafficMirrorFilterNetworkServicesCommandOutput) => void
   ): void;
   public modifyTrafficMirrorFilterNetworkServices(
     args: ModifyTrafficMirrorFilterNetworkServicesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifyTrafficMirrorFilterNetworkServicesCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyTrafficMirrorFilterNetworkServicesCommandOutput) => void
   ): void;
   public modifyTrafficMirrorFilterNetworkServices(
     args: ModifyTrafficMirrorFilterNetworkServicesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyTrafficMirrorFilterNetworkServicesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyTrafficMirrorFilterNetworkServicesCommandOutput
-    ) => void
+      | ((err: any, data?: ModifyTrafficMirrorFilterNetworkServicesCommandOutput) => void),
+    cb?: (err: any, data?: ModifyTrafficMirrorFilterNetworkServicesCommandOutput) => void
   ): Promise<ModifyTrafficMirrorFilterNetworkServicesCommandOutput> | void {
     const command = new ModifyTrafficMirrorFilterNetworkServicesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15870,17 +13950,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyTrafficMirrorFilterRule(
     args: ModifyTrafficMirrorFilterRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyTrafficMirrorFilterRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyTrafficMirrorFilterRuleCommandOutput) => void),
     cb?: (err: any, data?: ModifyTrafficMirrorFilterRuleCommandOutput) => void
   ): Promise<ModifyTrafficMirrorFilterRuleCommandOutput> | void {
     const command = new ModifyTrafficMirrorFilterRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15905,17 +13982,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyTrafficMirrorSession(
     args: ModifyTrafficMirrorSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyTrafficMirrorSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyTrafficMirrorSessionCommandOutput) => void),
     cb?: (err: any, data?: ModifyTrafficMirrorSessionCommandOutput) => void
   ): Promise<ModifyTrafficMirrorSessionCommandOutput> | void {
     const command = new ModifyTrafficMirrorSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15931,38 +14005,23 @@ export class EC2 extends EC2Client {
   ): Promise<ModifyTransitGatewayVpcAttachmentCommandOutput>;
   public modifyTransitGatewayVpcAttachment(
     args: ModifyTransitGatewayVpcAttachmentCommandInput,
-    cb: (
-      err: any,
-      data?: ModifyTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyTransitGatewayVpcAttachmentCommandOutput) => void
   ): void;
   public modifyTransitGatewayVpcAttachment(
     args: ModifyTransitGatewayVpcAttachmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifyTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyTransitGatewayVpcAttachmentCommandOutput) => void
   ): void;
   public modifyTransitGatewayVpcAttachment(
     args: ModifyTransitGatewayVpcAttachmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyTransitGatewayVpcAttachmentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyTransitGatewayVpcAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: ModifyTransitGatewayVpcAttachmentCommandOutput) => void
   ): Promise<ModifyTransitGatewayVpcAttachmentCommandOutput> | void {
     const command = new ModifyTransitGatewayVpcAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -15998,10 +14057,7 @@ export class EC2 extends EC2Client {
     args: ModifyVolumeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ModifyVolumeCommandOutput>;
-  public modifyVolume(
-    args: ModifyVolumeCommandInput,
-    cb: (err: any, data?: ModifyVolumeCommandOutput) => void
-  ): void;
+  public modifyVolume(args: ModifyVolumeCommandInput, cb: (err: any, data?: ModifyVolumeCommandOutput) => void): void;
   public modifyVolume(
     args: ModifyVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -16009,17 +14065,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyVolume(
     args: ModifyVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVolumeCommandOutput) => void),
     cb?: (err: any, data?: ModifyVolumeCommandOutput) => void
   ): Promise<ModifyVolumeCommandOutput> | void {
     const command = new ModifyVolumeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -16050,17 +14103,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyVolumeAttribute(
     args: ModifyVolumeAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyVolumeAttributeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVolumeAttributeCommandOutput) => void),
     cb?: (err: any, data?: ModifyVolumeAttributeCommandOutput) => void
   ): Promise<ModifyVolumeAttributeCommandOutput> | void {
     const command = new ModifyVolumeAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -16085,17 +14135,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyVpcAttribute(
     args: ModifyVpcAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyVpcAttributeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVpcAttributeCommandOutput) => void),
     cb?: (err: any, data?: ModifyVpcAttributeCommandOutput) => void
   ): Promise<ModifyVpcAttributeCommandOutput> | void {
     const command = new ModifyVpcAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -16123,17 +14170,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyVpcEndpoint(
     args: ModifyVpcEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyVpcEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVpcEndpointCommandOutput) => void),
     cb?: (err: any, data?: ModifyVpcEndpointCommandOutput) => void
   ): Promise<ModifyVpcEndpointCommandOutput> | void {
     const command = new ModifyVpcEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -16150,38 +14194,25 @@ export class EC2 extends EC2Client {
   ): Promise<ModifyVpcEndpointConnectionNotificationCommandOutput>;
   public modifyVpcEndpointConnectionNotification(
     args: ModifyVpcEndpointConnectionNotificationCommandInput,
-    cb: (
-      err: any,
-      data?: ModifyVpcEndpointConnectionNotificationCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyVpcEndpointConnectionNotificationCommandOutput) => void
   ): void;
   public modifyVpcEndpointConnectionNotification(
     args: ModifyVpcEndpointConnectionNotificationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifyVpcEndpointConnectionNotificationCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyVpcEndpointConnectionNotificationCommandOutput) => void
   ): void;
   public modifyVpcEndpointConnectionNotification(
     args: ModifyVpcEndpointConnectionNotificationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyVpcEndpointConnectionNotificationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyVpcEndpointConnectionNotificationCommandOutput
-    ) => void
+      | ((err: any, data?: ModifyVpcEndpointConnectionNotificationCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVpcEndpointConnectionNotificationCommandOutput) => void
   ): Promise<ModifyVpcEndpointConnectionNotificationCommandOutput> | void {
     const command = new ModifyVpcEndpointConnectionNotificationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -16204,38 +14235,25 @@ export class EC2 extends EC2Client {
   ): Promise<ModifyVpcEndpointServiceConfigurationCommandOutput>;
   public modifyVpcEndpointServiceConfiguration(
     args: ModifyVpcEndpointServiceConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: ModifyVpcEndpointServiceConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyVpcEndpointServiceConfigurationCommandOutput) => void
   ): void;
   public modifyVpcEndpointServiceConfiguration(
     args: ModifyVpcEndpointServiceConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifyVpcEndpointServiceConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyVpcEndpointServiceConfigurationCommandOutput) => void
   ): void;
   public modifyVpcEndpointServiceConfiguration(
     args: ModifyVpcEndpointServiceConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyVpcEndpointServiceConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyVpcEndpointServiceConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: ModifyVpcEndpointServiceConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVpcEndpointServiceConfigurationCommandOutput) => void
   ): Promise<ModifyVpcEndpointServiceConfigurationCommandOutput> | void {
     const command = new ModifyVpcEndpointServiceConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -16255,38 +14273,23 @@ export class EC2 extends EC2Client {
   ): Promise<ModifyVpcEndpointServicePermissionsCommandOutput>;
   public modifyVpcEndpointServicePermissions(
     args: ModifyVpcEndpointServicePermissionsCommandInput,
-    cb: (
-      err: any,
-      data?: ModifyVpcEndpointServicePermissionsCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyVpcEndpointServicePermissionsCommandOutput) => void
   ): void;
   public modifyVpcEndpointServicePermissions(
     args: ModifyVpcEndpointServicePermissionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifyVpcEndpointServicePermissionsCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyVpcEndpointServicePermissionsCommandOutput) => void
   ): void;
   public modifyVpcEndpointServicePermissions(
     args: ModifyVpcEndpointServicePermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyVpcEndpointServicePermissionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyVpcEndpointServicePermissionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVpcEndpointServicePermissionsCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVpcEndpointServicePermissionsCommandOutput) => void
   ): Promise<ModifyVpcEndpointServicePermissionsCommandOutput> | void {
     const command = new ModifyVpcEndpointServicePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -16323,38 +14326,23 @@ export class EC2 extends EC2Client {
   ): Promise<ModifyVpcPeeringConnectionOptionsCommandOutput>;
   public modifyVpcPeeringConnectionOptions(
     args: ModifyVpcPeeringConnectionOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: ModifyVpcPeeringConnectionOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyVpcPeeringConnectionOptionsCommandOutput) => void
   ): void;
   public modifyVpcPeeringConnectionOptions(
     args: ModifyVpcPeeringConnectionOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifyVpcPeeringConnectionOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyVpcPeeringConnectionOptionsCommandOutput) => void
   ): void;
   public modifyVpcPeeringConnectionOptions(
     args: ModifyVpcPeeringConnectionOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyVpcPeeringConnectionOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyVpcPeeringConnectionOptionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVpcPeeringConnectionOptionsCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVpcPeeringConnectionOptionsCommandOutput) => void
   ): Promise<ModifyVpcPeeringConnectionOptionsCommandOutput> | void {
     const command = new ModifyVpcPeeringConnectionOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -16386,17 +14374,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyVpcTenancy(
     args: ModifyVpcTenancyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyVpcTenancyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVpcTenancyCommandOutput) => void),
     cb?: (err: any, data?: ModifyVpcTenancyCommandOutput) => void
   ): Promise<ModifyVpcTenancyCommandOutput> | void {
     const command = new ModifyVpcTenancyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -16453,17 +14438,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyVpnConnection(
     args: ModifyVpnConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyVpnConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVpnConnectionCommandOutput) => void),
     cb?: (err: any, data?: ModifyVpnConnectionCommandOutput) => void
   ): Promise<ModifyVpnConnectionCommandOutput> | void {
     const command = new ModifyVpnConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -16488,17 +14470,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyVpnTunnelCertificate(
     args: ModifyVpnTunnelCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyVpnTunnelCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVpnTunnelCertificateCommandOutput) => void),
     cb?: (err: any, data?: ModifyVpnTunnelCertificateCommandOutput) => void
   ): Promise<ModifyVpnTunnelCertificateCommandOutput> | void {
     const command = new ModifyVpnTunnelCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -16526,17 +14505,14 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyVpnTunnelOptions(
     args: ModifyVpnTunnelOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyVpnTunnelOptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVpnTunnelOptionsCommandOutput) => void),
     cb?: (err: any, data?: ModifyVpnTunnelOptionsCommandOutput) => void
   ): Promise<ModifyVpnTunnelOptionsCommandOutput> | void {
     const command = new ModifyVpnTunnelOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -16565,17 +14541,14 @@ export class EC2 extends EC2Client {
   ): void;
   public monitorInstances(
     args: MonitorInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: MonitorInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MonitorInstancesCommandOutput) => void),
     cb?: (err: any, data?: MonitorInstancesCommandOutput) => void
   ): Promise<MonitorInstancesCommandOutput> | void {
     const command = new MonitorInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -16605,17 +14578,14 @@ export class EC2 extends EC2Client {
   ): void;
   public moveAddressToVpc(
     args: MoveAddressToVpcCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: MoveAddressToVpcCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MoveAddressToVpcCommandOutput) => void),
     cb?: (err: any, data?: MoveAddressToVpcCommandOutput) => void
   ): Promise<MoveAddressToVpcCommandOutput> | void {
     const command = new MoveAddressToVpcCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -16651,17 +14621,14 @@ export class EC2 extends EC2Client {
   ): void;
   public provisionByoipCidr(
     args: ProvisionByoipCidrCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ProvisionByoipCidrCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ProvisionByoipCidrCommandOutput) => void),
     cb?: (err: any, data?: ProvisionByoipCidrCommandOutput) => void
   ): Promise<ProvisionByoipCidrCommandOutput> | void {
     const command = new ProvisionByoipCidrCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -16689,17 +14656,14 @@ export class EC2 extends EC2Client {
   ): void;
   public purchaseHostReservation(
     args: PurchaseHostReservationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PurchaseHostReservationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PurchaseHostReservationCommandOutput) => void),
     cb?: (err: any, data?: PurchaseHostReservationCommandOutput) => void
   ): Promise<PurchaseHostReservationCommandOutput> | void {
     const command = new PurchaseHostReservationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -16724,38 +14688,23 @@ export class EC2 extends EC2Client {
   ): Promise<PurchaseReservedInstancesOfferingCommandOutput>;
   public purchaseReservedInstancesOffering(
     args: PurchaseReservedInstancesOfferingCommandInput,
-    cb: (
-      err: any,
-      data?: PurchaseReservedInstancesOfferingCommandOutput
-    ) => void
+    cb: (err: any, data?: PurchaseReservedInstancesOfferingCommandOutput) => void
   ): void;
   public purchaseReservedInstancesOffering(
     args: PurchaseReservedInstancesOfferingCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PurchaseReservedInstancesOfferingCommandOutput
-    ) => void
+    cb: (err: any, data?: PurchaseReservedInstancesOfferingCommandOutput) => void
   ): void;
   public purchaseReservedInstancesOffering(
     args: PurchaseReservedInstancesOfferingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PurchaseReservedInstancesOfferingCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PurchaseReservedInstancesOfferingCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PurchaseReservedInstancesOfferingCommandOutput) => void),
+    cb?: (err: any, data?: PurchaseReservedInstancesOfferingCommandOutput) => void
   ): Promise<PurchaseReservedInstancesOfferingCommandOutput> | void {
     const command = new PurchaseReservedInstancesOfferingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -16785,17 +14734,14 @@ export class EC2 extends EC2Client {
   ): void;
   public purchaseScheduledInstances(
     args: PurchaseScheduledInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PurchaseScheduledInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PurchaseScheduledInstancesCommandOutput) => void),
     cb?: (err: any, data?: PurchaseScheduledInstancesCommandOutput) => void
   ): Promise<PurchaseScheduledInstancesCommandOutput> | void {
     const command = new PurchaseScheduledInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -16828,17 +14774,14 @@ export class EC2 extends EC2Client {
   ): void;
   public rebootInstances(
     args: RebootInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RebootInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootInstancesCommandOutput) => void),
     cb?: (err: any, data?: RebootInstancesCommandOutput) => void
   ): Promise<RebootInstancesCommandOutput> | void {
     const command = new RebootInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -16892,17 +14835,14 @@ export class EC2 extends EC2Client {
   ): void;
   public registerImage(
     args: RegisterImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterImageCommandOutput) => void),
     cb?: (err: any, data?: RegisterImageCommandOutput) => void
   ): Promise<RegisterImageCommandOutput> | void {
     const command = new RegisterImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -16923,40 +14863,25 @@ export class EC2 extends EC2Client {
   ): Promise<RegisterTransitGatewayMulticastGroupMembersCommandOutput>;
   public registerTransitGatewayMulticastGroupMembers(
     args: RegisterTransitGatewayMulticastGroupMembersCommandInput,
-    cb: (
-      err: any,
-      data?: RegisterTransitGatewayMulticastGroupMembersCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterTransitGatewayMulticastGroupMembersCommandOutput) => void
   ): void;
   public registerTransitGatewayMulticastGroupMembers(
     args: RegisterTransitGatewayMulticastGroupMembersCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RegisterTransitGatewayMulticastGroupMembersCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterTransitGatewayMulticastGroupMembersCommandOutput) => void
   ): void;
   public registerTransitGatewayMulticastGroupMembers(
     args: RegisterTransitGatewayMulticastGroupMembersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RegisterTransitGatewayMulticastGroupMembersCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RegisterTransitGatewayMulticastGroupMembersCommandOutput
-    ) => void
+      | ((err: any, data?: RegisterTransitGatewayMulticastGroupMembersCommandOutput) => void),
+    cb?: (err: any, data?: RegisterTransitGatewayMulticastGroupMembersCommandOutput) => void
   ): Promise<RegisterTransitGatewayMulticastGroupMembersCommandOutput> | void {
-    const command = new RegisterTransitGatewayMulticastGroupMembersCommand(
-      args
-    );
+    const command = new RegisterTransitGatewayMulticastGroupMembersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -16977,40 +14902,25 @@ export class EC2 extends EC2Client {
   ): Promise<RegisterTransitGatewayMulticastGroupSourcesCommandOutput>;
   public registerTransitGatewayMulticastGroupSources(
     args: RegisterTransitGatewayMulticastGroupSourcesCommandInput,
-    cb: (
-      err: any,
-      data?: RegisterTransitGatewayMulticastGroupSourcesCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterTransitGatewayMulticastGroupSourcesCommandOutput) => void
   ): void;
   public registerTransitGatewayMulticastGroupSources(
     args: RegisterTransitGatewayMulticastGroupSourcesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RegisterTransitGatewayMulticastGroupSourcesCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterTransitGatewayMulticastGroupSourcesCommandOutput) => void
   ): void;
   public registerTransitGatewayMulticastGroupSources(
     args: RegisterTransitGatewayMulticastGroupSourcesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RegisterTransitGatewayMulticastGroupSourcesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RegisterTransitGatewayMulticastGroupSourcesCommandOutput
-    ) => void
+      | ((err: any, data?: RegisterTransitGatewayMulticastGroupSourcesCommandOutput) => void),
+    cb?: (err: any, data?: RegisterTransitGatewayMulticastGroupSourcesCommandOutput) => void
   ): Promise<RegisterTransitGatewayMulticastGroupSourcesCommandOutput> | void {
-    const command = new RegisterTransitGatewayMulticastGroupSourcesCommand(
-      args
-    );
+    const command = new RegisterTransitGatewayMulticastGroupSourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17026,38 +14936,25 @@ export class EC2 extends EC2Client {
   ): Promise<RejectTransitGatewayPeeringAttachmentCommandOutput>;
   public rejectTransitGatewayPeeringAttachment(
     args: RejectTransitGatewayPeeringAttachmentCommandInput,
-    cb: (
-      err: any,
-      data?: RejectTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: RejectTransitGatewayPeeringAttachmentCommandOutput) => void
   ): void;
   public rejectTransitGatewayPeeringAttachment(
     args: RejectTransitGatewayPeeringAttachmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RejectTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: RejectTransitGatewayPeeringAttachmentCommandOutput) => void
   ): void;
   public rejectTransitGatewayPeeringAttachment(
     args: RejectTransitGatewayPeeringAttachmentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RejectTransitGatewayPeeringAttachmentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RejectTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+      | ((err: any, data?: RejectTransitGatewayPeeringAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: RejectTransitGatewayPeeringAttachmentCommandOutput) => void
   ): Promise<RejectTransitGatewayPeeringAttachmentCommandOutput> | void {
     const command = new RejectTransitGatewayPeeringAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17076,38 +14973,23 @@ export class EC2 extends EC2Client {
   ): Promise<RejectTransitGatewayVpcAttachmentCommandOutput>;
   public rejectTransitGatewayVpcAttachment(
     args: RejectTransitGatewayVpcAttachmentCommandInput,
-    cb: (
-      err: any,
-      data?: RejectTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: RejectTransitGatewayVpcAttachmentCommandOutput) => void
   ): void;
   public rejectTransitGatewayVpcAttachment(
     args: RejectTransitGatewayVpcAttachmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RejectTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: RejectTransitGatewayVpcAttachmentCommandOutput) => void
   ): void;
   public rejectTransitGatewayVpcAttachment(
     args: RejectTransitGatewayVpcAttachmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RejectTransitGatewayVpcAttachmentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RejectTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RejectTransitGatewayVpcAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: RejectTransitGatewayVpcAttachmentCommandOutput) => void
   ): Promise<RejectTransitGatewayVpcAttachmentCommandOutput> | void {
     const command = new RejectTransitGatewayVpcAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17133,17 +15015,14 @@ export class EC2 extends EC2Client {
   ): void;
   public rejectVpcEndpointConnections(
     args: RejectVpcEndpointConnectionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RejectVpcEndpointConnectionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RejectVpcEndpointConnectionsCommandOutput) => void),
     cb?: (err: any, data?: RejectVpcEndpointConnectionsCommandOutput) => void
   ): Promise<RejectVpcEndpointConnectionsCommandOutput> | void {
     const command = new RejectVpcEndpointConnectionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17171,17 +15050,14 @@ export class EC2 extends EC2Client {
   ): void;
   public rejectVpcPeeringConnection(
     args: RejectVpcPeeringConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RejectVpcPeeringConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RejectVpcPeeringConnectionCommandOutput) => void),
     cb?: (err: any, data?: RejectVpcPeeringConnectionCommandOutput) => void
   ): Promise<RejectVpcPeeringConnectionCommandOutput> | void {
     const command = new RejectVpcPeeringConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17217,17 +15093,14 @@ export class EC2 extends EC2Client {
   ): void;
   public releaseAddress(
     args: ReleaseAddressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReleaseAddressCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReleaseAddressCommandOutput) => void),
     cb?: (err: any, data?: ReleaseAddressCommandOutput) => void
   ): Promise<ReleaseAddressCommandOutput> | void {
     const command = new ReleaseAddressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17249,10 +15122,7 @@ export class EC2 extends EC2Client {
     args: ReleaseHostsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ReleaseHostsCommandOutput>;
-  public releaseHosts(
-    args: ReleaseHostsCommandInput,
-    cb: (err: any, data?: ReleaseHostsCommandOutput) => void
-  ): void;
+  public releaseHosts(args: ReleaseHostsCommandInput, cb: (err: any, data?: ReleaseHostsCommandOutput) => void): void;
   public releaseHosts(
     args: ReleaseHostsCommandInput,
     options: __HttpHandlerOptions,
@@ -17260,17 +15130,14 @@ export class EC2 extends EC2Client {
   ): void;
   public releaseHosts(
     args: ReleaseHostsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReleaseHostsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReleaseHostsCommandOutput) => void),
     cb?: (err: any, data?: ReleaseHostsCommandOutput) => void
   ): Promise<ReleaseHostsCommandOutput> | void {
     const command = new ReleaseHostsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17290,38 +15157,23 @@ export class EC2 extends EC2Client {
   ): Promise<ReplaceIamInstanceProfileAssociationCommandOutput>;
   public replaceIamInstanceProfileAssociation(
     args: ReplaceIamInstanceProfileAssociationCommandInput,
-    cb: (
-      err: any,
-      data?: ReplaceIamInstanceProfileAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: ReplaceIamInstanceProfileAssociationCommandOutput) => void
   ): void;
   public replaceIamInstanceProfileAssociation(
     args: ReplaceIamInstanceProfileAssociationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ReplaceIamInstanceProfileAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: ReplaceIamInstanceProfileAssociationCommandOutput) => void
   ): void;
   public replaceIamInstanceProfileAssociation(
     args: ReplaceIamInstanceProfileAssociationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ReplaceIamInstanceProfileAssociationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ReplaceIamInstanceProfileAssociationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReplaceIamInstanceProfileAssociationCommandOutput) => void),
+    cb?: (err: any, data?: ReplaceIamInstanceProfileAssociationCommandOutput) => void
   ): Promise<ReplaceIamInstanceProfileAssociationCommandOutput> | void {
     const command = new ReplaceIamInstanceProfileAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17350,17 +15202,14 @@ export class EC2 extends EC2Client {
   ): void;
   public replaceNetworkAclAssociation(
     args: ReplaceNetworkAclAssociationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReplaceNetworkAclAssociationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReplaceNetworkAclAssociationCommandOutput) => void),
     cb?: (err: any, data?: ReplaceNetworkAclAssociationCommandOutput) => void
   ): Promise<ReplaceNetworkAclAssociationCommandOutput> | void {
     const command = new ReplaceNetworkAclAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17386,17 +15235,14 @@ export class EC2 extends EC2Client {
   ): void;
   public replaceNetworkAclEntry(
     args: ReplaceNetworkAclEntryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReplaceNetworkAclEntryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReplaceNetworkAclEntryCommandOutput) => void),
     cb?: (err: any, data?: ReplaceNetworkAclEntryCommandOutput) => void
   ): Promise<ReplaceNetworkAclEntryCommandOutput> | void {
     const command = new ReplaceNetworkAclEntryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17415,10 +15261,7 @@ export class EC2 extends EC2Client {
     args: ReplaceRouteCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ReplaceRouteCommandOutput>;
-  public replaceRoute(
-    args: ReplaceRouteCommandInput,
-    cb: (err: any, data?: ReplaceRouteCommandOutput) => void
-  ): void;
+  public replaceRoute(args: ReplaceRouteCommandInput, cb: (err: any, data?: ReplaceRouteCommandOutput) => void): void;
   public replaceRoute(
     args: ReplaceRouteCommandInput,
     options: __HttpHandlerOptions,
@@ -17426,17 +15269,14 @@ export class EC2 extends EC2Client {
   ): void;
   public replaceRoute(
     args: ReplaceRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReplaceRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReplaceRouteCommandOutput) => void),
     cb?: (err: any, data?: ReplaceRouteCommandOutput) => void
   ): Promise<ReplaceRouteCommandOutput> | void {
     const command = new ReplaceRouteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17465,17 +15305,14 @@ export class EC2 extends EC2Client {
   ): void;
   public replaceRouteTableAssociation(
     args: ReplaceRouteTableAssociationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReplaceRouteTableAssociationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReplaceRouteTableAssociationCommandOutput) => void),
     cb?: (err: any, data?: ReplaceRouteTableAssociationCommandOutput) => void
   ): Promise<ReplaceRouteTableAssociationCommandOutput> | void {
     const command = new ReplaceRouteTableAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17500,17 +15337,14 @@ export class EC2 extends EC2Client {
   ): void;
   public replaceTransitGatewayRoute(
     args: ReplaceTransitGatewayRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReplaceTransitGatewayRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReplaceTransitGatewayRouteCommandOutput) => void),
     cb?: (err: any, data?: ReplaceTransitGatewayRouteCommandOutput) => void
   ): Promise<ReplaceTransitGatewayRouteCommandOutput> | void {
     const command = new ReplaceTransitGatewayRouteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17539,17 +15373,14 @@ export class EC2 extends EC2Client {
   ): void;
   public reportInstanceStatus(
     args: ReportInstanceStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReportInstanceStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReportInstanceStatusCommandOutput) => void),
     cb?: (err: any, data?: ReportInstanceStatusCommandOutput) => void
   ): Promise<ReportInstanceStatusCommandOutput> | void {
     const command = new ReportInstanceStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17588,17 +15419,14 @@ export class EC2 extends EC2Client {
   ): void;
   public requestSpotFleet(
     args: RequestSpotFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RequestSpotFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RequestSpotFleetCommandOutput) => void),
     cb?: (err: any, data?: RequestSpotFleetCommandOutput) => void
   ): Promise<RequestSpotFleetCommandOutput> | void {
     const command = new RequestSpotFleetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17624,17 +15452,14 @@ export class EC2 extends EC2Client {
   ): void;
   public requestSpotInstances(
     args: RequestSpotInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RequestSpotInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RequestSpotInstancesCommandOutput) => void),
     cb?: (err: any, data?: RequestSpotInstancesCommandOutput) => void
   ): Promise<RequestSpotInstancesCommandOutput> | void {
     const command = new RequestSpotInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17664,17 +15489,14 @@ export class EC2 extends EC2Client {
   ): void;
   public resetEbsDefaultKmsKeyId(
     args: ResetEbsDefaultKmsKeyIdCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResetEbsDefaultKmsKeyIdCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetEbsDefaultKmsKeyIdCommandOutput) => void),
     cb?: (err: any, data?: ResetEbsDefaultKmsKeyIdCommandOutput) => void
   ): Promise<ResetEbsDefaultKmsKeyIdCommandOutput> | void {
     const command = new ResetEbsDefaultKmsKeyIdCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17700,17 +15522,14 @@ export class EC2 extends EC2Client {
   ): void;
   public resetFpgaImageAttribute(
     args: ResetFpgaImageAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResetFpgaImageAttributeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetFpgaImageAttributeCommandOutput) => void),
     cb?: (err: any, data?: ResetFpgaImageAttributeCommandOutput) => void
   ): Promise<ResetFpgaImageAttributeCommandOutput> | void {
     const command = new ResetFpgaImageAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17738,17 +15557,14 @@ export class EC2 extends EC2Client {
   ): void;
   public resetImageAttribute(
     args: ResetImageAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResetImageAttributeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetImageAttributeCommandOutput) => void),
     cb?: (err: any, data?: ResetImageAttributeCommandOutput) => void
   ): Promise<ResetImageAttributeCommandOutput> | void {
     const command = new ResetImageAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17781,17 +15597,14 @@ export class EC2 extends EC2Client {
   ): void;
   public resetInstanceAttribute(
     args: ResetInstanceAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResetInstanceAttributeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetInstanceAttributeCommandOutput) => void),
     cb?: (err: any, data?: ResetInstanceAttributeCommandOutput) => void
   ): Promise<ResetInstanceAttributeCommandOutput> | void {
     const command = new ResetInstanceAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17816,20 +15629,14 @@ export class EC2 extends EC2Client {
   ): void;
   public resetNetworkInterfaceAttribute(
     args: ResetNetworkInterfaceAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ResetNetworkInterfaceAttributeCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetNetworkInterfaceAttributeCommandOutput) => void),
     cb?: (err: any, data?: ResetNetworkInterfaceAttributeCommandOutput) => void
   ): Promise<ResetNetworkInterfaceAttributeCommandOutput> | void {
     const command = new ResetNetworkInterfaceAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17856,17 +15663,14 @@ export class EC2 extends EC2Client {
   ): void;
   public resetSnapshotAttribute(
     args: ResetSnapshotAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResetSnapshotAttributeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetSnapshotAttributeCommandOutput) => void),
     cb?: (err: any, data?: ResetSnapshotAttributeCommandOutput) => void
   ): Promise<ResetSnapshotAttributeCommandOutput> | void {
     const command = new ResetSnapshotAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17891,17 +15695,14 @@ export class EC2 extends EC2Client {
   ): void;
   public restoreAddressToClassic(
     args: RestoreAddressToClassicCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestoreAddressToClassicCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreAddressToClassicCommandOutput) => void),
     cb?: (err: any, data?: RestoreAddressToClassicCommandOutput) => void
   ): Promise<RestoreAddressToClassicCommandOutput> | void {
     const command = new RestoreAddressToClassicCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17926,17 +15727,14 @@ export class EC2 extends EC2Client {
   ): void;
   public revokeClientVpnIngress(
     args: RevokeClientVpnIngressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RevokeClientVpnIngressCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeClientVpnIngressCommandOutput) => void),
     cb?: (err: any, data?: RevokeClientVpnIngressCommandOutput) => void
   ): Promise<RevokeClientVpnIngressCommandOutput> | void {
     const command = new RevokeClientVpnIngressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -17969,17 +15767,14 @@ export class EC2 extends EC2Client {
   ): void;
   public revokeSecurityGroupEgress(
     args: RevokeSecurityGroupEgressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RevokeSecurityGroupEgressCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeSecurityGroupEgressCommandOutput) => void),
     cb?: (err: any, data?: RevokeSecurityGroupEgressCommandOutput) => void
   ): Promise<RevokeSecurityGroupEgressCommandOutput> | void {
     const command = new RevokeSecurityGroupEgressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -18012,17 +15807,14 @@ export class EC2 extends EC2Client {
   ): void;
   public revokeSecurityGroupIngress(
     args: RevokeSecurityGroupIngressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RevokeSecurityGroupIngressCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeSecurityGroupIngressCommandOutput) => void),
     cb?: (err: any, data?: RevokeSecurityGroupIngressCommandOutput) => void
   ): Promise<RevokeSecurityGroupIngressCommandOutput> | void {
     const command = new RevokeSecurityGroupIngressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -18094,10 +15886,7 @@ export class EC2 extends EC2Client {
     args: RunInstancesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RunInstancesCommandOutput>;
-  public runInstances(
-    args: RunInstancesCommandInput,
-    cb: (err: any, data?: RunInstancesCommandOutput) => void
-  ): void;
+  public runInstances(args: RunInstancesCommandInput, cb: (err: any, data?: RunInstancesCommandOutput) => void): void;
   public runInstances(
     args: RunInstancesCommandInput,
     options: __HttpHandlerOptions,
@@ -18105,17 +15894,14 @@ export class EC2 extends EC2Client {
   ): void;
   public runInstances(
     args: RunInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RunInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RunInstancesCommandOutput) => void),
     cb?: (err: any, data?: RunInstancesCommandOutput) => void
   ): Promise<RunInstancesCommandOutput> | void {
     const command = new RunInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -18145,17 +15931,14 @@ export class EC2 extends EC2Client {
   ): void;
   public runScheduledInstances(
     args: RunScheduledInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RunScheduledInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RunScheduledInstancesCommandOutput) => void),
     cb?: (err: any, data?: RunScheduledInstancesCommandOutput) => void
   ): Promise<RunScheduledInstancesCommandOutput> | void {
     const command = new RunScheduledInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -18180,17 +15963,14 @@ export class EC2 extends EC2Client {
   ): void;
   public searchLocalGatewayRoutes(
     args: SearchLocalGatewayRoutesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchLocalGatewayRoutesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchLocalGatewayRoutesCommandOutput) => void),
     cb?: (err: any, data?: SearchLocalGatewayRoutesCommandOutput) => void
   ): Promise<SearchLocalGatewayRoutesCommandOutput> | void {
     const command = new SearchLocalGatewayRoutesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -18206,38 +15986,23 @@ export class EC2 extends EC2Client {
   ): Promise<SearchTransitGatewayMulticastGroupsCommandOutput>;
   public searchTransitGatewayMulticastGroups(
     args: SearchTransitGatewayMulticastGroupsCommandInput,
-    cb: (
-      err: any,
-      data?: SearchTransitGatewayMulticastGroupsCommandOutput
-    ) => void
+    cb: (err: any, data?: SearchTransitGatewayMulticastGroupsCommandOutput) => void
   ): void;
   public searchTransitGatewayMulticastGroups(
     args: SearchTransitGatewayMulticastGroupsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: SearchTransitGatewayMulticastGroupsCommandOutput
-    ) => void
+    cb: (err: any, data?: SearchTransitGatewayMulticastGroupsCommandOutput) => void
   ): void;
   public searchTransitGatewayMulticastGroups(
     args: SearchTransitGatewayMulticastGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: SearchTransitGatewayMulticastGroupsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: SearchTransitGatewayMulticastGroupsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchTransitGatewayMulticastGroupsCommandOutput) => void),
+    cb?: (err: any, data?: SearchTransitGatewayMulticastGroupsCommandOutput) => void
   ): Promise<SearchTransitGatewayMulticastGroupsCommandOutput> | void {
     const command = new SearchTransitGatewayMulticastGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -18262,17 +16027,14 @@ export class EC2 extends EC2Client {
   ): void;
   public searchTransitGatewayRoutes(
     args: SearchTransitGatewayRoutesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchTransitGatewayRoutesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchTransitGatewayRoutesCommandOutput) => void),
     cb?: (err: any, data?: SearchTransitGatewayRoutesCommandOutput) => void
   ): Promise<SearchTransitGatewayRoutesCommandOutput> | void {
     const command = new SearchTransitGatewayRoutesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -18312,17 +16074,14 @@ export class EC2 extends EC2Client {
   ): void;
   public sendDiagnosticInterrupt(
     args: SendDiagnosticInterruptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendDiagnosticInterruptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendDiagnosticInterruptCommandOutput) => void),
     cb?: (err: any, data?: SendDiagnosticInterruptCommandOutput) => void
   ): Promise<SendDiagnosticInterruptCommandOutput> | void {
     const command = new SendDiagnosticInterruptCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -18363,17 +16122,14 @@ export class EC2 extends EC2Client {
   ): void;
   public startInstances(
     args: StartInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartInstancesCommandOutput) => void),
     cb?: (err: any, data?: StartInstancesCommandOutput) => void
   ): Promise<StartInstancesCommandOutput> | void {
     const command = new StartInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -18392,42 +16148,25 @@ export class EC2 extends EC2Client {
   ): Promise<StartVpcEndpointServicePrivateDnsVerificationCommandOutput>;
   public startVpcEndpointServicePrivateDnsVerification(
     args: StartVpcEndpointServicePrivateDnsVerificationCommandInput,
-    cb: (
-      err: any,
-      data?: StartVpcEndpointServicePrivateDnsVerificationCommandOutput
-    ) => void
+    cb: (err: any, data?: StartVpcEndpointServicePrivateDnsVerificationCommandOutput) => void
   ): void;
   public startVpcEndpointServicePrivateDnsVerification(
     args: StartVpcEndpointServicePrivateDnsVerificationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: StartVpcEndpointServicePrivateDnsVerificationCommandOutput
-    ) => void
+    cb: (err: any, data?: StartVpcEndpointServicePrivateDnsVerificationCommandOutput) => void
   ): void;
   public startVpcEndpointServicePrivateDnsVerification(
     args: StartVpcEndpointServicePrivateDnsVerificationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: StartVpcEndpointServicePrivateDnsVerificationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: StartVpcEndpointServicePrivateDnsVerificationCommandOutput
-    ) => void
-  ): Promise<
-    StartVpcEndpointServicePrivateDnsVerificationCommandOutput
-  > | void {
-    const command = new StartVpcEndpointServicePrivateDnsVerificationCommand(
-      args
-    );
+      | ((err: any, data?: StartVpcEndpointServicePrivateDnsVerificationCommandOutput) => void),
+    cb?: (err: any, data?: StartVpcEndpointServicePrivateDnsVerificationCommandOutput) => void
+  ): Promise<StartVpcEndpointServicePrivateDnsVerificationCommandOutput> | void {
+    const command = new StartVpcEndpointServicePrivateDnsVerificationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -18485,17 +16224,14 @@ export class EC2 extends EC2Client {
   ): void;
   public stopInstances(
     args: StopInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopInstancesCommandOutput) => void),
     cb?: (err: any, data?: StopInstancesCommandOutput) => void
   ): Promise<StopInstancesCommandOutput> | void {
     const command = new StopInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -18520,17 +16256,14 @@ export class EC2 extends EC2Client {
   ): void;
   public terminateClientVpnConnections(
     args: TerminateClientVpnConnectionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TerminateClientVpnConnectionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TerminateClientVpnConnectionsCommandOutput) => void),
     cb?: (err: any, data?: TerminateClientVpnConnectionsCommandOutput) => void
   ): Promise<TerminateClientVpnConnectionsCommandOutput> | void {
     const command = new TerminateClientVpnConnectionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -18572,17 +16305,14 @@ export class EC2 extends EC2Client {
   ): void;
   public terminateInstances(
     args: TerminateInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TerminateInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TerminateInstancesCommandOutput) => void),
     cb?: (err: any, data?: TerminateInstancesCommandOutput) => void
   ): Promise<TerminateInstancesCommandOutput> | void {
     const command = new TerminateInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -18607,17 +16337,14 @@ export class EC2 extends EC2Client {
   ): void;
   public unassignIpv6Addresses(
     args: UnassignIpv6AddressesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnassignIpv6AddressesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnassignIpv6AddressesCommandOutput) => void),
     cb?: (err: any, data?: UnassignIpv6AddressesCommandOutput) => void
   ): Promise<UnassignIpv6AddressesCommandOutput> | void {
     const command = new UnassignIpv6AddressesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -18642,17 +16369,14 @@ export class EC2 extends EC2Client {
   ): void;
   public unassignPrivateIpAddresses(
     args: UnassignPrivateIpAddressesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnassignPrivateIpAddressesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnassignPrivateIpAddressesCommandOutput) => void),
     cb?: (err: any, data?: UnassignPrivateIpAddressesCommandOutput) => void
   ): Promise<UnassignPrivateIpAddressesCommandOutput> | void {
     const command = new UnassignPrivateIpAddressesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -18679,17 +16403,14 @@ export class EC2 extends EC2Client {
   ): void;
   public unmonitorInstances(
     args: UnmonitorInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnmonitorInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnmonitorInstancesCommandOutput) => void),
     cb?: (err: any, data?: UnmonitorInstancesCommandOutput) => void
   ): Promise<UnmonitorInstancesCommandOutput> | void {
     const command = new UnmonitorInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -18710,38 +16431,25 @@ export class EC2 extends EC2Client {
   ): Promise<UpdateSecurityGroupRuleDescriptionsEgressCommandOutput>;
   public updateSecurityGroupRuleDescriptionsEgress(
     args: UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateSecurityGroupRuleDescriptionsEgressCommandOutput) => void
   ): void;
   public updateSecurityGroupRuleDescriptionsEgress(
     args: UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateSecurityGroupRuleDescriptionsEgressCommandOutput) => void
   ): void;
   public updateSecurityGroupRuleDescriptionsEgress(
     args: UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateSecurityGroupRuleDescriptionsEgressCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSecurityGroupRuleDescriptionsEgressCommandOutput) => void
   ): Promise<UpdateSecurityGroupRuleDescriptionsEgressCommandOutput> | void {
     const command = new UpdateSecurityGroupRuleDescriptionsEgressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -18762,38 +16470,25 @@ export class EC2 extends EC2Client {
   ): Promise<UpdateSecurityGroupRuleDescriptionsIngressCommandOutput>;
   public updateSecurityGroupRuleDescriptionsIngress(
     args: UpdateSecurityGroupRuleDescriptionsIngressCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateSecurityGroupRuleDescriptionsIngressCommandOutput) => void
   ): void;
   public updateSecurityGroupRuleDescriptionsIngress(
     args: UpdateSecurityGroupRuleDescriptionsIngressCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateSecurityGroupRuleDescriptionsIngressCommandOutput) => void
   ): void;
   public updateSecurityGroupRuleDescriptionsIngress(
     args: UpdateSecurityGroupRuleDescriptionsIngressCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateSecurityGroupRuleDescriptionsIngressCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSecurityGroupRuleDescriptionsIngressCommandOutput) => void
   ): Promise<UpdateSecurityGroupRuleDescriptionsIngressCommandOutput> | void {
     const command = new UpdateSecurityGroupRuleDescriptionsIngressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -18822,17 +16517,14 @@ export class EC2 extends EC2Client {
   ): void;
   public withdrawByoipCidr(
     args: WithdrawByoipCidrCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: WithdrawByoipCidrCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: WithdrawByoipCidrCommandOutput) => void),
     cb?: (err: any, data?: WithdrawByoipCidrCommandOutput) => void
   ): Promise<WithdrawByoipCidrCommandOutput> | void {
     const command = new WithdrawByoipCidrCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

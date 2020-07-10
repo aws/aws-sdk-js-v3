@@ -5,7 +5,7 @@ describe("bucketHostname", () => {
     const baseHostname = "s3.us-west-2.amazonaws.com";
     const { bucketEndpoint, hostname } = bucketHostname({
       bucketName: "foo",
-      baseHostname
+      baseHostname,
     });
 
     expect(bucketEndpoint).toBe(true);
@@ -17,7 +17,7 @@ describe("bucketHostname", () => {
     const { bucketEndpoint, hostname } = bucketHostname({
       bucketName: "foo",
       baseHostname,
-      pathStyleEndpoint: true
+      pathStyleEndpoint: true,
     });
 
     expect(bucketEndpoint).toBe(false);
@@ -30,7 +30,7 @@ describe("bucketHostname", () => {
       bucketName: "foo",
       baseHostname,
       pathStyleEndpoint: true,
-      accelerateEndpoint: true
+      accelerateEndpoint: true,
     });
 
     expect(bucketEndpoint).toBe(false);
@@ -41,7 +41,7 @@ describe("bucketHostname", () => {
     const baseHostname = "s3.us-west-2.amazonaws.com";
     const { bucketEndpoint, hostname } = bucketHostname({
       bucketName: "foo.bar",
-      baseHostname
+      baseHostname,
     });
 
     expect(bucketEndpoint).toBe(false);
@@ -53,7 +53,7 @@ describe("bucketHostname", () => {
     const { bucketEndpoint, hostname } = bucketHostname({
       bucketName: "foo.bar",
       baseHostname,
-      tlsCompatible: false
+      tlsCompatible: false,
     });
 
     expect(bucketEndpoint).toBe(true);
@@ -64,13 +64,13 @@ describe("bucketHostname", () => {
     ["s3.amazonaws.com", "s3.dualstack.us-east-1.amazonaws.com"],
     ["s3-external-1.amazonaws.com", "s3.dualstack.us-east-1.amazonaws.com"],
     ["s3.us-east-1.amazonaws.com", "s3.dualstack.us-east-1.amazonaws.com"],
-    ["s3-sa-east-1.amazonaws.com", "s3.dualstack.sa-east-1.amazonaws.com"]
+    ["s3-sa-east-1.amazonaws.com", "s3.dualstack.sa-east-1.amazonaws.com"],
   ]) {
     it(`should derive a virtual-hosted-style accelerate hostname of s3-accelerate.amazonaws.com for the base hostname of ${baseHostname}`, () => {
       const { bucketEndpoint, hostname } = bucketHostname({
         bucketName: "foo",
         baseHostname,
-        accelerateEndpoint: true
+        accelerateEndpoint: true,
       });
 
       expect(bucketEndpoint).toBe(true);
@@ -82,7 +82,7 @@ describe("bucketHostname", () => {
         bucketName: "foo",
         baseHostname,
         accelerateEndpoint: true,
-        dualstackEndpoint: true
+        dualstackEndpoint: true,
       });
 
       expect(bucketEndpoint).toBe(true);
@@ -93,7 +93,7 @@ describe("bucketHostname", () => {
       const { bucketEndpoint, hostname } = bucketHostname({
         bucketName: "foo",
         baseHostname,
-        dualstackEndpoint: true
+        dualstackEndpoint: true,
       });
 
       expect(bucketEndpoint).toBe(true);
@@ -105,7 +105,7 @@ describe("bucketHostname", () => {
         bucketName: "foo",
         baseHostname,
         dualstackEndpoint: true,
-        pathStyleEndpoint: true
+        pathStyleEndpoint: true,
       });
 
       expect(bucketEndpoint).toBe(false);
@@ -117,7 +117,7 @@ describe("bucketHostname", () => {
     // too short
     "fo",
     // too long
-    new Array(64).map(_ => "a").join(""),
+    new Array(64).map((_) => "a").join(""),
     // leading period
     ".myawsbucket",
     // trailing period
@@ -127,13 +127,13 @@ describe("bucketHostname", () => {
     // capital letters
     "MyAWSBucket",
     // IP address
-    "192.168.5.4"
+    "192.168.5.4",
   ]) {
     it(`should use a path-style endpoint for the non-DNS-compliant bucket name of ${nonDnsCompliantBucketName}`, () => {
       const baseHostname = "s3.us-west-2.amazonaws.com";
       const { bucketEndpoint, hostname } = bucketHostname({
         bucketName: nonDnsCompliantBucketName,
-        baseHostname
+        baseHostname,
       });
 
       expect(bucketEndpoint).toBe(false);
@@ -145,11 +145,11 @@ describe("bucketHostname", () => {
     expect(
       bucketHostname({
         bucketName: "foo",
-        baseHostname: "example.com"
+        baseHostname: "example.com",
       })
     ).toEqual({
       bucketEndpoint: false,
-      hostname: "example.com"
+      hostname: "example.com",
     });
   });
 });

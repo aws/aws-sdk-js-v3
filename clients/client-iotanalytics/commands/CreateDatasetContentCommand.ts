@@ -1,21 +1,11 @@
-import {
-  IoTAnalyticsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTAnalyticsClient";
-import {
-  CreateDatasetContentRequest,
-  CreateDatasetContentResponse
-} from "../models/index";
+import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
+import { CreateDatasetContentRequest, CreateDatasetContentResponse } from "../models/index";
 import {
   deserializeAws_restJson1CreateDatasetContentCommand,
-  serializeAws_restJson1CreateDatasetContentCommand
+  serializeAws_restJson1CreateDatasetContentCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateDatasetContentCommandInput = CreateDatasetContentRequest;
-export type CreateDatasetContentCommandOutput = CreateDatasetContentResponse &
-  __MetadataBearer;
+export type CreateDatasetContentCommandOutput = CreateDatasetContentResponse & __MetadataBearer;
 
 export class CreateDatasetContentCommand extends $Command<
   CreateDatasetContentCommandInput,
@@ -49,18 +38,13 @@ export class CreateDatasetContentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDatasetContentCommandInput,
-    CreateDatasetContentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDatasetContentCommandInput, CreateDatasetContentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class CreateDatasetContentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDatasetContentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateDatasetContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDatasetContentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateDatasetContentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetContentCommandOutput> {
     return deserializeAws_restJson1CreateDatasetContentCommand(output, context);
   }
 

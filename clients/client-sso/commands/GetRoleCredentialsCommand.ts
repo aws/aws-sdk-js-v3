@@ -1,21 +1,11 @@
-import {
-  SSOClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSOClient";
-import {
-  GetRoleCredentialsRequest,
-  GetRoleCredentialsResponse
-} from "../models/index";
+import { SSOClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSOClient";
+import { GetRoleCredentialsRequest, GetRoleCredentialsResponse } from "../models/index";
 import {
   deserializeAws_restJson1GetRoleCredentialsCommand,
-  serializeAws_restJson1GetRoleCredentialsCommand
+  serializeAws_restJson1GetRoleCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetRoleCredentialsCommandInput = GetRoleCredentialsRequest;
-export type GetRoleCredentialsCommandOutput = GetRoleCredentialsResponse &
-  __MetadataBearer;
+export type GetRoleCredentialsCommandOutput = GetRoleCredentialsResponse & __MetadataBearer;
 
 export class GetRoleCredentialsCommand extends $Command<
   GetRoleCredentialsCommandInput,
@@ -50,14 +39,12 @@ export class GetRoleCredentialsCommand extends $Command<
     configuration: SSOClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetRoleCredentialsCommandInput, GetRoleCredentialsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class GetRoleCredentialsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetRoleCredentialsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetRoleCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRoleCredentialsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetRoleCredentialsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRoleCredentialsCommandOutput> {
     return deserializeAws_restJson1GetRoleCredentialsCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  NeptuneClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../NeptuneClient";
-import {
-  DeleteEventSubscriptionMessage,
-  DeleteEventSubscriptionResult
-} from "../models/index";
+import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
+import { DeleteEventSubscriptionMessage, DeleteEventSubscriptionResult } from "../models/index";
 import {
   deserializeAws_queryDeleteEventSubscriptionCommand,
-  serializeAws_queryDeleteEventSubscriptionCommand
+  serializeAws_queryDeleteEventSubscriptionCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteEventSubscriptionCommandInput = DeleteEventSubscriptionMessage;
-export type DeleteEventSubscriptionCommandOutput = DeleteEventSubscriptionResult &
-  __MetadataBearer;
+export type DeleteEventSubscriptionCommandOutput = DeleteEventSubscriptionResult & __MetadataBearer;
 
 export class DeleteEventSubscriptionCommand extends $Command<
   DeleteEventSubscriptionCommandInput,
@@ -49,18 +38,13 @@ export class DeleteEventSubscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteEventSubscriptionCommandInput,
-    DeleteEventSubscriptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteEventSubscriptionCommandInput, DeleteEventSubscriptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DeleteEventSubscriptionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteEventSubscriptionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteEventSubscriptionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteEventSubscriptionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventSubscriptionCommandOutput> {
     return deserializeAws_queryDeleteEventSubscriptionCommand(output, context);
   }
 

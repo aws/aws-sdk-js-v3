@@ -5,7 +5,7 @@ import {
   InitializeHandlerOptions,
   InitializeHandlerOutput,
   MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "@aws-sdk/types";
 import { LocationConstraintResolvedConfig } from "./configuration";
 
@@ -26,17 +26,13 @@ export function locationConstraintMiddleware(
     const { CreateBucketConfiguration } = args.input;
     //After region config resolution, region is a Provider<string>
     const region = await options.region();
-    if (
-      !CreateBucketConfiguration ||
-      !CreateBucketConfiguration.LocationConstraint
-    ) {
+    if (!CreateBucketConfiguration || !CreateBucketConfiguration.LocationConstraint) {
       args = {
         ...args,
         input: {
           ...args.input,
-          CreateBucketConfiguration:
-            region === "us-east-1" ? undefined : { LocationConstraint: region }
-        }
+          CreateBucketConfiguration: region === "us-east-1" ? undefined : { LocationConstraint: region },
+        },
       };
     }
 
@@ -47,16 +43,11 @@ export function locationConstraintMiddleware(
 export const locationConstraintMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["LOCATION_CONSTRAINT", "CREATE_BUCKET_CONFIGURATION"],
-  name: "locationConstraintMiddleware"
+  name: "locationConstraintMiddleware",
 };
 
-export const getLocationConstraintPlugin = (
-  config: LocationConstraintResolvedConfig
-): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
-    clientStack.add(
-      locationConstraintMiddleware(config),
-      locationConstraintMiddlewareOptions
-    );
-  }
+export const getLocationConstraintPlugin = (config: LocationConstraintResolvedConfig): Pluggable<any, any> => ({
+  applyToStack: (clientStack) => {
+    clientStack.add(locationConstraintMiddleware(config), locationConstraintMiddlewareOptions);
+  },
 });

@@ -1,91 +1,70 @@
 import {
   AssociateResolverEndpointIpAddressCommandInput,
-  AssociateResolverEndpointIpAddressCommandOutput
+  AssociateResolverEndpointIpAddressCommandOutput,
 } from "./commands/AssociateResolverEndpointIpAddressCommand";
 import {
   AssociateResolverRuleCommandInput,
-  AssociateResolverRuleCommandOutput
+  AssociateResolverRuleCommandOutput,
 } from "./commands/AssociateResolverRuleCommand";
 import {
   CreateResolverEndpointCommandInput,
-  CreateResolverEndpointCommandOutput
+  CreateResolverEndpointCommandOutput,
 } from "./commands/CreateResolverEndpointCommand";
-import {
-  CreateResolverRuleCommandInput,
-  CreateResolverRuleCommandOutput
-} from "./commands/CreateResolverRuleCommand";
+import { CreateResolverRuleCommandInput, CreateResolverRuleCommandOutput } from "./commands/CreateResolverRuleCommand";
 import {
   DeleteResolverEndpointCommandInput,
-  DeleteResolverEndpointCommandOutput
+  DeleteResolverEndpointCommandOutput,
 } from "./commands/DeleteResolverEndpointCommand";
-import {
-  DeleteResolverRuleCommandInput,
-  DeleteResolverRuleCommandOutput
-} from "./commands/DeleteResolverRuleCommand";
+import { DeleteResolverRuleCommandInput, DeleteResolverRuleCommandOutput } from "./commands/DeleteResolverRuleCommand";
 import {
   DisassociateResolverEndpointIpAddressCommandInput,
-  DisassociateResolverEndpointIpAddressCommandOutput
+  DisassociateResolverEndpointIpAddressCommandOutput,
 } from "./commands/DisassociateResolverEndpointIpAddressCommand";
 import {
   DisassociateResolverRuleCommandInput,
-  DisassociateResolverRuleCommandOutput
+  DisassociateResolverRuleCommandOutput,
 } from "./commands/DisassociateResolverRuleCommand";
 import {
   GetResolverEndpointCommandInput,
-  GetResolverEndpointCommandOutput
+  GetResolverEndpointCommandOutput,
 } from "./commands/GetResolverEndpointCommand";
 import {
   GetResolverRuleAssociationCommandInput,
-  GetResolverRuleAssociationCommandOutput
+  GetResolverRuleAssociationCommandOutput,
 } from "./commands/GetResolverRuleAssociationCommand";
-import {
-  GetResolverRuleCommandInput,
-  GetResolverRuleCommandOutput
-} from "./commands/GetResolverRuleCommand";
+import { GetResolverRuleCommandInput, GetResolverRuleCommandOutput } from "./commands/GetResolverRuleCommand";
 import {
   GetResolverRulePolicyCommandInput,
-  GetResolverRulePolicyCommandOutput
+  GetResolverRulePolicyCommandOutput,
 } from "./commands/GetResolverRulePolicyCommand";
 import {
   ListResolverEndpointIpAddressesCommandInput,
-  ListResolverEndpointIpAddressesCommandOutput
+  ListResolverEndpointIpAddressesCommandOutput,
 } from "./commands/ListResolverEndpointIpAddressesCommand";
 import {
   ListResolverEndpointsCommandInput,
-  ListResolverEndpointsCommandOutput
+  ListResolverEndpointsCommandOutput,
 } from "./commands/ListResolverEndpointsCommand";
 import {
   ListResolverRuleAssociationsCommandInput,
-  ListResolverRuleAssociationsCommandOutput
+  ListResolverRuleAssociationsCommandOutput,
 } from "./commands/ListResolverRuleAssociationsCommand";
-import {
-  ListResolverRulesCommandInput,
-  ListResolverRulesCommandOutput
-} from "./commands/ListResolverRulesCommand";
+import { ListResolverRulesCommandInput, ListResolverRulesCommandOutput } from "./commands/ListResolverRulesCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   PutResolverRulePolicyCommandInput,
-  PutResolverRulePolicyCommandOutput
+  PutResolverRulePolicyCommandOutput,
 } from "./commands/PutResolverRulePolicyCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateResolverEndpointCommandInput,
-  UpdateResolverEndpointCommandOutput
+  UpdateResolverEndpointCommandOutput,
 } from "./commands/UpdateResolverEndpointCommand";
-import {
-  UpdateResolverRuleCommandInput,
-  UpdateResolverRuleCommandOutput
-} from "./commands/UpdateResolverRuleCommand";
+import { UpdateResolverRuleCommandInput, UpdateResolverRuleCommandOutput } from "./commands/UpdateResolverRuleCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -93,38 +72,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -135,7 +109,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -186,8 +160,7 @@ export type ServiceOutputTypes =
   | UpdateResolverEndpointCommandOutput
   | UpdateResolverRuleCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -276,9 +249,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type Route53ResolverClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type Route53ResolverClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -287,9 +258,7 @@ export type Route53ResolverClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type Route53ResolverClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type Route53ResolverClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -354,7 +323,7 @@ export class Route53ResolverClient extends __Client<
   constructor(configuration: Route53ResolverClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

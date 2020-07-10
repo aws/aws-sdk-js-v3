@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  GetSegmentExportJobsRequest,
-  GetSegmentExportJobsResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { GetSegmentExportJobsRequest, GetSegmentExportJobsResponse } from "../models/index";
 import {
   deserializeAws_restJson1GetSegmentExportJobsCommand,
-  serializeAws_restJson1GetSegmentExportJobsCommand
+  serializeAws_restJson1GetSegmentExportJobsCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetSegmentExportJobsCommandInput = GetSegmentExportJobsRequest;
-export type GetSegmentExportJobsCommandOutput = GetSegmentExportJobsResponse &
-  __MetadataBearer;
+export type GetSegmentExportJobsCommandOutput = GetSegmentExportJobsResponse & __MetadataBearer;
 
 export class GetSegmentExportJobsCommand extends $Command<
   GetSegmentExportJobsCommandInput,
@@ -49,18 +38,13 @@ export class GetSegmentExportJobsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetSegmentExportJobsCommandInput,
-    GetSegmentExportJobsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetSegmentExportJobsCommandInput, GetSegmentExportJobsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class GetSegmentExportJobsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetSegmentExportJobsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetSegmentExportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSegmentExportJobsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetSegmentExportJobsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSegmentExportJobsCommandOutput> {
     return deserializeAws_restJson1GetSegmentExportJobsCommand(output, context);
   }
 

@@ -6,7 +6,7 @@ import {
   InitializeHandlerOptions,
   InitializeHandlerOutput,
   MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 
@@ -14,9 +14,7 @@ interface SendMessageResult {
   MD5OfMessageBody?: string;
 }
 
-export function sendMessageMiddleware(
-  options: PreviouslyResolved
-): InitializeMiddleware<any, any> {
+export function sendMessageMiddleware(options: PreviouslyResolved): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
     next: InitializeHandler<any, Output>
   ): InitializeHandler<any, Output> => async (
@@ -30,7 +28,7 @@ export function sendMessageMiddleware(
       throw new Error("InvalidChecksumError");
     }
     return next({
-      ...args
+      ...args,
     });
   };
 }
@@ -38,16 +36,11 @@ export function sendMessageMiddleware(
 export const sendMessageMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["VALIDATE_BODY_MD5"],
-  name: "sendMessageMiddleware"
+  name: "sendMessageMiddleware",
 };
 
-export const getSendMessagePlugin = (
-  config: PreviouslyResolved
-): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
-    clientStack.add(
-      sendMessageMiddleware(config),
-      sendMessageMiddlewareOptions
-    );
-  }
+export const getSendMessagePlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
+  applyToStack: (clientStack) => {
+    clientStack.add(sendMessageMiddleware(config), sendMessageMiddlewareOptions);
+  },
 });

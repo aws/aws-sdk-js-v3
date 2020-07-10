@@ -1,18 +1,11 @@
-import {
-  NeptuneClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../NeptuneClient";
+import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import { DBClusterMessage, DescribeDBClustersMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeDBClustersCommand,
-  serializeAws_queryDescribeDBClustersCommand
+  serializeAws_queryDescribeDBClustersCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeDBClustersCommandInput = DescribeDBClustersMessage;
-export type DescribeDBClustersCommandOutput = DBClusterMessage &
-  __MetadataBearer;
+export type DescribeDBClustersCommandOutput = DBClusterMessage & __MetadataBearer;
 
 export class DescribeDBClustersCommand extends $Command<
   DescribeDBClustersCommandInput,
@@ -47,14 +39,12 @@ export class DescribeDBClustersCommand extends $Command<
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDBClustersCommandInput, DescribeDBClustersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class DescribeDBClustersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDBClustersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeDBClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBClustersCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeDBClustersCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBClustersCommandOutput> {
     return deserializeAws_queryDescribeDBClustersCommand(output, context);
   }
 

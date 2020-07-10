@@ -1,18 +1,11 @@
-import {
-  CodePipelineClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodePipelineClient";
+import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { PutThirdPartyJobSuccessResultInput } from "../models/index";
 import {
   deserializeAws_json1_1PutThirdPartyJobSuccessResultCommand,
-  serializeAws_json1_1PutThirdPartyJobSuccessResultCommand
+  serializeAws_json1_1PutThirdPartyJobSuccessResultCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type PutThirdPartyJobSuccessResultCommandInput = PutThirdPartyJobSuccessResultInput;
@@ -45,18 +38,13 @@ export class PutThirdPartyJobSuccessResultCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutThirdPartyJobSuccessResultCommandInput,
-    PutThirdPartyJobSuccessResultCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutThirdPartyJobSuccessResultCommandInput, PutThirdPartyJobSuccessResultCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,24 +54,15 @@ export class PutThirdPartyJobSuccessResultCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutThirdPartyJobSuccessResultCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutThirdPartyJobSuccessResultCommand(
-      input,
-      context
-    );
+  private serialize(input: PutThirdPartyJobSuccessResultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1PutThirdPartyJobSuccessResultCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutThirdPartyJobSuccessResultCommandOutput> {
-    return deserializeAws_json1_1PutThirdPartyJobSuccessResultCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutThirdPartyJobSuccessResultCommand(output, context);
   }
 
   // Start section: command_body_extra

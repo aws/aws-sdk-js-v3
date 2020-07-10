@@ -1,18 +1,11 @@
-import {
-  AthenaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AthenaClient";
+import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { GetWorkGroupInput, GetWorkGroupOutput } from "../models/index";
 import {
   deserializeAws_json1_1GetWorkGroupCommand,
-  serializeAws_json1_1GetWorkGroupCommand
+  serializeAws_json1_1GetWorkGroupCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetWorkGroupCommandInput = GetWorkGroupInput;
@@ -46,14 +39,12 @@ export class GetWorkGroupCommand extends $Command<
     configuration: AthenaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetWorkGroupCommandInput, GetWorkGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +54,11 @@ export class GetWorkGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetWorkGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetWorkGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetWorkGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetWorkGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkGroupCommandOutput> {
     return deserializeAws_json1_1GetWorkGroupCommand(output, context);
   }
 

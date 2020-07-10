@@ -1,19 +1,13 @@
 import { Hash as IHash, SourceData } from "@aws-sdk/types";
 import { Buffer } from "buffer";
-import {
-  fromArrayBuffer,
-  fromString,
-  StringEncoding
-} from "@aws-sdk/util-buffer-from";
+import { fromArrayBuffer, fromString, StringEncoding } from "@aws-sdk/util-buffer-from";
 import { createHash, createHmac, Hash as NodeHash, Hmac } from "crypto";
 
 export class Hash implements IHash {
   private readonly hash: NodeHash | Hmac;
 
   constructor(algorithmIdentifier: string, secret?: SourceData) {
-    this.hash = secret
-      ? createHmac(algorithmIdentifier, castSourceData(secret))
-      : createHash(algorithmIdentifier);
+    this.hash = secret ? createHmac(algorithmIdentifier, castSourceData(secret)) : createHash(algorithmIdentifier);
   }
 
   update(toHash: SourceData, encoding?: "utf8" | "ascii" | "latin1"): void {

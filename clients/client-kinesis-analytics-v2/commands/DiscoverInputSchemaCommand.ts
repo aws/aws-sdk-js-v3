@@ -1,21 +1,15 @@
 import {
   KinesisAnalyticsV2ClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import {
-  DiscoverInputSchemaRequest,
-  DiscoverInputSchemaResponse
-} from "../models/index";
+import { DiscoverInputSchemaRequest, DiscoverInputSchemaResponse } from "../models/index";
 import {
   deserializeAws_json1_1DiscoverInputSchemaCommand,
-  serializeAws_json1_1DiscoverInputSchemaCommand
+  serializeAws_json1_1DiscoverInputSchemaCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DiscoverInputSchemaCommandInput = DiscoverInputSchemaRequest;
-export type DiscoverInputSchemaCommandOutput = DiscoverInputSchemaResponse &
-  __MetadataBearer;
+export type DiscoverInputSchemaCommandOutput = DiscoverInputSchemaResponse & __MetadataBearer;
 
 export class DiscoverInputSchemaCommand extends $Command<
   DiscoverInputSchemaCommandInput,
@@ -49,18 +42,13 @@ export class DiscoverInputSchemaCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DiscoverInputSchemaCommandInput,
-    DiscoverInputSchemaCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DiscoverInputSchemaCommandInput, DiscoverInputSchemaCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +58,11 @@ export class DiscoverInputSchemaCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DiscoverInputSchemaCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DiscoverInputSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DiscoverInputSchemaCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DiscoverInputSchemaCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DiscoverInputSchemaCommandOutput> {
     return deserializeAws_json1_1DiscoverInputSchemaCommand(output, context);
   }
 

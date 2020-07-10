@@ -1,21 +1,11 @@
-import {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53DomainsClient";
-import {
-  UpdateTagsForDomainRequest,
-  UpdateTagsForDomainResponse
-} from "../models/index";
+import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
+import { UpdateTagsForDomainRequest, UpdateTagsForDomainResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateTagsForDomainCommand,
-  serializeAws_json1_1UpdateTagsForDomainCommand
+  serializeAws_json1_1UpdateTagsForDomainCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateTagsForDomainCommandInput = UpdateTagsForDomainRequest;
-export type UpdateTagsForDomainCommandOutput = UpdateTagsForDomainResponse &
-  __MetadataBearer;
+export type UpdateTagsForDomainCommandOutput = UpdateTagsForDomainResponse & __MetadataBearer;
 
 export class UpdateTagsForDomainCommand extends $Command<
   UpdateTagsForDomainCommandInput,
@@ -49,18 +38,13 @@ export class UpdateTagsForDomainCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateTagsForDomainCommandInput,
-    UpdateTagsForDomainCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateTagsForDomainCommandInput, UpdateTagsForDomainCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class UpdateTagsForDomainCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateTagsForDomainCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateTagsForDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateTagsForDomainCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateTagsForDomainCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTagsForDomainCommandOutput> {
     return deserializeAws_json1_1UpdateTagsForDomainCommand(output, context);
   }
 

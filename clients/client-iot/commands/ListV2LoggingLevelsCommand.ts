@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListV2LoggingLevelsRequest,
-  ListV2LoggingLevelsResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListV2LoggingLevelsRequest, ListV2LoggingLevelsResponse } from "../models/index";
 import {
   deserializeAws_restJson1ListV2LoggingLevelsCommand,
-  serializeAws_restJson1ListV2LoggingLevelsCommand
+  serializeAws_restJson1ListV2LoggingLevelsCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListV2LoggingLevelsCommandInput = ListV2LoggingLevelsRequest;
-export type ListV2LoggingLevelsCommandOutput = ListV2LoggingLevelsResponse &
-  __MetadataBearer;
+export type ListV2LoggingLevelsCommandOutput = ListV2LoggingLevelsResponse & __MetadataBearer;
 
 export class ListV2LoggingLevelsCommand extends $Command<
   ListV2LoggingLevelsCommandInput,
@@ -49,18 +38,13 @@ export class ListV2LoggingLevelsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListV2LoggingLevelsCommandInput,
-    ListV2LoggingLevelsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListV2LoggingLevelsCommandInput, ListV2LoggingLevelsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class ListV2LoggingLevelsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListV2LoggingLevelsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListV2LoggingLevelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListV2LoggingLevelsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListV2LoggingLevelsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListV2LoggingLevelsCommandOutput> {
     return deserializeAws_restJson1ListV2LoggingLevelsCommand(output, context);
   }
 

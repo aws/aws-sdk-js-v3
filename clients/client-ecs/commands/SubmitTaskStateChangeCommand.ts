@@ -1,21 +1,11 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
-import {
-  SubmitTaskStateChangeRequest,
-  SubmitTaskStateChangeResponse
-} from "../models/index";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { SubmitTaskStateChangeRequest, SubmitTaskStateChangeResponse } from "../models/index";
 import {
   deserializeAws_json1_1SubmitTaskStateChangeCommand,
-  serializeAws_json1_1SubmitTaskStateChangeCommand
+  serializeAws_json1_1SubmitTaskStateChangeCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type SubmitTaskStateChangeCommandInput = SubmitTaskStateChangeRequest;
-export type SubmitTaskStateChangeCommandOutput = SubmitTaskStateChangeResponse &
-  __MetadataBearer;
+export type SubmitTaskStateChangeCommandOutput = SubmitTaskStateChangeResponse & __MetadataBearer;
 
 export class SubmitTaskStateChangeCommand extends $Command<
   SubmitTaskStateChangeCommandInput,
@@ -49,18 +38,13 @@ export class SubmitTaskStateChangeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SubmitTaskStateChangeCommandInput,
-    SubmitTaskStateChangeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SubmitTaskStateChangeCommandInput, SubmitTaskStateChangeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class SubmitTaskStateChangeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SubmitTaskStateChangeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SubmitTaskStateChangeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SubmitTaskStateChangeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SubmitTaskStateChangeCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubmitTaskStateChangeCommandOutput> {
     return deserializeAws_json1_1SubmitTaskStateChangeCommand(output, context);
   }
 

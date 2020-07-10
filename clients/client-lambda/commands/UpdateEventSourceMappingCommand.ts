@@ -1,21 +1,11 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  EventSourceMappingConfiguration,
-  UpdateEventSourceMappingRequest
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { EventSourceMappingConfiguration, UpdateEventSourceMappingRequest } from "../models/index";
 import {
   deserializeAws_restJson1UpdateEventSourceMappingCommand,
-  serializeAws_restJson1UpdateEventSourceMappingCommand
+  serializeAws_restJson1UpdateEventSourceMappingCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateEventSourceMappingCommandInput = UpdateEventSourceMappingRequest;
-export type UpdateEventSourceMappingCommandOutput = EventSourceMappingConfiguration &
-  __MetadataBearer;
+export type UpdateEventSourceMappingCommandOutput = EventSourceMappingConfiguration & __MetadataBearer;
 
 export class UpdateEventSourceMappingCommand extends $Command<
   UpdateEventSourceMappingCommandInput,
@@ -49,18 +38,13 @@ export class UpdateEventSourceMappingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateEventSourceMappingCommandInput,
-    UpdateEventSourceMappingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateEventSourceMappingCommandInput, UpdateEventSourceMappingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,12 @@ export class UpdateEventSourceMappingCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateEventSourceMappingCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEventSourceMappingCommand(
-      input,
-      context
-    );
+  private serialize(input: UpdateEventSourceMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1UpdateEventSourceMappingCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateEventSourceMappingCommandOutput> {
-    return deserializeAws_restJson1UpdateEventSourceMappingCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEventSourceMappingCommandOutput> {
+    return deserializeAws_restJson1UpdateEventSourceMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

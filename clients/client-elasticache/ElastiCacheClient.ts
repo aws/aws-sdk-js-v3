@@ -1,195 +1,156 @@
-import {
-  AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput
-} from "./commands/AddTagsToResourceCommand";
+import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand";
 import {
   AuthorizeCacheSecurityGroupIngressCommandInput,
-  AuthorizeCacheSecurityGroupIngressCommandOutput
+  AuthorizeCacheSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeCacheSecurityGroupIngressCommand";
 import {
   BatchApplyUpdateActionCommandInput,
-  BatchApplyUpdateActionCommandOutput
+  BatchApplyUpdateActionCommandOutput,
 } from "./commands/BatchApplyUpdateActionCommand";
 import {
   BatchStopUpdateActionCommandInput,
-  BatchStopUpdateActionCommandOutput
+  BatchStopUpdateActionCommandOutput,
 } from "./commands/BatchStopUpdateActionCommand";
-import {
-  CompleteMigrationCommandInput,
-  CompleteMigrationCommandOutput
-} from "./commands/CompleteMigrationCommand";
-import {
-  CopySnapshotCommandInput,
-  CopySnapshotCommandOutput
-} from "./commands/CopySnapshotCommand";
-import {
-  CreateCacheClusterCommandInput,
-  CreateCacheClusterCommandOutput
-} from "./commands/CreateCacheClusterCommand";
+import { CompleteMigrationCommandInput, CompleteMigrationCommandOutput } from "./commands/CompleteMigrationCommand";
+import { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "./commands/CopySnapshotCommand";
+import { CreateCacheClusterCommandInput, CreateCacheClusterCommandOutput } from "./commands/CreateCacheClusterCommand";
 import {
   CreateCacheParameterGroupCommandInput,
-  CreateCacheParameterGroupCommandOutput
+  CreateCacheParameterGroupCommandOutput,
 } from "./commands/CreateCacheParameterGroupCommand";
 import {
   CreateCacheSecurityGroupCommandInput,
-  CreateCacheSecurityGroupCommandOutput
+  CreateCacheSecurityGroupCommandOutput,
 } from "./commands/CreateCacheSecurityGroupCommand";
 import {
   CreateCacheSubnetGroupCommandInput,
-  CreateCacheSubnetGroupCommandOutput
+  CreateCacheSubnetGroupCommandOutput,
 } from "./commands/CreateCacheSubnetGroupCommand";
 import {
   CreateReplicationGroupCommandInput,
-  CreateReplicationGroupCommandOutput
+  CreateReplicationGroupCommandOutput,
 } from "./commands/CreateReplicationGroupCommand";
-import {
-  CreateSnapshotCommandInput,
-  CreateSnapshotCommandOutput
-} from "./commands/CreateSnapshotCommand";
+import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
 import {
   DecreaseReplicaCountCommandInput,
-  DecreaseReplicaCountCommandOutput
+  DecreaseReplicaCountCommandOutput,
 } from "./commands/DecreaseReplicaCountCommand";
-import {
-  DeleteCacheClusterCommandInput,
-  DeleteCacheClusterCommandOutput
-} from "./commands/DeleteCacheClusterCommand";
+import { DeleteCacheClusterCommandInput, DeleteCacheClusterCommandOutput } from "./commands/DeleteCacheClusterCommand";
 import {
   DeleteCacheParameterGroupCommandInput,
-  DeleteCacheParameterGroupCommandOutput
+  DeleteCacheParameterGroupCommandOutput,
 } from "./commands/DeleteCacheParameterGroupCommand";
 import {
   DeleteCacheSecurityGroupCommandInput,
-  DeleteCacheSecurityGroupCommandOutput
+  DeleteCacheSecurityGroupCommandOutput,
 } from "./commands/DeleteCacheSecurityGroupCommand";
 import {
   DeleteCacheSubnetGroupCommandInput,
-  DeleteCacheSubnetGroupCommandOutput
+  DeleteCacheSubnetGroupCommandOutput,
 } from "./commands/DeleteCacheSubnetGroupCommand";
 import {
   DeleteReplicationGroupCommandInput,
-  DeleteReplicationGroupCommandOutput
+  DeleteReplicationGroupCommandOutput,
 } from "./commands/DeleteReplicationGroupCommand";
-import {
-  DeleteSnapshotCommandInput,
-  DeleteSnapshotCommandOutput
-} from "./commands/DeleteSnapshotCommand";
+import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand";
 import {
   DescribeCacheClustersCommandInput,
-  DescribeCacheClustersCommandOutput
+  DescribeCacheClustersCommandOutput,
 } from "./commands/DescribeCacheClustersCommand";
 import {
   DescribeCacheEngineVersionsCommandInput,
-  DescribeCacheEngineVersionsCommandOutput
+  DescribeCacheEngineVersionsCommandOutput,
 } from "./commands/DescribeCacheEngineVersionsCommand";
 import {
   DescribeCacheParameterGroupsCommandInput,
-  DescribeCacheParameterGroupsCommandOutput
+  DescribeCacheParameterGroupsCommandOutput,
 } from "./commands/DescribeCacheParameterGroupsCommand";
 import {
   DescribeCacheParametersCommandInput,
-  DescribeCacheParametersCommandOutput
+  DescribeCacheParametersCommandOutput,
 } from "./commands/DescribeCacheParametersCommand";
 import {
   DescribeCacheSecurityGroupsCommandInput,
-  DescribeCacheSecurityGroupsCommandOutput
+  DescribeCacheSecurityGroupsCommandOutput,
 } from "./commands/DescribeCacheSecurityGroupsCommand";
 import {
   DescribeCacheSubnetGroupsCommandInput,
-  DescribeCacheSubnetGroupsCommandOutput
+  DescribeCacheSubnetGroupsCommandOutput,
 } from "./commands/DescribeCacheSubnetGroupsCommand";
 import {
   DescribeEngineDefaultParametersCommandInput,
-  DescribeEngineDefaultParametersCommandOutput
+  DescribeEngineDefaultParametersCommandOutput,
 } from "./commands/DescribeEngineDefaultParametersCommand";
-import {
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput
-} from "./commands/DescribeEventsCommand";
+import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
 import {
   DescribeReplicationGroupsCommandInput,
-  DescribeReplicationGroupsCommandOutput
+  DescribeReplicationGroupsCommandOutput,
 } from "./commands/DescribeReplicationGroupsCommand";
 import {
   DescribeReservedCacheNodesCommandInput,
-  DescribeReservedCacheNodesCommandOutput
+  DescribeReservedCacheNodesCommandOutput,
 } from "./commands/DescribeReservedCacheNodesCommand";
 import {
   DescribeReservedCacheNodesOfferingsCommandInput,
-  DescribeReservedCacheNodesOfferingsCommandOutput
+  DescribeReservedCacheNodesOfferingsCommandOutput,
 } from "./commands/DescribeReservedCacheNodesOfferingsCommand";
 import {
   DescribeServiceUpdatesCommandInput,
-  DescribeServiceUpdatesCommandOutput
+  DescribeServiceUpdatesCommandOutput,
 } from "./commands/DescribeServiceUpdatesCommand";
-import {
-  DescribeSnapshotsCommandInput,
-  DescribeSnapshotsCommandOutput
-} from "./commands/DescribeSnapshotsCommand";
+import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "./commands/DescribeSnapshotsCommand";
 import {
   DescribeUpdateActionsCommandInput,
-  DescribeUpdateActionsCommandOutput
+  DescribeUpdateActionsCommandOutput,
 } from "./commands/DescribeUpdateActionsCommand";
 import {
   IncreaseReplicaCountCommandInput,
-  IncreaseReplicaCountCommandOutput
+  IncreaseReplicaCountCommandOutput,
 } from "./commands/IncreaseReplicaCountCommand";
 import {
   ListAllowedNodeTypeModificationsCommandInput,
-  ListAllowedNodeTypeModificationsCommandOutput
+  ListAllowedNodeTypeModificationsCommandOutput,
 } from "./commands/ListAllowedNodeTypeModificationsCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ModifyCacheClusterCommandInput,
-  ModifyCacheClusterCommandOutput
-} from "./commands/ModifyCacheClusterCommand";
+import { ModifyCacheClusterCommandInput, ModifyCacheClusterCommandOutput } from "./commands/ModifyCacheClusterCommand";
 import {
   ModifyCacheParameterGroupCommandInput,
-  ModifyCacheParameterGroupCommandOutput
+  ModifyCacheParameterGroupCommandOutput,
 } from "./commands/ModifyCacheParameterGroupCommand";
 import {
   ModifyCacheSubnetGroupCommandInput,
-  ModifyCacheSubnetGroupCommandOutput
+  ModifyCacheSubnetGroupCommandOutput,
 } from "./commands/ModifyCacheSubnetGroupCommand";
 import {
   ModifyReplicationGroupCommandInput,
-  ModifyReplicationGroupCommandOutput
+  ModifyReplicationGroupCommandOutput,
 } from "./commands/ModifyReplicationGroupCommand";
 import {
   ModifyReplicationGroupShardConfigurationCommandInput,
-  ModifyReplicationGroupShardConfigurationCommandOutput
+  ModifyReplicationGroupShardConfigurationCommandOutput,
 } from "./commands/ModifyReplicationGroupShardConfigurationCommand";
 import {
   PurchaseReservedCacheNodesOfferingCommandInput,
-  PurchaseReservedCacheNodesOfferingCommandOutput
+  PurchaseReservedCacheNodesOfferingCommandOutput,
 } from "./commands/PurchaseReservedCacheNodesOfferingCommand";
-import {
-  RebootCacheClusterCommandInput,
-  RebootCacheClusterCommandOutput
-} from "./commands/RebootCacheClusterCommand";
+import { RebootCacheClusterCommandInput, RebootCacheClusterCommandOutput } from "./commands/RebootCacheClusterCommand";
 import {
   RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput
+  RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand";
 import {
   ResetCacheParameterGroupCommandInput,
-  ResetCacheParameterGroupCommandOutput
+  ResetCacheParameterGroupCommandOutput,
 } from "./commands/ResetCacheParameterGroupCommand";
 import {
   RevokeCacheSecurityGroupIngressCommandInput,
-  RevokeCacheSecurityGroupIngressCommandOutput
+  RevokeCacheSecurityGroupIngressCommandOutput,
 } from "./commands/RevokeCacheSecurityGroupIngressCommand";
-import {
-  StartMigrationCommandInput,
-  StartMigrationCommandOutput
-} from "./commands/StartMigrationCommand";
-import {
-  TestFailoverCommandInput,
-  TestFailoverCommandOutput
-} from "./commands/TestFailoverCommand";
+import { StartMigrationCommandInput, StartMigrationCommandOutput } from "./commands/StartMigrationCommand";
+import { TestFailoverCommandInput, TestFailoverCommandOutput } from "./commands/TestFailoverCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -197,38 +158,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -239,7 +195,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -342,8 +298,7 @@ export type ServiceOutputTypes =
   | StartMigrationCommandOutput
   | TestFailoverCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -432,9 +387,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ElastiCacheClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ElastiCacheClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -443,9 +396,7 @@ export type ElastiCacheClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ElastiCacheClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ElastiCacheClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -477,7 +428,7 @@ export class ElastiCacheClient extends __Client<
   constructor(configuration: ElastiCacheClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

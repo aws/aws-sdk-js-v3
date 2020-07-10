@@ -20,15 +20,10 @@ describe("fileStreamHasher", () => {
   );
 
   it("calculates the SHA256 hash of a stream", async () => {
-    const result = await fileStreamHasher(
-      Sha256,
-      createReadStream(temporaryFile)
-    );
+    const result = await fileStreamHasher(Sha256, createReadStream(temporaryFile));
 
     expect(result instanceof Uint8Array).toBe(true);
-    expect(toHex(result)).toBe(
-      "24dabf4db3774a3224d571d4c089a9c570c3045dbe1e67ee9ee2e2677f57dbe0"
-    );
+    expect(toHex(result)).toBe("24dabf4db3774a3224d571d4c089a9c570c3045dbe1e67ee9ee2e2677f57dbe0");
   });
 
   it("does not exhaust the input stream", async () => {
@@ -40,9 +35,7 @@ describe("fileStreamHasher", () => {
     const result = await fileStreamHasher(Sha256, inputStream);
 
     expect(result instanceof Uint8Array).toBe(true);
-    expect(toHex(result)).toBe(
-      "24dabf4db3774a3224d571d4c089a9c570c3045dbe1e67ee9ee2e2677f57dbe0"
-    );
+    expect(toHex(result)).toBe("24dabf4db3774a3224d571d4c089a9c570c3045dbe1e67ee9ee2e2677f57dbe0");
     expect(onSpy.mock.calls.length).toBe(0);
     expect(pipeSpy.mock.calls.length).toBe(0);
   });
@@ -50,8 +43,6 @@ describe("fileStreamHasher", () => {
   it("throws an error when a non-file stream is encountered", async () => {
     const inputStream = new Readable();
 
-    await expect(
-      fileStreamHasher(Sha256, inputStream as any)
-    ).rejects.toHaveProperty("message");
+    await expect(fileStreamHasher(Sha256, inputStream as any)).rejects.toHaveProperty("message");
   });
 });

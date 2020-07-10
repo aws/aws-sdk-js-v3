@@ -1,18 +1,11 @@
-import {
-  ComprehendClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ComprehendClient";
+import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { DetectSyntaxRequest, DetectSyntaxResponse } from "../models/index";
 import {
   deserializeAws_json1_1DetectSyntaxCommand,
-  serializeAws_json1_1DetectSyntaxCommand
+  serializeAws_json1_1DetectSyntaxCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DetectSyntaxCommandInput = DetectSyntaxRequest;
@@ -46,14 +39,12 @@ export class DetectSyntaxCommand extends $Command<
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetectSyntaxCommandInput, DetectSyntaxCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +54,11 @@ export class DetectSyntaxCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DetectSyntaxCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DetectSyntaxCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectSyntaxCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DetectSyntaxCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectSyntaxCommandOutput> {
     return deserializeAws_json1_1DetectSyntaxCommand(output, context);
   }
 

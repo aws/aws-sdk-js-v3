@@ -1,18 +1,8 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { StartTaskRequest, StartTaskResponse } from "../models/index";
-import {
-  deserializeAws_json1_1StartTaskCommand,
-  serializeAws_json1_1StartTaskCommand
-} from "../protocols/Aws_json1_1";
+import { deserializeAws_json1_1StartTaskCommand, serializeAws_json1_1StartTaskCommand } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,17 +11,13 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type StartTaskCommandInput = StartTaskRequest;
 export type StartTaskCommandOutput = StartTaskResponse & __MetadataBearer;
 
-export class StartTaskCommand extends $Command<
-  StartTaskCommandInput,
-  StartTaskCommandOutput,
-  ECSClientResolvedConfig
-> {
+export class StartTaskCommand extends $Command<StartTaskCommandInput, StartTaskCommandOutput, ECSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,14 +32,12 @@ export class StartTaskCommand extends $Command<
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartTaskCommandInput, StartTaskCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +47,11 @@ export class StartTaskCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartTaskCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartTaskCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartTaskCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTaskCommandOutput> {
     return deserializeAws_json1_1StartTaskCommand(output, context);
   }
 

@@ -1,18 +1,11 @@
-import {
-  QuickSightClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QuickSightClient";
+import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DescribeGroupRequest, DescribeGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1DescribeGroupCommand,
-  serializeAws_restJson1DescribeGroupCommand
+  serializeAws_restJson1DescribeGroupCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeGroupCommandInput = DescribeGroupRequest;
-export type DescribeGroupCommandOutput = DescribeGroupResponse &
-  __MetadataBearer;
+export type DescribeGroupCommandOutput = DescribeGroupResponse & __MetadataBearer;
 
 export class DescribeGroupCommand extends $Command<
   DescribeGroupCommandInput,
@@ -47,14 +39,12 @@ export class DescribeGroupCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeGroupCommandInput, DescribeGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class DescribeGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGroupCommandOutput> {
     return deserializeAws_restJson1DescribeGroupCommand(output, context);
   }
 

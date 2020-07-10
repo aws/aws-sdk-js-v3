@@ -1,175 +1,85 @@
 import {
   BatchUpdateScheduleCommandInput,
-  BatchUpdateScheduleCommandOutput
+  BatchUpdateScheduleCommandOutput,
 } from "./commands/BatchUpdateScheduleCommand";
-import {
-  CreateChannelCommandInput,
-  CreateChannelCommandOutput
-} from "./commands/CreateChannelCommand";
-import {
-  CreateInputCommandInput,
-  CreateInputCommandOutput
-} from "./commands/CreateInputCommand";
+import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
+import { CreateInputCommandInput, CreateInputCommandOutput } from "./commands/CreateInputCommand";
 import {
   CreateInputSecurityGroupCommandInput,
-  CreateInputSecurityGroupCommandOutput
+  CreateInputSecurityGroupCommandOutput,
 } from "./commands/CreateInputSecurityGroupCommand";
-import {
-  CreateMultiplexCommandInput,
-  CreateMultiplexCommandOutput
-} from "./commands/CreateMultiplexCommand";
+import { CreateMultiplexCommandInput, CreateMultiplexCommandOutput } from "./commands/CreateMultiplexCommand";
 import {
   CreateMultiplexProgramCommandInput,
-  CreateMultiplexProgramCommandOutput
+  CreateMultiplexProgramCommandOutput,
 } from "./commands/CreateMultiplexProgramCommand";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "./commands/CreateTagsCommand";
-import {
-  DeleteChannelCommandInput,
-  DeleteChannelCommandOutput
-} from "./commands/DeleteChannelCommand";
-import {
-  DeleteInputCommandInput,
-  DeleteInputCommandOutput
-} from "./commands/DeleteInputCommand";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
+import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
+import { DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand";
 import {
   DeleteInputSecurityGroupCommandInput,
-  DeleteInputSecurityGroupCommandOutput
+  DeleteInputSecurityGroupCommandOutput,
 } from "./commands/DeleteInputSecurityGroupCommand";
-import {
-  DeleteMultiplexCommandInput,
-  DeleteMultiplexCommandOutput
-} from "./commands/DeleteMultiplexCommand";
+import { DeleteMultiplexCommandInput, DeleteMultiplexCommandOutput } from "./commands/DeleteMultiplexCommand";
 import {
   DeleteMultiplexProgramCommandInput,
-  DeleteMultiplexProgramCommandOutput
+  DeleteMultiplexProgramCommandOutput,
 } from "./commands/DeleteMultiplexProgramCommand";
-import {
-  DeleteReservationCommandInput,
-  DeleteReservationCommandOutput
-} from "./commands/DeleteReservationCommand";
-import {
-  DeleteScheduleCommandInput,
-  DeleteScheduleCommandOutput
-} from "./commands/DeleteScheduleCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
-import {
-  DescribeChannelCommandInput,
-  DescribeChannelCommandOutput
-} from "./commands/DescribeChannelCommand";
-import {
-  DescribeInputCommandInput,
-  DescribeInputCommandOutput
-} from "./commands/DescribeInputCommand";
+import { DeleteReservationCommandInput, DeleteReservationCommandOutput } from "./commands/DeleteReservationCommand";
+import { DeleteScheduleCommandInput, DeleteScheduleCommandOutput } from "./commands/DeleteScheduleCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
+import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand";
+import { DescribeInputCommandInput, DescribeInputCommandOutput } from "./commands/DescribeInputCommand";
 import {
   DescribeInputSecurityGroupCommandInput,
-  DescribeInputSecurityGroupCommandOutput
+  DescribeInputSecurityGroupCommandOutput,
 } from "./commands/DescribeInputSecurityGroupCommand";
-import {
-  DescribeMultiplexCommandInput,
-  DescribeMultiplexCommandOutput
-} from "./commands/DescribeMultiplexCommand";
+import { DescribeMultiplexCommandInput, DescribeMultiplexCommandOutput } from "./commands/DescribeMultiplexCommand";
 import {
   DescribeMultiplexProgramCommandInput,
-  DescribeMultiplexProgramCommandOutput
+  DescribeMultiplexProgramCommandOutput,
 } from "./commands/DescribeMultiplexProgramCommand";
-import {
-  DescribeOfferingCommandInput,
-  DescribeOfferingCommandOutput
-} from "./commands/DescribeOfferingCommand";
+import { DescribeOfferingCommandInput, DescribeOfferingCommandOutput } from "./commands/DescribeOfferingCommand";
 import {
   DescribeReservationCommandInput,
-  DescribeReservationCommandOutput
+  DescribeReservationCommandOutput,
 } from "./commands/DescribeReservationCommand";
-import {
-  DescribeScheduleCommandInput,
-  DescribeScheduleCommandOutput
-} from "./commands/DescribeScheduleCommand";
-import {
-  ListChannelsCommandInput,
-  ListChannelsCommandOutput
-} from "./commands/ListChannelsCommand";
+import { DescribeScheduleCommandInput, DescribeScheduleCommandOutput } from "./commands/DescribeScheduleCommand";
+import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
 import {
   ListInputSecurityGroupsCommandInput,
-  ListInputSecurityGroupsCommandOutput
+  ListInputSecurityGroupsCommandOutput,
 } from "./commands/ListInputSecurityGroupsCommand";
-import {
-  ListInputsCommandInput,
-  ListInputsCommandOutput
-} from "./commands/ListInputsCommand";
+import { ListInputsCommandInput, ListInputsCommandOutput } from "./commands/ListInputsCommand";
 import {
   ListMultiplexProgramsCommandInput,
-  ListMultiplexProgramsCommandOutput
+  ListMultiplexProgramsCommandOutput,
 } from "./commands/ListMultiplexProgramsCommand";
-import {
-  ListMultiplexesCommandInput,
-  ListMultiplexesCommandOutput
-} from "./commands/ListMultiplexesCommand";
-import {
-  ListOfferingsCommandInput,
-  ListOfferingsCommandOutput
-} from "./commands/ListOfferingsCommand";
-import {
-  ListReservationsCommandInput,
-  ListReservationsCommandOutput
-} from "./commands/ListReservationsCommand";
+import { ListMultiplexesCommandInput, ListMultiplexesCommandOutput } from "./commands/ListMultiplexesCommand";
+import { ListOfferingsCommandInput, ListOfferingsCommandOutput } from "./commands/ListOfferingsCommand";
+import { ListReservationsCommandInput, ListReservationsCommandOutput } from "./commands/ListReservationsCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  PurchaseOfferingCommandInput,
-  PurchaseOfferingCommandOutput
-} from "./commands/PurchaseOfferingCommand";
-import {
-  StartChannelCommandInput,
-  StartChannelCommandOutput
-} from "./commands/StartChannelCommand";
-import {
-  StartMultiplexCommandInput,
-  StartMultiplexCommandOutput
-} from "./commands/StartMultiplexCommand";
-import {
-  StopChannelCommandInput,
-  StopChannelCommandOutput
-} from "./commands/StopChannelCommand";
-import {
-  StopMultiplexCommandInput,
-  StopMultiplexCommandOutput
-} from "./commands/StopMultiplexCommand";
-import {
-  UpdateChannelClassCommandInput,
-  UpdateChannelClassCommandOutput
-} from "./commands/UpdateChannelClassCommand";
-import {
-  UpdateChannelCommandInput,
-  UpdateChannelCommandOutput
-} from "./commands/UpdateChannelCommand";
-import {
-  UpdateInputCommandInput,
-  UpdateInputCommandOutput
-} from "./commands/UpdateInputCommand";
+import { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "./commands/PurchaseOfferingCommand";
+import { StartChannelCommandInput, StartChannelCommandOutput } from "./commands/StartChannelCommand";
+import { StartMultiplexCommandInput, StartMultiplexCommandOutput } from "./commands/StartMultiplexCommand";
+import { StopChannelCommandInput, StopChannelCommandOutput } from "./commands/StopChannelCommand";
+import { StopMultiplexCommandInput, StopMultiplexCommandOutput } from "./commands/StopMultiplexCommand";
+import { UpdateChannelClassCommandInput, UpdateChannelClassCommandOutput } from "./commands/UpdateChannelClassCommand";
+import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
+import { UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand";
 import {
   UpdateInputSecurityGroupCommandInput,
-  UpdateInputSecurityGroupCommandOutput
+  UpdateInputSecurityGroupCommandOutput,
 } from "./commands/UpdateInputSecurityGroupCommand";
-import {
-  UpdateMultiplexCommandInput,
-  UpdateMultiplexCommandOutput
-} from "./commands/UpdateMultiplexCommand";
+import { UpdateMultiplexCommandInput, UpdateMultiplexCommandOutput } from "./commands/UpdateMultiplexCommand";
 import {
   UpdateMultiplexProgramCommandInput,
-  UpdateMultiplexProgramCommandOutput
+  UpdateMultiplexProgramCommandOutput,
 } from "./commands/UpdateMultiplexProgramCommand";
-import {
-  UpdateReservationCommandInput,
-  UpdateReservationCommandOutput
-} from "./commands/UpdateReservationCommand";
+import { UpdateReservationCommandInput, UpdateReservationCommandOutput } from "./commands/UpdateReservationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -177,38 +87,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -219,7 +124,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -312,8 +217,7 @@ export type ServiceOutputTypes =
   | UpdateMultiplexProgramCommandOutput
   | UpdateReservationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -402,9 +306,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MediaLiveClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MediaLiveClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -413,9 +315,7 @@ export type MediaLiveClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type MediaLiveClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type MediaLiveClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -438,7 +338,7 @@ export class MediaLiveClient extends __Client<
   constructor(configuration: MediaLiveClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

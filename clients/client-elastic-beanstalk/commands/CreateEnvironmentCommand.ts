@@ -1,21 +1,11 @@
-import {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElasticBeanstalkClient";
-import {
-  CreateEnvironmentMessage,
-  EnvironmentDescription
-} from "../models/index";
+import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
+import { CreateEnvironmentMessage, EnvironmentDescription } from "../models/index";
 import {
   deserializeAws_queryCreateEnvironmentCommand,
-  serializeAws_queryCreateEnvironmentCommand
+  serializeAws_queryCreateEnvironmentCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateEnvironmentCommandInput = CreateEnvironmentMessage;
-export type CreateEnvironmentCommandOutput = EnvironmentDescription &
-  __MetadataBearer;
+export type CreateEnvironmentCommandOutput = EnvironmentDescription & __MetadataBearer;
 
 export class CreateEnvironmentCommand extends $Command<
   CreateEnvironmentCommandInput,
@@ -50,14 +39,12 @@ export class CreateEnvironmentCommand extends $Command<
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class CreateEnvironmentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateEnvironmentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateEnvironmentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateEnvironmentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEnvironmentCommandOutput> {
     return deserializeAws_queryCreateEnvironmentCommand(output, context);
   }
 

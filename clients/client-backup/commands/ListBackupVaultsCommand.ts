@@ -1,18 +1,11 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { ListBackupVaultsInput, ListBackupVaultsOutput } from "../models/index";
 import {
   deserializeAws_restJson1ListBackupVaultsCommand,
-  serializeAws_restJson1ListBackupVaultsCommand
+  serializeAws_restJson1ListBackupVaultsCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListBackupVaultsCommandInput = ListBackupVaultsInput;
-export type ListBackupVaultsCommandOutput = ListBackupVaultsOutput &
-  __MetadataBearer;
+export type ListBackupVaultsCommandOutput = ListBackupVaultsOutput & __MetadataBearer;
 
 export class ListBackupVaultsCommand extends $Command<
   ListBackupVaultsCommandInput,
@@ -47,14 +39,12 @@ export class ListBackupVaultsCommand extends $Command<
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListBackupVaultsCommandInput, ListBackupVaultsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class ListBackupVaultsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListBackupVaultsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListBackupVaultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListBackupVaultsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListBackupVaultsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBackupVaultsCommandOutput> {
     return deserializeAws_restJson1ListBackupVaultsCommand(output, context);
   }
 

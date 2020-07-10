@@ -1,21 +1,11 @@
-import {
-  MediaPackageClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaPackageClient";
-import {
-  DeleteOriginEndpointRequest,
-  DeleteOriginEndpointResponse
-} from "../models/index";
+import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
+import { DeleteOriginEndpointRequest, DeleteOriginEndpointResponse } from "../models/index";
 import {
   deserializeAws_restJson1DeleteOriginEndpointCommand,
-  serializeAws_restJson1DeleteOriginEndpointCommand
+  serializeAws_restJson1DeleteOriginEndpointCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteOriginEndpointCommandInput = DeleteOriginEndpointRequest;
-export type DeleteOriginEndpointCommandOutput = DeleteOriginEndpointResponse &
-  __MetadataBearer;
+export type DeleteOriginEndpointCommandOutput = DeleteOriginEndpointResponse & __MetadataBearer;
 
 export class DeleteOriginEndpointCommand extends $Command<
   DeleteOriginEndpointCommandInput,
@@ -49,18 +38,13 @@ export class DeleteOriginEndpointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteOriginEndpointCommandInput,
-    DeleteOriginEndpointCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteOriginEndpointCommandInput, DeleteOriginEndpointCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DeleteOriginEndpointCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteOriginEndpointCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteOriginEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteOriginEndpointCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteOriginEndpointCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOriginEndpointCommandOutput> {
     return deserializeAws_restJson1DeleteOriginEndpointCommand(output, context);
   }
 

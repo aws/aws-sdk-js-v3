@@ -1,55 +1,40 @@
-import {
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput
-} from "./commands/CreateApplicationCommand";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
 import {
   CreateApplicationVersionCommandInput,
-  CreateApplicationVersionCommandOutput
+  CreateApplicationVersionCommandOutput,
 } from "./commands/CreateApplicationVersionCommand";
 import {
   CreateCloudFormationChangeSetCommandInput,
-  CreateCloudFormationChangeSetCommandOutput
+  CreateCloudFormationChangeSetCommandOutput,
 } from "./commands/CreateCloudFormationChangeSetCommand";
 import {
   CreateCloudFormationTemplateCommandInput,
-  CreateCloudFormationTemplateCommandOutput
+  CreateCloudFormationTemplateCommandOutput,
 } from "./commands/CreateCloudFormationTemplateCommand";
-import {
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput
-} from "./commands/DeleteApplicationCommand";
-import {
-  GetApplicationCommandInput,
-  GetApplicationCommandOutput
-} from "./commands/GetApplicationCommand";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
+import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
 import {
   GetApplicationPolicyCommandInput,
-  GetApplicationPolicyCommandOutput
+  GetApplicationPolicyCommandOutput,
 } from "./commands/GetApplicationPolicyCommand";
 import {
   GetCloudFormationTemplateCommandInput,
-  GetCloudFormationTemplateCommandOutput
+  GetCloudFormationTemplateCommandOutput,
 } from "./commands/GetCloudFormationTemplateCommand";
 import {
   ListApplicationDependenciesCommandInput,
-  ListApplicationDependenciesCommandOutput
+  ListApplicationDependenciesCommandOutput,
 } from "./commands/ListApplicationDependenciesCommand";
 import {
   ListApplicationVersionsCommandInput,
-  ListApplicationVersionsCommandOutput
+  ListApplicationVersionsCommandOutput,
 } from "./commands/ListApplicationVersionsCommand";
-import {
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput
-} from "./commands/ListApplicationsCommand";
+import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import {
   PutApplicationPolicyCommandInput,
-  PutApplicationPolicyCommandOutput
+  PutApplicationPolicyCommandOutput,
 } from "./commands/PutApplicationPolicyCommand";
-import {
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput
-} from "./commands/UpdateApplicationCommand";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -57,38 +42,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -99,7 +79,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -132,8 +112,7 @@ export type ServiceOutputTypes =
   | PutApplicationPolicyCommandOutput
   | UpdateApplicationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -222,9 +201,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ServerlessApplicationRepositoryClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ServerlessApplicationRepositoryClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -233,9 +210,7 @@ export type ServerlessApplicationRepositoryClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ServerlessApplicationRepositoryClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ServerlessApplicationRepositoryClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -277,7 +252,7 @@ export class ServerlessApplicationRepositoryClient extends __Client<
   constructor(configuration: ServerlessApplicationRepositoryClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

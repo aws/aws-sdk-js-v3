@@ -1,18 +1,11 @@
-import {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFormationClient";
+import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { ListChangeSetsInput, ListChangeSetsOutput } from "../models/index";
 import {
   deserializeAws_queryListChangeSetsCommand,
-  serializeAws_queryListChangeSetsCommand
+  serializeAws_queryListChangeSetsCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListChangeSetsCommandInput = ListChangeSetsInput;
-export type ListChangeSetsCommandOutput = ListChangeSetsOutput &
-  __MetadataBearer;
+export type ListChangeSetsCommandOutput = ListChangeSetsOutput & __MetadataBearer;
 
 export class ListChangeSetsCommand extends $Command<
   ListChangeSetsCommandInput,
@@ -47,14 +39,12 @@ export class ListChangeSetsCommand extends $Command<
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListChangeSetsCommandInput, ListChangeSetsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class ListChangeSetsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListChangeSetsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListChangeSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListChangeSetsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListChangeSetsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChangeSetsCommandOutput> {
     return deserializeAws_queryListChangeSetsCommand(output, context);
   }
 

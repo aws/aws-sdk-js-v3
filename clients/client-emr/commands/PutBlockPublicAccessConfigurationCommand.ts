@@ -1,21 +1,11 @@
-import {
-  EMRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EMRClient";
-import {
-  PutBlockPublicAccessConfigurationInput,
-  PutBlockPublicAccessConfigurationOutput
-} from "../models/index";
+import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
+import { PutBlockPublicAccessConfigurationInput, PutBlockPublicAccessConfigurationOutput } from "../models/index";
 import {
   deserializeAws_json1_1PutBlockPublicAccessConfigurationCommand,
-  serializeAws_json1_1PutBlockPublicAccessConfigurationCommand
+  serializeAws_json1_1PutBlockPublicAccessConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type PutBlockPublicAccessConfigurationCommandInput = PutBlockPublicAccessConfigurationInput;
-export type PutBlockPublicAccessConfigurationCommandOutput = PutBlockPublicAccessConfigurationOutput &
-  __MetadataBearer;
+export type PutBlockPublicAccessConfigurationCommandOutput = PutBlockPublicAccessConfigurationOutput & __MetadataBearer;
 
 export class PutBlockPublicAccessConfigurationCommand extends $Command<
   PutBlockPublicAccessConfigurationCommandInput,
@@ -49,18 +38,13 @@ export class PutBlockPublicAccessConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutBlockPublicAccessConfigurationCommandInput,
-    PutBlockPublicAccessConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutBlockPublicAccessConfigurationCommandInput, PutBlockPublicAccessConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +58,14 @@ export class PutBlockPublicAccessConfigurationCommand extends $Command<
     input: PutBlockPublicAccessConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutBlockPublicAccessConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1PutBlockPublicAccessConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBlockPublicAccessConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutBlockPublicAccessConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutBlockPublicAccessConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

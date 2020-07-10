@@ -2,617 +2,513 @@ import { GlueClient } from "./GlueClient";
 import {
   BatchCreatePartitionCommand,
   BatchCreatePartitionCommandInput,
-  BatchCreatePartitionCommandOutput
+  BatchCreatePartitionCommandOutput,
 } from "./commands/BatchCreatePartitionCommand";
 import {
   BatchDeleteConnectionCommand,
   BatchDeleteConnectionCommandInput,
-  BatchDeleteConnectionCommandOutput
+  BatchDeleteConnectionCommandOutput,
 } from "./commands/BatchDeleteConnectionCommand";
 import {
   BatchDeletePartitionCommand,
   BatchDeletePartitionCommandInput,
-  BatchDeletePartitionCommandOutput
+  BatchDeletePartitionCommandOutput,
 } from "./commands/BatchDeletePartitionCommand";
 import {
   BatchDeleteTableCommand,
   BatchDeleteTableCommandInput,
-  BatchDeleteTableCommandOutput
+  BatchDeleteTableCommandOutput,
 } from "./commands/BatchDeleteTableCommand";
 import {
   BatchDeleteTableVersionCommand,
   BatchDeleteTableVersionCommandInput,
-  BatchDeleteTableVersionCommandOutput
+  BatchDeleteTableVersionCommandOutput,
 } from "./commands/BatchDeleteTableVersionCommand";
 import {
   BatchGetCrawlersCommand,
   BatchGetCrawlersCommandInput,
-  BatchGetCrawlersCommandOutput
+  BatchGetCrawlersCommandOutput,
 } from "./commands/BatchGetCrawlersCommand";
 import {
   BatchGetDevEndpointsCommand,
   BatchGetDevEndpointsCommandInput,
-  BatchGetDevEndpointsCommandOutput
+  BatchGetDevEndpointsCommandOutput,
 } from "./commands/BatchGetDevEndpointsCommand";
 import {
   BatchGetJobsCommand,
   BatchGetJobsCommandInput,
-  BatchGetJobsCommandOutput
+  BatchGetJobsCommandOutput,
 } from "./commands/BatchGetJobsCommand";
 import {
   BatchGetPartitionCommand,
   BatchGetPartitionCommandInput,
-  BatchGetPartitionCommandOutput
+  BatchGetPartitionCommandOutput,
 } from "./commands/BatchGetPartitionCommand";
 import {
   BatchGetTriggersCommand,
   BatchGetTriggersCommandInput,
-  BatchGetTriggersCommandOutput
+  BatchGetTriggersCommandOutput,
 } from "./commands/BatchGetTriggersCommand";
 import {
   BatchGetWorkflowsCommand,
   BatchGetWorkflowsCommandInput,
-  BatchGetWorkflowsCommandOutput
+  BatchGetWorkflowsCommandOutput,
 } from "./commands/BatchGetWorkflowsCommand";
 import {
   BatchStopJobRunCommand,
   BatchStopJobRunCommandInput,
-  BatchStopJobRunCommandOutput
+  BatchStopJobRunCommandOutput,
 } from "./commands/BatchStopJobRunCommand";
 import {
   CancelMLTaskRunCommand,
   CancelMLTaskRunCommandInput,
-  CancelMLTaskRunCommandOutput
+  CancelMLTaskRunCommandOutput,
 } from "./commands/CancelMLTaskRunCommand";
 import {
   CreateClassifierCommand,
   CreateClassifierCommandInput,
-  CreateClassifierCommandOutput
+  CreateClassifierCommandOutput,
 } from "./commands/CreateClassifierCommand";
 import {
   CreateConnectionCommand,
   CreateConnectionCommandInput,
-  CreateConnectionCommandOutput
+  CreateConnectionCommandOutput,
 } from "./commands/CreateConnectionCommand";
 import {
   CreateCrawlerCommand,
   CreateCrawlerCommandInput,
-  CreateCrawlerCommandOutput
+  CreateCrawlerCommandOutput,
 } from "./commands/CreateCrawlerCommand";
 import {
   CreateDatabaseCommand,
   CreateDatabaseCommandInput,
-  CreateDatabaseCommandOutput
+  CreateDatabaseCommandOutput,
 } from "./commands/CreateDatabaseCommand";
 import {
   CreateDevEndpointCommand,
   CreateDevEndpointCommandInput,
-  CreateDevEndpointCommandOutput
+  CreateDevEndpointCommandOutput,
 } from "./commands/CreateDevEndpointCommand";
-import {
-  CreateJobCommand,
-  CreateJobCommandInput,
-  CreateJobCommandOutput
-} from "./commands/CreateJobCommand";
+import { CreateJobCommand, CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import {
   CreateMLTransformCommand,
   CreateMLTransformCommandInput,
-  CreateMLTransformCommandOutput
+  CreateMLTransformCommandOutput,
 } from "./commands/CreateMLTransformCommand";
 import {
   CreatePartitionCommand,
   CreatePartitionCommandInput,
-  CreatePartitionCommandOutput
+  CreatePartitionCommandOutput,
 } from "./commands/CreatePartitionCommand";
 import {
   CreateScriptCommand,
   CreateScriptCommandInput,
-  CreateScriptCommandOutput
+  CreateScriptCommandOutput,
 } from "./commands/CreateScriptCommand";
 import {
   CreateSecurityConfigurationCommand,
   CreateSecurityConfigurationCommandInput,
-  CreateSecurityConfigurationCommandOutput
+  CreateSecurityConfigurationCommandOutput,
 } from "./commands/CreateSecurityConfigurationCommand";
-import {
-  CreateTableCommand,
-  CreateTableCommandInput,
-  CreateTableCommandOutput
-} from "./commands/CreateTableCommand";
+import { CreateTableCommand, CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
 import {
   CreateTriggerCommand,
   CreateTriggerCommandInput,
-  CreateTriggerCommandOutput
+  CreateTriggerCommandOutput,
 } from "./commands/CreateTriggerCommand";
 import {
   CreateUserDefinedFunctionCommand,
   CreateUserDefinedFunctionCommandInput,
-  CreateUserDefinedFunctionCommandOutput
+  CreateUserDefinedFunctionCommandOutput,
 } from "./commands/CreateUserDefinedFunctionCommand";
 import {
   CreateWorkflowCommand,
   CreateWorkflowCommandInput,
-  CreateWorkflowCommandOutput
+  CreateWorkflowCommandOutput,
 } from "./commands/CreateWorkflowCommand";
 import {
   DeleteClassifierCommand,
   DeleteClassifierCommandInput,
-  DeleteClassifierCommandOutput
+  DeleteClassifierCommandOutput,
 } from "./commands/DeleteClassifierCommand";
 import {
   DeleteConnectionCommand,
   DeleteConnectionCommandInput,
-  DeleteConnectionCommandOutput
+  DeleteConnectionCommandOutput,
 } from "./commands/DeleteConnectionCommand";
 import {
   DeleteCrawlerCommand,
   DeleteCrawlerCommandInput,
-  DeleteCrawlerCommandOutput
+  DeleteCrawlerCommandOutput,
 } from "./commands/DeleteCrawlerCommand";
 import {
   DeleteDatabaseCommand,
   DeleteDatabaseCommandInput,
-  DeleteDatabaseCommandOutput
+  DeleteDatabaseCommandOutput,
 } from "./commands/DeleteDatabaseCommand";
 import {
   DeleteDevEndpointCommand,
   DeleteDevEndpointCommandInput,
-  DeleteDevEndpointCommandOutput
+  DeleteDevEndpointCommandOutput,
 } from "./commands/DeleteDevEndpointCommand";
-import {
-  DeleteJobCommand,
-  DeleteJobCommandInput,
-  DeleteJobCommandOutput
-} from "./commands/DeleteJobCommand";
+import { DeleteJobCommand, DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import {
   DeleteMLTransformCommand,
   DeleteMLTransformCommandInput,
-  DeleteMLTransformCommandOutput
+  DeleteMLTransformCommandOutput,
 } from "./commands/DeleteMLTransformCommand";
 import {
   DeletePartitionCommand,
   DeletePartitionCommandInput,
-  DeletePartitionCommandOutput
+  DeletePartitionCommandOutput,
 } from "./commands/DeletePartitionCommand";
 import {
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput
+  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
   DeleteSecurityConfigurationCommand,
   DeleteSecurityConfigurationCommandInput,
-  DeleteSecurityConfigurationCommandOutput
+  DeleteSecurityConfigurationCommandOutput,
 } from "./commands/DeleteSecurityConfigurationCommand";
-import {
-  DeleteTableCommand,
-  DeleteTableCommandInput,
-  DeleteTableCommandOutput
-} from "./commands/DeleteTableCommand";
+import { DeleteTableCommand, DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
 import {
   DeleteTableVersionCommand,
   DeleteTableVersionCommandInput,
-  DeleteTableVersionCommandOutput
+  DeleteTableVersionCommandOutput,
 } from "./commands/DeleteTableVersionCommand";
 import {
   DeleteTriggerCommand,
   DeleteTriggerCommandInput,
-  DeleteTriggerCommandOutput
+  DeleteTriggerCommandOutput,
 } from "./commands/DeleteTriggerCommand";
 import {
   DeleteUserDefinedFunctionCommand,
   DeleteUserDefinedFunctionCommandInput,
-  DeleteUserDefinedFunctionCommandOutput
+  DeleteUserDefinedFunctionCommandOutput,
 } from "./commands/DeleteUserDefinedFunctionCommand";
 import {
   DeleteWorkflowCommand,
   DeleteWorkflowCommandInput,
-  DeleteWorkflowCommandOutput
+  DeleteWorkflowCommandOutput,
 } from "./commands/DeleteWorkflowCommand";
 import {
   GetCatalogImportStatusCommand,
   GetCatalogImportStatusCommandInput,
-  GetCatalogImportStatusCommandOutput
+  GetCatalogImportStatusCommandOutput,
 } from "./commands/GetCatalogImportStatusCommand";
 import {
   GetClassifierCommand,
   GetClassifierCommandInput,
-  GetClassifierCommandOutput
+  GetClassifierCommandOutput,
 } from "./commands/GetClassifierCommand";
 import {
   GetClassifiersCommand,
   GetClassifiersCommandInput,
-  GetClassifiersCommandOutput
+  GetClassifiersCommandOutput,
 } from "./commands/GetClassifiersCommand";
 import {
   GetConnectionCommand,
   GetConnectionCommandInput,
-  GetConnectionCommandOutput
+  GetConnectionCommandOutput,
 } from "./commands/GetConnectionCommand";
 import {
   GetConnectionsCommand,
   GetConnectionsCommandInput,
-  GetConnectionsCommandOutput
+  GetConnectionsCommandOutput,
 } from "./commands/GetConnectionsCommand";
-import {
-  GetCrawlerCommand,
-  GetCrawlerCommandInput,
-  GetCrawlerCommandOutput
-} from "./commands/GetCrawlerCommand";
+import { GetCrawlerCommand, GetCrawlerCommandInput, GetCrawlerCommandOutput } from "./commands/GetCrawlerCommand";
 import {
   GetCrawlerMetricsCommand,
   GetCrawlerMetricsCommandInput,
-  GetCrawlerMetricsCommandOutput
+  GetCrawlerMetricsCommandOutput,
 } from "./commands/GetCrawlerMetricsCommand";
-import {
-  GetCrawlersCommand,
-  GetCrawlersCommandInput,
-  GetCrawlersCommandOutput
-} from "./commands/GetCrawlersCommand";
+import { GetCrawlersCommand, GetCrawlersCommandInput, GetCrawlersCommandOutput } from "./commands/GetCrawlersCommand";
 import {
   GetDataCatalogEncryptionSettingsCommand,
   GetDataCatalogEncryptionSettingsCommandInput,
-  GetDataCatalogEncryptionSettingsCommandOutput
+  GetDataCatalogEncryptionSettingsCommandOutput,
 } from "./commands/GetDataCatalogEncryptionSettingsCommand";
-import {
-  GetDatabaseCommand,
-  GetDatabaseCommandInput,
-  GetDatabaseCommandOutput
-} from "./commands/GetDatabaseCommand";
+import { GetDatabaseCommand, GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
 import {
   GetDatabasesCommand,
   GetDatabasesCommandInput,
-  GetDatabasesCommandOutput
+  GetDatabasesCommandOutput,
 } from "./commands/GetDatabasesCommand";
 import {
   GetDataflowGraphCommand,
   GetDataflowGraphCommandInput,
-  GetDataflowGraphCommandOutput
+  GetDataflowGraphCommandOutput,
 } from "./commands/GetDataflowGraphCommand";
 import {
   GetDevEndpointCommand,
   GetDevEndpointCommandInput,
-  GetDevEndpointCommandOutput
+  GetDevEndpointCommandOutput,
 } from "./commands/GetDevEndpointCommand";
 import {
   GetDevEndpointsCommand,
   GetDevEndpointsCommandInput,
-  GetDevEndpointsCommandOutput
+  GetDevEndpointsCommandOutput,
 } from "./commands/GetDevEndpointsCommand";
 import {
   GetJobBookmarkCommand,
   GetJobBookmarkCommandInput,
-  GetJobBookmarkCommandOutput
+  GetJobBookmarkCommandOutput,
 } from "./commands/GetJobBookmarkCommand";
-import {
-  GetJobCommand,
-  GetJobCommandInput,
-  GetJobCommandOutput
-} from "./commands/GetJobCommand";
-import {
-  GetJobRunCommand,
-  GetJobRunCommandInput,
-  GetJobRunCommandOutput
-} from "./commands/GetJobRunCommand";
-import {
-  GetJobRunsCommand,
-  GetJobRunsCommandInput,
-  GetJobRunsCommandOutput
-} from "./commands/GetJobRunsCommand";
-import {
-  GetJobsCommand,
-  GetJobsCommandInput,
-  GetJobsCommandOutput
-} from "./commands/GetJobsCommand";
+import { GetJobCommand, GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
+import { GetJobRunCommand, GetJobRunCommandInput, GetJobRunCommandOutput } from "./commands/GetJobRunCommand";
+import { GetJobRunsCommand, GetJobRunsCommandInput, GetJobRunsCommandOutput } from "./commands/GetJobRunsCommand";
+import { GetJobsCommand, GetJobsCommandInput, GetJobsCommandOutput } from "./commands/GetJobsCommand";
 import {
   GetMLTaskRunCommand,
   GetMLTaskRunCommandInput,
-  GetMLTaskRunCommandOutput
+  GetMLTaskRunCommandOutput,
 } from "./commands/GetMLTaskRunCommand";
 import {
   GetMLTaskRunsCommand,
   GetMLTaskRunsCommandInput,
-  GetMLTaskRunsCommandOutput
+  GetMLTaskRunsCommandOutput,
 } from "./commands/GetMLTaskRunsCommand";
 import {
   GetMLTransformCommand,
   GetMLTransformCommandInput,
-  GetMLTransformCommandOutput
+  GetMLTransformCommandOutput,
 } from "./commands/GetMLTransformCommand";
 import {
   GetMLTransformsCommand,
   GetMLTransformsCommandInput,
-  GetMLTransformsCommandOutput
+  GetMLTransformsCommandOutput,
 } from "./commands/GetMLTransformsCommand";
-import {
-  GetMappingCommand,
-  GetMappingCommandInput,
-  GetMappingCommandOutput
-} from "./commands/GetMappingCommand";
+import { GetMappingCommand, GetMappingCommandInput, GetMappingCommandOutput } from "./commands/GetMappingCommand";
 import {
   GetPartitionCommand,
   GetPartitionCommandInput,
-  GetPartitionCommandOutput
+  GetPartitionCommandOutput,
 } from "./commands/GetPartitionCommand";
 import {
   GetPartitionsCommand,
   GetPartitionsCommandInput,
-  GetPartitionsCommandOutput
+  GetPartitionsCommandOutput,
 } from "./commands/GetPartitionsCommand";
-import {
-  GetPlanCommand,
-  GetPlanCommandInput,
-  GetPlanCommandOutput
-} from "./commands/GetPlanCommand";
+import { GetPlanCommand, GetPlanCommandInput, GetPlanCommandOutput } from "./commands/GetPlanCommand";
 import {
   GetResourcePolicyCommand,
   GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput
+  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import {
   GetSecurityConfigurationCommand,
   GetSecurityConfigurationCommandInput,
-  GetSecurityConfigurationCommandOutput
+  GetSecurityConfigurationCommandOutput,
 } from "./commands/GetSecurityConfigurationCommand";
 import {
   GetSecurityConfigurationsCommand,
   GetSecurityConfigurationsCommandInput,
-  GetSecurityConfigurationsCommandOutput
+  GetSecurityConfigurationsCommandOutput,
 } from "./commands/GetSecurityConfigurationsCommand";
-import {
-  GetTableCommand,
-  GetTableCommandInput,
-  GetTableCommandOutput
-} from "./commands/GetTableCommand";
+import { GetTableCommand, GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
 import {
   GetTableVersionCommand,
   GetTableVersionCommandInput,
-  GetTableVersionCommandOutput
+  GetTableVersionCommandOutput,
 } from "./commands/GetTableVersionCommand";
 import {
   GetTableVersionsCommand,
   GetTableVersionsCommandInput,
-  GetTableVersionsCommandOutput
+  GetTableVersionsCommandOutput,
 } from "./commands/GetTableVersionsCommand";
-import {
-  GetTablesCommand,
-  GetTablesCommandInput,
-  GetTablesCommandOutput
-} from "./commands/GetTablesCommand";
-import {
-  GetTagsCommand,
-  GetTagsCommandInput,
-  GetTagsCommandOutput
-} from "./commands/GetTagsCommand";
-import {
-  GetTriggerCommand,
-  GetTriggerCommandInput,
-  GetTriggerCommandOutput
-} from "./commands/GetTriggerCommand";
-import {
-  GetTriggersCommand,
-  GetTriggersCommandInput,
-  GetTriggersCommandOutput
-} from "./commands/GetTriggersCommand";
+import { GetTablesCommand, GetTablesCommandInput, GetTablesCommandOutput } from "./commands/GetTablesCommand";
+import { GetTagsCommand, GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
+import { GetTriggerCommand, GetTriggerCommandInput, GetTriggerCommandOutput } from "./commands/GetTriggerCommand";
+import { GetTriggersCommand, GetTriggersCommandInput, GetTriggersCommandOutput } from "./commands/GetTriggersCommand";
 import {
   GetUserDefinedFunctionCommand,
   GetUserDefinedFunctionCommandInput,
-  GetUserDefinedFunctionCommandOutput
+  GetUserDefinedFunctionCommandOutput,
 } from "./commands/GetUserDefinedFunctionCommand";
 import {
   GetUserDefinedFunctionsCommand,
   GetUserDefinedFunctionsCommandInput,
-  GetUserDefinedFunctionsCommandOutput
+  GetUserDefinedFunctionsCommandOutput,
 } from "./commands/GetUserDefinedFunctionsCommand";
-import {
-  GetWorkflowCommand,
-  GetWorkflowCommandInput,
-  GetWorkflowCommandOutput
-} from "./commands/GetWorkflowCommand";
+import { GetWorkflowCommand, GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
 import {
   GetWorkflowRunCommand,
   GetWorkflowRunCommandInput,
-  GetWorkflowRunCommandOutput
+  GetWorkflowRunCommandOutput,
 } from "./commands/GetWorkflowRunCommand";
 import {
   GetWorkflowRunPropertiesCommand,
   GetWorkflowRunPropertiesCommandInput,
-  GetWorkflowRunPropertiesCommandOutput
+  GetWorkflowRunPropertiesCommandOutput,
 } from "./commands/GetWorkflowRunPropertiesCommand";
 import {
   GetWorkflowRunsCommand,
   GetWorkflowRunsCommandInput,
-  GetWorkflowRunsCommandOutput
+  GetWorkflowRunsCommandOutput,
 } from "./commands/GetWorkflowRunsCommand";
 import {
   ImportCatalogToGlueCommand,
   ImportCatalogToGlueCommandInput,
-  ImportCatalogToGlueCommandOutput
+  ImportCatalogToGlueCommandOutput,
 } from "./commands/ImportCatalogToGlueCommand";
 import {
   ListCrawlersCommand,
   ListCrawlersCommandInput,
-  ListCrawlersCommandOutput
+  ListCrawlersCommandOutput,
 } from "./commands/ListCrawlersCommand";
 import {
   ListDevEndpointsCommand,
   ListDevEndpointsCommandInput,
-  ListDevEndpointsCommandOutput
+  ListDevEndpointsCommandOutput,
 } from "./commands/ListDevEndpointsCommand";
-import {
-  ListJobsCommand,
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand";
+import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListTriggersCommand,
   ListTriggersCommandInput,
-  ListTriggersCommandOutput
+  ListTriggersCommandOutput,
 } from "./commands/ListTriggersCommand";
 import {
   ListWorkflowsCommand,
   ListWorkflowsCommandInput,
-  ListWorkflowsCommandOutput
+  ListWorkflowsCommandOutput,
 } from "./commands/ListWorkflowsCommand";
 import {
   PutDataCatalogEncryptionSettingsCommand,
   PutDataCatalogEncryptionSettingsCommandInput,
-  PutDataCatalogEncryptionSettingsCommandOutput
+  PutDataCatalogEncryptionSettingsCommandOutput,
 } from "./commands/PutDataCatalogEncryptionSettingsCommand";
 import {
   PutResourcePolicyCommand,
   PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput
+  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
   PutWorkflowRunPropertiesCommand,
   PutWorkflowRunPropertiesCommandInput,
-  PutWorkflowRunPropertiesCommandOutput
+  PutWorkflowRunPropertiesCommandOutput,
 } from "./commands/PutWorkflowRunPropertiesCommand";
 import {
   ResetJobBookmarkCommand,
   ResetJobBookmarkCommandInput,
-  ResetJobBookmarkCommandOutput
+  ResetJobBookmarkCommandOutput,
 } from "./commands/ResetJobBookmarkCommand";
 import {
   SearchTablesCommand,
   SearchTablesCommandInput,
-  SearchTablesCommandOutput
+  SearchTablesCommandOutput,
 } from "./commands/SearchTablesCommand";
 import {
   StartCrawlerCommand,
   StartCrawlerCommandInput,
-  StartCrawlerCommandOutput
+  StartCrawlerCommandOutput,
 } from "./commands/StartCrawlerCommand";
 import {
   StartCrawlerScheduleCommand,
   StartCrawlerScheduleCommandInput,
-  StartCrawlerScheduleCommandOutput
+  StartCrawlerScheduleCommandOutput,
 } from "./commands/StartCrawlerScheduleCommand";
 import {
   StartExportLabelsTaskRunCommand,
   StartExportLabelsTaskRunCommandInput,
-  StartExportLabelsTaskRunCommandOutput
+  StartExportLabelsTaskRunCommandOutput,
 } from "./commands/StartExportLabelsTaskRunCommand";
 import {
   StartImportLabelsTaskRunCommand,
   StartImportLabelsTaskRunCommandInput,
-  StartImportLabelsTaskRunCommandOutput
+  StartImportLabelsTaskRunCommandOutput,
 } from "./commands/StartImportLabelsTaskRunCommand";
-import {
-  StartJobRunCommand,
-  StartJobRunCommandInput,
-  StartJobRunCommandOutput
-} from "./commands/StartJobRunCommand";
+import { StartJobRunCommand, StartJobRunCommandInput, StartJobRunCommandOutput } from "./commands/StartJobRunCommand";
 import {
   StartMLEvaluationTaskRunCommand,
   StartMLEvaluationTaskRunCommandInput,
-  StartMLEvaluationTaskRunCommandOutput
+  StartMLEvaluationTaskRunCommandOutput,
 } from "./commands/StartMLEvaluationTaskRunCommand";
 import {
   StartMLLabelingSetGenerationTaskRunCommand,
   StartMLLabelingSetGenerationTaskRunCommandInput,
-  StartMLLabelingSetGenerationTaskRunCommandOutput
+  StartMLLabelingSetGenerationTaskRunCommandOutput,
 } from "./commands/StartMLLabelingSetGenerationTaskRunCommand";
 import {
   StartTriggerCommand,
   StartTriggerCommandInput,
-  StartTriggerCommandOutput
+  StartTriggerCommandOutput,
 } from "./commands/StartTriggerCommand";
 import {
   StartWorkflowRunCommand,
   StartWorkflowRunCommandInput,
-  StartWorkflowRunCommandOutput
+  StartWorkflowRunCommandOutput,
 } from "./commands/StartWorkflowRunCommand";
-import {
-  StopCrawlerCommand,
-  StopCrawlerCommandInput,
-  StopCrawlerCommandOutput
-} from "./commands/StopCrawlerCommand";
+import { StopCrawlerCommand, StopCrawlerCommandInput, StopCrawlerCommandOutput } from "./commands/StopCrawlerCommand";
 import {
   StopCrawlerScheduleCommand,
   StopCrawlerScheduleCommandInput,
-  StopCrawlerScheduleCommandOutput
+  StopCrawlerScheduleCommandOutput,
 } from "./commands/StopCrawlerScheduleCommand";
-import {
-  StopTriggerCommand,
-  StopTriggerCommandInput,
-  StopTriggerCommandOutput
-} from "./commands/StopTriggerCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { StopTriggerCommand, StopTriggerCommandInput, StopTriggerCommandOutput } from "./commands/StopTriggerCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateClassifierCommand,
   UpdateClassifierCommandInput,
-  UpdateClassifierCommandOutput
+  UpdateClassifierCommandOutput,
 } from "./commands/UpdateClassifierCommand";
 import {
   UpdateConnectionCommand,
   UpdateConnectionCommandInput,
-  UpdateConnectionCommandOutput
+  UpdateConnectionCommandOutput,
 } from "./commands/UpdateConnectionCommand";
 import {
   UpdateCrawlerCommand,
   UpdateCrawlerCommandInput,
-  UpdateCrawlerCommandOutput
+  UpdateCrawlerCommandOutput,
 } from "./commands/UpdateCrawlerCommand";
 import {
   UpdateCrawlerScheduleCommand,
   UpdateCrawlerScheduleCommandInput,
-  UpdateCrawlerScheduleCommandOutput
+  UpdateCrawlerScheduleCommandOutput,
 } from "./commands/UpdateCrawlerScheduleCommand";
 import {
   UpdateDatabaseCommand,
   UpdateDatabaseCommandInput,
-  UpdateDatabaseCommandOutput
+  UpdateDatabaseCommandOutput,
 } from "./commands/UpdateDatabaseCommand";
 import {
   UpdateDevEndpointCommand,
   UpdateDevEndpointCommandInput,
-  UpdateDevEndpointCommandOutput
+  UpdateDevEndpointCommandOutput,
 } from "./commands/UpdateDevEndpointCommand";
-import {
-  UpdateJobCommand,
-  UpdateJobCommandInput,
-  UpdateJobCommandOutput
-} from "./commands/UpdateJobCommand";
+import { UpdateJobCommand, UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
 import {
   UpdateMLTransformCommand,
   UpdateMLTransformCommandInput,
-  UpdateMLTransformCommandOutput
+  UpdateMLTransformCommandOutput,
 } from "./commands/UpdateMLTransformCommand";
 import {
   UpdatePartitionCommand,
   UpdatePartitionCommandInput,
-  UpdatePartitionCommandOutput
+  UpdatePartitionCommandOutput,
 } from "./commands/UpdatePartitionCommand";
-import {
-  UpdateTableCommand,
-  UpdateTableCommandInput,
-  UpdateTableCommandOutput
-} from "./commands/UpdateTableCommand";
+import { UpdateTableCommand, UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
 import {
   UpdateTriggerCommand,
   UpdateTriggerCommandInput,
-  UpdateTriggerCommandOutput
+  UpdateTriggerCommandOutput,
 } from "./commands/UpdateTriggerCommand";
 import {
   UpdateUserDefinedFunctionCommand,
   UpdateUserDefinedFunctionCommandInput,
-  UpdateUserDefinedFunctionCommandOutput
+  UpdateUserDefinedFunctionCommandOutput,
 } from "./commands/UpdateUserDefinedFunctionCommand";
 import {
   UpdateWorkflowCommand,
   UpdateWorkflowCommandInput,
-  UpdateWorkflowCommandOutput
+  UpdateWorkflowCommandOutput,
 } from "./commands/UpdateWorkflowCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -639,17 +535,14 @@ export class Glue extends GlueClient {
   ): void;
   public batchCreatePartition(
     args: BatchCreatePartitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchCreatePartitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchCreatePartitionCommandOutput) => void),
     cb?: (err: any, data?: BatchCreatePartitionCommandOutput) => void
   ): Promise<BatchCreatePartitionCommandOutput> | void {
     const command = new BatchCreatePartitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -674,17 +567,14 @@ export class Glue extends GlueClient {
   ): void;
   public batchDeleteConnection(
     args: BatchDeleteConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchDeleteConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeleteConnectionCommandOutput) => void),
     cb?: (err: any, data?: BatchDeleteConnectionCommandOutput) => void
   ): Promise<BatchDeleteConnectionCommandOutput> | void {
     const command = new BatchDeleteConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -709,17 +599,14 @@ export class Glue extends GlueClient {
   ): void;
   public batchDeletePartition(
     args: BatchDeletePartitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchDeletePartitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeletePartitionCommandOutput) => void),
     cb?: (err: any, data?: BatchDeletePartitionCommandOutput) => void
   ): Promise<BatchDeletePartitionCommandOutput> | void {
     const command = new BatchDeletePartitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -754,17 +641,14 @@ export class Glue extends GlueClient {
   ): void;
   public batchDeleteTable(
     args: BatchDeleteTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchDeleteTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeleteTableCommandOutput) => void),
     cb?: (err: any, data?: BatchDeleteTableCommandOutput) => void
   ): Promise<BatchDeleteTableCommandOutput> | void {
     const command = new BatchDeleteTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -789,17 +673,14 @@ export class Glue extends GlueClient {
   ): void;
   public batchDeleteTableVersion(
     args: BatchDeleteTableVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchDeleteTableVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeleteTableVersionCommandOutput) => void),
     cb?: (err: any, data?: BatchDeleteTableVersionCommandOutput) => void
   ): Promise<BatchDeleteTableVersionCommandOutput> | void {
     const command = new BatchDeleteTableVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -824,17 +705,14 @@ export class Glue extends GlueClient {
   ): void;
   public batchGetCrawlers(
     args: BatchGetCrawlersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetCrawlersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetCrawlersCommandOutput) => void),
     cb?: (err: any, data?: BatchGetCrawlersCommandOutput) => void
   ): Promise<BatchGetCrawlersCommandOutput> | void {
     const command = new BatchGetCrawlersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -862,17 +740,14 @@ export class Glue extends GlueClient {
   ): void;
   public batchGetDevEndpoints(
     args: BatchGetDevEndpointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetDevEndpointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetDevEndpointsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetDevEndpointsCommandOutput) => void
   ): Promise<BatchGetDevEndpointsCommandOutput> | void {
     const command = new BatchGetDevEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -887,10 +762,7 @@ export class Glue extends GlueClient {
     args: BatchGetJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchGetJobsCommandOutput>;
-  public batchGetJobs(
-    args: BatchGetJobsCommandInput,
-    cb: (err: any, data?: BatchGetJobsCommandOutput) => void
-  ): void;
+  public batchGetJobs(args: BatchGetJobsCommandInput, cb: (err: any, data?: BatchGetJobsCommandOutput) => void): void;
   public batchGetJobs(
     args: BatchGetJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -898,17 +770,14 @@ export class Glue extends GlueClient {
   ): void;
   public batchGetJobs(
     args: BatchGetJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetJobsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetJobsCommandOutput) => void
   ): Promise<BatchGetJobsCommandOutput> | void {
     const command = new BatchGetJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -933,17 +802,14 @@ export class Glue extends GlueClient {
   ): void;
   public batchGetPartition(
     args: BatchGetPartitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetPartitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetPartitionCommandOutput) => void),
     cb?: (err: any, data?: BatchGetPartitionCommandOutput) => void
   ): Promise<BatchGetPartitionCommandOutput> | void {
     const command = new BatchGetPartitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -968,17 +834,14 @@ export class Glue extends GlueClient {
   ): void;
   public batchGetTriggers(
     args: BatchGetTriggersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetTriggersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetTriggersCommandOutput) => void),
     cb?: (err: any, data?: BatchGetTriggersCommandOutput) => void
   ): Promise<BatchGetTriggersCommandOutput> | void {
     const command = new BatchGetTriggersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1003,17 +866,14 @@ export class Glue extends GlueClient {
   ): void;
   public batchGetWorkflows(
     args: BatchGetWorkflowsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetWorkflowsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetWorkflowsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetWorkflowsCommandOutput) => void
   ): Promise<BatchGetWorkflowsCommandOutput> | void {
     const command = new BatchGetWorkflowsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1038,17 +898,14 @@ export class Glue extends GlueClient {
   ): void;
   public batchStopJobRun(
     args: BatchStopJobRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchStopJobRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchStopJobRunCommandOutput) => void),
     cb?: (err: any, data?: BatchStopJobRunCommandOutput) => void
   ): Promise<BatchStopJobRunCommandOutput> | void {
     const command = new BatchStopJobRunCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1076,17 +933,14 @@ export class Glue extends GlueClient {
   ): void;
   public cancelMLTaskRun(
     args: CancelMLTaskRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelMLTaskRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelMLTaskRunCommandOutput) => void),
     cb?: (err: any, data?: CancelMLTaskRunCommandOutput) => void
   ): Promise<CancelMLTaskRunCommandOutput> | void {
     const command = new CancelMLTaskRunCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1113,17 +967,14 @@ export class Glue extends GlueClient {
   ): void;
   public createClassifier(
     args: CreateClassifierCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateClassifierCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClassifierCommandOutput) => void),
     cb?: (err: any, data?: CreateClassifierCommandOutput) => void
   ): Promise<CreateClassifierCommandOutput> | void {
     const command = new CreateClassifierCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1148,17 +999,14 @@ export class Glue extends GlueClient {
   ): void;
   public createConnection(
     args: CreateConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConnectionCommandOutput) => void),
     cb?: (err: any, data?: CreateConnectionCommandOutput) => void
   ): Promise<CreateConnectionCommandOutput> | void {
     const command = new CreateConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1185,17 +1033,14 @@ export class Glue extends GlueClient {
   ): void;
   public createCrawler(
     args: CreateCrawlerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCrawlerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCrawlerCommandOutput) => void),
     cb?: (err: any, data?: CreateCrawlerCommandOutput) => void
   ): Promise<CreateCrawlerCommandOutput> | void {
     const command = new CreateCrawlerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1220,17 +1065,14 @@ export class Glue extends GlueClient {
   ): void;
   public createDatabase(
     args: CreateDatabaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDatabaseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDatabaseCommandOutput) => void),
     cb?: (err: any, data?: CreateDatabaseCommandOutput) => void
   ): Promise<CreateDatabaseCommandOutput> | void {
     const command = new CreateDatabaseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1255,17 +1097,14 @@ export class Glue extends GlueClient {
   ): void;
   public createDevEndpoint(
     args: CreateDevEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDevEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDevEndpointCommandOutput) => void),
     cb?: (err: any, data?: CreateDevEndpointCommandOutput) => void
   ): Promise<CreateDevEndpointCommandOutput> | void {
     const command = new CreateDevEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1275,14 +1114,8 @@ export class Glue extends GlueClient {
   /**
    * <p>Creates a new job definition.</p>
    */
-  public createJob(
-    args: CreateJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateJobCommandOutput>;
-  public createJob(
-    args: CreateJobCommandInput,
-    cb: (err: any, data?: CreateJobCommandOutput) => void
-  ): void;
+  public createJob(args: CreateJobCommandInput, options?: __HttpHandlerOptions): Promise<CreateJobCommandOutput>;
+  public createJob(args: CreateJobCommandInput, cb: (err: any, data?: CreateJobCommandOutput) => void): void;
   public createJob(
     args: CreateJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1290,17 +1123,14 @@ export class Glue extends GlueClient {
   ): void;
   public createJob(
     args: CreateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJobCommandOutput) => void),
     cb?: (err: any, data?: CreateJobCommandOutput) => void
   ): Promise<CreateJobCommandOutput> | void {
     const command = new CreateJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1337,17 +1167,14 @@ export class Glue extends GlueClient {
   ): void;
   public createMLTransform(
     args: CreateMLTransformCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMLTransformCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMLTransformCommandOutput) => void),
     cb?: (err: any, data?: CreateMLTransformCommandOutput) => void
   ): Promise<CreateMLTransformCommandOutput> | void {
     const command = new CreateMLTransformCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1372,17 +1199,14 @@ export class Glue extends GlueClient {
   ): void;
   public createPartition(
     args: CreatePartitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePartitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePartitionCommandOutput) => void),
     cb?: (err: any, data?: CreatePartitionCommandOutput) => void
   ): Promise<CreatePartitionCommandOutput> | void {
     const command = new CreatePartitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1396,10 +1220,7 @@ export class Glue extends GlueClient {
     args: CreateScriptCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateScriptCommandOutput>;
-  public createScript(
-    args: CreateScriptCommandInput,
-    cb: (err: any, data?: CreateScriptCommandOutput) => void
-  ): void;
+  public createScript(args: CreateScriptCommandInput, cb: (err: any, data?: CreateScriptCommandOutput) => void): void;
   public createScript(
     args: CreateScriptCommandInput,
     options: __HttpHandlerOptions,
@@ -1407,17 +1228,14 @@ export class Glue extends GlueClient {
   ): void;
   public createScript(
     args: CreateScriptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateScriptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateScriptCommandOutput) => void),
     cb?: (err: any, data?: CreateScriptCommandOutput) => void
   ): Promise<CreateScriptCommandOutput> | void {
     const command = new CreateScriptCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1442,17 +1260,14 @@ export class Glue extends GlueClient {
   ): void;
   public createSecurityConfiguration(
     args: CreateSecurityConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSecurityConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSecurityConfigurationCommandOutput) => void),
     cb?: (err: any, data?: CreateSecurityConfigurationCommandOutput) => void
   ): Promise<CreateSecurityConfigurationCommandOutput> | void {
     const command = new CreateSecurityConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1462,14 +1277,8 @@ export class Glue extends GlueClient {
   /**
    * <p>Creates a new table definition in the Data Catalog.</p>
    */
-  public createTable(
-    args: CreateTableCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateTableCommandOutput>;
-  public createTable(
-    args: CreateTableCommandInput,
-    cb: (err: any, data?: CreateTableCommandOutput) => void
-  ): void;
+  public createTable(args: CreateTableCommandInput, options?: __HttpHandlerOptions): Promise<CreateTableCommandOutput>;
+  public createTable(args: CreateTableCommandInput, cb: (err: any, data?: CreateTableCommandOutput) => void): void;
   public createTable(
     args: CreateTableCommandInput,
     options: __HttpHandlerOptions,
@@ -1477,17 +1286,14 @@ export class Glue extends GlueClient {
   ): void;
   public createTable(
     args: CreateTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTableCommandOutput) => void),
     cb?: (err: any, data?: CreateTableCommandOutput) => void
   ): Promise<CreateTableCommandOutput> | void {
     const command = new CreateTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1512,17 +1318,14 @@ export class Glue extends GlueClient {
   ): void;
   public createTrigger(
     args: CreateTriggerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTriggerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTriggerCommandOutput) => void),
     cb?: (err: any, data?: CreateTriggerCommandOutput) => void
   ): Promise<CreateTriggerCommandOutput> | void {
     const command = new CreateTriggerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1547,17 +1350,14 @@ export class Glue extends GlueClient {
   ): void;
   public createUserDefinedFunction(
     args: CreateUserDefinedFunctionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserDefinedFunctionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserDefinedFunctionCommandOutput) => void),
     cb?: (err: any, data?: CreateUserDefinedFunctionCommandOutput) => void
   ): Promise<CreateUserDefinedFunctionCommandOutput> | void {
     const command = new CreateUserDefinedFunctionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1582,17 +1382,14 @@ export class Glue extends GlueClient {
   ): void;
   public createWorkflow(
     args: CreateWorkflowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateWorkflowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkflowCommandOutput) => void),
     cb?: (err: any, data?: CreateWorkflowCommandOutput) => void
   ): Promise<CreateWorkflowCommandOutput> | void {
     const command = new CreateWorkflowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1617,17 +1414,14 @@ export class Glue extends GlueClient {
   ): void;
   public deleteClassifier(
     args: DeleteClassifierCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteClassifierCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteClassifierCommandOutput) => void),
     cb?: (err: any, data?: DeleteClassifierCommandOutput) => void
   ): Promise<DeleteClassifierCommandOutput> | void {
     const command = new DeleteClassifierCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1652,17 +1446,14 @@ export class Glue extends GlueClient {
   ): void;
   public deleteConnection(
     args: DeleteConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConnectionCommandOutput) => void),
     cb?: (err: any, data?: DeleteConnectionCommandOutput) => void
   ): Promise<DeleteConnectionCommandOutput> | void {
     const command = new DeleteConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1688,17 +1479,14 @@ export class Glue extends GlueClient {
   ): void;
   public deleteCrawler(
     args: DeleteCrawlerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCrawlerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCrawlerCommandOutput) => void),
     cb?: (err: any, data?: DeleteCrawlerCommandOutput) => void
   ): Promise<DeleteCrawlerCommandOutput> | void {
     const command = new DeleteCrawlerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1735,17 +1523,14 @@ export class Glue extends GlueClient {
   ): void;
   public deleteDatabase(
     args: DeleteDatabaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDatabaseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDatabaseCommandOutput) => void),
     cb?: (err: any, data?: DeleteDatabaseCommandOutput) => void
   ): Promise<DeleteDatabaseCommandOutput> | void {
     const command = new DeleteDatabaseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1770,17 +1555,14 @@ export class Glue extends GlueClient {
   ): void;
   public deleteDevEndpoint(
     args: DeleteDevEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDevEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDevEndpointCommandOutput) => void),
     cb?: (err: any, data?: DeleteDevEndpointCommandOutput) => void
   ): Promise<DeleteDevEndpointCommandOutput> | void {
     const command = new DeleteDevEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1791,14 +1573,8 @@ export class Glue extends GlueClient {
    * <p>Deletes a specified job definition. If the job definition
    *       is not found, no exception is thrown.</p>
    */
-  public deleteJob(
-    args: DeleteJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteJobCommandOutput>;
-  public deleteJob(
-    args: DeleteJobCommandInput,
-    cb: (err: any, data?: DeleteJobCommandOutput) => void
-  ): void;
+  public deleteJob(args: DeleteJobCommandInput, options?: __HttpHandlerOptions): Promise<DeleteJobCommandOutput>;
+  public deleteJob(args: DeleteJobCommandInput, cb: (err: any, data?: DeleteJobCommandOutput) => void): void;
   public deleteJob(
     args: DeleteJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1806,17 +1582,14 @@ export class Glue extends GlueClient {
   ): void;
   public deleteJob(
     args: DeleteJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteJobCommandOutput) => void),
     cb?: (err: any, data?: DeleteJobCommandOutput) => void
   ): Promise<DeleteJobCommandOutput> | void {
     const command = new DeleteJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1846,17 +1619,14 @@ export class Glue extends GlueClient {
   ): void;
   public deleteMLTransform(
     args: DeleteMLTransformCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMLTransformCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMLTransformCommandOutput) => void),
     cb?: (err: any, data?: DeleteMLTransformCommandOutput) => void
   ): Promise<DeleteMLTransformCommandOutput> | void {
     const command = new DeleteMLTransformCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1881,17 +1651,14 @@ export class Glue extends GlueClient {
   ): void;
   public deletePartition(
     args: DeletePartitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePartitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePartitionCommandOutput) => void),
     cb?: (err: any, data?: DeletePartitionCommandOutput) => void
   ): Promise<DeletePartitionCommandOutput> | void {
     const command = new DeletePartitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1916,17 +1683,14 @@ export class Glue extends GlueClient {
   ): void;
   public deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): Promise<DeleteResourcePolicyCommandOutput> | void {
     const command = new DeleteResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1951,17 +1715,14 @@ export class Glue extends GlueClient {
   ): void;
   public deleteSecurityConfiguration(
     args: DeleteSecurityConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSecurityConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSecurityConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteSecurityConfigurationCommandOutput) => void
   ): Promise<DeleteSecurityConfigurationCommandOutput> | void {
     const command = new DeleteSecurityConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1981,14 +1742,8 @@ export class Glue extends GlueClient {
    *         table.</p>
    *          </note>
    */
-  public deleteTable(
-    args: DeleteTableCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteTableCommandOutput>;
-  public deleteTable(
-    args: DeleteTableCommandInput,
-    cb: (err: any, data?: DeleteTableCommandOutput) => void
-  ): void;
+  public deleteTable(args: DeleteTableCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTableCommandOutput>;
+  public deleteTable(args: DeleteTableCommandInput, cb: (err: any, data?: DeleteTableCommandOutput) => void): void;
   public deleteTable(
     args: DeleteTableCommandInput,
     options: __HttpHandlerOptions,
@@ -1996,17 +1751,14 @@ export class Glue extends GlueClient {
   ): void;
   public deleteTable(
     args: DeleteTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTableCommandOutput) => void),
     cb?: (err: any, data?: DeleteTableCommandOutput) => void
   ): Promise<DeleteTableCommandOutput> | void {
     const command = new DeleteTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2031,17 +1783,14 @@ export class Glue extends GlueClient {
   ): void;
   public deleteTableVersion(
     args: DeleteTableVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTableVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTableVersionCommandOutput) => void),
     cb?: (err: any, data?: DeleteTableVersionCommandOutput) => void
   ): Promise<DeleteTableVersionCommandOutput> | void {
     const command = new DeleteTableVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2067,17 +1816,14 @@ export class Glue extends GlueClient {
   ): void;
   public deleteTrigger(
     args: DeleteTriggerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTriggerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTriggerCommandOutput) => void),
     cb?: (err: any, data?: DeleteTriggerCommandOutput) => void
   ): Promise<DeleteTriggerCommandOutput> | void {
     const command = new DeleteTriggerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2102,17 +1848,14 @@ export class Glue extends GlueClient {
   ): void;
   public deleteUserDefinedFunction(
     args: DeleteUserDefinedFunctionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserDefinedFunctionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserDefinedFunctionCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserDefinedFunctionCommandOutput) => void
   ): Promise<DeleteUserDefinedFunctionCommandOutput> | void {
     const command = new DeleteUserDefinedFunctionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2137,17 +1880,14 @@ export class Glue extends GlueClient {
   ): void;
   public deleteWorkflow(
     args: DeleteWorkflowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteWorkflowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWorkflowCommandOutput) => void),
     cb?: (err: any, data?: DeleteWorkflowCommandOutput) => void
   ): Promise<DeleteWorkflowCommandOutput> | void {
     const command = new DeleteWorkflowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2172,17 +1912,14 @@ export class Glue extends GlueClient {
   ): void;
   public getCatalogImportStatus(
     args: GetCatalogImportStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCatalogImportStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCatalogImportStatusCommandOutput) => void),
     cb?: (err: any, data?: GetCatalogImportStatusCommandOutput) => void
   ): Promise<GetCatalogImportStatusCommandOutput> | void {
     const command = new GetCatalogImportStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2207,17 +1944,14 @@ export class Glue extends GlueClient {
   ): void;
   public getClassifier(
     args: GetClassifierCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetClassifierCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetClassifierCommandOutput) => void),
     cb?: (err: any, data?: GetClassifierCommandOutput) => void
   ): Promise<GetClassifierCommandOutput> | void {
     const command = new GetClassifierCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2242,17 +1976,14 @@ export class Glue extends GlueClient {
   ): void;
   public getClassifiers(
     args: GetClassifiersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetClassifiersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetClassifiersCommandOutput) => void),
     cb?: (err: any, data?: GetClassifiersCommandOutput) => void
   ): Promise<GetClassifiersCommandOutput> | void {
     const command = new GetClassifiersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2277,17 +2008,14 @@ export class Glue extends GlueClient {
   ): void;
   public getConnection(
     args: GetConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConnectionCommandOutput) => void),
     cb?: (err: any, data?: GetConnectionCommandOutput) => void
   ): Promise<GetConnectionCommandOutput> | void {
     const command = new GetConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2312,17 +2040,14 @@ export class Glue extends GlueClient {
   ): void;
   public getConnections(
     args: GetConnectionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConnectionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConnectionsCommandOutput) => void),
     cb?: (err: any, data?: GetConnectionsCommandOutput) => void
   ): Promise<GetConnectionsCommandOutput> | void {
     const command = new GetConnectionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2332,14 +2057,8 @@ export class Glue extends GlueClient {
   /**
    * <p>Retrieves metadata for a specified crawler.</p>
    */
-  public getCrawler(
-    args: GetCrawlerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetCrawlerCommandOutput>;
-  public getCrawler(
-    args: GetCrawlerCommandInput,
-    cb: (err: any, data?: GetCrawlerCommandOutput) => void
-  ): void;
+  public getCrawler(args: GetCrawlerCommandInput, options?: __HttpHandlerOptions): Promise<GetCrawlerCommandOutput>;
+  public getCrawler(args: GetCrawlerCommandInput, cb: (err: any, data?: GetCrawlerCommandOutput) => void): void;
   public getCrawler(
     args: GetCrawlerCommandInput,
     options: __HttpHandlerOptions,
@@ -2347,17 +2066,14 @@ export class Glue extends GlueClient {
   ): void;
   public getCrawler(
     args: GetCrawlerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCrawlerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCrawlerCommandOutput) => void),
     cb?: (err: any, data?: GetCrawlerCommandOutput) => void
   ): Promise<GetCrawlerCommandOutput> | void {
     const command = new GetCrawlerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2382,17 +2098,14 @@ export class Glue extends GlueClient {
   ): void;
   public getCrawlerMetrics(
     args: GetCrawlerMetricsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCrawlerMetricsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCrawlerMetricsCommandOutput) => void),
     cb?: (err: any, data?: GetCrawlerMetricsCommandOutput) => void
   ): Promise<GetCrawlerMetricsCommandOutput> | void {
     const command = new GetCrawlerMetricsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2403,14 +2116,8 @@ export class Glue extends GlueClient {
    * <p>Retrieves metadata for all crawlers defined in the customer
    *       account.</p>
    */
-  public getCrawlers(
-    args: GetCrawlersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetCrawlersCommandOutput>;
-  public getCrawlers(
-    args: GetCrawlersCommandInput,
-    cb: (err: any, data?: GetCrawlersCommandOutput) => void
-  ): void;
+  public getCrawlers(args: GetCrawlersCommandInput, options?: __HttpHandlerOptions): Promise<GetCrawlersCommandOutput>;
+  public getCrawlers(args: GetCrawlersCommandInput, cb: (err: any, data?: GetCrawlersCommandOutput) => void): void;
   public getCrawlers(
     args: GetCrawlersCommandInput,
     options: __HttpHandlerOptions,
@@ -2418,17 +2125,14 @@ export class Glue extends GlueClient {
   ): void;
   public getCrawlers(
     args: GetCrawlersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCrawlersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCrawlersCommandOutput) => void),
     cb?: (err: any, data?: GetCrawlersCommandOutput) => void
   ): Promise<GetCrawlersCommandOutput> | void {
     const command = new GetCrawlersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2438,14 +2142,8 @@ export class Glue extends GlueClient {
   /**
    * <p>Retrieves the definition of a specified database.</p>
    */
-  public getDatabase(
-    args: GetDatabaseCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDatabaseCommandOutput>;
-  public getDatabase(
-    args: GetDatabaseCommandInput,
-    cb: (err: any, data?: GetDatabaseCommandOutput) => void
-  ): void;
+  public getDatabase(args: GetDatabaseCommandInput, options?: __HttpHandlerOptions): Promise<GetDatabaseCommandOutput>;
+  public getDatabase(args: GetDatabaseCommandInput, cb: (err: any, data?: GetDatabaseCommandOutput) => void): void;
   public getDatabase(
     args: GetDatabaseCommandInput,
     options: __HttpHandlerOptions,
@@ -2453,17 +2151,14 @@ export class Glue extends GlueClient {
   ): void;
   public getDatabase(
     args: GetDatabaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDatabaseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDatabaseCommandOutput) => void),
     cb?: (err: any, data?: GetDatabaseCommandOutput) => void
   ): Promise<GetDatabaseCommandOutput> | void {
     const command = new GetDatabaseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2477,10 +2172,7 @@ export class Glue extends GlueClient {
     args: GetDatabasesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDatabasesCommandOutput>;
-  public getDatabases(
-    args: GetDatabasesCommandInput,
-    cb: (err: any, data?: GetDatabasesCommandOutput) => void
-  ): void;
+  public getDatabases(args: GetDatabasesCommandInput, cb: (err: any, data?: GetDatabasesCommandOutput) => void): void;
   public getDatabases(
     args: GetDatabasesCommandInput,
     options: __HttpHandlerOptions,
@@ -2488,17 +2180,14 @@ export class Glue extends GlueClient {
   ): void;
   public getDatabases(
     args: GetDatabasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDatabasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDatabasesCommandOutput) => void),
     cb?: (err: any, data?: GetDatabasesCommandOutput) => void
   ): Promise<GetDatabasesCommandOutput> | void {
     const command = new GetDatabasesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2523,23 +2212,14 @@ export class Glue extends GlueClient {
   ): void;
   public getDataCatalogEncryptionSettings(
     args: GetDataCatalogEncryptionSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetDataCatalogEncryptionSettingsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetDataCatalogEncryptionSettingsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataCatalogEncryptionSettingsCommandOutput) => void),
+    cb?: (err: any, data?: GetDataCatalogEncryptionSettingsCommandOutput) => void
   ): Promise<GetDataCatalogEncryptionSettingsCommandOutput> | void {
     const command = new GetDataCatalogEncryptionSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2564,17 +2244,14 @@ export class Glue extends GlueClient {
   ): void;
   public getDataflowGraph(
     args: GetDataflowGraphCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDataflowGraphCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataflowGraphCommandOutput) => void),
     cb?: (err: any, data?: GetDataflowGraphCommandOutput) => void
   ): Promise<GetDataflowGraphCommandOutput> | void {
     const command = new GetDataflowGraphCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2604,17 +2281,14 @@ export class Glue extends GlueClient {
   ): void;
   public getDevEndpoint(
     args: GetDevEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDevEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDevEndpointCommandOutput) => void),
     cb?: (err: any, data?: GetDevEndpointCommandOutput) => void
   ): Promise<GetDevEndpointCommandOutput> | void {
     const command = new GetDevEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2644,17 +2318,14 @@ export class Glue extends GlueClient {
   ): void;
   public getDevEndpoints(
     args: GetDevEndpointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDevEndpointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDevEndpointsCommandOutput) => void),
     cb?: (err: any, data?: GetDevEndpointsCommandOutput) => void
   ): Promise<GetDevEndpointsCommandOutput> | void {
     const command = new GetDevEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2664,14 +2335,8 @@ export class Glue extends GlueClient {
   /**
    * <p>Retrieves an existing job definition.</p>
    */
-  public getJob(
-    args: GetJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetJobCommandOutput>;
-  public getJob(
-    args: GetJobCommandInput,
-    cb: (err: any, data?: GetJobCommandOutput) => void
-  ): void;
+  public getJob(args: GetJobCommandInput, options?: __HttpHandlerOptions): Promise<GetJobCommandOutput>;
+  public getJob(args: GetJobCommandInput, cb: (err: any, data?: GetJobCommandOutput) => void): void;
   public getJob(
     args: GetJobCommandInput,
     options: __HttpHandlerOptions,
@@ -2679,17 +2344,14 @@ export class Glue extends GlueClient {
   ): void;
   public getJob(
     args: GetJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobCommandOutput) => void),
     cb?: (err: any, data?: GetJobCommandOutput) => void
   ): Promise<GetJobCommandOutput> | void {
     const command = new GetJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2714,17 +2376,14 @@ export class Glue extends GlueClient {
   ): void;
   public getJobBookmark(
     args: GetJobBookmarkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobBookmarkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobBookmarkCommandOutput) => void),
     cb?: (err: any, data?: GetJobBookmarkCommandOutput) => void
   ): Promise<GetJobBookmarkCommandOutput> | void {
     const command = new GetJobBookmarkCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2734,14 +2393,8 @@ export class Glue extends GlueClient {
   /**
    * <p>Retrieves the metadata for a given job run.</p>
    */
-  public getJobRun(
-    args: GetJobRunCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetJobRunCommandOutput>;
-  public getJobRun(
-    args: GetJobRunCommandInput,
-    cb: (err: any, data?: GetJobRunCommandOutput) => void
-  ): void;
+  public getJobRun(args: GetJobRunCommandInput, options?: __HttpHandlerOptions): Promise<GetJobRunCommandOutput>;
+  public getJobRun(args: GetJobRunCommandInput, cb: (err: any, data?: GetJobRunCommandOutput) => void): void;
   public getJobRun(
     args: GetJobRunCommandInput,
     options: __HttpHandlerOptions,
@@ -2749,17 +2402,14 @@ export class Glue extends GlueClient {
   ): void;
   public getJobRun(
     args: GetJobRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobRunCommandOutput) => void),
     cb?: (err: any, data?: GetJobRunCommandOutput) => void
   ): Promise<GetJobRunCommandOutput> | void {
     const command = new GetJobRunCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2769,14 +2419,8 @@ export class Glue extends GlueClient {
   /**
    * <p>Retrieves metadata for all runs of a given job definition.</p>
    */
-  public getJobRuns(
-    args: GetJobRunsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetJobRunsCommandOutput>;
-  public getJobRuns(
-    args: GetJobRunsCommandInput,
-    cb: (err: any, data?: GetJobRunsCommandOutput) => void
-  ): void;
+  public getJobRuns(args: GetJobRunsCommandInput, options?: __HttpHandlerOptions): Promise<GetJobRunsCommandOutput>;
+  public getJobRuns(args: GetJobRunsCommandInput, cb: (err: any, data?: GetJobRunsCommandOutput) => void): void;
   public getJobRuns(
     args: GetJobRunsCommandInput,
     options: __HttpHandlerOptions,
@@ -2784,17 +2428,14 @@ export class Glue extends GlueClient {
   ): void;
   public getJobRuns(
     args: GetJobRunsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobRunsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobRunsCommandOutput) => void),
     cb?: (err: any, data?: GetJobRunsCommandOutput) => void
   ): Promise<GetJobRunsCommandOutput> | void {
     const command = new GetJobRunsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2804,14 +2445,8 @@ export class Glue extends GlueClient {
   /**
    * <p>Retrieves all current job definitions.</p>
    */
-  public getJobs(
-    args: GetJobsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetJobsCommandOutput>;
-  public getJobs(
-    args: GetJobsCommandInput,
-    cb: (err: any, data?: GetJobsCommandOutput) => void
-  ): void;
+  public getJobs(args: GetJobsCommandInput, options?: __HttpHandlerOptions): Promise<GetJobsCommandOutput>;
+  public getJobs(args: GetJobsCommandInput, cb: (err: any, data?: GetJobsCommandOutput) => void): void;
   public getJobs(
     args: GetJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -2819,17 +2454,14 @@ export class Glue extends GlueClient {
   ): void;
   public getJobs(
     args: GetJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobsCommandOutput) => void),
     cb?: (err: any, data?: GetJobsCommandOutput) => void
   ): Promise<GetJobsCommandOutput> | void {
     const command = new GetJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2839,14 +2471,8 @@ export class Glue extends GlueClient {
   /**
    * <p>Creates mappings.</p>
    */
-  public getMapping(
-    args: GetMappingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetMappingCommandOutput>;
-  public getMapping(
-    args: GetMappingCommandInput,
-    cb: (err: any, data?: GetMappingCommandOutput) => void
-  ): void;
+  public getMapping(args: GetMappingCommandInput, options?: __HttpHandlerOptions): Promise<GetMappingCommandOutput>;
+  public getMapping(args: GetMappingCommandInput, cb: (err: any, data?: GetMappingCommandOutput) => void): void;
   public getMapping(
     args: GetMappingCommandInput,
     options: __HttpHandlerOptions,
@@ -2854,17 +2480,14 @@ export class Glue extends GlueClient {
   ): void;
   public getMapping(
     args: GetMappingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMappingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMappingCommandOutput) => void),
     cb?: (err: any, data?: GetMappingCommandOutput) => void
   ): Promise<GetMappingCommandOutput> | void {
     const command = new GetMappingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2882,10 +2505,7 @@ export class Glue extends GlueClient {
     args: GetMLTaskRunCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetMLTaskRunCommandOutput>;
-  public getMLTaskRun(
-    args: GetMLTaskRunCommandInput,
-    cb: (err: any, data?: GetMLTaskRunCommandOutput) => void
-  ): void;
+  public getMLTaskRun(args: GetMLTaskRunCommandInput, cb: (err: any, data?: GetMLTaskRunCommandOutput) => void): void;
   public getMLTaskRun(
     args: GetMLTaskRunCommandInput,
     options: __HttpHandlerOptions,
@@ -2893,17 +2513,14 @@ export class Glue extends GlueClient {
   ): void;
   public getMLTaskRun(
     args: GetMLTaskRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMLTaskRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMLTaskRunCommandOutput) => void),
     cb?: (err: any, data?: GetMLTaskRunCommandOutput) => void
   ): Promise<GetMLTaskRunCommandOutput> | void {
     const command = new GetMLTaskRunCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2934,17 +2551,14 @@ export class Glue extends GlueClient {
   ): void;
   public getMLTaskRuns(
     args: GetMLTaskRunsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMLTaskRunsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMLTaskRunsCommandOutput) => void),
     cb?: (err: any, data?: GetMLTaskRunsCommandOutput) => void
   ): Promise<GetMLTaskRunsCommandOutput> | void {
     const command = new GetMLTaskRunsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2973,17 +2587,14 @@ export class Glue extends GlueClient {
   ): void;
   public getMLTransform(
     args: GetMLTransformCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMLTransformCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMLTransformCommandOutput) => void),
     cb?: (err: any, data?: GetMLTransformCommandOutput) => void
   ): Promise<GetMLTransformCommandOutput> | void {
     const command = new GetMLTransformCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3012,17 +2623,14 @@ export class Glue extends GlueClient {
   ): void;
   public getMLTransforms(
     args: GetMLTransformsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMLTransformsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMLTransformsCommandOutput) => void),
     cb?: (err: any, data?: GetMLTransformsCommandOutput) => void
   ): Promise<GetMLTransformsCommandOutput> | void {
     const command = new GetMLTransformsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3036,10 +2644,7 @@ export class Glue extends GlueClient {
     args: GetPartitionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetPartitionCommandOutput>;
-  public getPartition(
-    args: GetPartitionCommandInput,
-    cb: (err: any, data?: GetPartitionCommandOutput) => void
-  ): void;
+  public getPartition(args: GetPartitionCommandInput, cb: (err: any, data?: GetPartitionCommandOutput) => void): void;
   public getPartition(
     args: GetPartitionCommandInput,
     options: __HttpHandlerOptions,
@@ -3047,17 +2652,14 @@ export class Glue extends GlueClient {
   ): void;
   public getPartition(
     args: GetPartitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPartitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPartitionCommandOutput) => void),
     cb?: (err: any, data?: GetPartitionCommandOutput) => void
   ): Promise<GetPartitionCommandOutput> | void {
     const command = new GetPartitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3082,17 +2684,14 @@ export class Glue extends GlueClient {
   ): void;
   public getPartitions(
     args: GetPartitionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPartitionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPartitionsCommandOutput) => void),
     cb?: (err: any, data?: GetPartitionsCommandOutput) => void
   ): Promise<GetPartitionsCommandOutput> | void {
     const command = new GetPartitionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3102,14 +2701,8 @@ export class Glue extends GlueClient {
   /**
    * <p>Gets code to perform a specified mapping.</p>
    */
-  public getPlan(
-    args: GetPlanCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPlanCommandOutput>;
-  public getPlan(
-    args: GetPlanCommandInput,
-    cb: (err: any, data?: GetPlanCommandOutput) => void
-  ): void;
+  public getPlan(args: GetPlanCommandInput, options?: __HttpHandlerOptions): Promise<GetPlanCommandOutput>;
+  public getPlan(args: GetPlanCommandInput, cb: (err: any, data?: GetPlanCommandOutput) => void): void;
   public getPlan(
     args: GetPlanCommandInput,
     options: __HttpHandlerOptions,
@@ -3117,17 +2710,14 @@ export class Glue extends GlueClient {
   ): void;
   public getPlan(
     args: GetPlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPlanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPlanCommandOutput) => void),
     cb?: (err: any, data?: GetPlanCommandOutput) => void
   ): Promise<GetPlanCommandOutput> | void {
     const command = new GetPlanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3152,17 +2742,14 @@ export class Glue extends GlueClient {
   ): void;
   public getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResourcePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcePolicyCommandOutput) => void),
     cb?: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): Promise<GetResourcePolicyCommandOutput> | void {
     const command = new GetResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3187,17 +2774,14 @@ export class Glue extends GlueClient {
   ): void;
   public getSecurityConfiguration(
     args: GetSecurityConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSecurityConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSecurityConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetSecurityConfigurationCommandOutput) => void
   ): Promise<GetSecurityConfigurationCommandOutput> | void {
     const command = new GetSecurityConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3222,17 +2806,14 @@ export class Glue extends GlueClient {
   ): void;
   public getSecurityConfigurations(
     args: GetSecurityConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSecurityConfigurationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSecurityConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: GetSecurityConfigurationsCommandOutput) => void
   ): Promise<GetSecurityConfigurationsCommandOutput> | void {
     const command = new GetSecurityConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3243,14 +2824,8 @@ export class Glue extends GlueClient {
    * <p>Retrieves the <code>Table</code> definition in a Data Catalog for
    *       a specified table.</p>
    */
-  public getTable(
-    args: GetTableCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetTableCommandOutput>;
-  public getTable(
-    args: GetTableCommandInput,
-    cb: (err: any, data?: GetTableCommandOutput) => void
-  ): void;
+  public getTable(args: GetTableCommandInput, options?: __HttpHandlerOptions): Promise<GetTableCommandOutput>;
+  public getTable(args: GetTableCommandInput, cb: (err: any, data?: GetTableCommandOutput) => void): void;
   public getTable(
     args: GetTableCommandInput,
     options: __HttpHandlerOptions,
@@ -3258,17 +2833,14 @@ export class Glue extends GlueClient {
   ): void;
   public getTable(
     args: GetTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTableCommandOutput) => void),
     cb?: (err: any, data?: GetTableCommandOutput) => void
   ): Promise<GetTableCommandOutput> | void {
     const command = new GetTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3279,14 +2851,8 @@ export class Glue extends GlueClient {
    * <p>Retrieves the definitions of some or all of the tables in a given
    *       <code>Database</code>.</p>
    */
-  public getTables(
-    args: GetTablesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetTablesCommandOutput>;
-  public getTables(
-    args: GetTablesCommandInput,
-    cb: (err: any, data?: GetTablesCommandOutput) => void
-  ): void;
+  public getTables(args: GetTablesCommandInput, options?: __HttpHandlerOptions): Promise<GetTablesCommandOutput>;
+  public getTables(args: GetTablesCommandInput, cb: (err: any, data?: GetTablesCommandOutput) => void): void;
   public getTables(
     args: GetTablesCommandInput,
     options: __HttpHandlerOptions,
@@ -3294,17 +2860,14 @@ export class Glue extends GlueClient {
   ): void;
   public getTables(
     args: GetTablesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTablesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTablesCommandOutput) => void),
     cb?: (err: any, data?: GetTablesCommandOutput) => void
   ): Promise<GetTablesCommandOutput> | void {
     const command = new GetTablesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3329,17 +2892,14 @@ export class Glue extends GlueClient {
   ): void;
   public getTableVersion(
     args: GetTableVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTableVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTableVersionCommandOutput) => void),
     cb?: (err: any, data?: GetTableVersionCommandOutput) => void
   ): Promise<GetTableVersionCommandOutput> | void {
     const command = new GetTableVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3365,17 +2925,14 @@ export class Glue extends GlueClient {
   ): void;
   public getTableVersions(
     args: GetTableVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTableVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTableVersionsCommandOutput) => void),
     cb?: (err: any, data?: GetTableVersionsCommandOutput) => void
   ): Promise<GetTableVersionsCommandOutput> | void {
     const command = new GetTableVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3385,14 +2942,8 @@ export class Glue extends GlueClient {
   /**
    * <p>Retrieves a list of tags associated with a resource.</p>
    */
-  public getTags(
-    args: GetTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetTagsCommandOutput>;
-  public getTags(
-    args: GetTagsCommandInput,
-    cb: (err: any, data?: GetTagsCommandOutput) => void
-  ): void;
+  public getTags(args: GetTagsCommandInput, options?: __HttpHandlerOptions): Promise<GetTagsCommandOutput>;
+  public getTags(args: GetTagsCommandInput, cb: (err: any, data?: GetTagsCommandOutput) => void): void;
   public getTags(
     args: GetTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -3400,17 +2951,14 @@ export class Glue extends GlueClient {
   ): void;
   public getTags(
     args: GetTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTagsCommandOutput) => void),
     cb?: (err: any, data?: GetTagsCommandOutput) => void
   ): Promise<GetTagsCommandOutput> | void {
     const command = new GetTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3420,14 +2968,8 @@ export class Glue extends GlueClient {
   /**
    * <p>Retrieves the definition of a trigger.</p>
    */
-  public getTrigger(
-    args: GetTriggerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetTriggerCommandOutput>;
-  public getTrigger(
-    args: GetTriggerCommandInput,
-    cb: (err: any, data?: GetTriggerCommandOutput) => void
-  ): void;
+  public getTrigger(args: GetTriggerCommandInput, options?: __HttpHandlerOptions): Promise<GetTriggerCommandOutput>;
+  public getTrigger(args: GetTriggerCommandInput, cb: (err: any, data?: GetTriggerCommandOutput) => void): void;
   public getTrigger(
     args: GetTriggerCommandInput,
     options: __HttpHandlerOptions,
@@ -3435,17 +2977,14 @@ export class Glue extends GlueClient {
   ): void;
   public getTrigger(
     args: GetTriggerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTriggerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTriggerCommandOutput) => void),
     cb?: (err: any, data?: GetTriggerCommandOutput) => void
   ): Promise<GetTriggerCommandOutput> | void {
     const command = new GetTriggerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3455,14 +2994,8 @@ export class Glue extends GlueClient {
   /**
    * <p>Gets all the triggers associated with a job.</p>
    */
-  public getTriggers(
-    args: GetTriggersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetTriggersCommandOutput>;
-  public getTriggers(
-    args: GetTriggersCommandInput,
-    cb: (err: any, data?: GetTriggersCommandOutput) => void
-  ): void;
+  public getTriggers(args: GetTriggersCommandInput, options?: __HttpHandlerOptions): Promise<GetTriggersCommandOutput>;
+  public getTriggers(args: GetTriggersCommandInput, cb: (err: any, data?: GetTriggersCommandOutput) => void): void;
   public getTriggers(
     args: GetTriggersCommandInput,
     options: __HttpHandlerOptions,
@@ -3470,17 +3003,14 @@ export class Glue extends GlueClient {
   ): void;
   public getTriggers(
     args: GetTriggersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTriggersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTriggersCommandOutput) => void),
     cb?: (err: any, data?: GetTriggersCommandOutput) => void
   ): Promise<GetTriggersCommandOutput> | void {
     const command = new GetTriggersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3505,17 +3035,14 @@ export class Glue extends GlueClient {
   ): void;
   public getUserDefinedFunction(
     args: GetUserDefinedFunctionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUserDefinedFunctionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUserDefinedFunctionCommandOutput) => void),
     cb?: (err: any, data?: GetUserDefinedFunctionCommandOutput) => void
   ): Promise<GetUserDefinedFunctionCommandOutput> | void {
     const command = new GetUserDefinedFunctionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3540,17 +3067,14 @@ export class Glue extends GlueClient {
   ): void;
   public getUserDefinedFunctions(
     args: GetUserDefinedFunctionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUserDefinedFunctionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUserDefinedFunctionsCommandOutput) => void),
     cb?: (err: any, data?: GetUserDefinedFunctionsCommandOutput) => void
   ): Promise<GetUserDefinedFunctionsCommandOutput> | void {
     const command = new GetUserDefinedFunctionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3560,14 +3084,8 @@ export class Glue extends GlueClient {
   /**
    * <p>Retrieves resource metadata for a workflow.</p>
    */
-  public getWorkflow(
-    args: GetWorkflowCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetWorkflowCommandOutput>;
-  public getWorkflow(
-    args: GetWorkflowCommandInput,
-    cb: (err: any, data?: GetWorkflowCommandOutput) => void
-  ): void;
+  public getWorkflow(args: GetWorkflowCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkflowCommandOutput>;
+  public getWorkflow(args: GetWorkflowCommandInput, cb: (err: any, data?: GetWorkflowCommandOutput) => void): void;
   public getWorkflow(
     args: GetWorkflowCommandInput,
     options: __HttpHandlerOptions,
@@ -3575,17 +3093,14 @@ export class Glue extends GlueClient {
   ): void;
   public getWorkflow(
     args: GetWorkflowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetWorkflowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkflowCommandOutput) => void),
     cb?: (err: any, data?: GetWorkflowCommandOutput) => void
   ): Promise<GetWorkflowCommandOutput> | void {
     const command = new GetWorkflowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3610,17 +3125,14 @@ export class Glue extends GlueClient {
   ): void;
   public getWorkflowRun(
     args: GetWorkflowRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetWorkflowRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkflowRunCommandOutput) => void),
     cb?: (err: any, data?: GetWorkflowRunCommandOutput) => void
   ): Promise<GetWorkflowRunCommandOutput> | void {
     const command = new GetWorkflowRunCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3645,17 +3157,14 @@ export class Glue extends GlueClient {
   ): void;
   public getWorkflowRunProperties(
     args: GetWorkflowRunPropertiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetWorkflowRunPropertiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkflowRunPropertiesCommandOutput) => void),
     cb?: (err: any, data?: GetWorkflowRunPropertiesCommandOutput) => void
   ): Promise<GetWorkflowRunPropertiesCommandOutput> | void {
     const command = new GetWorkflowRunPropertiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3680,17 +3189,14 @@ export class Glue extends GlueClient {
   ): void;
   public getWorkflowRuns(
     args: GetWorkflowRunsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetWorkflowRunsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkflowRunsCommandOutput) => void),
     cb?: (err: any, data?: GetWorkflowRunsCommandOutput) => void
   ): Promise<GetWorkflowRunsCommandOutput> | void {
     const command = new GetWorkflowRunsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3715,17 +3221,14 @@ export class Glue extends GlueClient {
   ): void;
   public importCatalogToGlue(
     args: ImportCatalogToGlueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportCatalogToGlueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportCatalogToGlueCommandOutput) => void),
     cb?: (err: any, data?: ImportCatalogToGlueCommandOutput) => void
   ): Promise<ImportCatalogToGlueCommandOutput> | void {
     const command = new ImportCatalogToGlueCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3745,10 +3248,7 @@ export class Glue extends GlueClient {
     args: ListCrawlersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListCrawlersCommandOutput>;
-  public listCrawlers(
-    args: ListCrawlersCommandInput,
-    cb: (err: any, data?: ListCrawlersCommandOutput) => void
-  ): void;
+  public listCrawlers(args: ListCrawlersCommandInput, cb: (err: any, data?: ListCrawlersCommandOutput) => void): void;
   public listCrawlers(
     args: ListCrawlersCommandInput,
     options: __HttpHandlerOptions,
@@ -3756,17 +3256,14 @@ export class Glue extends GlueClient {
   ): void;
   public listCrawlers(
     args: ListCrawlersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListCrawlersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCrawlersCommandOutput) => void),
     cb?: (err: any, data?: ListCrawlersCommandOutput) => void
   ): Promise<ListCrawlersCommandOutput> | void {
     const command = new ListCrawlersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3797,17 +3294,14 @@ export class Glue extends GlueClient {
   ): void;
   public listDevEndpoints(
     args: ListDevEndpointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDevEndpointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDevEndpointsCommandOutput) => void),
     cb?: (err: any, data?: ListDevEndpointsCommandOutput) => void
   ): Promise<ListDevEndpointsCommandOutput> | void {
     const command = new ListDevEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3821,14 +3315,8 @@ export class Glue extends GlueClient {
    *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
    *       filtering, only resources with the tag are retrieved.</p>
    */
-  public listJobs(
-    args: ListJobsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListJobsCommandOutput>;
-  public listJobs(
-    args: ListJobsCommandInput,
-    cb: (err: any, data?: ListJobsCommandOutput) => void
-  ): void;
+  public listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
+  public listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
   public listJobs(
     args: ListJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -3836,17 +3324,14 @@ export class Glue extends GlueClient {
   ): void;
   public listJobs(
     args: ListJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobsCommandOutput) => void),
     cb?: (err: any, data?: ListJobsCommandOutput) => void
   ): Promise<ListJobsCommandOutput> | void {
     const command = new ListJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3864,10 +3349,7 @@ export class Glue extends GlueClient {
     args: ListTriggersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListTriggersCommandOutput>;
-  public listTriggers(
-    args: ListTriggersCommandInput,
-    cb: (err: any, data?: ListTriggersCommandOutput) => void
-  ): void;
+  public listTriggers(args: ListTriggersCommandInput, cb: (err: any, data?: ListTriggersCommandOutput) => void): void;
   public listTriggers(
     args: ListTriggersCommandInput,
     options: __HttpHandlerOptions,
@@ -3875,17 +3357,14 @@ export class Glue extends GlueClient {
   ): void;
   public listTriggers(
     args: ListTriggersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTriggersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTriggersCommandOutput) => void),
     cb?: (err: any, data?: ListTriggersCommandOutput) => void
   ): Promise<ListTriggersCommandOutput> | void {
     const command = new ListTriggersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3910,17 +3389,14 @@ export class Glue extends GlueClient {
   ): void;
   public listWorkflows(
     args: ListWorkflowsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListWorkflowsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkflowsCommandOutput) => void),
     cb?: (err: any, data?: ListWorkflowsCommandOutput) => void
   ): Promise<ListWorkflowsCommandOutput> | void {
     const command = new ListWorkflowsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3946,23 +3422,14 @@ export class Glue extends GlueClient {
   ): void;
   public putDataCatalogEncryptionSettings(
     args: PutDataCatalogEncryptionSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutDataCatalogEncryptionSettingsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutDataCatalogEncryptionSettingsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDataCatalogEncryptionSettingsCommandOutput) => void),
+    cb?: (err: any, data?: PutDataCatalogEncryptionSettingsCommandOutput) => void
   ): Promise<PutDataCatalogEncryptionSettingsCommandOutput> | void {
     const command = new PutDataCatalogEncryptionSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3987,17 +3454,14 @@ export class Glue extends GlueClient {
   ): void;
   public putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
     cb?: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): Promise<PutResourcePolicyCommandOutput> | void {
     const command = new PutResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4022,17 +3486,14 @@ export class Glue extends GlueClient {
   ): void;
   public putWorkflowRunProperties(
     args: PutWorkflowRunPropertiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutWorkflowRunPropertiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutWorkflowRunPropertiesCommandOutput) => void),
     cb?: (err: any, data?: PutWorkflowRunPropertiesCommandOutput) => void
   ): Promise<PutWorkflowRunPropertiesCommandOutput> | void {
     const command = new PutWorkflowRunPropertiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4057,17 +3518,14 @@ export class Glue extends GlueClient {
   ): void;
   public resetJobBookmark(
     args: ResetJobBookmarkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResetJobBookmarkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetJobBookmarkCommandOutput) => void),
     cb?: (err: any, data?: ResetJobBookmarkCommandOutput) => void
   ): Promise<ResetJobBookmarkCommandOutput> | void {
     const command = new ResetJobBookmarkCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4082,10 +3540,7 @@ export class Glue extends GlueClient {
     args: SearchTablesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SearchTablesCommandOutput>;
-  public searchTables(
-    args: SearchTablesCommandInput,
-    cb: (err: any, data?: SearchTablesCommandOutput) => void
-  ): void;
+  public searchTables(args: SearchTablesCommandInput, cb: (err: any, data?: SearchTablesCommandOutput) => void): void;
   public searchTables(
     args: SearchTablesCommandInput,
     options: __HttpHandlerOptions,
@@ -4093,17 +3548,14 @@ export class Glue extends GlueClient {
   ): void;
   public searchTables(
     args: SearchTablesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchTablesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchTablesCommandOutput) => void),
     cb?: (err: any, data?: SearchTablesCommandOutput) => void
   ): Promise<SearchTablesCommandOutput> | void {
     const command = new SearchTablesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4118,10 +3570,7 @@ export class Glue extends GlueClient {
     args: StartCrawlerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartCrawlerCommandOutput>;
-  public startCrawler(
-    args: StartCrawlerCommandInput,
-    cb: (err: any, data?: StartCrawlerCommandOutput) => void
-  ): void;
+  public startCrawler(args: StartCrawlerCommandInput, cb: (err: any, data?: StartCrawlerCommandOutput) => void): void;
   public startCrawler(
     args: StartCrawlerCommandInput,
     options: __HttpHandlerOptions,
@@ -4129,17 +3578,14 @@ export class Glue extends GlueClient {
   ): void;
   public startCrawler(
     args: StartCrawlerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartCrawlerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartCrawlerCommandOutput) => void),
     cb?: (err: any, data?: StartCrawlerCommandOutput) => void
   ): Promise<StartCrawlerCommandOutput> | void {
     const command = new StartCrawlerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4166,17 +3612,14 @@ export class Glue extends GlueClient {
   ): void;
   public startCrawlerSchedule(
     args: StartCrawlerScheduleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartCrawlerScheduleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartCrawlerScheduleCommandOutput) => void),
     cb?: (err: any, data?: StartCrawlerScheduleCommandOutput) => void
   ): Promise<StartCrawlerScheduleCommandOutput> | void {
     const command = new StartCrawlerScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4209,17 +3652,14 @@ export class Glue extends GlueClient {
   ): void;
   public startExportLabelsTaskRun(
     args: StartExportLabelsTaskRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartExportLabelsTaskRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartExportLabelsTaskRunCommandOutput) => void),
     cb?: (err: any, data?: StartExportLabelsTaskRunCommandOutput) => void
   ): Promise<StartExportLabelsTaskRunCommandOutput> | void {
     const command = new StartExportLabelsTaskRunCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4268,17 +3708,14 @@ export class Glue extends GlueClient {
   ): void;
   public startImportLabelsTaskRun(
     args: StartImportLabelsTaskRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartImportLabelsTaskRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartImportLabelsTaskRunCommandOutput) => void),
     cb?: (err: any, data?: StartImportLabelsTaskRunCommandOutput) => void
   ): Promise<StartImportLabelsTaskRunCommandOutput> | void {
     const command = new StartImportLabelsTaskRunCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4288,14 +3725,8 @@ export class Glue extends GlueClient {
   /**
    * <p>Starts a job run using a job definition.</p>
    */
-  public startJobRun(
-    args: StartJobRunCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartJobRunCommandOutput>;
-  public startJobRun(
-    args: StartJobRunCommandInput,
-    cb: (err: any, data?: StartJobRunCommandOutput) => void
-  ): void;
+  public startJobRun(args: StartJobRunCommandInput, options?: __HttpHandlerOptions): Promise<StartJobRunCommandOutput>;
+  public startJobRun(args: StartJobRunCommandInput, cb: (err: any, data?: StartJobRunCommandOutput) => void): void;
   public startJobRun(
     args: StartJobRunCommandInput,
     options: __HttpHandlerOptions,
@@ -4303,17 +3734,14 @@ export class Glue extends GlueClient {
   ): void;
   public startJobRun(
     args: StartJobRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartJobRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartJobRunCommandOutput) => void),
     cb?: (err: any, data?: StartJobRunCommandOutput) => void
   ): Promise<StartJobRunCommandOutput> | void {
     const command = new StartJobRunCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4345,17 +3773,14 @@ export class Glue extends GlueClient {
   ): void;
   public startMLEvaluationTaskRun(
     args: StartMLEvaluationTaskRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartMLEvaluationTaskRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMLEvaluationTaskRunCommandOutput) => void),
     cb?: (err: any, data?: StartMLEvaluationTaskRunCommandOutput) => void
   ): Promise<StartMLEvaluationTaskRunCommandOutput> | void {
     const command = new StartMLEvaluationTaskRunCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4384,38 +3809,23 @@ export class Glue extends GlueClient {
   ): Promise<StartMLLabelingSetGenerationTaskRunCommandOutput>;
   public startMLLabelingSetGenerationTaskRun(
     args: StartMLLabelingSetGenerationTaskRunCommandInput,
-    cb: (
-      err: any,
-      data?: StartMLLabelingSetGenerationTaskRunCommandOutput
-    ) => void
+    cb: (err: any, data?: StartMLLabelingSetGenerationTaskRunCommandOutput) => void
   ): void;
   public startMLLabelingSetGenerationTaskRun(
     args: StartMLLabelingSetGenerationTaskRunCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: StartMLLabelingSetGenerationTaskRunCommandOutput
-    ) => void
+    cb: (err: any, data?: StartMLLabelingSetGenerationTaskRunCommandOutput) => void
   ): void;
   public startMLLabelingSetGenerationTaskRun(
     args: StartMLLabelingSetGenerationTaskRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: StartMLLabelingSetGenerationTaskRunCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: StartMLLabelingSetGenerationTaskRunCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMLLabelingSetGenerationTaskRunCommandOutput) => void),
+    cb?: (err: any, data?: StartMLLabelingSetGenerationTaskRunCommandOutput) => void
   ): Promise<StartMLLabelingSetGenerationTaskRunCommandOutput> | void {
     const command = new StartMLLabelingSetGenerationTaskRunCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4431,10 +3841,7 @@ export class Glue extends GlueClient {
     args: StartTriggerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartTriggerCommandOutput>;
-  public startTrigger(
-    args: StartTriggerCommandInput,
-    cb: (err: any, data?: StartTriggerCommandOutput) => void
-  ): void;
+  public startTrigger(args: StartTriggerCommandInput, cb: (err: any, data?: StartTriggerCommandOutput) => void): void;
   public startTrigger(
     args: StartTriggerCommandInput,
     options: __HttpHandlerOptions,
@@ -4442,17 +3849,14 @@ export class Glue extends GlueClient {
   ): void;
   public startTrigger(
     args: StartTriggerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartTriggerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartTriggerCommandOutput) => void),
     cb?: (err: any, data?: StartTriggerCommandOutput) => void
   ): Promise<StartTriggerCommandOutput> | void {
     const command = new StartTriggerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4477,17 +3881,14 @@ export class Glue extends GlueClient {
   ): void;
   public startWorkflowRun(
     args: StartWorkflowRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartWorkflowRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartWorkflowRunCommandOutput) => void),
     cb?: (err: any, data?: StartWorkflowRunCommandOutput) => void
   ): Promise<StartWorkflowRunCommandOutput> | void {
     const command = new StartWorkflowRunCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4497,14 +3898,8 @@ export class Glue extends GlueClient {
   /**
    * <p>If the specified crawler is running, stops the crawl.</p>
    */
-  public stopCrawler(
-    args: StopCrawlerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopCrawlerCommandOutput>;
-  public stopCrawler(
-    args: StopCrawlerCommandInput,
-    cb: (err: any, data?: StopCrawlerCommandOutput) => void
-  ): void;
+  public stopCrawler(args: StopCrawlerCommandInput, options?: __HttpHandlerOptions): Promise<StopCrawlerCommandOutput>;
+  public stopCrawler(args: StopCrawlerCommandInput, cb: (err: any, data?: StopCrawlerCommandOutput) => void): void;
   public stopCrawler(
     args: StopCrawlerCommandInput,
     options: __HttpHandlerOptions,
@@ -4512,17 +3907,14 @@ export class Glue extends GlueClient {
   ): void;
   public stopCrawler(
     args: StopCrawlerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopCrawlerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopCrawlerCommandOutput) => void),
     cb?: (err: any, data?: StopCrawlerCommandOutput) => void
   ): Promise<StopCrawlerCommandOutput> | void {
     const command = new StopCrawlerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4549,17 +3941,14 @@ export class Glue extends GlueClient {
   ): void;
   public stopCrawlerSchedule(
     args: StopCrawlerScheduleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopCrawlerScheduleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopCrawlerScheduleCommandOutput) => void),
     cb?: (err: any, data?: StopCrawlerScheduleCommandOutput) => void
   ): Promise<StopCrawlerScheduleCommandOutput> | void {
     const command = new StopCrawlerScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4569,14 +3958,8 @@ export class Glue extends GlueClient {
   /**
    * <p>Stops a specified trigger.</p>
    */
-  public stopTrigger(
-    args: StopTriggerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopTriggerCommandOutput>;
-  public stopTrigger(
-    args: StopTriggerCommandInput,
-    cb: (err: any, data?: StopTriggerCommandOutput) => void
-  ): void;
+  public stopTrigger(args: StopTriggerCommandInput, options?: __HttpHandlerOptions): Promise<StopTriggerCommandOutput>;
+  public stopTrigger(args: StopTriggerCommandInput, cb: (err: any, data?: StopTriggerCommandOutput) => void): void;
   public stopTrigger(
     args: StopTriggerCommandInput,
     options: __HttpHandlerOptions,
@@ -4584,17 +3967,14 @@ export class Glue extends GlueClient {
   ): void;
   public stopTrigger(
     args: StopTriggerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopTriggerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopTriggerCommandOutput) => void),
     cb?: (err: any, data?: StopTriggerCommandOutput) => void
   ): Promise<StopTriggerCommandOutput> | void {
     const command = new StopTriggerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4606,14 +3986,8 @@ export class Glue extends GlueClient {
    *       In AWS Glue, you can tag only certain resources. For information about what
    *       resources you can tag, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS Glue</a>.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -4621,17 +3995,14 @@ export class Glue extends GlueClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4656,17 +4027,14 @@ export class Glue extends GlueClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4693,17 +4061,14 @@ export class Glue extends GlueClient {
   ): void;
   public updateClassifier(
     args: UpdateClassifierCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateClassifierCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateClassifierCommandOutput) => void),
     cb?: (err: any, data?: UpdateClassifierCommandOutput) => void
   ): Promise<UpdateClassifierCommandOutput> | void {
     const command = new UpdateClassifierCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4728,17 +4093,14 @@ export class Glue extends GlueClient {
   ): void;
   public updateConnection(
     args: UpdateConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConnectionCommandOutput) => void),
     cb?: (err: any, data?: UpdateConnectionCommandOutput) => void
   ): Promise<UpdateConnectionCommandOutput> | void {
     const command = new UpdateConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4765,17 +4127,14 @@ export class Glue extends GlueClient {
   ): void;
   public updateCrawler(
     args: UpdateCrawlerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateCrawlerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCrawlerCommandOutput) => void),
     cb?: (err: any, data?: UpdateCrawlerCommandOutput) => void
   ): Promise<UpdateCrawlerCommandOutput> | void {
     const command = new UpdateCrawlerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4800,17 +4159,14 @@ export class Glue extends GlueClient {
   ): void;
   public updateCrawlerSchedule(
     args: UpdateCrawlerScheduleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateCrawlerScheduleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCrawlerScheduleCommandOutput) => void),
     cb?: (err: any, data?: UpdateCrawlerScheduleCommandOutput) => void
   ): Promise<UpdateCrawlerScheduleCommandOutput> | void {
     const command = new UpdateCrawlerScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4835,17 +4191,14 @@ export class Glue extends GlueClient {
   ): void;
   public updateDatabase(
     args: UpdateDatabaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDatabaseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDatabaseCommandOutput) => void),
     cb?: (err: any, data?: UpdateDatabaseCommandOutput) => void
   ): Promise<UpdateDatabaseCommandOutput> | void {
     const command = new UpdateDatabaseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4870,17 +4223,14 @@ export class Glue extends GlueClient {
   ): void;
   public updateDevEndpoint(
     args: UpdateDevEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDevEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDevEndpointCommandOutput) => void),
     cb?: (err: any, data?: UpdateDevEndpointCommandOutput) => void
   ): Promise<UpdateDevEndpointCommandOutput> | void {
     const command = new UpdateDevEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4890,14 +4240,8 @@ export class Glue extends GlueClient {
   /**
    * <p>Updates an existing job definition.</p>
    */
-  public updateJob(
-    args: UpdateJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateJobCommandOutput>;
-  public updateJob(
-    args: UpdateJobCommandInput,
-    cb: (err: any, data?: UpdateJobCommandOutput) => void
-  ): void;
+  public updateJob(args: UpdateJobCommandInput, options?: __HttpHandlerOptions): Promise<UpdateJobCommandOutput>;
+  public updateJob(args: UpdateJobCommandInput, cb: (err: any, data?: UpdateJobCommandOutput) => void): void;
   public updateJob(
     args: UpdateJobCommandInput,
     options: __HttpHandlerOptions,
@@ -4905,17 +4249,14 @@ export class Glue extends GlueClient {
   ): void;
   public updateJob(
     args: UpdateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateJobCommandOutput) => void),
     cb?: (err: any, data?: UpdateJobCommandOutput) => void
   ): Promise<UpdateJobCommandOutput> | void {
     const command = new UpdateJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4944,17 +4285,14 @@ export class Glue extends GlueClient {
   ): void;
   public updateMLTransform(
     args: UpdateMLTransformCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateMLTransformCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMLTransformCommandOutput) => void),
     cb?: (err: any, data?: UpdateMLTransformCommandOutput) => void
   ): Promise<UpdateMLTransformCommandOutput> | void {
     const command = new UpdateMLTransformCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4979,17 +4317,14 @@ export class Glue extends GlueClient {
   ): void;
   public updatePartition(
     args: UpdatePartitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePartitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePartitionCommandOutput) => void),
     cb?: (err: any, data?: UpdatePartitionCommandOutput) => void
   ): Promise<UpdatePartitionCommandOutput> | void {
     const command = new UpdatePartitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4999,14 +4334,8 @@ export class Glue extends GlueClient {
   /**
    * <p>Updates a metadata table in the Data Catalog.</p>
    */
-  public updateTable(
-    args: UpdateTableCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateTableCommandOutput>;
-  public updateTable(
-    args: UpdateTableCommandInput,
-    cb: (err: any, data?: UpdateTableCommandOutput) => void
-  ): void;
+  public updateTable(args: UpdateTableCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTableCommandOutput>;
+  public updateTable(args: UpdateTableCommandInput, cb: (err: any, data?: UpdateTableCommandOutput) => void): void;
   public updateTable(
     args: UpdateTableCommandInput,
     options: __HttpHandlerOptions,
@@ -5014,17 +4343,14 @@ export class Glue extends GlueClient {
   ): void;
   public updateTable(
     args: UpdateTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTableCommandOutput) => void),
     cb?: (err: any, data?: UpdateTableCommandOutput) => void
   ): Promise<UpdateTableCommandOutput> | void {
     const command = new UpdateTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5049,17 +4375,14 @@ export class Glue extends GlueClient {
   ): void;
   public updateTrigger(
     args: UpdateTriggerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTriggerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTriggerCommandOutput) => void),
     cb?: (err: any, data?: UpdateTriggerCommandOutput) => void
   ): Promise<UpdateTriggerCommandOutput> | void {
     const command = new UpdateTriggerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5084,17 +4407,14 @@ export class Glue extends GlueClient {
   ): void;
   public updateUserDefinedFunction(
     args: UpdateUserDefinedFunctionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserDefinedFunctionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserDefinedFunctionCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserDefinedFunctionCommandOutput) => void
   ): Promise<UpdateUserDefinedFunctionCommandOutput> | void {
     const command = new UpdateUserDefinedFunctionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5119,17 +4439,14 @@ export class Glue extends GlueClient {
   ): void;
   public updateWorkflow(
     args: UpdateWorkflowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateWorkflowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWorkflowCommandOutput) => void),
     cb?: (err: any, data?: UpdateWorkflowCommandOutput) => void
   ): Promise<UpdateWorkflowCommandOutput> | void {
     const command = new UpdateWorkflowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

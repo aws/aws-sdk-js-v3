@@ -1,18 +1,15 @@
 import {
   ApiGatewayManagementApiClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ApiGatewayManagementApiClient";
 import { GetConnectionRequest, GetConnectionResponse } from "../models/index";
 import {
   deserializeAws_restJson1GetConnectionCommand,
-  serializeAws_restJson1GetConnectionCommand
+  serializeAws_restJson1GetConnectionCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetConnectionCommandInput = GetConnectionRequest;
-export type GetConnectionCommandOutput = GetConnectionResponse &
-  __MetadataBearer;
+export type GetConnectionCommandOutput = GetConnectionResponse & __MetadataBearer;
 
 export class GetConnectionCommand extends $Command<
   GetConnectionCommandInput,
@@ -47,14 +43,12 @@ export class GetConnectionCommand extends $Command<
     configuration: ApiGatewayManagementApiClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetConnectionCommandInput, GetConnectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +58,11 @@ export class GetConnectionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetConnectionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetConnectionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetConnectionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectionCommandOutput> {
     return deserializeAws_restJson1GetConnectionCommand(output, context);
   }
 

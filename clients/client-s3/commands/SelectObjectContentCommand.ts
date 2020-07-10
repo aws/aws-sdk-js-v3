@@ -1,23 +1,13 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
-import {
-  SelectObjectContentOutput,
-  SelectObjectContentRequest
-} from "../models/index";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { SelectObjectContentOutput, SelectObjectContentRequest } from "../models/index";
 import {
   deserializeAws_restXmlSelectObjectContentCommand,
-  serializeAws_restXmlSelectObjectContentCommand
+  serializeAws_restXmlSelectObjectContentCommand,
 } from "../protocols/Aws_restXml";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -27,12 +17,11 @@ import {
   EventStreamSerdeContext as __EventStreamSerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type SelectObjectContentCommandInput = SelectObjectContentRequest;
-export type SelectObjectContentCommandOutput = SelectObjectContentOutput &
-  __MetadataBearer;
+export type SelectObjectContentCommandOutput = SelectObjectContentOutput & __MetadataBearer;
 
 export class SelectObjectContentCommand extends $Command<
   SelectObjectContentCommandInput,
@@ -52,20 +41,15 @@ export class SelectObjectContentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SelectObjectContentCommandInput,
-    SelectObjectContentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SelectObjectContentCommandInput, SelectObjectContentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getSsecPlugin(configuration));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -75,10 +59,7 @@ export class SelectObjectContentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SelectObjectContentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SelectObjectContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlSelectObjectContentCommand(input, context);
   }
 

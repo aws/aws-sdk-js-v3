@@ -13,20 +13,17 @@ describe("addGlacierApiVersion", () => {
     apiVersion: "1970-01-01",
     bodyChecksumGenerator: unusedDep,
     sha256: unusedDep,
-    utf8Decoder: unusedDep
+    utf8Decoder: unusedDep,
   };
 
   it("sets the x-amz-glacier-version header", async () => {
-    const handler = addGlacierApiVersionMiddleware(config)(
-      mockNextHandler,
-      {} as any
-    );
+    const handler = addGlacierApiVersionMiddleware(config)(mockNextHandler, {} as any);
 
     await handler({
       input: {},
       request: new HttpRequest({
-        headers: {}
-      })
+        headers: {},
+      }),
     });
 
     // ensure the next handler was called

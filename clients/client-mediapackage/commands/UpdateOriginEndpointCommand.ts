@@ -1,21 +1,11 @@
-import {
-  MediaPackageClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaPackageClient";
-import {
-  UpdateOriginEndpointRequest,
-  UpdateOriginEndpointResponse
-} from "../models/index";
+import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
+import { UpdateOriginEndpointRequest, UpdateOriginEndpointResponse } from "../models/index";
 import {
   deserializeAws_restJson1UpdateOriginEndpointCommand,
-  serializeAws_restJson1UpdateOriginEndpointCommand
+  serializeAws_restJson1UpdateOriginEndpointCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateOriginEndpointCommandInput = UpdateOriginEndpointRequest;
-export type UpdateOriginEndpointCommandOutput = UpdateOriginEndpointResponse &
-  __MetadataBearer;
+export type UpdateOriginEndpointCommandOutput = UpdateOriginEndpointResponse & __MetadataBearer;
 
 export class UpdateOriginEndpointCommand extends $Command<
   UpdateOriginEndpointCommandInput,
@@ -49,18 +38,13 @@ export class UpdateOriginEndpointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateOriginEndpointCommandInput,
-    UpdateOriginEndpointCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateOriginEndpointCommandInput, UpdateOriginEndpointCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class UpdateOriginEndpointCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateOriginEndpointCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateOriginEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateOriginEndpointCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateOriginEndpointCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateOriginEndpointCommandOutput> {
     return deserializeAws_restJson1UpdateOriginEndpointCommand(output, context);
   }
 

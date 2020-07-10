@@ -1,21 +1,11 @@
-import {
-  QuickSightClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QuickSightClient";
-import {
-  CreateIngestionRequest,
-  CreateIngestionResponse
-} from "../models/index";
+import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { CreateIngestionRequest, CreateIngestionResponse } from "../models/index";
 import {
   deserializeAws_restJson1CreateIngestionCommand,
-  serializeAws_restJson1CreateIngestionCommand
+  serializeAws_restJson1CreateIngestionCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateIngestionCommandInput = CreateIngestionRequest;
-export type CreateIngestionCommandOutput = CreateIngestionResponse &
-  __MetadataBearer;
+export type CreateIngestionCommandOutput = CreateIngestionResponse & __MetadataBearer;
 
 export class CreateIngestionCommand extends $Command<
   CreateIngestionCommandInput,
@@ -50,14 +39,12 @@ export class CreateIngestionCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateIngestionCommandInput, CreateIngestionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class CreateIngestionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateIngestionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateIngestionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateIngestionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateIngestionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIngestionCommandOutput> {
     return deserializeAws_restJson1CreateIngestionCommand(output, context);
   }
 

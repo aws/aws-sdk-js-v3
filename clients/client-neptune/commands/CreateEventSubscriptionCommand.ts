@@ -1,21 +1,11 @@
-import {
-  NeptuneClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../NeptuneClient";
-import {
-  CreateEventSubscriptionMessage,
-  CreateEventSubscriptionResult
-} from "../models/index";
+import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
+import { CreateEventSubscriptionMessage, CreateEventSubscriptionResult } from "../models/index";
 import {
   deserializeAws_queryCreateEventSubscriptionCommand,
-  serializeAws_queryCreateEventSubscriptionCommand
+  serializeAws_queryCreateEventSubscriptionCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateEventSubscriptionCommandInput = CreateEventSubscriptionMessage;
-export type CreateEventSubscriptionCommandOutput = CreateEventSubscriptionResult &
-  __MetadataBearer;
+export type CreateEventSubscriptionCommandOutput = CreateEventSubscriptionResult & __MetadataBearer;
 
 export class CreateEventSubscriptionCommand extends $Command<
   CreateEventSubscriptionCommandInput,
@@ -49,18 +38,13 @@ export class CreateEventSubscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateEventSubscriptionCommandInput,
-    CreateEventSubscriptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateEventSubscriptionCommandInput, CreateEventSubscriptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class CreateEventSubscriptionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateEventSubscriptionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateEventSubscriptionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateEventSubscriptionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventSubscriptionCommandOutput> {
     return deserializeAws_queryCreateEventSubscriptionCommand(output, context);
   }
 

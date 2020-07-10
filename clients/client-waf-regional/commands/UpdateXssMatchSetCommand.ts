@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFRegionalClientResolvedConfig
-} from "../WAFRegionalClient";
-import {
-  UpdateXssMatchSetRequest,
-  UpdateXssMatchSetResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
+import { UpdateXssMatchSetRequest, UpdateXssMatchSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateXssMatchSetCommand,
-  serializeAws_json1_1UpdateXssMatchSetCommand
+  serializeAws_json1_1UpdateXssMatchSetCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateXssMatchSetCommandInput = UpdateXssMatchSetRequest;
-export type UpdateXssMatchSetCommandOutput = UpdateXssMatchSetResponse &
-  __MetadataBearer;
+export type UpdateXssMatchSetCommandOutput = UpdateXssMatchSetResponse & __MetadataBearer;
 
 export class UpdateXssMatchSetCommand extends $Command<
   UpdateXssMatchSetCommandInput,
@@ -50,14 +39,12 @@ export class UpdateXssMatchSetCommand extends $Command<
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateXssMatchSetCommandInput, UpdateXssMatchSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class UpdateXssMatchSetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateXssMatchSetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateXssMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateXssMatchSetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateXssMatchSetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateXssMatchSetCommandOutput> {
     return deserializeAws_json1_1UpdateXssMatchSetCommand(output, context);
   }
 

@@ -1,21 +1,13 @@
 const alphabetByEncoding: { [key: string]: number } = {};
 const alphabetByValue: Array<string> = new Array(64);
 
-for (
-  let i = 0, start = "A".charCodeAt(0), limit = "Z".charCodeAt(0);
-  i + start <= limit;
-  i++
-) {
+for (let i = 0, start = "A".charCodeAt(0), limit = "Z".charCodeAt(0); i + start <= limit; i++) {
   const char = String.fromCharCode(i + start);
   alphabetByEncoding[char] = i;
   alphabetByValue[i] = char;
 }
 
-for (
-  let i = 0, start = "a".charCodeAt(0), limit = "z".charCodeAt(0);
-  i + start <= limit;
-  i++
-) {
+for (let i = 0, start = "a".charCodeAt(0), limit = "z".charCodeAt(0); i + start <= limit; i++) {
   const char = String.fromCharCode(i + start);
   const index = i + 26;
   alphabetByEncoding[char] = index;

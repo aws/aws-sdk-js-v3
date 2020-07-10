@@ -1,21 +1,11 @@
-import {
-  DeviceFarmClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DeviceFarmClient";
-import {
-  ListDeviceInstancesRequest,
-  ListDeviceInstancesResult
-} from "../models/index";
+import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
+import { ListDeviceInstancesRequest, ListDeviceInstancesResult } from "../models/index";
 import {
   deserializeAws_json1_1ListDeviceInstancesCommand,
-  serializeAws_json1_1ListDeviceInstancesCommand
+  serializeAws_json1_1ListDeviceInstancesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListDeviceInstancesCommandInput = ListDeviceInstancesRequest;
-export type ListDeviceInstancesCommandOutput = ListDeviceInstancesResult &
-  __MetadataBearer;
+export type ListDeviceInstancesCommandOutput = ListDeviceInstancesResult & __MetadataBearer;
 
 export class ListDeviceInstancesCommand extends $Command<
   ListDeviceInstancesCommandInput,
@@ -49,18 +38,13 @@ export class ListDeviceInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDeviceInstancesCommandInput,
-    ListDeviceInstancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDeviceInstancesCommandInput, ListDeviceInstancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class ListDeviceInstancesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListDeviceInstancesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListDeviceInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDeviceInstancesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListDeviceInstancesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeviceInstancesCommandOutput> {
     return deserializeAws_json1_1ListDeviceInstancesCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  ListDevEndpointsRequest,
-  ListDevEndpointsResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { ListDevEndpointsRequest, ListDevEndpointsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListDevEndpointsCommand,
-  serializeAws_json1_1ListDevEndpointsCommand
+  serializeAws_json1_1ListDevEndpointsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListDevEndpointsCommandInput = ListDevEndpointsRequest;
-export type ListDevEndpointsCommandOutput = ListDevEndpointsResponse &
-  __MetadataBearer;
+export type ListDevEndpointsCommandOutput = ListDevEndpointsResponse & __MetadataBearer;
 
 export class ListDevEndpointsCommand extends $Command<
   ListDevEndpointsCommandInput,
@@ -50,14 +39,12 @@ export class ListDevEndpointsCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDevEndpointsCommandInput, ListDevEndpointsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class ListDevEndpointsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListDevEndpointsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListDevEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDevEndpointsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListDevEndpointsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDevEndpointsCommandOutput> {
     return deserializeAws_json1_1ListDevEndpointsCommand(output, context);
   }
 

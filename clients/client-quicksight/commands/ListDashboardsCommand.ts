@@ -1,18 +1,11 @@
-import {
-  QuickSightClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QuickSightClient";
+import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { ListDashboardsRequest, ListDashboardsResponse } from "../models/index";
 import {
   deserializeAws_restJson1ListDashboardsCommand,
-  serializeAws_restJson1ListDashboardsCommand
+  serializeAws_restJson1ListDashboardsCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListDashboardsCommandInput = ListDashboardsRequest;
-export type ListDashboardsCommandOutput = ListDashboardsResponse &
-  __MetadataBearer;
+export type ListDashboardsCommandOutput = ListDashboardsResponse & __MetadataBearer;
 
 export class ListDashboardsCommand extends $Command<
   ListDashboardsCommandInput,
@@ -47,14 +39,12 @@ export class ListDashboardsCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDashboardsCommandInput, ListDashboardsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class ListDashboardsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListDashboardsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListDashboardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDashboardsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListDashboardsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDashboardsCommandOutput> {
     return deserializeAws_restJson1ListDashboardsCommand(output, context);
   }
 

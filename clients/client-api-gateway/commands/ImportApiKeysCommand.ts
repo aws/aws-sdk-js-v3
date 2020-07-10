@@ -1,18 +1,11 @@
-import {
-  APIGatewayClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../APIGatewayClient";
+import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { ApiKeyIds, ImportApiKeysRequest } from "../models/index";
 import {
   deserializeAws_restJson1ImportApiKeysCommand,
-  serializeAws_restJson1ImportApiKeysCommand
+  serializeAws_restJson1ImportApiKeysCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ImportApiKeysCommandInput = ImportApiKeysRequest;
@@ -46,14 +39,12 @@ export class ImportApiKeysCommand extends $Command<
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ImportApiKeysCommandInput, ImportApiKeysCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +54,11 @@ export class ImportApiKeysCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ImportApiKeysCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ImportApiKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ImportApiKeysCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ImportApiKeysCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportApiKeysCommandOutput> {
     return deserializeAws_restJson1ImportApiKeysCommand(output, context);
   }
 

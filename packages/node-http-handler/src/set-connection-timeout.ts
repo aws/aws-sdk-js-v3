@@ -1,11 +1,7 @@
 import { ClientRequest } from "http";
 import { Socket } from "net";
 
-export function setConnectionTimeout(
-  request: ClientRequest,
-  reject: (err: Error) => void,
-  timeoutInMs: number = 0
-) {
+export function setConnectionTimeout(request: ClientRequest, reject: (err: Error) => void, timeoutInMs: number = 0) {
   if (!timeoutInMs) {
     return;
   }
@@ -17,9 +13,7 @@ export function setConnectionTimeout(
         // abort the request to destroy it
         this.abort();
 
-        const timeoutError = new Error(
-          `Socket timed out without establishing a connection within ${timeoutInMs} ms`
-        );
+        const timeoutError = new Error(`Socket timed out without establishing a connection within ${timeoutInMs} ms`);
         timeoutError.name = "TimeoutError";
         reject(timeoutError);
       }, timeoutInMs);

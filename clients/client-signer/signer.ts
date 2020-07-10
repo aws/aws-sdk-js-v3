@@ -1,62 +1,58 @@
 import {
   CancelSigningProfileCommand,
   CancelSigningProfileCommandInput,
-  CancelSigningProfileCommandOutput
+  CancelSigningProfileCommandOutput,
 } from "./commands/CancelSigningProfileCommand";
 import {
   DescribeSigningJobCommand,
   DescribeSigningJobCommandInput,
-  DescribeSigningJobCommandOutput
+  DescribeSigningJobCommandOutput,
 } from "./commands/DescribeSigningJobCommand";
 import {
   GetSigningPlatformCommand,
   GetSigningPlatformCommandInput,
-  GetSigningPlatformCommandOutput
+  GetSigningPlatformCommandOutput,
 } from "./commands/GetSigningPlatformCommand";
 import {
   GetSigningProfileCommand,
   GetSigningProfileCommandInput,
-  GetSigningProfileCommandOutput
+  GetSigningProfileCommandOutput,
 } from "./commands/GetSigningProfileCommand";
 import {
   ListSigningJobsCommand,
   ListSigningJobsCommandInput,
-  ListSigningJobsCommandOutput
+  ListSigningJobsCommandOutput,
 } from "./commands/ListSigningJobsCommand";
 import {
   ListSigningPlatformsCommand,
   ListSigningPlatformsCommandInput,
-  ListSigningPlatformsCommandOutput
+  ListSigningPlatformsCommandOutput,
 } from "./commands/ListSigningPlatformsCommand";
 import {
   ListSigningProfilesCommand,
   ListSigningProfilesCommandInput,
-  ListSigningProfilesCommandOutput
+  ListSigningProfilesCommandOutput,
 } from "./commands/ListSigningProfilesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   PutSigningProfileCommand,
   PutSigningProfileCommandInput,
-  PutSigningProfileCommandOutput
+  PutSigningProfileCommandOutput,
 } from "./commands/PutSigningProfileCommand";
 import {
   StartSigningJobCommand,
   StartSigningJobCommandInput,
-  StartSigningJobCommandOutput
+  StartSigningJobCommandOutput,
 } from "./commands/StartSigningJobCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { signerClient } from "./signerClient";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
@@ -90,17 +86,14 @@ export class signer extends signerClient {
   ): void;
   public cancelSigningProfile(
     args: CancelSigningProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelSigningProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelSigningProfileCommandOutput) => void),
     cb?: (err: any, data?: CancelSigningProfileCommandOutput) => void
   ): Promise<CancelSigningProfileCommandOutput> | void {
     const command = new CancelSigningProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -127,17 +120,14 @@ export class signer extends signerClient {
   ): void;
   public describeSigningJob(
     args: DescribeSigningJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSigningJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSigningJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeSigningJobCommandOutput) => void
   ): Promise<DescribeSigningJobCommandOutput> | void {
     const command = new DescribeSigningJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -162,17 +152,14 @@ export class signer extends signerClient {
   ): void;
   public getSigningPlatform(
     args: GetSigningPlatformCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSigningPlatformCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSigningPlatformCommandOutput) => void),
     cb?: (err: any, data?: GetSigningPlatformCommandOutput) => void
   ): Promise<GetSigningPlatformCommandOutput> | void {
     const command = new GetSigningPlatformCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -197,17 +184,14 @@ export class signer extends signerClient {
   ): void;
   public getSigningProfile(
     args: GetSigningProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSigningProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSigningProfileCommandOutput) => void),
     cb?: (err: any, data?: GetSigningProfileCommandOutput) => void
   ): Promise<GetSigningProfileCommandOutput> | void {
     const command = new GetSigningProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -238,17 +222,14 @@ export class signer extends signerClient {
   ): void;
   public listSigningJobs(
     args: ListSigningJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSigningJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSigningJobsCommandOutput) => void),
     cb?: (err: any, data?: ListSigningJobsCommandOutput) => void
   ): Promise<ListSigningJobsCommandOutput> | void {
     const command = new ListSigningJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -279,17 +260,14 @@ export class signer extends signerClient {
   ): void;
   public listSigningPlatforms(
     args: ListSigningPlatformsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSigningPlatformsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSigningPlatformsCommandOutput) => void),
     cb?: (err: any, data?: ListSigningPlatformsCommandOutput) => void
   ): Promise<ListSigningPlatformsCommandOutput> | void {
     const command = new ListSigningPlatformsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -321,17 +299,14 @@ export class signer extends signerClient {
   ): void;
   public listSigningProfiles(
     args: ListSigningProfilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSigningProfilesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSigningProfilesCommandOutput) => void),
     cb?: (err: any, data?: ListSigningProfilesCommandOutput) => void
   ): Promise<ListSigningProfilesCommandOutput> | void {
     const command = new ListSigningProfilesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -358,17 +333,14 @@ export class signer extends signerClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -395,17 +367,14 @@ export class signer extends signerClient {
   ): void;
   public putSigningProfile(
     args: PutSigningProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutSigningProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutSigningProfileCommandOutput) => void),
     cb?: (err: any, data?: PutSigningProfileCommandOutput) => void
   ): Promise<PutSigningProfileCommandOutput> | void {
     const command = new PutSigningProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -457,17 +426,14 @@ export class signer extends signerClient {
   ): void;
   public startSigningJob(
     args: StartSigningJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartSigningJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartSigningJobCommandOutput) => void),
     cb?: (err: any, data?: StartSigningJobCommandOutput) => void
   ): Promise<StartSigningJobCommandOutput> | void {
     const command = new StartSigningJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -482,14 +448,8 @@ export class signer extends signerClient {
    * 			key-value
    * 			pair.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -497,17 +457,14 @@ export class signer extends signerClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -534,17 +491,14 @@ export class signer extends signerClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

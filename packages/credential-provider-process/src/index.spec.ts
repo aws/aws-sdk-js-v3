@@ -1,29 +1,18 @@
 import { join, sep } from "path";
 import { ENV_PROFILE, fromProcess } from "./";
-import {
-  ENV_CONFIG_PATH,
-  ENV_CREDENTIALS_PATH
-} from "@aws-sdk/shared-ini-file-loader";
+import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH } from "@aws-sdk/shared-ini-file-loader";
 
 jest.mock("fs", () => {
   interface FsModule {
     __addFsMatcher(toMatch: string, toReturn: string): void;
     __clearFsMatchers(): void;
-    readFile: (
-      path: string,
-      encoding: string,
-      cb: (err: Error | null, data?: string) => void
-    ) => void;
+    readFile: (path: string, encoding: string, cb: (err: Error | null, data?: string) => void) => void;
   }
 
   const fs: FsModule = <FsModule>jest.genMockFromModule("fs");
   let matchers = new Map<string, string>();
 
-  function readFile(
-    path: string,
-    encoding: string,
-    callback: (err: Error | null, data?: string) => void
-  ): void {
+  function readFile(path: string, encoding: string, callback: (err: Error | null, data?: string) => void): void {
     if (matchers.has(path)) {
       callback(null, matchers.get(path));
       return;
@@ -61,23 +50,15 @@ import { homedir } from "os";
 
 jest.mock("child_process", () => {
   interface ChildProcessModule {
-    exec: (
-      command: string,
-      cb: (err: Error | null, stdout?: string) => void
-    ) => void;
+    exec: (command: string, cb: (err: Error | null, stdout?: string) => void) => void;
     __addChildProcessMatcher(toMatch: string, toReturn: string): void;
     __clearChildProcessMatchers(): void;
   }
 
-  const child_process = <ChildProcessModule>(
-    jest.genMockFromModule("child_process")
-  );
+  const child_process = <ChildProcessModule>jest.genMockFromModule("child_process");
   let matchers = new Map<string, string>();
 
-  function exec(
-    command: string,
-    callback: (err: Error | null, stdout?: string) => void
-  ): void {
+  function exec(command: string, callback: (err: Error | null, stdout?: string) => void): void {
     if (matchers.has(command)) {
       callback(null, matchers.get(command));
       return;
@@ -86,10 +67,7 @@ jest.mock("child_process", () => {
     callback(new Error("ENOENT: no such file or directory"));
   }
 
-  child_process.__addChildProcessMatcher = function (
-    command: string,
-    json: string
-  ): void {
+  child_process.__addChildProcessMatcher = function (command: string, json: string): void {
     matchers.set(command, json);
   };
   child_process.__clearChildProcessMatchers = function (): void {
@@ -101,21 +79,18 @@ jest.mock("child_process", () => {
   return child_process;
 });
 import * as child_process from "child_process";
-const {
-  __addChildProcessMatcher,
-  __clearChildProcessMatchers
-} = child_process as any;
+const { __addChildProcessMatcher, __clearChildProcessMatchers } = child_process as any;
 
 const DEFAULT_CREDS = {
   accessKeyId: "defaultKey",
   secretAccessKey: "defaultSecret",
-  sessionToken: "defaultToken"
+  sessionToken: "defaultToken",
 };
 
 const FOO_CREDS = {
   accessKeyId: "foo",
   secretAccessKey: "bar",
-  sessionToken: "baz"
+  sessionToken: "baz",
 };
 
 const DEFAULT_CREDS_JSON = `
@@ -141,7 +116,7 @@ const envAtLoadTime: { [key: string]: string | undefined } = [
   "HOME",
   "USERPROFILE",
   "HOMEPATH",
-  "HOMEDRIVE"
+  "HOMEDRIVE",
 ].reduce((envState: { [key: string]: string | undefined }, varName: string) => {
   envState[varName] = process.env[varName];
   return envState;
@@ -150,7 +125,7 @@ const envAtLoadTime: { [key: string]: string | undefined } = [
 beforeEach(() => {
   __clearFsMatchers();
   __clearChildProcessMatchers();
-  Object.keys(envAtLoadTime).forEach(envKey => {
+  Object.keys(envAtLoadTime).forEach((envKey) => {
     delete process.env[envKey];
   });
 });
@@ -158,7 +133,7 @@ beforeEach(() => {
 afterAll(() => {
   __clearFsMatchers();
   __clearChildProcessMatchers();
-  Object.keys(envAtLoadTime).forEach(envKey => {
+  Object.keys(envAtLoadTime).forEach((envKey) => {
     if (envAtLoadTime[envKey] === undefined) {
       delete process.env[envKey];
     } else {
@@ -171,7 +146,7 @@ describe("fromProcess", () => {
   it("should flag a lack of credentials as a non-terminal error", () => {
     return expect(fromProcess()()).rejects.toMatchObject({
       message: "Profile default could not be found in shared credentials file.",
-      tryNextLink: true
+      tryNextLink: true,
     });
   });
 
@@ -194,7 +169,7 @@ credential_process = /cred_proc foo`;
       );
       return expect(fromProcess()()).rejects.toMatchObject({
         message: "Profile default did not contain credential_process.",
-        tryNextLink: true
+        tryNextLink: true,
       });
     });
 
@@ -204,7 +179,7 @@ credential_process = /cred_proc foo`;
 
       return expect(fromProcess()()).rejects.toMatchObject({
         message: "Profile default credential_process returned invalid JSON.",
-        tryNextLink: true
+        tryNextLink: true,
       });
     });
 
@@ -235,9 +210,7 @@ credential_process = /cred_proc foo`;
       __addFsMatcher(customPath, SIMPLE_CREDS_FILE);
       __addChildProcessMatcher("/cred_proc default", DEFAULT_CREDS_JSON);
 
-      expect(await fromProcess({ filepath: customPath })()).toEqual(
-        DEFAULT_CREDS
-      );
+      expect(await fromProcess({ filepath: customPath })()).toEqual(DEFAULT_CREDS);
     });
 
     it(`should read from a filepath specified in ${ENV_CREDENTIALS_PATH}`, async () => {
@@ -267,17 +240,12 @@ credential_process = /cred_proc foo`
       );
       __addChildProcessMatcher("/cred_proc foo", FOO_CREDS_JSON);
 
-      expect(await fromProcess({ filepath: customPath })()).toEqual(
-        DEFAULT_CREDS
-      );
+      expect(await fromProcess({ filepath: customPath })()).toEqual(DEFAULT_CREDS);
     });
 
     it("should use $HOME when available", async () => {
       process.env.HOME = `${sep}foo${sep}bar`;
-      __addFsMatcher(
-        `${sep}foo${sep}bar${sep}.aws${sep}credentials`,
-        SIMPLE_CREDS_FILE
-      );
+      __addFsMatcher(`${sep}foo${sep}bar${sep}.aws${sep}credentials`, SIMPLE_CREDS_FILE);
       __addChildProcessMatcher("/cred_proc default", DEFAULT_CREDS_JSON);
 
       expect(await fromProcess()()).toEqual(DEFAULT_CREDS);
@@ -285,10 +253,7 @@ credential_process = /cred_proc foo`
 
     it("should use $USERPROFILE when available", async () => {
       process.env.USERPROFILE = "C:\\Users\\user";
-      __addFsMatcher(
-        `C:\\Users\\user${sep}.aws${sep}credentials`,
-        SIMPLE_CREDS_FILE
-      );
+      __addFsMatcher(`C:\\Users\\user${sep}.aws${sep}credentials`, SIMPLE_CREDS_FILE);
       __addChildProcessMatcher("/cred_proc default", DEFAULT_CREDS_JSON);
 
       expect(await fromProcess()()).toEqual(DEFAULT_CREDS);
@@ -297,10 +262,7 @@ credential_process = /cred_proc foo`
     it("should use $HOMEPATH/$HOMEDRIVE when available", async () => {
       process.env.HOMEDRIVE = "D:\\";
       process.env.HOMEPATH = "Users\\user";
-      __addFsMatcher(
-        `D:\\Users\\user${sep}.aws${sep}credentials`,
-        SIMPLE_CREDS_FILE
-      );
+      __addFsMatcher(`D:\\Users\\user${sep}.aws${sep}credentials`, SIMPLE_CREDS_FILE);
       __addChildProcessMatcher("/cred_proc default", DEFAULT_CREDS_JSON);
 
       expect(await fromProcess()()).toEqual(DEFAULT_CREDS);
@@ -415,9 +377,7 @@ credential_process = /cred_proc foo`;
       __addFsMatcher(customPath, SIMPLE_CONFIG_FILE);
       __addChildProcessMatcher("/cred_proc default", DEFAULT_CREDS_JSON);
 
-      expect(await fromProcess({ configFilepath: customPath })()).toEqual(
-        DEFAULT_CREDS
-      );
+      expect(await fromProcess({ configFilepath: customPath })()).toEqual(DEFAULT_CREDS);
     });
 
     it(`should read from a filepath specified in ${ENV_CREDENTIALS_PATH}`, async () => {
@@ -447,17 +407,12 @@ credential_process = /cred_proc foo`
       );
       __addChildProcessMatcher("/cred_proc foo", FOO_CREDS_JSON);
 
-      expect(await fromProcess({ configFilepath: customPath })()).toEqual(
-        DEFAULT_CREDS
-      );
+      expect(await fromProcess({ configFilepath: customPath })()).toEqual(DEFAULT_CREDS);
     });
 
     it("should use $HOME when available", async () => {
       process.env.HOME = `${sep}foo${sep}bar`;
-      __addFsMatcher(
-        `${sep}foo${sep}bar${sep}.aws${sep}config`,
-        SIMPLE_CONFIG_FILE
-      );
+      __addFsMatcher(`${sep}foo${sep}bar${sep}.aws${sep}config`, SIMPLE_CONFIG_FILE);
       __addChildProcessMatcher("/cred_proc default", DEFAULT_CREDS_JSON);
 
       expect(await fromProcess()()).toEqual(DEFAULT_CREDS);
@@ -465,10 +420,7 @@ credential_process = /cred_proc foo`
 
     it("should use $USERPROFILE when available", async () => {
       process.env.USERPROFILE = "C:\\Users\\user";
-      __addFsMatcher(
-        `C:\\Users\\user${sep}.aws${sep}config`,
-        SIMPLE_CONFIG_FILE
-      );
+      __addFsMatcher(`C:\\Users\\user${sep}.aws${sep}config`, SIMPLE_CONFIG_FILE);
       __addChildProcessMatcher("/cred_proc default", DEFAULT_CREDS_JSON);
 
       expect(await fromProcess()()).toEqual(DEFAULT_CREDS);
@@ -477,10 +429,7 @@ credential_process = /cred_proc foo`
     it("should use $HOMEPATH/$HOMEDRIVE when available", async () => {
       process.env.HOMEDRIVE = "D:\\";
       process.env.HOMEPATH = "Users\\user";
-      __addFsMatcher(
-        `D:\\Users\\user${sep}.aws${sep}config`,
-        SIMPLE_CONFIG_FILE
-      );
+      __addFsMatcher(`D:\\Users\\user${sep}.aws${sep}config`, SIMPLE_CONFIG_FILE);
       __addChildProcessMatcher("/cred_proc default", DEFAULT_CREDS_JSON);
 
       expect(await fromProcess()()).toEqual(DEFAULT_CREDS);
@@ -596,9 +545,8 @@ credential_process = /cred_proc default`
     );
 
     return expect(fromProcess()()).rejects.toMatchObject({
-      message:
-        "Profile default credential_process returned invalid credentials.",
-      tryNextLink: true
+      message: "Profile default credential_process returned invalid credentials.",
+      tryNextLink: true,
     });
   });
 
@@ -620,9 +568,8 @@ credential_process = /cred_proc default`
     );
 
     return expect(fromProcess()()).rejects.toMatchObject({
-      message:
-        "Profile default credential_process returned invalid credentials.",
-      tryNextLink: true
+      message: "Profile default credential_process returned invalid credentials.",
+      tryNextLink: true,
     });
   });
 
@@ -646,7 +593,7 @@ credential_process = /cred_proc default`
 
     return expect(fromProcess()()).rejects.toMatchObject({
       message: "Profile default credential_process did not return Version 1.",
-      tryNextLink: true
+      tryNextLink: true,
     });
   });
 
@@ -670,9 +617,8 @@ credential_process = /cred_proc default`
     );
 
     return expect(fromProcess()()).rejects.toMatchObject({
-      message:
-        "Profile default credential_process returned expired credentials.",
-      tryNextLink: true
+      message: "Profile default credential_process returned expired credentials.",
+      tryNextLink: true,
     });
   });
 });

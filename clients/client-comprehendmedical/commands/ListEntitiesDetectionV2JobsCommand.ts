@@ -1,21 +1,15 @@
 import {
   ComprehendMedicalClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import {
-  ListEntitiesDetectionV2JobsRequest,
-  ListEntitiesDetectionV2JobsResponse
-} from "../models/index";
+import { ListEntitiesDetectionV2JobsRequest, ListEntitiesDetectionV2JobsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListEntitiesDetectionV2JobsCommand,
-  serializeAws_json1_1ListEntitiesDetectionV2JobsCommand
+  serializeAws_json1_1ListEntitiesDetectionV2JobsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListEntitiesDetectionV2JobsCommandInput = ListEntitiesDetectionV2JobsRequest;
-export type ListEntitiesDetectionV2JobsCommandOutput = ListEntitiesDetectionV2JobsResponse &
-  __MetadataBearer;
+export type ListEntitiesDetectionV2JobsCommandOutput = ListEntitiesDetectionV2JobsResponse & __MetadataBearer;
 
 export class ListEntitiesDetectionV2JobsCommand extends $Command<
   ListEntitiesDetectionV2JobsCommandInput,
@@ -49,18 +42,13 @@ export class ListEntitiesDetectionV2JobsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListEntitiesDetectionV2JobsCommandInput,
-    ListEntitiesDetectionV2JobsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListEntitiesDetectionV2JobsCommandInput, ListEntitiesDetectionV2JobsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +58,15 @@ export class ListEntitiesDetectionV2JobsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListEntitiesDetectionV2JobsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEntitiesDetectionV2JobsCommand(
-      input,
-      context
-    );
+  private serialize(input: ListEntitiesDetectionV2JobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListEntitiesDetectionV2JobsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListEntitiesDetectionV2JobsCommandOutput> {
-    return deserializeAws_json1_1ListEntitiesDetectionV2JobsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListEntitiesDetectionV2JobsCommand(output, context);
   }
 
   // Start section: command_body_extra

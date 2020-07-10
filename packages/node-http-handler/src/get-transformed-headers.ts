@@ -6,9 +6,7 @@ const getTransformedHeaders = (headers: IncomingHttpHeaders) => {
 
   for (let name of Object.keys(headers)) {
     let headerValues = <string>headers[name];
-    transformedHeaders[name] = Array.isArray(headerValues)
-      ? headerValues.join(",")
-      : headerValues;
+    transformedHeaders[name] = Array.isArray(headerValues) ? headerValues.join(",") : headerValues;
   }
 
   return transformedHeaders;

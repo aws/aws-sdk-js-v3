@@ -1,21 +1,11 @@
-import {
-  IoTThingsGraphClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTThingsGraphClient";
-import {
-  GetNamespaceDeletionStatusRequest,
-  GetNamespaceDeletionStatusResponse
-} from "../models/index";
+import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
+import { GetNamespaceDeletionStatusRequest, GetNamespaceDeletionStatusResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetNamespaceDeletionStatusCommand,
-  serializeAws_json1_1GetNamespaceDeletionStatusCommand
+  serializeAws_json1_1GetNamespaceDeletionStatusCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetNamespaceDeletionStatusCommandInput = GetNamespaceDeletionStatusRequest;
-export type GetNamespaceDeletionStatusCommandOutput = GetNamespaceDeletionStatusResponse &
-  __MetadataBearer;
+export type GetNamespaceDeletionStatusCommandOutput = GetNamespaceDeletionStatusResponse & __MetadataBearer;
 
 export class GetNamespaceDeletionStatusCommand extends $Command<
   GetNamespaceDeletionStatusCommandInput,
@@ -49,18 +38,13 @@ export class GetNamespaceDeletionStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetNamespaceDeletionStatusCommandInput,
-    GetNamespaceDeletionStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetNamespaceDeletionStatusCommandInput, GetNamespaceDeletionStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class GetNamespaceDeletionStatusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetNamespaceDeletionStatusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetNamespaceDeletionStatusCommand(
-      input,
-      context
-    );
+  private serialize(input: GetNamespaceDeletionStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1GetNamespaceDeletionStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetNamespaceDeletionStatusCommandOutput> {
-    return deserializeAws_json1_1GetNamespaceDeletionStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetNamespaceDeletionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

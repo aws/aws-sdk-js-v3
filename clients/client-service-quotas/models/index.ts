@@ -1,16 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -18,10 +12,9 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export interface AssociateServiceQuotaTemplateRequest {
@@ -29,10 +22,8 @@ export interface AssociateServiceQuotaTemplateRequest {
 }
 
 export namespace AssociateServiceQuotaTemplateRequest {
-  export const filterSensitiveLog = (
-    obj: AssociateServiceQuotaTemplateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateServiceQuotaTemplateRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AssociateServiceQuotaTemplateRequest =>
     __isa(o, "AssociateServiceQuotaTemplateRequest");
@@ -43,10 +34,8 @@ export interface AssociateServiceQuotaTemplateResponse {
 }
 
 export namespace AssociateServiceQuotaTemplateResponse {
-  export const filterSensitiveLog = (
-    obj: AssociateServiceQuotaTemplateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateServiceQuotaTemplateResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AssociateServiceQuotaTemplateResponse =>
     __isa(o, "AssociateServiceQuotaTemplateResponse");
@@ -56,19 +45,15 @@ export namespace AssociateServiceQuotaTemplateResponse {
  * <p>The action you attempted is not allowed unless Service Access with Service Quotas is
  *       enabled in your organization. To enable, call <a>AssociateServiceQuotaTemplate</a>.</p>
  */
-export interface AWSServiceAccessNotEnabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AWSServiceAccessNotEnabledException extends __SmithyException, $MetadataBearer {
   name: "AWSServiceAccessNotEnabledException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AWSServiceAccessNotEnabledException {
-  export const filterSensitiveLog = (
-    obj: AWSServiceAccessNotEnabledException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AWSServiceAccessNotEnabledException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AWSServiceAccessNotEnabledException =>
     __isa(o, "AWSServiceAccessNotEnabledException");
@@ -93,14 +78,10 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
 }
 
 export namespace DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteServiceQuotaIncreaseRequestFromTemplateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteServiceQuotaIncreaseRequestFromTemplateRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteServiceQuotaIncreaseRequestFromTemplateRequest =>
+  export const isa = (o: any): o is DeleteServiceQuotaIncreaseRequestFromTemplateRequest =>
     __isa(o, "DeleteServiceQuotaIncreaseRequestFromTemplateRequest");
 }
 
@@ -109,36 +90,27 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateResponse {
 }
 
 export namespace DeleteServiceQuotaIncreaseRequestFromTemplateResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteServiceQuotaIncreaseRequestFromTemplateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteServiceQuotaIncreaseRequestFromTemplateResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteServiceQuotaIncreaseRequestFromTemplateResponse =>
+  export const isa = (o: any): o is DeleteServiceQuotaIncreaseRequestFromTemplateResponse =>
     __isa(o, "DeleteServiceQuotaIncreaseRequestFromTemplateResponse");
 }
 
 /**
  * <p>You can't perform this action because a dependency does not have access.</p>
  */
-export interface DependencyAccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DependencyAccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "DependencyAccessDeniedException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace DependencyAccessDeniedException {
-  export const filterSensitiveLog = (
-    obj: DependencyAccessDeniedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DependencyAccessDeniedException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DependencyAccessDeniedException =>
-    __isa(o, "DependencyAccessDeniedException");
+  export const isa = (o: any): o is DependencyAccessDeniedException => __isa(o, "DependencyAccessDeniedException");
 }
 
 export interface DisassociateServiceQuotaTemplateRequest {
@@ -146,10 +118,8 @@ export interface DisassociateServiceQuotaTemplateRequest {
 }
 
 export namespace DisassociateServiceQuotaTemplateRequest {
-  export const filterSensitiveLog = (
-    obj: DisassociateServiceQuotaTemplateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateServiceQuotaTemplateRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DisassociateServiceQuotaTemplateRequest =>
     __isa(o, "DisassociateServiceQuotaTemplateRequest");
@@ -160,10 +130,8 @@ export interface DisassociateServiceQuotaTemplateResponse {
 }
 
 export namespace DisassociateServiceQuotaTemplateResponse {
-  export const filterSensitiveLog = (
-    obj: DisassociateServiceQuotaTemplateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateServiceQuotaTemplateResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DisassociateServiceQuotaTemplateResponse =>
     __isa(o, "DisassociateServiceQuotaTemplateResponse");
@@ -173,7 +141,7 @@ export enum ErrorCode {
   DEPENDENCY_ACCESS_DENIED_ERROR = "DEPENDENCY_ACCESS_DENIED_ERROR",
   DEPENDENCY_SERVICE_ERROR = "DEPENDENCY_SERVICE_ERROR",
   DEPENDENCY_THROTTLING_ERROR = "DEPENDENCY_THROTTLING_ERROR",
-  SERVICE_QUOTA_NOT_AVAILABLE_ERROR = "SERVICE_QUOTA_NOT_AVAILABLE_ERROR"
+  SERVICE_QUOTA_NOT_AVAILABLE_ERROR = "SERVICE_QUOTA_NOT_AVAILABLE_ERROR",
 }
 
 /**
@@ -208,7 +176,7 @@ export interface ErrorReason {
 
 export namespace ErrorReason {
   export const filterSensitiveLog = (obj: ErrorReason): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ErrorReason => __isa(o, "ErrorReason");
 }
@@ -218,14 +186,10 @@ export interface GetAssociationForServiceQuotaTemplateRequest {
 }
 
 export namespace GetAssociationForServiceQuotaTemplateRequest {
-  export const filterSensitiveLog = (
-    obj: GetAssociationForServiceQuotaTemplateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAssociationForServiceQuotaTemplateRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetAssociationForServiceQuotaTemplateRequest =>
+  export const isa = (o: any): o is GetAssociationForServiceQuotaTemplateRequest =>
     __isa(o, "GetAssociationForServiceQuotaTemplateRequest");
 }
 
@@ -236,20 +200,14 @@ export interface GetAssociationForServiceQuotaTemplateResponse {
    *       If the template is <code>ASSOCIATED</code>, then it requests service quota increases for all
    *       new accounts created in your organization. </p>
    */
-  ServiceQuotaTemplateAssociationStatus?:
-    | ServiceQuotaTemplateAssociationStatus
-    | string;
+  ServiceQuotaTemplateAssociationStatus?: ServiceQuotaTemplateAssociationStatus | string;
 }
 
 export namespace GetAssociationForServiceQuotaTemplateResponse {
-  export const filterSensitiveLog = (
-    obj: GetAssociationForServiceQuotaTemplateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAssociationForServiceQuotaTemplateResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetAssociationForServiceQuotaTemplateResponse =>
+  export const isa = (o: any): o is GetAssociationForServiceQuotaTemplateResponse =>
     __isa(o, "GetAssociationForServiceQuotaTemplateResponse");
 }
 
@@ -267,13 +225,10 @@ export interface GetAWSDefaultServiceQuotaRequest {
 }
 
 export namespace GetAWSDefaultServiceQuotaRequest {
-  export const filterSensitiveLog = (
-    obj: GetAWSDefaultServiceQuotaRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAWSDefaultServiceQuotaRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetAWSDefaultServiceQuotaRequest =>
-    __isa(o, "GetAWSDefaultServiceQuotaRequest");
+  export const isa = (o: any): o is GetAWSDefaultServiceQuotaRequest => __isa(o, "GetAWSDefaultServiceQuotaRequest");
 }
 
 export interface GetAWSDefaultServiceQuotaResponse {
@@ -286,13 +241,10 @@ export interface GetAWSDefaultServiceQuotaResponse {
 }
 
 export namespace GetAWSDefaultServiceQuotaResponse {
-  export const filterSensitiveLog = (
-    obj: GetAWSDefaultServiceQuotaResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAWSDefaultServiceQuotaResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetAWSDefaultServiceQuotaResponse =>
-    __isa(o, "GetAWSDefaultServiceQuotaResponse");
+  export const isa = (o: any): o is GetAWSDefaultServiceQuotaResponse => __isa(o, "GetAWSDefaultServiceQuotaResponse");
 }
 
 export interface GetRequestedServiceQuotaChangeRequest {
@@ -304,10 +256,8 @@ export interface GetRequestedServiceQuotaChangeRequest {
 }
 
 export namespace GetRequestedServiceQuotaChangeRequest {
-  export const filterSensitiveLog = (
-    obj: GetRequestedServiceQuotaChangeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetRequestedServiceQuotaChangeRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetRequestedServiceQuotaChangeRequest =>
     __isa(o, "GetRequestedServiceQuotaChangeRequest");
@@ -323,10 +273,8 @@ export interface GetRequestedServiceQuotaChangeResponse {
 }
 
 export namespace GetRequestedServiceQuotaChangeResponse {
-  export const filterSensitiveLog = (
-    obj: GetRequestedServiceQuotaChangeResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetRequestedServiceQuotaChangeResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetRequestedServiceQuotaChangeResponse =>
     __isa(o, "GetRequestedServiceQuotaChangeResponse");
@@ -351,14 +299,10 @@ export interface GetServiceQuotaIncreaseRequestFromTemplateRequest {
 }
 
 export namespace GetServiceQuotaIncreaseRequestFromTemplateRequest {
-  export const filterSensitiveLog = (
-    obj: GetServiceQuotaIncreaseRequestFromTemplateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetServiceQuotaIncreaseRequestFromTemplateRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetServiceQuotaIncreaseRequestFromTemplateRequest =>
+  export const isa = (o: any): o is GetServiceQuotaIncreaseRequestFromTemplateRequest =>
     __isa(o, "GetServiceQuotaIncreaseRequestFromTemplateRequest");
 }
 
@@ -371,14 +315,10 @@ export interface GetServiceQuotaIncreaseRequestFromTemplateResponse {
 }
 
 export namespace GetServiceQuotaIncreaseRequestFromTemplateResponse {
-  export const filterSensitiveLog = (
-    obj: GetServiceQuotaIncreaseRequestFromTemplateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetServiceQuotaIncreaseRequestFromTemplateResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetServiceQuotaIncreaseRequestFromTemplateResponse =>
+  export const isa = (o: any): o is GetServiceQuotaIncreaseRequestFromTemplateResponse =>
     __isa(o, "GetServiceQuotaIncreaseRequestFromTemplateResponse");
 }
 
@@ -397,10 +337,9 @@ export interface GetServiceQuotaRequest {
 
 export namespace GetServiceQuotaRequest {
   export const filterSensitiveLog = (obj: GetServiceQuotaRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetServiceQuotaRequest =>
-    __isa(o, "GetServiceQuotaRequest");
+  export const isa = (o: any): o is GetServiceQuotaRequest => __isa(o, "GetServiceQuotaRequest");
 }
 
 export interface GetServiceQuotaResponse {
@@ -414,18 +353,15 @@ export interface GetServiceQuotaResponse {
 
 export namespace GetServiceQuotaResponse {
   export const filterSensitiveLog = (obj: GetServiceQuotaResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetServiceQuotaResponse =>
-    __isa(o, "GetServiceQuotaResponse");
+  export const isa = (o: any): o is GetServiceQuotaResponse => __isa(o, "GetServiceQuotaResponse");
 }
 
 /**
  * <p>Invalid input was provided. </p>
  */
-export interface IllegalArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IllegalArgumentException extends __SmithyException, $MetadataBearer {
   name: "IllegalArgumentException";
   $fault: "client";
   Message?: string;
@@ -433,52 +369,41 @@ export interface IllegalArgumentException
 
 export namespace IllegalArgumentException {
   export const filterSensitiveLog = (obj: IllegalArgumentException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is IllegalArgumentException =>
-    __isa(o, "IllegalArgumentException");
+  export const isa = (o: any): o is IllegalArgumentException => __isa(o, "IllegalArgumentException");
 }
 
 /**
  * <p>Invalid input was provided.</p>
  */
-export interface InvalidPaginationTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPaginationTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidPaginationTokenException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidPaginationTokenException {
-  export const filterSensitiveLog = (
-    obj: InvalidPaginationTokenException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidPaginationTokenException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidPaginationTokenException =>
-    __isa(o, "InvalidPaginationTokenException");
+  export const isa = (o: any): o is InvalidPaginationTokenException => __isa(o, "InvalidPaginationTokenException");
 }
 
 /**
  * <p>Invalid input was provided for the . </p>
  */
-export interface InvalidResourceStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidResourceStateException extends __SmithyException, $MetadataBearer {
   name: "InvalidResourceStateException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidResourceStateException {
-  export const filterSensitiveLog = (
-    obj: InvalidResourceStateException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidResourceStateException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidResourceStateException =>
-    __isa(o, "InvalidResourceStateException");
+  export const isa = (o: any): o is InvalidResourceStateException => __isa(o, "InvalidResourceStateException");
 }
 
 export interface ListAWSDefaultServiceQuotasRequest {
@@ -513,10 +438,8 @@ export interface ListAWSDefaultServiceQuotasRequest {
 }
 
 export namespace ListAWSDefaultServiceQuotasRequest {
-  export const filterSensitiveLog = (
-    obj: ListAWSDefaultServiceQuotasRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAWSDefaultServiceQuotasRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListAWSDefaultServiceQuotasRequest =>
     __isa(o, "ListAWSDefaultServiceQuotasRequest");
@@ -539,10 +462,8 @@ export interface ListAWSDefaultServiceQuotasResponse {
 }
 
 export namespace ListAWSDefaultServiceQuotasResponse {
-  export const filterSensitiveLog = (
-    obj: ListAWSDefaultServiceQuotasResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAWSDefaultServiceQuotasResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListAWSDefaultServiceQuotasResponse =>
     __isa(o, "ListAWSDefaultServiceQuotasResponse");
@@ -586,14 +507,10 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
 }
 
 export namespace ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
-  export const filterSensitiveLog = (
-    obj: ListRequestedServiceQuotaChangeHistoryByQuotaRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListRequestedServiceQuotaChangeHistoryByQuotaRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ListRequestedServiceQuotaChangeHistoryByQuotaRequest =>
+  export const isa = (o: any): o is ListRequestedServiceQuotaChangeHistoryByQuotaRequest =>
     __isa(o, "ListRequestedServiceQuotaChangeHistoryByQuotaRequest");
 }
 
@@ -616,14 +533,10 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
 }
 
 export namespace ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
-  export const filterSensitiveLog = (
-    obj: ListRequestedServiceQuotaChangeHistoryByQuotaResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListRequestedServiceQuotaChangeHistoryByQuotaResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ListRequestedServiceQuotaChangeHistoryByQuotaResponse =>
+  export const isa = (o: any): o is ListRequestedServiceQuotaChangeHistoryByQuotaResponse =>
     __isa(o, "ListRequestedServiceQuotaChangeHistoryByQuotaResponse");
 }
 
@@ -660,14 +573,10 @@ export interface ListRequestedServiceQuotaChangeHistoryRequest {
 }
 
 export namespace ListRequestedServiceQuotaChangeHistoryRequest {
-  export const filterSensitiveLog = (
-    obj: ListRequestedServiceQuotaChangeHistoryRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListRequestedServiceQuotaChangeHistoryRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ListRequestedServiceQuotaChangeHistoryRequest =>
+  export const isa = (o: any): o is ListRequestedServiceQuotaChangeHistoryRequest =>
     __isa(o, "ListRequestedServiceQuotaChangeHistoryRequest");
 }
 
@@ -690,14 +599,10 @@ export interface ListRequestedServiceQuotaChangeHistoryResponse {
 }
 
 export namespace ListRequestedServiceQuotaChangeHistoryResponse {
-  export const filterSensitiveLog = (
-    obj: ListRequestedServiceQuotaChangeHistoryResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListRequestedServiceQuotaChangeHistoryResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ListRequestedServiceQuotaChangeHistoryResponse =>
+  export const isa = (o: any): o is ListRequestedServiceQuotaChangeHistoryResponse =>
     __isa(o, "ListRequestedServiceQuotaChangeHistoryResponse");
 }
 
@@ -735,14 +640,10 @@ export interface ListServiceQuotaIncreaseRequestsInTemplateRequest {
 }
 
 export namespace ListServiceQuotaIncreaseRequestsInTemplateRequest {
-  export const filterSensitiveLog = (
-    obj: ListServiceQuotaIncreaseRequestsInTemplateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListServiceQuotaIncreaseRequestsInTemplateRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ListServiceQuotaIncreaseRequestsInTemplateRequest =>
+  export const isa = (o: any): o is ListServiceQuotaIncreaseRequestsInTemplateRequest =>
     __isa(o, "ListServiceQuotaIncreaseRequestsInTemplateRequest");
 }
 
@@ -765,14 +666,10 @@ export interface ListServiceQuotaIncreaseRequestsInTemplateResponse {
 }
 
 export namespace ListServiceQuotaIncreaseRequestsInTemplateResponse {
-  export const filterSensitiveLog = (
-    obj: ListServiceQuotaIncreaseRequestsInTemplateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListServiceQuotaIncreaseRequestsInTemplateResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ListServiceQuotaIncreaseRequestsInTemplateResponse =>
+  export const isa = (o: any): o is ListServiceQuotaIncreaseRequestsInTemplateResponse =>
     __isa(o, "ListServiceQuotaIncreaseRequestsInTemplateResponse");
 }
 
@@ -806,10 +703,9 @@ export interface ListServiceQuotasRequest {
 
 export namespace ListServiceQuotasRequest {
   export const filterSensitiveLog = (obj: ListServiceQuotasRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListServiceQuotasRequest =>
-    __isa(o, "ListServiceQuotasRequest");
+  export const isa = (o: any): o is ListServiceQuotasRequest => __isa(o, "ListServiceQuotasRequest");
 }
 
 export interface ListServiceQuotasResponse {
@@ -833,10 +729,9 @@ export interface ListServiceQuotasResponse {
 
 export namespace ListServiceQuotasResponse {
   export const filterSensitiveLog = (obj: ListServiceQuotasResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListServiceQuotasResponse =>
-    __isa(o, "ListServiceQuotasResponse");
+  export const isa = (o: any): o is ListServiceQuotasResponse => __isa(o, "ListServiceQuotasResponse");
 }
 
 export interface ListServicesRequest {
@@ -863,10 +758,9 @@ export interface ListServicesRequest {
 
 export namespace ListServicesRequest {
   export const filterSensitiveLog = (obj: ListServicesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListServicesRequest =>
-    __isa(o, "ListServicesRequest");
+  export const isa = (o: any): o is ListServicesRequest => __isa(o, "ListServicesRequest");
 }
 
 export interface ListServicesResponse {
@@ -889,10 +783,9 @@ export interface ListServicesResponse {
 
 export namespace ListServicesResponse {
   export const filterSensitiveLog = (obj: ListServicesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListServicesResponse =>
-    __isa(o, "ListServicesResponse");
+  export const isa = (o: any): o is ListServicesResponse => __isa(o, "ListServicesResponse");
 }
 
 /**
@@ -930,7 +823,7 @@ export interface MetricInfo {
 
 export namespace MetricInfo {
   export const filterSensitiveLog = (obj: MetricInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is MetricInfo => __isa(o, "MetricInfo");
 }
@@ -938,30 +831,23 @@ export namespace MetricInfo {
 /**
  * <p>The account making this call is not a member of an organization.</p>
  */
-export interface NoAvailableOrganizationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoAvailableOrganizationException extends __SmithyException, $MetadataBearer {
   name: "NoAvailableOrganizationException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace NoAvailableOrganizationException {
-  export const filterSensitiveLog = (
-    obj: NoAvailableOrganizationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NoAvailableOrganizationException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is NoAvailableOrganizationException =>
-    __isa(o, "NoAvailableOrganizationException");
+  export const isa = (o: any): o is NoAvailableOrganizationException => __isa(o, "NoAvailableOrganizationException");
 }
 
 /**
  * <p>The specified resource does not exist.</p>
  */
-export interface NoSuchResourceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchResourceException extends __SmithyException, $MetadataBearer {
   name: "NoSuchResourceException";
   $fault: "client";
   Message?: string;
@@ -969,29 +855,24 @@ export interface NoSuchResourceException
 
 export namespace NoSuchResourceException {
   export const filterSensitiveLog = (obj: NoSuchResourceException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NoSuchResourceException =>
-    __isa(o, "NoSuchResourceException");
+  export const isa = (o: any): o is NoSuchResourceException => __isa(o, "NoSuchResourceException");
 }
 
 /**
  * <p>The organization that your account belongs to, is not in All Features mode. To enable all
  *       features mode, see <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAllFeatures.html">EnableAllFeatures</a>.</p>
  */
-export interface OrganizationNotInAllFeaturesModeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OrganizationNotInAllFeaturesModeException extends __SmithyException, $MetadataBearer {
   name: "OrganizationNotInAllFeaturesModeException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace OrganizationNotInAllFeaturesModeException {
-  export const filterSensitiveLog = (
-    obj: OrganizationNotInAllFeaturesModeException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OrganizationNotInAllFeaturesModeException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is OrganizationNotInAllFeaturesModeException =>
     __isa(o, "OrganizationNotInAllFeaturesModeException");
@@ -1004,7 +885,7 @@ export enum PeriodUnit {
   MILLISECOND = "MILLISECOND",
   MINUTE = "MINUTE",
   SECOND = "SECOND",
-  WEEK = "WEEK"
+  WEEK = "WEEK",
 }
 
 export interface PutServiceQuotaIncreaseRequestIntoTemplateRequest {
@@ -1031,14 +912,10 @@ export interface PutServiceQuotaIncreaseRequestIntoTemplateRequest {
 }
 
 export namespace PutServiceQuotaIncreaseRequestIntoTemplateRequest {
-  export const filterSensitiveLog = (
-    obj: PutServiceQuotaIncreaseRequestIntoTemplateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutServiceQuotaIncreaseRequestIntoTemplateRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is PutServiceQuotaIncreaseRequestIntoTemplateRequest =>
+  export const isa = (o: any): o is PutServiceQuotaIncreaseRequestIntoTemplateRequest =>
     __isa(o, "PutServiceQuotaIncreaseRequestIntoTemplateRequest");
 }
 
@@ -1051,14 +928,10 @@ export interface PutServiceQuotaIncreaseRequestIntoTemplateResponse {
 }
 
 export namespace PutServiceQuotaIncreaseRequestIntoTemplateResponse {
-  export const filterSensitiveLog = (
-    obj: PutServiceQuotaIncreaseRequestIntoTemplateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutServiceQuotaIncreaseRequestIntoTemplateResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is PutServiceQuotaIncreaseRequestIntoTemplateResponse =>
+  export const isa = (o: any): o is PutServiceQuotaIncreaseRequestIntoTemplateResponse =>
     __isa(o, "PutServiceQuotaIncreaseRequestIntoTemplateResponse");
 }
 
@@ -1066,9 +939,7 @@ export namespace PutServiceQuotaIncreaseRequestIntoTemplateResponse {
  * <p>You have exceeded your service quota. To perform the requested action, remove some of the
  *       relevant resources, or use Service Quotas to request a service quota increase.</p>
  */
-export interface QuotaExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface QuotaExceededException extends __SmithyException, $MetadataBearer {
   name: "QuotaExceededException";
   $fault: "client";
   Message?: string;
@@ -1076,10 +947,9 @@ export interface QuotaExceededException
 
 export namespace QuotaExceededException {
   export const filterSensitiveLog = (obj: QuotaExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is QuotaExceededException =>
-    __isa(o, "QuotaExceededException");
+  export const isa = (o: any): o is QuotaExceededException => __isa(o, "QuotaExceededException");
 }
 
 /**
@@ -1100,7 +970,7 @@ export interface QuotaPeriod {
 
 export namespace QuotaPeriod {
   export const filterSensitiveLog = (obj: QuotaPeriod): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is QuotaPeriod => __isa(o, "QuotaPeriod");
 }
@@ -1183,13 +1053,10 @@ export interface RequestedServiceQuotaChange {
 }
 
 export namespace RequestedServiceQuotaChange {
-  export const filterSensitiveLog = (
-    obj: RequestedServiceQuotaChange
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RequestedServiceQuotaChange): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RequestedServiceQuotaChange =>
-    __isa(o, "RequestedServiceQuotaChange");
+  export const isa = (o: any): o is RequestedServiceQuotaChange => __isa(o, "RequestedServiceQuotaChange");
 }
 
 export interface RequestServiceQuotaIncreaseRequest {
@@ -1211,10 +1078,8 @@ export interface RequestServiceQuotaIncreaseRequest {
 }
 
 export namespace RequestServiceQuotaIncreaseRequest {
-  export const filterSensitiveLog = (
-    obj: RequestServiceQuotaIncreaseRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RequestServiceQuotaIncreaseRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RequestServiceQuotaIncreaseRequest =>
     __isa(o, "RequestServiceQuotaIncreaseRequest");
@@ -1229,10 +1094,8 @@ export interface RequestServiceQuotaIncreaseResponse {
 }
 
 export namespace RequestServiceQuotaIncreaseResponse {
-  export const filterSensitiveLog = (
-    obj: RequestServiceQuotaIncreaseResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RequestServiceQuotaIncreaseResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RequestServiceQuotaIncreaseResponse =>
     __isa(o, "RequestServiceQuotaIncreaseResponse");
@@ -1243,28 +1106,23 @@ export enum RequestStatus {
   CASE_CLOSED = "CASE_CLOSED",
   CASE_OPENED = "CASE_OPENED",
   DENIED = "DENIED",
-  PENDING = "PENDING"
+  PENDING = "PENDING",
 }
 
 /**
  * <p>The specified resource already exists.</p>
  */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ResourceAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: ResourceAlreadyExistsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException =>
-    __isa(o, "ResourceAlreadyExistsException");
+  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -1278,10 +1136,9 @@ export interface ServiceException extends __SmithyException, $MetadataBearer {
 
 export namespace ServiceException {
   export const filterSensitiveLog = (obj: ServiceException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceException =>
-    __isa(o, "ServiceException");
+  export const isa = (o: any): o is ServiceException => __isa(o, "ServiceException");
 }
 
 /**
@@ -1303,7 +1160,7 @@ export interface ServiceInfo {
 
 export namespace ServiceInfo {
   export const filterSensitiveLog = (obj: ServiceInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ServiceInfo => __isa(o, "ServiceInfo");
 }
@@ -1377,7 +1234,7 @@ export interface ServiceQuota {
 
 export namespace ServiceQuota {
   export const filterSensitiveLog = (obj: ServiceQuota): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ServiceQuota => __isa(o, "ServiceQuota");
 }
@@ -1429,10 +1286,8 @@ export interface ServiceQuotaIncreaseRequestInTemplate {
 }
 
 export namespace ServiceQuotaIncreaseRequestInTemplate {
-  export const filterSensitiveLog = (
-    obj: ServiceQuotaIncreaseRequestInTemplate
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServiceQuotaIncreaseRequestInTemplate): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ServiceQuotaIncreaseRequestInTemplate =>
     __isa(o, "ServiceQuotaIncreaseRequestInTemplate");
@@ -1440,26 +1295,22 @@ export namespace ServiceQuotaIncreaseRequestInTemplate {
 
 export enum ServiceQuotaTemplateAssociationStatus {
   ASSOCIATED = "ASSOCIATED",
-  DISASSOCIATED = "DISASSOCIATED"
+  DISASSOCIATED = "DISASSOCIATED",
 }
 
 /**
  * <p>The quota request template is not associated with your organization. </p>
  *          <p>To use the template, call <a>AssociateServiceQuotaTemplate</a>. </p>
  */
-export interface ServiceQuotaTemplateNotInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceQuotaTemplateNotInUseException extends __SmithyException, $MetadataBearer {
   name: "ServiceQuotaTemplateNotInUseException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ServiceQuotaTemplateNotInUseException {
-  export const filterSensitiveLog = (
-    obj: ServiceQuotaTemplateNotInUseException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServiceQuotaTemplateNotInUseException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ServiceQuotaTemplateNotInUseException =>
     __isa(o, "ServiceQuotaTemplateNotInUseException");
@@ -1469,19 +1320,15 @@ export namespace ServiceQuotaTemplateNotInUseException {
  * <p>The Service Quotas template is not available in the Region where you are making the
  *       request. Please make the request in us-east-1. </p>
  */
-export interface TemplatesNotAvailableInRegionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TemplatesNotAvailableInRegionException extends __SmithyException, $MetadataBearer {
   name: "TemplatesNotAvailableInRegionException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace TemplatesNotAvailableInRegionException {
-  export const filterSensitiveLog = (
-    obj: TemplatesNotAvailableInRegionException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TemplatesNotAvailableInRegionException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is TemplatesNotAvailableInRegionException =>
     __isa(o, "TemplatesNotAvailableInRegionException");
@@ -1491,9 +1338,7 @@ export namespace TemplatesNotAvailableInRegionException {
  * <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
  *       an increase for this quota. </p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -1501,8 +1346,7 @@ export interface TooManyRequestsException
 
 export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException =>
-    __isa(o, "TooManyRequestsException");
+  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }

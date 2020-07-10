@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig
-} from "../StorageGatewayClient";
-import {
-  DescribeSMBSettingsInput,
-  DescribeSMBSettingsOutput
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
+import { DescribeSMBSettingsInput, DescribeSMBSettingsOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeSMBSettingsCommand,
-  serializeAws_json1_1DescribeSMBSettingsCommand
+  serializeAws_json1_1DescribeSMBSettingsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeSMBSettingsCommandInput = DescribeSMBSettingsInput;
-export type DescribeSMBSettingsCommandOutput = DescribeSMBSettingsOutput &
-  __MetadataBearer;
+export type DescribeSMBSettingsCommandOutput = DescribeSMBSettingsOutput & __MetadataBearer;
 
 export class DescribeSMBSettingsCommand extends $Command<
   DescribeSMBSettingsCommandInput,
@@ -49,18 +38,13 @@ export class DescribeSMBSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSMBSettingsCommandInput,
-    DescribeSMBSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSMBSettingsCommandInput, DescribeSMBSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DescribeSMBSettingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeSMBSettingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeSMBSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSMBSettingsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeSMBSettingsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSMBSettingsCommandOutput> {
     return deserializeAws_json1_1DescribeSMBSettingsCommand(output, context);
   }
 

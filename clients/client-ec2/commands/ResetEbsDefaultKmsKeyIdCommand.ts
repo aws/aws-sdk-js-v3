@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  ResetEbsDefaultKmsKeyIdRequest,
-  ResetEbsDefaultKmsKeyIdResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ResetEbsDefaultKmsKeyIdRequest, ResetEbsDefaultKmsKeyIdResult } from "../models/index";
 import {
   deserializeAws_ec2ResetEbsDefaultKmsKeyIdCommand,
-  serializeAws_ec2ResetEbsDefaultKmsKeyIdCommand
+  serializeAws_ec2ResetEbsDefaultKmsKeyIdCommand,
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ResetEbsDefaultKmsKeyIdCommandInput = ResetEbsDefaultKmsKeyIdRequest;
-export type ResetEbsDefaultKmsKeyIdCommandOutput = ResetEbsDefaultKmsKeyIdResult &
-  __MetadataBearer;
+export type ResetEbsDefaultKmsKeyIdCommandOutput = ResetEbsDefaultKmsKeyIdResult & __MetadataBearer;
 
 export class ResetEbsDefaultKmsKeyIdCommand extends $Command<
   ResetEbsDefaultKmsKeyIdCommandInput,
@@ -49,18 +38,13 @@ export class ResetEbsDefaultKmsKeyIdCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ResetEbsDefaultKmsKeyIdCommandInput,
-    ResetEbsDefaultKmsKeyIdCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ResetEbsDefaultKmsKeyIdCommandInput, ResetEbsDefaultKmsKeyIdCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class ResetEbsDefaultKmsKeyIdCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ResetEbsDefaultKmsKeyIdCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ResetEbsDefaultKmsKeyIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ResetEbsDefaultKmsKeyIdCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ResetEbsDefaultKmsKeyIdCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetEbsDefaultKmsKeyIdCommandOutput> {
     return deserializeAws_ec2ResetEbsDefaultKmsKeyIdCommand(output, context);
   }
 

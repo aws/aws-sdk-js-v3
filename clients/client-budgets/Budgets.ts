@@ -2,72 +2,72 @@ import { BudgetsClient } from "./BudgetsClient";
 import {
   CreateBudgetCommand,
   CreateBudgetCommandInput,
-  CreateBudgetCommandOutput
+  CreateBudgetCommandOutput,
 } from "./commands/CreateBudgetCommand";
 import {
   CreateNotificationCommand,
   CreateNotificationCommandInput,
-  CreateNotificationCommandOutput
+  CreateNotificationCommandOutput,
 } from "./commands/CreateNotificationCommand";
 import {
   CreateSubscriberCommand,
   CreateSubscriberCommandInput,
-  CreateSubscriberCommandOutput
+  CreateSubscriberCommandOutput,
 } from "./commands/CreateSubscriberCommand";
 import {
   DeleteBudgetCommand,
   DeleteBudgetCommandInput,
-  DeleteBudgetCommandOutput
+  DeleteBudgetCommandOutput,
 } from "./commands/DeleteBudgetCommand";
 import {
   DeleteNotificationCommand,
   DeleteNotificationCommandInput,
-  DeleteNotificationCommandOutput
+  DeleteNotificationCommandOutput,
 } from "./commands/DeleteNotificationCommand";
 import {
   DeleteSubscriberCommand,
   DeleteSubscriberCommandInput,
-  DeleteSubscriberCommandOutput
+  DeleteSubscriberCommandOutput,
 } from "./commands/DeleteSubscriberCommand";
 import {
   DescribeBudgetCommand,
   DescribeBudgetCommandInput,
-  DescribeBudgetCommandOutput
+  DescribeBudgetCommandOutput,
 } from "./commands/DescribeBudgetCommand";
 import {
   DescribeBudgetPerformanceHistoryCommand,
   DescribeBudgetPerformanceHistoryCommandInput,
-  DescribeBudgetPerformanceHistoryCommandOutput
+  DescribeBudgetPerformanceHistoryCommandOutput,
 } from "./commands/DescribeBudgetPerformanceHistoryCommand";
 import {
   DescribeBudgetsCommand,
   DescribeBudgetsCommandInput,
-  DescribeBudgetsCommandOutput
+  DescribeBudgetsCommandOutput,
 } from "./commands/DescribeBudgetsCommand";
 import {
   DescribeNotificationsForBudgetCommand,
   DescribeNotificationsForBudgetCommandInput,
-  DescribeNotificationsForBudgetCommandOutput
+  DescribeNotificationsForBudgetCommandOutput,
 } from "./commands/DescribeNotificationsForBudgetCommand";
 import {
   DescribeSubscribersForNotificationCommand,
   DescribeSubscribersForNotificationCommandInput,
-  DescribeSubscribersForNotificationCommandOutput
+  DescribeSubscribersForNotificationCommandOutput,
 } from "./commands/DescribeSubscribersForNotificationCommand";
 import {
   UpdateBudgetCommand,
   UpdateBudgetCommandInput,
-  UpdateBudgetCommandOutput
+  UpdateBudgetCommandOutput,
 } from "./commands/UpdateBudgetCommand";
 import {
   UpdateNotificationCommand,
   UpdateNotificationCommandInput,
-  UpdateNotificationCommandOutput
+  UpdateNotificationCommandOutput,
 } from "./commands/UpdateNotificationCommand";
 import {
   UpdateSubscriberCommand,
   UpdateSubscriberCommandInput,
-  UpdateSubscriberCommandOutput
+  UpdateSubscriberCommandOutput,
 } from "./commands/UpdateSubscriberCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -127,10 +127,7 @@ export class Budgets extends BudgetsClient {
     args: CreateBudgetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateBudgetCommandOutput>;
-  public createBudget(
-    args: CreateBudgetCommandInput,
-    cb: (err: any, data?: CreateBudgetCommandOutput) => void
-  ): void;
+  public createBudget(args: CreateBudgetCommandInput, cb: (err: any, data?: CreateBudgetCommandOutput) => void): void;
   public createBudget(
     args: CreateBudgetCommandInput,
     options: __HttpHandlerOptions,
@@ -138,17 +135,14 @@ export class Budgets extends BudgetsClient {
   ): void;
   public createBudget(
     args: CreateBudgetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBudgetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBudgetCommandOutput) => void),
     cb?: (err: any, data?: CreateBudgetCommandOutput) => void
   ): Promise<CreateBudgetCommandOutput> | void {
     const command = new CreateBudgetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -173,17 +167,14 @@ export class Budgets extends BudgetsClient {
   ): void;
   public createNotification(
     args: CreateNotificationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateNotificationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNotificationCommandOutput) => void),
     cb?: (err: any, data?: CreateNotificationCommandOutput) => void
   ): Promise<CreateNotificationCommandOutput> | void {
     const command = new CreateNotificationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -208,17 +199,14 @@ export class Budgets extends BudgetsClient {
   ): void;
   public createSubscriber(
     args: CreateSubscriberCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSubscriberCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSubscriberCommandOutput) => void),
     cb?: (err: any, data?: CreateSubscriberCommandOutput) => void
   ): Promise<CreateSubscriberCommandOutput> | void {
     const command = new CreateSubscriberCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -235,10 +223,7 @@ export class Budgets extends BudgetsClient {
     args: DeleteBudgetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteBudgetCommandOutput>;
-  public deleteBudget(
-    args: DeleteBudgetCommandInput,
-    cb: (err: any, data?: DeleteBudgetCommandOutput) => void
-  ): void;
+  public deleteBudget(args: DeleteBudgetCommandInput, cb: (err: any, data?: DeleteBudgetCommandOutput) => void): void;
   public deleteBudget(
     args: DeleteBudgetCommandInput,
     options: __HttpHandlerOptions,
@@ -246,17 +231,14 @@ export class Budgets extends BudgetsClient {
   ): void;
   public deleteBudget(
     args: DeleteBudgetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBudgetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBudgetCommandOutput) => void),
     cb?: (err: any, data?: DeleteBudgetCommandOutput) => void
   ): Promise<DeleteBudgetCommandOutput> | void {
     const command = new DeleteBudgetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -284,17 +266,14 @@ export class Budgets extends BudgetsClient {
   ): void;
   public deleteNotification(
     args: DeleteNotificationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteNotificationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNotificationCommandOutput) => void),
     cb?: (err: any, data?: DeleteNotificationCommandOutput) => void
   ): Promise<DeleteNotificationCommandOutput> | void {
     const command = new DeleteNotificationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -322,17 +301,14 @@ export class Budgets extends BudgetsClient {
   ): void;
   public deleteSubscriber(
     args: DeleteSubscriberCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSubscriberCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSubscriberCommandOutput) => void),
     cb?: (err: any, data?: DeleteSubscriberCommandOutput) => void
   ): Promise<DeleteSubscriberCommandOutput> | void {
     const command = new DeleteSubscriberCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -360,17 +336,14 @@ export class Budgets extends BudgetsClient {
   ): void;
   public describeBudget(
     args: DescribeBudgetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBudgetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBudgetCommandOutput) => void),
     cb?: (err: any, data?: DescribeBudgetCommandOutput) => void
   ): Promise<DescribeBudgetCommandOutput> | void {
     const command = new DescribeBudgetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -395,23 +368,14 @@ export class Budgets extends BudgetsClient {
   ): void;
   public describeBudgetPerformanceHistory(
     args: DescribeBudgetPerformanceHistoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeBudgetPerformanceHistoryCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeBudgetPerformanceHistoryCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBudgetPerformanceHistoryCommandOutput) => void),
+    cb?: (err: any, data?: DescribeBudgetPerformanceHistoryCommandOutput) => void
   ): Promise<DescribeBudgetPerformanceHistoryCommandOutput> | void {
     const command = new DescribeBudgetPerformanceHistoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -439,17 +403,14 @@ export class Budgets extends BudgetsClient {
   ): void;
   public describeBudgets(
     args: DescribeBudgetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBudgetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBudgetsCommandOutput) => void),
     cb?: (err: any, data?: DescribeBudgetsCommandOutput) => void
   ): Promise<DescribeBudgetsCommandOutput> | void {
     const command = new DescribeBudgetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -474,20 +435,14 @@ export class Budgets extends BudgetsClient {
   ): void;
   public describeNotificationsForBudget(
     args: DescribeNotificationsForBudgetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeNotificationsForBudgetCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNotificationsForBudgetCommandOutput) => void),
     cb?: (err: any, data?: DescribeNotificationsForBudgetCommandOutput) => void
   ): Promise<DescribeNotificationsForBudgetCommandOutput> | void {
     const command = new DescribeNotificationsForBudgetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -503,38 +458,23 @@ export class Budgets extends BudgetsClient {
   ): Promise<DescribeSubscribersForNotificationCommandOutput>;
   public describeSubscribersForNotification(
     args: DescribeSubscribersForNotificationCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeSubscribersForNotificationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeSubscribersForNotificationCommandOutput) => void
   ): void;
   public describeSubscribersForNotification(
     args: DescribeSubscribersForNotificationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeSubscribersForNotificationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeSubscribersForNotificationCommandOutput) => void
   ): void;
   public describeSubscribersForNotification(
     args: DescribeSubscribersForNotificationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeSubscribersForNotificationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeSubscribersForNotificationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSubscribersForNotificationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeSubscribersForNotificationCommandOutput) => void
   ): Promise<DescribeSubscribersForNotificationCommandOutput> | void {
     const command = new DescribeSubscribersForNotificationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -551,10 +491,7 @@ export class Budgets extends BudgetsClient {
     args: UpdateBudgetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateBudgetCommandOutput>;
-  public updateBudget(
-    args: UpdateBudgetCommandInput,
-    cb: (err: any, data?: UpdateBudgetCommandOutput) => void
-  ): void;
+  public updateBudget(args: UpdateBudgetCommandInput, cb: (err: any, data?: UpdateBudgetCommandOutput) => void): void;
   public updateBudget(
     args: UpdateBudgetCommandInput,
     options: __HttpHandlerOptions,
@@ -562,17 +499,14 @@ export class Budgets extends BudgetsClient {
   ): void;
   public updateBudget(
     args: UpdateBudgetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateBudgetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBudgetCommandOutput) => void),
     cb?: (err: any, data?: UpdateBudgetCommandOutput) => void
   ): Promise<UpdateBudgetCommandOutput> | void {
     const command = new UpdateBudgetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -597,17 +531,14 @@ export class Budgets extends BudgetsClient {
   ): void;
   public updateNotification(
     args: UpdateNotificationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateNotificationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateNotificationCommandOutput) => void),
     cb?: (err: any, data?: UpdateNotificationCommandOutput) => void
   ): Promise<UpdateNotificationCommandOutput> | void {
     const command = new UpdateNotificationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -632,17 +563,14 @@ export class Budgets extends BudgetsClient {
   ): void;
   public updateSubscriber(
     args: UpdateSubscriberCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSubscriberCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSubscriberCommandOutput) => void),
     cb?: (err: any, data?: UpdateSubscriberCommandOutput) => void
   ): Promise<UpdateSubscriberCommandOutput> | void {
     const command = new UpdateSubscriberCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

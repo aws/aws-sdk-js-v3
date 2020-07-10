@@ -1,18 +1,11 @@
-import {
-  SFNClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SFNClient";
+import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
 import { SendTaskFailureInput, SendTaskFailureOutput } from "../models/index";
 import {
   deserializeAws_json1_0SendTaskFailureCommand,
-  serializeAws_json1_0SendTaskFailureCommand
+  serializeAws_json1_0SendTaskFailureCommand,
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type SendTaskFailureCommandInput = SendTaskFailureInput;
-export type SendTaskFailureCommandOutput = SendTaskFailureOutput &
-  __MetadataBearer;
+export type SendTaskFailureCommandOutput = SendTaskFailureOutput & __MetadataBearer;
 
 export class SendTaskFailureCommand extends $Command<
   SendTaskFailureCommandInput,
@@ -47,14 +39,12 @@ export class SendTaskFailureCommand extends $Command<
     configuration: SFNClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendTaskFailureCommandInput, SendTaskFailureCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class SendTaskFailureCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SendTaskFailureCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SendTaskFailureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0SendTaskFailureCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SendTaskFailureCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendTaskFailureCommandOutput> {
     return deserializeAws_json1_0SendTaskFailureCommand(output, context);
   }
 

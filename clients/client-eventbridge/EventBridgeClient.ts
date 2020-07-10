@@ -1,127 +1,64 @@
 import {
   ActivateEventSourceCommandInput,
-  ActivateEventSourceCommandOutput
+  ActivateEventSourceCommandOutput,
 } from "./commands/ActivateEventSourceCommand";
-import {
-  CreateEventBusCommandInput,
-  CreateEventBusCommandOutput
-} from "./commands/CreateEventBusCommand";
+import { CreateEventBusCommandInput, CreateEventBusCommandOutput } from "./commands/CreateEventBusCommand";
 import {
   CreatePartnerEventSourceCommandInput,
-  CreatePartnerEventSourceCommandOutput
+  CreatePartnerEventSourceCommandOutput,
 } from "./commands/CreatePartnerEventSourceCommand";
 import {
   DeactivateEventSourceCommandInput,
-  DeactivateEventSourceCommandOutput
+  DeactivateEventSourceCommandOutput,
 } from "./commands/DeactivateEventSourceCommand";
-import {
-  DeleteEventBusCommandInput,
-  DeleteEventBusCommandOutput
-} from "./commands/DeleteEventBusCommand";
+import { DeleteEventBusCommandInput, DeleteEventBusCommandOutput } from "./commands/DeleteEventBusCommand";
 import {
   DeletePartnerEventSourceCommandInput,
-  DeletePartnerEventSourceCommandOutput
+  DeletePartnerEventSourceCommandOutput,
 } from "./commands/DeletePartnerEventSourceCommand";
-import {
-  DeleteRuleCommandInput,
-  DeleteRuleCommandOutput
-} from "./commands/DeleteRuleCommand";
-import {
-  DescribeEventBusCommandInput,
-  DescribeEventBusCommandOutput
-} from "./commands/DescribeEventBusCommand";
+import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
+import { DescribeEventBusCommandInput, DescribeEventBusCommandOutput } from "./commands/DescribeEventBusCommand";
 import {
   DescribeEventSourceCommandInput,
-  DescribeEventSourceCommandOutput
+  DescribeEventSourceCommandOutput,
 } from "./commands/DescribeEventSourceCommand";
 import {
   DescribePartnerEventSourceCommandInput,
-  DescribePartnerEventSourceCommandOutput
+  DescribePartnerEventSourceCommandOutput,
 } from "./commands/DescribePartnerEventSourceCommand";
-import {
-  DescribeRuleCommandInput,
-  DescribeRuleCommandOutput
-} from "./commands/DescribeRuleCommand";
-import {
-  DisableRuleCommandInput,
-  DisableRuleCommandOutput
-} from "./commands/DisableRuleCommand";
-import {
-  EnableRuleCommandInput,
-  EnableRuleCommandOutput
-} from "./commands/EnableRuleCommand";
-import {
-  ListEventBusesCommandInput,
-  ListEventBusesCommandOutput
-} from "./commands/ListEventBusesCommand";
-import {
-  ListEventSourcesCommandInput,
-  ListEventSourcesCommandOutput
-} from "./commands/ListEventSourcesCommand";
+import { DescribeRuleCommandInput, DescribeRuleCommandOutput } from "./commands/DescribeRuleCommand";
+import { DisableRuleCommandInput, DisableRuleCommandOutput } from "./commands/DisableRuleCommand";
+import { EnableRuleCommandInput, EnableRuleCommandOutput } from "./commands/EnableRuleCommand";
+import { ListEventBusesCommandInput, ListEventBusesCommandOutput } from "./commands/ListEventBusesCommand";
+import { ListEventSourcesCommandInput, ListEventSourcesCommandOutput } from "./commands/ListEventSourcesCommand";
 import {
   ListPartnerEventSourceAccountsCommandInput,
-  ListPartnerEventSourceAccountsCommandOutput
+  ListPartnerEventSourceAccountsCommandOutput,
 } from "./commands/ListPartnerEventSourceAccountsCommand";
 import {
   ListPartnerEventSourcesCommandInput,
-  ListPartnerEventSourcesCommandOutput
+  ListPartnerEventSourcesCommandOutput,
 } from "./commands/ListPartnerEventSourcesCommand";
 import {
   ListRuleNamesByTargetCommandInput,
-  ListRuleNamesByTargetCommandOutput
+  ListRuleNamesByTargetCommandOutput,
 } from "./commands/ListRuleNamesByTargetCommand";
-import {
-  ListRulesCommandInput,
-  ListRulesCommandOutput
-} from "./commands/ListRulesCommand";
+import { ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListTargetsByRuleCommandInput,
-  ListTargetsByRuleCommandOutput
-} from "./commands/ListTargetsByRuleCommand";
-import {
-  PutEventsCommandInput,
-  PutEventsCommandOutput
-} from "./commands/PutEventsCommand";
-import {
-  PutPartnerEventsCommandInput,
-  PutPartnerEventsCommandOutput
-} from "./commands/PutPartnerEventsCommand";
-import {
-  PutPermissionCommandInput,
-  PutPermissionCommandOutput
-} from "./commands/PutPermissionCommand";
-import {
-  PutRuleCommandInput,
-  PutRuleCommandOutput
-} from "./commands/PutRuleCommand";
-import {
-  PutTargetsCommandInput,
-  PutTargetsCommandOutput
-} from "./commands/PutTargetsCommand";
-import {
-  RemovePermissionCommandInput,
-  RemovePermissionCommandOutput
-} from "./commands/RemovePermissionCommand";
-import {
-  RemoveTargetsCommandInput,
-  RemoveTargetsCommandOutput
-} from "./commands/RemoveTargetsCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  TestEventPatternCommandInput,
-  TestEventPatternCommandOutput
-} from "./commands/TestEventPatternCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { ListTargetsByRuleCommandInput, ListTargetsByRuleCommandOutput } from "./commands/ListTargetsByRuleCommand";
+import { PutEventsCommandInput, PutEventsCommandOutput } from "./commands/PutEventsCommand";
+import { PutPartnerEventsCommandInput, PutPartnerEventsCommandOutput } from "./commands/PutPartnerEventsCommand";
+import { PutPermissionCommandInput, PutPermissionCommandOutput } from "./commands/PutPermissionCommand";
+import { PutRuleCommandInput, PutRuleCommandOutput } from "./commands/PutRuleCommand";
+import { PutTargetsCommandInput, PutTargetsCommandOutput } from "./commands/PutTargetsCommand";
+import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand";
+import { RemoveTargetsCommandInput, RemoveTargetsCommandOutput } from "./commands/RemoveTargetsCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { TestEventPatternCommandInput, TestEventPatternCommandOutput } from "./commands/TestEventPatternCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -129,38 +66,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -171,7 +103,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -240,8 +172,7 @@ export type ServiceOutputTypes =
   | TestEventPatternCommandOutput
   | UntagResourceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -330,9 +261,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type EventBridgeClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type EventBridgeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -341,9 +270,7 @@ export type EventBridgeClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type EventBridgeClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type EventBridgeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -386,7 +313,7 @@ export class EventBridgeClient extends __Client<
   constructor(configuration: EventBridgeClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

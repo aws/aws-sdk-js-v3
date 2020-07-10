@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AccountRoleStatus {
@@ -10,7 +6,7 @@ export enum AccountRoleStatus {
   Deleted = "DELETED",
   Deleting = "DELETING",
   PendingDeletion = "PENDING_DELETION",
-  Ready = "READY"
+  Ready = "READY",
 }
 
 export interface AssociateAdminAccountRequest {
@@ -24,13 +20,10 @@ export interface AssociateAdminAccountRequest {
 }
 
 export namespace AssociateAdminAccountRequest {
-  export const filterSensitiveLog = (
-    obj: AssociateAdminAccountRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateAdminAccountRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateAdminAccountRequest =>
-    __isa(o, "AssociateAdminAccountRequest");
+  export const isa = (o: any): o is AssociateAdminAccountRequest => __isa(o, "AssociateAdminAccountRequest");
 }
 
 /**
@@ -58,14 +51,13 @@ export interface ComplianceViolator {
 
 export namespace ComplianceViolator {
   export const filterSensitiveLog = (obj: ComplianceViolator): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ComplianceViolator =>
-    __isa(o, "ComplianceViolator");
+  export const isa = (o: any): o is ComplianceViolator => __isa(o, "ComplianceViolator");
 }
 
 export enum CustomerPolicyScopeIdType {
-  ACCOUNT = "ACCOUNT"
+  ACCOUNT = "ACCOUNT",
 }
 
 export interface DeleteNotificationChannelRequest {
@@ -73,13 +65,10 @@ export interface DeleteNotificationChannelRequest {
 }
 
 export namespace DeleteNotificationChannelRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteNotificationChannelRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteNotificationChannelRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteNotificationChannelRequest =>
-    __isa(o, "DeleteNotificationChannelRequest");
+  export const isa = (o: any): o is DeleteNotificationChannelRequest => __isa(o, "DeleteNotificationChannelRequest");
 }
 
 export interface DeletePolicyRequest {
@@ -127,17 +116,16 @@ export interface DeletePolicyRequest {
 
 export namespace DeletePolicyRequest {
   export const filterSensitiveLog = (obj: DeletePolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeletePolicyRequest =>
-    __isa(o, "DeletePolicyRequest");
+  export const isa = (o: any): o is DeletePolicyRequest => __isa(o, "DeletePolicyRequest");
 }
 
 export enum DependentServiceName {
   AWSConfig = "AWSCONFIG",
   AWSShieldAdvanced = "AWSSHIELD_ADVANCED",
   AWSVirtualPrivateCloud = "AWSVPC",
-  AWSWAF = "AWSWAF"
+  AWSWAF = "AWSWAF",
 }
 
 export interface DisassociateAdminAccountRequest {
@@ -145,13 +133,10 @@ export interface DisassociateAdminAccountRequest {
 }
 
 export namespace DisassociateAdminAccountRequest {
-  export const filterSensitiveLog = (
-    obj: DisassociateAdminAccountRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateAdminAccountRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateAdminAccountRequest =>
-    __isa(o, "DisassociateAdminAccountRequest");
+  export const isa = (o: any): o is DisassociateAdminAccountRequest => __isa(o, "DisassociateAdminAccountRequest");
 }
 
 /**
@@ -183,10 +168,9 @@ export interface EvaluationResult {
 
 export namespace EvaluationResult {
   export const filterSensitiveLog = (obj: EvaluationResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EvaluationResult =>
-    __isa(o, "EvaluationResult");
+  export const isa = (o: any): o is EvaluationResult => __isa(o, "EvaluationResult");
 }
 
 export interface GetAdminAccountRequest {
@@ -195,10 +179,9 @@ export interface GetAdminAccountRequest {
 
 export namespace GetAdminAccountRequest {
   export const filterSensitiveLog = (obj: GetAdminAccountRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAdminAccountRequest =>
-    __isa(o, "GetAdminAccountRequest");
+  export const isa = (o: any): o is GetAdminAccountRequest => __isa(o, "GetAdminAccountRequest");
 }
 
 export interface GetAdminAccountResponse {
@@ -217,10 +200,9 @@ export interface GetAdminAccountResponse {
 
 export namespace GetAdminAccountResponse {
   export const filterSensitiveLog = (obj: GetAdminAccountResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAdminAccountResponse =>
-    __isa(o, "GetAdminAccountResponse");
+  export const isa = (o: any): o is GetAdminAccountResponse => __isa(o, "GetAdminAccountResponse");
 }
 
 export interface GetComplianceDetailRequest {
@@ -239,10 +221,9 @@ export interface GetComplianceDetailRequest {
 
 export namespace GetComplianceDetailRequest {
   export const filterSensitiveLog = (obj: GetComplianceDetailRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetComplianceDetailRequest =>
-    __isa(o, "GetComplianceDetailRequest");
+  export const isa = (o: any): o is GetComplianceDetailRequest => __isa(o, "GetComplianceDetailRequest");
 }
 
 export interface GetComplianceDetailResponse {
@@ -255,13 +236,10 @@ export interface GetComplianceDetailResponse {
 }
 
 export namespace GetComplianceDetailResponse {
-  export const filterSensitiveLog = (
-    obj: GetComplianceDetailResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetComplianceDetailResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetComplianceDetailResponse =>
-    __isa(o, "GetComplianceDetailResponse");
+  export const isa = (o: any): o is GetComplianceDetailResponse => __isa(o, "GetComplianceDetailResponse");
 }
 
 export interface GetNotificationChannelRequest {
@@ -269,13 +247,10 @@ export interface GetNotificationChannelRequest {
 }
 
 export namespace GetNotificationChannelRequest {
-  export const filterSensitiveLog = (
-    obj: GetNotificationChannelRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetNotificationChannelRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetNotificationChannelRequest =>
-    __isa(o, "GetNotificationChannelRequest");
+  export const isa = (o: any): o is GetNotificationChannelRequest => __isa(o, "GetNotificationChannelRequest");
 }
 
 export interface GetNotificationChannelResponse {
@@ -292,13 +267,10 @@ export interface GetNotificationChannelResponse {
 }
 
 export namespace GetNotificationChannelResponse {
-  export const filterSensitiveLog = (
-    obj: GetNotificationChannelResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetNotificationChannelResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetNotificationChannelResponse =>
-    __isa(o, "GetNotificationChannelResponse");
+  export const isa = (o: any): o is GetNotificationChannelResponse => __isa(o, "GetNotificationChannelResponse");
 }
 
 export interface GetPolicyRequest {
@@ -311,10 +283,9 @@ export interface GetPolicyRequest {
 
 export namespace GetPolicyRequest {
   export const filterSensitiveLog = (obj: GetPolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetPolicyRequest =>
-    __isa(o, "GetPolicyRequest");
+  export const isa = (o: any): o is GetPolicyRequest => __isa(o, "GetPolicyRequest");
 }
 
 export interface GetPolicyResponse {
@@ -332,10 +303,9 @@ export interface GetPolicyResponse {
 
 export namespace GetPolicyResponse {
   export const filterSensitiveLog = (obj: GetPolicyResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetPolicyResponse =>
-    __isa(o, "GetPolicyResponse");
+  export const isa = (o: any): o is GetPolicyResponse => __isa(o, "GetPolicyResponse");
 }
 
 export interface GetProtectionStatusRequest {
@@ -385,10 +355,9 @@ export interface GetProtectionStatusRequest {
 
 export namespace GetProtectionStatusRequest {
   export const filterSensitiveLog = (obj: GetProtectionStatusRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetProtectionStatusRequest =>
-    __isa(o, "GetProtectionStatusRequest");
+  export const isa = (o: any): o is GetProtectionStatusRequest => __isa(o, "GetProtectionStatusRequest");
 }
 
 export interface GetProtectionStatusResponse {
@@ -441,22 +410,17 @@ export interface GetProtectionStatusResponse {
 }
 
 export namespace GetProtectionStatusResponse {
-  export const filterSensitiveLog = (
-    obj: GetProtectionStatusResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetProtectionStatusResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetProtectionStatusResponse =>
-    __isa(o, "GetProtectionStatusResponse");
+  export const isa = (o: any): o is GetProtectionStatusResponse => __isa(o, "GetProtectionStatusResponse");
 }
 
 /**
  * <p>The operation failed because of a system problem, even though the request was valid. Retry
  *       your request.</p>
  */
-export interface InternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalErrorException";
   $fault: "client";
   Message?: string;
@@ -464,18 +428,15 @@ export interface InternalErrorException
 
 export namespace InternalErrorException {
   export const filterSensitiveLog = (obj: InternalErrorException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalErrorException =>
-    __isa(o, "InternalErrorException");
+  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 /**
  * <p>The parameters of the request were invalid.</p>
  */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends __SmithyException, $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
   Message?: string;
@@ -483,10 +444,9 @@ export interface InvalidInputException
 
 export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
+  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
@@ -494,9 +454,7 @@ export namespace InvalidInputException {
  *       submitted an <code>AssociateAdminAccount</code> request, but the account ID that you submitted
  *       was already set as the AWS Firewall Manager administrator.</p>
  */
-export interface InvalidOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidOperationException extends __SmithyException, $MetadataBearer {
   name: "InvalidOperationException";
   $fault: "client";
   Message?: string;
@@ -504,18 +462,15 @@ export interface InvalidOperationException
 
 export namespace InvalidOperationException {
   export const filterSensitiveLog = (obj: InvalidOperationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidOperationException =>
-    __isa(o, "InvalidOperationException");
+  export const isa = (o: any): o is InvalidOperationException => __isa(o, "InvalidOperationException");
 }
 
 /**
  * <p>The value of the <code>Type</code> parameter is invalid.</p>
  */
-export interface InvalidTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTypeException extends __SmithyException, $MetadataBearer {
   name: "InvalidTypeException";
   $fault: "client";
   Message?: string;
@@ -523,10 +478,9 @@ export interface InvalidTypeException
 
 export namespace InvalidTypeException {
   export const filterSensitiveLog = (obj: InvalidTypeException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidTypeException =>
-    __isa(o, "InvalidTypeException");
+  export const isa = (o: any): o is InvalidTypeException => __isa(o, "InvalidTypeException");
 }
 
 /**
@@ -535,9 +489,7 @@ export namespace InvalidTypeException {
  *       see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html">Firewall
  *         Manager Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -545,10 +497,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListComplianceStatusRequest {
@@ -580,13 +531,10 @@ export interface ListComplianceStatusRequest {
 }
 
 export namespace ListComplianceStatusRequest {
-  export const filterSensitiveLog = (
-    obj: ListComplianceStatusRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListComplianceStatusRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListComplianceStatusRequest =>
-    __isa(o, "ListComplianceStatusRequest");
+  export const isa = (o: any): o is ListComplianceStatusRequest => __isa(o, "ListComplianceStatusRequest");
 }
 
 export interface ListComplianceStatusResponse {
@@ -608,13 +556,10 @@ export interface ListComplianceStatusResponse {
 }
 
 export namespace ListComplianceStatusResponse {
-  export const filterSensitiveLog = (
-    obj: ListComplianceStatusResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListComplianceStatusResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListComplianceStatusResponse =>
-    __isa(o, "ListComplianceStatusResponse");
+  export const isa = (o: any): o is ListComplianceStatusResponse => __isa(o, "ListComplianceStatusResponse");
 }
 
 export interface ListMemberAccountsRequest {
@@ -640,10 +585,9 @@ export interface ListMemberAccountsRequest {
 
 export namespace ListMemberAccountsRequest {
   export const filterSensitiveLog = (obj: ListMemberAccountsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListMemberAccountsRequest =>
-    __isa(o, "ListMemberAccountsRequest");
+  export const isa = (o: any): o is ListMemberAccountsRequest => __isa(o, "ListMemberAccountsRequest");
 }
 
 export interface ListMemberAccountsResponse {
@@ -665,10 +609,9 @@ export interface ListMemberAccountsResponse {
 
 export namespace ListMemberAccountsResponse {
   export const filterSensitiveLog = (obj: ListMemberAccountsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListMemberAccountsResponse =>
-    __isa(o, "ListMemberAccountsResponse");
+  export const isa = (o: any): o is ListMemberAccountsResponse => __isa(o, "ListMemberAccountsResponse");
 }
 
 export interface ListPoliciesRequest {
@@ -696,10 +639,9 @@ export interface ListPoliciesRequest {
 
 export namespace ListPoliciesRequest {
   export const filterSensitiveLog = (obj: ListPoliciesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPoliciesRequest =>
-    __isa(o, "ListPoliciesRequest");
+  export const isa = (o: any): o is ListPoliciesRequest => __isa(o, "ListPoliciesRequest");
 }
 
 export interface ListPoliciesResponse {
@@ -721,10 +663,9 @@ export interface ListPoliciesResponse {
 
 export namespace ListPoliciesResponse {
   export const filterSensitiveLog = (obj: ListPoliciesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPoliciesResponse =>
-    __isa(o, "ListPoliciesResponse");
+  export const isa = (o: any): o is ListPoliciesResponse => __isa(o, "ListPoliciesResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -737,10 +678,9 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -752,13 +692,10 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (
-    obj: ListTagsForResourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -848,7 +785,7 @@ export interface Policy {
 
 export namespace Policy {
   export const filterSensitiveLog = (obj: Policy): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Policy => __isa(o, "Policy");
 }
@@ -904,10 +841,9 @@ export interface PolicyComplianceDetail {
 
 export namespace PolicyComplianceDetail {
   export const filterSensitiveLog = (obj: PolicyComplianceDetail): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PolicyComplianceDetail =>
-    __isa(o, "PolicyComplianceDetail");
+  export const isa = (o: any): o is PolicyComplianceDetail => __isa(o, "PolicyComplianceDetail");
 }
 
 /**
@@ -958,15 +894,14 @@ export interface PolicyComplianceStatus {
 
 export namespace PolicyComplianceStatus {
   export const filterSensitiveLog = (obj: PolicyComplianceStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PolicyComplianceStatus =>
-    __isa(o, "PolicyComplianceStatus");
+  export const isa = (o: any): o is PolicyComplianceStatus => __isa(o, "PolicyComplianceStatus");
 }
 
 export enum PolicyComplianceStatusType {
   Compliant = "COMPLIANT",
-  NonCompliant = "NON_COMPLIANT"
+  NonCompliant = "NON_COMPLIANT",
 }
 
 /**
@@ -1016,7 +951,7 @@ export interface PolicySummary {
 
 export namespace PolicySummary {
   export const filterSensitiveLog = (obj: PolicySummary): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PolicySummary => __isa(o, "PolicySummary");
 }
@@ -1037,13 +972,10 @@ export interface PutNotificationChannelRequest {
 }
 
 export namespace PutNotificationChannelRequest {
-  export const filterSensitiveLog = (
-    obj: PutNotificationChannelRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutNotificationChannelRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutNotificationChannelRequest =>
-    __isa(o, "PutNotificationChannelRequest");
+  export const isa = (o: any): o is PutNotificationChannelRequest => __isa(o, "PutNotificationChannelRequest");
 }
 
 export interface PutPolicyRequest {
@@ -1061,10 +993,9 @@ export interface PutPolicyRequest {
 
 export namespace PutPolicyRequest {
   export const filterSensitiveLog = (obj: PutPolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutPolicyRequest =>
-    __isa(o, "PutPolicyRequest");
+  export const isa = (o: any): o is PutPolicyRequest => __isa(o, "PutPolicyRequest");
 }
 
 export interface PutPolicyResponse {
@@ -1082,18 +1013,15 @@ export interface PutPolicyResponse {
 
 export namespace PutPolicyResponse {
   export const filterSensitiveLog = (obj: PutPolicyResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutPolicyResponse =>
-    __isa(o, "PutPolicyResponse");
+  export const isa = (o: any): o is PutPolicyResponse => __isa(o, "PutPolicyResponse");
 }
 
 /**
  * <p>The specified resource was not found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1101,10 +1029,9 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1131,7 +1058,7 @@ export interface ResourceTag {
 
 export namespace ResourceTag {
   export const filterSensitiveLog = (obj: ResourceTag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ResourceTag => __isa(o, "ResourceTag");
 }
@@ -1200,10 +1127,9 @@ export interface SecurityServicePolicyData {
 
 export namespace SecurityServicePolicyData {
   export const filterSensitiveLog = (obj: SecurityServicePolicyData): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SecurityServicePolicyData =>
-    __isa(o, "SecurityServicePolicyData");
+  export const isa = (o: any): o is SecurityServicePolicyData => __isa(o, "SecurityServicePolicyData");
 }
 
 export enum SecurityServiceType {
@@ -1211,7 +1137,7 @@ export enum SecurityServiceType {
   SECURITY_GROUPS_CONTENT_AUDIT = "SECURITY_GROUPS_CONTENT_AUDIT",
   SECURITY_GROUPS_USAGE_AUDIT = "SECURITY_GROUPS_USAGE_AUDIT",
   SHIELD_ADVANCED = "SHIELD_ADVANCED",
-  WAF = "WAF"
+  WAF = "WAF",
 }
 
 /**
@@ -1232,7 +1158,7 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -1252,10 +1178,9 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -1264,10 +1189,9 @@ export interface TagResourceResponse {
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
@@ -1285,10 +1209,9 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -1297,10 +1220,9 @@ export interface UntagResourceResponse {
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export enum ViolationReason {
@@ -1312,5 +1234,5 @@ export enum ViolationReason {
   ResourceViolatesAuditSecurityGroup = "RESOURCE_VIOLATES_AUDIT_SECURITY_GROUP",
   SecurityGroupRedundant = "SECURITY_GROUP_REDUNDANT",
   SecurityGroupUnused = "SECURITY_GROUP_UNUSED",
-  WebAclMissingRuleGroup = "WEB_ACL_MISSING_RULE_GROUP"
+  WebAclMissingRuleGroup = "WEB_ACL_MISSING_RULE_GROUP",
 }

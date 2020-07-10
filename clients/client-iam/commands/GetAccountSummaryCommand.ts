@@ -1,18 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GetAccountSummaryResponse } from "../models/index";
 import {
   deserializeAws_queryGetAccountSummaryCommand,
-  serializeAws_queryGetAccountSummaryCommand
+  serializeAws_queryGetAccountSummaryCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetAccountSummaryCommandInput = {};
-export type GetAccountSummaryCommandOutput = GetAccountSummaryResponse &
-  __MetadataBearer;
+export type GetAccountSummaryCommandOutput = GetAccountSummaryResponse & __MetadataBearer;
 
 export class GetAccountSummaryCommand extends $Command<
   GetAccountSummaryCommandInput,
@@ -47,14 +39,12 @@ export class GetAccountSummaryCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAccountSummaryCommandInput, GetAccountSummaryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class GetAccountSummaryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetAccountSummaryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetAccountSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetAccountSummaryCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetAccountSummaryCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountSummaryCommandOutput> {
     return deserializeAws_queryGetAccountSummaryCommand(output, context);
   }
 

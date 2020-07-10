@@ -13,8 +13,7 @@ export class ReadFromBuffers extends Readable {
   constructor(options: ReadFromBuffersOptions) {
     super(options);
     this.buffersToRead = options.buffers;
-    this.errorAfter =
-      typeof options.errorAfter === "number" ? options.errorAfter : -1;
+    this.errorAfter = typeof options.errorAfter === "number" ? options.errorAfter : -1;
   }
 
   _read(size: number) {

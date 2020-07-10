@@ -1,21 +1,11 @@
-import {
-  OrganizationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OrganizationsClient";
-import {
-  ListHandshakesForOrganizationRequest,
-  ListHandshakesForOrganizationResponse
-} from "../models/index";
+import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
+import { ListHandshakesForOrganizationRequest, ListHandshakesForOrganizationResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListHandshakesForOrganizationCommand,
-  serializeAws_json1_1ListHandshakesForOrganizationCommand
+  serializeAws_json1_1ListHandshakesForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListHandshakesForOrganizationCommandInput = ListHandshakesForOrganizationRequest;
-export type ListHandshakesForOrganizationCommandOutput = ListHandshakesForOrganizationResponse &
-  __MetadataBearer;
+export type ListHandshakesForOrganizationCommandOutput = ListHandshakesForOrganizationResponse & __MetadataBearer;
 
 export class ListHandshakesForOrganizationCommand extends $Command<
   ListHandshakesForOrganizationCommandInput,
@@ -49,18 +38,13 @@ export class ListHandshakesForOrganizationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListHandshakesForOrganizationCommandInput,
-    ListHandshakesForOrganizationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListHandshakesForOrganizationCommandInput, ListHandshakesForOrganizationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class ListHandshakesForOrganizationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListHandshakesForOrganizationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListHandshakesForOrganizationCommand(
-      input,
-      context
-    );
+  private serialize(input: ListHandshakesForOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListHandshakesForOrganizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListHandshakesForOrganizationCommandOutput> {
-    return deserializeAws_json1_1ListHandshakesForOrganizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListHandshakesForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

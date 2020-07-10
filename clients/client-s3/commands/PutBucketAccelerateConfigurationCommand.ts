@@ -1,19 +1,12 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { PutBucketAccelerateConfigurationRequest } from "../models/index";
 import {
   deserializeAws_restXmlPutBucketAccelerateConfigurationCommand,
-  serializeAws_restXmlPutBucketAccelerateConfigurationCommand
+  serializeAws_restXmlPutBucketAccelerateConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -22,7 +15,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type PutBucketAccelerateConfigurationCommandInput = PutBucketAccelerateConfigurationRequest;
@@ -46,19 +39,14 @@ export class PutBucketAccelerateConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutBucketAccelerateConfigurationCommandInput,
-    PutBucketAccelerateConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutBucketAccelerateConfigurationCommandInput, PutBucketAccelerateConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,20 +60,14 @@ export class PutBucketAccelerateConfigurationCommand extends $Command<
     input: PutBucketAccelerateConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketAccelerateConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlPutBucketAccelerateConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBucketAccelerateConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutBucketAccelerateConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlPutBucketAccelerateConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

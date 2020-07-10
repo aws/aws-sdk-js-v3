@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig
-} from "../StorageGatewayClient";
-import {
-  DescribeUploadBufferInput,
-  DescribeUploadBufferOutput
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
+import { DescribeUploadBufferInput, DescribeUploadBufferOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeUploadBufferCommand,
-  serializeAws_json1_1DescribeUploadBufferCommand
+  serializeAws_json1_1DescribeUploadBufferCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeUploadBufferCommandInput = DescribeUploadBufferInput;
-export type DescribeUploadBufferCommandOutput = DescribeUploadBufferOutput &
-  __MetadataBearer;
+export type DescribeUploadBufferCommandOutput = DescribeUploadBufferOutput & __MetadataBearer;
 
 export class DescribeUploadBufferCommand extends $Command<
   DescribeUploadBufferCommandInput,
@@ -49,18 +38,13 @@ export class DescribeUploadBufferCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeUploadBufferCommandInput,
-    DescribeUploadBufferCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeUploadBufferCommandInput, DescribeUploadBufferCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DescribeUploadBufferCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeUploadBufferCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeUploadBufferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeUploadBufferCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeUploadBufferCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUploadBufferCommandOutput> {
     return deserializeAws_json1_1DescribeUploadBufferCommand(output, context);
   }
 

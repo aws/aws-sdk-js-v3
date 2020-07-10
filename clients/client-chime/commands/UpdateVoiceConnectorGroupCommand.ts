@@ -1,21 +1,11 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  UpdateVoiceConnectorGroupRequest,
-  UpdateVoiceConnectorGroupResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { UpdateVoiceConnectorGroupRequest, UpdateVoiceConnectorGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1UpdateVoiceConnectorGroupCommand,
-  serializeAws_restJson1UpdateVoiceConnectorGroupCommand
+  serializeAws_restJson1UpdateVoiceConnectorGroupCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateVoiceConnectorGroupCommandInput = UpdateVoiceConnectorGroupRequest;
-export type UpdateVoiceConnectorGroupCommandOutput = UpdateVoiceConnectorGroupResponse &
-  __MetadataBearer;
+export type UpdateVoiceConnectorGroupCommandOutput = UpdateVoiceConnectorGroupResponse & __MetadataBearer;
 
 export class UpdateVoiceConnectorGroupCommand extends $Command<
   UpdateVoiceConnectorGroupCommandInput,
@@ -49,18 +38,13 @@ export class UpdateVoiceConnectorGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateVoiceConnectorGroupCommandInput,
-    UpdateVoiceConnectorGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateVoiceConnectorGroupCommandInput, UpdateVoiceConnectorGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class UpdateVoiceConnectorGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateVoiceConnectorGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateVoiceConnectorGroupCommand(
-      input,
-      context
-    );
+  private serialize(input: UpdateVoiceConnectorGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1UpdateVoiceConnectorGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateVoiceConnectorGroupCommandOutput> {
-    return deserializeAws_restJson1UpdateVoiceConnectorGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateVoiceConnectorGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

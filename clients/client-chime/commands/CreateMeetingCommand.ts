@@ -1,18 +1,11 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { CreateMeetingRequest, CreateMeetingResponse } from "../models/index";
 import {
   deserializeAws_restJson1CreateMeetingCommand,
-  serializeAws_restJson1CreateMeetingCommand
+  serializeAws_restJson1CreateMeetingCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateMeetingCommandInput = CreateMeetingRequest;
-export type CreateMeetingCommandOutput = CreateMeetingResponse &
-  __MetadataBearer;
+export type CreateMeetingCommandOutput = CreateMeetingResponse & __MetadataBearer;
 
 export class CreateMeetingCommand extends $Command<
   CreateMeetingCommandInput,
@@ -47,14 +39,12 @@ export class CreateMeetingCommand extends $Command<
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateMeetingCommandInput, CreateMeetingCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class CreateMeetingCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateMeetingCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateMeetingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateMeetingCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateMeetingCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMeetingCommandOutput> {
     return deserializeAws_restJson1CreateMeetingCommand(output, context);
   }
 

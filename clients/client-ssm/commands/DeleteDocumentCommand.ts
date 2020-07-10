@@ -1,18 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import { DeleteDocumentRequest, DeleteDocumentResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteDocumentCommand,
-  serializeAws_json1_1DeleteDocumentCommand
+  serializeAws_json1_1DeleteDocumentCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteDocumentCommandInput = DeleteDocumentRequest;
-export type DeleteDocumentCommandOutput = DeleteDocumentResult &
-  __MetadataBearer;
+export type DeleteDocumentCommandOutput = DeleteDocumentResult & __MetadataBearer;
 
 export class DeleteDocumentCommand extends $Command<
   DeleteDocumentCommandInput,
@@ -47,14 +39,12 @@ export class DeleteDocumentCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDocumentCommandInput, DeleteDocumentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class DeleteDocumentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteDocumentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDocumentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteDocumentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDocumentCommandOutput> {
     return deserializeAws_json1_1DeleteDocumentCommand(output, context);
   }
 

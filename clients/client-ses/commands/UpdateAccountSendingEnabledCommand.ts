@@ -1,18 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import { UpdateAccountSendingEnabledRequest } from "../models/index";
 import {
   deserializeAws_queryUpdateAccountSendingEnabledCommand,
-  serializeAws_queryUpdateAccountSendingEnabledCommand
+  serializeAws_queryUpdateAccountSendingEnabledCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateAccountSendingEnabledCommandInput = UpdateAccountSendingEnabledRequest;
@@ -45,18 +38,13 @@ export class UpdateAccountSendingEnabledCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateAccountSendingEnabledCommandInput,
-    UpdateAccountSendingEnabledCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateAccountSendingEnabledCommandInput, UpdateAccountSendingEnabledCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,10 +54,7 @@ export class UpdateAccountSendingEnabledCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateAccountSendingEnabledCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateAccountSendingEnabledCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateAccountSendingEnabledCommand(input, context);
   }
 
@@ -77,10 +62,7 @@ export class UpdateAccountSendingEnabledCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAccountSendingEnabledCommandOutput> {
-    return deserializeAws_queryUpdateAccountSendingEnabledCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateAccountSendingEnabledCommand(output, context);
   }
 
   // Start section: command_body_extra

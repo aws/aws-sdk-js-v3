@@ -4,5 +4,5 @@ export const ClientSharedValues = {
   apiVersion: "2013-06-30",
   disableHostPrefix: false,
   regionInfoProvider: defaultRegionInfoProvider,
-  signingName: "storagegateway"
+  signingName: "storagegateway",
 };

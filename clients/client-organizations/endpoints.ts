@@ -26,30 +26,27 @@ const AWS_REGIONS = new Set([
   "us-east-1",
   "us-east-2",
   "us-west-1",
-  "us-west-2"
+  "us-west-2",
 ]);
 const AWS_CN_REGIONS = new Set(["cn-north-1", "cn-northwest-1"]);
 const AWS_ISO_REGIONS = new Set(["us-iso-east-1"]);
 const AWS_ISO_B_REGIONS = new Set(["us-isob-east-1"]);
 const AWS_US_GOV_REGIONS = new Set(["us-gov-west-1", "us-gov-east-1"]);
 
-export const defaultRegionInfoProvider: RegionInfoProvider = (
-  region: string,
-  options?: any
-) => {
+export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, options?: any) => {
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
     case "aws-global":
       regionInfo = {
         hostname: "organizations.us-east-1.amazonaws.com",
-        signingRegion: "us-east-1"
+        signingRegion: "us-east-1",
       };
       break;
     case "aws-us-gov-global":
       regionInfo = {
         hostname: "organizations.us-gov-west-1.amazonaws.com",
-        signingRegion: "us-gov-west-1"
+        signingRegion: "us-gov-west-1",
       };
       break;
     // Next, try to match partition endpoints.
@@ -59,17 +56,17 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
       }
       if (AWS_CN_REGIONS.has(region)) {
         regionInfo = {
-          hostname: AWS_CN_TEMPLATE.replace("{region}", region)
+          hostname: AWS_CN_TEMPLATE.replace("{region}", region),
         };
       }
       if (AWS_ISO_REGIONS.has(region)) {
         regionInfo = {
-          hostname: AWS_ISO_TEMPLATE.replace("{region}", region)
+          hostname: AWS_ISO_TEMPLATE.replace("{region}", region),
         };
       }
       if (AWS_ISO_B_REGIONS.has(region)) {
         regionInfo = {
-          hostname: AWS_ISO_B_TEMPLATE.replace("{region}", region)
+          hostname: AWS_ISO_B_TEMPLATE.replace("{region}", region),
         };
       }
       if (AWS_US_GOV_REGIONS.has(region)) {

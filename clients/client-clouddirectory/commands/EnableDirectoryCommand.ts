@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient";
-import {
-  EnableDirectoryRequest,
-  EnableDirectoryResponse
-} from "../models/index";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
+import { EnableDirectoryRequest, EnableDirectoryResponse } from "../models/index";
 import {
   deserializeAws_restJson1EnableDirectoryCommand,
-  serializeAws_restJson1EnableDirectoryCommand
+  serializeAws_restJson1EnableDirectoryCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type EnableDirectoryCommandInput = EnableDirectoryRequest;
-export type EnableDirectoryCommandOutput = EnableDirectoryResponse &
-  __MetadataBearer;
+export type EnableDirectoryCommandOutput = EnableDirectoryResponse & __MetadataBearer;
 
 export class EnableDirectoryCommand extends $Command<
   EnableDirectoryCommandInput,
@@ -50,14 +39,12 @@ export class EnableDirectoryCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<EnableDirectoryCommandInput, EnableDirectoryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class EnableDirectoryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: EnableDirectoryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: EnableDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1EnableDirectoryCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<EnableDirectoryCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableDirectoryCommandOutput> {
     return deserializeAws_restJson1EnableDirectoryCommand(output, context);
   }
 

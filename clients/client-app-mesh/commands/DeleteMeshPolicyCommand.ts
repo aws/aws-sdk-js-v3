@@ -1,18 +1,11 @@
-import {
-  AppMeshClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppMeshClient";
+import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { DeleteMeshPolicyInput, DeleteMeshPolicyOutput } from "../models/index";
 import {
   deserializeAws_restJson1DeleteMeshPolicyCommand,
-  serializeAws_restJson1DeleteMeshPolicyCommand
+  serializeAws_restJson1DeleteMeshPolicyCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteMeshPolicyCommandInput = DeleteMeshPolicyInput;
-export type DeleteMeshPolicyCommandOutput = DeleteMeshPolicyOutput &
-  __MetadataBearer;
+export type DeleteMeshPolicyCommandOutput = DeleteMeshPolicyOutput & __MetadataBearer;
 
 export class DeleteMeshPolicyCommand extends $Command<
   DeleteMeshPolicyCommandInput,
@@ -47,14 +39,12 @@ export class DeleteMeshPolicyCommand extends $Command<
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteMeshPolicyCommandInput, DeleteMeshPolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class DeleteMeshPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteMeshPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteMeshPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteMeshPolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteMeshPolicyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMeshPolicyCommandOutput> {
     return deserializeAws_restJson1DeleteMeshPolicyCommand(output, context);
   }
 

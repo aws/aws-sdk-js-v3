@@ -1,43 +1,39 @@
 import { STSClient } from "./STSClient";
-import {
-  AssumeRoleCommand,
-  AssumeRoleCommandInput,
-  AssumeRoleCommandOutput
-} from "./commands/AssumeRoleCommand";
+import { AssumeRoleCommand, AssumeRoleCommandInput, AssumeRoleCommandOutput } from "./commands/AssumeRoleCommand";
 import {
   AssumeRoleWithSAMLCommand,
   AssumeRoleWithSAMLCommandInput,
-  AssumeRoleWithSAMLCommandOutput
+  AssumeRoleWithSAMLCommandOutput,
 } from "./commands/AssumeRoleWithSAMLCommand";
 import {
   AssumeRoleWithWebIdentityCommand,
   AssumeRoleWithWebIdentityCommandInput,
-  AssumeRoleWithWebIdentityCommandOutput
+  AssumeRoleWithWebIdentityCommandOutput,
 } from "./commands/AssumeRoleWithWebIdentityCommand";
 import {
   DecodeAuthorizationMessageCommand,
   DecodeAuthorizationMessageCommandInput,
-  DecodeAuthorizationMessageCommandOutput
+  DecodeAuthorizationMessageCommandOutput,
 } from "./commands/DecodeAuthorizationMessageCommand";
 import {
   GetAccessKeyInfoCommand,
   GetAccessKeyInfoCommandInput,
-  GetAccessKeyInfoCommandOutput
+  GetAccessKeyInfoCommandOutput,
 } from "./commands/GetAccessKeyInfoCommand";
 import {
   GetCallerIdentityCommand,
   GetCallerIdentityCommandInput,
-  GetCallerIdentityCommandOutput
+  GetCallerIdentityCommandOutput,
 } from "./commands/GetCallerIdentityCommand";
 import {
   GetFederationTokenCommand,
   GetFederationTokenCommandInput,
-  GetFederationTokenCommandOutput
+  GetFederationTokenCommandOutput,
 } from "./commands/GetFederationTokenCommand";
 import {
   GetSessionTokenCommand,
   GetSessionTokenCommandInput,
-  GetSessionTokenCommandOutput
+  GetSessionTokenCommandOutput,
 } from "./commands/GetSessionTokenCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -224,14 +220,8 @@ export class STS extends STSClient {
    *          The <code>TokenCode</code> is the time-based one-time password (TOTP) that the MFA device
    *          produces. </p>
    */
-  public assumeRole(
-    args: AssumeRoleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AssumeRoleCommandOutput>;
-  public assumeRole(
-    args: AssumeRoleCommandInput,
-    cb: (err: any, data?: AssumeRoleCommandOutput) => void
-  ): void;
+  public assumeRole(args: AssumeRoleCommandInput, options?: __HttpHandlerOptions): Promise<AssumeRoleCommandOutput>;
+  public assumeRole(args: AssumeRoleCommandInput, cb: (err: any, data?: AssumeRoleCommandOutput) => void): void;
   public assumeRole(
     args: AssumeRoleCommandInput,
     options: __HttpHandlerOptions,
@@ -239,17 +229,14 @@ export class STS extends STSClient {
   ): void;
   public assumeRole(
     args: AssumeRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssumeRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssumeRoleCommandOutput) => void),
     cb?: (err: any, data?: AssumeRoleCommandOutput) => void
   ): Promise<AssumeRoleCommandOutput> | void {
     const command = new AssumeRoleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -394,17 +381,14 @@ export class STS extends STSClient {
   ): void;
   public assumeRoleWithSAML(
     args: AssumeRoleWithSAMLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssumeRoleWithSAMLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssumeRoleWithSAMLCommandOutput) => void),
     cb?: (err: any, data?: AssumeRoleWithSAMLCommandOutput) => void
   ): Promise<AssumeRoleWithSAMLCommandOutput> | void {
     const command = new AssumeRoleWithSAMLCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -565,17 +549,14 @@ export class STS extends STSClient {
   ): void;
   public assumeRoleWithWebIdentity(
     args: AssumeRoleWithWebIdentityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssumeRoleWithWebIdentityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssumeRoleWithWebIdentityCommandOutput) => void),
     cb?: (err: any, data?: AssumeRoleWithWebIdentityCommandOutput) => void
   ): Promise<AssumeRoleWithWebIdentityCommandOutput> | void {
     const command = new AssumeRoleWithWebIdentityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -635,17 +616,14 @@ export class STS extends STSClient {
   ): void;
   public decodeAuthorizationMessage(
     args: DecodeAuthorizationMessageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DecodeAuthorizationMessageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DecodeAuthorizationMessageCommandOutput) => void),
     cb?: (err: any, data?: DecodeAuthorizationMessageCommandOutput) => void
   ): Promise<DecodeAuthorizationMessageCommandOutput> | void {
     const command = new DecodeAuthorizationMessageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -687,17 +665,14 @@ export class STS extends STSClient {
   ): void;
   public getAccessKeyInfo(
     args: GetAccessKeyInfoCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAccessKeyInfoCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccessKeyInfoCommandOutput) => void),
     cb?: (err: any, data?: GetAccessKeyInfoCommandOutput) => void
   ): Promise<GetAccessKeyInfoCommandOutput> | void {
     const command = new GetAccessKeyInfoCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -731,17 +706,14 @@ export class STS extends STSClient {
   ): void;
   public getCallerIdentity(
     args: GetCallerIdentityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCallerIdentityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCallerIdentityCommandOutput) => void),
     cb?: (err: any, data?: GetCallerIdentityCommandOutput) => void
   ): Promise<GetCallerIdentityCommandOutput> | void {
     const command = new GetCallerIdentityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -844,17 +816,14 @@ export class STS extends STSClient {
   ): void;
   public getFederationToken(
     args: GetFederationTokenCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFederationTokenCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFederationTokenCommandOutput) => void),
     cb?: (err: any, data?: GetFederationTokenCommandOutput) => void
   ): Promise<GetFederationTokenCommandOutput> | void {
     const command = new GetFederationTokenCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -930,17 +899,14 @@ export class STS extends STSClient {
   ): void;
   public getSessionToken(
     args: GetSessionTokenCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSessionTokenCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSessionTokenCommandOutput) => void),
     cb?: (err: any, data?: GetSessionTokenCommandOutput) => void
   ): Promise<GetSessionTokenCommandOutput> | void {
     const command = new GetSessionTokenCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

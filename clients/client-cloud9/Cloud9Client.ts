@@ -1,42 +1,33 @@
 import {
   CreateEnvironmentEC2CommandInput,
-  CreateEnvironmentEC2CommandOutput
+  CreateEnvironmentEC2CommandOutput,
 } from "./commands/CreateEnvironmentEC2Command";
 import {
   CreateEnvironmentMembershipCommandInput,
-  CreateEnvironmentMembershipCommandOutput
+  CreateEnvironmentMembershipCommandOutput,
 } from "./commands/CreateEnvironmentMembershipCommand";
-import {
-  DeleteEnvironmentCommandInput,
-  DeleteEnvironmentCommandOutput
-} from "./commands/DeleteEnvironmentCommand";
+import { DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput } from "./commands/DeleteEnvironmentCommand";
 import {
   DeleteEnvironmentMembershipCommandInput,
-  DeleteEnvironmentMembershipCommandOutput
+  DeleteEnvironmentMembershipCommandOutput,
 } from "./commands/DeleteEnvironmentMembershipCommand";
 import {
   DescribeEnvironmentMembershipsCommandInput,
-  DescribeEnvironmentMembershipsCommandOutput
+  DescribeEnvironmentMembershipsCommandOutput,
 } from "./commands/DescribeEnvironmentMembershipsCommand";
 import {
   DescribeEnvironmentStatusCommandInput,
-  DescribeEnvironmentStatusCommandOutput
+  DescribeEnvironmentStatusCommandOutput,
 } from "./commands/DescribeEnvironmentStatusCommand";
 import {
   DescribeEnvironmentsCommandInput,
-  DescribeEnvironmentsCommandOutput
+  DescribeEnvironmentsCommandOutput,
 } from "./commands/DescribeEnvironmentsCommand";
-import {
-  ListEnvironmentsCommandInput,
-  ListEnvironmentsCommandOutput
-} from "./commands/ListEnvironmentsCommand";
-import {
-  UpdateEnvironmentCommandInput,
-  UpdateEnvironmentCommandOutput
-} from "./commands/UpdateEnvironmentCommand";
+import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
+import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "./commands/UpdateEnvironmentCommand";
 import {
   UpdateEnvironmentMembershipCommandInput,
-  UpdateEnvironmentMembershipCommandOutput
+  UpdateEnvironmentMembershipCommandOutput,
 } from "./commands/UpdateEnvironmentMembershipCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -45,38 +36,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -87,7 +73,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -114,8 +100,7 @@ export type ServiceOutputTypes =
   | UpdateEnvironmentCommandOutput
   | UpdateEnvironmentMembershipCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -204,9 +189,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type Cloud9ClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type Cloud9ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -215,9 +198,7 @@ export type Cloud9ClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type Cloud9ClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type Cloud9ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -285,7 +266,7 @@ export class Cloud9Client extends __Client<
   constructor(configuration: Cloud9ClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

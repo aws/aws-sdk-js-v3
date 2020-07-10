@@ -1,21 +1,11 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient";
-import {
-  DecreaseReplicaCountMessage,
-  DecreaseReplicaCountResult
-} from "../models/index";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
+import { DecreaseReplicaCountMessage, DecreaseReplicaCountResult } from "../models/index";
 import {
   deserializeAws_queryDecreaseReplicaCountCommand,
-  serializeAws_queryDecreaseReplicaCountCommand
+  serializeAws_queryDecreaseReplicaCountCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DecreaseReplicaCountCommandInput = DecreaseReplicaCountMessage;
-export type DecreaseReplicaCountCommandOutput = DecreaseReplicaCountResult &
-  __MetadataBearer;
+export type DecreaseReplicaCountCommandOutput = DecreaseReplicaCountResult & __MetadataBearer;
 
 export class DecreaseReplicaCountCommand extends $Command<
   DecreaseReplicaCountCommandInput,
@@ -49,18 +38,13 @@ export class DecreaseReplicaCountCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DecreaseReplicaCountCommandInput,
-    DecreaseReplicaCountCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DecreaseReplicaCountCommandInput, DecreaseReplicaCountCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DecreaseReplicaCountCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DecreaseReplicaCountCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DecreaseReplicaCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDecreaseReplicaCountCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DecreaseReplicaCountCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DecreaseReplicaCountCommandOutput> {
     return deserializeAws_queryDecreaseReplicaCountCommand(output, context);
   }
 

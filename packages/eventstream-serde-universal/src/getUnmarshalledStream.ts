@@ -18,10 +18,7 @@ export function getUnmarshalledStream<T extends { [key: string]: any }>(
         const { value: messageType } = message.headers[":message-type"];
         if (messageType === "error") {
           // Unmodeled exception in event
-          const unmodeledError = new Error(
-            (message.headers[":error-message"].value as string) ||
-              "UnknownError"
-          );
+          const unmodeledError = new Error((message.headers[":error-message"].value as string) || "UnknownError");
           unmodeledError.name = message.headers[":error-code"].value as string;
           throw unmodeledError;
         } else if (messageType === "exception") {
@@ -39,17 +36,15 @@ export function getUnmarshalledStream<T extends { [key: string]: any }>(
           throw deserializedException[code];
         } else if (messageType === "event") {
           const event = {
-            [message.headers[":event-type"].value as string]: message
+            [message.headers[":event-type"].value as string]: message,
           };
           const deserialized = await options.deserializer(event);
           if (deserialized.$unknown) continue;
           yield deserialized;
         } else {
-          throw Error(
-            `Unrecognizable event type: ${message.headers[":event-type"].value}`
-          );
+          throw Error(`Unrecognizable event type: ${message.headers[":event-type"].value}`);
         }
       }
-    }
+    },
   };
 }

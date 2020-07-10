@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  CreateProvisioningClaimRequest,
-  CreateProvisioningClaimResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { CreateProvisioningClaimRequest, CreateProvisioningClaimResponse } from "../models/index";
 import {
   deserializeAws_restJson1CreateProvisioningClaimCommand,
-  serializeAws_restJson1CreateProvisioningClaimCommand
+  serializeAws_restJson1CreateProvisioningClaimCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateProvisioningClaimCommandInput = CreateProvisioningClaimRequest;
-export type CreateProvisioningClaimCommandOutput = CreateProvisioningClaimResponse &
-  __MetadataBearer;
+export type CreateProvisioningClaimCommandOutput = CreateProvisioningClaimResponse & __MetadataBearer;
 
 export class CreateProvisioningClaimCommand extends $Command<
   CreateProvisioningClaimCommandInput,
@@ -49,18 +38,13 @@ export class CreateProvisioningClaimCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateProvisioningClaimCommandInput,
-    CreateProvisioningClaimCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateProvisioningClaimCommandInput, CreateProvisioningClaimCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class CreateProvisioningClaimCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateProvisioningClaimCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateProvisioningClaimCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateProvisioningClaimCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateProvisioningClaimCommandOutput> {
-    return deserializeAws_restJson1CreateProvisioningClaimCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProvisioningClaimCommandOutput> {
+    return deserializeAws_restJson1CreateProvisioningClaimCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
-import {
-  GetBackupVaultNotificationsInput,
-  GetBackupVaultNotificationsOutput
-} from "../models/index";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { GetBackupVaultNotificationsInput, GetBackupVaultNotificationsOutput } from "../models/index";
 import {
   deserializeAws_restJson1GetBackupVaultNotificationsCommand,
-  serializeAws_restJson1GetBackupVaultNotificationsCommand
+  serializeAws_restJson1GetBackupVaultNotificationsCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetBackupVaultNotificationsCommandInput = GetBackupVaultNotificationsInput;
-export type GetBackupVaultNotificationsCommandOutput = GetBackupVaultNotificationsOutput &
-  __MetadataBearer;
+export type GetBackupVaultNotificationsCommandOutput = GetBackupVaultNotificationsOutput & __MetadataBearer;
 
 export class GetBackupVaultNotificationsCommand extends $Command<
   GetBackupVaultNotificationsCommandInput,
@@ -49,18 +38,13 @@ export class GetBackupVaultNotificationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBackupVaultNotificationsCommandInput,
-    GetBackupVaultNotificationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBackupVaultNotificationsCommandInput, GetBackupVaultNotificationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class GetBackupVaultNotificationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetBackupVaultNotificationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBackupVaultNotificationsCommand(
-      input,
-      context
-    );
+  private serialize(input: GetBackupVaultNotificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1GetBackupVaultNotificationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBackupVaultNotificationsCommandOutput> {
-    return deserializeAws_restJson1GetBackupVaultNotificationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetBackupVaultNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

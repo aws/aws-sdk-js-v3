@@ -2,17 +2,17 @@ import { EBSClient } from "./EBSClient";
 import {
   GetSnapshotBlockCommand,
   GetSnapshotBlockCommandInput,
-  GetSnapshotBlockCommandOutput
+  GetSnapshotBlockCommandOutput,
 } from "./commands/GetSnapshotBlockCommand";
 import {
   ListChangedBlocksCommand,
   ListChangedBlocksCommandInput,
-  ListChangedBlocksCommandOutput
+  ListChangedBlocksCommandOutput,
 } from "./commands/ListChangedBlocksCommand";
 import {
   ListSnapshotBlocksCommand,
   ListSnapshotBlocksCommandInput,
-  ListSnapshotBlocksCommandOutput
+  ListSnapshotBlocksCommandOutput,
 } from "./commands/ListSnapshotBlocksCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -54,17 +54,14 @@ export class EBS extends EBSClient {
   ): void;
   public getSnapshotBlock(
     args: GetSnapshotBlockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSnapshotBlockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSnapshotBlockCommandOutput) => void),
     cb?: (err: any, data?: GetSnapshotBlockCommandOutput) => void
   ): Promise<GetSnapshotBlockCommandOutput> | void {
     const command = new GetSnapshotBlockCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -90,17 +87,14 @@ export class EBS extends EBSClient {
   ): void;
   public listChangedBlocks(
     args: ListChangedBlocksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListChangedBlocksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChangedBlocksCommandOutput) => void),
     cb?: (err: any, data?: ListChangedBlocksCommandOutput) => void
   ): Promise<ListChangedBlocksCommandOutput> | void {
     const command = new ListChangedBlocksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -125,17 +119,14 @@ export class EBS extends EBSClient {
   ): void;
   public listSnapshotBlocks(
     args: ListSnapshotBlocksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSnapshotBlocksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSnapshotBlocksCommandOutput) => void),
     cb?: (err: any, data?: ListSnapshotBlocksCommandOutput) => void
   ): Promise<ListSnapshotBlocksCommandOutput> | void {
     const command = new ListSnapshotBlocksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

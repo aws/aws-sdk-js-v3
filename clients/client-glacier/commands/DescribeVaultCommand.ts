@@ -1,18 +1,11 @@
-import {
-  GlacierClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlacierClient";
+import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { DescribeVaultInput, DescribeVaultOutput } from "../models/index";
 import {
   deserializeAws_restJson1DescribeVaultCommand,
-  serializeAws_restJson1DescribeVaultCommand
+  serializeAws_restJson1DescribeVaultCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeVaultCommandInput = DescribeVaultInput;
@@ -46,14 +39,12 @@ export class DescribeVaultCommand extends $Command<
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeVaultCommandInput, DescribeVaultCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +54,11 @@ export class DescribeVaultCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeVaultCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeVaultCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeVaultCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVaultCommandOutput> {
     return deserializeAws_restJson1DescribeVaultCommand(output, context);
   }
 

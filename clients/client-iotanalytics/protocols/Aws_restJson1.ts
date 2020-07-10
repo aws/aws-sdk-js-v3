@@ -1,139 +1,61 @@
-import {
-  BatchPutMessageCommandInput,
-  BatchPutMessageCommandOutput
-} from "../commands/BatchPutMessageCommand";
+import { BatchPutMessageCommandInput, BatchPutMessageCommandOutput } from "../commands/BatchPutMessageCommand";
 import {
   CancelPipelineReprocessingCommandInput,
-  CancelPipelineReprocessingCommandOutput
+  CancelPipelineReprocessingCommandOutput,
 } from "../commands/CancelPipelineReprocessingCommand";
-import {
-  CreateChannelCommandInput,
-  CreateChannelCommandOutput
-} from "../commands/CreateChannelCommand";
-import {
-  CreateDatasetCommandInput,
-  CreateDatasetCommandOutput
-} from "../commands/CreateDatasetCommand";
+import { CreateChannelCommandInput, CreateChannelCommandOutput } from "../commands/CreateChannelCommand";
+import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "../commands/CreateDatasetCommand";
 import {
   CreateDatasetContentCommandInput,
-  CreateDatasetContentCommandOutput
+  CreateDatasetContentCommandOutput,
 } from "../commands/CreateDatasetContentCommand";
-import {
-  CreateDatastoreCommandInput,
-  CreateDatastoreCommandOutput
-} from "../commands/CreateDatastoreCommand";
-import {
-  CreatePipelineCommandInput,
-  CreatePipelineCommandOutput
-} from "../commands/CreatePipelineCommand";
-import {
-  DeleteChannelCommandInput,
-  DeleteChannelCommandOutput
-} from "../commands/DeleteChannelCommand";
-import {
-  DeleteDatasetCommandInput,
-  DeleteDatasetCommandOutput
-} from "../commands/DeleteDatasetCommand";
+import { CreateDatastoreCommandInput, CreateDatastoreCommandOutput } from "../commands/CreateDatastoreCommand";
+import { CreatePipelineCommandInput, CreatePipelineCommandOutput } from "../commands/CreatePipelineCommand";
+import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "../commands/DeleteChannelCommand";
+import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "../commands/DeleteDatasetCommand";
 import {
   DeleteDatasetContentCommandInput,
-  DeleteDatasetContentCommandOutput
+  DeleteDatasetContentCommandOutput,
 } from "../commands/DeleteDatasetContentCommand";
-import {
-  DeleteDatastoreCommandInput,
-  DeleteDatastoreCommandOutput
-} from "../commands/DeleteDatastoreCommand";
-import {
-  DeletePipelineCommandInput,
-  DeletePipelineCommandOutput
-} from "../commands/DeletePipelineCommand";
-import {
-  DescribeChannelCommandInput,
-  DescribeChannelCommandOutput
-} from "../commands/DescribeChannelCommand";
-import {
-  DescribeDatasetCommandInput,
-  DescribeDatasetCommandOutput
-} from "../commands/DescribeDatasetCommand";
-import {
-  DescribeDatastoreCommandInput,
-  DescribeDatastoreCommandOutput
-} from "../commands/DescribeDatastoreCommand";
+import { DeleteDatastoreCommandInput, DeleteDatastoreCommandOutput } from "../commands/DeleteDatastoreCommand";
+import { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "../commands/DeletePipelineCommand";
+import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "../commands/DescribeChannelCommand";
+import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "../commands/DescribeDatasetCommand";
+import { DescribeDatastoreCommandInput, DescribeDatastoreCommandOutput } from "../commands/DescribeDatastoreCommand";
 import {
   DescribeLoggingOptionsCommandInput,
-  DescribeLoggingOptionsCommandOutput
+  DescribeLoggingOptionsCommandOutput,
 } from "../commands/DescribeLoggingOptionsCommand";
-import {
-  DescribePipelineCommandInput,
-  DescribePipelineCommandOutput
-} from "../commands/DescribePipelineCommand";
-import {
-  GetDatasetContentCommandInput,
-  GetDatasetContentCommandOutput
-} from "../commands/GetDatasetContentCommand";
-import {
-  ListChannelsCommandInput,
-  ListChannelsCommandOutput
-} from "../commands/ListChannelsCommand";
+import { DescribePipelineCommandInput, DescribePipelineCommandOutput } from "../commands/DescribePipelineCommand";
+import { GetDatasetContentCommandInput, GetDatasetContentCommandOutput } from "../commands/GetDatasetContentCommand";
+import { ListChannelsCommandInput, ListChannelsCommandOutput } from "../commands/ListChannelsCommand";
 import {
   ListDatasetContentsCommandInput,
-  ListDatasetContentsCommandOutput
+  ListDatasetContentsCommandOutput,
 } from "../commands/ListDatasetContentsCommand";
-import {
-  ListDatasetsCommandInput,
-  ListDatasetsCommandOutput
-} from "../commands/ListDatasetsCommand";
-import {
-  ListDatastoresCommandInput,
-  ListDatastoresCommandOutput
-} from "../commands/ListDatastoresCommand";
-import {
-  ListPipelinesCommandInput,
-  ListPipelinesCommandOutput
-} from "../commands/ListPipelinesCommand";
+import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "../commands/ListDatasetsCommand";
+import { ListDatastoresCommandInput, ListDatastoresCommandOutput } from "../commands/ListDatastoresCommand";
+import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "../commands/ListPipelinesCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
-import {
-  PutLoggingOptionsCommandInput,
-  PutLoggingOptionsCommandOutput
-} from "../commands/PutLoggingOptionsCommand";
+import { PutLoggingOptionsCommandInput, PutLoggingOptionsCommandOutput } from "../commands/PutLoggingOptionsCommand";
 import {
   RunPipelineActivityCommandInput,
-  RunPipelineActivityCommandOutput
+  RunPipelineActivityCommandOutput,
 } from "../commands/RunPipelineActivityCommand";
-import {
-  SampleChannelDataCommandInput,
-  SampleChannelDataCommandOutput
-} from "../commands/SampleChannelDataCommand";
+import { SampleChannelDataCommandInput, SampleChannelDataCommandOutput } from "../commands/SampleChannelDataCommand";
 import {
   StartPipelineReprocessingCommandInput,
-  StartPipelineReprocessingCommandOutput
+  StartPipelineReprocessingCommandOutput,
 } from "../commands/StartPipelineReprocessingCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "../commands/UntagResourceCommand";
-import {
-  UpdateChannelCommandInput,
-  UpdateChannelCommandOutput
-} from "../commands/UpdateChannelCommand";
-import {
-  UpdateDatasetCommandInput,
-  UpdateDatasetCommandOutput
-} from "../commands/UpdateDatasetCommand";
-import {
-  UpdateDatastoreCommandInput,
-  UpdateDatastoreCommandOutput
-} from "../commands/UpdateDatastoreCommand";
-import {
-  UpdatePipelineCommandInput,
-  UpdatePipelineCommandOutput
-} from "../commands/UpdatePipelineCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "../commands/UpdateChannelCommand";
+import { UpdateDatasetCommandInput, UpdateDatasetCommandOutput } from "../commands/UpdateDatasetCommand";
+import { UpdateDatastoreCommandInput, UpdateDatastoreCommandOutput } from "../commands/UpdateDatastoreCommand";
+import { UpdatePipelineCommandInput, UpdatePipelineCommandOutput } from "../commands/UpdatePipelineCommand";
 import {
   AddAttributesActivity,
   BatchPutMessageErrorEntry,
@@ -203,21 +125,18 @@ import {
   ThrottlingException,
   TriggeringDataset,
   Variable,
-  VersioningConfiguration
+  VersioningConfiguration,
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export const serializeAws_restJson1BatchPutMessageCommand = async (
@@ -225,15 +144,13 @@ export const serializeAws_restJson1BatchPutMessageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/messages/batch";
   let body: any;
   body = JSON.stringify({
     ...(input.channelName !== undefined && { channelName: input.channelName }),
-    ...(input.messages !== undefined && {
-      messages: serializeAws_restJson1Messages(input.messages, context)
-    })
+    ...(input.messages !== undefined && { messages: serializeAws_restJson1Messages(input.messages, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -243,7 +160,7 @@ export const serializeAws_restJson1BatchPutMessageCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -252,34 +169,24 @@ export const serializeAws_restJson1CancelPipelineReprocessingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/pipelines/{pipelineName}/reprocessing/{reprocessingId}";
   if (input.pipelineName !== undefined) {
     const labelValue: string = input.pipelineName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: pipelineName."
-      );
+      throw new Error("Empty value provided for input HTTP label: pipelineName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{pipelineName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{pipelineName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: pipelineName.");
   }
   if (input.reprocessingId !== undefined) {
     const labelValue: string = input.reprocessingId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: reprocessingId."
-      );
+      throw new Error("Empty value provided for input HTTP label: reprocessingId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{reprocessingId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{reprocessingId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: reprocessingId.");
   }
@@ -292,7 +199,7 @@ export const serializeAws_restJson1CancelPipelineReprocessingCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -301,27 +208,19 @@ export const serializeAws_restJson1CreateChannelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/channels";
   let body: any;
   body = JSON.stringify({
     ...(input.channelName !== undefined && { channelName: input.channelName }),
     ...(input.channelStorage !== undefined && {
-      channelStorage: serializeAws_restJson1ChannelStorage(
-        input.channelStorage,
-        context
-      )
+      channelStorage: serializeAws_restJson1ChannelStorage(input.channelStorage, context),
     }),
     ...(input.retentionPeriod !== undefined && {
-      retentionPeriod: serializeAws_restJson1RetentionPeriod(
-        input.retentionPeriod,
-        context
-      )
+      retentionPeriod: serializeAws_restJson1RetentionPeriod(input.retentionPeriod, context),
     }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagList(input.tags, context)
-    })
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -331,7 +230,7 @@ export const serializeAws_restJson1CreateChannelCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -340,39 +239,24 @@ export const serializeAws_restJson1CreateDatasetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/datasets";
   let body: any;
   body = JSON.stringify({
-    ...(input.actions !== undefined && {
-      actions: serializeAws_restJson1DatasetActions(input.actions, context)
-    }),
+    ...(input.actions !== undefined && { actions: serializeAws_restJson1DatasetActions(input.actions, context) }),
     ...(input.contentDeliveryRules !== undefined && {
-      contentDeliveryRules: serializeAws_restJson1DatasetContentDeliveryRules(
-        input.contentDeliveryRules,
-        context
-      )
+      contentDeliveryRules: serializeAws_restJson1DatasetContentDeliveryRules(input.contentDeliveryRules, context),
     }),
     ...(input.datasetName !== undefined && { datasetName: input.datasetName }),
     ...(input.retentionPeriod !== undefined && {
-      retentionPeriod: serializeAws_restJson1RetentionPeriod(
-        input.retentionPeriod,
-        context
-      )
+      retentionPeriod: serializeAws_restJson1RetentionPeriod(input.retentionPeriod, context),
     }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagList(input.tags, context)
-    }),
-    ...(input.triggers !== undefined && {
-      triggers: serializeAws_restJson1DatasetTriggers(input.triggers, context)
-    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+    ...(input.triggers !== undefined && { triggers: serializeAws_restJson1DatasetTriggers(input.triggers, context) }),
     ...(input.versioningConfiguration !== undefined && {
-      versioningConfiguration: serializeAws_restJson1VersioningConfiguration(
-        input.versioningConfiguration,
-        context
-      )
-    })
+      versioningConfiguration: serializeAws_restJson1VersioningConfiguration(input.versioningConfiguration, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -382,7 +266,7 @@ export const serializeAws_restJson1CreateDatasetCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -391,20 +275,15 @@ export const serializeAws_restJson1CreateDatasetContentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/datasets/{datasetName}/content";
   if (input.datasetName !== undefined) {
     const labelValue: string = input.datasetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: datasetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: datasetName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{datasetName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{datasetName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
@@ -417,7 +296,7 @@ export const serializeAws_restJson1CreateDatasetContentCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -426,29 +305,19 @@ export const serializeAws_restJson1CreateDatastoreCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/datastores";
   let body: any;
   body = JSON.stringify({
-    ...(input.datastoreName !== undefined && {
-      datastoreName: input.datastoreName
-    }),
+    ...(input.datastoreName !== undefined && { datastoreName: input.datastoreName }),
     ...(input.datastoreStorage !== undefined && {
-      datastoreStorage: serializeAws_restJson1DatastoreStorage(
-        input.datastoreStorage,
-        context
-      )
+      datastoreStorage: serializeAws_restJson1DatastoreStorage(input.datastoreStorage, context),
     }),
     ...(input.retentionPeriod !== undefined && {
-      retentionPeriod: serializeAws_restJson1RetentionPeriod(
-        input.retentionPeriod,
-        context
-      )
+      retentionPeriod: serializeAws_restJson1RetentionPeriod(input.retentionPeriod, context),
     }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagList(input.tags, context)
-    })
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -458,7 +327,7 @@ export const serializeAws_restJson1CreateDatastoreCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -467,23 +336,16 @@ export const serializeAws_restJson1CreatePipelineCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/pipelines";
   let body: any;
   body = JSON.stringify({
     ...(input.pipelineActivities !== undefined && {
-      pipelineActivities: serializeAws_restJson1PipelineActivities(
-        input.pipelineActivities,
-        context
-      )
+      pipelineActivities: serializeAws_restJson1PipelineActivities(input.pipelineActivities, context),
     }),
-    ...(input.pipelineName !== undefined && {
-      pipelineName: input.pipelineName
-    }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagList(input.tags, context)
-    })
+    ...(input.pipelineName !== undefined && { pipelineName: input.pipelineName }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -493,7 +355,7 @@ export const serializeAws_restJson1CreatePipelineCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -502,20 +364,15 @@ export const serializeAws_restJson1DeleteChannelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/channels/{channelName}";
   if (input.channelName !== undefined) {
     const labelValue: string = input.channelName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: channelName."
-      );
+      throw new Error("Empty value provided for input HTTP label: channelName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{channelName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{channelName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: channelName.");
   }
@@ -528,7 +385,7 @@ export const serializeAws_restJson1DeleteChannelCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -537,20 +394,15 @@ export const serializeAws_restJson1DeleteDatasetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/datasets/{datasetName}";
   if (input.datasetName !== undefined) {
     const labelValue: string = input.datasetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: datasetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: datasetName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{datasetName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{datasetName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
@@ -563,7 +415,7 @@ export const serializeAws_restJson1DeleteDatasetCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -572,25 +424,20 @@ export const serializeAws_restJson1DeleteDatasetContentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/datasets/{datasetName}/content";
   if (input.datasetName !== undefined) {
     const labelValue: string = input.datasetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: datasetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: datasetName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{datasetName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{datasetName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
   const query: any = {
-    ...(input.versionId !== undefined && { versionId: input.versionId })
+    ...(input.versionId !== undefined && { versionId: input.versionId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -602,7 +449,7 @@ export const serializeAws_restJson1DeleteDatasetContentCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -611,20 +458,15 @@ export const serializeAws_restJson1DeleteDatastoreCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/datastores/{datastoreName}";
   if (input.datastoreName !== undefined) {
     const labelValue: string = input.datastoreName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: datastoreName."
-      );
+      throw new Error("Empty value provided for input HTTP label: datastoreName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{datastoreName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{datastoreName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: datastoreName.");
   }
@@ -637,7 +479,7 @@ export const serializeAws_restJson1DeleteDatastoreCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -646,20 +488,15 @@ export const serializeAws_restJson1DeletePipelineCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/pipelines/{pipelineName}";
   if (input.pipelineName !== undefined) {
     const labelValue: string = input.pipelineName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: pipelineName."
-      );
+      throw new Error("Empty value provided for input HTTP label: pipelineName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{pipelineName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{pipelineName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: pipelineName.");
   }
@@ -672,7 +509,7 @@ export const serializeAws_restJson1DeletePipelineCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -681,27 +518,20 @@ export const serializeAws_restJson1DescribeChannelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/channels/{channelName}";
   if (input.channelName !== undefined) {
     const labelValue: string = input.channelName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: channelName."
-      );
+      throw new Error("Empty value provided for input HTTP label: channelName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{channelName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{channelName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: channelName.");
   }
   const query: any = {
-    ...(input.includeStatistics !== undefined && {
-      includeStatistics: input.includeStatistics.toString()
-    })
+    ...(input.includeStatistics !== undefined && { includeStatistics: input.includeStatistics.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -713,7 +543,7 @@ export const serializeAws_restJson1DescribeChannelCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -722,20 +552,15 @@ export const serializeAws_restJson1DescribeDatasetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/datasets/{datasetName}";
   if (input.datasetName !== undefined) {
     const labelValue: string = input.datasetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: datasetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: datasetName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{datasetName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{datasetName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
@@ -748,7 +573,7 @@ export const serializeAws_restJson1DescribeDatasetCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -757,27 +582,20 @@ export const serializeAws_restJson1DescribeDatastoreCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/datastores/{datastoreName}";
   if (input.datastoreName !== undefined) {
     const labelValue: string = input.datastoreName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: datastoreName."
-      );
+      throw new Error("Empty value provided for input HTTP label: datastoreName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{datastoreName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{datastoreName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: datastoreName.");
   }
   const query: any = {
-    ...(input.includeStatistics !== undefined && {
-      includeStatistics: input.includeStatistics.toString()
-    })
+    ...(input.includeStatistics !== undefined && { includeStatistics: input.includeStatistics.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -789,7 +607,7 @@ export const serializeAws_restJson1DescribeDatastoreCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -798,7 +616,7 @@ export const serializeAws_restJson1DescribeLoggingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/logging";
   let body: any;
@@ -811,7 +629,7 @@ export const serializeAws_restJson1DescribeLoggingOptionsCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -820,20 +638,15 @@ export const serializeAws_restJson1DescribePipelineCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/pipelines/{pipelineName}";
   if (input.pipelineName !== undefined) {
     const labelValue: string = input.pipelineName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: pipelineName."
-      );
+      throw new Error("Empty value provided for input HTTP label: pipelineName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{pipelineName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{pipelineName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: pipelineName.");
   }
@@ -846,7 +659,7 @@ export const serializeAws_restJson1DescribePipelineCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -855,25 +668,20 @@ export const serializeAws_restJson1GetDatasetContentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/datasets/{datasetName}/content";
   if (input.datasetName !== undefined) {
     const labelValue: string = input.datasetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: datasetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: datasetName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{datasetName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{datasetName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
   const query: any = {
-    ...(input.versionId !== undefined && { versionId: input.versionId })
+    ...(input.versionId !== undefined && { versionId: input.versionId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -885,7 +693,7 @@ export const serializeAws_restJson1GetDatasetContentCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -894,14 +702,12 @@ export const serializeAws_restJson1ListChannelsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/channels";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString()
-    }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -913,7 +719,7 @@ export const serializeAws_restJson1ListChannelsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -922,38 +728,27 @@ export const serializeAws_restJson1ListDatasetContentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/datasets/{datasetName}/contents";
   if (input.datasetName !== undefined) {
     const labelValue: string = input.datasetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: datasetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: datasetName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{datasetName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{datasetName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString()
-    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.scheduledBefore !== undefined && {
-      scheduledBefore: (
-        input.scheduledBefore.toISOString().split(".")[0] + "Z"
-      ).toString()
+      scheduledBefore: (input.scheduledBefore.toISOString().split(".")[0] + "Z").toString(),
     }),
     ...(input.scheduledOnOrAfter !== undefined && {
-      scheduledOnOrAfter: (
-        input.scheduledOnOrAfter.toISOString().split(".")[0] + "Z"
-      ).toString()
-    })
+      scheduledOnOrAfter: (input.scheduledOnOrAfter.toISOString().split(".")[0] + "Z").toString(),
+    }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -965,7 +760,7 @@ export const serializeAws_restJson1ListDatasetContentsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -974,14 +769,12 @@ export const serializeAws_restJson1ListDatasetsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/datasets";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString()
-    }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -993,7 +786,7 @@ export const serializeAws_restJson1ListDatasetsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -1002,14 +795,12 @@ export const serializeAws_restJson1ListDatastoresCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/datastores";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString()
-    }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1021,7 +812,7 @@ export const serializeAws_restJson1ListDatastoresCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -1030,14 +821,12 @@ export const serializeAws_restJson1ListPipelinesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/pipelines";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString()
-    }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1049,7 +838,7 @@ export const serializeAws_restJson1ListPipelinesCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -1058,11 +847,11 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/tags";
   const query: any = {
-    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn })
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1074,7 +863,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -1083,17 +872,14 @@ export const serializeAws_restJson1PutLoggingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/logging";
   let body: any;
   body = JSON.stringify({
     ...(input.loggingOptions !== undefined && {
-      loggingOptions: serializeAws_restJson1LoggingOptions(
-        input.loggingOptions,
-        context
-      )
-    })
+      loggingOptions: serializeAws_restJson1LoggingOptions(input.loggingOptions, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1103,7 +889,7 @@ export const serializeAws_restJson1PutLoggingOptionsCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1112,20 +898,15 @@ export const serializeAws_restJson1RunPipelineActivityCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/pipelineactivities/run";
   let body: any;
   body = JSON.stringify({
-    ...(input.payloads !== undefined && {
-      payloads: serializeAws_restJson1MessagePayloads(input.payloads, context)
-    }),
+    ...(input.payloads !== undefined && { payloads: serializeAws_restJson1MessagePayloads(input.payloads, context) }),
     ...(input.pipelineActivity !== undefined && {
-      pipelineActivity: serializeAws_restJson1PipelineActivity(
-        input.pipelineActivity,
-        context
-      )
-    })
+      pipelineActivity: serializeAws_restJson1PipelineActivity(input.pipelineActivity, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1135,7 +916,7 @@ export const serializeAws_restJson1RunPipelineActivityCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1144,33 +925,22 @@ export const serializeAws_restJson1SampleChannelDataCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/channels/{channelName}/sample";
   if (input.channelName !== undefined) {
     const labelValue: string = input.channelName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: channelName."
-      );
+      throw new Error("Empty value provided for input HTTP label: channelName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{channelName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{channelName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: channelName.");
   }
   const query: any = {
-    ...(input.endTime !== undefined && {
-      endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString()
-    }),
-    ...(input.maxMessages !== undefined && {
-      maxMessages: input.maxMessages.toString()
-    }),
-    ...(input.startTime !== undefined && {
-      startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString()
-    })
+    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.maxMessages !== undefined && { maxMessages: input.maxMessages.toString() }),
+    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1182,7 +952,7 @@ export const serializeAws_restJson1SampleChannelDataCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -1191,31 +961,22 @@ export const serializeAws_restJson1StartPipelineReprocessingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/pipelines/{pipelineName}/reprocessing";
   if (input.pipelineName !== undefined) {
     const labelValue: string = input.pipelineName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: pipelineName."
-      );
+      throw new Error("Empty value provided for input HTTP label: pipelineName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{pipelineName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{pipelineName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: pipelineName.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.endTime !== undefined && {
-      endTime: Math.round(input.endTime.getTime() / 1000)
-    }),
-    ...(input.startTime !== undefined && {
-      startTime: Math.round(input.startTime.getTime() / 1000)
-    })
+    ...(input.endTime !== undefined && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.startTime !== undefined && { startTime: Math.round(input.startTime.getTime() / 1000) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1225,7 +986,7 @@ export const serializeAws_restJson1StartPipelineReprocessingCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1234,17 +995,15 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/tags";
   const query: any = {
-    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn })
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagList(input.tags, context)
-    })
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1255,7 +1014,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -1264,14 +1023,12 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/tags";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys !== undefined && {
-      tagKeys: (input.tagKeys || []).map(_entry => _entry)
-    })
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1283,7 +1040,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -1292,37 +1049,26 @@ export const serializeAws_restJson1UpdateChannelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/channels/{channelName}";
   if (input.channelName !== undefined) {
     const labelValue: string = input.channelName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: channelName."
-      );
+      throw new Error("Empty value provided for input HTTP label: channelName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{channelName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{channelName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: channelName.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.channelStorage !== undefined && {
-      channelStorage: serializeAws_restJson1ChannelStorage(
-        input.channelStorage,
-        context
-      )
+      channelStorage: serializeAws_restJson1ChannelStorage(input.channelStorage, context),
     }),
     ...(input.retentionPeriod !== undefined && {
-      retentionPeriod: serializeAws_restJson1RetentionPeriod(
-        input.retentionPeriod,
-        context
-      )
-    })
+      retentionPeriod: serializeAws_restJson1RetentionPeriod(input.retentionPeriod, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1332,7 +1078,7 @@ export const serializeAws_restJson1UpdateChannelCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1341,49 +1087,31 @@ export const serializeAws_restJson1UpdateDatasetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/datasets/{datasetName}";
   if (input.datasetName !== undefined) {
     const labelValue: string = input.datasetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: datasetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: datasetName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{datasetName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{datasetName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.actions !== undefined && {
-      actions: serializeAws_restJson1DatasetActions(input.actions, context)
-    }),
+    ...(input.actions !== undefined && { actions: serializeAws_restJson1DatasetActions(input.actions, context) }),
     ...(input.contentDeliveryRules !== undefined && {
-      contentDeliveryRules: serializeAws_restJson1DatasetContentDeliveryRules(
-        input.contentDeliveryRules,
-        context
-      )
+      contentDeliveryRules: serializeAws_restJson1DatasetContentDeliveryRules(input.contentDeliveryRules, context),
     }),
     ...(input.retentionPeriod !== undefined && {
-      retentionPeriod: serializeAws_restJson1RetentionPeriod(
-        input.retentionPeriod,
-        context
-      )
+      retentionPeriod: serializeAws_restJson1RetentionPeriod(input.retentionPeriod, context),
     }),
-    ...(input.triggers !== undefined && {
-      triggers: serializeAws_restJson1DatasetTriggers(input.triggers, context)
-    }),
+    ...(input.triggers !== undefined && { triggers: serializeAws_restJson1DatasetTriggers(input.triggers, context) }),
     ...(input.versioningConfiguration !== undefined && {
-      versioningConfiguration: serializeAws_restJson1VersioningConfiguration(
-        input.versioningConfiguration,
-        context
-      )
-    })
+      versioningConfiguration: serializeAws_restJson1VersioningConfiguration(input.versioningConfiguration, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1393,7 +1121,7 @@ export const serializeAws_restJson1UpdateDatasetCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1402,37 +1130,26 @@ export const serializeAws_restJson1UpdateDatastoreCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/datastores/{datastoreName}";
   if (input.datastoreName !== undefined) {
     const labelValue: string = input.datastoreName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: datastoreName."
-      );
+      throw new Error("Empty value provided for input HTTP label: datastoreName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{datastoreName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{datastoreName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: datastoreName.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.datastoreStorage !== undefined && {
-      datastoreStorage: serializeAws_restJson1DatastoreStorage(
-        input.datastoreStorage,
-        context
-      )
+      datastoreStorage: serializeAws_restJson1DatastoreStorage(input.datastoreStorage, context),
     }),
     ...(input.retentionPeriod !== undefined && {
-      retentionPeriod: serializeAws_restJson1RetentionPeriod(
-        input.retentionPeriod,
-        context
-      )
-    })
+      retentionPeriod: serializeAws_restJson1RetentionPeriod(input.retentionPeriod, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1442,7 +1159,7 @@ export const serializeAws_restJson1UpdateDatastoreCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1451,31 +1168,23 @@ export const serializeAws_restJson1UpdatePipelineCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/pipelines/{pipelineName}";
   if (input.pipelineName !== undefined) {
     const labelValue: string = input.pipelineName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: pipelineName."
-      );
+      throw new Error("Empty value provided for input HTTP label: pipelineName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{pipelineName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{pipelineName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: pipelineName.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.pipelineActivities !== undefined && {
-      pipelineActivities: serializeAws_restJson1PipelineActivities(
-        input.pipelineActivities,
-        context
-      )
-    })
+      pipelineActivities: serializeAws_restJson1PipelineActivities(input.pipelineActivities, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1485,7 +1194,7 @@ export const serializeAws_restJson1UpdatePipelineCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1499,13 +1208,10 @@ export const deserializeAws_restJson1BatchPutMessageCommand = async (
   const contents: BatchPutMessageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchPutMessageResponse",
-    batchPutMessageErrorEntries: undefined
+    batchPutMessageErrorEntries: undefined,
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.batchPutMessageErrorEntries !== undefined &&
-    data.batchPutMessageErrorEntries !== null
-  ) {
+  if (data.batchPutMessageErrorEntries !== undefined && data.batchPutMessageErrorEntries !== null) {
     contents.batchPutMessageErrorEntries = deserializeAws_restJson1BatchPutMessageErrorEntries(
       data.batchPutMessageErrorEntries,
       context
@@ -1520,7 +1226,7 @@ const deserializeAws_restJson1BatchPutMessageCommandError = async (
 ): Promise<BatchPutMessageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1529,56 +1235,41 @@ const deserializeAws_restJson1BatchPutMessageCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1589,7 +1280,7 @@ const deserializeAws_restJson1BatchPutMessageCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1603,14 +1294,11 @@ export const deserializeAws_restJson1CancelPipelineReprocessingCommand = async (
   context: __SerdeContext
 ): Promise<CancelPipelineReprocessingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CancelPipelineReprocessingCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CancelPipelineReprocessingCommandError(output, context);
   }
   const contents: CancelPipelineReprocessingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelPipelineReprocessingResponse"
+    __type: "CancelPipelineReprocessingResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1622,7 +1310,7 @@ const deserializeAws_restJson1CancelPipelineReprocessingCommandError = async (
 ): Promise<CancelPipelineReprocessingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1631,56 +1319,41 @@ const deserializeAws_restJson1CancelPipelineReprocessingCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1691,7 +1364,7 @@ const deserializeAws_restJson1CancelPipelineReprocessingCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1712,7 +1385,7 @@ export const deserializeAws_restJson1CreateChannelCommand = async (
     __type: "CreateChannelResponse",
     channelArn: undefined,
     channelName: undefined,
-    retentionPeriod: undefined
+    retentionPeriod: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.channelArn !== undefined && data.channelArn !== null) {
@@ -1722,10 +1395,7 @@ export const deserializeAws_restJson1CreateChannelCommand = async (
     contents.channelName = data.channelName;
   }
   if (data.retentionPeriod !== undefined && data.retentionPeriod !== null) {
-    contents.retentionPeriod = deserializeAws_restJson1RetentionPeriod(
-      data.retentionPeriod,
-      context
-    );
+    contents.retentionPeriod = deserializeAws_restJson1RetentionPeriod(data.retentionPeriod, context);
   }
   return Promise.resolve(contents);
 };
@@ -1736,7 +1406,7 @@ const deserializeAws_restJson1CreateChannelCommandError = async (
 ): Promise<CreateChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1745,67 +1415,49 @@ const deserializeAws_restJson1CreateChannelCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iotanalytics#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iotanalytics#ResourceAlreadyExistsException":
       response = {
-        ...(await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1816,7 +1468,7 @@ const deserializeAws_restJson1CreateChannelCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1837,7 +1489,7 @@ export const deserializeAws_restJson1CreateDatasetCommand = async (
     __type: "CreateDatasetResponse",
     datasetArn: undefined,
     datasetName: undefined,
-    retentionPeriod: undefined
+    retentionPeriod: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.datasetArn !== undefined && data.datasetArn !== null) {
@@ -1847,10 +1499,7 @@ export const deserializeAws_restJson1CreateDatasetCommand = async (
     contents.datasetName = data.datasetName;
   }
   if (data.retentionPeriod !== undefined && data.retentionPeriod !== null) {
-    contents.retentionPeriod = deserializeAws_restJson1RetentionPeriod(
-      data.retentionPeriod,
-      context
-    );
+    contents.retentionPeriod = deserializeAws_restJson1RetentionPeriod(data.retentionPeriod, context);
   }
   return Promise.resolve(contents);
 };
@@ -1861,7 +1510,7 @@ const deserializeAws_restJson1CreateDatasetCommandError = async (
 ): Promise<CreateDatasetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1870,67 +1519,49 @@ const deserializeAws_restJson1CreateDatasetCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iotanalytics#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iotanalytics#ResourceAlreadyExistsException":
       response = {
-        ...(await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1941,7 +1572,7 @@ const deserializeAws_restJson1CreateDatasetCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1955,15 +1586,12 @@ export const deserializeAws_restJson1CreateDatasetContentCommand = async (
   context: __SerdeContext
 ): Promise<CreateDatasetContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateDatasetContentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateDatasetContentCommandError(output, context);
   }
   const contents: CreateDatasetContentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDatasetContentResponse",
-    versionId: undefined
+    versionId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.versionId !== undefined && data.versionId !== null) {
@@ -1978,7 +1606,7 @@ const deserializeAws_restJson1CreateDatasetContentCommandError = async (
 ): Promise<CreateDatasetContentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1987,56 +1615,41 @@ const deserializeAws_restJson1CreateDatasetContentCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2047,7 +1660,7 @@ const deserializeAws_restJson1CreateDatasetContentCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2068,7 +1681,7 @@ export const deserializeAws_restJson1CreateDatastoreCommand = async (
     __type: "CreateDatastoreResponse",
     datastoreArn: undefined,
     datastoreName: undefined,
-    retentionPeriod: undefined
+    retentionPeriod: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.datastoreArn !== undefined && data.datastoreArn !== null) {
@@ -2078,10 +1691,7 @@ export const deserializeAws_restJson1CreateDatastoreCommand = async (
     contents.datastoreName = data.datastoreName;
   }
   if (data.retentionPeriod !== undefined && data.retentionPeriod !== null) {
-    contents.retentionPeriod = deserializeAws_restJson1RetentionPeriod(
-      data.retentionPeriod,
-      context
-    );
+    contents.retentionPeriod = deserializeAws_restJson1RetentionPeriod(data.retentionPeriod, context);
   }
   return Promise.resolve(contents);
 };
@@ -2092,7 +1702,7 @@ const deserializeAws_restJson1CreateDatastoreCommandError = async (
 ): Promise<CreateDatastoreCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2101,67 +1711,49 @@ const deserializeAws_restJson1CreateDatastoreCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iotanalytics#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iotanalytics#ResourceAlreadyExistsException":
       response = {
-        ...(await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2172,7 +1764,7 @@ const deserializeAws_restJson1CreateDatastoreCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2192,7 +1784,7 @@ export const deserializeAws_restJson1CreatePipelineCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "CreatePipelineResponse",
     pipelineArn: undefined,
-    pipelineName: undefined
+    pipelineName: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.pipelineArn !== undefined && data.pipelineArn !== null) {
@@ -2210,7 +1802,7 @@ const deserializeAws_restJson1CreatePipelineCommandError = async (
 ): Promise<CreatePipelineCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2219,67 +1811,49 @@ const deserializeAws_restJson1CreatePipelineCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iotanalytics#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iotanalytics#ResourceAlreadyExistsException":
       response = {
-        ...(await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2290,7 +1864,7 @@ const deserializeAws_restJson1CreatePipelineCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2307,7 +1881,7 @@ export const deserializeAws_restJson1DeleteChannelCommand = async (
     return deserializeAws_restJson1DeleteChannelCommandError(output, context);
   }
   const contents: DeleteChannelCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2319,7 +1893,7 @@ const deserializeAws_restJson1DeleteChannelCommandError = async (
 ): Promise<DeleteChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2328,56 +1902,41 @@ const deserializeAws_restJson1DeleteChannelCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2388,7 +1947,7 @@ const deserializeAws_restJson1DeleteChannelCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2405,7 +1964,7 @@ export const deserializeAws_restJson1DeleteDatasetCommand = async (
     return deserializeAws_restJson1DeleteDatasetCommandError(output, context);
   }
   const contents: DeleteDatasetCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2417,7 +1976,7 @@ const deserializeAws_restJson1DeleteDatasetCommandError = async (
 ): Promise<DeleteDatasetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2426,56 +1985,41 @@ const deserializeAws_restJson1DeleteDatasetCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2486,7 +2030,7 @@ const deserializeAws_restJson1DeleteDatasetCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2500,13 +2044,10 @@ export const deserializeAws_restJson1DeleteDatasetContentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDatasetContentCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DeleteDatasetContentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteDatasetContentCommandError(output, context);
   }
   const contents: DeleteDatasetContentCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2518,7 +2059,7 @@ const deserializeAws_restJson1DeleteDatasetContentCommandError = async (
 ): Promise<DeleteDatasetContentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2527,56 +2068,41 @@ const deserializeAws_restJson1DeleteDatasetContentCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2587,7 +2113,7 @@ const deserializeAws_restJson1DeleteDatasetContentCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2604,7 +2130,7 @@ export const deserializeAws_restJson1DeleteDatastoreCommand = async (
     return deserializeAws_restJson1DeleteDatastoreCommandError(output, context);
   }
   const contents: DeleteDatastoreCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2616,7 +2142,7 @@ const deserializeAws_restJson1DeleteDatastoreCommandError = async (
 ): Promise<DeleteDatastoreCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2625,56 +2151,41 @@ const deserializeAws_restJson1DeleteDatastoreCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2685,7 +2196,7 @@ const deserializeAws_restJson1DeleteDatastoreCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2702,7 +2213,7 @@ export const deserializeAws_restJson1DeletePipelineCommand = async (
     return deserializeAws_restJson1DeletePipelineCommandError(output, context);
   }
   const contents: DeletePipelineCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2714,7 +2225,7 @@ const deserializeAws_restJson1DeletePipelineCommandError = async (
 ): Promise<DeletePipelineCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2723,56 +2234,41 @@ const deserializeAws_restJson1DeletePipelineCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2783,7 +2279,7 @@ const deserializeAws_restJson1DeletePipelineCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2803,17 +2299,14 @@ export const deserializeAws_restJson1DescribeChannelCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "DescribeChannelResponse",
     channel: undefined,
-    statistics: undefined
+    statistics: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.channel !== undefined && data.channel !== null) {
     contents.channel = deserializeAws_restJson1Channel(data.channel, context);
   }
   if (data.statistics !== undefined && data.statistics !== null) {
-    contents.statistics = deserializeAws_restJson1ChannelStatistics(
-      data.statistics,
-      context
-    );
+    contents.statistics = deserializeAws_restJson1ChannelStatistics(data.statistics, context);
   }
   return Promise.resolve(contents);
 };
@@ -2824,7 +2317,7 @@ const deserializeAws_restJson1DescribeChannelCommandError = async (
 ): Promise<DescribeChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2833,56 +2326,41 @@ const deserializeAws_restJson1DescribeChannelCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2893,7 +2371,7 @@ const deserializeAws_restJson1DescribeChannelCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2912,7 +2390,7 @@ export const deserializeAws_restJson1DescribeDatasetCommand = async (
   const contents: DescribeDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeDatasetResponse",
-    dataset: undefined
+    dataset: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.dataset !== undefined && data.dataset !== null) {
@@ -2927,7 +2405,7 @@ const deserializeAws_restJson1DescribeDatasetCommandError = async (
 ): Promise<DescribeDatasetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2936,56 +2414,41 @@ const deserializeAws_restJson1DescribeDatasetCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2996,7 +2459,7 @@ const deserializeAws_restJson1DescribeDatasetCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3010,29 +2473,20 @@ export const deserializeAws_restJson1DescribeDatastoreCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDatastoreCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DescribeDatastoreCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DescribeDatastoreCommandError(output, context);
   }
   const contents: DescribeDatastoreCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeDatastoreResponse",
     datastore: undefined,
-    statistics: undefined
+    statistics: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.datastore !== undefined && data.datastore !== null) {
-    contents.datastore = deserializeAws_restJson1Datastore(
-      data.datastore,
-      context
-    );
+    contents.datastore = deserializeAws_restJson1Datastore(data.datastore, context);
   }
   if (data.statistics !== undefined && data.statistics !== null) {
-    contents.statistics = deserializeAws_restJson1DatastoreStatistics(
-      data.statistics,
-      context
-    );
+    contents.statistics = deserializeAws_restJson1DatastoreStatistics(data.statistics, context);
   }
   return Promise.resolve(contents);
 };
@@ -3043,7 +2497,7 @@ const deserializeAws_restJson1DescribeDatastoreCommandError = async (
 ): Promise<DescribeDatastoreCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3052,56 +2506,41 @@ const deserializeAws_restJson1DescribeDatastoreCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3112,7 +2551,7 @@ const deserializeAws_restJson1DescribeDatastoreCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3126,22 +2565,16 @@ export const deserializeAws_restJson1DescribeLoggingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLoggingOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DescribeLoggingOptionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DescribeLoggingOptionsCommandError(output, context);
   }
   const contents: DescribeLoggingOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLoggingOptionsResponse",
-    loggingOptions: undefined
+    loggingOptions: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.loggingOptions !== undefined && data.loggingOptions !== null) {
-    contents.loggingOptions = deserializeAws_restJson1LoggingOptions(
-      data.loggingOptions,
-      context
-    );
+    contents.loggingOptions = deserializeAws_restJson1LoggingOptions(data.loggingOptions, context);
   }
   return Promise.resolve(contents);
 };
@@ -3152,7 +2585,7 @@ const deserializeAws_restJson1DescribeLoggingOptionsCommandError = async (
 ): Promise<DescribeLoggingOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3161,56 +2594,41 @@ const deserializeAws_restJson1DescribeLoggingOptionsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3221,7 +2639,7 @@ const deserializeAws_restJson1DescribeLoggingOptionsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3235,22 +2653,16 @@ export const deserializeAws_restJson1DescribePipelineCommand = async (
   context: __SerdeContext
 ): Promise<DescribePipelineCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DescribePipelineCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DescribePipelineCommandError(output, context);
   }
   const contents: DescribePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribePipelineResponse",
-    pipeline: undefined
+    pipeline: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.pipeline !== undefined && data.pipeline !== null) {
-    contents.pipeline = deserializeAws_restJson1Pipeline(
-      data.pipeline,
-      context
-    );
+    contents.pipeline = deserializeAws_restJson1Pipeline(data.pipeline, context);
   }
   return Promise.resolve(contents);
 };
@@ -3261,7 +2673,7 @@ const deserializeAws_restJson1DescribePipelineCommandError = async (
 ): Promise<DescribePipelineCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3270,56 +2682,41 @@ const deserializeAws_restJson1DescribePipelineCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3330,7 +2727,7 @@ const deserializeAws_restJson1DescribePipelineCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3344,30 +2741,21 @@ export const deserializeAws_restJson1GetDatasetContentCommand = async (
   context: __SerdeContext
 ): Promise<GetDatasetContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetDatasetContentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetDatasetContentCommandError(output, context);
   }
   const contents: GetDatasetContentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDatasetContentResponse",
     entries: undefined,
     status: undefined,
-    timestamp: undefined
+    timestamp: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.entries !== undefined && data.entries !== null) {
-    contents.entries = deserializeAws_restJson1DatasetEntries(
-      data.entries,
-      context
-    );
+    contents.entries = deserializeAws_restJson1DatasetEntries(data.entries, context);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.status = deserializeAws_restJson1DatasetContentStatus(
-      data.status,
-      context
-    );
+    contents.status = deserializeAws_restJson1DatasetContentStatus(data.status, context);
   }
   if (data.timestamp !== undefined && data.timestamp !== null) {
     contents.timestamp = new Date(Math.round(data.timestamp * 1000));
@@ -3381,7 +2769,7 @@ const deserializeAws_restJson1GetDatasetContentCommandError = async (
 ): Promise<GetDatasetContentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3390,56 +2778,41 @@ const deserializeAws_restJson1GetDatasetContentCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3450,7 +2823,7 @@ const deserializeAws_restJson1GetDatasetContentCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3470,14 +2843,11 @@ export const deserializeAws_restJson1ListChannelsCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "ListChannelsResponse",
     channelSummaries: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.channelSummaries !== undefined && data.channelSummaries !== null) {
-    contents.channelSummaries = deserializeAws_restJson1ChannelSummaries(
-      data.channelSummaries,
-      context
-    );
+    contents.channelSummaries = deserializeAws_restJson1ChannelSummaries(data.channelSummaries, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -3491,7 +2861,7 @@ const deserializeAws_restJson1ListChannelsCommandError = async (
 ): Promise<ListChannelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3500,45 +2870,33 @@ const deserializeAws_restJson1ListChannelsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3549,7 +2907,7 @@ const deserializeAws_restJson1ListChannelsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3563,22 +2921,16 @@ export const deserializeAws_restJson1ListDatasetContentsCommand = async (
   context: __SerdeContext
 ): Promise<ListDatasetContentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListDatasetContentsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListDatasetContentsCommandError(output, context);
   }
   const contents: ListDatasetContentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDatasetContentsResponse",
     datasetContentSummaries: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.datasetContentSummaries !== undefined &&
-    data.datasetContentSummaries !== null
-  ) {
+  if (data.datasetContentSummaries !== undefined && data.datasetContentSummaries !== null) {
     contents.datasetContentSummaries = deserializeAws_restJson1DatasetContentSummaries(
       data.datasetContentSummaries,
       context
@@ -3596,7 +2948,7 @@ const deserializeAws_restJson1ListDatasetContentsCommandError = async (
 ): Promise<ListDatasetContentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3605,56 +2957,41 @@ const deserializeAws_restJson1ListDatasetContentsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3665,7 +3002,7 @@ const deserializeAws_restJson1ListDatasetContentsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3685,14 +3022,11 @@ export const deserializeAws_restJson1ListDatasetsCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "ListDatasetsResponse",
     datasetSummaries: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.datasetSummaries !== undefined && data.datasetSummaries !== null) {
-    contents.datasetSummaries = deserializeAws_restJson1DatasetSummaries(
-      data.datasetSummaries,
-      context
-    );
+    contents.datasetSummaries = deserializeAws_restJson1DatasetSummaries(data.datasetSummaries, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -3706,7 +3040,7 @@ const deserializeAws_restJson1ListDatasetsCommandError = async (
 ): Promise<ListDatasetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3715,45 +3049,33 @@ const deserializeAws_restJson1ListDatasetsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3764,7 +3086,7 @@ const deserializeAws_restJson1ListDatasetsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3784,17 +3106,11 @@ export const deserializeAws_restJson1ListDatastoresCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "ListDatastoresResponse",
     datastoreSummaries: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.datastoreSummaries !== undefined &&
-    data.datastoreSummaries !== null
-  ) {
-    contents.datastoreSummaries = deserializeAws_restJson1DatastoreSummaries(
-      data.datastoreSummaries,
-      context
-    );
+  if (data.datastoreSummaries !== undefined && data.datastoreSummaries !== null) {
+    contents.datastoreSummaries = deserializeAws_restJson1DatastoreSummaries(data.datastoreSummaries, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -3808,7 +3124,7 @@ const deserializeAws_restJson1ListDatastoresCommandError = async (
 ): Promise<ListDatastoresCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3817,45 +3133,33 @@ const deserializeAws_restJson1ListDatastoresCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3866,7 +3170,7 @@ const deserializeAws_restJson1ListDatastoresCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3886,17 +3190,14 @@ export const deserializeAws_restJson1ListPipelinesCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "ListPipelinesResponse",
     nextToken: undefined,
-    pipelineSummaries: undefined
+    pipelineSummaries: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
   if (data.pipelineSummaries !== undefined && data.pipelineSummaries !== null) {
-    contents.pipelineSummaries = deserializeAws_restJson1PipelineSummaries(
-      data.pipelineSummaries,
-      context
-    );
+    contents.pipelineSummaries = deserializeAws_restJson1PipelineSummaries(data.pipelineSummaries, context);
   }
   return Promise.resolve(contents);
 };
@@ -3907,7 +3208,7 @@ const deserializeAws_restJson1ListPipelinesCommandError = async (
 ): Promise<ListPipelinesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3916,45 +3217,33 @@ const deserializeAws_restJson1ListPipelinesCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3965,7 +3254,7 @@ const deserializeAws_restJson1ListPipelinesCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3979,15 +3268,12 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
-    tags: undefined
+    tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.tags !== undefined && data.tags !== null) {
@@ -4002,7 +3288,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4011,67 +3297,49 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iotanalytics#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4082,7 +3350,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4096,13 +3364,10 @@ export const deserializeAws_restJson1PutLoggingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<PutLoggingOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1PutLoggingOptionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1PutLoggingOptionsCommandError(output, context);
   }
   const contents: PutLoggingOptionsCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4114,7 +3379,7 @@ const deserializeAws_restJson1PutLoggingOptionsCommandError = async (
 ): Promise<PutLoggingOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4123,45 +3388,33 @@ const deserializeAws_restJson1PutLoggingOptionsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4172,7 +3425,7 @@ const deserializeAws_restJson1PutLoggingOptionsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4186,26 +3439,20 @@ export const deserializeAws_restJson1RunPipelineActivityCommand = async (
   context: __SerdeContext
 ): Promise<RunPipelineActivityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1RunPipelineActivityCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1RunPipelineActivityCommandError(output, context);
   }
   const contents: RunPipelineActivityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RunPipelineActivityResponse",
     logResult: undefined,
-    payloads: undefined
+    payloads: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.logResult !== undefined && data.logResult !== null) {
     contents.logResult = data.logResult;
   }
   if (data.payloads !== undefined && data.payloads !== null) {
-    contents.payloads = deserializeAws_restJson1MessagePayloads(
-      data.payloads,
-      context
-    );
+    contents.payloads = deserializeAws_restJson1MessagePayloads(data.payloads, context);
   }
   return Promise.resolve(contents);
 };
@@ -4216,7 +3463,7 @@ const deserializeAws_restJson1RunPipelineActivityCommandError = async (
 ): Promise<RunPipelineActivityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4225,45 +3472,33 @@ const deserializeAws_restJson1RunPipelineActivityCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4274,7 +3509,7 @@ const deserializeAws_restJson1RunPipelineActivityCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4288,22 +3523,16 @@ export const deserializeAws_restJson1SampleChannelDataCommand = async (
   context: __SerdeContext
 ): Promise<SampleChannelDataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1SampleChannelDataCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1SampleChannelDataCommandError(output, context);
   }
   const contents: SampleChannelDataCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SampleChannelDataResponse",
-    payloads: undefined
+    payloads: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.payloads !== undefined && data.payloads !== null) {
-    contents.payloads = deserializeAws_restJson1MessagePayloads(
-      data.payloads,
-      context
-    );
+    contents.payloads = deserializeAws_restJson1MessagePayloads(data.payloads, context);
   }
   return Promise.resolve(contents);
 };
@@ -4314,7 +3543,7 @@ const deserializeAws_restJson1SampleChannelDataCommandError = async (
 ): Promise<SampleChannelDataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4323,56 +3552,41 @@ const deserializeAws_restJson1SampleChannelDataCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4383,7 +3597,7 @@ const deserializeAws_restJson1SampleChannelDataCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4397,15 +3611,12 @@ export const deserializeAws_restJson1StartPipelineReprocessingCommand = async (
   context: __SerdeContext
 ): Promise<StartPipelineReprocessingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1StartPipelineReprocessingCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1StartPipelineReprocessingCommandError(output, context);
   }
   const contents: StartPipelineReprocessingCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartPipelineReprocessingResponse",
-    reprocessingId: undefined
+    reprocessingId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.reprocessingId !== undefined && data.reprocessingId !== null) {
@@ -4420,7 +3631,7 @@ const deserializeAws_restJson1StartPipelineReprocessingCommandError = async (
 ): Promise<StartPipelineReprocessingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4429,67 +3640,49 @@ const deserializeAws_restJson1StartPipelineReprocessingCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iotanalytics#ResourceAlreadyExistsException":
       response = {
-        ...(await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4500,7 +3693,7 @@ const deserializeAws_restJson1StartPipelineReprocessingCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4518,7 +3711,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse"
+    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4530,7 +3723,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4539,67 +3732,49 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iotanalytics#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4610,7 +3785,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4628,7 +3803,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse"
+    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4640,7 +3815,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4649,67 +3824,49 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iotanalytics#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4720,7 +3877,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4737,7 +3894,7 @@ export const deserializeAws_restJson1UpdateChannelCommand = async (
     return deserializeAws_restJson1UpdateChannelCommandError(output, context);
   }
   const contents: UpdateChannelCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4749,7 +3906,7 @@ const deserializeAws_restJson1UpdateChannelCommandError = async (
 ): Promise<UpdateChannelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4758,56 +3915,41 @@ const deserializeAws_restJson1UpdateChannelCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4818,7 +3960,7 @@ const deserializeAws_restJson1UpdateChannelCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4835,7 +3977,7 @@ export const deserializeAws_restJson1UpdateDatasetCommand = async (
     return deserializeAws_restJson1UpdateDatasetCommandError(output, context);
   }
   const contents: UpdateDatasetCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4847,7 +3989,7 @@ const deserializeAws_restJson1UpdateDatasetCommandError = async (
 ): Promise<UpdateDatasetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4856,56 +3998,41 @@ const deserializeAws_restJson1UpdateDatasetCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4916,7 +4043,7 @@ const deserializeAws_restJson1UpdateDatasetCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4933,7 +4060,7 @@ export const deserializeAws_restJson1UpdateDatastoreCommand = async (
     return deserializeAws_restJson1UpdateDatastoreCommandError(output, context);
   }
   const contents: UpdateDatastoreCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4945,7 +4072,7 @@ const deserializeAws_restJson1UpdateDatastoreCommandError = async (
 ): Promise<UpdateDatastoreCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4954,56 +4081,41 @@ const deserializeAws_restJson1UpdateDatastoreCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5014,7 +4126,7 @@ const deserializeAws_restJson1UpdateDatastoreCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5031,7 +4143,7 @@ export const deserializeAws_restJson1UpdatePipelineCommand = async (
     return deserializeAws_restJson1UpdatePipelineCommandError(output, context);
   }
   const contents: UpdatePipelineCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5043,7 +4155,7 @@ const deserializeAws_restJson1UpdatePipelineCommandError = async (
 ): Promise<UpdatePipelineCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5052,67 +4164,49 @@ const deserializeAws_restJson1UpdatePipelineCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iotanalytics#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iotanalytics#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iotanalytics#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5123,7 +4217,7 @@ const deserializeAws_restJson1UpdatePipelineCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5140,7 +4234,7 @@ const deserializeAws_restJson1InternalFailureExceptionResponse = async (
     name: "InternalFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -5157,7 +4251,7 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
     name: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -5174,7 +4268,7 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
     name: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -5193,7 +4287,7 @@ const deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined,
     resourceArn: undefined,
-    resourceId: undefined
+    resourceId: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -5216,7 +4310,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
     name: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -5233,7 +4327,7 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
     name: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -5250,7 +4344,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
     name: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -5259,91 +4353,57 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1AddAttributesActivity = (
-  input: AddAttributesActivity,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1AddAttributesActivity = (input: AddAttributesActivity, context: __SerdeContext): any => {
   return {
     ...(input.attributes !== undefined && {
-      attributes: serializeAws_restJson1AttributeNameMapping(
-        input.attributes,
-        context
-      )
+      attributes: serializeAws_restJson1AttributeNameMapping(input.attributes, context),
     }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.next !== undefined && { next: input.next })
+    ...(input.next !== undefined && { next: input.next }),
   };
 };
 
-const serializeAws_restJson1AttributeNameMapping = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1AttributeNameMapping = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
 };
 
-const serializeAws_restJson1AttributeNames = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
+const serializeAws_restJson1AttributeNames = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
-const serializeAws_restJson1ChannelActivity = (
-  input: ChannelActivity,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1ChannelActivity = (input: ChannelActivity, context: __SerdeContext): any => {
   return {
     ...(input.channelName !== undefined && { channelName: input.channelName }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.next !== undefined && { next: input.next })
+    ...(input.next !== undefined && { next: input.next }),
   };
 };
 
-const serializeAws_restJson1ChannelStorage = (
-  input: ChannelStorage,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1ChannelStorage = (input: ChannelStorage, context: __SerdeContext): any => {
   return {
     ...(input.customerManagedS3 !== undefined && {
-      customerManagedS3: serializeAws_restJson1CustomerManagedChannelS3Storage(
-        input.customerManagedS3,
-        context
-      )
+      customerManagedS3: serializeAws_restJson1CustomerManagedChannelS3Storage(input.customerManagedS3, context),
     }),
     ...(input.serviceManagedS3 !== undefined && {
-      serviceManagedS3: serializeAws_restJson1ServiceManagedChannelS3Storage(
-        input.serviceManagedS3,
-        context
-      )
-    })
+      serviceManagedS3: serializeAws_restJson1ServiceManagedChannelS3Storage(input.serviceManagedS3, context),
+    }),
   };
 };
 
-const serializeAws_restJson1ContainerDatasetAction = (
-  input: ContainerDatasetAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1ContainerDatasetAction = (input: ContainerDatasetAction, context: __SerdeContext): any => {
   return {
-    ...(input.executionRoleArn !== undefined && {
-      executionRoleArn: input.executionRoleArn
-    }),
+    ...(input.executionRoleArn !== undefined && { executionRoleArn: input.executionRoleArn }),
     ...(input.image !== undefined && { image: input.image }),
     ...(input.resourceConfiguration !== undefined && {
-      resourceConfiguration: serializeAws_restJson1ResourceConfiguration(
-        input.resourceConfiguration,
-        context
-      )
+      resourceConfiguration: serializeAws_restJson1ResourceConfiguration(input.resourceConfiguration, context),
     }),
-    ...(input.variables !== undefined && {
-      variables: serializeAws_restJson1Variables(input.variables, context)
-    })
+    ...(input.variables !== undefined && { variables: serializeAws_restJson1Variables(input.variables, context) }),
   };
 };
 
@@ -5354,7 +4414,7 @@ const serializeAws_restJson1CustomerManagedChannelS3Storage = (
   return {
     ...(input.bucket !== undefined && { bucket: input.bucket }),
     ...(input.keyPrefix !== undefined && { keyPrefix: input.keyPrefix }),
-    ...(input.roleArn !== undefined && { roleArn: input.roleArn })
+    ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
   };
 };
 
@@ -5365,38 +4425,24 @@ const serializeAws_restJson1CustomerManagedDatastoreS3Storage = (
   return {
     ...(input.bucket !== undefined && { bucket: input.bucket }),
     ...(input.keyPrefix !== undefined && { keyPrefix: input.keyPrefix }),
-    ...(input.roleArn !== undefined && { roleArn: input.roleArn })
+    ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
   };
 };
 
-const serializeAws_restJson1DatasetAction = (
-  input: DatasetAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1DatasetAction = (input: DatasetAction, context: __SerdeContext): any => {
   return {
     ...(input.actionName !== undefined && { actionName: input.actionName }),
     ...(input.containerAction !== undefined && {
-      containerAction: serializeAws_restJson1ContainerDatasetAction(
-        input.containerAction,
-        context
-      )
+      containerAction: serializeAws_restJson1ContainerDatasetAction(input.containerAction, context),
     }),
     ...(input.queryAction !== undefined && {
-      queryAction: serializeAws_restJson1SqlQueryDatasetAction(
-        input.queryAction,
-        context
-      )
-    })
+      queryAction: serializeAws_restJson1SqlQueryDatasetAction(input.queryAction, context),
+    }),
   };
 };
 
-const serializeAws_restJson1DatasetActions = (
-  input: DatasetAction[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1DatasetAction(entry, context)
-  );
+const serializeAws_restJson1DatasetActions = (input: DatasetAction[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1DatasetAction(entry, context));
 };
 
 const serializeAws_restJson1DatasetContentDeliveryDestination = (
@@ -5408,14 +4454,14 @@ const serializeAws_restJson1DatasetContentDeliveryDestination = (
       iotEventsDestinationConfiguration: serializeAws_restJson1IotEventsDestinationConfiguration(
         input.iotEventsDestinationConfiguration,
         context
-      )
+      ),
     }),
     ...(input.s3DestinationConfiguration !== undefined && {
       s3DestinationConfiguration: serializeAws_restJson1S3DestinationConfiguration(
         input.s3DestinationConfiguration,
         context
-      )
-    })
+      ),
+    }),
   };
 };
 
@@ -5425,12 +4471,9 @@ const serializeAws_restJson1DatasetContentDeliveryRule = (
 ): any => {
   return {
     ...(input.destination !== undefined && {
-      destination: serializeAws_restJson1DatasetContentDeliveryDestination(
-        input.destination,
-        context
-      )
+      destination: serializeAws_restJson1DatasetContentDeliveryDestination(input.destination, context),
     }),
-    ...(input.entryName !== undefined && { entryName: input.entryName })
+    ...(input.entryName !== undefined && { entryName: input.entryName }),
   };
 };
 
@@ -5438,9 +4481,7 @@ const serializeAws_restJson1DatasetContentDeliveryRules = (
   input: DatasetContentDeliveryRule[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1DatasetContentDeliveryRule(entry, context)
-  );
+  return input.map((entry) => serializeAws_restJson1DatasetContentDeliveryRule(entry, context));
 };
 
 const serializeAws_restJson1DatasetContentVersionValue = (
@@ -5448,76 +4489,43 @@ const serializeAws_restJson1DatasetContentVersionValue = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.datasetName !== undefined && { datasetName: input.datasetName })
+    ...(input.datasetName !== undefined && { datasetName: input.datasetName }),
   };
 };
 
-const serializeAws_restJson1DatasetTrigger = (
-  input: DatasetTrigger,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1DatasetTrigger = (input: DatasetTrigger, context: __SerdeContext): any => {
   return {
-    ...(input.dataset !== undefined && {
-      dataset: serializeAws_restJson1TriggeringDataset(input.dataset, context)
-    }),
-    ...(input.schedule !== undefined && {
-      schedule: serializeAws_restJson1Schedule(input.schedule, context)
-    })
+    ...(input.dataset !== undefined && { dataset: serializeAws_restJson1TriggeringDataset(input.dataset, context) }),
+    ...(input.schedule !== undefined && { schedule: serializeAws_restJson1Schedule(input.schedule, context) }),
   };
 };
 
-const serializeAws_restJson1DatasetTriggers = (
-  input: DatasetTrigger[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1DatasetTrigger(entry, context)
-  );
+const serializeAws_restJson1DatasetTriggers = (input: DatasetTrigger[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1DatasetTrigger(entry, context));
 };
 
-const serializeAws_restJson1DatastoreActivity = (
-  input: DatastoreActivity,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1DatastoreActivity = (input: DatastoreActivity, context: __SerdeContext): any => {
   return {
-    ...(input.datastoreName !== undefined && {
-      datastoreName: input.datastoreName
-    }),
-    ...(input.name !== undefined && { name: input.name })
+    ...(input.datastoreName !== undefined && { datastoreName: input.datastoreName }),
+    ...(input.name !== undefined && { name: input.name }),
   };
 };
 
-const serializeAws_restJson1DatastoreStorage = (
-  input: DatastoreStorage,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1DatastoreStorage = (input: DatastoreStorage, context: __SerdeContext): any => {
   return {
     ...(input.customerManagedS3 !== undefined && {
-      customerManagedS3: serializeAws_restJson1CustomerManagedDatastoreS3Storage(
-        input.customerManagedS3,
-        context
-      )
+      customerManagedS3: serializeAws_restJson1CustomerManagedDatastoreS3Storage(input.customerManagedS3, context),
     }),
     ...(input.serviceManagedS3 !== undefined && {
-      serviceManagedS3: serializeAws_restJson1ServiceManagedDatastoreS3Storage(
-        input.serviceManagedS3,
-        context
-      )
-    })
+      serviceManagedS3: serializeAws_restJson1ServiceManagedDatastoreS3Storage(input.serviceManagedS3, context),
+    }),
   };
 };
 
-const serializeAws_restJson1DeltaTime = (
-  input: DeltaTime,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1DeltaTime = (input: DeltaTime, context: __SerdeContext): any => {
   return {
-    ...(input.offsetSeconds !== undefined && {
-      offsetSeconds: input.offsetSeconds
-    }),
-    ...(input.timeExpression !== undefined && {
-      timeExpression: input.timeExpression
-    })
+    ...(input.offsetSeconds !== undefined && { offsetSeconds: input.offsetSeconds }),
+    ...(input.timeExpression !== undefined && { timeExpression: input.timeExpression }),
   };
 };
 
@@ -5530,7 +4538,7 @@ const serializeAws_restJson1DeviceRegistryEnrichActivity = (
     ...(input.name !== undefined && { name: input.name }),
     ...(input.next !== undefined && { next: input.next }),
     ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
-    ...(input.thingName !== undefined && { thingName: input.thingName })
+    ...(input.thingName !== undefined && { thingName: input.thingName }),
   };
 };
 
@@ -5543,30 +4551,22 @@ const serializeAws_restJson1DeviceShadowEnrichActivity = (
     ...(input.name !== undefined && { name: input.name }),
     ...(input.next !== undefined && { next: input.next }),
     ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
-    ...(input.thingName !== undefined && { thingName: input.thingName })
+    ...(input.thingName !== undefined && { thingName: input.thingName }),
   };
 };
 
-const serializeAws_restJson1FilterActivity = (
-  input: FilterActivity,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1FilterActivity = (input: FilterActivity, context: __SerdeContext): any => {
   return {
     ...(input.filter !== undefined && { filter: input.filter }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.next !== undefined && { next: input.next })
+    ...(input.next !== undefined && { next: input.next }),
   };
 };
 
-const serializeAws_restJson1GlueConfiguration = (
-  input: GlueConfiguration,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1GlueConfiguration = (input: GlueConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.databaseName !== undefined && {
-      databaseName: input.databaseName
-    }),
-    ...(input.tableName !== undefined && { tableName: input.tableName })
+    ...(input.databaseName !== undefined && { databaseName: input.databaseName }),
+    ...(input.tableName !== undefined && { tableName: input.tableName }),
   };
 };
 
@@ -5576,161 +4576,96 @@ const serializeAws_restJson1IotEventsDestinationConfiguration = (
 ): any => {
   return {
     ...(input.inputName !== undefined && { inputName: input.inputName }),
-    ...(input.roleArn !== undefined && { roleArn: input.roleArn })
+    ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
   };
 };
 
-const serializeAws_restJson1LambdaActivity = (
-  input: LambdaActivity,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1LambdaActivity = (input: LambdaActivity, context: __SerdeContext): any => {
   return {
     ...(input.batchSize !== undefined && { batchSize: input.batchSize }),
     ...(input.lambdaName !== undefined && { lambdaName: input.lambdaName }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.next !== undefined && { next: input.next })
+    ...(input.next !== undefined && { next: input.next }),
   };
 };
 
-const serializeAws_restJson1LoggingOptions = (
-  input: LoggingOptions,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1LoggingOptions = (input: LoggingOptions, context: __SerdeContext): any => {
   return {
     ...(input.enabled !== undefined && { enabled: input.enabled }),
     ...(input.level !== undefined && { level: input.level }),
-    ...(input.roleArn !== undefined && { roleArn: input.roleArn })
+    ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
   };
 };
 
-const serializeAws_restJson1MathActivity = (
-  input: MathActivity,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1MathActivity = (input: MathActivity, context: __SerdeContext): any => {
   return {
     ...(input.attribute !== undefined && { attribute: input.attribute }),
     ...(input.math !== undefined && { math: input.math }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.next !== undefined && { next: input.next })
+    ...(input.next !== undefined && { next: input.next }),
   };
 };
 
-const serializeAws_restJson1Message = (
-  input: Message,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1Message = (input: Message, context: __SerdeContext): any => {
   return {
     ...(input.messageId !== undefined && { messageId: input.messageId }),
-    ...(input.payload !== undefined && {
-      payload: context.base64Encoder(input.payload)
-    })
+    ...(input.payload !== undefined && { payload: context.base64Encoder(input.payload) }),
   };
 };
 
-const serializeAws_restJson1MessagePayloads = (
-  input: Uint8Array[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => context.base64Encoder(entry));
+const serializeAws_restJson1MessagePayloads = (input: Uint8Array[], context: __SerdeContext): any => {
+  return input.map((entry) => context.base64Encoder(entry));
 };
 
-const serializeAws_restJson1Messages = (
-  input: Message[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_restJson1Message(entry, context));
+const serializeAws_restJson1Messages = (input: Message[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1Message(entry, context));
 };
 
-const serializeAws_restJson1OutputFileUriValue = (
-  input: OutputFileUriValue,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1OutputFileUriValue = (input: OutputFileUriValue, context: __SerdeContext): any => {
   return {
-    ...(input.fileName !== undefined && { fileName: input.fileName })
+    ...(input.fileName !== undefined && { fileName: input.fileName }),
   };
 };
 
-const serializeAws_restJson1PipelineActivities = (
-  input: PipelineActivity[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1PipelineActivity(entry, context)
-  );
+const serializeAws_restJson1PipelineActivities = (input: PipelineActivity[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1PipelineActivity(entry, context));
 };
 
-const serializeAws_restJson1PipelineActivity = (
-  input: PipelineActivity,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1PipelineActivity = (input: PipelineActivity, context: __SerdeContext): any => {
   return {
     ...(input.addAttributes !== undefined && {
-      addAttributes: serializeAws_restJson1AddAttributesActivity(
-        input.addAttributes,
-        context
-      )
+      addAttributes: serializeAws_restJson1AddAttributesActivity(input.addAttributes, context),
     }),
-    ...(input.channel !== undefined && {
-      channel: serializeAws_restJson1ChannelActivity(input.channel, context)
-    }),
+    ...(input.channel !== undefined && { channel: serializeAws_restJson1ChannelActivity(input.channel, context) }),
     ...(input.datastore !== undefined && {
-      datastore: serializeAws_restJson1DatastoreActivity(
-        input.datastore,
-        context
-      )
+      datastore: serializeAws_restJson1DatastoreActivity(input.datastore, context),
     }),
     ...(input.deviceRegistryEnrich !== undefined && {
-      deviceRegistryEnrich: serializeAws_restJson1DeviceRegistryEnrichActivity(
-        input.deviceRegistryEnrich,
-        context
-      )
+      deviceRegistryEnrich: serializeAws_restJson1DeviceRegistryEnrichActivity(input.deviceRegistryEnrich, context),
     }),
     ...(input.deviceShadowEnrich !== undefined && {
-      deviceShadowEnrich: serializeAws_restJson1DeviceShadowEnrichActivity(
-        input.deviceShadowEnrich,
-        context
-      )
+      deviceShadowEnrich: serializeAws_restJson1DeviceShadowEnrichActivity(input.deviceShadowEnrich, context),
     }),
-    ...(input.filter !== undefined && {
-      filter: serializeAws_restJson1FilterActivity(input.filter, context)
-    }),
-    ...(input.lambda !== undefined && {
-      lambda: serializeAws_restJson1LambdaActivity(input.lambda, context)
-    }),
-    ...(input.math !== undefined && {
-      math: serializeAws_restJson1MathActivity(input.math, context)
-    }),
+    ...(input.filter !== undefined && { filter: serializeAws_restJson1FilterActivity(input.filter, context) }),
+    ...(input.lambda !== undefined && { lambda: serializeAws_restJson1LambdaActivity(input.lambda, context) }),
+    ...(input.math !== undefined && { math: serializeAws_restJson1MathActivity(input.math, context) }),
     ...(input.removeAttributes !== undefined && {
-      removeAttributes: serializeAws_restJson1RemoveAttributesActivity(
-        input.removeAttributes,
-        context
-      )
+      removeAttributes: serializeAws_restJson1RemoveAttributesActivity(input.removeAttributes, context),
     }),
     ...(input.selectAttributes !== undefined && {
-      selectAttributes: serializeAws_restJson1SelectAttributesActivity(
-        input.selectAttributes,
-        context
-      )
-    })
+      selectAttributes: serializeAws_restJson1SelectAttributesActivity(input.selectAttributes, context),
+    }),
   };
 };
 
-const serializeAws_restJson1QueryFilter = (
-  input: QueryFilter,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1QueryFilter = (input: QueryFilter, context: __SerdeContext): any => {
   return {
-    ...(input.deltaTime !== undefined && {
-      deltaTime: serializeAws_restJson1DeltaTime(input.deltaTime, context)
-    })
+    ...(input.deltaTime !== undefined && { deltaTime: serializeAws_restJson1DeltaTime(input.deltaTime, context) }),
   };
 };
 
-const serializeAws_restJson1QueryFilters = (
-  input: QueryFilter[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_restJson1QueryFilter(entry, context));
+const serializeAws_restJson1QueryFilters = (input: QueryFilter[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1QueryFilter(entry, context));
 };
 
 const serializeAws_restJson1RemoveAttributesActivity = (
@@ -5739,37 +4674,24 @@ const serializeAws_restJson1RemoveAttributesActivity = (
 ): any => {
   return {
     ...(input.attributes !== undefined && {
-      attributes: serializeAws_restJson1AttributeNames(
-        input.attributes,
-        context
-      )
+      attributes: serializeAws_restJson1AttributeNames(input.attributes, context),
     }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.next !== undefined && { next: input.next })
+    ...(input.next !== undefined && { next: input.next }),
   };
 };
 
-const serializeAws_restJson1ResourceConfiguration = (
-  input: ResourceConfiguration,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1ResourceConfiguration = (input: ResourceConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.computeType !== undefined && { computeType: input.computeType }),
-    ...(input.volumeSizeInGB !== undefined && {
-      volumeSizeInGB: input.volumeSizeInGB
-    })
+    ...(input.volumeSizeInGB !== undefined && { volumeSizeInGB: input.volumeSizeInGB }),
   };
 };
 
-const serializeAws_restJson1RetentionPeriod = (
-  input: RetentionPeriod,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1RetentionPeriod = (input: RetentionPeriod, context: __SerdeContext): any => {
   return {
-    ...(input.numberOfDays !== undefined && {
-      numberOfDays: input.numberOfDays
-    }),
-    ...(input.unlimited !== undefined && { unlimited: input.unlimited })
+    ...(input.numberOfDays !== undefined && { numberOfDays: input.numberOfDays }),
+    ...(input.unlimited !== undefined && { unlimited: input.unlimited }),
   };
 };
 
@@ -5780,22 +4702,16 @@ const serializeAws_restJson1S3DestinationConfiguration = (
   return {
     ...(input.bucket !== undefined && { bucket: input.bucket }),
     ...(input.glueConfiguration !== undefined && {
-      glueConfiguration: serializeAws_restJson1GlueConfiguration(
-        input.glueConfiguration,
-        context
-      )
+      glueConfiguration: serializeAws_restJson1GlueConfiguration(input.glueConfiguration, context),
     }),
     ...(input.key !== undefined && { key: input.key }),
-    ...(input.roleArn !== undefined && { roleArn: input.roleArn })
+    ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
   };
 };
 
-const serializeAws_restJson1Schedule = (
-  input: Schedule,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1Schedule = (input: Schedule, context: __SerdeContext): any => {
   return {
-    ...(input.expression !== undefined && { expression: input.expression })
+    ...(input.expression !== undefined && { expression: input.expression }),
   };
 };
 
@@ -5805,13 +4721,10 @@ const serializeAws_restJson1SelectAttributesActivity = (
 ): any => {
   return {
     ...(input.attributes !== undefined && {
-      attributes: serializeAws_restJson1AttributeNames(
-        input.attributes,
-        context
-      )
+      attributes: serializeAws_restJson1AttributeNames(input.attributes, context),
     }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.next !== undefined && { next: input.next })
+    ...(input.next !== undefined && { next: input.next }),
   };
 };
 
@@ -5829,72 +4742,49 @@ const serializeAws_restJson1ServiceManagedDatastoreS3Storage = (
   return {};
 };
 
-const serializeAws_restJson1SqlQueryDatasetAction = (
-  input: SqlQueryDatasetAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1SqlQueryDatasetAction = (input: SqlQueryDatasetAction, context: __SerdeContext): any => {
   return {
-    ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1QueryFilters(input.filters, context)
-    }),
-    ...(input.sqlQuery !== undefined && { sqlQuery: input.sqlQuery })
+    ...(input.filters !== undefined && { filters: serializeAws_restJson1QueryFilters(input.filters, context) }),
+    ...(input.sqlQuery !== undefined && { sqlQuery: input.sqlQuery }),
   };
 };
 
-const serializeAws_restJson1Tag = (
-  input: Tag,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.key !== undefined && { key: input.key }),
-    ...(input.value !== undefined && { value: input.value })
+    ...(input.value !== undefined && { value: input.value }),
   };
 };
 
-const serializeAws_restJson1TagList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_restJson1Tag(entry, context));
+const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1Tag(entry, context));
 };
 
-const serializeAws_restJson1TriggeringDataset = (
-  input: TriggeringDataset,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1TriggeringDataset = (input: TriggeringDataset, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && { name: input.name })
+    ...(input.name !== undefined && { name: input.name }),
   };
 };
 
-const serializeAws_restJson1Variable = (
-  input: Variable,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1Variable = (input: Variable, context: __SerdeContext): any => {
   return {
     ...(input.datasetContentVersionValue !== undefined && {
       datasetContentVersionValue: serializeAws_restJson1DatasetContentVersionValue(
         input.datasetContentVersionValue,
         context
-      )
+      ),
     }),
     ...(input.doubleValue !== undefined && { doubleValue: input.doubleValue }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.outputFileUriValue !== undefined && {
-      outputFileUriValue: serializeAws_restJson1OutputFileUriValue(
-        input.outputFileUriValue,
-        context
-      )
+      outputFileUriValue: serializeAws_restJson1OutputFileUriValue(input.outputFileUriValue, context),
     }),
-    ...(input.stringValue !== undefined && { stringValue: input.stringValue })
+    ...(input.stringValue !== undefined && { stringValue: input.stringValue }),
   };
 };
 
-const serializeAws_restJson1Variables = (
-  input: Variable[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_restJson1Variable(entry, context));
+const serializeAws_restJson1Variables = (input: Variable[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1Variable(entry, context));
 };
 
 const serializeAws_restJson1VersioningConfiguration = (
@@ -5903,31 +4793,19 @@ const serializeAws_restJson1VersioningConfiguration = (
 ): any => {
   return {
     ...(input.maxVersions !== undefined && { maxVersions: input.maxVersions }),
-    ...(input.unlimited !== undefined && { unlimited: input.unlimited })
+    ...(input.unlimited !== undefined && { unlimited: input.unlimited }),
   };
 };
 
-const deserializeAws_restJson1AddAttributesActivity = (
-  output: any,
-  context: __SerdeContext
-): AddAttributesActivity => {
+const deserializeAws_restJson1AddAttributesActivity = (output: any, context: __SerdeContext): AddAttributesActivity => {
   return {
     __type: "AddAttributesActivity",
     attributes:
       output.attributes !== undefined && output.attributes !== null
-        ? deserializeAws_restJson1AttributeNameMapping(
-            output.attributes,
-            context
-          )
+        ? deserializeAws_restJson1AttributeNameMapping(output.attributes, context)
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    next:
-      output.next !== undefined && output.next !== null
-        ? output.next
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    next: output.next !== undefined && output.next !== null ? output.next : undefined,
   } as any;
 };
 
@@ -5938,16 +4816,13 @@ const deserializeAws_restJson1AttributeNameMapping = (
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
 };
 
-const deserializeAws_restJson1AttributeNames = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1AttributeNames = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5955,9 +4830,7 @@ const deserializeAws_restJson1BatchPutMessageErrorEntries = (
   output: any,
   context: __SerdeContext
 ): BatchPutMessageErrorEntry[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1BatchPutMessageErrorEntry(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1BatchPutMessageErrorEntry(entry, context));
 };
 
 const deserializeAws_restJson1BatchPutMessageErrorEntry = (
@@ -5966,29 +4839,16 @@ const deserializeAws_restJson1BatchPutMessageErrorEntry = (
 ): BatchPutMessageErrorEntry => {
   return {
     __type: "BatchPutMessageErrorEntry",
-    errorCode:
-      output.errorCode !== undefined && output.errorCode !== null
-        ? output.errorCode
-        : undefined,
-    errorMessage:
-      output.errorMessage !== undefined && output.errorMessage !== null
-        ? output.errorMessage
-        : undefined,
-    messageId:
-      output.messageId !== undefined && output.messageId !== null
-        ? output.messageId
-        : undefined
+    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
+    errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
+    messageId: output.messageId !== undefined && output.messageId !== null ? output.messageId : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Channel = (
-  output: any,
-  context: __SerdeContext
-): Channel => {
+const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): Channel => {
   return {
     __type: "Channel",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
@@ -5997,135 +4857,77 @@ const deserializeAws_restJson1Channel = (
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     retentionPeriod:
       output.retentionPeriod !== undefined && output.retentionPeriod !== null
-        ? deserializeAws_restJson1RetentionPeriod(
-            output.retentionPeriod,
-            context
-          )
+        ? deserializeAws_restJson1RetentionPeriod(output.retentionPeriod, context)
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     storage:
       output.storage !== undefined && output.storage !== null
         ? deserializeAws_restJson1ChannelStorage(output.storage, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ChannelActivity = (
-  output: any,
-  context: __SerdeContext
-): ChannelActivity => {
+const deserializeAws_restJson1ChannelActivity = (output: any, context: __SerdeContext): ChannelActivity => {
   return {
     __type: "ChannelActivity",
-    channelName:
-      output.channelName !== undefined && output.channelName !== null
-        ? output.channelName
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    next:
-      output.next !== undefined && output.next !== null
-        ? output.next
-        : undefined
+    channelName: output.channelName !== undefined && output.channelName !== null ? output.channelName : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    next: output.next !== undefined && output.next !== null ? output.next : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ChannelStatistics = (
-  output: any,
-  context: __SerdeContext
-): ChannelStatistics => {
+const deserializeAws_restJson1ChannelStatistics = (output: any, context: __SerdeContext): ChannelStatistics => {
   return {
     __type: "ChannelStatistics",
     size:
       output.size !== undefined && output.size !== null
         ? deserializeAws_restJson1EstimatedResourceSize(output.size, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ChannelStorage = (
-  output: any,
-  context: __SerdeContext
-): ChannelStorage => {
+const deserializeAws_restJson1ChannelStorage = (output: any, context: __SerdeContext): ChannelStorage => {
   return {
     __type: "ChannelStorage",
     customerManagedS3:
-      output.customerManagedS3 !== undefined &&
-      output.customerManagedS3 !== null
-        ? deserializeAws_restJson1CustomerManagedChannelS3Storage(
-            output.customerManagedS3,
-            context
-          )
+      output.customerManagedS3 !== undefined && output.customerManagedS3 !== null
+        ? deserializeAws_restJson1CustomerManagedChannelS3Storage(output.customerManagedS3, context)
         : undefined,
     serviceManagedS3:
       output.serviceManagedS3 !== undefined && output.serviceManagedS3 !== null
-        ? deserializeAws_restJson1ServiceManagedChannelS3Storage(
-            output.serviceManagedS3,
-            context
-          )
-        : undefined
+        ? deserializeAws_restJson1ServiceManagedChannelS3Storage(output.serviceManagedS3, context)
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ChannelStorageSummary = (
-  output: any,
-  context: __SerdeContext
-): ChannelStorageSummary => {
+const deserializeAws_restJson1ChannelStorageSummary = (output: any, context: __SerdeContext): ChannelStorageSummary => {
   return {
     __type: "ChannelStorageSummary",
     customerManagedS3:
-      output.customerManagedS3 !== undefined &&
-      output.customerManagedS3 !== null
-        ? deserializeAws_restJson1CustomerManagedChannelS3StorageSummary(
-            output.customerManagedS3,
-            context
-          )
+      output.customerManagedS3 !== undefined && output.customerManagedS3 !== null
+        ? deserializeAws_restJson1CustomerManagedChannelS3StorageSummary(output.customerManagedS3, context)
         : undefined,
     serviceManagedS3:
       output.serviceManagedS3 !== undefined && output.serviceManagedS3 !== null
-        ? deserializeAws_restJson1ServiceManagedChannelS3StorageSummary(
-            output.serviceManagedS3,
-            context
-          )
-        : undefined
+        ? deserializeAws_restJson1ServiceManagedChannelS3StorageSummary(output.serviceManagedS3, context)
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ChannelSummaries = (
-  output: any,
-  context: __SerdeContext
-): ChannelSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1ChannelSummary(entry, context)
-  );
+const deserializeAws_restJson1ChannelSummaries = (output: any, context: __SerdeContext): ChannelSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1ChannelSummary(entry, context));
 };
 
-const deserializeAws_restJson1ChannelSummary = (
-  output: any,
-  context: __SerdeContext
-): ChannelSummary => {
+const deserializeAws_restJson1ChannelSummary = (output: any, context: __SerdeContext): ChannelSummary => {
   return {
     __type: "ChannelSummary",
-    channelName:
-      output.channelName !== undefined && output.channelName !== null
-        ? output.channelName
-        : undefined,
+    channelName: output.channelName !== undefined && output.channelName !== null ? output.channelName : undefined,
     channelStorage:
       output.channelStorage !== undefined && output.channelStorage !== null
-        ? deserializeAws_restJson1ChannelStorageSummary(
-            output.channelStorage,
-            context
-          )
+        ? deserializeAws_restJson1ChannelStorageSummary(output.channelStorage, context)
         : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
@@ -6135,10 +4937,7 @@ const deserializeAws_restJson1ChannelSummary = (
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
 };
 
@@ -6149,25 +4948,16 @@ const deserializeAws_restJson1ContainerDatasetAction = (
   return {
     __type: "ContainerDatasetAction",
     executionRoleArn:
-      output.executionRoleArn !== undefined && output.executionRoleArn !== null
-        ? output.executionRoleArn
-        : undefined,
-    image:
-      output.image !== undefined && output.image !== null
-        ? output.image
-        : undefined,
+      output.executionRoleArn !== undefined && output.executionRoleArn !== null ? output.executionRoleArn : undefined,
+    image: output.image !== undefined && output.image !== null ? output.image : undefined,
     resourceConfiguration:
-      output.resourceConfiguration !== undefined &&
-      output.resourceConfiguration !== null
-        ? deserializeAws_restJson1ResourceConfiguration(
-            output.resourceConfiguration,
-            context
-          )
+      output.resourceConfiguration !== undefined && output.resourceConfiguration !== null
+        ? deserializeAws_restJson1ResourceConfiguration(output.resourceConfiguration, context)
         : undefined,
     variables:
       output.variables !== undefined && output.variables !== null
         ? deserializeAws_restJson1Variables(output.variables, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -6177,18 +4967,9 @@ const deserializeAws_restJson1CustomerManagedChannelS3Storage = (
 ): CustomerManagedChannelS3Storage => {
   return {
     __type: "CustomerManagedChannelS3Storage",
-    bucket:
-      output.bucket !== undefined && output.bucket !== null
-        ? output.bucket
-        : undefined,
-    keyPrefix:
-      output.keyPrefix !== undefined && output.keyPrefix !== null
-        ? output.keyPrefix
-        : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined
+    bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
+    keyPrefix: output.keyPrefix !== undefined && output.keyPrefix !== null ? output.keyPrefix : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
   } as any;
 };
 
@@ -6198,18 +4979,9 @@ const deserializeAws_restJson1CustomerManagedChannelS3StorageSummary = (
 ): CustomerManagedChannelS3StorageSummary => {
   return {
     __type: "CustomerManagedChannelS3StorageSummary",
-    bucket:
-      output.bucket !== undefined && output.bucket !== null
-        ? output.bucket
-        : undefined,
-    keyPrefix:
-      output.keyPrefix !== undefined && output.keyPrefix !== null
-        ? output.keyPrefix
-        : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined
+    bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
+    keyPrefix: output.keyPrefix !== undefined && output.keyPrefix !== null ? output.keyPrefix : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
   } as any;
 };
 
@@ -6219,18 +4991,9 @@ const deserializeAws_restJson1CustomerManagedDatastoreS3Storage = (
 ): CustomerManagedDatastoreS3Storage => {
   return {
     __type: "CustomerManagedDatastoreS3Storage",
-    bucket:
-      output.bucket !== undefined && output.bucket !== null
-        ? output.bucket
-        : undefined,
-    keyPrefix:
-      output.keyPrefix !== undefined && output.keyPrefix !== null
-        ? output.keyPrefix
-        : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined
+    bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
+    keyPrefix: output.keyPrefix !== undefined && output.keyPrefix !== null ? output.keyPrefix : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
   } as any;
 };
 
@@ -6240,40 +5003,23 @@ const deserializeAws_restJson1CustomerManagedDatastoreS3StorageSummary = (
 ): CustomerManagedDatastoreS3StorageSummary => {
   return {
     __type: "CustomerManagedDatastoreS3StorageSummary",
-    bucket:
-      output.bucket !== undefined && output.bucket !== null
-        ? output.bucket
-        : undefined,
-    keyPrefix:
-      output.keyPrefix !== undefined && output.keyPrefix !== null
-        ? output.keyPrefix
-        : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined
+    bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
+    keyPrefix: output.keyPrefix !== undefined && output.keyPrefix !== null ? output.keyPrefix : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Dataset = (
-  output: any,
-  context: __SerdeContext
-): Dataset => {
+const deserializeAws_restJson1Dataset = (output: any, context: __SerdeContext): Dataset => {
   return {
     __type: "Dataset",
     actions:
       output.actions !== undefined && output.actions !== null
         ? deserializeAws_restJson1DatasetActions(output.actions, context)
         : undefined,
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     contentDeliveryRules:
-      output.contentDeliveryRules !== undefined &&
-      output.contentDeliveryRules !== null
-        ? deserializeAws_restJson1DatasetContentDeliveryRules(
-            output.contentDeliveryRules,
-            context
-          )
+      output.contentDeliveryRules !== undefined && output.contentDeliveryRules !== null
+        ? deserializeAws_restJson1DatasetContentDeliveryRules(output.contentDeliveryRules, context)
         : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
@@ -6283,95 +5029,54 @@ const deserializeAws_restJson1Dataset = (
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     retentionPeriod:
       output.retentionPeriod !== undefined && output.retentionPeriod !== null
-        ? deserializeAws_restJson1RetentionPeriod(
-            output.retentionPeriod,
-            context
-          )
+        ? deserializeAws_restJson1RetentionPeriod(output.retentionPeriod, context)
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     triggers:
       output.triggers !== undefined && output.triggers !== null
         ? deserializeAws_restJson1DatasetTriggers(output.triggers, context)
         : undefined,
     versioningConfiguration:
-      output.versioningConfiguration !== undefined &&
-      output.versioningConfiguration !== null
-        ? deserializeAws_restJson1VersioningConfiguration(
-            output.versioningConfiguration,
-            context
-          )
-        : undefined
+      output.versioningConfiguration !== undefined && output.versioningConfiguration !== null
+        ? deserializeAws_restJson1VersioningConfiguration(output.versioningConfiguration, context)
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1DatasetAction = (
-  output: any,
-  context: __SerdeContext
-): DatasetAction => {
+const deserializeAws_restJson1DatasetAction = (output: any, context: __SerdeContext): DatasetAction => {
   return {
     __type: "DatasetAction",
-    actionName:
-      output.actionName !== undefined && output.actionName !== null
-        ? output.actionName
-        : undefined,
+    actionName: output.actionName !== undefined && output.actionName !== null ? output.actionName : undefined,
     containerAction:
       output.containerAction !== undefined && output.containerAction !== null
-        ? deserializeAws_restJson1ContainerDatasetAction(
-            output.containerAction,
-            context
-          )
+        ? deserializeAws_restJson1ContainerDatasetAction(output.containerAction, context)
         : undefined,
     queryAction:
       output.queryAction !== undefined && output.queryAction !== null
-        ? deserializeAws_restJson1SqlQueryDatasetAction(
-            output.queryAction,
-            context
-          )
-        : undefined
+        ? deserializeAws_restJson1SqlQueryDatasetAction(output.queryAction, context)
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1DatasetActions = (
-  output: any,
-  context: __SerdeContext
-): DatasetAction[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1DatasetAction(entry, context)
-  );
+const deserializeAws_restJson1DatasetActions = (output: any, context: __SerdeContext): DatasetAction[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1DatasetAction(entry, context));
 };
 
 const deserializeAws_restJson1DatasetActionSummaries = (
   output: any,
   context: __SerdeContext
 ): DatasetActionSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1DatasetActionSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1DatasetActionSummary(entry, context));
 };
 
-const deserializeAws_restJson1DatasetActionSummary = (
-  output: any,
-  context: __SerdeContext
-): DatasetActionSummary => {
+const deserializeAws_restJson1DatasetActionSummary = (output: any, context: __SerdeContext): DatasetActionSummary => {
   return {
     __type: "DatasetActionSummary",
-    actionName:
-      output.actionName !== undefined && output.actionName !== null
-        ? output.actionName
-        : undefined,
-    actionType:
-      output.actionType !== undefined && output.actionType !== null
-        ? output.actionType
-        : undefined
+    actionName: output.actionName !== undefined && output.actionName !== null ? output.actionName : undefined,
+    actionType: output.actionType !== undefined && output.actionType !== null ? output.actionType : undefined,
   } as any;
 };
 
@@ -6382,21 +5087,13 @@ const deserializeAws_restJson1DatasetContentDeliveryDestination = (
   return {
     __type: "DatasetContentDeliveryDestination",
     iotEventsDestinationConfiguration:
-      output.iotEventsDestinationConfiguration !== undefined &&
-      output.iotEventsDestinationConfiguration !== null
-        ? deserializeAws_restJson1IotEventsDestinationConfiguration(
-            output.iotEventsDestinationConfiguration,
-            context
-          )
+      output.iotEventsDestinationConfiguration !== undefined && output.iotEventsDestinationConfiguration !== null
+        ? deserializeAws_restJson1IotEventsDestinationConfiguration(output.iotEventsDestinationConfiguration, context)
         : undefined,
     s3DestinationConfiguration:
-      output.s3DestinationConfiguration !== undefined &&
-      output.s3DestinationConfiguration !== null
-        ? deserializeAws_restJson1S3DestinationConfiguration(
-            output.s3DestinationConfiguration,
-            context
-          )
-        : undefined
+      output.s3DestinationConfiguration !== undefined && output.s3DestinationConfiguration !== null
+        ? deserializeAws_restJson1S3DestinationConfiguration(output.s3DestinationConfiguration, context)
+        : undefined,
   } as any;
 };
 
@@ -6408,15 +5105,9 @@ const deserializeAws_restJson1DatasetContentDeliveryRule = (
     __type: "DatasetContentDeliveryRule",
     destination:
       output.destination !== undefined && output.destination !== null
-        ? deserializeAws_restJson1DatasetContentDeliveryDestination(
-            output.destination,
-            context
-          )
+        ? deserializeAws_restJson1DatasetContentDeliveryDestination(output.destination, context)
         : undefined,
-    entryName:
-      output.entryName !== undefined && output.entryName !== null
-        ? output.entryName
-        : undefined
+    entryName: output.entryName !== undefined && output.entryName !== null ? output.entryName : undefined,
   } as any;
 };
 
@@ -6424,25 +5115,14 @@ const deserializeAws_restJson1DatasetContentDeliveryRules = (
   output: any,
   context: __SerdeContext
 ): DatasetContentDeliveryRule[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1DatasetContentDeliveryRule(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1DatasetContentDeliveryRule(entry, context));
 };
 
-const deserializeAws_restJson1DatasetContentStatus = (
-  output: any,
-  context: __SerdeContext
-): DatasetContentStatus => {
+const deserializeAws_restJson1DatasetContentStatus = (output: any, context: __SerdeContext): DatasetContentStatus => {
   return {
     __type: "DatasetContentStatus",
-    reason:
-      output.reason !== undefined && output.reason !== null
-        ? output.reason
-        : undefined,
-    state:
-      output.state !== undefined && output.state !== null
-        ? output.state
-        : undefined
+    reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
+    state: output.state !== undefined && output.state !== null ? output.state : undefined,
   } as any;
 };
 
@@ -6450,15 +5130,10 @@ const deserializeAws_restJson1DatasetContentSummaries = (
   output: any,
   context: __SerdeContext
 ): DatasetContentSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1DatasetContentSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1DatasetContentSummary(entry, context));
 };
 
-const deserializeAws_restJson1DatasetContentSummary = (
-  output: any,
-  context: __SerdeContext
-): DatasetContentSummary => {
+const deserializeAws_restJson1DatasetContentSummary = (output: any, context: __SerdeContext): DatasetContentSummary => {
   return {
     __type: "DatasetContentSummary",
     completionTime:
@@ -6477,10 +5152,7 @@ const deserializeAws_restJson1DatasetContentSummary = (
       output.status !== undefined && output.status !== null
         ? deserializeAws_restJson1DatasetContentStatus(output.status, context)
         : undefined,
-    version:
-      output.version !== undefined && output.version !== null
-        ? output.version
-        : undefined
+    version: output.version !== undefined && output.version !== null ? output.version : undefined,
   } as any;
 };
 
@@ -6490,88 +5162,51 @@ const deserializeAws_restJson1DatasetContentVersionValue = (
 ): DatasetContentVersionValue => {
   return {
     __type: "DatasetContentVersionValue",
-    datasetName:
-      output.datasetName !== undefined && output.datasetName !== null
-        ? output.datasetName
-        : undefined
+    datasetName: output.datasetName !== undefined && output.datasetName !== null ? output.datasetName : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1DatasetEntries = (
-  output: any,
-  context: __SerdeContext
-): DatasetEntry[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1DatasetEntry(entry, context)
-  );
+const deserializeAws_restJson1DatasetEntries = (output: any, context: __SerdeContext): DatasetEntry[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1DatasetEntry(entry, context));
 };
 
-const deserializeAws_restJson1DatasetEntry = (
-  output: any,
-  context: __SerdeContext
-): DatasetEntry => {
+const deserializeAws_restJson1DatasetEntry = (output: any, context: __SerdeContext): DatasetEntry => {
   return {
     __type: "DatasetEntry",
-    dataURI:
-      output.dataURI !== undefined && output.dataURI !== null
-        ? output.dataURI
-        : undefined,
-    entryName:
-      output.entryName !== undefined && output.entryName !== null
-        ? output.entryName
-        : undefined
+    dataURI: output.dataURI !== undefined && output.dataURI !== null ? output.dataURI : undefined,
+    entryName: output.entryName !== undefined && output.entryName !== null ? output.entryName : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1DatasetSummaries = (
-  output: any,
-  context: __SerdeContext
-): DatasetSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1DatasetSummary(entry, context)
-  );
+const deserializeAws_restJson1DatasetSummaries = (output: any, context: __SerdeContext): DatasetSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1DatasetSummary(entry, context));
 };
 
-const deserializeAws_restJson1DatasetSummary = (
-  output: any,
-  context: __SerdeContext
-): DatasetSummary => {
+const deserializeAws_restJson1DatasetSummary = (output: any, context: __SerdeContext): DatasetSummary => {
   return {
     __type: "DatasetSummary",
     actions:
       output.actions !== undefined && output.actions !== null
-        ? deserializeAws_restJson1DatasetActionSummaries(
-            output.actions,
-            context
-          )
+        ? deserializeAws_restJson1DatasetActionSummaries(output.actions, context)
         : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
-    datasetName:
-      output.datasetName !== undefined && output.datasetName !== null
-        ? output.datasetName
-        : undefined,
+    datasetName: output.datasetName !== undefined && output.datasetName !== null ? output.datasetName : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     triggers:
       output.triggers !== undefined && output.triggers !== null
         ? deserializeAws_restJson1DatasetTriggers(output.triggers, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1DatasetTrigger = (
-  output: any,
-  context: __SerdeContext
-): DatasetTrigger => {
+const deserializeAws_restJson1DatasetTrigger = (output: any, context: __SerdeContext): DatasetTrigger => {
   return {
     __type: "DatasetTrigger",
     dataset:
@@ -6581,27 +5216,18 @@ const deserializeAws_restJson1DatasetTrigger = (
     schedule:
       output.schedule !== undefined && output.schedule !== null
         ? deserializeAws_restJson1Schedule(output.schedule, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1DatasetTriggers = (
-  output: any,
-  context: __SerdeContext
-): DatasetTrigger[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1DatasetTrigger(entry, context)
-  );
+const deserializeAws_restJson1DatasetTriggers = (output: any, context: __SerdeContext): DatasetTrigger[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1DatasetTrigger(entry, context));
 };
 
-const deserializeAws_restJson1Datastore = (
-  output: any,
-  context: __SerdeContext
-): Datastore => {
+const deserializeAws_restJson1Datastore = (output: any, context: __SerdeContext): Datastore => {
   return {
     __type: "Datastore",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
@@ -6610,79 +5236,49 @@ const deserializeAws_restJson1Datastore = (
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     retentionPeriod:
       output.retentionPeriod !== undefined && output.retentionPeriod !== null
-        ? deserializeAws_restJson1RetentionPeriod(
-            output.retentionPeriod,
-            context
-          )
+        ? deserializeAws_restJson1RetentionPeriod(output.retentionPeriod, context)
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     storage:
       output.storage !== undefined && output.storage !== null
         ? deserializeAws_restJson1DatastoreStorage(output.storage, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1DatastoreActivity = (
-  output: any,
-  context: __SerdeContext
-): DatastoreActivity => {
+const deserializeAws_restJson1DatastoreActivity = (output: any, context: __SerdeContext): DatastoreActivity => {
   return {
     __type: "DatastoreActivity",
     datastoreName:
-      output.datastoreName !== undefined && output.datastoreName !== null
-        ? output.datastoreName
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+      output.datastoreName !== undefined && output.datastoreName !== null ? output.datastoreName : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1DatastoreStatistics = (
-  output: any,
-  context: __SerdeContext
-): DatastoreStatistics => {
+const deserializeAws_restJson1DatastoreStatistics = (output: any, context: __SerdeContext): DatastoreStatistics => {
   return {
     __type: "DatastoreStatistics",
     size:
       output.size !== undefined && output.size !== null
         ? deserializeAws_restJson1EstimatedResourceSize(output.size, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1DatastoreStorage = (
-  output: any,
-  context: __SerdeContext
-): DatastoreStorage => {
+const deserializeAws_restJson1DatastoreStorage = (output: any, context: __SerdeContext): DatastoreStorage => {
   return {
     __type: "DatastoreStorage",
     customerManagedS3:
-      output.customerManagedS3 !== undefined &&
-      output.customerManagedS3 !== null
-        ? deserializeAws_restJson1CustomerManagedDatastoreS3Storage(
-            output.customerManagedS3,
-            context
-          )
+      output.customerManagedS3 !== undefined && output.customerManagedS3 !== null
+        ? deserializeAws_restJson1CustomerManagedDatastoreS3Storage(output.customerManagedS3, context)
         : undefined,
     serviceManagedS3:
       output.serviceManagedS3 !== undefined && output.serviceManagedS3 !== null
-        ? deserializeAws_restJson1ServiceManagedDatastoreS3Storage(
-            output.serviceManagedS3,
-            context
-          )
-        : undefined
+        ? deserializeAws_restJson1ServiceManagedDatastoreS3Storage(output.serviceManagedS3, context)
+        : undefined,
   } as any;
 };
 
@@ -6693,36 +5289,21 @@ const deserializeAws_restJson1DatastoreStorageSummary = (
   return {
     __type: "DatastoreStorageSummary",
     customerManagedS3:
-      output.customerManagedS3 !== undefined &&
-      output.customerManagedS3 !== null
-        ? deserializeAws_restJson1CustomerManagedDatastoreS3StorageSummary(
-            output.customerManagedS3,
-            context
-          )
+      output.customerManagedS3 !== undefined && output.customerManagedS3 !== null
+        ? deserializeAws_restJson1CustomerManagedDatastoreS3StorageSummary(output.customerManagedS3, context)
         : undefined,
     serviceManagedS3:
       output.serviceManagedS3 !== undefined && output.serviceManagedS3 !== null
-        ? deserializeAws_restJson1ServiceManagedDatastoreS3StorageSummary(
-            output.serviceManagedS3,
-            context
-          )
-        : undefined
+        ? deserializeAws_restJson1ServiceManagedDatastoreS3StorageSummary(output.serviceManagedS3, context)
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1DatastoreSummaries = (
-  output: any,
-  context: __SerdeContext
-): DatastoreSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1DatastoreSummary(entry, context)
-  );
+const deserializeAws_restJson1DatastoreSummaries = (output: any, context: __SerdeContext): DatastoreSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1DatastoreSummary(entry, context));
 };
 
-const deserializeAws_restJson1DatastoreSummary = (
-  output: any,
-  context: __SerdeContext
-): DatastoreSummary => {
+const deserializeAws_restJson1DatastoreSummary = (output: any, context: __SerdeContext): DatastoreSummary => {
   return {
     __type: "DatastoreSummary",
     creationTime:
@@ -6730,41 +5311,26 @@ const deserializeAws_restJson1DatastoreSummary = (
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
     datastoreName:
-      output.datastoreName !== undefined && output.datastoreName !== null
-        ? output.datastoreName
-        : undefined,
+      output.datastoreName !== undefined && output.datastoreName !== null ? output.datastoreName : undefined,
     datastoreStorage:
       output.datastoreStorage !== undefined && output.datastoreStorage !== null
-        ? deserializeAws_restJson1DatastoreStorageSummary(
-            output.datastoreStorage,
-            context
-          )
+        ? deserializeAws_restJson1DatastoreStorageSummary(output.datastoreStorage, context)
         : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1DeltaTime = (
-  output: any,
-  context: __SerdeContext
-): DeltaTime => {
+const deserializeAws_restJson1DeltaTime = (output: any, context: __SerdeContext): DeltaTime => {
   return {
     __type: "DeltaTime",
     offsetSeconds:
-      output.offsetSeconds !== undefined && output.offsetSeconds !== null
-        ? output.offsetSeconds
-        : undefined,
+      output.offsetSeconds !== undefined && output.offsetSeconds !== null ? output.offsetSeconds : undefined,
     timeExpression:
-      output.timeExpression !== undefined && output.timeExpression !== null
-        ? output.timeExpression
-        : undefined
+      output.timeExpression !== undefined && output.timeExpression !== null ? output.timeExpression : undefined,
   } as any;
 };
 
@@ -6774,26 +5340,11 @@ const deserializeAws_restJson1DeviceRegistryEnrichActivity = (
 ): DeviceRegistryEnrichActivity => {
   return {
     __type: "DeviceRegistryEnrichActivity",
-    attribute:
-      output.attribute !== undefined && output.attribute !== null
-        ? output.attribute
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    next:
-      output.next !== undefined && output.next !== null
-        ? output.next
-        : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
-    thingName:
-      output.thingName !== undefined && output.thingName !== null
-        ? output.thingName
-        : undefined
+    attribute: output.attribute !== undefined && output.attribute !== null ? output.attribute : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    next: output.next !== undefined && output.next !== null ? output.next : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    thingName: output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined,
   } as any;
 };
 
@@ -6803,33 +5354,15 @@ const deserializeAws_restJson1DeviceShadowEnrichActivity = (
 ): DeviceShadowEnrichActivity => {
   return {
     __type: "DeviceShadowEnrichActivity",
-    attribute:
-      output.attribute !== undefined && output.attribute !== null
-        ? output.attribute
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    next:
-      output.next !== undefined && output.next !== null
-        ? output.next
-        : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
-    thingName:
-      output.thingName !== undefined && output.thingName !== null
-        ? output.thingName
-        : undefined
+    attribute: output.attribute !== undefined && output.attribute !== null ? output.attribute : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    next: output.next !== undefined && output.next !== null ? output.next : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    thingName: output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1EstimatedResourceSize = (
-  output: any,
-  context: __SerdeContext
-): EstimatedResourceSize => {
+const deserializeAws_restJson1EstimatedResourceSize = (output: any, context: __SerdeContext): EstimatedResourceSize => {
   return {
     __type: "EstimatedResourceSize",
     estimatedOn:
@@ -6837,48 +5370,26 @@ const deserializeAws_restJson1EstimatedResourceSize = (
         ? new Date(Math.round(output.estimatedOn * 1000))
         : undefined,
     estimatedSizeInBytes:
-      output.estimatedSizeInBytes !== undefined &&
-      output.estimatedSizeInBytes !== null
+      output.estimatedSizeInBytes !== undefined && output.estimatedSizeInBytes !== null
         ? output.estimatedSizeInBytes
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1FilterActivity = (
-  output: any,
-  context: __SerdeContext
-): FilterActivity => {
+const deserializeAws_restJson1FilterActivity = (output: any, context: __SerdeContext): FilterActivity => {
   return {
     __type: "FilterActivity",
-    filter:
-      output.filter !== undefined && output.filter !== null
-        ? output.filter
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    next:
-      output.next !== undefined && output.next !== null
-        ? output.next
-        : undefined
+    filter: output.filter !== undefined && output.filter !== null ? output.filter : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    next: output.next !== undefined && output.next !== null ? output.next : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1GlueConfiguration = (
-  output: any,
-  context: __SerdeContext
-): GlueConfiguration => {
+const deserializeAws_restJson1GlueConfiguration = (output: any, context: __SerdeContext): GlueConfiguration => {
   return {
     __type: "GlueConfiguration",
-    databaseName:
-      output.databaseName !== undefined && output.databaseName !== null
-        ? output.databaseName
-        : undefined,
-    tableName:
-      output.tableName !== undefined && output.tableName !== null
-        ? output.tableName
-        : undefined
+    databaseName: output.databaseName !== undefined && output.databaseName !== null ? output.databaseName : undefined,
+    tableName: output.tableName !== undefined && output.tableName !== null ? output.tableName : undefined,
   } as any;
 };
 
@@ -6888,120 +5399,59 @@ const deserializeAws_restJson1IotEventsDestinationConfiguration = (
 ): IotEventsDestinationConfiguration => {
   return {
     __type: "IotEventsDestinationConfiguration",
-    inputName:
-      output.inputName !== undefined && output.inputName !== null
-        ? output.inputName
-        : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined
+    inputName: output.inputName !== undefined && output.inputName !== null ? output.inputName : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1LambdaActivity = (
-  output: any,
-  context: __SerdeContext
-): LambdaActivity => {
+const deserializeAws_restJson1LambdaActivity = (output: any, context: __SerdeContext): LambdaActivity => {
   return {
     __type: "LambdaActivity",
-    batchSize:
-      output.batchSize !== undefined && output.batchSize !== null
-        ? output.batchSize
-        : undefined,
-    lambdaName:
-      output.lambdaName !== undefined && output.lambdaName !== null
-        ? output.lambdaName
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    next:
-      output.next !== undefined && output.next !== null
-        ? output.next
-        : undefined
+    batchSize: output.batchSize !== undefined && output.batchSize !== null ? output.batchSize : undefined,
+    lambdaName: output.lambdaName !== undefined && output.lambdaName !== null ? output.lambdaName : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    next: output.next !== undefined && output.next !== null ? output.next : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1LoggingOptions = (
-  output: any,
-  context: __SerdeContext
-): LoggingOptions => {
+const deserializeAws_restJson1LoggingOptions = (output: any, context: __SerdeContext): LoggingOptions => {
   return {
     __type: "LoggingOptions",
-    enabled:
-      output.enabled !== undefined && output.enabled !== null
-        ? output.enabled
-        : undefined,
-    level:
-      output.level !== undefined && output.level !== null
-        ? output.level
-        : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined
+    enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
+    level: output.level !== undefined && output.level !== null ? output.level : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1MathActivity = (
-  output: any,
-  context: __SerdeContext
-): MathActivity => {
+const deserializeAws_restJson1MathActivity = (output: any, context: __SerdeContext): MathActivity => {
   return {
     __type: "MathActivity",
-    attribute:
-      output.attribute !== undefined && output.attribute !== null
-        ? output.attribute
-        : undefined,
-    math:
-      output.math !== undefined && output.math !== null
-        ? output.math
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    next:
-      output.next !== undefined && output.next !== null
-        ? output.next
-        : undefined
+    attribute: output.attribute !== undefined && output.attribute !== null ? output.attribute : undefined,
+    math: output.math !== undefined && output.math !== null ? output.math : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    next: output.next !== undefined && output.next !== null ? output.next : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1MessagePayloads = (
-  output: any,
-  context: __SerdeContext
-): Uint8Array[] => {
+const deserializeAws_restJson1MessagePayloads = (output: any, context: __SerdeContext): Uint8Array[] => {
   return (output || []).map((entry: any) => context.base64Decoder(entry));
 };
 
-const deserializeAws_restJson1OutputFileUriValue = (
-  output: any,
-  context: __SerdeContext
-): OutputFileUriValue => {
+const deserializeAws_restJson1OutputFileUriValue = (output: any, context: __SerdeContext): OutputFileUriValue => {
   return {
     __type: "OutputFileUriValue",
-    fileName:
-      output.fileName !== undefined && output.fileName !== null
-        ? output.fileName
-        : undefined
+    fileName: output.fileName !== undefined && output.fileName !== null ? output.fileName : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Pipeline = (
-  output: any,
-  context: __SerdeContext
-): Pipeline => {
+const deserializeAws_restJson1Pipeline = (output: any, context: __SerdeContext): Pipeline => {
   return {
     __type: "Pipeline",
     activities:
       output.activities !== undefined && output.activities !== null
         ? deserializeAws_restJson1PipelineActivities(output.activities, context)
         : undefined,
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
@@ -7010,42 +5460,24 @@ const deserializeAws_restJson1Pipeline = (
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     reprocessingSummaries:
-      output.reprocessingSummaries !== undefined &&
-      output.reprocessingSummaries !== null
-        ? deserializeAws_restJson1ReprocessingSummaries(
-            output.reprocessingSummaries,
-            context
-          )
-        : undefined
+      output.reprocessingSummaries !== undefined && output.reprocessingSummaries !== null
+        ? deserializeAws_restJson1ReprocessingSummaries(output.reprocessingSummaries, context)
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1PipelineActivities = (
-  output: any,
-  context: __SerdeContext
-): PipelineActivity[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1PipelineActivity(entry, context)
-  );
+const deserializeAws_restJson1PipelineActivities = (output: any, context: __SerdeContext): PipelineActivity[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1PipelineActivity(entry, context));
 };
 
-const deserializeAws_restJson1PipelineActivity = (
-  output: any,
-  context: __SerdeContext
-): PipelineActivity => {
+const deserializeAws_restJson1PipelineActivity = (output: any, context: __SerdeContext): PipelineActivity => {
   return {
     __type: "PipelineActivity",
     addAttributes:
       output.addAttributes !== undefined && output.addAttributes !== null
-        ? deserializeAws_restJson1AddAttributesActivity(
-            output.addAttributes,
-            context
-          )
+        ? deserializeAws_restJson1AddAttributesActivity(output.addAttributes, context)
         : undefined,
     channel:
       output.channel !== undefined && output.channel !== null
@@ -7056,20 +5488,12 @@ const deserializeAws_restJson1PipelineActivity = (
         ? deserializeAws_restJson1DatastoreActivity(output.datastore, context)
         : undefined,
     deviceRegistryEnrich:
-      output.deviceRegistryEnrich !== undefined &&
-      output.deviceRegistryEnrich !== null
-        ? deserializeAws_restJson1DeviceRegistryEnrichActivity(
-            output.deviceRegistryEnrich,
-            context
-          )
+      output.deviceRegistryEnrich !== undefined && output.deviceRegistryEnrich !== null
+        ? deserializeAws_restJson1DeviceRegistryEnrichActivity(output.deviceRegistryEnrich, context)
         : undefined,
     deviceShadowEnrich:
-      output.deviceShadowEnrich !== undefined &&
-      output.deviceShadowEnrich !== null
-        ? deserializeAws_restJson1DeviceShadowEnrichActivity(
-            output.deviceShadowEnrich,
-            context
-          )
+      output.deviceShadowEnrich !== undefined && output.deviceShadowEnrich !== null
+        ? deserializeAws_restJson1DeviceShadowEnrichActivity(output.deviceShadowEnrich, context)
         : undefined,
     filter:
       output.filter !== undefined && output.filter !== null
@@ -7085,34 +5509,20 @@ const deserializeAws_restJson1PipelineActivity = (
         : undefined,
     removeAttributes:
       output.removeAttributes !== undefined && output.removeAttributes !== null
-        ? deserializeAws_restJson1RemoveAttributesActivity(
-            output.removeAttributes,
-            context
-          )
+        ? deserializeAws_restJson1RemoveAttributesActivity(output.removeAttributes, context)
         : undefined,
     selectAttributes:
       output.selectAttributes !== undefined && output.selectAttributes !== null
-        ? deserializeAws_restJson1SelectAttributesActivity(
-            output.selectAttributes,
-            context
-          )
-        : undefined
+        ? deserializeAws_restJson1SelectAttributesActivity(output.selectAttributes, context)
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1PipelineSummaries = (
-  output: any,
-  context: __SerdeContext
-): PipelineSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1PipelineSummary(entry, context)
-  );
+const deserializeAws_restJson1PipelineSummaries = (output: any, context: __SerdeContext): PipelineSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1PipelineSummary(entry, context));
 };
 
-const deserializeAws_restJson1PipelineSummary = (
-  output: any,
-  context: __SerdeContext
-): PipelineSummary => {
+const deserializeAws_restJson1PipelineSummary = (output: any, context: __SerdeContext): PipelineSummary => {
   return {
     __type: "PipelineSummary",
     creationTime:
@@ -7123,41 +5533,26 @@ const deserializeAws_restJson1PipelineSummary = (
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
         : undefined,
-    pipelineName:
-      output.pipelineName !== undefined && output.pipelineName !== null
-        ? output.pipelineName
-        : undefined,
+    pipelineName: output.pipelineName !== undefined && output.pipelineName !== null ? output.pipelineName : undefined,
     reprocessingSummaries:
-      output.reprocessingSummaries !== undefined &&
-      output.reprocessingSummaries !== null
-        ? deserializeAws_restJson1ReprocessingSummaries(
-            output.reprocessingSummaries,
-            context
-          )
-        : undefined
+      output.reprocessingSummaries !== undefined && output.reprocessingSummaries !== null
+        ? deserializeAws_restJson1ReprocessingSummaries(output.reprocessingSummaries, context)
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1QueryFilter = (
-  output: any,
-  context: __SerdeContext
-): QueryFilter => {
+const deserializeAws_restJson1QueryFilter = (output: any, context: __SerdeContext): QueryFilter => {
   return {
     __type: "QueryFilter",
     deltaTime:
       output.deltaTime !== undefined && output.deltaTime !== null
         ? deserializeAws_restJson1DeltaTime(output.deltaTime, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1QueryFilters = (
-  output: any,
-  context: __SerdeContext
-): QueryFilter[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1QueryFilter(entry, context)
-  );
+const deserializeAws_restJson1QueryFilters = (output: any, context: __SerdeContext): QueryFilter[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1QueryFilter(entry, context));
 };
 
 const deserializeAws_restJson1RemoveAttributesActivity = (
@@ -7170,30 +5565,16 @@ const deserializeAws_restJson1RemoveAttributesActivity = (
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1AttributeNames(output.attributes, context)
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    next:
-      output.next !== undefined && output.next !== null
-        ? output.next
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    next: output.next !== undefined && output.next !== null ? output.next : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ReprocessingSummaries = (
-  output: any,
-  context: __SerdeContext
-): ReprocessingSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1ReprocessingSummary(entry, context)
-  );
+const deserializeAws_restJson1ReprocessingSummaries = (output: any, context: __SerdeContext): ReprocessingSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1ReprocessingSummary(entry, context));
 };
 
-const deserializeAws_restJson1ReprocessingSummary = (
-  output: any,
-  context: __SerdeContext
-): ReprocessingSummary => {
+const deserializeAws_restJson1ReprocessingSummary = (output: any, context: __SerdeContext): ReprocessingSummary => {
   return {
     __type: "ReprocessingSummary",
     creationTime:
@@ -7201,44 +5582,24 @@ const deserializeAws_restJson1ReprocessingSummary = (
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ResourceConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ResourceConfiguration => {
+const deserializeAws_restJson1ResourceConfiguration = (output: any, context: __SerdeContext): ResourceConfiguration => {
   return {
     __type: "ResourceConfiguration",
-    computeType:
-      output.computeType !== undefined && output.computeType !== null
-        ? output.computeType
-        : undefined,
+    computeType: output.computeType !== undefined && output.computeType !== null ? output.computeType : undefined,
     volumeSizeInGB:
-      output.volumeSizeInGB !== undefined && output.volumeSizeInGB !== null
-        ? output.volumeSizeInGB
-        : undefined
+      output.volumeSizeInGB !== undefined && output.volumeSizeInGB !== null ? output.volumeSizeInGB : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1RetentionPeriod = (
-  output: any,
-  context: __SerdeContext
-): RetentionPeriod => {
+const deserializeAws_restJson1RetentionPeriod = (output: any, context: __SerdeContext): RetentionPeriod => {
   return {
     __type: "RetentionPeriod",
-    numberOfDays:
-      output.numberOfDays !== undefined && output.numberOfDays !== null
-        ? output.numberOfDays
-        : undefined,
-    unlimited:
-      output.unlimited !== undefined && output.unlimited !== null
-        ? output.unlimited
-        : undefined
+    numberOfDays: output.numberOfDays !== undefined && output.numberOfDays !== null ? output.numberOfDays : undefined,
+    unlimited: output.unlimited !== undefined && output.unlimited !== null ? output.unlimited : undefined,
   } as any;
 };
 
@@ -7248,37 +5609,20 @@ const deserializeAws_restJson1S3DestinationConfiguration = (
 ): S3DestinationConfiguration => {
   return {
     __type: "S3DestinationConfiguration",
-    bucket:
-      output.bucket !== undefined && output.bucket !== null
-        ? output.bucket
-        : undefined,
+    bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
     glueConfiguration:
-      output.glueConfiguration !== undefined &&
-      output.glueConfiguration !== null
-        ? deserializeAws_restJson1GlueConfiguration(
-            output.glueConfiguration,
-            context
-          )
+      output.glueConfiguration !== undefined && output.glueConfiguration !== null
+        ? deserializeAws_restJson1GlueConfiguration(output.glueConfiguration, context)
         : undefined,
-    key:
-      output.key !== undefined && output.key !== null ? output.key : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Schedule = (
-  output: any,
-  context: __SerdeContext
-): Schedule => {
+const deserializeAws_restJson1Schedule = (output: any, context: __SerdeContext): Schedule => {
   return {
     __type: "Schedule",
-    expression:
-      output.expression !== undefined && output.expression !== null
-        ? output.expression
-        : undefined
+    expression: output.expression !== undefined && output.expression !== null ? output.expression : undefined,
   } as any;
 };
 
@@ -7292,14 +5636,8 @@ const deserializeAws_restJson1SelectAttributesActivity = (
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1AttributeNames(output.attributes, context)
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    next:
-      output.next !== undefined && output.next !== null
-        ? output.next
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    next: output.next !== undefined && output.next !== null ? output.next : undefined,
   } as any;
 };
 
@@ -7308,7 +5646,7 @@ const deserializeAws_restJson1ServiceManagedChannelS3Storage = (
   context: __SerdeContext
 ): ServiceManagedChannelS3Storage => {
   return {
-    __type: "ServiceManagedChannelS3Storage"
+    __type: "ServiceManagedChannelS3Storage",
   } as any;
 };
 
@@ -7317,7 +5655,7 @@ const deserializeAws_restJson1ServiceManagedChannelS3StorageSummary = (
   context: __SerdeContext
 ): ServiceManagedChannelS3StorageSummary => {
   return {
-    __type: "ServiceManagedChannelS3StorageSummary"
+    __type: "ServiceManagedChannelS3StorageSummary",
   } as any;
 };
 
@@ -7326,7 +5664,7 @@ const deserializeAws_restJson1ServiceManagedDatastoreS3Storage = (
   context: __SerdeContext
 ): ServiceManagedDatastoreS3Storage => {
   return {
-    __type: "ServiceManagedDatastoreS3Storage"
+    __type: "ServiceManagedDatastoreS3Storage",
   } as any;
 };
 
@@ -7335,108 +5673,59 @@ const deserializeAws_restJson1ServiceManagedDatastoreS3StorageSummary = (
   context: __SerdeContext
 ): ServiceManagedDatastoreS3StorageSummary => {
   return {
-    __type: "ServiceManagedDatastoreS3StorageSummary"
+    __type: "ServiceManagedDatastoreS3StorageSummary",
   } as any;
 };
 
-const deserializeAws_restJson1SqlQueryDatasetAction = (
-  output: any,
-  context: __SerdeContext
-): SqlQueryDatasetAction => {
+const deserializeAws_restJson1SqlQueryDatasetAction = (output: any, context: __SerdeContext): SqlQueryDatasetAction => {
   return {
     __type: "SqlQueryDatasetAction",
     filters:
       output.filters !== undefined && output.filters !== null
         ? deserializeAws_restJson1QueryFilters(output.filters, context)
         : undefined,
-    sqlQuery:
-      output.sqlQuery !== undefined && output.sqlQuery !== null
-        ? output.sqlQuery
-        : undefined
+    sqlQuery: output.sqlQuery !== undefined && output.sqlQuery !== null ? output.sqlQuery : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    key:
-      output.key !== undefined && output.key !== null ? output.key : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1TagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1Tag(entry, context)
-  );
+const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Tag(entry, context));
 };
 
-const deserializeAws_restJson1TriggeringDataset = (
-  output: any,
-  context: __SerdeContext
-): TriggeringDataset => {
+const deserializeAws_restJson1TriggeringDataset = (output: any, context: __SerdeContext): TriggeringDataset => {
   return {
     __type: "TriggeringDataset",
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Variable = (
-  output: any,
-  context: __SerdeContext
-): Variable => {
+const deserializeAws_restJson1Variable = (output: any, context: __SerdeContext): Variable => {
   return {
     __type: "Variable",
     datasetContentVersionValue:
-      output.datasetContentVersionValue !== undefined &&
-      output.datasetContentVersionValue !== null
-        ? deserializeAws_restJson1DatasetContentVersionValue(
-            output.datasetContentVersionValue,
-            context
-          )
+      output.datasetContentVersionValue !== undefined && output.datasetContentVersionValue !== null
+        ? deserializeAws_restJson1DatasetContentVersionValue(output.datasetContentVersionValue, context)
         : undefined,
-    doubleValue:
-      output.doubleValue !== undefined && output.doubleValue !== null
-        ? output.doubleValue
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    doubleValue: output.doubleValue !== undefined && output.doubleValue !== null ? output.doubleValue : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     outputFileUriValue:
-      output.outputFileUriValue !== undefined &&
-      output.outputFileUriValue !== null
-        ? deserializeAws_restJson1OutputFileUriValue(
-            output.outputFileUriValue,
-            context
-          )
+      output.outputFileUriValue !== undefined && output.outputFileUriValue !== null
+        ? deserializeAws_restJson1OutputFileUriValue(output.outputFileUriValue, context)
         : undefined,
-    stringValue:
-      output.stringValue !== undefined && output.stringValue !== null
-        ? output.stringValue
-        : undefined
+    stringValue: output.stringValue !== undefined && output.stringValue !== null ? output.stringValue : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Variables = (
-  output: any,
-  context: __SerdeContext
-): Variable[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1Variable(entry, context)
-  );
+const deserializeAws_restJson1Variables = (output: any, context: __SerdeContext): Variable[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Variable(entry, context));
 };
 
 const deserializeAws_restJson1VersioningConfiguration = (
@@ -7445,52 +5734,37 @@ const deserializeAws_restJson1VersioningConfiguration = (
 ): VersioningConfiguration => {
   return {
     __type: "VersioningConfiguration",
-    maxVersions:
-      output.maxVersions !== undefined && output.maxVersions !== null
-        ? output.maxVersions
-        : undefined,
-    unlimited:
-      output.unlimited !== undefined && output.unlimited !== null
-        ? output.unlimited
-        : undefined
+    maxVersions: output.maxVersions !== undefined && output.maxVersions !== null ? output.maxVersions : undefined,
+    unlimited: output.unlimited !== undefined && output.unlimited !== null ? output.unlimited : undefined,
   } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"]
+  requestId: output.headers["x-amzn-requestid"],
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
-  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then(encoded => {
+  collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
@@ -7501,8 +5775,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

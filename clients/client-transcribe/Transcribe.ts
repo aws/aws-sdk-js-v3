@@ -2,72 +2,72 @@ import { TranscribeClient } from "./TranscribeClient";
 import {
   CreateVocabularyCommand,
   CreateVocabularyCommandInput,
-  CreateVocabularyCommandOutput
+  CreateVocabularyCommandOutput,
 } from "./commands/CreateVocabularyCommand";
 import {
   CreateVocabularyFilterCommand,
   CreateVocabularyFilterCommandInput,
-  CreateVocabularyFilterCommandOutput
+  CreateVocabularyFilterCommandOutput,
 } from "./commands/CreateVocabularyFilterCommand";
 import {
   DeleteTranscriptionJobCommand,
   DeleteTranscriptionJobCommandInput,
-  DeleteTranscriptionJobCommandOutput
+  DeleteTranscriptionJobCommandOutput,
 } from "./commands/DeleteTranscriptionJobCommand";
 import {
   DeleteVocabularyCommand,
   DeleteVocabularyCommandInput,
-  DeleteVocabularyCommandOutput
+  DeleteVocabularyCommandOutput,
 } from "./commands/DeleteVocabularyCommand";
 import {
   DeleteVocabularyFilterCommand,
   DeleteVocabularyFilterCommandInput,
-  DeleteVocabularyFilterCommandOutput
+  DeleteVocabularyFilterCommandOutput,
 } from "./commands/DeleteVocabularyFilterCommand";
 import {
   GetTranscriptionJobCommand,
   GetTranscriptionJobCommandInput,
-  GetTranscriptionJobCommandOutput
+  GetTranscriptionJobCommandOutput,
 } from "./commands/GetTranscriptionJobCommand";
 import {
   GetVocabularyCommand,
   GetVocabularyCommandInput,
-  GetVocabularyCommandOutput
+  GetVocabularyCommandOutput,
 } from "./commands/GetVocabularyCommand";
 import {
   GetVocabularyFilterCommand,
   GetVocabularyFilterCommandInput,
-  GetVocabularyFilterCommandOutput
+  GetVocabularyFilterCommandOutput,
 } from "./commands/GetVocabularyFilterCommand";
 import {
   ListTranscriptionJobsCommand,
   ListTranscriptionJobsCommandInput,
-  ListTranscriptionJobsCommandOutput
+  ListTranscriptionJobsCommandOutput,
 } from "./commands/ListTranscriptionJobsCommand";
 import {
   ListVocabulariesCommand,
   ListVocabulariesCommandInput,
-  ListVocabulariesCommandOutput
+  ListVocabulariesCommandOutput,
 } from "./commands/ListVocabulariesCommand";
 import {
   ListVocabularyFiltersCommand,
   ListVocabularyFiltersCommandInput,
-  ListVocabularyFiltersCommandOutput
+  ListVocabularyFiltersCommandOutput,
 } from "./commands/ListVocabularyFiltersCommand";
 import {
   StartTranscriptionJobCommand,
   StartTranscriptionJobCommandInput,
-  StartTranscriptionJobCommandOutput
+  StartTranscriptionJobCommandOutput,
 } from "./commands/StartTranscriptionJobCommand";
 import {
   UpdateVocabularyCommand,
   UpdateVocabularyCommandInput,
-  UpdateVocabularyCommandOutput
+  UpdateVocabularyCommandOutput,
 } from "./commands/UpdateVocabularyCommand";
 import {
   UpdateVocabularyFilterCommand,
   UpdateVocabularyFilterCommandInput,
-  UpdateVocabularyFilterCommandOutput
+  UpdateVocabularyFilterCommandOutput,
 } from "./commands/UpdateVocabularyFilterCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -94,17 +94,14 @@ export class Transcribe extends TranscribeClient {
   ): void;
   public createVocabulary(
     args: CreateVocabularyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVocabularyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVocabularyCommandOutput) => void),
     cb?: (err: any, data?: CreateVocabularyCommandOutput) => void
   ): Promise<CreateVocabularyCommandOutput> | void {
     const command = new CreateVocabularyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -130,17 +127,14 @@ export class Transcribe extends TranscribeClient {
   ): void;
   public createVocabularyFilter(
     args: CreateVocabularyFilterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVocabularyFilterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVocabularyFilterCommandOutput) => void),
     cb?: (err: any, data?: CreateVocabularyFilterCommandOutput) => void
   ): Promise<CreateVocabularyFilterCommandOutput> | void {
     const command = new CreateVocabularyFilterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -166,17 +160,14 @@ export class Transcribe extends TranscribeClient {
   ): void;
   public deleteTranscriptionJob(
     args: DeleteTranscriptionJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTranscriptionJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTranscriptionJobCommandOutput) => void),
     cb?: (err: any, data?: DeleteTranscriptionJobCommandOutput) => void
   ): Promise<DeleteTranscriptionJobCommandOutput> | void {
     const command = new DeleteTranscriptionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -201,17 +192,14 @@ export class Transcribe extends TranscribeClient {
   ): void;
   public deleteVocabulary(
     args: DeleteVocabularyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVocabularyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVocabularyCommandOutput) => void),
     cb?: (err: any, data?: DeleteVocabularyCommandOutput) => void
   ): Promise<DeleteVocabularyCommandOutput> | void {
     const command = new DeleteVocabularyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -236,17 +224,14 @@ export class Transcribe extends TranscribeClient {
   ): void;
   public deleteVocabularyFilter(
     args: DeleteVocabularyFilterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVocabularyFilterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVocabularyFilterCommandOutput) => void),
     cb?: (err: any, data?: DeleteVocabularyFilterCommandOutput) => void
   ): Promise<DeleteVocabularyFilterCommandOutput> | void {
     const command = new DeleteVocabularyFilterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -274,17 +259,14 @@ export class Transcribe extends TranscribeClient {
   ): void;
   public getTranscriptionJob(
     args: GetTranscriptionJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTranscriptionJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTranscriptionJobCommandOutput) => void),
     cb?: (err: any, data?: GetTranscriptionJobCommandOutput) => void
   ): Promise<GetTranscriptionJobCommandOutput> | void {
     const command = new GetTranscriptionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -309,17 +291,14 @@ export class Transcribe extends TranscribeClient {
   ): void;
   public getVocabulary(
     args: GetVocabularyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetVocabularyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVocabularyCommandOutput) => void),
     cb?: (err: any, data?: GetVocabularyCommandOutput) => void
   ): Promise<GetVocabularyCommandOutput> | void {
     const command = new GetVocabularyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -344,17 +323,14 @@ export class Transcribe extends TranscribeClient {
   ): void;
   public getVocabularyFilter(
     args: GetVocabularyFilterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetVocabularyFilterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVocabularyFilterCommandOutput) => void),
     cb?: (err: any, data?: GetVocabularyFilterCommandOutput) => void
   ): Promise<GetVocabularyFilterCommandOutput> | void {
     const command = new GetVocabularyFilterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -379,17 +355,14 @@ export class Transcribe extends TranscribeClient {
   ): void;
   public listTranscriptionJobs(
     args: ListTranscriptionJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTranscriptionJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTranscriptionJobsCommandOutput) => void),
     cb?: (err: any, data?: ListTranscriptionJobsCommandOutput) => void
   ): Promise<ListTranscriptionJobsCommandOutput> | void {
     const command = new ListTranscriptionJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -415,17 +388,14 @@ export class Transcribe extends TranscribeClient {
   ): void;
   public listVocabularies(
     args: ListVocabulariesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListVocabulariesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVocabulariesCommandOutput) => void),
     cb?: (err: any, data?: ListVocabulariesCommandOutput) => void
   ): Promise<ListVocabulariesCommandOutput> | void {
     const command = new ListVocabulariesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -450,17 +420,14 @@ export class Transcribe extends TranscribeClient {
   ): void;
   public listVocabularyFilters(
     args: ListVocabularyFiltersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListVocabularyFiltersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVocabularyFiltersCommandOutput) => void),
     cb?: (err: any, data?: ListVocabularyFiltersCommandOutput) => void
   ): Promise<ListVocabularyFiltersCommandOutput> | void {
     const command = new ListVocabularyFiltersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -485,17 +452,14 @@ export class Transcribe extends TranscribeClient {
   ): void;
   public startTranscriptionJob(
     args: StartTranscriptionJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartTranscriptionJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartTranscriptionJobCommandOutput) => void),
     cb?: (err: any, data?: StartTranscriptionJobCommandOutput) => void
   ): Promise<StartTranscriptionJobCommandOutput> | void {
     const command = new StartTranscriptionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -522,17 +486,14 @@ export class Transcribe extends TranscribeClient {
   ): void;
   public updateVocabulary(
     args: UpdateVocabularyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateVocabularyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVocabularyCommandOutput) => void),
     cb?: (err: any, data?: UpdateVocabularyCommandOutput) => void
   ): Promise<UpdateVocabularyCommandOutput> | void {
     const command = new UpdateVocabularyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -557,17 +518,14 @@ export class Transcribe extends TranscribeClient {
   ): void;
   public updateVocabularyFilter(
     args: UpdateVocabularyFilterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateVocabularyFilterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVocabularyFilterCommandOutput) => void),
     cb?: (err: any, data?: UpdateVocabularyFilterCommandOutput) => void
   ): Promise<UpdateVocabularyFilterCommandOutput> | void {
     const command = new UpdateVocabularyFilterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

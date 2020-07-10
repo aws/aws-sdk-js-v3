@@ -1,18 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DisassociateAddressRequest } from "../models/index";
 import {
   deserializeAws_ec2DisassociateAddressCommand,
-  serializeAws_ec2DisassociateAddressCommand
+  serializeAws_ec2DisassociateAddressCommand,
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DisassociateAddressCommandInput = DisassociateAddressRequest;
@@ -45,18 +38,13 @@ export class DisassociateAddressCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateAddressCommandInput,
-    DisassociateAddressCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateAddressCommandInput, DisassociateAddressCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,17 +54,11 @@ export class DisassociateAddressCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DisassociateAddressCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DisassociateAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DisassociateAddressCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DisassociateAddressCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateAddressCommandOutput> {
     return deserializeAws_ec2DisassociateAddressCommand(output, context);
   }
 

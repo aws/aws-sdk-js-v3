@@ -32,10 +32,7 @@ export interface SerdeContext extends EndpointBearer {
   disableHostPrefix: boolean;
 }
 
-export interface RequestSerializer<
-  Request,
-  Context extends EndpointBearer = any
-> {
+export interface RequestSerializer<Request, Context extends EndpointBearer = any> {
   /**
    * Converts the provided `input` into a request object
    *
@@ -46,11 +43,7 @@ export interface RequestSerializer<
   (input: any, context: Context): Promise<Request>;
 }
 
-export interface ResponseDeserializer<
-  OutputType,
-  ResponseType = any,
-  Context = any
-> {
+export interface ResponseDeserializer<OutputType, ResponseType = any, Context = any> {
   /**
    * Converts the output of an operation into JavaScript types.
    *

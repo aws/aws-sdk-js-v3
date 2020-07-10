@@ -3,7 +3,7 @@ import {
   InitializeHandler,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
-  RequestHandler
+  RequestHandler,
 } from "@aws-sdk/types";
 import { v4 } from "uuid";
 
@@ -21,14 +21,14 @@ type WithSession = {
  */
 export const injectSessionIdMiddleware = (config: {
   requestHandler: RequestHandler<any, any>;
-}): InitializeMiddleware<any, any> => (
-  next: InitializeHandler<WithSession, WithSession>
-) => async (args: InitializeHandlerArguments<WithSession>) => {
+}): InitializeMiddleware<any, any> => (next: InitializeHandler<WithSession, WithSession>) => async (
+  args: InitializeHandlerArguments<WithSession>
+) => {
   if (args.input.SessionId === undefined && isWebSocket(config)) {
     args.input.SessionId = v4();
   }
   const requestParams = {
-    ...args.input
+    ...args.input,
   };
   const response = await next(args);
   const output = response.output;
@@ -46,5 +46,5 @@ const isWebSocket = (config: { requestHandler: RequestHandler<any, any> }) =>
 export const injectSessionIdMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   name: "injectSessionIdMiddleware",
-  tags: ["WEBSOCKET", "EVENT_STREAM"]
+  tags: ["WEBSOCKET", "EVENT_STREAM"],
 };

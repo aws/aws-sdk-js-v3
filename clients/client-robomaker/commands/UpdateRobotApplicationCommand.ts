@@ -1,21 +1,11 @@
-import {
-  RoboMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RoboMakerClient";
-import {
-  UpdateRobotApplicationRequest,
-  UpdateRobotApplicationResponse
-} from "../models/index";
+import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
+import { UpdateRobotApplicationRequest, UpdateRobotApplicationResponse } from "../models/index";
 import {
   deserializeAws_restJson1UpdateRobotApplicationCommand,
-  serializeAws_restJson1UpdateRobotApplicationCommand
+  serializeAws_restJson1UpdateRobotApplicationCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateRobotApplicationCommandInput = UpdateRobotApplicationRequest;
-export type UpdateRobotApplicationCommandOutput = UpdateRobotApplicationResponse &
-  __MetadataBearer;
+export type UpdateRobotApplicationCommandOutput = UpdateRobotApplicationResponse & __MetadataBearer;
 
 export class UpdateRobotApplicationCommand extends $Command<
   UpdateRobotApplicationCommandInput,
@@ -49,18 +38,13 @@ export class UpdateRobotApplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateRobotApplicationCommandInput,
-    UpdateRobotApplicationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateRobotApplicationCommandInput, UpdateRobotApplicationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class UpdateRobotApplicationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateRobotApplicationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateRobotApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateRobotApplicationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateRobotApplicationCommandOutput> {
-    return deserializeAws_restJson1UpdateRobotApplicationCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRobotApplicationCommandOutput> {
+    return deserializeAws_restJson1UpdateRobotApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

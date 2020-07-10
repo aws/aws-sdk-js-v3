@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AssociateTeamMemberRequest {
@@ -39,10 +35,9 @@ export interface AssociateTeamMemberRequest {
 
 export namespace AssociateTeamMemberRequest {
   export const filterSensitiveLog = (obj: AssociateTeamMemberRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateTeamMemberRequest =>
-    __isa(o, "AssociateTeamMemberRequest");
+  export const isa = (o: any): o is AssociateTeamMemberRequest => __isa(o, "AssociateTeamMemberRequest");
 }
 
 export interface AssociateTeamMemberResult {
@@ -56,10 +51,9 @@ export interface AssociateTeamMemberResult {
 
 export namespace AssociateTeamMemberResult {
   export const filterSensitiveLog = (obj: AssociateTeamMemberResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateTeamMemberResult =>
-    __isa(o, "AssociateTeamMemberResult");
+  export const isa = (o: any): o is AssociateTeamMemberResult => __isa(o, "AssociateTeamMemberResult");
 }
 
 /**
@@ -85,9 +79,7 @@ export interface Code {
 export namespace Code {
   export const filterSensitiveLog = (obj: Code): any => ({
     ...obj,
-    ...(obj.destination && {
-      destination: CodeDestination.filterSensitiveLog(obj.destination)
-    })
+    ...(obj.destination && { destination: CodeDestination.filterSensitiveLog(obj.destination) }),
   });
   export const isa = (o: any): o is Code => __isa(o, "Code");
 }
@@ -106,10 +98,9 @@ export interface CodeCommitCodeDestination {
 
 export namespace CodeCommitCodeDestination {
   export const filterSensitiveLog = (obj: CodeCommitCodeDestination): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CodeCommitCodeDestination =>
-    __isa(o, "CodeCommitCodeDestination");
+  export const isa = (o: any): o is CodeCommitCodeDestination => __isa(o, "CodeCommitCodeDestination");
 }
 
 /**
@@ -134,12 +125,9 @@ export interface CodeDestination {
 export namespace CodeDestination {
   export const filterSensitiveLog = (obj: CodeDestination): any => ({
     ...obj,
-    ...(obj.gitHub && {
-      gitHub: GitHubCodeDestination.filterSensitiveLog(obj.gitHub)
-    })
+    ...(obj.gitHub && { gitHub: GitHubCodeDestination.filterSensitiveLog(obj.gitHub) }),
   });
-  export const isa = (o: any): o is CodeDestination =>
-    __isa(o, "CodeDestination");
+  export const isa = (o: any): o is CodeDestination => __isa(o, "CodeDestination");
 }
 
 /**
@@ -157,7 +145,7 @@ export interface CodeSource {
 
 export namespace CodeSource {
   export const filterSensitiveLog = (obj: CodeSource): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is CodeSource => __isa(o, "CodeSource");
 }
@@ -166,22 +154,17 @@ export namespace CodeSource {
  * <p>Another modification is being made. That modification must complete before you can make
  *       your change.</p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "server";
   message?: string;
 }
 
 export namespace ConcurrentModificationException {
-  export const filterSensitiveLog = (
-    obj: ConcurrentModificationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException =>
-    __isa(o, "ConcurrentModificationException");
+  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 export interface CreateProjectRequest {
@@ -230,15 +213,10 @@ export namespace CreateProjectRequest {
     ...obj,
     ...(obj.description && { description: SENSITIVE_STRING }),
     ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.sourceCode && {
-      sourceCode: obj.sourceCode.map(item => Code.filterSensitiveLog(item))
-    }),
-    ...(obj.toolchain && {
-      toolchain: Toolchain.filterSensitiveLog(obj.toolchain)
-    })
+    ...(obj.sourceCode && { sourceCode: obj.sourceCode.map((item) => Code.filterSensitiveLog(item)) }),
+    ...(obj.toolchain && { toolchain: Toolchain.filterSensitiveLog(obj.toolchain) }),
   });
-  export const isa = (o: any): o is CreateProjectRequest =>
-    __isa(o, "CreateProjectRequest");
+  export const isa = (o: any): o is CreateProjectRequest => __isa(o, "CreateProjectRequest");
 }
 
 export interface CreateProjectResult {
@@ -267,10 +245,9 @@ export interface CreateProjectResult {
 
 export namespace CreateProjectResult {
   export const filterSensitiveLog = (obj: CreateProjectResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateProjectResult =>
-    __isa(o, "CreateProjectResult");
+  export const isa = (o: any): o is CreateProjectResult => __isa(o, "CreateProjectResult");
 }
 
 export interface CreateUserProfileRequest {
@@ -303,10 +280,9 @@ export namespace CreateUserProfileRequest {
   export const filterSensitiveLog = (obj: CreateUserProfileRequest): any => ({
     ...obj,
     ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING })
+    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateUserProfileRequest =>
-    __isa(o, "CreateUserProfileRequest");
+  export const isa = (o: any): o is CreateUserProfileRequest => __isa(o, "CreateUserProfileRequest");
 }
 
 export interface CreateUserProfileResult {
@@ -348,10 +324,9 @@ export namespace CreateUserProfileResult {
   export const filterSensitiveLog = (obj: CreateUserProfileResult): any => ({
     ...obj,
     ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING })
+    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateUserProfileResult =>
-    __isa(o, "CreateUserProfileResult");
+  export const isa = (o: any): o is CreateUserProfileResult => __isa(o, "CreateUserProfileResult");
 }
 
 export interface DeleteProjectRequest {
@@ -378,10 +353,9 @@ export interface DeleteProjectRequest {
 
 export namespace DeleteProjectRequest {
   export const filterSensitiveLog = (obj: DeleteProjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteProjectRequest =>
-    __isa(o, "DeleteProjectRequest");
+  export const isa = (o: any): o is DeleteProjectRequest => __isa(o, "DeleteProjectRequest");
 }
 
 export interface DeleteProjectResult {
@@ -400,10 +374,9 @@ export interface DeleteProjectResult {
 
 export namespace DeleteProjectResult {
   export const filterSensitiveLog = (obj: DeleteProjectResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteProjectResult =>
-    __isa(o, "DeleteProjectResult");
+  export const isa = (o: any): o is DeleteProjectResult => __isa(o, "DeleteProjectResult");
 }
 
 export interface DeleteUserProfileRequest {
@@ -416,10 +389,9 @@ export interface DeleteUserProfileRequest {
 
 export namespace DeleteUserProfileRequest {
   export const filterSensitiveLog = (obj: DeleteUserProfileRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteUserProfileRequest =>
-    __isa(o, "DeleteUserProfileRequest");
+  export const isa = (o: any): o is DeleteUserProfileRequest => __isa(o, "DeleteUserProfileRequest");
 }
 
 export interface DeleteUserProfileResult {
@@ -432,10 +404,9 @@ export interface DeleteUserProfileResult {
 
 export namespace DeleteUserProfileResult {
   export const filterSensitiveLog = (obj: DeleteUserProfileResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteUserProfileResult =>
-    __isa(o, "DeleteUserProfileResult");
+  export const isa = (o: any): o is DeleteUserProfileResult => __isa(o, "DeleteUserProfileResult");
 }
 
 export interface DescribeProjectRequest {
@@ -448,10 +419,9 @@ export interface DescribeProjectRequest {
 
 export namespace DescribeProjectRequest {
   export const filterSensitiveLog = (obj: DescribeProjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeProjectRequest =>
-    __isa(o, "DescribeProjectRequest");
+  export const isa = (o: any): o is DescribeProjectRequest => __isa(o, "DescribeProjectRequest");
 }
 
 export interface DescribeProjectResult {
@@ -508,10 +478,9 @@ export namespace DescribeProjectResult {
   export const filterSensitiveLog = (obj: DescribeProjectResult): any => ({
     ...obj,
     ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.name && { name: SENSITIVE_STRING })
+    ...(obj.name && { name: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DescribeProjectResult =>
-    __isa(o, "DescribeProjectResult");
+  export const isa = (o: any): o is DescribeProjectResult => __isa(o, "DescribeProjectResult");
 }
 
 export interface DescribeUserProfileRequest {
@@ -524,10 +493,9 @@ export interface DescribeUserProfileRequest {
 
 export namespace DescribeUserProfileRequest {
   export const filterSensitiveLog = (obj: DescribeUserProfileRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeUserProfileRequest =>
-    __isa(o, "DescribeUserProfileRequest");
+  export const isa = (o: any): o is DescribeUserProfileRequest => __isa(o, "DescribeUserProfileRequest");
 }
 
 export interface DescribeUserProfileResult {
@@ -579,10 +547,9 @@ export namespace DescribeUserProfileResult {
   export const filterSensitiveLog = (obj: DescribeUserProfileResult): any => ({
     ...obj,
     ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING })
+    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DescribeUserProfileResult =>
-    __isa(o, "DescribeUserProfileResult");
+  export const isa = (o: any): o is DescribeUserProfileResult => __isa(o, "DescribeUserProfileResult");
 }
 
 export interface DisassociateTeamMemberRequest {
@@ -600,13 +567,10 @@ export interface DisassociateTeamMemberRequest {
 }
 
 export namespace DisassociateTeamMemberRequest {
-  export const filterSensitiveLog = (
-    obj: DisassociateTeamMemberRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateTeamMemberRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateTeamMemberRequest =>
-    __isa(o, "DisassociateTeamMemberRequest");
+  export const isa = (o: any): o is DisassociateTeamMemberRequest => __isa(o, "DisassociateTeamMemberRequest");
 }
 
 export interface DisassociateTeamMemberResult {
@@ -614,13 +578,10 @@ export interface DisassociateTeamMemberResult {
 }
 
 export namespace DisassociateTeamMemberResult {
-  export const filterSensitiveLog = (
-    obj: DisassociateTeamMemberResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateTeamMemberResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateTeamMemberResult =>
-    __isa(o, "DisassociateTeamMemberResult");
+  export const isa = (o: any): o is DisassociateTeamMemberResult => __isa(o, "DisassociateTeamMemberResult");
 }
 
 /**
@@ -670,18 +631,15 @@ export interface GitHubCodeDestination {
 export namespace GitHubCodeDestination {
   export const filterSensitiveLog = (obj: GitHubCodeDestination): any => ({
     ...obj,
-    ...(obj.token && { token: SENSITIVE_STRING })
+    ...(obj.token && { token: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GitHubCodeDestination =>
-    __isa(o, "GitHubCodeDestination");
+  export const isa = (o: any): o is GitHubCodeDestination => __isa(o, "GitHubCodeDestination");
 }
 
 /**
  * <p>The next token is not valid.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   message?: string;
@@ -689,39 +647,31 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException =>
-    __isa(o, "InvalidNextTokenException");
+  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
  * <p>The service role is not valid.</p>
  */
-export interface InvalidServiceRoleException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidServiceRoleException extends __SmithyException, $MetadataBearer {
   name: "InvalidServiceRoleException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidServiceRoleException {
-  export const filterSensitiveLog = (
-    obj: InvalidServiceRoleException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidServiceRoleException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidServiceRoleException =>
-    __isa(o, "InvalidServiceRoleException");
+  export const isa = (o: any): o is InvalidServiceRoleException => __isa(o, "InvalidServiceRoleException");
 }
 
 /**
  * <p>A resource limit has been exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -729,10 +679,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListProjectsRequest {
@@ -751,10 +700,9 @@ export interface ListProjectsRequest {
 
 export namespace ListProjectsRequest {
   export const filterSensitiveLog = (obj: ListProjectsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListProjectsRequest =>
-    __isa(o, "ListProjectsRequest");
+  export const isa = (o: any): o is ListProjectsRequest => __isa(o, "ListProjectsRequest");
 }
 
 export interface ListProjectsResult {
@@ -773,10 +721,9 @@ export interface ListProjectsResult {
 
 export namespace ListProjectsResult {
   export const filterSensitiveLog = (obj: ListProjectsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListProjectsResult =>
-    __isa(o, "ListProjectsResult");
+  export const isa = (o: any): o is ListProjectsResult => __isa(o, "ListProjectsResult");
 }
 
 export interface ListResourcesRequest {
@@ -800,10 +747,9 @@ export interface ListResourcesRequest {
 
 export namespace ListResourcesRequest {
   export const filterSensitiveLog = (obj: ListResourcesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListResourcesRequest =>
-    __isa(o, "ListResourcesRequest");
+  export const isa = (o: any): o is ListResourcesRequest => __isa(o, "ListResourcesRequest");
 }
 
 export interface ListResourcesResult {
@@ -822,10 +768,9 @@ export interface ListResourcesResult {
 
 export namespace ListResourcesResult {
   export const filterSensitiveLog = (obj: ListResourcesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListResourcesResult =>
-    __isa(o, "ListResourcesResult");
+  export const isa = (o: any): o is ListResourcesResult => __isa(o, "ListResourcesResult");
 }
 
 export interface ListTagsForProjectRequest {
@@ -848,10 +793,9 @@ export interface ListTagsForProjectRequest {
 
 export namespace ListTagsForProjectRequest {
   export const filterSensitiveLog = (obj: ListTagsForProjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForProjectRequest =>
-    __isa(o, "ListTagsForProjectRequest");
+  export const isa = (o: any): o is ListTagsForProjectRequest => __isa(o, "ListTagsForProjectRequest");
 }
 
 export interface ListTagsForProjectResult {
@@ -869,10 +813,9 @@ export interface ListTagsForProjectResult {
 
 export namespace ListTagsForProjectResult {
   export const filterSensitiveLog = (obj: ListTagsForProjectResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForProjectResult =>
-    __isa(o, "ListTagsForProjectResult");
+  export const isa = (o: any): o is ListTagsForProjectResult => __isa(o, "ListTagsForProjectResult");
 }
 
 export interface ListTeamMembersRequest {
@@ -896,10 +839,9 @@ export interface ListTeamMembersRequest {
 
 export namespace ListTeamMembersRequest {
   export const filterSensitiveLog = (obj: ListTeamMembersRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTeamMembersRequest =>
-    __isa(o, "ListTeamMembersRequest");
+  export const isa = (o: any): o is ListTeamMembersRequest => __isa(o, "ListTeamMembersRequest");
 }
 
 export interface ListTeamMembersResult {
@@ -918,10 +860,9 @@ export interface ListTeamMembersResult {
 
 export namespace ListTeamMembersResult {
   export const filterSensitiveLog = (obj: ListTeamMembersResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTeamMembersResult =>
-    __isa(o, "ListTeamMembersResult");
+  export const isa = (o: any): o is ListTeamMembersResult => __isa(o, "ListTeamMembersResult");
 }
 
 export interface ListUserProfilesRequest {
@@ -940,10 +881,9 @@ export interface ListUserProfilesRequest {
 
 export namespace ListUserProfilesRequest {
   export const filterSensitiveLog = (obj: ListUserProfilesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListUserProfilesRequest =>
-    __isa(o, "ListUserProfilesRequest");
+  export const isa = (o: any): o is ListUserProfilesRequest => __isa(o, "ListUserProfilesRequest");
 }
 
 export interface ListUserProfilesResult {
@@ -964,86 +904,66 @@ export namespace ListUserProfilesResult {
   export const filterSensitiveLog = (obj: ListUserProfilesResult): any => ({
     ...obj,
     ...(obj.userProfiles && {
-      userProfiles: obj.userProfiles.map(item =>
-        UserProfileSummary.filterSensitiveLog(item)
-      )
-    })
+      userProfiles: obj.userProfiles.map((item) => UserProfileSummary.filterSensitiveLog(item)),
+    }),
   });
-  export const isa = (o: any): o is ListUserProfilesResult =>
-    __isa(o, "ListUserProfilesResult");
+  export const isa = (o: any): o is ListUserProfilesResult => __isa(o, "ListUserProfilesResult");
 }
 
 /**
  * <p>An AWS CodeStar project with the same ID already exists in this region for the AWS account.
  *       AWS CodeStar project IDs must be unique within a region for the AWS account.</p>
  */
-export interface ProjectAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ProjectAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ProjectAlreadyExistsException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ProjectAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: ProjectAlreadyExistsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ProjectAlreadyExistsException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ProjectAlreadyExistsException =>
-    __isa(o, "ProjectAlreadyExistsException");
+  export const isa = (o: any): o is ProjectAlreadyExistsException => __isa(o, "ProjectAlreadyExistsException");
 }
 
 /**
  * <p>Project configuration information is required but not specified.</p>
  */
-export interface ProjectConfigurationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ProjectConfigurationException extends __SmithyException, $MetadataBearer {
   name: "ProjectConfigurationException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ProjectConfigurationException {
-  export const filterSensitiveLog = (
-    obj: ProjectConfigurationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ProjectConfigurationException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ProjectConfigurationException =>
-    __isa(o, "ProjectConfigurationException");
+  export const isa = (o: any): o is ProjectConfigurationException => __isa(o, "ProjectConfigurationException");
 }
 
 /**
  * <p>The project creation request was valid, but a nonspecific exception or error occurred
  *       during project creation. The project could not be created in AWS CodeStar.</p>
  */
-export interface ProjectCreationFailedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ProjectCreationFailedException extends __SmithyException, $MetadataBearer {
   name: "ProjectCreationFailedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ProjectCreationFailedException {
-  export const filterSensitiveLog = (
-    obj: ProjectCreationFailedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ProjectCreationFailedException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ProjectCreationFailedException =>
-    __isa(o, "ProjectCreationFailedException");
+  export const isa = (o: any): o is ProjectCreationFailedException => __isa(o, "ProjectCreationFailedException");
 }
 
 /**
  * <p>The specified AWS CodeStar project was not found.</p>
  */
-export interface ProjectNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ProjectNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ProjectNotFoundException";
   $fault: "client";
   message?: string;
@@ -1051,10 +971,9 @@ export interface ProjectNotFoundException
 
 export namespace ProjectNotFoundException {
   export const filterSensitiveLog = (obj: ProjectNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ProjectNotFoundException =>
-    __isa(o, "ProjectNotFoundException");
+  export const isa = (o: any): o is ProjectNotFoundException => __isa(o, "ProjectNotFoundException");
 }
 
 /**
@@ -1077,7 +996,7 @@ export interface ProjectStatus {
 
 export namespace ProjectStatus {
   export const filterSensitiveLog = (obj: ProjectStatus): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ProjectStatus => __isa(o, "ProjectStatus");
 }
@@ -1100,10 +1019,9 @@ export interface ProjectSummary {
 
 export namespace ProjectSummary {
   export const filterSensitiveLog = (obj: ProjectSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ProjectSummary =>
-    __isa(o, "ProjectSummary");
+  export const isa = (o: any): o is ProjectSummary => __isa(o, "ProjectSummary");
 }
 
 /**
@@ -1119,7 +1037,7 @@ export interface Resource {
 
 export namespace Resource {
   export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
@@ -1145,7 +1063,7 @@ export interface S3Location {
 
 export namespace S3Location {
   export const filterSensitiveLog = (obj: S3Location): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is S3Location => __isa(o, "S3Location");
 }
@@ -1165,10 +1083,9 @@ export interface TagProjectRequest {
 
 export namespace TagProjectRequest {
   export const filterSensitiveLog = (obj: TagProjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagProjectRequest =>
-    __isa(o, "TagProjectRequest");
+  export const isa = (o: any): o is TagProjectRequest => __isa(o, "TagProjectRequest");
 }
 
 export interface TagProjectResult {
@@ -1181,10 +1098,9 @@ export interface TagProjectResult {
 
 export namespace TagProjectResult {
   export const filterSensitiveLog = (obj: TagProjectResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagProjectResult =>
-    __isa(o, "TagProjectResult");
+  export const isa = (o: any): o is TagProjectResult => __isa(o, "TagProjectResult");
 }
 
 /**
@@ -1213,7 +1129,7 @@ export interface TeamMember {
 
 export namespace TeamMember {
   export const filterSensitiveLog = (obj: TeamMember): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TeamMember => __isa(o, "TeamMember");
 }
@@ -1221,19 +1137,15 @@ export namespace TeamMember {
 /**
  * <p>The team member is already associated with a role in this project.</p>
  */
-export interface TeamMemberAlreadyAssociatedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TeamMemberAlreadyAssociatedException extends __SmithyException, $MetadataBearer {
   name: "TeamMemberAlreadyAssociatedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace TeamMemberAlreadyAssociatedException {
-  export const filterSensitiveLog = (
-    obj: TeamMemberAlreadyAssociatedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TeamMemberAlreadyAssociatedException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is TeamMemberAlreadyAssociatedException =>
     __isa(o, "TeamMemberAlreadyAssociatedException");
@@ -1242,22 +1154,17 @@ export namespace TeamMemberAlreadyAssociatedException {
 /**
  * <p>The specified team member was not found.</p>
  */
-export interface TeamMemberNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TeamMemberNotFoundException extends __SmithyException, $MetadataBearer {
   name: "TeamMemberNotFoundException";
   $fault: "client";
   message?: string;
 }
 
 export namespace TeamMemberNotFoundException {
-  export const filterSensitiveLog = (
-    obj: TeamMemberNotFoundException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TeamMemberNotFoundException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TeamMemberNotFoundException =>
-    __isa(o, "TeamMemberNotFoundException");
+  export const isa = (o: any): o is TeamMemberNotFoundException => __isa(o, "TeamMemberNotFoundException");
 }
 
 /**
@@ -1288,7 +1195,7 @@ export interface Toolchain {
 export namespace Toolchain {
   export const filterSensitiveLog = (obj: Toolchain): any => ({
     ...obj,
-    ...(obj.stackParameters && { stackParameters: SENSITIVE_STRING })
+    ...(obj.stackParameters && { stackParameters: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is Toolchain => __isa(o, "Toolchain");
 }
@@ -1308,10 +1215,9 @@ export interface ToolchainSource {
 
 export namespace ToolchainSource {
   export const filterSensitiveLog = (obj: ToolchainSource): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ToolchainSource =>
-    __isa(o, "ToolchainSource");
+  export const isa = (o: any): o is ToolchainSource => __isa(o, "ToolchainSource");
 }
 
 export interface UntagProjectRequest {
@@ -1329,10 +1235,9 @@ export interface UntagProjectRequest {
 
 export namespace UntagProjectRequest {
   export const filterSensitiveLog = (obj: UntagProjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagProjectRequest =>
-    __isa(o, "UntagProjectRequest");
+  export const isa = (o: any): o is UntagProjectRequest => __isa(o, "UntagProjectRequest");
 }
 
 export interface UntagProjectResult {
@@ -1341,10 +1246,9 @@ export interface UntagProjectResult {
 
 export namespace UntagProjectResult {
   export const filterSensitiveLog = (obj: UntagProjectResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagProjectResult =>
-    __isa(o, "UntagProjectResult");
+  export const isa = (o: any): o is UntagProjectResult => __isa(o, "UntagProjectResult");
 }
 
 export interface UpdateProjectRequest {
@@ -1369,10 +1273,9 @@ export namespace UpdateProjectRequest {
   export const filterSensitiveLog = (obj: UpdateProjectRequest): any => ({
     ...obj,
     ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.name && { name: SENSITIVE_STRING })
+    ...(obj.name && { name: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateProjectRequest =>
-    __isa(o, "UpdateProjectRequest");
+  export const isa = (o: any): o is UpdateProjectRequest => __isa(o, "UpdateProjectRequest");
 }
 
 export interface UpdateProjectResult {
@@ -1381,10 +1284,9 @@ export interface UpdateProjectResult {
 
 export namespace UpdateProjectResult {
   export const filterSensitiveLog = (obj: UpdateProjectResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateProjectResult =>
-    __isa(o, "UpdateProjectResult");
+  export const isa = (o: any): o is UpdateProjectResult => __isa(o, "UpdateProjectResult");
 }
 
 export interface UpdateTeamMemberRequest {
@@ -1417,10 +1319,9 @@ export interface UpdateTeamMemberRequest {
 
 export namespace UpdateTeamMemberRequest {
   export const filterSensitiveLog = (obj: UpdateTeamMemberRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateTeamMemberRequest =>
-    __isa(o, "UpdateTeamMemberRequest");
+  export const isa = (o: any): o is UpdateTeamMemberRequest => __isa(o, "UpdateTeamMemberRequest");
 }
 
 export interface UpdateTeamMemberResult {
@@ -1445,10 +1346,9 @@ export interface UpdateTeamMemberResult {
 
 export namespace UpdateTeamMemberResult {
   export const filterSensitiveLog = (obj: UpdateTeamMemberResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateTeamMemberResult =>
-    __isa(o, "UpdateTeamMemberResult");
+  export const isa = (o: any): o is UpdateTeamMemberResult => __isa(o, "UpdateTeamMemberResult");
 }
 
 export interface UpdateUserProfileRequest {
@@ -1482,10 +1382,9 @@ export namespace UpdateUserProfileRequest {
   export const filterSensitiveLog = (obj: UpdateUserProfileRequest): any => ({
     ...obj,
     ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING })
+    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateUserProfileRequest =>
-    __isa(o, "UpdateUserProfileRequest");
+  export const isa = (o: any): o is UpdateUserProfileRequest => __isa(o, "UpdateUserProfileRequest");
 }
 
 export interface UpdateUserProfileResult {
@@ -1528,53 +1427,42 @@ export namespace UpdateUserProfileResult {
   export const filterSensitiveLog = (obj: UpdateUserProfileResult): any => ({
     ...obj,
     ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING })
+    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateUserProfileResult =>
-    __isa(o, "UpdateUserProfileResult");
+  export const isa = (o: any): o is UpdateUserProfileResult => __isa(o, "UpdateUserProfileResult");
 }
 
 /**
  * <p>A user profile with that name already exists in this region for the AWS account. AWS
  *       CodeStar user profile names must be unique within a region for the AWS account. </p>
  */
-export interface UserProfileAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UserProfileAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "UserProfileAlreadyExistsException";
   $fault: "client";
   message?: string;
 }
 
 export namespace UserProfileAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: UserProfileAlreadyExistsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UserProfileAlreadyExistsException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UserProfileAlreadyExistsException =>
-    __isa(o, "UserProfileAlreadyExistsException");
+  export const isa = (o: any): o is UserProfileAlreadyExistsException => __isa(o, "UserProfileAlreadyExistsException");
 }
 
 /**
  * <p>The user profile was not found.</p>
  */
-export interface UserProfileNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UserProfileNotFoundException extends __SmithyException, $MetadataBearer {
   name: "UserProfileNotFoundException";
   $fault: "client";
   message?: string;
 }
 
 export namespace UserProfileNotFoundException {
-  export const filterSensitiveLog = (
-    obj: UserProfileNotFoundException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UserProfileNotFoundException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UserProfileNotFoundException =>
-    __isa(o, "UserProfileNotFoundException");
+  export const isa = (o: any): o is UserProfileNotFoundException => __isa(o, "UserProfileNotFoundException");
 }
 
 /**
@@ -1616,18 +1504,15 @@ export namespace UserProfileSummary {
   export const filterSensitiveLog = (obj: UserProfileSummary): any => ({
     ...obj,
     ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING })
+    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UserProfileSummary =>
-    __isa(o, "UserProfileSummary");
+  export const isa = (o: any): o is UserProfileSummary => __isa(o, "UserProfileSummary");
 }
 
 /**
  * <p>The specified input is either not valid, or it could not be validated.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   message?: string;
@@ -1635,8 +1520,7 @@ export interface ValidationException
 
 export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

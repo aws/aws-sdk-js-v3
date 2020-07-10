@@ -8,16 +8,12 @@ import {
   BuildMiddleware,
   MetadataBearer,
   Pluggable,
-  RelativeLocation
+  RelativeLocation,
 } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
-export function bucketEndpointMiddleware(
-  options: BucketEndpointResolvedConfig
-): BuildMiddleware<any, any> {
-  return <Output extends MetadataBearer>(
-    next: BuildHandler<any, Output>
-  ): BuildHandler<any, Output> => async (
+export function bucketEndpointMiddleware(options: BucketEndpointResolvedConfig): BuildMiddleware<any, any> {
+  return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
     const { Bucket: bucketName } = args.input;
@@ -33,7 +29,7 @@ export function bucketEndpointMiddleware(
           accelerateEndpoint: options.useAccelerateEndpoint,
           dualstackEndpoint: options.useDualstackEndpoint,
           pathStyleEndpoint: options.forcePathStyle,
-          tlsCompatible: request.protocol === "https:"
+          tlsCompatible: request.protocol === "https:",
         });
 
         request.hostname = hostname;
@@ -52,22 +48,16 @@ export function bucketEndpointMiddleware(
   };
 }
 
-export const bucketEndpointMiddlewareOptions: BuildHandlerOptions &
-  RelativeLocation<any, any> = {
+export const bucketEndpointMiddlewareOptions: BuildHandlerOptions & RelativeLocation<any, any> = {
   step: "build",
   tags: ["BUCKET_ENDPOINT"],
   name: "bucketEndpointMiddleware",
   relation: "before",
-  toMiddleware: "hostHeaderMiddleware"
+  toMiddleware: "hostHeaderMiddleware",
 };
 
-export const getBucketEndpointPlugin = (
-  options: BucketEndpointResolvedConfig
-): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
-    clientStack.addRelativeTo(
-      bucketEndpointMiddleware(options),
-      bucketEndpointMiddlewareOptions
-    );
-  }
+export const getBucketEndpointPlugin = (options: BucketEndpointResolvedConfig): Pluggable<any, any> => ({
+  applyToStack: (clientStack) => {
+    clientStack.addRelativeTo(bucketEndpointMiddleware(options), bucketEndpointMiddlewareOptions);
+  },
 });

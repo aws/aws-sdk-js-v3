@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkSpacesClientResolvedConfig
-} from "../WorkSpacesClient";
-import {
-  UpdateRulesOfIpGroupRequest,
-  UpdateRulesOfIpGroupResult
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
+import { UpdateRulesOfIpGroupRequest, UpdateRulesOfIpGroupResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateRulesOfIpGroupCommand,
-  serializeAws_json1_1UpdateRulesOfIpGroupCommand
+  serializeAws_json1_1UpdateRulesOfIpGroupCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateRulesOfIpGroupCommandInput = UpdateRulesOfIpGroupRequest;
-export type UpdateRulesOfIpGroupCommandOutput = UpdateRulesOfIpGroupResult &
-  __MetadataBearer;
+export type UpdateRulesOfIpGroupCommandOutput = UpdateRulesOfIpGroupResult & __MetadataBearer;
 
 export class UpdateRulesOfIpGroupCommand extends $Command<
   UpdateRulesOfIpGroupCommandInput,
@@ -49,18 +38,13 @@ export class UpdateRulesOfIpGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateRulesOfIpGroupCommandInput,
-    UpdateRulesOfIpGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateRulesOfIpGroupCommandInput, UpdateRulesOfIpGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class UpdateRulesOfIpGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateRulesOfIpGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateRulesOfIpGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateRulesOfIpGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateRulesOfIpGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRulesOfIpGroupCommandOutput> {
     return deserializeAws_json1_1UpdateRulesOfIpGroupCommand(output, context);
   }
 

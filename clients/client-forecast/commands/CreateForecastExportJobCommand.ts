@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  forecastClientResolvedConfig
-} from "../forecastClient";
-import {
-  CreateForecastExportJobRequest,
-  CreateForecastExportJobResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, forecastClientResolvedConfig } from "../forecastClient";
+import { CreateForecastExportJobRequest, CreateForecastExportJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateForecastExportJobCommand,
-  serializeAws_json1_1CreateForecastExportJobCommand
+  serializeAws_json1_1CreateForecastExportJobCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateForecastExportJobCommandInput = CreateForecastExportJobRequest;
-export type CreateForecastExportJobCommandOutput = CreateForecastExportJobResponse &
-  __MetadataBearer;
+export type CreateForecastExportJobCommandOutput = CreateForecastExportJobResponse & __MetadataBearer;
 
 export class CreateForecastExportJobCommand extends $Command<
   CreateForecastExportJobCommandInput,
@@ -49,18 +38,13 @@ export class CreateForecastExportJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: forecastClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateForecastExportJobCommandInput,
-    CreateForecastExportJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateForecastExportJobCommandInput, CreateForecastExportJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class CreateForecastExportJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateForecastExportJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateForecastExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateForecastExportJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateForecastExportJobCommandOutput> {
-    return deserializeAws_json1_1CreateForecastExportJobCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateForecastExportJobCommandOutput> {
+    return deserializeAws_json1_1CreateForecastExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

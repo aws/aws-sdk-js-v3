@@ -1,84 +1,51 @@
-import {
-  CreateIdentityPoolCommandInput,
-  CreateIdentityPoolCommandOutput
-} from "./commands/CreateIdentityPoolCommand";
-import {
-  DeleteIdentitiesCommandInput,
-  DeleteIdentitiesCommandOutput
-} from "./commands/DeleteIdentitiesCommand";
-import {
-  DeleteIdentityPoolCommandInput,
-  DeleteIdentityPoolCommandOutput
-} from "./commands/DeleteIdentityPoolCommand";
-import {
-  DescribeIdentityCommandInput,
-  DescribeIdentityCommandOutput
-} from "./commands/DescribeIdentityCommand";
+import { CreateIdentityPoolCommandInput, CreateIdentityPoolCommandOutput } from "./commands/CreateIdentityPoolCommand";
+import { DeleteIdentitiesCommandInput, DeleteIdentitiesCommandOutput } from "./commands/DeleteIdentitiesCommand";
+import { DeleteIdentityPoolCommandInput, DeleteIdentityPoolCommandOutput } from "./commands/DeleteIdentityPoolCommand";
+import { DescribeIdentityCommandInput, DescribeIdentityCommandOutput } from "./commands/DescribeIdentityCommand";
 import {
   DescribeIdentityPoolCommandInput,
-  DescribeIdentityPoolCommandOutput
+  DescribeIdentityPoolCommandOutput,
 } from "./commands/DescribeIdentityPoolCommand";
 import {
   GetCredentialsForIdentityCommandInput,
-  GetCredentialsForIdentityCommandOutput
+  GetCredentialsForIdentityCommandOutput,
 } from "./commands/GetCredentialsForIdentityCommand";
 import { GetIdCommandInput, GetIdCommandOutput } from "./commands/GetIdCommand";
 import {
   GetIdentityPoolRolesCommandInput,
-  GetIdentityPoolRolesCommandOutput
+  GetIdentityPoolRolesCommandOutput,
 } from "./commands/GetIdentityPoolRolesCommand";
-import {
-  GetOpenIdTokenCommandInput,
-  GetOpenIdTokenCommandOutput
-} from "./commands/GetOpenIdTokenCommand";
+import { GetOpenIdTokenCommandInput, GetOpenIdTokenCommandOutput } from "./commands/GetOpenIdTokenCommand";
 import {
   GetOpenIdTokenForDeveloperIdentityCommandInput,
-  GetOpenIdTokenForDeveloperIdentityCommandOutput
+  GetOpenIdTokenForDeveloperIdentityCommandOutput,
 } from "./commands/GetOpenIdTokenForDeveloperIdentityCommand";
-import {
-  ListIdentitiesCommandInput,
-  ListIdentitiesCommandOutput
-} from "./commands/ListIdentitiesCommand";
-import {
-  ListIdentityPoolsCommandInput,
-  ListIdentityPoolsCommandOutput
-} from "./commands/ListIdentityPoolsCommand";
+import { ListIdentitiesCommandInput, ListIdentitiesCommandOutput } from "./commands/ListIdentitiesCommand";
+import { ListIdentityPoolsCommandInput, ListIdentityPoolsCommandOutput } from "./commands/ListIdentityPoolsCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   LookupDeveloperIdentityCommandInput,
-  LookupDeveloperIdentityCommandOutput
+  LookupDeveloperIdentityCommandOutput,
 } from "./commands/LookupDeveloperIdentityCommand";
 import {
   MergeDeveloperIdentitiesCommandInput,
-  MergeDeveloperIdentitiesCommandOutput
+  MergeDeveloperIdentitiesCommandOutput,
 } from "./commands/MergeDeveloperIdentitiesCommand";
 import {
   SetIdentityPoolRolesCommandInput,
-  SetIdentityPoolRolesCommandOutput
+  SetIdentityPoolRolesCommandOutput,
 } from "./commands/SetIdentityPoolRolesCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UnlinkDeveloperIdentityCommandInput,
-  UnlinkDeveloperIdentityCommandOutput
+  UnlinkDeveloperIdentityCommandOutput,
 } from "./commands/UnlinkDeveloperIdentityCommand";
-import {
-  UnlinkIdentityCommandInput,
-  UnlinkIdentityCommandOutput
-} from "./commands/UnlinkIdentityCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateIdentityPoolCommandInput,
-  UpdateIdentityPoolCommandOutput
-} from "./commands/UpdateIdentityPoolCommand";
+import { UnlinkIdentityCommandInput, UnlinkIdentityCommandOutput } from "./commands/UnlinkIdentityCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateIdentityPoolCommandInput, UpdateIdentityPoolCommandOutput } from "./commands/UpdateIdentityPoolCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -86,37 +53,28 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
-import {
-  AwsAuthInputConfig,
-  AwsAuthResolvedConfig,
-  resolveAwsAuthConfig
-} from "@aws-sdk/middleware-signing";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
+import { AwsAuthInputConfig, AwsAuthResolvedConfig, resolveAwsAuthConfig } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -127,7 +85,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -176,8 +134,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateIdentityPoolCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -266,9 +223,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CognitoIdentityClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CognitoIdentityClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -277,9 +232,7 @@ export type CognitoIdentityClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CognitoIdentityClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CognitoIdentityClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -315,7 +268,7 @@ export class CognitoIdentityClient extends __Client<
   constructor(configuration: CognitoIdentityClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

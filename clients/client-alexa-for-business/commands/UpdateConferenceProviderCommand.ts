@@ -1,21 +1,11 @@
-import {
-  AlexaForBusinessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AlexaForBusinessClient";
-import {
-  UpdateConferenceProviderRequest,
-  UpdateConferenceProviderResponse
-} from "../models/index";
+import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
+import { UpdateConferenceProviderRequest, UpdateConferenceProviderResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateConferenceProviderCommand,
-  serializeAws_json1_1UpdateConferenceProviderCommand
+  serializeAws_json1_1UpdateConferenceProviderCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateConferenceProviderCommandInput = UpdateConferenceProviderRequest;
-export type UpdateConferenceProviderCommandOutput = UpdateConferenceProviderResponse &
-  __MetadataBearer;
+export type UpdateConferenceProviderCommandOutput = UpdateConferenceProviderResponse & __MetadataBearer;
 
 export class UpdateConferenceProviderCommand extends $Command<
   UpdateConferenceProviderCommandInput,
@@ -49,18 +38,13 @@ export class UpdateConferenceProviderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateConferenceProviderCommandInput,
-    UpdateConferenceProviderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateConferenceProviderCommandInput, UpdateConferenceProviderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class UpdateConferenceProviderCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateConferenceProviderCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateConferenceProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateConferenceProviderCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateConferenceProviderCommandOutput> {
-    return deserializeAws_json1_1UpdateConferenceProviderCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConferenceProviderCommandOutput> {
+    return deserializeAws_json1_1UpdateConferenceProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

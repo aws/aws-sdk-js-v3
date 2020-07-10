@@ -1,21 +1,11 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient";
-import {
-  GenerateDataKeyRequest,
-  GenerateDataKeyResponse
-} from "../models/index";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { GenerateDataKeyRequest, GenerateDataKeyResponse } from "../models/index";
 import {
   deserializeAws_json1_1GenerateDataKeyCommand,
-  serializeAws_json1_1GenerateDataKeyCommand
+  serializeAws_json1_1GenerateDataKeyCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GenerateDataKeyCommandInput = GenerateDataKeyRequest;
-export type GenerateDataKeyCommandOutput = GenerateDataKeyResponse &
-  __MetadataBearer;
+export type GenerateDataKeyCommandOutput = GenerateDataKeyResponse & __MetadataBearer;
 
 export class GenerateDataKeyCommand extends $Command<
   GenerateDataKeyCommandInput,
@@ -50,14 +39,12 @@ export class GenerateDataKeyCommand extends $Command<
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GenerateDataKeyCommandInput, GenerateDataKeyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class GenerateDataKeyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GenerateDataKeyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GenerateDataKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GenerateDataKeyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GenerateDataKeyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateDataKeyCommandOutput> {
     return deserializeAws_json1_1GenerateDataKeyCommand(output, context);
   }
 

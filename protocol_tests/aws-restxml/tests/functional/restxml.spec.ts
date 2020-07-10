@@ -54,10 +54,7 @@ class EXPECTED_REQUEST_SERIALIZATION_ERROR {
  * request. The thrown exception contains the serialized request.
  */
 class RequestSerializationTestHandler implements HttpHandler {
-  handle(
-    request: HttpRequest,
-    options: HttpHandlerOptions
-  ): Promise<{ response: HttpResponse }> {
+  handle(request: HttpRequest, options: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return Promise.reject(new EXPECTED_REQUEST_SERIALIZATION_ERROR(request));
   }
 }
@@ -71,12 +68,7 @@ class ResponseDeserializationTestHandler implements HttpHandler {
   headers: HeaderBag;
   body: String;
 
-  constructor(
-    isSuccess: boolean,
-    code: number,
-    headers?: HeaderBag,
-    body?: String
-  ) {
+  constructor(isSuccess: boolean, code: number, headers?: HeaderBag, body?: String) {
     this.isSuccess = isSuccess;
     this.code = code;
     if (headers === undefined) {
@@ -90,16 +82,13 @@ class ResponseDeserializationTestHandler implements HttpHandler {
     this.body = body;
   }
 
-  handle(
-    request: HttpRequest,
-    options: HttpHandlerOptions
-  ): Promise<{ response: HttpResponse }> {
+  handle(request: HttpRequest, options: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return Promise.resolve({
       response: {
         statusCode: this.code,
         headers: this.headers,
-        body: Readable.from([this.body])
-      }
+        body: Readable.from([this.body]),
+      },
     });
   }
 }
@@ -111,12 +100,9 @@ interface comparableParts {
 /**
  * Generates a standard map of un-equal values given input parts.
  */
-const compareParts = (
-  expectedParts: comparableParts,
-  generatedParts: comparableParts
-) => {
+const compareParts = (expectedParts: comparableParts, generatedParts: comparableParts) => {
   const unequalParts: any = {};
-  Object.keys(expectedParts).forEach(key => {
+  Object.keys(expectedParts).forEach((key) => {
     if (generatedParts[key] === undefined) {
       unequalParts[key] = { exp: expectedParts[key], gen: undefined };
     } else if (!equivalentContents(expectedParts[key], generatedParts[key])) {
@@ -124,7 +110,7 @@ const compareParts = (
     }
   });
 
-  Object.keys(generatedParts).forEach(key => {
+  Object.keys(generatedParts).forEach((key) => {
     if (expectedParts[key] === undefined) {
       unequalParts[key] = { exp: undefined, gen: generatedParts[key] };
     }
@@ -156,12 +142,8 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   delete generated["__type"];
   delete localExpected["$metadata"];
   delete generated["$metadata"];
-  Object.keys(localExpected).forEach(
-    key => localExpected[key] === undefined && delete localExpected[key]
-  );
-  Object.keys(generated).forEach(
-    key => generated[key] === undefined && delete generated[key]
-  );
+  Object.keys(localExpected).forEach((key) => localExpected[key] === undefined && delete localExpected[key]);
+  Object.keys(generated).forEach((key) => generated[key] === undefined && delete generated[key]);
 
   const expectedProperties = Object.getOwnPropertyNames(localExpected);
   const generatedProperties = Object.getOwnPropertyNames(generated);
@@ -174,9 +156,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   // Compare properties directly.
   for (var index = 0; index < expectedProperties.length; index++) {
     const propertyName = expectedProperties[index];
-    if (
-      !equivalentContents(localExpected[propertyName], generated[propertyName])
-    ) {
+    if (!equivalentContents(localExpected[propertyName], generated[propertyName])) {
       return false;
     }
   }
@@ -189,7 +169,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
  */
 it("AllQueryStringTypes:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new AllQueryStringTypesCommand({
@@ -227,7 +207,7 @@ it("AllQueryStringTypes:Request", async () => {
 
     queryEnum: "Foo",
 
-    queryEnumList: ["Foo", "Baz", "Bar"]
+    queryEnumList: ["Foo", "Baz", "Bar"],
   } as any);
   try {
     await client.send(command);
@@ -287,11 +267,11 @@ it("AllQueryStringTypes:Request", async () => {
  */
 it("ConstantAndVariableQueryStringMissingOneValue:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new ConstantAndVariableQueryStringCommand({
-    baz: "bam"
+    baz: "bam",
   } as any);
   try {
     await client.send(command);
@@ -321,13 +301,13 @@ it("ConstantAndVariableQueryStringMissingOneValue:Request", async () => {
  */
 it("ConstantAndVariableQueryStringAllValues:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new ConstantAndVariableQueryStringCommand({
     baz: "bam",
 
-    maybeSet: "yes"
+    maybeSet: "yes",
   } as any);
   try {
     await client.send(command);
@@ -356,11 +336,11 @@ it("ConstantAndVariableQueryStringAllValues:Request", async () => {
  */
 it("ConstantQueryString:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new ConstantQueryStringCommand({
-    hello: "hi"
+    hello: "hi",
   } as any);
   try {
     await client.send(command);
@@ -388,7 +368,7 @@ it("ConstantQueryString:Request", async () => {
  */
 it("EmptyInputAndEmptyOutput:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new EmptyInputAndEmptyOutputCommand({} as any);
@@ -414,12 +394,7 @@ it("EmptyInputAndEmptyOutput:Request", async () => {
  */
 it("EmptyInputAndEmptyOutput:Response", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      undefined,
-      ``
-    )
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, ``),
   });
 
   const params: any = {};
@@ -440,15 +415,15 @@ it("EmptyInputAndEmptyOutput:Response", async () => {
  */
 it("FlattenedXmlMap:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new FlattenedXmlMapCommand({
     myMap: {
       foo: "Foo",
 
-      baz: "Baz"
-    } as any
+      baz: "Baz",
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -477,10 +452,7 @@ it("FlattenedXmlMap:Request", async () => {
             <value>Baz</value>
         </myMap>
     </FlattenedXmlMapInputOutput>`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -494,7 +466,7 @@ it("FlattenedXmlMap:Response", async () => {
       true,
       200,
       {
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<FlattenedXmlMapInputOutput>
           <myMap>
@@ -506,7 +478,7 @@ it("FlattenedXmlMap:Response", async () => {
               <value>Baz</value>
           </myMap>
       </FlattenedXmlMapInputOutput>`
-    )
+    ),
   });
 
   const params: any = {};
@@ -525,11 +497,11 @@ it("FlattenedXmlMap:Response", async () => {
       myMap: {
         foo: "Foo",
 
-        baz: "Baz"
-      }
-    }
+        baz: "Baz",
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -540,15 +512,15 @@ it("FlattenedXmlMap:Response", async () => {
  */
 it("FlattenedXmlMapWithXmlName:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new FlattenedXmlMapWithXmlNameCommand({
     myMap: {
       a: "A",
 
-      b: "B"
-    } as any
+      b: "B",
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -577,10 +549,7 @@ it("FlattenedXmlMapWithXmlName:Request", async () => {
             <V>B</V>
         </KVP>
     </FlattenedXmlMapWithXmlNameInputOutput>`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -594,7 +563,7 @@ it("FlattenedXmlMapWithXmlName:Response", async () => {
       true,
       200,
       {
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<FlattenedXmlMapWithXmlNameInputOutput>
           <KVP>
@@ -606,7 +575,7 @@ it("FlattenedXmlMapWithXmlName:Response", async () => {
               <V>B</V>
           </KVP>
       </FlattenedXmlMapWithXmlNameInputOutput>`
-    )
+    ),
   });
 
   const params: any = {};
@@ -625,11 +594,11 @@ it("FlattenedXmlMapWithXmlName:Response", async () => {
       myMap: {
         a: "A",
 
-        b: "B"
-      }
-    }
+        b: "B",
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -644,10 +613,10 @@ it("GreetingWithErrors:Response", async () => {
       true,
       200,
       {
-        "x-greeting": "Hello"
+        "x-greeting": "Hello",
       },
       ``
-    )
+    ),
   });
 
   const params: any = {};
@@ -663,10 +632,10 @@ it("GreetingWithErrors:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      greeting: "Hello"
-    }
+      greeting: "Hello",
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -681,7 +650,7 @@ it("InvalidGreetingError:Error:GreetingWithErrors", async () => {
       false,
       400,
       {
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<ErrorResponse>
          <Error>
@@ -693,7 +662,7 @@ it("InvalidGreetingError:Error:GreetingWithErrors", async () => {
          <RequestId>foo-id</RequestId>
       </ErrorResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -711,10 +680,10 @@ it("InvalidGreetingError:Error:GreetingWithErrors", async () => {
     expect(r["$metadata"].httpStatusCode).toBe(400);
     const paramsToValidate: any = [
       {
-        message: "Hi"
-      }
+        message: "Hi",
+      },
     ][0];
-    Object.keys(paramsToValidate).forEach(param => {
+    Object.keys(paramsToValidate).forEach((param) => {
       expect(r[param]).toBeDefined();
       expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
     });
@@ -730,7 +699,7 @@ it("ComplexError:Error:GreetingWithErrors", async () => {
       400,
       {
         "x-header": "Header",
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<ErrorResponse>
          <Error>
@@ -745,7 +714,7 @@ it("ComplexError:Error:GreetingWithErrors", async () => {
          <RequestId>foo-id</RequestId>
       </ErrorResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -768,11 +737,11 @@ it("ComplexError:Error:GreetingWithErrors", async () => {
         TopLevel: "Top level",
 
         Nested: {
-          Foo: "bar"
-        }
-      }
+          Foo: "bar",
+        },
+      },
     ][0];
-    Object.keys(paramsToValidate).forEach(param => {
+    Object.keys(paramsToValidate).forEach((param) => {
       expect(r[param]).toBeDefined();
       expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
     });
@@ -786,13 +755,13 @@ it("ComplexError:Error:GreetingWithErrors", async () => {
  */
 it("HttpPayloadTraitsWithBlob:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new HttpPayloadTraitsCommand({
     foo: "Foo",
 
-    blob: Uint8Array.from("blobby blob blob", c => c.charCodeAt(0))
+    blob: Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)),
   } as any);
   try {
     await client.send(command);
@@ -811,9 +780,7 @@ it("HttpPayloadTraitsWithBlob:Request", async () => {
     expect(r.headers["X-Foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
-    expect(r.body).toMatchObject(
-      Uint8Array.from("blobby blob blob", c => c.charCodeAt(0))
-    );
+    expect(r.body).toMatchObject(Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)));
   }
 });
 
@@ -822,11 +789,11 @@ it("HttpPayloadTraitsWithBlob:Request", async () => {
  */
 it("HttpPayloadTraitsWithNoBlobBody:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new HttpPayloadTraitsCommand({
-    foo: "Foo"
+    foo: "Foo",
   } as any);
   try {
     await client.send(command);
@@ -857,10 +824,10 @@ it("HttpPayloadTraitsWithBlob:Response", async () => {
       true,
       200,
       {
-        "x-foo": "Foo"
+        "x-foo": "Foo",
       },
       `blobby blob blob`
-    )
+    ),
   });
 
   const params: any = {};
@@ -878,10 +845,10 @@ it("HttpPayloadTraitsWithBlob:Response", async () => {
     {
       foo: "Foo",
 
-      blob: Uint8Array.from("blobby blob blob", c => c.charCodeAt(0))
-    }
+      blob: Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)),
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -896,10 +863,10 @@ it("HttpPayloadTraitsWithNoBlobBody:Response", async () => {
       true,
       200,
       {
-        "x-foo": "Foo"
+        "x-foo": "Foo",
       },
       ``
-    )
+    ),
   });
 
   const params: any = {};
@@ -915,10 +882,10 @@ it("HttpPayloadTraitsWithNoBlobBody:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      foo: "Foo"
-    }
+      foo: "Foo",
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -929,13 +896,13 @@ it("HttpPayloadTraitsWithNoBlobBody:Response", async () => {
  */
 it("HttpPayloadTraitsWithMediaTypeWithBlob:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new HttpPayloadTraitsWithMediaTypeCommand({
     foo: "Foo",
 
-    blob: Uint8Array.from("blobby blob blob", c => c.charCodeAt(0))
+    blob: Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)),
   } as any);
   try {
     await client.send(command);
@@ -956,9 +923,7 @@ it("HttpPayloadTraitsWithMediaTypeWithBlob:Request", async () => {
     expect(r.headers["X-Foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
-    expect(r.body).toMatchObject(
-      Uint8Array.from("blobby blob blob", c => c.charCodeAt(0))
-    );
+    expect(r.body).toMatchObject(Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)));
   }
 });
 
@@ -972,10 +937,10 @@ it("HttpPayloadTraitsWithMediaTypeWithBlob:Response", async () => {
       200,
       {
         "x-foo": "Foo",
-        "content-type": "text/plain"
+        "content-type": "text/plain",
       },
       `blobby blob blob`
-    )
+    ),
   });
 
   const params: any = {};
@@ -993,10 +958,10 @@ it("HttpPayloadTraitsWithMediaTypeWithBlob:Response", async () => {
     {
       foo: "Foo",
 
-      blob: Uint8Array.from("blobby blob blob", c => c.charCodeAt(0))
-    }
+      blob: Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)),
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1007,15 +972,15 @@ it("HttpPayloadTraitsWithMediaTypeWithBlob:Response", async () => {
  */
 it("HttpPayloadWithStructure:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new HttpPayloadWithStructureCommand({
     nested: {
       greeting: "hello",
 
-      name: "Phreddy"
-    } as any
+      name: "Phreddy",
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -1039,10 +1004,7 @@ it("HttpPayloadWithStructure:Request", async () => {
         <name>Phreddy</name>
     </NestedPayload>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1056,14 +1018,14 @@ it("HttpPayloadWithStructure:Response", async () => {
       true,
       200,
       {
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<NestedPayload>
           <greeting>hello</greeting>
           <name>Phreddy</name>
       </NestedPayload>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -1082,11 +1044,11 @@ it("HttpPayloadWithStructure:Response", async () => {
       nested: {
         greeting: "hello",
 
-        name: "Phreddy"
-      }
-    }
+        name: "Phreddy",
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1097,13 +1059,13 @@ it("HttpPayloadWithStructure:Response", async () => {
  */
 it("HttpPayloadWithXmlName:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new HttpPayloadWithXmlNameCommand({
     nested: {
-      name: "Phreddy"
-    } as any
+      name: "Phreddy",
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -1123,10 +1085,7 @@ it("HttpPayloadWithXmlName:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `<Hello><name>Phreddy</name></Hello>`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1140,10 +1099,10 @@ it("HttpPayloadWithXmlName:Response", async () => {
       true,
       200,
       {
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<Hello><name>Phreddy</name></Hello>`
-    )
+    ),
   });
 
   const params: any = {};
@@ -1160,11 +1119,11 @@ it("HttpPayloadWithXmlName:Response", async () => {
   const paramsToValidate: any = [
     {
       nested: {
-        name: "Phreddy"
-      }
-    }
+        name: "Phreddy",
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1175,13 +1134,13 @@ it("HttpPayloadWithXmlName:Response", async () => {
  */
 it("HttpPayloadWithXmlNamespace:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new HttpPayloadWithXmlNamespaceCommand({
     nested: {
-      name: "Phreddy"
-    } as any
+      name: "Phreddy",
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -1203,10 +1162,7 @@ it("HttpPayloadWithXmlNamespace:Request", async () => {
     const bodyString = `<PayloadWithXmlNamespace xmlns=\"http://foo.com\">
         <name>Phreddy</name>
     </PayloadWithXmlNamespace>`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1220,12 +1176,12 @@ it("HttpPayloadWithXmlNamespace:Response", async () => {
       true,
       200,
       {
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<PayloadWithXmlNamespace xmlns="http://foo.com">
           <name>Phreddy</name>
       </PayloadWithXmlNamespace>`
-    )
+    ),
   });
 
   const params: any = {};
@@ -1242,11 +1198,11 @@ it("HttpPayloadWithXmlNamespace:Response", async () => {
   const paramsToValidate: any = [
     {
       nested: {
-        name: "Phreddy"
-      }
-    }
+        name: "Phreddy",
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1257,13 +1213,13 @@ it("HttpPayloadWithXmlNamespace:Response", async () => {
  */
 it("HttpPayloadWithXmlNamespaceAndPrefix:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new HttpPayloadWithXmlNamespaceAndPrefixCommand({
     nested: {
-      name: "Phreddy"
-    } as any
+      name: "Phreddy",
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -1285,10 +1241,7 @@ it("HttpPayloadWithXmlNamespaceAndPrefix:Request", async () => {
     const bodyString = `<PayloadWithXmlNamespaceAndPrefix xmlns:baz=\"http://foo.com\">
         <name>Phreddy</name>
     </PayloadWithXmlNamespaceAndPrefix>`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1302,12 +1255,12 @@ it("HttpPayloadWithXmlNamespaceAndPrefix:Response", async () => {
       true,
       200,
       {
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<PayloadWithXmlNamespaceAndPrefix xmlns:baz="http://foo.com">
           <name>Phreddy</name>
       </PayloadWithXmlNamespaceAndPrefix>`
-    )
+    ),
   });
 
   const params: any = {};
@@ -1324,11 +1277,11 @@ it("HttpPayloadWithXmlNamespaceAndPrefix:Response", async () => {
   const paramsToValidate: any = [
     {
       nested: {
-        name: "Phreddy"
-      }
-    }
+        name: "Phreddy",
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1339,7 +1292,7 @@ it("HttpPayloadWithXmlNamespaceAndPrefix:Response", async () => {
  */
 it("HttpPrefixHeadersArePresent:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new HttpPrefixHeadersCommand({
@@ -1348,8 +1301,8 @@ it("HttpPrefixHeadersArePresent:Request", async () => {
     fooMap: {
       Abc: "Abc value",
 
-      Def: "Def value"
-    } as any
+      Def: "Def value",
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -1380,13 +1333,13 @@ it("HttpPrefixHeadersArePresent:Request", async () => {
  */
 it("HttpPrefixHeadersAreNotPresent:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new HttpPrefixHeadersCommand({
     foo: "Foo",
 
-    fooMap: {} as any
+    fooMap: {} as any,
   } as any);
   try {
     await client.send(command);
@@ -1419,10 +1372,10 @@ it("HttpPrefixHeadersArePresent:Response", async () => {
       {
         "x-foo": "Foo",
         "x-foo-abc": "Abc value",
-        "x-foo-def": "Def value"
+        "x-foo-def": "Def value",
       },
       ``
-    )
+    ),
   });
 
   const params: any = {};
@@ -1443,11 +1396,11 @@ it("HttpPrefixHeadersArePresent:Response", async () => {
       fooMap: {
         abc: "Abc value",
 
-        def: "Def value"
-      }
-    }
+        def: "Def value",
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1462,10 +1415,10 @@ it("HttpPrefixHeadersAreNotPresent:Response", async () => {
       true,
       200,
       {
-        "x-foo": "Foo"
+        "x-foo": "Foo",
       },
       ``
-    )
+    ),
   });
 
   const params: any = {};
@@ -1483,10 +1436,10 @@ it("HttpPrefixHeadersAreNotPresent:Response", async () => {
     {
       foo: "Foo",
 
-      fooMap: {}
-    }
+      fooMap: {},
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1497,13 +1450,13 @@ it("HttpPrefixHeadersAreNotPresent:Response", async () => {
  */
 it("HttpRequestWithGreedyLabelInPath:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new HttpRequestWithGreedyLabelInPathCommand({
     foo: "hello",
 
-    baz: "there/guy"
+    baz: "there/guy",
   } as any);
   try {
     await client.send(command);
@@ -1516,9 +1469,7 @@ it("HttpRequestWithGreedyLabelInPath:Request", async () => {
     }
     const r = err.request;
     expect(r.method).toBe("GET");
-    expect(r.path).toBe(
-      "/HttpRequestWithGreedyLabelInPath/foo/hello/baz/there/guy"
-    );
+    expect(r.path).toBe("/HttpRequestWithGreedyLabelInPath/foo/hello/baz/there/guy");
 
     expect(r.body).toBeFalsy();
   }
@@ -1529,7 +1480,7 @@ it("HttpRequestWithGreedyLabelInPath:Request", async () => {
  */
 it("InputWithHeadersAndAllParams:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new HttpRequestWithLabelsCommand({
@@ -1547,7 +1498,7 @@ it("InputWithHeadersAndAllParams:Request", async () => {
 
     boolean: true,
 
-    timestamp: new Date(1576540098000)
+    timestamp: new Date(1576540098000),
   } as any);
   try {
     await client.send(command);
@@ -1560,9 +1511,7 @@ it("InputWithHeadersAndAllParams:Request", async () => {
     }
     const r = err.request;
     expect(r.method).toBe("GET");
-    expect(r.path).toBe(
-      "/HttpRequestWithLabels/string/1/2/3/4.0/5.0/true/2019-12-16T23%3A48%3A18Z"
-    );
+    expect(r.path).toBe("/HttpRequestWithLabels/string/1/2/3/4.0/5.0/true/2019-12-16T23%3A48%3A18Z");
 
     expect(r.body).toBeFalsy();
   }
@@ -1573,7 +1522,7 @@ it("InputWithHeadersAndAllParams:Request", async () => {
  */
 it("HttpRequestWithLabelsAndTimestampFormat:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new HttpRequestWithLabelsAndTimestampFormatCommand({
@@ -1589,7 +1538,7 @@ it("HttpRequestWithLabelsAndTimestampFormat:Request", async () => {
 
     targetHttpDate: new Date(1576540098000),
 
-    targetDateTime: new Date(1576540098000)
+    targetDateTime: new Date(1576540098000),
   } as any);
   try {
     await client.send(command);
@@ -1619,10 +1568,10 @@ it("IgnoreQueryParamsInResponse:Response", async () => {
       true,
       200,
       {
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<IgnoreQueryParamsInResponseInputOutput><baz>bam</baz></IgnoreQueryParamsInResponseInputOutput>`
-    )
+    ),
   });
 
   const params: any = {};
@@ -1638,10 +1587,10 @@ it("IgnoreQueryParamsInResponse:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      baz: "bam"
-    }
+      baz: "bam",
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1652,7 +1601,7 @@ it("IgnoreQueryParamsInResponse:Response", async () => {
  */
 it("InputAndOutputWithStringHeaders:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new InputAndOutputWithHeadersCommand({
@@ -1660,7 +1609,7 @@ it("InputAndOutputWithStringHeaders:Request", async () => {
 
     headerStringList: ["a", "b", "c"],
 
-    headerStringSet: ["a", "b", "c"]
+    headerStringSet: ["a", "b", "c"],
   } as any);
   try {
     await client.send(command);
@@ -1691,7 +1640,7 @@ it("InputAndOutputWithStringHeaders:Request", async () => {
  */
 it("InputAndOutputWithNumericHeaders:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new InputAndOutputWithHeadersCommand({
@@ -1707,7 +1656,7 @@ it("InputAndOutputWithNumericHeaders:Request", async () => {
 
     headerDouble: 1.0,
 
-    headerIntegerList: [1, 2, 3]
+    headerIntegerList: [1, 2, 3],
   } as any);
   try {
     await client.send(command);
@@ -1746,7 +1695,7 @@ it("InputAndOutputWithNumericHeaders:Request", async () => {
  */
 it("InputAndOutputWithBooleanHeaders:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new InputAndOutputWithHeadersCommand({
@@ -1754,7 +1703,7 @@ it("InputAndOutputWithBooleanHeaders:Request", async () => {
 
     headerFalseBool: false,
 
-    headerBooleanList: [true, false, true]
+    headerBooleanList: [true, false, true],
   } as any);
   try {
     await client.send(command);
@@ -1785,11 +1734,11 @@ it("InputAndOutputWithBooleanHeaders:Request", async () => {
  */
 it("InputAndOutputWithTimestampHeaders:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new InputAndOutputWithHeadersCommand({
-    headerTimestampList: [new Date(1576540098000), new Date(1576540098000)]
+    headerTimestampList: [new Date(1576540098000), new Date(1576540098000)],
   } as any);
   try {
     await client.send(command);
@@ -1805,9 +1754,7 @@ it("InputAndOutputWithTimestampHeaders:Request", async () => {
     expect(r.path).toBe("/InputAndOutputWithHeaders");
 
     expect(r.headers["X-TimestampList"]).toBeDefined();
-    expect(r.headers["X-TimestampList"]).toBe(
-      "Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT"
-    );
+    expect(r.headers["X-TimestampList"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT");
 
     expect(r.body).toBeFalsy();
   }
@@ -1818,13 +1765,13 @@ it("InputAndOutputWithTimestampHeaders:Request", async () => {
  */
 it("InputAndOutputWithEnumHeaders:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new InputAndOutputWithHeadersCommand({
     headerEnum: "Foo",
 
-    headerEnumList: ["Foo", "Bar", "Baz"]
+    headerEnumList: ["Foo", "Bar", "Baz"],
   } as any);
   try {
     await client.send(command);
@@ -1859,10 +1806,10 @@ it("InputAndOutputWithStringHeaders:Response", async () => {
       {
         "x-stringlist": "a, b, c",
         "x-stringset": "a, b, c",
-        "x-string": "Hello"
+        "x-string": "Hello",
       },
       ``
-    )
+    ),
   });
 
   const params: any = {};
@@ -1882,10 +1829,10 @@ it("InputAndOutputWithStringHeaders:Response", async () => {
 
       headerStringList: ["a", "b", "c"],
 
-      headerStringSet: ["a", "b", "c"]
-    }
+      headerStringSet: ["a", "b", "c"],
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1906,10 +1853,10 @@ it("InputAndOutputWithNumericHeaders:Response", async () => {
         "x-integer": "123",
         "x-integerlist": "1, 2, 3",
         "x-double": "1.0",
-        "x-short": "123"
+        "x-short": "123",
       },
       ``
-    )
+    ),
   });
 
   const params: any = {};
@@ -1937,10 +1884,10 @@ it("InputAndOutputWithNumericHeaders:Response", async () => {
 
       headerDouble: 1.0,
 
-      headerIntegerList: [1, 2, 3]
-    }
+      headerIntegerList: [1, 2, 3],
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1957,10 +1904,10 @@ it("InputAndOutputWithBooleanHeaders:Response", async () => {
       {
         "x-booleanlist": "true, false, true",
         "x-boolean1": "true",
-        "x-boolean2": "false"
+        "x-boolean2": "false",
       },
       ``
-    )
+    ),
   });
 
   const params: any = {};
@@ -1980,10 +1927,10 @@ it("InputAndOutputWithBooleanHeaders:Response", async () => {
 
       headerFalseBool: false,
 
-      headerBooleanList: [true, false, true]
-    }
+      headerBooleanList: [true, false, true],
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1998,11 +1945,10 @@ it("InputAndOutputWithTimestampHeaders:Response", async () => {
       true,
       200,
       {
-        "x-timestamplist":
-          "Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT"
+        "x-timestamplist": "Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT",
       },
       ``
-    )
+    ),
   });
 
   const params: any = {};
@@ -2018,10 +1964,10 @@ it("InputAndOutputWithTimestampHeaders:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      headerTimestampList: [new Date(1576540098000), new Date(1576540098000)]
-    }
+      headerTimestampList: [new Date(1576540098000), new Date(1576540098000)],
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -2037,10 +1983,10 @@ it("InputAndOutputWithEnumHeaders:Response", async () => {
       200,
       {
         "x-enumlist": "Foo, Bar, Baz",
-        "x-enum": "Foo"
+        "x-enum": "Foo",
       },
       ``
-    )
+    ),
   });
 
   const params: any = {};
@@ -2058,10 +2004,10 @@ it("InputAndOutputWithEnumHeaders:Response", async () => {
     {
       headerEnum: "Foo",
 
-      headerEnumList: ["Foo", "Bar", "Baz"]
-    }
+      headerEnumList: ["Foo", "Bar", "Baz"],
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -2072,7 +2018,7 @@ it("InputAndOutputWithEnumHeaders:Response", async () => {
  */
 it("NoInputAndNoOutput:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new NoInputAndNoOutputCommand({});
@@ -2098,12 +2044,7 @@ it("NoInputAndNoOutput:Request", async () => {
  */
 it("NoInputAndNoOutput:Response", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      undefined,
-      ``
-    )
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, ``),
   });
 
   const params: any = {};
@@ -2124,7 +2065,7 @@ it("NoInputAndNoOutput:Response", async () => {
  */
 it("NoInputAndOutput:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new NoInputAndOutputCommand({});
@@ -2150,12 +2091,7 @@ it("NoInputAndOutput:Request", async () => {
  */
 it("NoInputAndOutput:Response", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      undefined,
-      ``
-    )
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, ``),
   });
 
   const params: any = {};
@@ -2176,7 +2112,7 @@ it("NoInputAndOutput:Response", async () => {
  */
 it("NullAndEmptyHeaders:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new NullAndEmptyHeadersClientCommand({
@@ -2184,7 +2120,7 @@ it("NullAndEmptyHeaders:Request", async () => {
 
     b: "",
 
-    c: []
+    c: [],
   } as any);
   try {
     await client.send(command);
@@ -2212,13 +2148,13 @@ it("NullAndEmptyHeaders:Request", async () => {
  */
 it("OmitsNullSerializesEmptyString:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new OmitsNullSerializesEmptyStringCommand({
     nullValue: undefined,
 
-    emptyString: ""
+    emptyString: "",
   } as any);
   try {
     await client.send(command);
@@ -2245,11 +2181,11 @@ it("OmitsNullSerializesEmptyString:Request", async () => {
  */
 it("QueryIdempotencyTokenAutoFill:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryIdempotencyTokenAutoFillCommand({
-    token: "00000000-0000-4000-8000-000000000000"
+    token: "00000000-0000-4000-8000-000000000000",
   } as any);
   try {
     await client.send(command);
@@ -2276,11 +2212,11 @@ it("QueryIdempotencyTokenAutoFill:Request", async () => {
  */
 it("QueryIdempotencyTokenAutoFillIsSet:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryIdempotencyTokenAutoFillCommand({
-    token: "00000000-0000-4000-8000-000000000000"
+    token: "00000000-0000-4000-8000-000000000000",
   } as any);
   try {
     await client.send(command);
@@ -2307,7 +2243,7 @@ it("QueryIdempotencyTokenAutoFillIsSet:Request", async () => {
  */
 it("RecursiveShapes:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new RecursiveShapesCommand({
@@ -2321,11 +2257,11 @@ it("RecursiveShapes:Request", async () => {
           foo: "Foo2",
 
           nested: {
-            bar: "Bar2"
-          } as any
-        } as any
-      } as any
-    } as any
+            bar: "Bar2",
+          } as any,
+        } as any,
+      } as any,
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -2359,10 +2295,7 @@ it("RecursiveShapes:Request", async () => {
         </nested>
     </RecursiveShapesInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2376,7 +2309,7 @@ it("RecursiveShapes:Response", async () => {
       true,
       200,
       {
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<RecursiveShapesInputOutput>
           <nested>
@@ -2393,7 +2326,7 @@ it("RecursiveShapes:Response", async () => {
           </nested>
       </RecursiveShapesInputOutput>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -2419,14 +2352,14 @@ it("RecursiveShapes:Response", async () => {
             foo: "Foo2",
 
             nested: {
-              bar: "Bar2"
-            }
-          }
-        }
-      }
-    }
+              bar: "Bar2",
+            },
+          },
+        },
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -2437,7 +2370,7 @@ it("RecursiveShapes:Response", async () => {
  */
 it("SimpleScalarProperties:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new SimpleScalarPropertiesCommand({
@@ -2459,7 +2392,7 @@ it("SimpleScalarProperties:Request", async () => {
 
     floatValue: 5.5,
 
-    doubleValue: 6.5
+    doubleValue: 6.5,
   } as any);
   try {
     await client.send(command);
@@ -2492,10 +2425,7 @@ it("SimpleScalarProperties:Request", async () => {
         <DoubleDribble>6.5</DoubleDribble>
     </SimpleScalarPropertiesInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2510,7 +2440,7 @@ it("SimpleScalarProperties:Response", async () => {
       200,
       {
         "x-foo": "Foo",
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<SimpleScalarPropertiesInputOutput>
           <stringValue>string</stringValue>
@@ -2524,7 +2454,7 @@ it("SimpleScalarProperties:Response", async () => {
           <DoubleDribble>6.5</DoubleDribble>
       </SimpleScalarPropertiesInputOutput>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -2558,10 +2488,10 @@ it("SimpleScalarProperties:Response", async () => {
 
       floatValue: 5.5,
 
-      doubleValue: 6.5
-    }
+      doubleValue: 6.5,
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -2572,7 +2502,7 @@ it("SimpleScalarProperties:Response", async () => {
  */
 it("TimestampFormatHeaders:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new TimestampFormatHeadersCommand({
@@ -2588,7 +2518,7 @@ it("TimestampFormatHeaders:Request", async () => {
 
     targetHttpDate: new Date(1576540098000),
 
-    targetDateTime: new Date(1576540098000)
+    targetDateTime: new Date(1576540098000),
   } as any);
   try {
     await client.send(command);
@@ -2637,10 +2567,10 @@ it("TimestampFormatHeaders:Response", async () => {
         "x-memberepochseconds": "1576540098",
         "x-targethttpdate": "Mon, 16 Dec 2019 23:48:18 GMT",
         "x-memberhttpdate": "Mon, 16 Dec 2019 23:48:18 GMT",
-        "x-targetdatetime": "2019-12-16T23:48:18Z"
+        "x-targetdatetime": "2019-12-16T23:48:18Z",
       },
       ``
-    )
+    ),
   });
 
   const params: any = {};
@@ -2668,10 +2598,10 @@ it("TimestampFormatHeaders:Response", async () => {
 
       targetHttpDate: new Date(1576540098000),
 
-      targetDateTime: new Date(1576540098000)
-    }
+      targetDateTime: new Date(1576540098000),
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -2682,13 +2612,13 @@ it("TimestampFormatHeaders:Response", async () => {
  */
 it("XmlAttributes:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new XmlAttributesCommand({
     foo: "hi",
 
-    attr: "test"
+    attr: "test",
   } as any);
   try {
     await client.send(command);
@@ -2711,10 +2641,7 @@ it("XmlAttributes:Request", async () => {
         <foo>hi</foo>
     </XmlAttributesInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2728,13 +2655,13 @@ it("XmlAttributes:Response", async () => {
       true,
       200,
       {
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<XmlAttributesInputOutput test="test">
           <foo>hi</foo>
       </XmlAttributesInputOutput>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -2752,10 +2679,10 @@ it("XmlAttributes:Response", async () => {
     {
       foo: "hi",
 
-      attr: "test"
-    }
+      attr: "test",
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -2766,15 +2693,15 @@ it("XmlAttributes:Response", async () => {
  */
 it("XmlAttributesOnPayload:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new XmlAttributesOnPayloadCommand({
     payload: {
       foo: "hi",
 
-      attr: "test"
-    } as any
+      attr: "test",
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -2797,10 +2724,7 @@ it("XmlAttributesOnPayload:Request", async () => {
         <foo>hi</foo>
     </XmlAttributesInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2814,13 +2738,13 @@ it("XmlAttributesOnPayload:Response", async () => {
       true,
       200,
       {
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<XmlAttributesInputOutput test="test">
           <foo>hi</foo>
       </XmlAttributesInputOutput>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -2839,11 +2763,11 @@ it("XmlAttributesOnPayload:Response", async () => {
       payload: {
         foo: "hi",
 
-        attr: "test"
-      }
-    }
+        attr: "test",
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -2854,11 +2778,11 @@ it("XmlAttributesOnPayload:Response", async () => {
  */
 it("XmlBlobs:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new XmlBlobsCommand({
-    data: Uint8Array.from("value", c => c.charCodeAt(0))
+    data: Uint8Array.from("value", (c) => c.charCodeAt(0)),
   } as any);
   try {
     await client.send(command);
@@ -2881,10 +2805,7 @@ it("XmlBlobs:Request", async () => {
         <data>dmFsdWU=</data>
     </XmlBlobsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2898,13 +2819,13 @@ it("XmlBlobs:Response", async () => {
       true,
       200,
       {
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<XmlBlobsInputOutput>
           <data>dmFsdWU=</data>
       </XmlBlobsInputOutput>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -2920,10 +2841,10 @@ it("XmlBlobs:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      data: Uint8Array.from("value", c => c.charCodeAt(0))
-    }
+      data: Uint8Array.from("value", (c) => c.charCodeAt(0)),
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -2934,7 +2855,7 @@ it("XmlBlobs:Response", async () => {
  */
 it("XmlEnums:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new XmlEnumsCommand({
@@ -2951,8 +2872,8 @@ it("XmlEnums:Request", async () => {
     fooEnumMap: {
       hi: "Foo",
 
-      zero: "0"
-    } as any
+      zero: "0",
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -2995,10 +2916,7 @@ it("XmlEnums:Request", async () => {
         </fooEnumMap>
     </XmlEnumsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3012,7 +2930,7 @@ it("XmlEnums:Response", async () => {
       true,
       200,
       {
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<XmlEnumsInputOutput>
           <fooEnum1>Foo</fooEnum1>
@@ -3038,7 +2956,7 @@ it("XmlEnums:Response", async () => {
           </fooEnumMap>
       </XmlEnumsInputOutput>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -3067,11 +2985,11 @@ it("XmlEnums:Response", async () => {
       fooEnumMap: {
         hi: "Foo",
 
-        zero: "0"
-      }
-    }
+        zero: "0",
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -3082,7 +3000,7 @@ it("XmlEnums:Response", async () => {
  */
 it("XmlLists:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new XmlListsCommand({
@@ -3101,7 +3019,7 @@ it("XmlLists:Request", async () => {
     nestedStringList: [
       ["foo", "bar"],
 
-      ["baz", "qux"]
+      ["baz", "qux"],
     ],
 
     renamedListMembers: ["foo", "bar"],
@@ -3114,15 +3032,15 @@ it("XmlLists:Request", async () => {
       {
         a: "1",
 
-        b: "2"
+        b: "2",
       } as any,
 
       {
         a: "3",
 
-        b: "4"
-      } as any
-    ]
+        b: "4",
+      } as any,
+    ],
   } as any);
   try {
     await client.send(command);
@@ -3196,10 +3114,7 @@ it("XmlLists:Request", async () => {
         </myStructureList>
     </XmlListsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3213,7 +3128,7 @@ it("XmlLists:Response", async () => {
       true,
       200,
       {
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<XmlListsInputOutput>
           <stringList>
@@ -3270,7 +3185,7 @@ it("XmlLists:Response", async () => {
           </myStructureList>
       </XmlListsInputOutput>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -3301,7 +3216,7 @@ it("XmlLists:Response", async () => {
       nestedStringList: [
         ["foo", "bar"],
 
-        ["baz", "qux"]
+        ["baz", "qux"],
       ],
 
       renamedListMembers: ["foo", "bar"],
@@ -3314,18 +3229,18 @@ it("XmlLists:Response", async () => {
         {
           a: "1",
 
-          b: "2"
+          b: "2",
         },
 
         {
           a: "3",
 
-          b: "4"
-        }
-      ]
-    }
+          b: "4",
+        },
+      ],
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -3336,19 +3251,19 @@ it("XmlLists:Response", async () => {
  */
 it("XmlMaps:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new XmlMapsCommand({
     myMap: {
       foo: {
-        hi: "there"
+        hi: "there",
       } as any,
 
       baz: {
-        hi: "bye"
-      } as any
-    } as any
+        hi: "bye",
+      } as any,
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -3384,10 +3299,7 @@ it("XmlMaps:Request", async () => {
         </myMap>
     </XmlMapsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3401,7 +3313,7 @@ it("XmlMaps:Response", async () => {
       true,
       200,
       {
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<XmlMapsInputOutput>
           <myMap>
@@ -3420,7 +3332,7 @@ it("XmlMaps:Response", async () => {
           </myMap>
       </XmlMapsInputOutput>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -3438,16 +3350,16 @@ it("XmlMaps:Response", async () => {
     {
       myMap: {
         foo: {
-          hi: "there"
+          hi: "there",
         },
 
         baz: {
-          hi: "bye"
-        }
-      }
-    }
+          hi: "bye",
+        },
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -3458,19 +3370,19 @@ it("XmlMaps:Response", async () => {
  */
 it("XmlMapsXmlName:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new XmlMapsXmlNameCommand({
     myMap: {
       foo: {
-        hi: "there"
+        hi: "there",
       } as any,
 
       baz: {
-        hi: "bye"
-      } as any
-    } as any
+        hi: "bye",
+      } as any,
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -3506,10 +3418,7 @@ it("XmlMapsXmlName:Request", async () => {
         </myMap>
     </XmlMapsXmlNameInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3523,7 +3432,7 @@ it("XmlMapsXmlName:Response", async () => {
       true,
       200,
       {
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<XmlMapsXmlNameInputOutput>
           <myMap>
@@ -3542,7 +3451,7 @@ it("XmlMapsXmlName:Response", async () => {
           </myMap>
       </XmlMapsXmlNameInputOutput>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -3560,16 +3469,16 @@ it("XmlMapsXmlName:Response", async () => {
     {
       myMap: {
         foo: {
-          hi: "there"
+          hi: "there",
         },
 
         baz: {
-          hi: "bye"
-        }
-      }
-    }
+          hi: "bye",
+        },
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -3580,15 +3489,15 @@ it("XmlMapsXmlName:Response", async () => {
  */
 it("XmlNamespaces:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new XmlNamespacesCommand({
     nested: {
       foo: "Foo",
 
-      values: ["Bar", "Baz"]
-    } as any
+      values: ["Bar", "Baz"],
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -3617,10 +3526,7 @@ it("XmlNamespaces:Request", async () => {
         </nested>
     </XmlNamespacesInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3634,7 +3540,7 @@ it("XmlNamespaces:Response", async () => {
       true,
       200,
       {
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<XmlNamespacesInputOutput xmlns="http://foo.com">
           <nested>
@@ -3646,7 +3552,7 @@ it("XmlNamespaces:Response", async () => {
           </nested>
       </XmlNamespacesInputOutput>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -3665,11 +3571,11 @@ it("XmlNamespaces:Response", async () => {
       nested: {
         foo: "Foo",
 
-        values: ["Bar", "Baz"]
-      }
-    }
+        values: ["Bar", "Baz"],
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -3680,11 +3586,11 @@ it("XmlNamespaces:Response", async () => {
  */
 it("XmlTimestamps:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new XmlTimestampsCommand({
-    normal: new Date(1398796238000)
+    normal: new Date(1398796238000),
   } as any);
   try {
     await client.send(command);
@@ -3707,10 +3613,7 @@ it("XmlTimestamps:Request", async () => {
         <normal>2014-04-29T18:30:38Z</normal>
     </XmlTimestampsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3720,11 +3623,11 @@ it("XmlTimestamps:Request", async () => {
  */
 it("XmlTimestampsWithDateTimeFormat:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new XmlTimestampsCommand({
-    dateTime: new Date(1398796238000)
+    dateTime: new Date(1398796238000),
   } as any);
   try {
     await client.send(command);
@@ -3747,10 +3650,7 @@ it("XmlTimestampsWithDateTimeFormat:Request", async () => {
         <dateTime>2014-04-29T18:30:38Z</dateTime>
     </XmlTimestampsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3760,11 +3660,11 @@ it("XmlTimestampsWithDateTimeFormat:Request", async () => {
  */
 it("XmlTimestampsWithEpochSecondsFormat:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new XmlTimestampsCommand({
-    epochSeconds: new Date(1398796238000)
+    epochSeconds: new Date(1398796238000),
   } as any);
   try {
     await client.send(command);
@@ -3787,10 +3687,7 @@ it("XmlTimestampsWithEpochSecondsFormat:Request", async () => {
         <epochSeconds>1398796238</epochSeconds>
     </XmlTimestampsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3800,11 +3697,11 @@ it("XmlTimestampsWithEpochSecondsFormat:Request", async () => {
  */
 it("XmlTimestampsWithHttpDateFormat:Request", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new XmlTimestampsCommand({
-    httpDate: new Date(1398796238000)
+    httpDate: new Date(1398796238000),
   } as any);
   try {
     await client.send(command);
@@ -3827,10 +3724,7 @@ it("XmlTimestampsWithHttpDateFormat:Request", async () => {
         <httpDate>Tue, 29 Apr 2014 18:30:38 GMT</httpDate>
     </XmlTimestampsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3844,13 +3738,13 @@ it("XmlTimestamps:Response", async () => {
       true,
       200,
       {
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<XmlTimestampsInputOutput>
           <normal>2014-04-29T18:30:38Z</normal>
       </XmlTimestampsInputOutput>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -3866,10 +3760,10 @@ it("XmlTimestamps:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      normal: new Date(1398796238000)
-    }
+      normal: new Date(1398796238000),
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -3884,13 +3778,13 @@ it("XmlTimestampsWithDateTimeFormat:Response", async () => {
       true,
       200,
       {
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<XmlTimestampsInputOutput>
           <dateTime>2014-04-29T18:30:38Z</dateTime>
       </XmlTimestampsInputOutput>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -3906,10 +3800,10 @@ it("XmlTimestampsWithDateTimeFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      dateTime: new Date(1398796238000)
-    }
+      dateTime: new Date(1398796238000),
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -3924,13 +3818,13 @@ it("XmlTimestampsWithEpochSecondsFormat:Response", async () => {
       true,
       200,
       {
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<XmlTimestampsInputOutput>
           <epochSeconds>1398796238</epochSeconds>
       </XmlTimestampsInputOutput>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -3946,10 +3840,10 @@ it("XmlTimestampsWithEpochSecondsFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      epochSeconds: new Date(1398796238000)
-    }
+      epochSeconds: new Date(1398796238000),
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -3964,13 +3858,13 @@ it("XmlTimestampsWithHttpDateFormat:Response", async () => {
       true,
       200,
       {
-        "content-type": "application/xml"
+        "content-type": "application/xml",
       },
       `<XmlTimestampsInputOutput>
           <httpDate>Tue, 29 Apr 2014 18:30:38 GMT</httpDate>
       </XmlTimestampsInputOutput>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -3986,10 +3880,10 @@ it("XmlTimestampsWithHttpDateFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      httpDate: new Date(1398796238000)
-    }
+      httpDate: new Date(1398796238000),
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -3999,10 +3893,7 @@ it("XmlTimestampsWithHttpDateFormat:Response", async () => {
  * Returns a map of key names that were un-equal to value objects showing the
  * discrepancies between the components.
  */
-const compareEquivalentBodies = (
-  expectedBody: string,
-  generatedBody: string
-): Object => {
+const compareEquivalentBodies = (expectedBody: string, generatedBody: string): Object => {
   const decodeEscapedXml = (str: string) => {
     return str
       .replace(/&amp;/g, "&")
@@ -4016,7 +3907,7 @@ const compareEquivalentBodies = (
     attributeNamePrefix: "",
     ignoreAttributes: false,
     parseNodeValue: false,
-    tagValueProcessor: (val: any, tagName: any) => decodeEscapedXml(val)
+    tagValueProcessor: (val: any, tagName: any) => decodeEscapedXml(val),
   };
 
   const parseXmlBody = (body: string) => {

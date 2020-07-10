@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  CreatePatchBaselineRequest,
-  CreatePatchBaselineResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { CreatePatchBaselineRequest, CreatePatchBaselineResult } from "../models/index";
 import {
   deserializeAws_json1_1CreatePatchBaselineCommand,
-  serializeAws_json1_1CreatePatchBaselineCommand
+  serializeAws_json1_1CreatePatchBaselineCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreatePatchBaselineCommandInput = CreatePatchBaselineRequest;
-export type CreatePatchBaselineCommandOutput = CreatePatchBaselineResult &
-  __MetadataBearer;
+export type CreatePatchBaselineCommandOutput = CreatePatchBaselineResult & __MetadataBearer;
 
 export class CreatePatchBaselineCommand extends $Command<
   CreatePatchBaselineCommandInput,
@@ -49,18 +38,13 @@ export class CreatePatchBaselineCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreatePatchBaselineCommandInput,
-    CreatePatchBaselineCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreatePatchBaselineCommandInput, CreatePatchBaselineCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class CreatePatchBaselineCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreatePatchBaselineCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreatePatchBaselineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePatchBaselineCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreatePatchBaselineCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePatchBaselineCommandOutput> {
     return deserializeAws_json1_1CreatePatchBaselineCommand(output, context);
   }
 

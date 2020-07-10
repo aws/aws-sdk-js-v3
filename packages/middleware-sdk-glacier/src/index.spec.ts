@@ -3,7 +3,7 @@ import {
   accountIdDefaultMiddleware,
   addGlacierApiVersionMiddleware,
   getGlacierPlugin,
-  resolveGlacierMiddlewareConfig
+  resolveGlacierMiddlewareConfig,
 } from "./index";
 
 describe("middleware-sdk-glacier package exports", () => {

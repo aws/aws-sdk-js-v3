@@ -1,67 +1,31 @@
 import {
   EmptyInputAndEmptyOutputCommandInput,
-  EmptyInputAndEmptyOutputCommandOutput
+  EmptyInputAndEmptyOutputCommandOutput,
 } from "../commands/EmptyInputAndEmptyOutputCommand";
-import {
-  GreetingWithErrorsCommandInput,
-  GreetingWithErrorsCommandOutput
-} from "../commands/GreetingWithErrorsCommand";
+import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "../commands/GreetingWithErrorsCommand";
 import {
   IgnoresWrappingXmlNameCommandInput,
-  IgnoresWrappingXmlNameCommandOutput
+  IgnoresWrappingXmlNameCommandOutput,
 } from "../commands/IgnoresWrappingXmlNameCommand";
-import {
-  NestedStructuresCommandInput,
-  NestedStructuresCommandOutput
-} from "../commands/NestedStructuresCommand";
-import {
-  NoInputAndOutputCommandInput,
-  NoInputAndOutputCommandOutput
-} from "../commands/NoInputAndOutputCommand";
+import { NestedStructuresCommandInput, NestedStructuresCommandOutput } from "../commands/NestedStructuresCommand";
+import { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "../commands/NoInputAndOutputCommand";
 import {
   QueryIdempotencyTokenAutoFillCommandInput,
-  QueryIdempotencyTokenAutoFillCommandOutput
+  QueryIdempotencyTokenAutoFillCommandOutput,
 } from "../commands/QueryIdempotencyTokenAutoFillCommand";
-import {
-  QueryListsCommandInput,
-  QueryListsCommandOutput
-} from "../commands/QueryListsCommand";
-import {
-  QueryTimestampsCommandInput,
-  QueryTimestampsCommandOutput
-} from "../commands/QueryTimestampsCommand";
-import {
-  RecursiveXmlShapesCommandInput,
-  RecursiveXmlShapesCommandOutput
-} from "../commands/RecursiveXmlShapesCommand";
-import {
-  SimpleInputParamsCommandInput,
-  SimpleInputParamsCommandOutput
-} from "../commands/SimpleInputParamsCommand";
+import { QueryListsCommandInput, QueryListsCommandOutput } from "../commands/QueryListsCommand";
+import { QueryTimestampsCommandInput, QueryTimestampsCommandOutput } from "../commands/QueryTimestampsCommand";
+import { RecursiveXmlShapesCommandInput, RecursiveXmlShapesCommandOutput } from "../commands/RecursiveXmlShapesCommand";
+import { SimpleInputParamsCommandInput, SimpleInputParamsCommandOutput } from "../commands/SimpleInputParamsCommand";
 import {
   SimpleScalarXmlPropertiesCommandInput,
-  SimpleScalarXmlPropertiesCommandOutput
+  SimpleScalarXmlPropertiesCommandOutput,
 } from "../commands/SimpleScalarXmlPropertiesCommand";
-import {
-  XmlBlobsCommandInput,
-  XmlBlobsCommandOutput
-} from "../commands/XmlBlobsCommand";
-import {
-  XmlEnumsCommandInput,
-  XmlEnumsCommandOutput
-} from "../commands/XmlEnumsCommand";
-import {
-  XmlListsCommandInput,
-  XmlListsCommandOutput
-} from "../commands/XmlListsCommand";
-import {
-  XmlNamespacesCommandInput,
-  XmlNamespacesCommandOutput
-} from "../commands/XmlNamespacesCommand";
-import {
-  XmlTimestampsCommandInput,
-  XmlTimestampsCommandOutput
-} from "../commands/XmlTimestampsCommand";
+import { XmlBlobsCommandInput, XmlBlobsCommandOutput } from "../commands/XmlBlobsCommand";
+import { XmlEnumsCommandInput, XmlEnumsCommandOutput } from "../commands/XmlEnumsCommand";
+import { XmlListsCommandInput, XmlListsCommandOutput } from "../commands/XmlListsCommand";
+import { XmlNamespacesCommandInput, XmlNamespacesCommandOutput } from "../commands/XmlNamespacesCommand";
+import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "../commands/XmlTimestampsCommand";
 import {
   ComplexError,
   ComplexNestedErrorData,
@@ -89,24 +53,21 @@ import {
   XmlListsOutput,
   XmlNamespaceNested,
   XmlNamespacesOutput,
-  XmlTimestampsOutput
+  XmlTimestampsOutput,
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
-  getValueFromTextNode as __getValueFromTextNode
+  getValueFromTextNode as __getValueFromTextNode,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { parse as xmlParse } from "fast-xml-parser";
 import { v4 as generateIdempotencyToken } from "uuid";
@@ -116,13 +77,13 @@ export const serializeAws_ec2EmptyInputAndEmptyOutputCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_ec2EmptyInputAndEmptyOutputInput(input, context),
     Action: "EmptyInputAndEmptyOutput",
-    Version: "2020-01-08"
+    Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -132,11 +93,11 @@ export const serializeAws_ec2GreetingWithErrorsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "GreetingWithErrors",
-    Version: "2020-01-08"
+    Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -146,11 +107,11 @@ export const serializeAws_ec2IgnoresWrappingXmlNameCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "IgnoresWrappingXmlName",
-    Version: "2020-01-08"
+    Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -160,13 +121,13 @@ export const serializeAws_ec2NestedStructuresCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_ec2NestedStructuresInput(input, context),
     Action: "NestedStructures",
-    Version: "2020-01-08"
+    Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -176,11 +137,11 @@ export const serializeAws_ec2NoInputAndOutputCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "NoInputAndOutput",
-    Version: "2020-01-08"
+    Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -190,13 +151,13 @@ export const serializeAws_ec2QueryIdempotencyTokenAutoFillCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_ec2QueryIdempotencyTokenAutoFillInput(input, context),
     Action: "QueryIdempotencyTokenAutoFill",
-    Version: "2020-01-08"
+    Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -206,13 +167,13 @@ export const serializeAws_ec2QueryListsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_ec2QueryListsInput(input, context),
     Action: "QueryLists",
-    Version: "2020-01-08"
+    Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -222,13 +183,13 @@ export const serializeAws_ec2QueryTimestampsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_ec2QueryTimestampsInput(input, context),
     Action: "QueryTimestamps",
-    Version: "2020-01-08"
+    Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -238,11 +199,11 @@ export const serializeAws_ec2RecursiveXmlShapesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "RecursiveXmlShapes",
-    Version: "2020-01-08"
+    Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -252,13 +213,13 @@ export const serializeAws_ec2SimpleInputParamsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_ec2SimpleInputParamsInput(input, context),
     Action: "SimpleInputParams",
-    Version: "2020-01-08"
+    Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -268,11 +229,11 @@ export const serializeAws_ec2SimpleScalarXmlPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "SimpleScalarXmlProperties",
-    Version: "2020-01-08"
+    Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -282,11 +243,11 @@ export const serializeAws_ec2XmlBlobsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "XmlBlobs",
-    Version: "2020-01-08"
+    Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -296,11 +257,11 @@ export const serializeAws_ec2XmlEnumsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "XmlEnums",
-    Version: "2020-01-08"
+    Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -310,11 +271,11 @@ export const serializeAws_ec2XmlListsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "XmlLists",
-    Version: "2020-01-08"
+    Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -324,11 +285,11 @@ export const serializeAws_ec2XmlNamespacesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "XmlNamespaces",
-    Version: "2020-01-08"
+    Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -338,11 +299,11 @@ export const serializeAws_ec2XmlTimestampsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "XmlTimestamps",
-    Version: "2020-01-08"
+    Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -352,10 +313,7 @@ export const deserializeAws_ec2EmptyInputAndEmptyOutputCommand = async (
   context: __SerdeContext
 ): Promise<EmptyInputAndEmptyOutputCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_ec2EmptyInputAndEmptyOutputCommandError(
-      output,
-      context
-    );
+    return deserializeAws_ec2EmptyInputAndEmptyOutputCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -363,7 +321,7 @@ export const deserializeAws_ec2EmptyInputAndEmptyOutputCommand = async (
   const response: EmptyInputAndEmptyOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "EmptyInputAndEmptyOutputOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -374,7 +332,7 @@ const deserializeAws_ec2EmptyInputAndEmptyOutputCommandError = async (
 ): Promise<EmptyInputAndEmptyOutputCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -382,19 +340,13 @@ const deserializeAws_ec2EmptyInputAndEmptyOutputCommandError = async (
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode =
-        parsedBody.Errors.Error.code ||
-        parsedBody.Errors.Error.Code ||
-        errorCode;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Errors.Error.message ||
-          parsedBody.Errors.Error.Message ||
-          errorCode,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -416,7 +368,7 @@ export const deserializeAws_ec2GreetingWithErrorsCommand = async (
   const response: GreetingWithErrorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GreetingWithErrorsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -427,7 +379,7 @@ const deserializeAws_ec2GreetingWithErrorsCommandError = async (
 ): Promise<GreetingWithErrorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -436,40 +388,28 @@ const deserializeAws_ec2GreetingWithErrorsCommandError = async (
     case "ComplexError":
     case "aws.protocoltests.ec2#ComplexError":
       response = {
-        ...(await deserializeAws_ec2ComplexErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_ec2ComplexErrorResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidGreeting":
     case "aws.protocoltests.ec2#InvalidGreeting":
       response = {
-        ...(await deserializeAws_ec2InvalidGreetingResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_ec2InvalidGreetingResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
       const parsedBody = parsedOutput.body;
-      errorCode =
-        parsedBody.Errors.Error.code ||
-        parsedBody.Errors.Error.Code ||
-        errorCode;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Errors.Error.message ||
-          parsedBody.Errors.Error.Message ||
-          errorCode,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -483,10 +423,7 @@ export const deserializeAws_ec2IgnoresWrappingXmlNameCommand = async (
   context: __SerdeContext
 ): Promise<IgnoresWrappingXmlNameCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_ec2IgnoresWrappingXmlNameCommandError(
-      output,
-      context
-    );
+    return deserializeAws_ec2IgnoresWrappingXmlNameCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -494,7 +431,7 @@ export const deserializeAws_ec2IgnoresWrappingXmlNameCommand = async (
   const response: IgnoresWrappingXmlNameCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "IgnoresWrappingXmlNameOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -505,7 +442,7 @@ const deserializeAws_ec2IgnoresWrappingXmlNameCommandError = async (
 ): Promise<IgnoresWrappingXmlNameCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -513,19 +450,13 @@ const deserializeAws_ec2IgnoresWrappingXmlNameCommandError = async (
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode =
-        parsedBody.Errors.Error.code ||
-        parsedBody.Errors.Error.Code ||
-        errorCode;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Errors.Error.message ||
-          parsedBody.Errors.Error.Message ||
-          errorCode,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -543,7 +474,7 @@ export const deserializeAws_ec2NestedStructuresCommand = async (
   }
   await collectBody(output.body, context);
   const response: NestedStructuresCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 };
@@ -554,7 +485,7 @@ const deserializeAws_ec2NestedStructuresCommandError = async (
 ): Promise<NestedStructuresCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -562,19 +493,13 @@ const deserializeAws_ec2NestedStructuresCommandError = async (
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode =
-        parsedBody.Errors.Error.code ||
-        parsedBody.Errors.Error.Code ||
-        errorCode;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Errors.Error.message ||
-          parsedBody.Errors.Error.Message ||
-          errorCode,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -596,7 +521,7 @@ export const deserializeAws_ec2NoInputAndOutputCommand = async (
   const response: NoInputAndOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "NoInputAndOutputOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -607,7 +532,7 @@ const deserializeAws_ec2NoInputAndOutputCommandError = async (
 ): Promise<NoInputAndOutputCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -615,19 +540,13 @@ const deserializeAws_ec2NoInputAndOutputCommandError = async (
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode =
-        parsedBody.Errors.Error.code ||
-        parsedBody.Errors.Error.Code ||
-        errorCode;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Errors.Error.message ||
-          parsedBody.Errors.Error.Message ||
-          errorCode,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -641,14 +560,11 @@ export const deserializeAws_ec2QueryIdempotencyTokenAutoFillCommand = async (
   context: __SerdeContext
 ): Promise<QueryIdempotencyTokenAutoFillCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_ec2QueryIdempotencyTokenAutoFillCommandError(
-      output,
-      context
-    );
+    return deserializeAws_ec2QueryIdempotencyTokenAutoFillCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: QueryIdempotencyTokenAutoFillCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 };
@@ -659,7 +575,7 @@ const deserializeAws_ec2QueryIdempotencyTokenAutoFillCommandError = async (
 ): Promise<QueryIdempotencyTokenAutoFillCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -667,19 +583,13 @@ const deserializeAws_ec2QueryIdempotencyTokenAutoFillCommandError = async (
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode =
-        parsedBody.Errors.Error.code ||
-        parsedBody.Errors.Error.Code ||
-        errorCode;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Errors.Error.message ||
-          parsedBody.Errors.Error.Message ||
-          errorCode,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -697,7 +607,7 @@ export const deserializeAws_ec2QueryListsCommand = async (
   }
   await collectBody(output.body, context);
   const response: QueryListsCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 };
@@ -708,7 +618,7 @@ const deserializeAws_ec2QueryListsCommandError = async (
 ): Promise<QueryListsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -716,19 +626,13 @@ const deserializeAws_ec2QueryListsCommandError = async (
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode =
-        parsedBody.Errors.Error.code ||
-        parsedBody.Errors.Error.Code ||
-        errorCode;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Errors.Error.message ||
-          parsedBody.Errors.Error.Message ||
-          errorCode,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -746,7 +650,7 @@ export const deserializeAws_ec2QueryTimestampsCommand = async (
   }
   await collectBody(output.body, context);
   const response: QueryTimestampsCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 };
@@ -757,7 +661,7 @@ const deserializeAws_ec2QueryTimestampsCommandError = async (
 ): Promise<QueryTimestampsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -765,19 +669,13 @@ const deserializeAws_ec2QueryTimestampsCommandError = async (
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode =
-        parsedBody.Errors.Error.code ||
-        parsedBody.Errors.Error.Code ||
-        errorCode;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Errors.Error.message ||
-          parsedBody.Errors.Error.Message ||
-          errorCode,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -799,7 +697,7 @@ export const deserializeAws_ec2RecursiveXmlShapesCommand = async (
   const response: RecursiveXmlShapesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RecursiveXmlShapesOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -810,7 +708,7 @@ const deserializeAws_ec2RecursiveXmlShapesCommandError = async (
 ): Promise<RecursiveXmlShapesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -818,19 +716,13 @@ const deserializeAws_ec2RecursiveXmlShapesCommandError = async (
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode =
-        parsedBody.Errors.Error.code ||
-        parsedBody.Errors.Error.Code ||
-        errorCode;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Errors.Error.message ||
-          parsedBody.Errors.Error.Message ||
-          errorCode,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -848,7 +740,7 @@ export const deserializeAws_ec2SimpleInputParamsCommand = async (
   }
   await collectBody(output.body, context);
   const response: SimpleInputParamsCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 };
@@ -859,7 +751,7 @@ const deserializeAws_ec2SimpleInputParamsCommandError = async (
 ): Promise<SimpleInputParamsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -867,19 +759,13 @@ const deserializeAws_ec2SimpleInputParamsCommandError = async (
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode =
-        parsedBody.Errors.Error.code ||
-        parsedBody.Errors.Error.Code ||
-        errorCode;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Errors.Error.message ||
-          parsedBody.Errors.Error.Message ||
-          errorCode,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -893,10 +779,7 @@ export const deserializeAws_ec2SimpleScalarXmlPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<SimpleScalarXmlPropertiesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_ec2SimpleScalarXmlPropertiesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_ec2SimpleScalarXmlPropertiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -904,7 +787,7 @@ export const deserializeAws_ec2SimpleScalarXmlPropertiesCommand = async (
   const response: SimpleScalarXmlPropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SimpleScalarXmlPropertiesOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -915,7 +798,7 @@ const deserializeAws_ec2SimpleScalarXmlPropertiesCommandError = async (
 ): Promise<SimpleScalarXmlPropertiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -923,19 +806,13 @@ const deserializeAws_ec2SimpleScalarXmlPropertiesCommandError = async (
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode =
-        parsedBody.Errors.Error.code ||
-        parsedBody.Errors.Error.Code ||
-        errorCode;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Errors.Error.message ||
-          parsedBody.Errors.Error.Message ||
-          errorCode,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -957,7 +834,7 @@ export const deserializeAws_ec2XmlBlobsCommand = async (
   const response: XmlBlobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "XmlBlobsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -968,7 +845,7 @@ const deserializeAws_ec2XmlBlobsCommandError = async (
 ): Promise<XmlBlobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -976,19 +853,13 @@ const deserializeAws_ec2XmlBlobsCommandError = async (
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode =
-        parsedBody.Errors.Error.code ||
-        parsedBody.Errors.Error.Code ||
-        errorCode;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Errors.Error.message ||
-          parsedBody.Errors.Error.Message ||
-          errorCode,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1010,7 +881,7 @@ export const deserializeAws_ec2XmlEnumsCommand = async (
   const response: XmlEnumsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "XmlEnumsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1021,7 +892,7 @@ const deserializeAws_ec2XmlEnumsCommandError = async (
 ): Promise<XmlEnumsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1029,19 +900,13 @@ const deserializeAws_ec2XmlEnumsCommandError = async (
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode =
-        parsedBody.Errors.Error.code ||
-        parsedBody.Errors.Error.Code ||
-        errorCode;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Errors.Error.message ||
-          parsedBody.Errors.Error.Message ||
-          errorCode,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1063,7 +928,7 @@ export const deserializeAws_ec2XmlListsCommand = async (
   const response: XmlListsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "XmlListsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1074,7 +939,7 @@ const deserializeAws_ec2XmlListsCommandError = async (
 ): Promise<XmlListsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1082,19 +947,13 @@ const deserializeAws_ec2XmlListsCommandError = async (
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode =
-        parsedBody.Errors.Error.code ||
-        parsedBody.Errors.Error.Code ||
-        errorCode;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Errors.Error.message ||
-          parsedBody.Errors.Error.Message ||
-          errorCode,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1116,7 +975,7 @@ export const deserializeAws_ec2XmlNamespacesCommand = async (
   const response: XmlNamespacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "XmlNamespacesOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1127,7 +986,7 @@ const deserializeAws_ec2XmlNamespacesCommandError = async (
 ): Promise<XmlNamespacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1135,19 +994,13 @@ const deserializeAws_ec2XmlNamespacesCommandError = async (
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode =
-        parsedBody.Errors.Error.code ||
-        parsedBody.Errors.Error.Code ||
-        errorCode;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Errors.Error.message ||
-          parsedBody.Errors.Error.Message ||
-          errorCode,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1169,7 +1022,7 @@ export const deserializeAws_ec2XmlTimestampsCommand = async (
   const response: XmlTimestampsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "XmlTimestampsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1180,7 +1033,7 @@ const deserializeAws_ec2XmlTimestampsCommandError = async (
 ): Promise<XmlTimestampsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1188,19 +1041,13 @@ const deserializeAws_ec2XmlTimestampsCommandError = async (
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode =
-        parsedBody.Errors.Error.code ||
-        parsedBody.Errors.Error.Code ||
-        errorCode;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
       response = {
         ...parsedBody.Errors.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Errors.Error.message ||
-          parsedBody.Errors.Error.Message ||
-          errorCode,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1214,15 +1061,12 @@ const deserializeAws_ec2ComplexErrorResponse = async (
   context: __SerdeContext
 ): Promise<ComplexError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_ec2ComplexError(
-    body.Errors.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_ec2ComplexError(body.Errors.Error, context);
   const contents: ComplexError = {
     name: "ComplexError",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -1232,15 +1076,12 @@ const deserializeAws_ec2InvalidGreetingResponse = async (
   context: __SerdeContext
 ): Promise<InvalidGreeting> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_ec2InvalidGreeting(
-    body.Errors.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_ec2InvalidGreeting(body.Errors.Error, context);
   const contents: InvalidGreeting = {
     name: "InvalidGreeting",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -1253,10 +1094,7 @@ const serializeAws_ec2EmptyInputAndEmptyOutputInput = (
   return entries;
 };
 
-const serializeAws_ec2ListWithXmlName = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_ec2ListWithXmlName = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -1266,10 +1104,7 @@ const serializeAws_ec2ListWithXmlName = (
   return entries;
 };
 
-const serializeAws_ec2NestedStructuresInput = (
-  input: NestedStructuresInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_ec2NestedStructuresInput = (input: NestedStructuresInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Nested !== undefined) {
     const memberEntries = serializeAws_ec2StructArg(input.Nested, context);
@@ -1295,16 +1130,10 @@ const serializeAws_ec2QueryIdempotencyTokenAutoFillInput = (
   return entries;
 };
 
-const serializeAws_ec2QueryListsInput = (
-  input: QueryListsInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_ec2QueryListsInput = (input: QueryListsInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ComplexListArg !== undefined) {
-    const memberEntries = serializeAws_ec2GreetingList(
-      input.ComplexListArg,
-      context
-    );
+    const memberEntries = serializeAws_ec2GreetingList(input.ComplexListArg, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ComplexListArg.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -1318,34 +1147,23 @@ const serializeAws_ec2QueryListsInput = (
     });
   }
   if (input.ListArgWithXmlName !== undefined) {
-    const memberEntries = serializeAws_ec2ListWithXmlName(
-      input.ListArgWithXmlName,
-      context
-    );
+    const memberEntries = serializeAws_ec2ListWithXmlName(input.ListArgWithXmlName, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Hi.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
   if (input.ListArgWithXmlNameMember !== undefined) {
-    const memberEntries = serializeAws_ec2ListWithXmlName(
-      input.ListArgWithXmlNameMember,
-      context
-    );
+    const memberEntries = serializeAws_ec2ListWithXmlName(input.ListArgWithXmlNameMember, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `ListArgWithXmlNameMember.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `ListArgWithXmlNameMember.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
   return entries;
 };
 
-const serializeAws_ec2QueryTimestampsInput = (
-  input: QueryTimestampsInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_ec2QueryTimestampsInput = (input: QueryTimestampsInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.epochMember !== undefined) {
     entries["EpochMember"] = Math.round(input.epochMember.getTime() / 1000);
@@ -1354,16 +1172,12 @@ const serializeAws_ec2QueryTimestampsInput = (
     entries["EpochTarget"] = Math.round(input.epochTarget.getTime() / 1000);
   }
   if (input.normalFormat !== undefined) {
-    entries["NormalFormat"] =
-      input.normalFormat.toISOString().split(".")[0] + "Z";
+    entries["NormalFormat"] = input.normalFormat.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
 
-const serializeAws_ec2SimpleInputParamsInput = (
-  input: SimpleInputParamsInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_ec2SimpleInputParamsInput = (input: SimpleInputParamsInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Bam !== undefined) {
     entries["Bam"] = input.Bam;
@@ -1398,19 +1212,13 @@ const serializeAws_ec2SimpleInputParamsInput = (
   return entries;
 };
 
-const serializeAws_ec2StructArg = (
-  input: StructArg,
-  context: __SerdeContext
-): any => {
+const serializeAws_ec2StructArg = (input: StructArg, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.OtherArg !== undefined) {
     entries["OtherArg"] = input.OtherArg;
   }
   if (input.RecursiveArg !== undefined) {
-    const memberEntries = serializeAws_ec2StructArg(
-      input.RecursiveArg,
-      context
-    );
+    const memberEntries = serializeAws_ec2StructArg(input.RecursiveArg, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RecursiveArg.${key}`;
       entries[loc] = value;
@@ -1422,10 +1230,7 @@ const serializeAws_ec2StructArg = (
   return entries;
 };
 
-const serializeAws_ec2GreetingList = (
-  input: GreetingStruct[],
-  context: __SerdeContext
-): any => {
+const serializeAws_ec2GreetingList = (input: GreetingStruct[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -1438,10 +1243,7 @@ const serializeAws_ec2GreetingList = (
   return entries;
 };
 
-const serializeAws_ec2GreetingStruct = (
-  input: GreetingStruct,
-  context: __SerdeContext
-): any => {
+const serializeAws_ec2GreetingStruct = (input: GreetingStruct, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.hi !== undefined) {
     entries["Hi"] = input.hi;
@@ -1449,10 +1251,7 @@ const serializeAws_ec2GreetingStruct = (
   return entries;
 };
 
-const serializeAws_ec2StringList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_ec2StringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -1462,20 +1261,14 @@ const serializeAws_ec2StringList = (
   return entries;
 };
 
-const deserializeAws_ec2ComplexError = (
-  output: any,
-  context: __SerdeContext
-): ComplexError => {
+const deserializeAws_ec2ComplexError = (output: any, context: __SerdeContext): ComplexError => {
   let contents: any = {
     __type: "ComplexError",
     Nested: undefined,
-    TopLevel: undefined
+    TopLevel: undefined,
   };
   if (output["Nested"] !== undefined) {
-    contents.Nested = deserializeAws_ec2ComplexNestedErrorData(
-      output["Nested"],
-      context
-    );
+    contents.Nested = deserializeAws_ec2ComplexNestedErrorData(output["Nested"], context);
   }
   if (output["TopLevel"] !== undefined) {
     contents.TopLevel = output["TopLevel"];
@@ -1483,13 +1276,10 @@ const deserializeAws_ec2ComplexError = (
   return contents;
 };
 
-const deserializeAws_ec2ComplexNestedErrorData = (
-  output: any,
-  context: __SerdeContext
-): ComplexNestedErrorData => {
+const deserializeAws_ec2ComplexNestedErrorData = (output: any, context: __SerdeContext): ComplexNestedErrorData => {
   let contents: any = {
     __type: "ComplexNestedErrorData",
-    Foo: undefined
+    Foo: undefined,
   };
   if (output["Foo"] !== undefined) {
     contents.Foo = output["Foo"];
@@ -1502,18 +1292,15 @@ const deserializeAws_ec2EmptyInputAndEmptyOutputOutput = (
   context: __SerdeContext
 ): EmptyInputAndEmptyOutputOutput => {
   let contents: any = {
-    __type: "EmptyInputAndEmptyOutputOutput"
+    __type: "EmptyInputAndEmptyOutputOutput",
   };
   return contents;
 };
 
-const deserializeAws_ec2GreetingWithErrorsOutput = (
-  output: any,
-  context: __SerdeContext
-): GreetingWithErrorsOutput => {
+const deserializeAws_ec2GreetingWithErrorsOutput = (output: any, context: __SerdeContext): GreetingWithErrorsOutput => {
   let contents: any = {
     __type: "GreetingWithErrorsOutput",
-    greeting: undefined
+    greeting: undefined,
   };
   if (output["greeting"] !== undefined) {
     contents.greeting = output["greeting"];
@@ -1527,7 +1314,7 @@ const deserializeAws_ec2IgnoresWrappingXmlNameOutput = (
 ): IgnoresWrappingXmlNameOutput => {
   let contents: any = {
     __type: "IgnoresWrappingXmlNameOutput",
-    foo: undefined
+    foo: undefined,
   };
   if (output["foo"] !== undefined) {
     contents.foo = output["foo"];
@@ -1535,13 +1322,10 @@ const deserializeAws_ec2IgnoresWrappingXmlNameOutput = (
   return contents;
 };
 
-const deserializeAws_ec2InvalidGreeting = (
-  output: any,
-  context: __SerdeContext
-): InvalidGreeting => {
+const deserializeAws_ec2InvalidGreeting = (output: any, context: __SerdeContext): InvalidGreeting => {
   let contents: any = {
     __type: "InvalidGreeting",
-    Message: undefined
+    Message: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
@@ -1549,29 +1333,20 @@ const deserializeAws_ec2InvalidGreeting = (
   return contents;
 };
 
-const deserializeAws_ec2NoInputAndOutputOutput = (
-  output: any,
-  context: __SerdeContext
-): NoInputAndOutputOutput => {
+const deserializeAws_ec2NoInputAndOutputOutput = (output: any, context: __SerdeContext): NoInputAndOutputOutput => {
   let contents: any = {
-    __type: "NoInputAndOutputOutput"
+    __type: "NoInputAndOutputOutput",
   };
   return contents;
 };
 
-const deserializeAws_ec2RecursiveXmlShapesOutput = (
-  output: any,
-  context: __SerdeContext
-): RecursiveXmlShapesOutput => {
+const deserializeAws_ec2RecursiveXmlShapesOutput = (output: any, context: __SerdeContext): RecursiveXmlShapesOutput => {
   let contents: any = {
     __type: "RecursiveXmlShapesOutput",
-    nested: undefined
+    nested: undefined,
   };
   if (output["nested"] !== undefined) {
-    contents.nested = deserializeAws_ec2RecursiveXmlShapesOutputNested1(
-      output["nested"],
-      context
-    );
+    contents.nested = deserializeAws_ec2RecursiveXmlShapesOutputNested1(output["nested"], context);
   }
   return contents;
 };
@@ -1583,16 +1358,13 @@ const deserializeAws_ec2RecursiveXmlShapesOutputNested1 = (
   let contents: any = {
     __type: "RecursiveXmlShapesOutputNested1",
     foo: undefined,
-    nested: undefined
+    nested: undefined,
   };
   if (output["foo"] !== undefined) {
     contents.foo = output["foo"];
   }
   if (output["nested"] !== undefined) {
-    contents.nested = deserializeAws_ec2RecursiveXmlShapesOutputNested2(
-      output["nested"],
-      context
-    );
+    contents.nested = deserializeAws_ec2RecursiveXmlShapesOutputNested2(output["nested"], context);
   }
   return contents;
 };
@@ -1604,24 +1376,18 @@ const deserializeAws_ec2RecursiveXmlShapesOutputNested2 = (
   let contents: any = {
     __type: "RecursiveXmlShapesOutputNested2",
     bar: undefined,
-    recursiveMember: undefined
+    recursiveMember: undefined,
   };
   if (output["bar"] !== undefined) {
     contents.bar = output["bar"];
   }
   if (output["recursiveMember"] !== undefined) {
-    contents.recursiveMember = deserializeAws_ec2RecursiveXmlShapesOutputNested1(
-      output["recursiveMember"],
-      context
-    );
+    contents.recursiveMember = deserializeAws_ec2RecursiveXmlShapesOutputNested1(output["recursiveMember"], context);
   }
   return contents;
 };
 
-const deserializeAws_ec2RenamedListMembers = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_ec2RenamedListMembers = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1640,7 +1406,7 @@ const deserializeAws_ec2SimpleScalarXmlPropertiesOutput = (
     longValue: undefined,
     shortValue: undefined,
     stringValue: undefined,
-    trueBooleanValue: undefined
+    trueBooleanValue: undefined,
   };
   if (output["byteValue"] !== undefined) {
     contents.byteValue = parseInt(output["byteValue"]);
@@ -1675,23 +1441,15 @@ const deserializeAws_ec2SimpleScalarXmlPropertiesOutput = (
   return contents;
 };
 
-const deserializeAws_ec2StructureList = (
-  output: any,
-  context: __SerdeContext
-): StructureListMember[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_ec2StructureListMember(entry, context)
-  );
+const deserializeAws_ec2StructureList = (output: any, context: __SerdeContext): StructureListMember[] => {
+  return (output || []).map((entry: any) => deserializeAws_ec2StructureListMember(entry, context));
 };
 
-const deserializeAws_ec2StructureListMember = (
-  output: any,
-  context: __SerdeContext
-): StructureListMember => {
+const deserializeAws_ec2StructureListMember = (output: any, context: __SerdeContext): StructureListMember => {
   let contents: any = {
     __type: "StructureListMember",
     a: undefined,
-    b: undefined
+    b: undefined,
   };
   if (output["value"] !== undefined) {
     contents.a = output["value"];
@@ -1702,13 +1460,10 @@ const deserializeAws_ec2StructureListMember = (
   return contents;
 };
 
-const deserializeAws_ec2XmlBlobsOutput = (
-  output: any,
-  context: __SerdeContext
-): XmlBlobsOutput => {
+const deserializeAws_ec2XmlBlobsOutput = (output: any, context: __SerdeContext): XmlBlobsOutput => {
   let contents: any = {
     __type: "XmlBlobsOutput",
-    data: undefined
+    data: undefined,
   };
   if (output["data"] !== undefined) {
     contents.data = context.base64Decoder(output["data"]);
@@ -1716,10 +1471,7 @@ const deserializeAws_ec2XmlBlobsOutput = (
   return contents;
 };
 
-const deserializeAws_ec2XmlEnumsOutput = (
-  output: any,
-  context: __SerdeContext
-): XmlEnumsOutput => {
+const deserializeAws_ec2XmlEnumsOutput = (output: any, context: __SerdeContext): XmlEnumsOutput => {
   let contents: any = {
     __type: "XmlEnumsOutput",
     fooEnum1: undefined,
@@ -1727,7 +1479,7 @@ const deserializeAws_ec2XmlEnumsOutput = (
     fooEnum3: undefined,
     fooEnumList: undefined,
     fooEnumMap: undefined,
-    fooEnumSet: undefined
+    fooEnumSet: undefined,
   };
   if (output["fooEnum1"] !== undefined) {
     contents.fooEnum1 = output["fooEnum1"];
@@ -1741,10 +1493,7 @@ const deserializeAws_ec2XmlEnumsOutput = (
   if (output.fooEnumList === "") {
     contents.fooEnumList = [];
   }
-  if (
-    output["fooEnumList"] !== undefined &&
-    output["fooEnumList"]["member"] !== undefined
-  ) {
+  if (output["fooEnumList"] !== undefined && output["fooEnumList"]["member"] !== undefined) {
     contents.fooEnumList = deserializeAws_ec2FooEnumList(
       __getArrayIfSingleItem(output["fooEnumList"]["member"]),
       context
@@ -1753,34 +1502,19 @@ const deserializeAws_ec2XmlEnumsOutput = (
   if (output.fooEnumMap === "") {
     contents.fooEnumMap = {};
   }
-  if (
-    output["fooEnumMap"] !== undefined &&
-    output["fooEnumMap"]["entry"] !== undefined
-  ) {
-    contents.fooEnumMap = deserializeAws_ec2FooEnumMap(
-      __getArrayIfSingleItem(output["fooEnumMap"]["entry"]),
-      context
-    );
+  if (output["fooEnumMap"] !== undefined && output["fooEnumMap"]["entry"] !== undefined) {
+    contents.fooEnumMap = deserializeAws_ec2FooEnumMap(__getArrayIfSingleItem(output["fooEnumMap"]["entry"]), context);
   }
   if (output.fooEnumSet === "") {
     contents.fooEnumSet = [];
   }
-  if (
-    output["fooEnumSet"] !== undefined &&
-    output["fooEnumSet"]["member"] !== undefined
-  ) {
-    contents.fooEnumSet = deserializeAws_ec2FooEnumSet(
-      __getArrayIfSingleItem(output["fooEnumSet"]["member"]),
-      context
-    );
+  if (output["fooEnumSet"] !== undefined && output["fooEnumSet"]["member"] !== undefined) {
+    contents.fooEnumSet = deserializeAws_ec2FooEnumSet(__getArrayIfSingleItem(output["fooEnumSet"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_ec2XmlListsOutput = (
-  output: any,
-  context: __SerdeContext
-): XmlListsOutput => {
+const deserializeAws_ec2XmlListsOutput = (output: any, context: __SerdeContext): XmlListsOutput => {
   let contents: any = {
     __type: "XmlListsOutput",
     booleanList: undefined,
@@ -1793,15 +1527,12 @@ const deserializeAws_ec2XmlListsOutput = (
     stringList: undefined,
     stringSet: undefined,
     structureList: undefined,
-    timestampList: undefined
+    timestampList: undefined,
   };
   if (output.booleanList === "") {
     contents.booleanList = [];
   }
-  if (
-    output["booleanList"] !== undefined &&
-    output["booleanList"]["member"] !== undefined
-  ) {
+  if (output["booleanList"] !== undefined && output["booleanList"]["member"] !== undefined) {
     contents.booleanList = deserializeAws_ec2BooleanList(
       __getArrayIfSingleItem(output["booleanList"]["member"]),
       context
@@ -1810,14 +1541,8 @@ const deserializeAws_ec2XmlListsOutput = (
   if (output.enumList === "") {
     contents.enumList = [];
   }
-  if (
-    output["enumList"] !== undefined &&
-    output["enumList"]["member"] !== undefined
-  ) {
-    contents.enumList = deserializeAws_ec2FooEnumList(
-      __getArrayIfSingleItem(output["enumList"]["member"]),
-      context
-    );
+  if (output["enumList"] !== undefined && output["enumList"]["member"] !== undefined) {
+    contents.enumList = deserializeAws_ec2FooEnumList(__getArrayIfSingleItem(output["enumList"]["member"]), context);
   }
   if (output.flattenedList === "") {
     contents.flattenedList = [];
@@ -1840,10 +1565,7 @@ const deserializeAws_ec2XmlListsOutput = (
   if (output.integerList === "") {
     contents.integerList = [];
   }
-  if (
-    output["integerList"] !== undefined &&
-    output["integerList"]["member"] !== undefined
-  ) {
+  if (output["integerList"] !== undefined && output["integerList"]["member"] !== undefined) {
     contents.integerList = deserializeAws_ec2IntegerList(
       __getArrayIfSingleItem(output["integerList"]["member"]),
       context
@@ -1852,10 +1574,7 @@ const deserializeAws_ec2XmlListsOutput = (
   if (output.nestedStringList === "") {
     contents.nestedStringList = [];
   }
-  if (
-    output["nestedStringList"] !== undefined &&
-    output["nestedStringList"]["member"] !== undefined
-  ) {
+  if (output["nestedStringList"] !== undefined && output["nestedStringList"]["member"] !== undefined) {
     contents.nestedStringList = deserializeAws_ec2NestedStringList(
       __getArrayIfSingleItem(output["nestedStringList"]["member"]),
       context
@@ -1864,10 +1583,7 @@ const deserializeAws_ec2XmlListsOutput = (
   if (output.renamed === "") {
     contents.renamedListMembers = [];
   }
-  if (
-    output["renamed"] !== undefined &&
-    output["renamed"]["item"] !== undefined
-  ) {
+  if (output["renamed"] !== undefined && output["renamed"]["item"] !== undefined) {
     contents.renamedListMembers = deserializeAws_ec2RenamedListMembers(
       __getArrayIfSingleItem(output["renamed"]["item"]),
       context
@@ -1876,34 +1592,19 @@ const deserializeAws_ec2XmlListsOutput = (
   if (output.stringList === "") {
     contents.stringList = [];
   }
-  if (
-    output["stringList"] !== undefined &&
-    output["stringList"]["member"] !== undefined
-  ) {
-    contents.stringList = deserializeAws_ec2StringList(
-      __getArrayIfSingleItem(output["stringList"]["member"]),
-      context
-    );
+  if (output["stringList"] !== undefined && output["stringList"]["member"] !== undefined) {
+    contents.stringList = deserializeAws_ec2StringList(__getArrayIfSingleItem(output["stringList"]["member"]), context);
   }
   if (output.stringSet === "") {
     contents.stringSet = [];
   }
-  if (
-    output["stringSet"] !== undefined &&
-    output["stringSet"]["member"] !== undefined
-  ) {
-    contents.stringSet = deserializeAws_ec2StringSet(
-      __getArrayIfSingleItem(output["stringSet"]["member"]),
-      context
-    );
+  if (output["stringSet"] !== undefined && output["stringSet"]["member"] !== undefined) {
+    contents.stringSet = deserializeAws_ec2StringSet(__getArrayIfSingleItem(output["stringSet"]["member"]), context);
   }
   if (output.myStructureList === "") {
     contents.structureList = [];
   }
-  if (
-    output["myStructureList"] !== undefined &&
-    output["myStructureList"]["item"] !== undefined
-  ) {
+  if (output["myStructureList"] !== undefined && output["myStructureList"]["item"] !== undefined) {
     contents.structureList = deserializeAws_ec2StructureList(
       __getArrayIfSingleItem(output["myStructureList"]["item"]),
       context
@@ -1912,10 +1613,7 @@ const deserializeAws_ec2XmlListsOutput = (
   if (output.timestampList === "") {
     contents.timestampList = [];
   }
-  if (
-    output["timestampList"] !== undefined &&
-    output["timestampList"]["member"] !== undefined
-  ) {
+  if (output["timestampList"] !== undefined && output["timestampList"]["member"] !== undefined) {
     contents.timestampList = deserializeAws_ec2TimestampList(
       __getArrayIfSingleItem(output["timestampList"]["member"]),
       context
@@ -1924,21 +1622,15 @@ const deserializeAws_ec2XmlListsOutput = (
   return contents;
 };
 
-const deserializeAws_ec2XmlNamespacedList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_ec2XmlNamespacedList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_ec2XmlNamespaceNested = (
-  output: any,
-  context: __SerdeContext
-): XmlNamespaceNested => {
+const deserializeAws_ec2XmlNamespaceNested = (output: any, context: __SerdeContext): XmlNamespaceNested => {
   let contents: any = {
     __type: "XmlNamespaceNested",
     foo: undefined,
-    values: undefined
+    values: undefined,
   };
   if (output["foo"] !== undefined) {
     contents.foo = output["foo"];
@@ -1946,45 +1638,30 @@ const deserializeAws_ec2XmlNamespaceNested = (
   if (output.values === "") {
     contents.values = [];
   }
-  if (
-    output["values"] !== undefined &&
-    output["values"]["member"] !== undefined
-  ) {
-    contents.values = deserializeAws_ec2XmlNamespacedList(
-      __getArrayIfSingleItem(output["values"]["member"]),
-      context
-    );
+  if (output["values"] !== undefined && output["values"]["member"] !== undefined) {
+    contents.values = deserializeAws_ec2XmlNamespacedList(__getArrayIfSingleItem(output["values"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_ec2XmlNamespacesOutput = (
-  output: any,
-  context: __SerdeContext
-): XmlNamespacesOutput => {
+const deserializeAws_ec2XmlNamespacesOutput = (output: any, context: __SerdeContext): XmlNamespacesOutput => {
   let contents: any = {
     __type: "XmlNamespacesOutput",
-    nested: undefined
+    nested: undefined,
   };
   if (output["nested"] !== undefined) {
-    contents.nested = deserializeAws_ec2XmlNamespaceNested(
-      output["nested"],
-      context
-    );
+    contents.nested = deserializeAws_ec2XmlNamespaceNested(output["nested"], context);
   }
   return contents;
 };
 
-const deserializeAws_ec2XmlTimestampsOutput = (
-  output: any,
-  context: __SerdeContext
-): XmlTimestampsOutput => {
+const deserializeAws_ec2XmlTimestampsOutput = (output: any, context: __SerdeContext): XmlTimestampsOutput => {
   let contents: any = {
     __type: "XmlTimestampsOutput",
     dateTime: undefined,
     epochSeconds: undefined,
     httpDate: undefined,
-    normal: undefined
+    normal: undefined,
   };
   if (output["dateTime"] !== undefined) {
     contents.dateTime = new Date(output["dateTime"]);
@@ -2001,105 +1678,67 @@ const deserializeAws_ec2XmlTimestampsOutput = (
   return contents;
 };
 
-const deserializeAws_ec2BooleanList = (
-  output: any,
-  context: __SerdeContext
-): boolean[] => {
+const deserializeAws_ec2BooleanList = (output: any, context: __SerdeContext): boolean[] => {
   return (output || []).map((entry: any) => entry == "true");
 };
 
-const deserializeAws_ec2FooEnumList = (
-  output: any,
-  context: __SerdeContext
-): (FooEnum | string)[] => {
+const deserializeAws_ec2FooEnumList = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_ec2FooEnumMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: FooEnum | string } => {
+const deserializeAws_ec2FooEnumMap = (output: any, context: __SerdeContext): { [key: string]: FooEnum | string } => {
   return output.reduce(
     (acc: any, pair: any) => ({
       ...acc,
-      [pair["key"]]: pair["value"]
+      [pair["key"]]: pair["value"],
     }),
     {}
   );
 };
 
-const deserializeAws_ec2FooEnumSet = (
-  output: any,
-  context: __SerdeContext
-): (FooEnum | string)[] => {
+const deserializeAws_ec2FooEnumSet = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_ec2IntegerList = (
-  output: any,
-  context: __SerdeContext
-): number[] => {
+const deserializeAws_ec2IntegerList = (output: any, context: __SerdeContext): number[] => {
   return (output || []).map((entry: any) => parseInt(entry));
 };
 
-const deserializeAws_ec2NestedStringList = (
-  output: any,
-  context: __SerdeContext
-): string[][] => {
+const deserializeAws_ec2NestedStringList = (output: any, context: __SerdeContext): string[][] => {
   return (output || []).map((entry: any) =>
-    deserializeAws_ec2StringList(
-      __getArrayIfSingleItem(entry["member"]),
-      context
-    )
+    deserializeAws_ec2StringList(__getArrayIfSingleItem(entry["member"]), context)
   );
 };
 
-const deserializeAws_ec2StringList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_ec2StringList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_ec2StringSet = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_ec2StringSet = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_ec2TimestampList = (
-  output: any,
-  context: __SerdeContext
-): Date[] => {
+const deserializeAws_ec2TimestampList = (output: any, context: __SerdeContext): Date[] => {
   return (output || []).map((entry: any) => new Date(entry));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"]
+  requestId: output.headers["x-amzn-requestid"],
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
-  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -2115,7 +1754,7 @@ const buildHttpRpcRequest = async (
     port,
     method: "POST",
     path,
-    headers
+    headers,
   };
   if (resolvedHostname !== undefined) {
     contents.hostname = resolvedHostname;
@@ -2135,13 +1774,13 @@ const decodeEscapedXML = (str: string) =>
     .replace(/&lt;/g, "<");
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then(encoded => {
+  collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       const parsedObj = xmlParse(encoded, {
         attributeNamePrefix: "",
         ignoreAttributes: false,
         parseNodeValue: false,
-        tagValueProcessor: (val, tagName) => decodeEscapedXML(val)
+        tagValueProcessor: (val, tagName) => decodeEscapedXML(val),
       });
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
@@ -2155,16 +1794,9 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
-const buildFormUrlencodedString = (formEntries: {
-  [key: string]: string;
-}): string =>
+const buildFormUrlencodedString = (formEntries: { [key: string]: string }): string =>
   Object.entries(formEntries)
-    .map(
-      ([key, value]) =>
-        __extendedEncodeURIComponent(key) +
-        "=" +
-        __extendedEncodeURIComponent(value)
-    )
+    .map(([key, value]) => __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value))
     .join("&");
 
 const loadEc2ErrorCode = (output: __HttpResponse, data: any): string => {

@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient";
-import {
-  CreateDeploymentRequest,
-  CreateDeploymentResponse
-} from "../models/index";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { CreateDeploymentRequest, CreateDeploymentResponse } from "../models/index";
 import {
   deserializeAws_restJson1CreateDeploymentCommand,
-  serializeAws_restJson1CreateDeploymentCommand
+  serializeAws_restJson1CreateDeploymentCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateDeploymentCommandInput = CreateDeploymentRequest;
-export type CreateDeploymentCommandOutput = CreateDeploymentResponse &
-  __MetadataBearer;
+export type CreateDeploymentCommandOutput = CreateDeploymentResponse & __MetadataBearer;
 
 export class CreateDeploymentCommand extends $Command<
   CreateDeploymentCommandInput,
@@ -50,14 +39,12 @@ export class CreateDeploymentCommand extends $Command<
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDeploymentCommandInput, CreateDeploymentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class CreateDeploymentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDeploymentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDeploymentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateDeploymentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeploymentCommandOutput> {
     return deserializeAws_restJson1CreateDeploymentCommand(output, context);
   }
 

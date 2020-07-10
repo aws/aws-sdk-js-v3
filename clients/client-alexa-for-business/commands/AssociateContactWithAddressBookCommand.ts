@@ -1,21 +1,11 @@
-import {
-  AlexaForBusinessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AlexaForBusinessClient";
-import {
-  AssociateContactWithAddressBookRequest,
-  AssociateContactWithAddressBookResponse
-} from "../models/index";
+import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
+import { AssociateContactWithAddressBookRequest, AssociateContactWithAddressBookResponse } from "../models/index";
 import {
   deserializeAws_json1_1AssociateContactWithAddressBookCommand,
-  serializeAws_json1_1AssociateContactWithAddressBookCommand
+  serializeAws_json1_1AssociateContactWithAddressBookCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type AssociateContactWithAddressBookCommandInput = AssociateContactWithAddressBookRequest;
-export type AssociateContactWithAddressBookCommandOutput = AssociateContactWithAddressBookResponse &
-  __MetadataBearer;
+export type AssociateContactWithAddressBookCommandOutput = AssociateContactWithAddressBookResponse & __MetadataBearer;
 
 export class AssociateContactWithAddressBookCommand extends $Command<
   AssociateContactWithAddressBookCommandInput,
@@ -49,18 +38,13 @@ export class AssociateContactWithAddressBookCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateContactWithAddressBookCommandInput,
-    AssociateContactWithAddressBookCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateContactWithAddressBookCommandInput, AssociateContactWithAddressBookCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +58,14 @@ export class AssociateContactWithAddressBookCommand extends $Command<
     input: AssociateContactWithAddressBookCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateContactWithAddressBookCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1AssociateContactWithAddressBookCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateContactWithAddressBookCommandOutput> {
-    return deserializeAws_json1_1AssociateContactWithAddressBookCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AssociateContactWithAddressBookCommand(output, context);
   }
 
   // Start section: command_body_extra

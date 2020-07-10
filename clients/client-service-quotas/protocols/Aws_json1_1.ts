@@ -1,66 +1,57 @@
 import {
   AssociateServiceQuotaTemplateCommandInput,
-  AssociateServiceQuotaTemplateCommandOutput
+  AssociateServiceQuotaTemplateCommandOutput,
 } from "../commands/AssociateServiceQuotaTemplateCommand";
 import {
   DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
-  DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
+  DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput,
 } from "../commands/DeleteServiceQuotaIncreaseRequestFromTemplateCommand";
 import {
   DisassociateServiceQuotaTemplateCommandInput,
-  DisassociateServiceQuotaTemplateCommandOutput
+  DisassociateServiceQuotaTemplateCommandOutput,
 } from "../commands/DisassociateServiceQuotaTemplateCommand";
 import {
   GetAWSDefaultServiceQuotaCommandInput,
-  GetAWSDefaultServiceQuotaCommandOutput
+  GetAWSDefaultServiceQuotaCommandOutput,
 } from "../commands/GetAWSDefaultServiceQuotaCommand";
 import {
   GetAssociationForServiceQuotaTemplateCommandInput,
-  GetAssociationForServiceQuotaTemplateCommandOutput
+  GetAssociationForServiceQuotaTemplateCommandOutput,
 } from "../commands/GetAssociationForServiceQuotaTemplateCommand";
 import {
   GetRequestedServiceQuotaChangeCommandInput,
-  GetRequestedServiceQuotaChangeCommandOutput
+  GetRequestedServiceQuotaChangeCommandOutput,
 } from "../commands/GetRequestedServiceQuotaChangeCommand";
-import {
-  GetServiceQuotaCommandInput,
-  GetServiceQuotaCommandOutput
-} from "../commands/GetServiceQuotaCommand";
+import { GetServiceQuotaCommandInput, GetServiceQuotaCommandOutput } from "../commands/GetServiceQuotaCommand";
 import {
   GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
-  GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
+  GetServiceQuotaIncreaseRequestFromTemplateCommandOutput,
 } from "../commands/GetServiceQuotaIncreaseRequestFromTemplateCommand";
 import {
   ListAWSDefaultServiceQuotasCommandInput,
-  ListAWSDefaultServiceQuotasCommandOutput
+  ListAWSDefaultServiceQuotasCommandOutput,
 } from "../commands/ListAWSDefaultServiceQuotasCommand";
 import {
   ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
-  ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
+  ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput,
 } from "../commands/ListRequestedServiceQuotaChangeHistoryByQuotaCommand";
 import {
   ListRequestedServiceQuotaChangeHistoryCommandInput,
-  ListRequestedServiceQuotaChangeHistoryCommandOutput
+  ListRequestedServiceQuotaChangeHistoryCommandOutput,
 } from "../commands/ListRequestedServiceQuotaChangeHistoryCommand";
 import {
   ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
-  ListServiceQuotaIncreaseRequestsInTemplateCommandOutput
+  ListServiceQuotaIncreaseRequestsInTemplateCommandOutput,
 } from "../commands/ListServiceQuotaIncreaseRequestsInTemplateCommand";
-import {
-  ListServiceQuotasCommandInput,
-  ListServiceQuotasCommandOutput
-} from "../commands/ListServiceQuotasCommand";
-import {
-  ListServicesCommandInput,
-  ListServicesCommandOutput
-} from "../commands/ListServicesCommand";
+import { ListServiceQuotasCommandInput, ListServiceQuotasCommandOutput } from "../commands/ListServiceQuotasCommand";
+import { ListServicesCommandInput, ListServicesCommandOutput } from "../commands/ListServicesCommand";
 import {
   PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
-  PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
+  PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput,
 } from "../commands/PutServiceQuotaIncreaseRequestIntoTemplateCommand";
 import {
   RequestServiceQuotaIncreaseCommandInput,
-  RequestServiceQuotaIncreaseCommandOutput
+  RequestServiceQuotaIncreaseCommandOutput,
 } from "../commands/RequestServiceQuotaIncreaseCommand";
 import {
   AWSServiceAccessNotEnabledException,
@@ -116,19 +107,16 @@ import {
   ServiceQuotaIncreaseRequestInTemplate,
   ServiceQuotaTemplateNotInUseException,
   TemplatesNotAvailableInRegionException,
-  TooManyRequestsException
+  TooManyRequestsException,
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export const serializeAws_json1_1AssociateServiceQuotaTemplateCommand = async (
@@ -137,12 +125,10 @@ export const serializeAws_json1_1AssociateServiceQuotaTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ServiceQuotasV20190624.AssociateServiceQuotaTemplate"
+    "X-Amz-Target": "ServiceQuotasV20190624.AssociateServiceQuotaTemplate",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1AssociateServiceQuotaTemplateRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1AssociateServiceQuotaTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -152,16 +138,10 @@ export const serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCo
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "ServiceQuotasV20190624.DeleteServiceQuotaIncreaseRequestFromTemplate"
+    "X-Amz-Target": "ServiceQuotasV20190624.DeleteServiceQuotaIncreaseRequestFromTemplate",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateRequest(
-      input,
-      context
-    )
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -171,12 +151,10 @@ export const serializeAws_json1_1DisassociateServiceQuotaTemplateCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ServiceQuotasV20190624.DisassociateServiceQuotaTemplate"
+    "X-Amz-Target": "ServiceQuotasV20190624.DisassociateServiceQuotaTemplate",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DisassociateServiceQuotaTemplateRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DisassociateServiceQuotaTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -186,16 +164,10 @@ export const serializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand = 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "ServiceQuotasV20190624.GetAssociationForServiceQuotaTemplate"
+    "X-Amz-Target": "ServiceQuotasV20190624.GetAssociationForServiceQuotaTemplate",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetAssociationForServiceQuotaTemplateRequest(
-      input,
-      context
-    )
-  );
+  body = JSON.stringify(serializeAws_json1_1GetAssociationForServiceQuotaTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -205,12 +177,10 @@ export const serializeAws_json1_1GetAWSDefaultServiceQuotaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ServiceQuotasV20190624.GetAWSDefaultServiceQuota"
+    "X-Amz-Target": "ServiceQuotasV20190624.GetAWSDefaultServiceQuota",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetAWSDefaultServiceQuotaRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetAWSDefaultServiceQuotaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -220,12 +190,10 @@ export const serializeAws_json1_1GetRequestedServiceQuotaChangeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ServiceQuotasV20190624.GetRequestedServiceQuotaChange"
+    "X-Amz-Target": "ServiceQuotasV20190624.GetRequestedServiceQuotaChange",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetRequestedServiceQuotaChangeRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetRequestedServiceQuotaChangeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -235,12 +203,10 @@ export const serializeAws_json1_1GetServiceQuotaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ServiceQuotasV20190624.GetServiceQuota"
+    "X-Amz-Target": "ServiceQuotasV20190624.GetServiceQuota",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetServiceQuotaRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetServiceQuotaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -250,16 +216,10 @@ export const serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateComma
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "ServiceQuotasV20190624.GetServiceQuotaIncreaseRequestFromTemplate"
+    "X-Amz-Target": "ServiceQuotasV20190624.GetServiceQuotaIncreaseRequestFromTemplate",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateRequest(
-      input,
-      context
-    )
-  );
+  body = JSON.stringify(serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -269,12 +229,10 @@ export const serializeAws_json1_1ListAWSDefaultServiceQuotasCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ServiceQuotasV20190624.ListAWSDefaultServiceQuotas"
+    "X-Amz-Target": "ServiceQuotasV20190624.ListAWSDefaultServiceQuotas",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListAWSDefaultServiceQuotasRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListAWSDefaultServiceQuotasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -284,16 +242,10 @@ export const serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommand =
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistory"
+    "X-Amz-Target": "ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistory",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryRequest(
-      input,
-      context
-    )
-  );
+  body = JSON.stringify(serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -303,16 +255,10 @@ export const serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCo
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistoryByQuota"
+    "X-Amz-Target": "ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistoryByQuota",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaRequest(
-      input,
-      context
-    )
-  );
+  body = JSON.stringify(serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -322,16 +268,10 @@ export const serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateComma
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "ServiceQuotasV20190624.ListServiceQuotaIncreaseRequestsInTemplate"
+    "X-Amz-Target": "ServiceQuotasV20190624.ListServiceQuotaIncreaseRequestsInTemplate",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateRequest(
-      input,
-      context
-    )
-  );
+  body = JSON.stringify(serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -341,12 +281,10 @@ export const serializeAws_json1_1ListServiceQuotasCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ServiceQuotasV20190624.ListServiceQuotas"
+    "X-Amz-Target": "ServiceQuotasV20190624.ListServiceQuotas",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListServiceQuotasRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListServiceQuotasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -356,12 +294,10 @@ export const serializeAws_json1_1ListServicesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ServiceQuotasV20190624.ListServices"
+    "X-Amz-Target": "ServiceQuotasV20190624.ListServices",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListServicesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListServicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -371,16 +307,10 @@ export const serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateComma
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "ServiceQuotasV20190624.PutServiceQuotaIncreaseRequestIntoTemplate"
+    "X-Amz-Target": "ServiceQuotasV20190624.PutServiceQuotaIncreaseRequestIntoTemplate",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateRequest(
-      input,
-      context
-    )
-  );
+  body = JSON.stringify(serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -390,12 +320,10 @@ export const serializeAws_json1_1RequestServiceQuotaIncreaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ServiceQuotasV20190624.RequestServiceQuotaIncrease"
+    "X-Amz-Target": "ServiceQuotasV20190624.RequestServiceQuotaIncrease",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1RequestServiceQuotaIncreaseRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1RequestServiceQuotaIncreaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -404,21 +332,15 @@ export const deserializeAws_json1_1AssociateServiceQuotaTemplateCommand = async 
   context: __SerdeContext
 ): Promise<AssociateServiceQuotaTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateServiceQuotaTemplateResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1AssociateServiceQuotaTemplateResponse(data, context);
   const response: AssociateServiceQuotaTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssociateServiceQuotaTemplateResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -429,100 +351,75 @@ const deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError = async (
 ): Promise<AssociateServiceQuotaTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.servicequotas#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "AWSServiceAccessNotEnabledException":
     case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
       response = {
-        ...(await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependencyAccessDeniedException":
     case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NoAvailableOrganizationException":
     case "com.amazonaws.servicequotas#NoAvailableOrganizationException":
       response = {
-        ...(await deserializeAws_json1_1NoAvailableOrganizationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NoAvailableOrganizationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OrganizationNotInAllFeaturesModeException":
     case "com.amazonaws.servicequotas#OrganizationNotInAllFeaturesModeException":
       response = {
-        ...(await deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceException":
     case "com.amazonaws.servicequotas#ServiceException":
       response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TemplatesNotAvailableInRegionException":
     case "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException":
       response = {
-        ...(await deserializeAws_json1_1TemplatesNotAvailableInRegionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TemplatesNotAvailableInRegionExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.servicequotas#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -533,7 +430,7 @@ const deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -547,21 +444,15 @@ export const deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplate
   context: __SerdeContext
 ): Promise<DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateResponse(data, context);
   const response: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteServiceQuotaIncreaseRequestFromTemplateResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -572,111 +463,83 @@ const deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand
 ): Promise<DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.servicequotas#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "AWSServiceAccessNotEnabledException":
     case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
       response = {
-        ...(await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependencyAccessDeniedException":
     case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IllegalArgumentException":
     case "com.amazonaws.servicequotas#IllegalArgumentException":
       response = {
-        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NoAvailableOrganizationException":
     case "com.amazonaws.servicequotas#NoAvailableOrganizationException":
       response = {
-        ...(await deserializeAws_json1_1NoAvailableOrganizationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NoAvailableOrganizationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NoSuchResourceException":
     case "com.amazonaws.servicequotas#NoSuchResourceException":
       response = {
-        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceException":
     case "com.amazonaws.servicequotas#ServiceException":
       response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TemplatesNotAvailableInRegionException":
     case "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException":
       response = {
-        ...(await deserializeAws_json1_1TemplatesNotAvailableInRegionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TemplatesNotAvailableInRegionExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.servicequotas#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -687,7 +550,7 @@ const deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -701,21 +564,15 @@ export const deserializeAws_json1_1DisassociateServiceQuotaTemplateCommand = asy
   context: __SerdeContext
 ): Promise<DisassociateServiceQuotaTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateServiceQuotaTemplateResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DisassociateServiceQuotaTemplateResponse(data, context);
   const response: DisassociateServiceQuotaTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisassociateServiceQuotaTemplateResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -726,100 +583,75 @@ const deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandError = async
 ): Promise<DisassociateServiceQuotaTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.servicequotas#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "AWSServiceAccessNotEnabledException":
     case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
       response = {
-        ...(await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependencyAccessDeniedException":
     case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NoAvailableOrganizationException":
     case "com.amazonaws.servicequotas#NoAvailableOrganizationException":
       response = {
-        ...(await deserializeAws_json1_1NoAvailableOrganizationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NoAvailableOrganizationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceException":
     case "com.amazonaws.servicequotas#ServiceException":
       response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceQuotaTemplateNotInUseException":
     case "com.amazonaws.servicequotas#ServiceQuotaTemplateNotInUseException":
       response = {
-        ...(await deserializeAws_json1_1ServiceQuotaTemplateNotInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceQuotaTemplateNotInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TemplatesNotAvailableInRegionException":
     case "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException":
       response = {
-        ...(await deserializeAws_json1_1TemplatesNotAvailableInRegionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TemplatesNotAvailableInRegionExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.servicequotas#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -830,7 +662,7 @@ const deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandError = async
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -844,21 +676,15 @@ export const deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand 
   context: __SerdeContext
 ): Promise<GetAssociationForServiceQuotaTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAssociationForServiceQuotaTemplateResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetAssociationForServiceQuotaTemplateResponse(data, context);
   const response: GetAssociationForServiceQuotaTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetAssociationForServiceQuotaTemplateResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -869,100 +695,75 @@ const deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommandError = 
 ): Promise<GetAssociationForServiceQuotaTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.servicequotas#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "AWSServiceAccessNotEnabledException":
     case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
       response = {
-        ...(await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependencyAccessDeniedException":
     case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NoAvailableOrganizationException":
     case "com.amazonaws.servicequotas#NoAvailableOrganizationException":
       response = {
-        ...(await deserializeAws_json1_1NoAvailableOrganizationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NoAvailableOrganizationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceException":
     case "com.amazonaws.servicequotas#ServiceException":
       response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceQuotaTemplateNotInUseException":
     case "com.amazonaws.servicequotas#ServiceQuotaTemplateNotInUseException":
       response = {
-        ...(await deserializeAws_json1_1ServiceQuotaTemplateNotInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceQuotaTemplateNotInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TemplatesNotAvailableInRegionException":
     case "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException":
       response = {
-        ...(await deserializeAws_json1_1TemplatesNotAvailableInRegionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TemplatesNotAvailableInRegionExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.servicequotas#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -973,7 +774,7 @@ const deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommandError = 
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -987,21 +788,15 @@ export const deserializeAws_json1_1GetAWSDefaultServiceQuotaCommand = async (
   context: __SerdeContext
 ): Promise<GetAWSDefaultServiceQuotaCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetAWSDefaultServiceQuotaCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetAWSDefaultServiceQuotaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAWSDefaultServiceQuotaResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetAWSDefaultServiceQuotaResponse(data, context);
   const response: GetAWSDefaultServiceQuotaCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetAWSDefaultServiceQuotaResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1012,67 +807,51 @@ const deserializeAws_json1_1GetAWSDefaultServiceQuotaCommandError = async (
 ): Promise<GetAWSDefaultServiceQuotaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.servicequotas#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IllegalArgumentException":
     case "com.amazonaws.servicequotas#IllegalArgumentException":
       response = {
-        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NoSuchResourceException":
     case "com.amazonaws.servicequotas#NoSuchResourceException":
       response = {
-        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceException":
     case "com.amazonaws.servicequotas#ServiceException":
       response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.servicequotas#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1083,7 +862,7 @@ const deserializeAws_json1_1GetAWSDefaultServiceQuotaCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1097,21 +876,15 @@ export const deserializeAws_json1_1GetRequestedServiceQuotaChangeCommand = async
   context: __SerdeContext
 ): Promise<GetRequestedServiceQuotaChangeCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetRequestedServiceQuotaChangeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetRequestedServiceQuotaChangeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRequestedServiceQuotaChangeResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetRequestedServiceQuotaChangeResponse(data, context);
   const response: GetRequestedServiceQuotaChangeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRequestedServiceQuotaChangeResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1122,67 +895,51 @@ const deserializeAws_json1_1GetRequestedServiceQuotaChangeCommandError = async (
 ): Promise<GetRequestedServiceQuotaChangeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.servicequotas#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IllegalArgumentException":
     case "com.amazonaws.servicequotas#IllegalArgumentException":
       response = {
-        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NoSuchResourceException":
     case "com.amazonaws.servicequotas#NoSuchResourceException":
       response = {
-        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceException":
     case "com.amazonaws.servicequotas#ServiceException":
       response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.servicequotas#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1193,7 +950,7 @@ const deserializeAws_json1_1GetRequestedServiceQuotaChangeCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1215,7 +972,7 @@ export const deserializeAws_json1_1GetServiceQuotaCommand = async (
   const response: GetServiceQuotaCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetServiceQuotaResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1226,67 +983,51 @@ const deserializeAws_json1_1GetServiceQuotaCommandError = async (
 ): Promise<GetServiceQuotaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.servicequotas#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IllegalArgumentException":
     case "com.amazonaws.servicequotas#IllegalArgumentException":
       response = {
-        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NoSuchResourceException":
     case "com.amazonaws.servicequotas#NoSuchResourceException":
       response = {
-        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceException":
     case "com.amazonaws.servicequotas#ServiceException":
       response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.servicequotas#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1297,7 +1038,7 @@ const deserializeAws_json1_1GetServiceQuotaCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1311,21 +1052,15 @@ export const deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCom
   context: __SerdeContext
 ): Promise<GetServiceQuotaIncreaseRequestFromTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateResponse(data, context);
   const response: GetServiceQuotaIncreaseRequestFromTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetServiceQuotaIncreaseRequestFromTemplateResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1336,111 +1071,83 @@ const deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommandErr
 ): Promise<GetServiceQuotaIncreaseRequestFromTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.servicequotas#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "AWSServiceAccessNotEnabledException":
     case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
       response = {
-        ...(await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependencyAccessDeniedException":
     case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IllegalArgumentException":
     case "com.amazonaws.servicequotas#IllegalArgumentException":
       response = {
-        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NoAvailableOrganizationException":
     case "com.amazonaws.servicequotas#NoAvailableOrganizationException":
       response = {
-        ...(await deserializeAws_json1_1NoAvailableOrganizationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NoAvailableOrganizationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NoSuchResourceException":
     case "com.amazonaws.servicequotas#NoSuchResourceException":
       response = {
-        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceException":
     case "com.amazonaws.servicequotas#ServiceException":
       response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TemplatesNotAvailableInRegionException":
     case "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException":
       response = {
-        ...(await deserializeAws_json1_1TemplatesNotAvailableInRegionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TemplatesNotAvailableInRegionExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.servicequotas#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1451,7 +1158,7 @@ const deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommandErr
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1465,21 +1172,15 @@ export const deserializeAws_json1_1ListAWSDefaultServiceQuotasCommand = async (
   context: __SerdeContext
 ): Promise<ListAWSDefaultServiceQuotasCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAWSDefaultServiceQuotasResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ListAWSDefaultServiceQuotasResponse(data, context);
   const response: ListAWSDefaultServiceQuotasCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAWSDefaultServiceQuotasResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1490,78 +1191,59 @@ const deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError = async (
 ): Promise<ListAWSDefaultServiceQuotasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.servicequotas#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IllegalArgumentException":
     case "com.amazonaws.servicequotas#IllegalArgumentException":
       response = {
-        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidPaginationTokenException":
     case "com.amazonaws.servicequotas#InvalidPaginationTokenException":
       response = {
-        ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NoSuchResourceException":
     case "com.amazonaws.servicequotas#NoSuchResourceException":
       response = {
-        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceException":
     case "com.amazonaws.servicequotas#ServiceException":
       response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.servicequotas#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1572,7 +1254,7 @@ const deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1586,21 +1268,15 @@ export const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommand
   context: __SerdeContext
 ): Promise<ListRequestedServiceQuotaChangeHistoryCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryResponse(data, context);
   const response: ListRequestedServiceQuotaChangeHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListRequestedServiceQuotaChangeHistoryResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1611,78 +1287,59 @@ const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommandError =
 ): Promise<ListRequestedServiceQuotaChangeHistoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.servicequotas#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IllegalArgumentException":
     case "com.amazonaws.servicequotas#IllegalArgumentException":
       response = {
-        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidPaginationTokenException":
     case "com.amazonaws.servicequotas#InvalidPaginationTokenException":
       response = {
-        ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NoSuchResourceException":
     case "com.amazonaws.servicequotas#NoSuchResourceException":
       response = {
-        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceException":
     case "com.amazonaws.servicequotas#ServiceException":
       response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.servicequotas#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1693,7 +1350,7 @@ const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommandError =
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1707,21 +1364,15 @@ export const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuota
   context: __SerdeContext
 ): Promise<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaResponse(data, context);
   const response: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListRequestedServiceQuotaChangeHistoryByQuotaResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1732,78 +1383,59 @@ const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand
 ): Promise<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.servicequotas#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IllegalArgumentException":
     case "com.amazonaws.servicequotas#IllegalArgumentException":
       response = {
-        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidPaginationTokenException":
     case "com.amazonaws.servicequotas#InvalidPaginationTokenException":
       response = {
-        ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NoSuchResourceException":
     case "com.amazonaws.servicequotas#NoSuchResourceException":
       response = {
-        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceException":
     case "com.amazonaws.servicequotas#ServiceException":
       response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.servicequotas#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1814,7 +1446,7 @@ const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1828,21 +1460,15 @@ export const deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCom
   context: __SerdeContext
 ): Promise<ListServiceQuotaIncreaseRequestsInTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateResponse(data, context);
   const response: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListServiceQuotaIncreaseRequestsInTemplateResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1853,100 +1479,75 @@ const deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommandErr
 ): Promise<ListServiceQuotaIncreaseRequestsInTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.servicequotas#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "AWSServiceAccessNotEnabledException":
     case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
       response = {
-        ...(await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependencyAccessDeniedException":
     case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IllegalArgumentException":
     case "com.amazonaws.servicequotas#IllegalArgumentException":
       response = {
-        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NoAvailableOrganizationException":
     case "com.amazonaws.servicequotas#NoAvailableOrganizationException":
       response = {
-        ...(await deserializeAws_json1_1NoAvailableOrganizationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NoAvailableOrganizationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceException":
     case "com.amazonaws.servicequotas#ServiceException":
       response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TemplatesNotAvailableInRegionException":
     case "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException":
       response = {
-        ...(await deserializeAws_json1_1TemplatesNotAvailableInRegionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TemplatesNotAvailableInRegionExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.servicequotas#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1957,7 +1558,7 @@ const deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommandErr
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1979,7 +1580,7 @@ export const deserializeAws_json1_1ListServiceQuotasCommand = async (
   const response: ListServiceQuotasCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListServiceQuotasResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1990,78 +1591,59 @@ const deserializeAws_json1_1ListServiceQuotasCommandError = async (
 ): Promise<ListServiceQuotasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.servicequotas#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IllegalArgumentException":
     case "com.amazonaws.servicequotas#IllegalArgumentException":
       response = {
-        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidPaginationTokenException":
     case "com.amazonaws.servicequotas#InvalidPaginationTokenException":
       response = {
-        ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NoSuchResourceException":
     case "com.amazonaws.servicequotas#NoSuchResourceException":
       response = {
-        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceException":
     case "com.amazonaws.servicequotas#ServiceException":
       response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.servicequotas#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2072,7 +1654,7 @@ const deserializeAws_json1_1ListServiceQuotasCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2094,7 +1676,7 @@ export const deserializeAws_json1_1ListServicesCommand = async (
   const response: ListServicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListServicesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2105,67 +1687,51 @@ const deserializeAws_json1_1ListServicesCommandError = async (
 ): Promise<ListServicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.servicequotas#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IllegalArgumentException":
     case "com.amazonaws.servicequotas#IllegalArgumentException":
       response = {
-        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidPaginationTokenException":
     case "com.amazonaws.servicequotas#InvalidPaginationTokenException":
       response = {
-        ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceException":
     case "com.amazonaws.servicequotas#ServiceException":
       response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.servicequotas#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2176,7 +1742,7 @@ const deserializeAws_json1_1ListServicesCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2190,21 +1756,15 @@ export const deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCom
   context: __SerdeContext
 ): Promise<PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateResponse(data, context);
   const response: PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutServiceQuotaIncreaseRequestIntoTemplateResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2215,122 +1775,91 @@ const deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommandErr
 ): Promise<PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.servicequotas#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "AWSServiceAccessNotEnabledException":
     case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
       response = {
-        ...(await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependencyAccessDeniedException":
     case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IllegalArgumentException":
     case "com.amazonaws.servicequotas#IllegalArgumentException":
       response = {
-        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NoAvailableOrganizationException":
     case "com.amazonaws.servicequotas#NoAvailableOrganizationException":
       response = {
-        ...(await deserializeAws_json1_1NoAvailableOrganizationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NoAvailableOrganizationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NoSuchResourceException":
     case "com.amazonaws.servicequotas#NoSuchResourceException":
       response = {
-        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "QuotaExceededException":
     case "com.amazonaws.servicequotas#QuotaExceededException":
       response = {
-        ...(await deserializeAws_json1_1QuotaExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1QuotaExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceException":
     case "com.amazonaws.servicequotas#ServiceException":
       response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TemplatesNotAvailableInRegionException":
     case "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException":
       response = {
-        ...(await deserializeAws_json1_1TemplatesNotAvailableInRegionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TemplatesNotAvailableInRegionExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.servicequotas#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2341,7 +1870,7 @@ const deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommandErr
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2355,21 +1884,15 @@ export const deserializeAws_json1_1RequestServiceQuotaIncreaseCommand = async (
   context: __SerdeContext
 ): Promise<RequestServiceQuotaIncreaseCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RequestServiceQuotaIncreaseResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1RequestServiceQuotaIncreaseResponse(data, context);
   const response: RequestServiceQuotaIncreaseCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RequestServiceQuotaIncreaseResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2380,111 +1903,83 @@ const deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError = async (
 ): Promise<RequestServiceQuotaIncreaseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.servicequotas#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependencyAccessDeniedException":
     case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DependencyAccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IllegalArgumentException":
     case "com.amazonaws.servicequotas#IllegalArgumentException":
       response = {
-        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidResourceStateException":
     case "com.amazonaws.servicequotas#InvalidResourceStateException":
       response = {
-        ...(await deserializeAws_json1_1InvalidResourceStateExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidResourceStateExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NoSuchResourceException":
     case "com.amazonaws.servicequotas#NoSuchResourceException":
       response = {
-        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "QuotaExceededException":
     case "com.amazonaws.servicequotas#QuotaExceededException":
       response = {
-        ...(await deserializeAws_json1_1QuotaExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1QuotaExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.servicequotas#ResourceAlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceException":
     case "com.amazonaws.servicequotas#ServiceException":
       response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.servicequotas#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2495,7 +1990,7 @@ const deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2509,15 +2004,12 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccessDeniedException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2527,15 +2019,12 @@ const deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse = async 
   context: __SerdeContext
 ): Promise<AWSServiceAccessNotEnabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AWSServiceAccessNotEnabledException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AWSServiceAccessNotEnabledException(body, context);
   const contents: AWSServiceAccessNotEnabledException = {
     name: "AWSServiceAccessNotEnabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2545,15 +2034,12 @@ const deserializeAws_json1_1DependencyAccessDeniedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<DependencyAccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DependencyAccessDeniedException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1DependencyAccessDeniedException(body, context);
   const contents: DependencyAccessDeniedException = {
     name: "DependencyAccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2563,15 +2049,12 @@ const deserializeAws_json1_1IllegalArgumentExceptionResponse = async (
   context: __SerdeContext
 ): Promise<IllegalArgumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1IllegalArgumentException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1IllegalArgumentException(body, context);
   const contents: IllegalArgumentException = {
     name: "IllegalArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2581,15 +2064,12 @@ const deserializeAws_json1_1InvalidPaginationTokenExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidPaginationTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidPaginationTokenException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidPaginationTokenException(body, context);
   const contents: InvalidPaginationTokenException = {
     name: "InvalidPaginationTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2599,15 +2079,12 @@ const deserializeAws_json1_1InvalidResourceStateExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidResourceStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidResourceStateException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidResourceStateException(body, context);
   const contents: InvalidResourceStateException = {
     name: "InvalidResourceStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2617,15 +2094,12 @@ const deserializeAws_json1_1NoAvailableOrganizationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NoAvailableOrganizationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NoAvailableOrganizationException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1NoAvailableOrganizationException(body, context);
   const contents: NoAvailableOrganizationException = {
     name: "NoAvailableOrganizationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2635,15 +2109,12 @@ const deserializeAws_json1_1NoSuchResourceExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NoSuchResourceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NoSuchResourceException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1NoSuchResourceException(body, context);
   const contents: NoSuchResourceException = {
     name: "NoSuchResourceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2653,15 +2124,12 @@ const deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse = 
   context: __SerdeContext
 ): Promise<OrganizationNotInAllFeaturesModeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OrganizationNotInAllFeaturesModeException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1OrganizationNotInAllFeaturesModeException(body, context);
   const contents: OrganizationNotInAllFeaturesModeException = {
     name: "OrganizationNotInAllFeaturesModeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2671,15 +2139,12 @@ const deserializeAws_json1_1QuotaExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<QuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1QuotaExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1QuotaExceededException(body, context);
   const contents: QuotaExceededException = {
     name: "QuotaExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2689,15 +2154,12 @@ const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistsException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistsException(body, context);
   const contents: ResourceAlreadyExistsException = {
     name: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2707,15 +2169,12 @@ const deserializeAws_json1_1ServiceExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServiceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ServiceException(body, context);
   const contents: ServiceException = {
     name: "ServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2725,15 +2184,12 @@ const deserializeAws_json1_1ServiceQuotaTemplateNotInUseExceptionResponse = asyn
   context: __SerdeContext
 ): Promise<ServiceQuotaTemplateNotInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceQuotaTemplateNotInUseException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ServiceQuotaTemplateNotInUseException(body, context);
   const contents: ServiceQuotaTemplateNotInUseException = {
     name: "ServiceQuotaTemplateNotInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2743,15 +2199,12 @@ const deserializeAws_json1_1TemplatesNotAvailableInRegionExceptionResponse = asy
   context: __SerdeContext
 ): Promise<TemplatesNotAvailableInRegionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TemplatesNotAvailableInRegionException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1TemplatesNotAvailableInRegionException(body, context);
   const contents: TemplatesNotAvailableInRegionException = {
     name: "TemplatesNotAvailableInRegionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2761,15 +2214,12 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TooManyRequestsException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1TooManyRequestsException(body, context);
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2788,7 +2238,7 @@ const serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateRequest =
   return {
     ...(input.AwsRegion !== undefined && { AwsRegion: input.AwsRegion }),
     ...(input.QuotaCode !== undefined && { QuotaCode: input.QuotaCode }),
-    ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode })
+    ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode }),
   };
 };
 
@@ -2812,7 +2262,7 @@ const serializeAws_json1_1GetAWSDefaultServiceQuotaRequest = (
 ): any => {
   return {
     ...(input.QuotaCode !== undefined && { QuotaCode: input.QuotaCode }),
-    ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode })
+    ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode }),
   };
 };
 
@@ -2821,7 +2271,7 @@ const serializeAws_json1_1GetRequestedServiceQuotaChangeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.RequestId !== undefined && { RequestId: input.RequestId })
+    ...(input.RequestId !== undefined && { RequestId: input.RequestId }),
   };
 };
 
@@ -2832,17 +2282,14 @@ const serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateRequest = (
   return {
     ...(input.AwsRegion !== undefined && { AwsRegion: input.AwsRegion }),
     ...(input.QuotaCode !== undefined && { QuotaCode: input.QuotaCode }),
-    ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode })
+    ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode }),
   };
 };
 
-const serializeAws_json1_1GetServiceQuotaRequest = (
-  input: GetServiceQuotaRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GetServiceQuotaRequest = (input: GetServiceQuotaRequest, context: __SerdeContext): any => {
   return {
     ...(input.QuotaCode !== undefined && { QuotaCode: input.QuotaCode }),
-    ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode })
+    ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode }),
   };
 };
 
@@ -2853,7 +2300,7 @@ const serializeAws_json1_1ListAWSDefaultServiceQuotasRequest = (
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode })
+    ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode }),
   };
 };
 
@@ -2866,7 +2313,7 @@ const serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaRequest =
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.QuotaCode !== undefined && { QuotaCode: input.QuotaCode }),
     ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode }),
-    ...(input.Status !== undefined && { Status: input.Status })
+    ...(input.Status !== undefined && { Status: input.Status }),
   };
 };
 
@@ -2878,7 +2325,7 @@ const serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryRequest = (
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode }),
-    ...(input.Status !== undefined && { Status: input.Status })
+    ...(input.Status !== undefined && { Status: input.Status }),
   };
 };
 
@@ -2890,7 +2337,7 @@ const serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateRequest = (
     ...(input.AwsRegion !== undefined && { AwsRegion: input.AwsRegion }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode })
+    ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode }),
   };
 };
 
@@ -2901,17 +2348,14 @@ const serializeAws_json1_1ListServiceQuotasRequest = (
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode })
+    ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode }),
   };
 };
 
-const serializeAws_json1_1ListServicesRequest = (
-  input: ListServicesRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ListServicesRequest = (input: ListServicesRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
 };
 
@@ -2921,11 +2365,9 @@ const serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateRequest = (
 ): any => {
   return {
     ...(input.AwsRegion !== undefined && { AwsRegion: input.AwsRegion }),
-    ...(input.DesiredValue !== undefined && {
-      DesiredValue: input.DesiredValue
-    }),
+    ...(input.DesiredValue !== undefined && { DesiredValue: input.DesiredValue }),
     ...(input.QuotaCode !== undefined && { QuotaCode: input.QuotaCode }),
-    ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode })
+    ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode }),
   };
 };
 
@@ -2934,24 +2376,16 @@ const serializeAws_json1_1RequestServiceQuotaIncreaseRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DesiredValue !== undefined && {
-      DesiredValue: input.DesiredValue
-    }),
+    ...(input.DesiredValue !== undefined && { DesiredValue: input.DesiredValue }),
     ...(input.QuotaCode !== undefined && { QuotaCode: input.QuotaCode }),
-    ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode })
+    ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode }),
   };
 };
 
-const deserializeAws_json1_1AccessDeniedException = (
-  output: any,
-  context: __SerdeContext
-): AccessDeniedException => {
+const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
     __type: "AccessDeniedException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -2960,7 +2394,7 @@ const deserializeAws_json1_1AssociateServiceQuotaTemplateResponse = (
   context: __SerdeContext
 ): AssociateServiceQuotaTemplateResponse => {
   return {
-    __type: "AssociateServiceQuotaTemplateResponse"
+    __type: "AssociateServiceQuotaTemplateResponse",
   } as any;
 };
 
@@ -2970,10 +2404,7 @@ const deserializeAws_json1_1AWSServiceAccessNotEnabledException = (
 ): AWSServiceAccessNotEnabledException => {
   return {
     __type: "AWSServiceAccessNotEnabledException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -2982,7 +2413,7 @@ const deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateRespons
   context: __SerdeContext
 ): DeleteServiceQuotaIncreaseRequestFromTemplateResponse => {
   return {
-    __type: "DeleteServiceQuotaIncreaseRequestFromTemplateResponse"
+    __type: "DeleteServiceQuotaIncreaseRequestFromTemplateResponse",
   } as any;
 };
 
@@ -2992,10 +2423,7 @@ const deserializeAws_json1_1DependencyAccessDeniedException = (
 ): DependencyAccessDeniedException => {
   return {
     __type: "DependencyAccessDeniedException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -3004,24 +2432,15 @@ const deserializeAws_json1_1DisassociateServiceQuotaTemplateResponse = (
   context: __SerdeContext
 ): DisassociateServiceQuotaTemplateResponse => {
   return {
-    __type: "DisassociateServiceQuotaTemplateResponse"
+    __type: "DisassociateServiceQuotaTemplateResponse",
   } as any;
 };
 
-const deserializeAws_json1_1ErrorReason = (
-  output: any,
-  context: __SerdeContext
-): ErrorReason => {
+const deserializeAws_json1_1ErrorReason = (output: any, context: __SerdeContext): ErrorReason => {
   return {
     __type: "ErrorReason",
-    ErrorCode:
-      output.ErrorCode !== undefined && output.ErrorCode !== null
-        ? output.ErrorCode
-        : undefined,
-    ErrorMessage:
-      output.ErrorMessage !== undefined && output.ErrorMessage !== null
-        ? output.ErrorMessage
-        : undefined
+    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
+    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
   } as any;
 };
 
@@ -3035,7 +2454,7 @@ const deserializeAws_json1_1GetAssociationForServiceQuotaTemplateResponse = (
       output.ServiceQuotaTemplateAssociationStatus !== undefined &&
       output.ServiceQuotaTemplateAssociationStatus !== null
         ? output.ServiceQuotaTemplateAssociationStatus
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -3048,7 +2467,7 @@ const deserializeAws_json1_1GetAWSDefaultServiceQuotaResponse = (
     Quota:
       output.Quota !== undefined && output.Quota !== null
         ? deserializeAws_json1_1ServiceQuota(output.Quota, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -3060,11 +2479,8 @@ const deserializeAws_json1_1GetRequestedServiceQuotaChangeResponse = (
     __type: "GetRequestedServiceQuotaChangeResponse",
     RequestedQuota:
       output.RequestedQuota !== undefined && output.RequestedQuota !== null
-        ? deserializeAws_json1_1RequestedServiceQuotaChange(
-            output.RequestedQuota,
-            context
-          )
-        : undefined
+        ? deserializeAws_json1_1RequestedServiceQuotaChange(output.RequestedQuota, context)
+        : undefined,
   } as any;
 };
 
@@ -3081,7 +2497,7 @@ const deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateResponse =
             output.ServiceQuotaIncreaseRequestInTemplate,
             context
           )
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -3094,7 +2510,7 @@ const deserializeAws_json1_1GetServiceQuotaResponse = (
     Quota:
       output.Quota !== undefined && output.Quota !== null
         ? deserializeAws_json1_1ServiceQuota(output.Quota, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -3104,10 +2520,7 @@ const deserializeAws_json1_1IllegalArgumentException = (
 ): IllegalArgumentException => {
   return {
     __type: "IllegalArgumentException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -3117,10 +2530,7 @@ const deserializeAws_json1_1InvalidPaginationTokenException = (
 ): InvalidPaginationTokenException => {
   return {
     __type: "InvalidPaginationTokenException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -3130,10 +2540,7 @@ const deserializeAws_json1_1InvalidResourceStateException = (
 ): InvalidResourceStateException => {
   return {
     __type: "InvalidResourceStateException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -3143,17 +2550,11 @@ const deserializeAws_json1_1ListAWSDefaultServiceQuotasResponse = (
 ): ListAWSDefaultServiceQuotasResponse => {
   return {
     __type: "ListAWSDefaultServiceQuotasResponse",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Quotas:
       output.Quotas !== undefined && output.Quotas !== null
-        ? deserializeAws_json1_1ServiceQuotaListDefinition(
-            output.Quotas,
-            context
-          )
-        : undefined
+        ? deserializeAws_json1_1ServiceQuotaListDefinition(output.Quotas, context)
+        : undefined,
   } as any;
 };
 
@@ -3163,17 +2564,11 @@ const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaRespons
 ): ListRequestedServiceQuotaChangeHistoryByQuotaResponse => {
   return {
     __type: "ListRequestedServiceQuotaChangeHistoryByQuotaResponse",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     RequestedQuotas:
       output.RequestedQuotas !== undefined && output.RequestedQuotas !== null
-        ? deserializeAws_json1_1RequestedServiceQuotaChangeHistoryListDefinition(
-            output.RequestedQuotas,
-            context
-          )
-        : undefined
+        ? deserializeAws_json1_1RequestedServiceQuotaChangeHistoryListDefinition(output.RequestedQuotas, context)
+        : undefined,
   } as any;
 };
 
@@ -3183,17 +2578,11 @@ const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryResponse = (
 ): ListRequestedServiceQuotaChangeHistoryResponse => {
   return {
     __type: "ListRequestedServiceQuotaChangeHistoryResponse",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     RequestedQuotas:
       output.RequestedQuotas !== undefined && output.RequestedQuotas !== null
-        ? deserializeAws_json1_1RequestedServiceQuotaChangeHistoryListDefinition(
-            output.RequestedQuotas,
-            context
-          )
-        : undefined
+        ? deserializeAws_json1_1RequestedServiceQuotaChangeHistoryListDefinition(output.RequestedQuotas, context)
+        : undefined,
   } as any;
 };
 
@@ -3203,10 +2592,7 @@ const deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateResponse =
 ): ListServiceQuotaIncreaseRequestsInTemplateResponse => {
   return {
     __type: "ListServiceQuotaIncreaseRequestsInTemplateResponse",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ServiceQuotaIncreaseRequestInTemplateList:
       output.ServiceQuotaIncreaseRequestInTemplateList !== undefined &&
       output.ServiceQuotaIncreaseRequestInTemplateList !== null
@@ -3214,7 +2600,7 @@ const deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateResponse =
             output.ServiceQuotaIncreaseRequestInTemplateList,
             context
           )
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -3224,37 +2610,22 @@ const deserializeAws_json1_1ListServiceQuotasResponse = (
 ): ListServiceQuotasResponse => {
   return {
     __type: "ListServiceQuotasResponse",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Quotas:
       output.Quotas !== undefined && output.Quotas !== null
-        ? deserializeAws_json1_1ServiceQuotaListDefinition(
-            output.Quotas,
-            context
-          )
-        : undefined
+        ? deserializeAws_json1_1ServiceQuotaListDefinition(output.Quotas, context)
+        : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListServicesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListServicesResponse => {
+const deserializeAws_json1_1ListServicesResponse = (output: any, context: __SerdeContext): ListServicesResponse => {
   return {
     __type: "ListServicesResponse",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Services:
       output.Services !== undefined && output.Services !== null
-        ? deserializeAws_json1_1ServiceInfoListDefinition(
-            output.Services,
-            context
-          )
-        : undefined
+        ? deserializeAws_json1_1ServiceInfoListDefinition(output.Services, context)
+        : undefined,
   } as any;
 };
 
@@ -3265,38 +2636,26 @@ const deserializeAws_json1_1MetricDimensionsMapDefinition = (
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
 };
 
-const deserializeAws_json1_1MetricInfo = (
-  output: any,
-  context: __SerdeContext
-): MetricInfo => {
+const deserializeAws_json1_1MetricInfo = (output: any, context: __SerdeContext): MetricInfo => {
   return {
     __type: "MetricInfo",
     MetricDimensions:
       output.MetricDimensions !== undefined && output.MetricDimensions !== null
-        ? deserializeAws_json1_1MetricDimensionsMapDefinition(
-            output.MetricDimensions,
-            context
-          )
+        ? deserializeAws_json1_1MetricDimensionsMapDefinition(output.MetricDimensions, context)
         : undefined,
-    MetricName:
-      output.MetricName !== undefined && output.MetricName !== null
-        ? output.MetricName
-        : undefined,
+    MetricName: output.MetricName !== undefined && output.MetricName !== null ? output.MetricName : undefined,
     MetricNamespace:
-      output.MetricNamespace !== undefined && output.MetricNamespace !== null
-        ? output.MetricNamespace
-        : undefined,
+      output.MetricNamespace !== undefined && output.MetricNamespace !== null ? output.MetricNamespace : undefined,
     MetricStatisticRecommendation:
-      output.MetricStatisticRecommendation !== undefined &&
-      output.MetricStatisticRecommendation !== null
+      output.MetricStatisticRecommendation !== undefined && output.MetricStatisticRecommendation !== null
         ? output.MetricStatisticRecommendation
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -3306,10 +2665,7 @@ const deserializeAws_json1_1NoAvailableOrganizationException = (
 ): NoAvailableOrganizationException => {
   return {
     __type: "NoAvailableOrganizationException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -3319,10 +2675,7 @@ const deserializeAws_json1_1NoSuchResourceException = (
 ): NoSuchResourceException => {
   return {
     __type: "NoSuchResourceException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -3332,10 +2685,7 @@ const deserializeAws_json1_1OrganizationNotInAllFeaturesModeException = (
 ): OrganizationNotInAllFeaturesModeException => {
   return {
     __type: "OrganizationNotInAllFeaturesModeException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -3352,37 +2702,22 @@ const deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateResponse =
             output.ServiceQuotaIncreaseRequestInTemplate,
             context
           )
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1QuotaExceededException = (
-  output: any,
-  context: __SerdeContext
-): QuotaExceededException => {
+const deserializeAws_json1_1QuotaExceededException = (output: any, context: __SerdeContext): QuotaExceededException => {
   return {
     __type: "QuotaExceededException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1QuotaPeriod = (
-  output: any,
-  context: __SerdeContext
-): QuotaPeriod => {
+const deserializeAws_json1_1QuotaPeriod = (output: any, context: __SerdeContext): QuotaPeriod => {
   return {
     __type: "QuotaPeriod",
-    PeriodUnit:
-      output.PeriodUnit !== undefined && output.PeriodUnit !== null
-        ? output.PeriodUnit
-        : undefined,
-    PeriodValue:
-      output.PeriodValue !== undefined && output.PeriodValue !== null
-        ? output.PeriodValue
-        : undefined
+    PeriodUnit: output.PeriodUnit !== undefined && output.PeriodUnit !== null ? output.PeriodUnit : undefined,
+    PeriodValue: output.PeriodValue !== undefined && output.PeriodValue !== null ? output.PeriodValue : undefined,
   } as any;
 };
 
@@ -3392,59 +2727,24 @@ const deserializeAws_json1_1RequestedServiceQuotaChange = (
 ): RequestedServiceQuotaChange => {
   return {
     __type: "RequestedServiceQuotaChange",
-    CaseId:
-      output.CaseId !== undefined && output.CaseId !== null
-        ? output.CaseId
-        : undefined,
+    CaseId: output.CaseId !== undefined && output.CaseId !== null ? output.CaseId : undefined,
     Created:
-      output.Created !== undefined && output.Created !== null
-        ? new Date(Math.round(output.Created * 1000))
-        : undefined,
-    DesiredValue:
-      output.DesiredValue !== undefined && output.DesiredValue !== null
-        ? output.DesiredValue
-        : undefined,
-    GlobalQuota:
-      output.GlobalQuota !== undefined && output.GlobalQuota !== null
-        ? output.GlobalQuota
-        : undefined,
+      output.Created !== undefined && output.Created !== null ? new Date(Math.round(output.Created * 1000)) : undefined,
+    DesiredValue: output.DesiredValue !== undefined && output.DesiredValue !== null ? output.DesiredValue : undefined,
+    GlobalQuota: output.GlobalQuota !== undefined && output.GlobalQuota !== null ? output.GlobalQuota : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     LastUpdated:
       output.LastUpdated !== undefined && output.LastUpdated !== null
         ? new Date(Math.round(output.LastUpdated * 1000))
         : undefined,
-    QuotaArn:
-      output.QuotaArn !== undefined && output.QuotaArn !== null
-        ? output.QuotaArn
-        : undefined,
-    QuotaCode:
-      output.QuotaCode !== undefined && output.QuotaCode !== null
-        ? output.QuotaCode
-        : undefined,
-    QuotaName:
-      output.QuotaName !== undefined && output.QuotaName !== null
-        ? output.QuotaName
-        : undefined,
-    Requester:
-      output.Requester !== undefined && output.Requester !== null
-        ? output.Requester
-        : undefined,
-    ServiceCode:
-      output.ServiceCode !== undefined && output.ServiceCode !== null
-        ? output.ServiceCode
-        : undefined,
-    ServiceName:
-      output.ServiceName !== undefined && output.ServiceName !== null
-        ? output.ServiceName
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
-    Unit:
-      output.Unit !== undefined && output.Unit !== null
-        ? output.Unit
-        : undefined
+    QuotaArn: output.QuotaArn !== undefined && output.QuotaArn !== null ? output.QuotaArn : undefined,
+    QuotaCode: output.QuotaCode !== undefined && output.QuotaCode !== null ? output.QuotaCode : undefined,
+    QuotaName: output.QuotaName !== undefined && output.QuotaName !== null ? output.QuotaName : undefined,
+    Requester: output.Requester !== undefined && output.Requester !== null ? output.Requester : undefined,
+    ServiceCode: output.ServiceCode !== undefined && output.ServiceCode !== null ? output.ServiceCode : undefined,
+    ServiceName: output.ServiceName !== undefined && output.ServiceName !== null ? output.ServiceName : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
   } as any;
 };
 
@@ -3452,9 +2752,7 @@ const deserializeAws_json1_1RequestedServiceQuotaChangeHistoryListDefinition = (
   output: any,
   context: __SerdeContext
 ): RequestedServiceQuotaChange[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1RequestedServiceQuotaChange(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1RequestedServiceQuotaChange(entry, context));
 };
 
 const deserializeAws_json1_1RequestServiceQuotaIncreaseResponse = (
@@ -3465,11 +2763,8 @@ const deserializeAws_json1_1RequestServiceQuotaIncreaseResponse = (
     __type: "RequestServiceQuotaIncreaseResponse",
     RequestedQuota:
       output.RequestedQuota !== undefined && output.RequestedQuota !== null
-        ? deserializeAws_json1_1RequestedServiceQuotaChange(
-            output.RequestedQuota,
-            context
-          )
-        : undefined
+        ? deserializeAws_json1_1RequestedServiceQuotaChange(output.RequestedQuota, context)
+        : undefined,
   } as any;
 };
 
@@ -3479,106 +2774,53 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
 ): ResourceAlreadyExistsException => {
   return {
     __type: "ResourceAlreadyExistsException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ServiceException = (
-  output: any,
-  context: __SerdeContext
-): ServiceException => {
+const deserializeAws_json1_1ServiceException = (output: any, context: __SerdeContext): ServiceException => {
   return {
     __type: "ServiceException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ServiceInfo = (
-  output: any,
-  context: __SerdeContext
-): ServiceInfo => {
+const deserializeAws_json1_1ServiceInfo = (output: any, context: __SerdeContext): ServiceInfo => {
   return {
     __type: "ServiceInfo",
-    ServiceCode:
-      output.ServiceCode !== undefined && output.ServiceCode !== null
-        ? output.ServiceCode
-        : undefined,
-    ServiceName:
-      output.ServiceName !== undefined && output.ServiceName !== null
-        ? output.ServiceName
-        : undefined
+    ServiceCode: output.ServiceCode !== undefined && output.ServiceCode !== null ? output.ServiceCode : undefined,
+    ServiceName: output.ServiceName !== undefined && output.ServiceName !== null ? output.ServiceName : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ServiceInfoListDefinition = (
-  output: any,
-  context: __SerdeContext
-): ServiceInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ServiceInfo(entry, context)
-  );
+const deserializeAws_json1_1ServiceInfoListDefinition = (output: any, context: __SerdeContext): ServiceInfo[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ServiceInfo(entry, context));
 };
 
-const deserializeAws_json1_1ServiceQuota = (
-  output: any,
-  context: __SerdeContext
-): ServiceQuota => {
+const deserializeAws_json1_1ServiceQuota = (output: any, context: __SerdeContext): ServiceQuota => {
   return {
     __type: "ServiceQuota",
-    Adjustable:
-      output.Adjustable !== undefined && output.Adjustable !== null
-        ? output.Adjustable
-        : undefined,
+    Adjustable: output.Adjustable !== undefined && output.Adjustable !== null ? output.Adjustable : undefined,
     ErrorReason:
       output.ErrorReason !== undefined && output.ErrorReason !== null
         ? deserializeAws_json1_1ErrorReason(output.ErrorReason, context)
         : undefined,
-    GlobalQuota:
-      output.GlobalQuota !== undefined && output.GlobalQuota !== null
-        ? output.GlobalQuota
-        : undefined,
+    GlobalQuota: output.GlobalQuota !== undefined && output.GlobalQuota !== null ? output.GlobalQuota : undefined,
     Period:
       output.Period !== undefined && output.Period !== null
         ? deserializeAws_json1_1QuotaPeriod(output.Period, context)
         : undefined,
-    QuotaArn:
-      output.QuotaArn !== undefined && output.QuotaArn !== null
-        ? output.QuotaArn
-        : undefined,
-    QuotaCode:
-      output.QuotaCode !== undefined && output.QuotaCode !== null
-        ? output.QuotaCode
-        : undefined,
-    QuotaName:
-      output.QuotaName !== undefined && output.QuotaName !== null
-        ? output.QuotaName
-        : undefined,
-    ServiceCode:
-      output.ServiceCode !== undefined && output.ServiceCode !== null
-        ? output.ServiceCode
-        : undefined,
-    ServiceName:
-      output.ServiceName !== undefined && output.ServiceName !== null
-        ? output.ServiceName
-        : undefined,
-    Unit:
-      output.Unit !== undefined && output.Unit !== null
-        ? output.Unit
-        : undefined,
+    QuotaArn: output.QuotaArn !== undefined && output.QuotaArn !== null ? output.QuotaArn : undefined,
+    QuotaCode: output.QuotaCode !== undefined && output.QuotaCode !== null ? output.QuotaCode : undefined,
+    QuotaName: output.QuotaName !== undefined && output.QuotaName !== null ? output.QuotaName : undefined,
+    ServiceCode: output.ServiceCode !== undefined && output.ServiceCode !== null ? output.ServiceCode : undefined,
+    ServiceName: output.ServiceName !== undefined && output.ServiceName !== null ? output.ServiceName : undefined,
+    Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
     UsageMetric:
       output.UsageMetric !== undefined && output.UsageMetric !== null
         ? deserializeAws_json1_1MetricInfo(output.UsageMetric, context)
         : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
 };
 
@@ -3588,38 +2830,14 @@ const deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplate = (
 ): ServiceQuotaIncreaseRequestInTemplate => {
   return {
     __type: "ServiceQuotaIncreaseRequestInTemplate",
-    AwsRegion:
-      output.AwsRegion !== undefined && output.AwsRegion !== null
-        ? output.AwsRegion
-        : undefined,
-    DesiredValue:
-      output.DesiredValue !== undefined && output.DesiredValue !== null
-        ? output.DesiredValue
-        : undefined,
-    GlobalQuota:
-      output.GlobalQuota !== undefined && output.GlobalQuota !== null
-        ? output.GlobalQuota
-        : undefined,
-    QuotaCode:
-      output.QuotaCode !== undefined && output.QuotaCode !== null
-        ? output.QuotaCode
-        : undefined,
-    QuotaName:
-      output.QuotaName !== undefined && output.QuotaName !== null
-        ? output.QuotaName
-        : undefined,
-    ServiceCode:
-      output.ServiceCode !== undefined && output.ServiceCode !== null
-        ? output.ServiceCode
-        : undefined,
-    ServiceName:
-      output.ServiceName !== undefined && output.ServiceName !== null
-        ? output.ServiceName
-        : undefined,
-    Unit:
-      output.Unit !== undefined && output.Unit !== null
-        ? output.Unit
-        : undefined
+    AwsRegion: output.AwsRegion !== undefined && output.AwsRegion !== null ? output.AwsRegion : undefined,
+    DesiredValue: output.DesiredValue !== undefined && output.DesiredValue !== null ? output.DesiredValue : undefined,
+    GlobalQuota: output.GlobalQuota !== undefined && output.GlobalQuota !== null ? output.GlobalQuota : undefined,
+    QuotaCode: output.QuotaCode !== undefined && output.QuotaCode !== null ? output.QuotaCode : undefined,
+    QuotaName: output.QuotaName !== undefined && output.QuotaName !== null ? output.QuotaName : undefined,
+    ServiceCode: output.ServiceCode !== undefined && output.ServiceCode !== null ? output.ServiceCode : undefined,
+    ServiceName: output.ServiceName !== undefined && output.ServiceName !== null ? output.ServiceName : undefined,
+    Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
   } as any;
 };
 
@@ -3632,13 +2850,8 @@ const deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplateList = (
   );
 };
 
-const deserializeAws_json1_1ServiceQuotaListDefinition = (
-  output: any,
-  context: __SerdeContext
-): ServiceQuota[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ServiceQuota(entry, context)
-  );
+const deserializeAws_json1_1ServiceQuotaListDefinition = (output: any, context: __SerdeContext): ServiceQuota[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ServiceQuota(entry, context));
 };
 
 const deserializeAws_json1_1ServiceQuotaTemplateNotInUseException = (
@@ -3647,10 +2860,7 @@ const deserializeAws_json1_1ServiceQuotaTemplateNotInUseException = (
 ): ServiceQuotaTemplateNotInUseException => {
   return {
     __type: "ServiceQuotaTemplateNotInUseException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -3660,10 +2870,7 @@ const deserializeAws_json1_1TemplatesNotAvailableInRegionException = (
 ): TemplatesNotAvailableInRegionException => {
   return {
     __type: "TemplatesNotAvailableInRegionException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -3673,38 +2880,27 @@ const deserializeAws_json1_1TooManyRequestsException = (
 ): TooManyRequestsException => {
   return {
     __type: "TooManyRequestsException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"]
+  requestId: output.headers["x-amzn-requestid"],
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
-  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -3720,7 +2916,7 @@ const buildHttpRpcRequest = async (
     port,
     method: "POST",
     path,
-    headers
+    headers,
   };
   if (resolvedHostname !== undefined) {
     contents.hostname = resolvedHostname;
@@ -3732,7 +2928,7 @@ const buildHttpRpcRequest = async (
 };
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then(encoded => {
+  collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

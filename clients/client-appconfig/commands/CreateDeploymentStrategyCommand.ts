@@ -1,21 +1,11 @@
-import {
-  AppConfigClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppConfigClient";
-import {
-  CreateDeploymentStrategyRequest,
-  DeploymentStrategy
-} from "../models/index";
+import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
+import { CreateDeploymentStrategyRequest, DeploymentStrategy } from "../models/index";
 import {
   deserializeAws_restJson1CreateDeploymentStrategyCommand,
-  serializeAws_restJson1CreateDeploymentStrategyCommand
+  serializeAws_restJson1CreateDeploymentStrategyCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateDeploymentStrategyCommandInput = CreateDeploymentStrategyRequest;
-export type CreateDeploymentStrategyCommandOutput = DeploymentStrategy &
-  __MetadataBearer;
+export type CreateDeploymentStrategyCommandOutput = DeploymentStrategy & __MetadataBearer;
 
 export class CreateDeploymentStrategyCommand extends $Command<
   CreateDeploymentStrategyCommandInput,
@@ -49,18 +38,13 @@ export class CreateDeploymentStrategyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDeploymentStrategyCommandInput,
-    CreateDeploymentStrategyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDeploymentStrategyCommandInput, CreateDeploymentStrategyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,12 @@ export class CreateDeploymentStrategyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDeploymentStrategyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDeploymentStrategyCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateDeploymentStrategyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1CreateDeploymentStrategyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateDeploymentStrategyCommandOutput> {
-    return deserializeAws_restJson1CreateDeploymentStrategyCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeploymentStrategyCommandOutput> {
+    return deserializeAws_restJson1CreateDeploymentStrategyCommand(output, context);
   }
 
   // Start section: command_body_extra

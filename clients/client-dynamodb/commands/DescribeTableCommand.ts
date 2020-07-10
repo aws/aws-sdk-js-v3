@@ -1,18 +1,11 @@
-import {
-  DynamoDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DynamoDBClient";
+import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { DescribeTableInput, DescribeTableOutput } from "../models/index";
 import {
   deserializeAws_json1_0DescribeTableCommand,
-  serializeAws_json1_0DescribeTableCommand
+  serializeAws_json1_0DescribeTableCommand,
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeTableCommandInput = DescribeTableInput;
@@ -46,14 +39,12 @@ export class DescribeTableCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeTableCommandInput, DescribeTableCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +54,11 @@ export class DescribeTableCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeTableCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeTableCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeTableCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTableCommandOutput> {
     return deserializeAws_json1_0DescribeTableCommand(output, context);
   }
 

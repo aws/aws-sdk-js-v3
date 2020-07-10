@@ -1,21 +1,11 @@
-import {
-  QuickSightClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QuickSightClient";
-import {
-  UpdateDashboardPublishedVersionRequest,
-  UpdateDashboardPublishedVersionResponse
-} from "../models/index";
+import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { UpdateDashboardPublishedVersionRequest, UpdateDashboardPublishedVersionResponse } from "../models/index";
 import {
   deserializeAws_restJson1UpdateDashboardPublishedVersionCommand,
-  serializeAws_restJson1UpdateDashboardPublishedVersionCommand
+  serializeAws_restJson1UpdateDashboardPublishedVersionCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateDashboardPublishedVersionCommandInput = UpdateDashboardPublishedVersionRequest;
-export type UpdateDashboardPublishedVersionCommandOutput = UpdateDashboardPublishedVersionResponse &
-  __MetadataBearer;
+export type UpdateDashboardPublishedVersionCommandOutput = UpdateDashboardPublishedVersionResponse & __MetadataBearer;
 
 export class UpdateDashboardPublishedVersionCommand extends $Command<
   UpdateDashboardPublishedVersionCommandInput,
@@ -49,18 +38,13 @@ export class UpdateDashboardPublishedVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateDashboardPublishedVersionCommandInput,
-    UpdateDashboardPublishedVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateDashboardPublishedVersionCommandInput, UpdateDashboardPublishedVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +58,14 @@ export class UpdateDashboardPublishedVersionCommand extends $Command<
     input: UpdateDashboardPublishedVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDashboardPublishedVersionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1UpdateDashboardPublishedVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDashboardPublishedVersionCommandOutput> {
-    return deserializeAws_restJson1UpdateDashboardPublishedVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateDashboardPublishedVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

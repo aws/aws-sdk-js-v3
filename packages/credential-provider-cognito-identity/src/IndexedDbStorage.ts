@@ -6,10 +6,10 @@ export class IndexedDbStorage implements Storage {
   constructor(private readonly dbName: string = "aws:cognito-identity-ids") {}
 
   getItem(key: string): Promise<string | null> {
-    return this.withObjectStore("readonly", store => {
+    return this.withObjectStore("readonly", (store) => {
       const req = store.get(key);
 
-      return new Promise<string | null>(resolve => {
+      return new Promise<string | null>((resolve) => {
         req.onerror = () => resolve(null);
 
         req.onsuccess = () => resolve(req.result ? req.result.value : null);
@@ -18,7 +18,7 @@ export class IndexedDbStorage implements Storage {
   }
 
   removeItem(key: string): Promise<void> {
-    return this.withObjectStore("readwrite", store => {
+    return this.withObjectStore("readwrite", (store) => {
       const req = store.delete(key);
 
       return new Promise<void>((resolve, reject) => {
@@ -30,7 +30,7 @@ export class IndexedDbStorage implements Storage {
   }
 
   setItem(id: string, value: string): Promise<void> {
-    return this.withObjectStore("readwrite", store => {
+    return this.withObjectStore("readwrite", (store) => {
       const req = store.put({ id, value });
 
       return new Promise<void>((resolve, reject) => {
@@ -56,7 +56,7 @@ export class IndexedDbStorage implements Storage {
         reject(new Error("Unable to access DB"));
       };
 
-      openDbRequest.onupgradeneeded = event => {
+      openDbRequest.onupgradeneeded = (event) => {
         const db = openDbRequest.result;
         db.onerror = () => {
           reject(new Error("Failed to create object store"));
@@ -67,11 +67,8 @@ export class IndexedDbStorage implements Storage {
     });
   }
 
-  private withObjectStore<R>(
-    mode: IDBTransactionMode,
-    action: (store: IDBObjectStore) => Promise<R>
-  ): Promise<R> {
-    return this.getDb().then(db => {
+  private withObjectStore<R>(mode: IDBTransactionMode, action: (store: IDBObjectStore) => Promise<R>): Promise<R> {
+    return this.getDb().then((db) => {
       const tx = db.transaction(STORE_NAME, mode);
       tx.oncomplete = () => db.close();
 
@@ -79,7 +76,7 @@ export class IndexedDbStorage implements Storage {
         tx.onerror = () => reject(tx.error);
 
         resolve(action(tx.objectStore(STORE_NAME)));
-      }).catch(err => {
+      }).catch((err) => {
         db.close();
         throw err;
       });

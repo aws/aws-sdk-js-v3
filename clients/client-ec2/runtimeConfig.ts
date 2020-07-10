@@ -27,5 +27,5 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   streamCollector,
   urlParser: parseUrl,
   utf8Decoder: fromUtf8,
-  utf8Encoder: toUtf8
+  utf8Encoder: toUtf8,
 };

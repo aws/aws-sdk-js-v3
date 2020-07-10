@@ -2,42 +2,42 @@ import { PinpointSMSVoiceClient } from "./PinpointSMSVoiceClient";
 import {
   CreateConfigurationSetCommand,
   CreateConfigurationSetCommandInput,
-  CreateConfigurationSetCommandOutput
+  CreateConfigurationSetCommandOutput,
 } from "./commands/CreateConfigurationSetCommand";
 import {
   CreateConfigurationSetEventDestinationCommand,
   CreateConfigurationSetEventDestinationCommandInput,
-  CreateConfigurationSetEventDestinationCommandOutput
+  CreateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/CreateConfigurationSetEventDestinationCommand";
 import {
   DeleteConfigurationSetCommand,
   DeleteConfigurationSetCommandInput,
-  DeleteConfigurationSetCommandOutput
+  DeleteConfigurationSetCommandOutput,
 } from "./commands/DeleteConfigurationSetCommand";
 import {
   DeleteConfigurationSetEventDestinationCommand,
   DeleteConfigurationSetEventDestinationCommandInput,
-  DeleteConfigurationSetEventDestinationCommandOutput
+  DeleteConfigurationSetEventDestinationCommandOutput,
 } from "./commands/DeleteConfigurationSetEventDestinationCommand";
 import {
   GetConfigurationSetEventDestinationsCommand,
   GetConfigurationSetEventDestinationsCommandInput,
-  GetConfigurationSetEventDestinationsCommandOutput
+  GetConfigurationSetEventDestinationsCommandOutput,
 } from "./commands/GetConfigurationSetEventDestinationsCommand";
 import {
   ListConfigurationSetsCommand,
   ListConfigurationSetsCommandInput,
-  ListConfigurationSetsCommandOutput
+  ListConfigurationSetsCommandOutput,
 } from "./commands/ListConfigurationSetsCommand";
 import {
   SendVoiceMessageCommand,
   SendVoiceMessageCommandInput,
-  SendVoiceMessageCommandOutput
+  SendVoiceMessageCommandOutput,
 } from "./commands/SendVoiceMessageCommand";
 import {
   UpdateConfigurationSetEventDestinationCommand,
   UpdateConfigurationSetEventDestinationCommandInput,
-  UpdateConfigurationSetEventDestinationCommandOutput
+  UpdateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/UpdateConfigurationSetEventDestinationCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -63,17 +63,14 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   ): void;
   public createConfigurationSet(
     args: CreateConfigurationSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateConfigurationSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConfigurationSetCommandOutput) => void),
     cb?: (err: any, data?: CreateConfigurationSetCommandOutput) => void
   ): Promise<CreateConfigurationSetCommandOutput> | void {
     const command = new CreateConfigurationSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -89,38 +86,25 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   ): Promise<CreateConfigurationSetEventDestinationCommandOutput>;
   public createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
-    cb: (
-      err: any,
-      data?: CreateConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateConfigurationSetEventDestinationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateConfigurationSetEventDestinationCommandOutput
-    ) => void
+      | ((err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void),
+    cb?: (err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void
   ): Promise<CreateConfigurationSetEventDestinationCommandOutput> | void {
     const command = new CreateConfigurationSetEventDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -145,17 +129,14 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   ): void;
   public deleteConfigurationSet(
     args: DeleteConfigurationSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConfigurationSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConfigurationSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteConfigurationSetCommandOutput) => void
   ): Promise<DeleteConfigurationSetCommandOutput> | void {
     const command = new DeleteConfigurationSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -171,38 +152,25 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput>;
   public deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteConfigurationSetEventDestinationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteConfigurationSetEventDestinationCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> | void {
     const command = new DeleteConfigurationSetEventDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -218,38 +186,23 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   ): Promise<GetConfigurationSetEventDestinationsCommandOutput>;
   public getConfigurationSetEventDestinations(
     args: GetConfigurationSetEventDestinationsCommandInput,
-    cb: (
-      err: any,
-      data?: GetConfigurationSetEventDestinationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetConfigurationSetEventDestinationsCommandOutput) => void
   ): void;
   public getConfigurationSetEventDestinations(
     args: GetConfigurationSetEventDestinationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetConfigurationSetEventDestinationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetConfigurationSetEventDestinationsCommandOutput) => void
   ): void;
   public getConfigurationSetEventDestinations(
     args: GetConfigurationSetEventDestinationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetConfigurationSetEventDestinationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetConfigurationSetEventDestinationsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConfigurationSetEventDestinationsCommandOutput) => void),
+    cb?: (err: any, data?: GetConfigurationSetEventDestinationsCommandOutput) => void
   ): Promise<GetConfigurationSetEventDestinationsCommandOutput> | void {
     const command = new GetConfigurationSetEventDestinationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -274,17 +227,14 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   ): void;
   public listConfigurationSets(
     args: ListConfigurationSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListConfigurationSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConfigurationSetsCommandOutput) => void),
     cb?: (err: any, data?: ListConfigurationSetsCommandOutput) => void
   ): Promise<ListConfigurationSetsCommandOutput> | void {
     const command = new ListConfigurationSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -309,17 +259,14 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   ): void;
   public sendVoiceMessage(
     args: SendVoiceMessageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendVoiceMessageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendVoiceMessageCommandOutput) => void),
     cb?: (err: any, data?: SendVoiceMessageCommandOutput) => void
   ): Promise<SendVoiceMessageCommandOutput> | void {
     const command = new SendVoiceMessageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -335,38 +282,25 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput>;
   public updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateConfigurationSetEventDestinationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateConfigurationSetEventDestinationCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> | void {
     const command = new UpdateConfigurationSetEventDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

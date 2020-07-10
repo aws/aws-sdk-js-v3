@@ -2,143 +2,103 @@ import { NetworkManagerClient } from "./NetworkManagerClient";
 import {
   AssociateCustomerGatewayCommand,
   AssociateCustomerGatewayCommandInput,
-  AssociateCustomerGatewayCommandOutput
+  AssociateCustomerGatewayCommandOutput,
 } from "./commands/AssociateCustomerGatewayCommand";
 import {
   AssociateLinkCommand,
   AssociateLinkCommandInput,
-  AssociateLinkCommandOutput
+  AssociateLinkCommandOutput,
 } from "./commands/AssociateLinkCommand";
 import {
   CreateDeviceCommand,
   CreateDeviceCommandInput,
-  CreateDeviceCommandOutput
+  CreateDeviceCommandOutput,
 } from "./commands/CreateDeviceCommand";
 import {
   CreateGlobalNetworkCommand,
   CreateGlobalNetworkCommandInput,
-  CreateGlobalNetworkCommandOutput
+  CreateGlobalNetworkCommandOutput,
 } from "./commands/CreateGlobalNetworkCommand";
-import {
-  CreateLinkCommand,
-  CreateLinkCommandInput,
-  CreateLinkCommandOutput
-} from "./commands/CreateLinkCommand";
-import {
-  CreateSiteCommand,
-  CreateSiteCommandInput,
-  CreateSiteCommandOutput
-} from "./commands/CreateSiteCommand";
+import { CreateLinkCommand, CreateLinkCommandInput, CreateLinkCommandOutput } from "./commands/CreateLinkCommand";
+import { CreateSiteCommand, CreateSiteCommandInput, CreateSiteCommandOutput } from "./commands/CreateSiteCommand";
 import {
   DeleteDeviceCommand,
   DeleteDeviceCommandInput,
-  DeleteDeviceCommandOutput
+  DeleteDeviceCommandOutput,
 } from "./commands/DeleteDeviceCommand";
 import {
   DeleteGlobalNetworkCommand,
   DeleteGlobalNetworkCommandInput,
-  DeleteGlobalNetworkCommandOutput
+  DeleteGlobalNetworkCommandOutput,
 } from "./commands/DeleteGlobalNetworkCommand";
-import {
-  DeleteLinkCommand,
-  DeleteLinkCommandInput,
-  DeleteLinkCommandOutput
-} from "./commands/DeleteLinkCommand";
-import {
-  DeleteSiteCommand,
-  DeleteSiteCommandInput,
-  DeleteSiteCommandOutput
-} from "./commands/DeleteSiteCommand";
+import { DeleteLinkCommand, DeleteLinkCommandInput, DeleteLinkCommandOutput } from "./commands/DeleteLinkCommand";
+import { DeleteSiteCommand, DeleteSiteCommandInput, DeleteSiteCommandOutput } from "./commands/DeleteSiteCommand";
 import {
   DeregisterTransitGatewayCommand,
   DeregisterTransitGatewayCommandInput,
-  DeregisterTransitGatewayCommandOutput
+  DeregisterTransitGatewayCommandOutput,
 } from "./commands/DeregisterTransitGatewayCommand";
 import {
   DescribeGlobalNetworksCommand,
   DescribeGlobalNetworksCommandInput,
-  DescribeGlobalNetworksCommandOutput
+  DescribeGlobalNetworksCommandOutput,
 } from "./commands/DescribeGlobalNetworksCommand";
 import {
   DisassociateCustomerGatewayCommand,
   DisassociateCustomerGatewayCommandInput,
-  DisassociateCustomerGatewayCommandOutput
+  DisassociateCustomerGatewayCommandOutput,
 } from "./commands/DisassociateCustomerGatewayCommand";
 import {
   DisassociateLinkCommand,
   DisassociateLinkCommandInput,
-  DisassociateLinkCommandOutput
+  DisassociateLinkCommandOutput,
 } from "./commands/DisassociateLinkCommand";
 import {
   GetCustomerGatewayAssociationsCommand,
   GetCustomerGatewayAssociationsCommandInput,
-  GetCustomerGatewayAssociationsCommandOutput
+  GetCustomerGatewayAssociationsCommandOutput,
 } from "./commands/GetCustomerGatewayAssociationsCommand";
-import {
-  GetDevicesCommand,
-  GetDevicesCommandInput,
-  GetDevicesCommandOutput
-} from "./commands/GetDevicesCommand";
+import { GetDevicesCommand, GetDevicesCommandInput, GetDevicesCommandOutput } from "./commands/GetDevicesCommand";
 import {
   GetLinkAssociationsCommand,
   GetLinkAssociationsCommandInput,
-  GetLinkAssociationsCommandOutput
+  GetLinkAssociationsCommandOutput,
 } from "./commands/GetLinkAssociationsCommand";
-import {
-  GetLinksCommand,
-  GetLinksCommandInput,
-  GetLinksCommandOutput
-} from "./commands/GetLinksCommand";
-import {
-  GetSitesCommand,
-  GetSitesCommandInput,
-  GetSitesCommandOutput
-} from "./commands/GetSitesCommand";
+import { GetLinksCommand, GetLinksCommandInput, GetLinksCommandOutput } from "./commands/GetLinksCommand";
+import { GetSitesCommand, GetSitesCommandInput, GetSitesCommandOutput } from "./commands/GetSitesCommand";
 import {
   GetTransitGatewayRegistrationsCommand,
   GetTransitGatewayRegistrationsCommandInput,
-  GetTransitGatewayRegistrationsCommandOutput
+  GetTransitGatewayRegistrationsCommandOutput,
 } from "./commands/GetTransitGatewayRegistrationsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   RegisterTransitGatewayCommand,
   RegisterTransitGatewayCommandInput,
-  RegisterTransitGatewayCommandOutput
+  RegisterTransitGatewayCommandOutput,
 } from "./commands/RegisterTransitGatewayCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateDeviceCommand,
   UpdateDeviceCommandInput,
-  UpdateDeviceCommandOutput
+  UpdateDeviceCommandOutput,
 } from "./commands/UpdateDeviceCommand";
 import {
   UpdateGlobalNetworkCommand,
   UpdateGlobalNetworkCommandInput,
-  UpdateGlobalNetworkCommandOutput
+  UpdateGlobalNetworkCommandOutput,
 } from "./commands/UpdateGlobalNetworkCommand";
-import {
-  UpdateLinkCommand,
-  UpdateLinkCommandInput,
-  UpdateLinkCommandOutput
-} from "./commands/UpdateLinkCommand";
-import {
-  UpdateSiteCommand,
-  UpdateSiteCommandInput,
-  UpdateSiteCommandOutput
-} from "./commands/UpdateSiteCommand";
+import { UpdateLinkCommand, UpdateLinkCommandInput, UpdateLinkCommandOutput } from "./commands/UpdateLinkCommand";
+import { UpdateSiteCommand, UpdateSiteCommandInput, UpdateSiteCommandOutput } from "./commands/UpdateSiteCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -172,17 +132,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public associateCustomerGateway(
     args: AssociateCustomerGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateCustomerGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateCustomerGatewayCommandOutput) => void),
     cb?: (err: any, data?: AssociateCustomerGatewayCommandOutput) => void
   ): Promise<AssociateCustomerGatewayCommandOutput> | void {
     const command = new AssociateCustomerGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -207,17 +164,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public associateLink(
     args: AssociateLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateLinkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateLinkCommandOutput) => void),
     cb?: (err: any, data?: AssociateLinkCommandOutput) => void
   ): Promise<AssociateLinkCommandOutput> | void {
     const command = new AssociateLinkCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -232,10 +186,7 @@ export class NetworkManager extends NetworkManagerClient {
     args: CreateDeviceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDeviceCommandOutput>;
-  public createDevice(
-    args: CreateDeviceCommandInput,
-    cb: (err: any, data?: CreateDeviceCommandOutput) => void
-  ): void;
+  public createDevice(args: CreateDeviceCommandInput, cb: (err: any, data?: CreateDeviceCommandOutput) => void): void;
   public createDevice(
     args: CreateDeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -243,17 +194,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public createDevice(
     args: CreateDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeviceCommandOutput) => void),
     cb?: (err: any, data?: CreateDeviceCommandOutput) => void
   ): Promise<CreateDeviceCommandOutput> | void {
     const command = new CreateDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -278,17 +226,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public createGlobalNetwork(
     args: CreateGlobalNetworkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGlobalNetworkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGlobalNetworkCommandOutput) => void),
     cb?: (err: any, data?: CreateGlobalNetworkCommandOutput) => void
   ): Promise<CreateGlobalNetworkCommandOutput> | void {
     const command = new CreateGlobalNetworkCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -298,14 +243,8 @@ export class NetworkManager extends NetworkManagerClient {
   /**
    * <p>Creates a new link for a specified site.</p>
    */
-  public createLink(
-    args: CreateLinkCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateLinkCommandOutput>;
-  public createLink(
-    args: CreateLinkCommandInput,
-    cb: (err: any, data?: CreateLinkCommandOutput) => void
-  ): void;
+  public createLink(args: CreateLinkCommandInput, options?: __HttpHandlerOptions): Promise<CreateLinkCommandOutput>;
+  public createLink(args: CreateLinkCommandInput, cb: (err: any, data?: CreateLinkCommandOutput) => void): void;
   public createLink(
     args: CreateLinkCommandInput,
     options: __HttpHandlerOptions,
@@ -313,17 +252,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public createLink(
     args: CreateLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLinkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLinkCommandOutput) => void),
     cb?: (err: any, data?: CreateLinkCommandOutput) => void
   ): Promise<CreateLinkCommandOutput> | void {
     const command = new CreateLinkCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -333,14 +269,8 @@ export class NetworkManager extends NetworkManagerClient {
   /**
    * <p>Creates a new site in a global network.</p>
    */
-  public createSite(
-    args: CreateSiteCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateSiteCommandOutput>;
-  public createSite(
-    args: CreateSiteCommandInput,
-    cb: (err: any, data?: CreateSiteCommandOutput) => void
-  ): void;
+  public createSite(args: CreateSiteCommandInput, options?: __HttpHandlerOptions): Promise<CreateSiteCommandOutput>;
+  public createSite(args: CreateSiteCommandInput, cb: (err: any, data?: CreateSiteCommandOutput) => void): void;
   public createSite(
     args: CreateSiteCommandInput,
     options: __HttpHandlerOptions,
@@ -348,17 +278,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public createSite(
     args: CreateSiteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSiteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSiteCommandOutput) => void),
     cb?: (err: any, data?: CreateSiteCommandOutput) => void
   ): Promise<CreateSiteCommandOutput> | void {
     const command = new CreateSiteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -373,10 +300,7 @@ export class NetworkManager extends NetworkManagerClient {
     args: DeleteDeviceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDeviceCommandOutput>;
-  public deleteDevice(
-    args: DeleteDeviceCommandInput,
-    cb: (err: any, data?: DeleteDeviceCommandOutput) => void
-  ): void;
+  public deleteDevice(args: DeleteDeviceCommandInput, cb: (err: any, data?: DeleteDeviceCommandOutput) => void): void;
   public deleteDevice(
     args: DeleteDeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -384,17 +308,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public deleteDevice(
     args: DeleteDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDeviceCommandOutput) => void),
     cb?: (err: any, data?: DeleteDeviceCommandOutput) => void
   ): Promise<DeleteDeviceCommandOutput> | void {
     const command = new DeleteDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -420,17 +341,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public deleteGlobalNetwork(
     args: DeleteGlobalNetworkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGlobalNetworkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGlobalNetworkCommandOutput) => void),
     cb?: (err: any, data?: DeleteGlobalNetworkCommandOutput) => void
   ): Promise<DeleteGlobalNetworkCommandOutput> | void {
     const command = new DeleteGlobalNetworkCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -441,14 +359,8 @@ export class NetworkManager extends NetworkManagerClient {
    * <p>Deletes an existing link. You must first disassociate the link from any devices and
    *             customer gateways.</p>
    */
-  public deleteLink(
-    args: DeleteLinkCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteLinkCommandOutput>;
-  public deleteLink(
-    args: DeleteLinkCommandInput,
-    cb: (err: any, data?: DeleteLinkCommandOutput) => void
-  ): void;
+  public deleteLink(args: DeleteLinkCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLinkCommandOutput>;
+  public deleteLink(args: DeleteLinkCommandInput, cb: (err: any, data?: DeleteLinkCommandOutput) => void): void;
   public deleteLink(
     args: DeleteLinkCommandInput,
     options: __HttpHandlerOptions,
@@ -456,17 +368,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public deleteLink(
     args: DeleteLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLinkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLinkCommandOutput) => void),
     cb?: (err: any, data?: DeleteLinkCommandOutput) => void
   ): Promise<DeleteLinkCommandOutput> | void {
     const command = new DeleteLinkCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -476,14 +385,8 @@ export class NetworkManager extends NetworkManagerClient {
   /**
    * <p>Deletes an existing site. The site cannot be associated with any device or link.</p>
    */
-  public deleteSite(
-    args: DeleteSiteCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteSiteCommandOutput>;
-  public deleteSite(
-    args: DeleteSiteCommandInput,
-    cb: (err: any, data?: DeleteSiteCommandOutput) => void
-  ): void;
+  public deleteSite(args: DeleteSiteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSiteCommandOutput>;
+  public deleteSite(args: DeleteSiteCommandInput, cb: (err: any, data?: DeleteSiteCommandOutput) => void): void;
   public deleteSite(
     args: DeleteSiteCommandInput,
     options: __HttpHandlerOptions,
@@ -491,17 +394,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public deleteSite(
     args: DeleteSiteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSiteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSiteCommandOutput) => void),
     cb?: (err: any, data?: DeleteSiteCommandOutput) => void
   ): Promise<DeleteSiteCommandOutput> | void {
     const command = new DeleteSiteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -527,17 +427,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public deregisterTransitGateway(
     args: DeregisterTransitGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterTransitGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterTransitGatewayCommandOutput) => void),
     cb?: (err: any, data?: DeregisterTransitGatewayCommandOutput) => void
   ): Promise<DeregisterTransitGatewayCommandOutput> | void {
     const command = new DeregisterTransitGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -565,17 +462,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public describeGlobalNetworks(
     args: DescribeGlobalNetworksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGlobalNetworksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGlobalNetworksCommandOutput) => void),
     cb?: (err: any, data?: DescribeGlobalNetworksCommandOutput) => void
   ): Promise<DescribeGlobalNetworksCommandOutput> | void {
     const command = new DescribeGlobalNetworksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -600,17 +494,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public disassociateCustomerGateway(
     args: DisassociateCustomerGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateCustomerGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateCustomerGatewayCommandOutput) => void),
     cb?: (err: any, data?: DisassociateCustomerGatewayCommandOutput) => void
   ): Promise<DisassociateCustomerGatewayCommandOutput> | void {
     const command = new DisassociateCustomerGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -636,17 +527,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public disassociateLink(
     args: DisassociateLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateLinkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateLinkCommandOutput) => void),
     cb?: (err: any, data?: DisassociateLinkCommandOutput) => void
   ): Promise<DisassociateLinkCommandOutput> | void {
     const command = new DisassociateLinkCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -672,20 +560,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public getCustomerGatewayAssociations(
     args: GetCustomerGatewayAssociationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetCustomerGatewayAssociationsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCustomerGatewayAssociationsCommandOutput) => void),
     cb?: (err: any, data?: GetCustomerGatewayAssociationsCommandOutput) => void
   ): Promise<GetCustomerGatewayAssociationsCommandOutput> | void {
     const command = new GetCustomerGatewayAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -695,14 +577,8 @@ export class NetworkManager extends NetworkManagerClient {
   /**
    * <p>Gets information about one or more of your devices in a global network.</p>
    */
-  public getDevices(
-    args: GetDevicesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDevicesCommandOutput>;
-  public getDevices(
-    args: GetDevicesCommandInput,
-    cb: (err: any, data?: GetDevicesCommandOutput) => void
-  ): void;
+  public getDevices(args: GetDevicesCommandInput, options?: __HttpHandlerOptions): Promise<GetDevicesCommandOutput>;
+  public getDevices(args: GetDevicesCommandInput, cb: (err: any, data?: GetDevicesCommandOutput) => void): void;
   public getDevices(
     args: GetDevicesCommandInput,
     options: __HttpHandlerOptions,
@@ -710,17 +586,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public getDevices(
     args: GetDevicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDevicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDevicesCommandOutput) => void),
     cb?: (err: any, data?: GetDevicesCommandOutput) => void
   ): Promise<GetDevicesCommandOutput> | void {
     const command = new GetDevicesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -746,17 +619,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public getLinkAssociations(
     args: GetLinkAssociationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLinkAssociationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLinkAssociationsCommandOutput) => void),
     cb?: (err: any, data?: GetLinkAssociationsCommandOutput) => void
   ): Promise<GetLinkAssociationsCommandOutput> | void {
     const command = new GetLinkAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -767,14 +637,8 @@ export class NetworkManager extends NetworkManagerClient {
    * <p>Gets information about one or more links in a specified global network.</p>
    *         <p>If you specify the site ID, you cannot specify the type or provider in the same request. You can specify the type and provider in the same request.</p>
    */
-  public getLinks(
-    args: GetLinksCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetLinksCommandOutput>;
-  public getLinks(
-    args: GetLinksCommandInput,
-    cb: (err: any, data?: GetLinksCommandOutput) => void
-  ): void;
+  public getLinks(args: GetLinksCommandInput, options?: __HttpHandlerOptions): Promise<GetLinksCommandOutput>;
+  public getLinks(args: GetLinksCommandInput, cb: (err: any, data?: GetLinksCommandOutput) => void): void;
   public getLinks(
     args: GetLinksCommandInput,
     options: __HttpHandlerOptions,
@@ -782,17 +646,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public getLinks(
     args: GetLinksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLinksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLinksCommandOutput) => void),
     cb?: (err: any, data?: GetLinksCommandOutput) => void
   ): Promise<GetLinksCommandOutput> | void {
     const command = new GetLinksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -802,14 +663,8 @@ export class NetworkManager extends NetworkManagerClient {
   /**
    * <p>Gets information about one or more of your sites in a global network.</p>
    */
-  public getSites(
-    args: GetSitesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSitesCommandOutput>;
-  public getSites(
-    args: GetSitesCommandInput,
-    cb: (err: any, data?: GetSitesCommandOutput) => void
-  ): void;
+  public getSites(args: GetSitesCommandInput, options?: __HttpHandlerOptions): Promise<GetSitesCommandOutput>;
+  public getSites(args: GetSitesCommandInput, cb: (err: any, data?: GetSitesCommandOutput) => void): void;
   public getSites(
     args: GetSitesCommandInput,
     options: __HttpHandlerOptions,
@@ -817,17 +672,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public getSites(
     args: GetSitesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSitesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSitesCommandOutput) => void),
     cb?: (err: any, data?: GetSitesCommandOutput) => void
   ): Promise<GetSitesCommandOutput> | void {
     const command = new GetSitesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -853,20 +705,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public getTransitGatewayRegistrations(
     args: GetTransitGatewayRegistrationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetTransitGatewayRegistrationsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTransitGatewayRegistrationsCommandOutput) => void),
     cb?: (err: any, data?: GetTransitGatewayRegistrationsCommandOutput) => void
   ): Promise<GetTransitGatewayRegistrationsCommandOutput> | void {
     const command = new GetTransitGatewayRegistrationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -891,17 +737,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -928,17 +771,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public registerTransitGateway(
     args: RegisterTransitGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterTransitGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterTransitGatewayCommandOutput) => void),
     cb?: (err: any, data?: RegisterTransitGatewayCommandOutput) => void
   ): Promise<RegisterTransitGatewayCommandOutput> | void {
     const command = new RegisterTransitGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -948,14 +788,8 @@ export class NetworkManager extends NetworkManagerClient {
   /**
    * <p>Tags a specified resource.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -963,17 +797,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -998,17 +829,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1023,10 +851,7 @@ export class NetworkManager extends NetworkManagerClient {
     args: UpdateDeviceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateDeviceCommandOutput>;
-  public updateDevice(
-    args: UpdateDeviceCommandInput,
-    cb: (err: any, data?: UpdateDeviceCommandOutput) => void
-  ): void;
+  public updateDevice(args: UpdateDeviceCommandInput, cb: (err: any, data?: UpdateDeviceCommandOutput) => void): void;
   public updateDevice(
     args: UpdateDeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -1034,17 +859,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public updateDevice(
     args: UpdateDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDeviceCommandOutput) => void),
     cb?: (err: any, data?: UpdateDeviceCommandOutput) => void
   ): Promise<UpdateDeviceCommandOutput> | void {
     const command = new UpdateDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1070,17 +892,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public updateGlobalNetwork(
     args: UpdateGlobalNetworkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGlobalNetworkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGlobalNetworkCommandOutput) => void),
     cb?: (err: any, data?: UpdateGlobalNetworkCommandOutput) => void
   ): Promise<UpdateGlobalNetworkCommandOutput> | void {
     const command = new UpdateGlobalNetworkCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1091,14 +910,8 @@ export class NetworkManager extends NetworkManagerClient {
    * <p>Updates the details for an existing link. To remove information for any of the
    *             parameters, specify an empty string.</p>
    */
-  public updateLink(
-    args: UpdateLinkCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateLinkCommandOutput>;
-  public updateLink(
-    args: UpdateLinkCommandInput,
-    cb: (err: any, data?: UpdateLinkCommandOutput) => void
-  ): void;
+  public updateLink(args: UpdateLinkCommandInput, options?: __HttpHandlerOptions): Promise<UpdateLinkCommandOutput>;
+  public updateLink(args: UpdateLinkCommandInput, cb: (err: any, data?: UpdateLinkCommandOutput) => void): void;
   public updateLink(
     args: UpdateLinkCommandInput,
     options: __HttpHandlerOptions,
@@ -1106,17 +919,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public updateLink(
     args: UpdateLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateLinkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLinkCommandOutput) => void),
     cb?: (err: any, data?: UpdateLinkCommandOutput) => void
   ): Promise<UpdateLinkCommandOutput> | void {
     const command = new UpdateLinkCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1127,14 +937,8 @@ export class NetworkManager extends NetworkManagerClient {
    * <p>Updates the information for an existing site. To remove information for any of the
    *             parameters, specify an empty string.</p>
    */
-  public updateSite(
-    args: UpdateSiteCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateSiteCommandOutput>;
-  public updateSite(
-    args: UpdateSiteCommandInput,
-    cb: (err: any, data?: UpdateSiteCommandOutput) => void
-  ): void;
+  public updateSite(args: UpdateSiteCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSiteCommandOutput>;
+  public updateSite(args: UpdateSiteCommandInput, cb: (err: any, data?: UpdateSiteCommandOutput) => void): void;
   public updateSite(
     args: UpdateSiteCommandInput,
     options: __HttpHandlerOptions,
@@ -1142,17 +946,14 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public updateSite(
     args: UpdateSiteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSiteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSiteCommandOutput) => void),
     cb?: (err: any, data?: UpdateSiteCommandOutput) => void
   ): Promise<UpdateSiteCommandOutput> | void {
     const command = new UpdateSiteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

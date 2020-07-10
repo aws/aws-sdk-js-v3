@@ -2,527 +2,451 @@ import { LightsailClient } from "./LightsailClient";
 import {
   AllocateStaticIpCommand,
   AllocateStaticIpCommandInput,
-  AllocateStaticIpCommandOutput
+  AllocateStaticIpCommandOutput,
 } from "./commands/AllocateStaticIpCommand";
-import {
-  AttachDiskCommand,
-  AttachDiskCommandInput,
-  AttachDiskCommandOutput
-} from "./commands/AttachDiskCommand";
+import { AttachDiskCommand, AttachDiskCommandInput, AttachDiskCommandOutput } from "./commands/AttachDiskCommand";
 import {
   AttachInstancesToLoadBalancerCommand,
   AttachInstancesToLoadBalancerCommandInput,
-  AttachInstancesToLoadBalancerCommandOutput
+  AttachInstancesToLoadBalancerCommandOutput,
 } from "./commands/AttachInstancesToLoadBalancerCommand";
 import {
   AttachLoadBalancerTlsCertificateCommand,
   AttachLoadBalancerTlsCertificateCommandInput,
-  AttachLoadBalancerTlsCertificateCommandOutput
+  AttachLoadBalancerTlsCertificateCommandOutput,
 } from "./commands/AttachLoadBalancerTlsCertificateCommand";
 import {
   AttachStaticIpCommand,
   AttachStaticIpCommandInput,
-  AttachStaticIpCommandOutput
+  AttachStaticIpCommandOutput,
 } from "./commands/AttachStaticIpCommand";
 import {
   CloseInstancePublicPortsCommand,
   CloseInstancePublicPortsCommandInput,
-  CloseInstancePublicPortsCommandOutput
+  CloseInstancePublicPortsCommandOutput,
 } from "./commands/CloseInstancePublicPortsCommand";
 import {
   CopySnapshotCommand,
   CopySnapshotCommandInput,
-  CopySnapshotCommandOutput
+  CopySnapshotCommandOutput,
 } from "./commands/CopySnapshotCommand";
 import {
   CreateCloudFormationStackCommand,
   CreateCloudFormationStackCommandInput,
-  CreateCloudFormationStackCommandOutput
+  CreateCloudFormationStackCommandOutput,
 } from "./commands/CreateCloudFormationStackCommand";
-import {
-  CreateDiskCommand,
-  CreateDiskCommandInput,
-  CreateDiskCommandOutput
-} from "./commands/CreateDiskCommand";
+import { CreateDiskCommand, CreateDiskCommandInput, CreateDiskCommandOutput } from "./commands/CreateDiskCommand";
 import {
   CreateDiskFromSnapshotCommand,
   CreateDiskFromSnapshotCommandInput,
-  CreateDiskFromSnapshotCommandOutput
+  CreateDiskFromSnapshotCommandOutput,
 } from "./commands/CreateDiskFromSnapshotCommand";
 import {
   CreateDiskSnapshotCommand,
   CreateDiskSnapshotCommandInput,
-  CreateDiskSnapshotCommandOutput
+  CreateDiskSnapshotCommandOutput,
 } from "./commands/CreateDiskSnapshotCommand";
 import {
   CreateDomainCommand,
   CreateDomainCommandInput,
-  CreateDomainCommandOutput
+  CreateDomainCommandOutput,
 } from "./commands/CreateDomainCommand";
 import {
   CreateDomainEntryCommand,
   CreateDomainEntryCommandInput,
-  CreateDomainEntryCommandOutput
+  CreateDomainEntryCommandOutput,
 } from "./commands/CreateDomainEntryCommand";
 import {
   CreateInstanceSnapshotCommand,
   CreateInstanceSnapshotCommandInput,
-  CreateInstanceSnapshotCommandOutput
+  CreateInstanceSnapshotCommandOutput,
 } from "./commands/CreateInstanceSnapshotCommand";
 import {
   CreateInstancesCommand,
   CreateInstancesCommandInput,
-  CreateInstancesCommandOutput
+  CreateInstancesCommandOutput,
 } from "./commands/CreateInstancesCommand";
 import {
   CreateInstancesFromSnapshotCommand,
   CreateInstancesFromSnapshotCommandInput,
-  CreateInstancesFromSnapshotCommandOutput
+  CreateInstancesFromSnapshotCommandOutput,
 } from "./commands/CreateInstancesFromSnapshotCommand";
 import {
   CreateKeyPairCommand,
   CreateKeyPairCommandInput,
-  CreateKeyPairCommandOutput
+  CreateKeyPairCommandOutput,
 } from "./commands/CreateKeyPairCommand";
 import {
   CreateLoadBalancerCommand,
   CreateLoadBalancerCommandInput,
-  CreateLoadBalancerCommandOutput
+  CreateLoadBalancerCommandOutput,
 } from "./commands/CreateLoadBalancerCommand";
 import {
   CreateLoadBalancerTlsCertificateCommand,
   CreateLoadBalancerTlsCertificateCommandInput,
-  CreateLoadBalancerTlsCertificateCommandOutput
+  CreateLoadBalancerTlsCertificateCommandOutput,
 } from "./commands/CreateLoadBalancerTlsCertificateCommand";
 import {
   CreateRelationalDatabaseCommand,
   CreateRelationalDatabaseCommandInput,
-  CreateRelationalDatabaseCommandOutput
+  CreateRelationalDatabaseCommandOutput,
 } from "./commands/CreateRelationalDatabaseCommand";
 import {
   CreateRelationalDatabaseFromSnapshotCommand,
   CreateRelationalDatabaseFromSnapshotCommandInput,
-  CreateRelationalDatabaseFromSnapshotCommandOutput
+  CreateRelationalDatabaseFromSnapshotCommandOutput,
 } from "./commands/CreateRelationalDatabaseFromSnapshotCommand";
 import {
   CreateRelationalDatabaseSnapshotCommand,
   CreateRelationalDatabaseSnapshotCommandInput,
-  CreateRelationalDatabaseSnapshotCommandOutput
+  CreateRelationalDatabaseSnapshotCommandOutput,
 } from "./commands/CreateRelationalDatabaseSnapshotCommand";
 import {
   DeleteAutoSnapshotCommand,
   DeleteAutoSnapshotCommandInput,
-  DeleteAutoSnapshotCommandOutput
+  DeleteAutoSnapshotCommandOutput,
 } from "./commands/DeleteAutoSnapshotCommand";
-import {
-  DeleteDiskCommand,
-  DeleteDiskCommandInput,
-  DeleteDiskCommandOutput
-} from "./commands/DeleteDiskCommand";
+import { DeleteDiskCommand, DeleteDiskCommandInput, DeleteDiskCommandOutput } from "./commands/DeleteDiskCommand";
 import {
   DeleteDiskSnapshotCommand,
   DeleteDiskSnapshotCommandInput,
-  DeleteDiskSnapshotCommandOutput
+  DeleteDiskSnapshotCommandOutput,
 } from "./commands/DeleteDiskSnapshotCommand";
 import {
   DeleteDomainCommand,
   DeleteDomainCommandInput,
-  DeleteDomainCommandOutput
+  DeleteDomainCommandOutput,
 } from "./commands/DeleteDomainCommand";
 import {
   DeleteDomainEntryCommand,
   DeleteDomainEntryCommandInput,
-  DeleteDomainEntryCommandOutput
+  DeleteDomainEntryCommandOutput,
 } from "./commands/DeleteDomainEntryCommand";
 import {
   DeleteInstanceCommand,
   DeleteInstanceCommandInput,
-  DeleteInstanceCommandOutput
+  DeleteInstanceCommandOutput,
 } from "./commands/DeleteInstanceCommand";
 import {
   DeleteInstanceSnapshotCommand,
   DeleteInstanceSnapshotCommandInput,
-  DeleteInstanceSnapshotCommandOutput
+  DeleteInstanceSnapshotCommandOutput,
 } from "./commands/DeleteInstanceSnapshotCommand";
 import {
   DeleteKeyPairCommand,
   DeleteKeyPairCommandInput,
-  DeleteKeyPairCommandOutput
+  DeleteKeyPairCommandOutput,
 } from "./commands/DeleteKeyPairCommand";
 import {
   DeleteKnownHostKeysCommand,
   DeleteKnownHostKeysCommandInput,
-  DeleteKnownHostKeysCommandOutput
+  DeleteKnownHostKeysCommandOutput,
 } from "./commands/DeleteKnownHostKeysCommand";
 import {
   DeleteLoadBalancerCommand,
   DeleteLoadBalancerCommandInput,
-  DeleteLoadBalancerCommandOutput
+  DeleteLoadBalancerCommandOutput,
 } from "./commands/DeleteLoadBalancerCommand";
 import {
   DeleteLoadBalancerTlsCertificateCommand,
   DeleteLoadBalancerTlsCertificateCommandInput,
-  DeleteLoadBalancerTlsCertificateCommandOutput
+  DeleteLoadBalancerTlsCertificateCommandOutput,
 } from "./commands/DeleteLoadBalancerTlsCertificateCommand";
 import {
   DeleteRelationalDatabaseCommand,
   DeleteRelationalDatabaseCommandInput,
-  DeleteRelationalDatabaseCommandOutput
+  DeleteRelationalDatabaseCommandOutput,
 } from "./commands/DeleteRelationalDatabaseCommand";
 import {
   DeleteRelationalDatabaseSnapshotCommand,
   DeleteRelationalDatabaseSnapshotCommandInput,
-  DeleteRelationalDatabaseSnapshotCommandOutput
+  DeleteRelationalDatabaseSnapshotCommandOutput,
 } from "./commands/DeleteRelationalDatabaseSnapshotCommand";
-import {
-  DetachDiskCommand,
-  DetachDiskCommandInput,
-  DetachDiskCommandOutput
-} from "./commands/DetachDiskCommand";
+import { DetachDiskCommand, DetachDiskCommandInput, DetachDiskCommandOutput } from "./commands/DetachDiskCommand";
 import {
   DetachInstancesFromLoadBalancerCommand,
   DetachInstancesFromLoadBalancerCommandInput,
-  DetachInstancesFromLoadBalancerCommandOutput
+  DetachInstancesFromLoadBalancerCommandOutput,
 } from "./commands/DetachInstancesFromLoadBalancerCommand";
 import {
   DetachStaticIpCommand,
   DetachStaticIpCommandInput,
-  DetachStaticIpCommandOutput
+  DetachStaticIpCommandOutput,
 } from "./commands/DetachStaticIpCommand";
 import {
   DisableAddOnCommand,
   DisableAddOnCommandInput,
-  DisableAddOnCommandOutput
+  DisableAddOnCommandOutput,
 } from "./commands/DisableAddOnCommand";
 import {
   DownloadDefaultKeyPairCommand,
   DownloadDefaultKeyPairCommandInput,
-  DownloadDefaultKeyPairCommandOutput
+  DownloadDefaultKeyPairCommandOutput,
 } from "./commands/DownloadDefaultKeyPairCommand";
-import {
-  EnableAddOnCommand,
-  EnableAddOnCommandInput,
-  EnableAddOnCommandOutput
-} from "./commands/EnableAddOnCommand";
+import { EnableAddOnCommand, EnableAddOnCommandInput, EnableAddOnCommandOutput } from "./commands/EnableAddOnCommand";
 import {
   ExportSnapshotCommand,
   ExportSnapshotCommandInput,
-  ExportSnapshotCommandOutput
+  ExportSnapshotCommandOutput,
 } from "./commands/ExportSnapshotCommand";
 import {
   GetActiveNamesCommand,
   GetActiveNamesCommandInput,
-  GetActiveNamesCommandOutput
+  GetActiveNamesCommandOutput,
 } from "./commands/GetActiveNamesCommand";
 import {
   GetAutoSnapshotsCommand,
   GetAutoSnapshotsCommandInput,
-  GetAutoSnapshotsCommandOutput
+  GetAutoSnapshotsCommandOutput,
 } from "./commands/GetAutoSnapshotsCommand";
 import {
   GetBlueprintsCommand,
   GetBlueprintsCommandInput,
-  GetBlueprintsCommandOutput
+  GetBlueprintsCommandOutput,
 } from "./commands/GetBlueprintsCommand";
-import {
-  GetBundlesCommand,
-  GetBundlesCommandInput,
-  GetBundlesCommandOutput
-} from "./commands/GetBundlesCommand";
+import { GetBundlesCommand, GetBundlesCommandInput, GetBundlesCommandOutput } from "./commands/GetBundlesCommand";
 import {
   GetCloudFormationStackRecordsCommand,
   GetCloudFormationStackRecordsCommandInput,
-  GetCloudFormationStackRecordsCommandOutput
+  GetCloudFormationStackRecordsCommandOutput,
 } from "./commands/GetCloudFormationStackRecordsCommand";
-import {
-  GetDiskCommand,
-  GetDiskCommandInput,
-  GetDiskCommandOutput
-} from "./commands/GetDiskCommand";
+import { GetDiskCommand, GetDiskCommandInput, GetDiskCommandOutput } from "./commands/GetDiskCommand";
 import {
   GetDiskSnapshotCommand,
   GetDiskSnapshotCommandInput,
-  GetDiskSnapshotCommandOutput
+  GetDiskSnapshotCommandOutput,
 } from "./commands/GetDiskSnapshotCommand";
 import {
   GetDiskSnapshotsCommand,
   GetDiskSnapshotsCommandInput,
-  GetDiskSnapshotsCommandOutput
+  GetDiskSnapshotsCommandOutput,
 } from "./commands/GetDiskSnapshotsCommand";
-import {
-  GetDisksCommand,
-  GetDisksCommandInput,
-  GetDisksCommandOutput
-} from "./commands/GetDisksCommand";
-import {
-  GetDomainCommand,
-  GetDomainCommandInput,
-  GetDomainCommandOutput
-} from "./commands/GetDomainCommand";
-import {
-  GetDomainsCommand,
-  GetDomainsCommandInput,
-  GetDomainsCommandOutput
-} from "./commands/GetDomainsCommand";
+import { GetDisksCommand, GetDisksCommandInput, GetDisksCommandOutput } from "./commands/GetDisksCommand";
+import { GetDomainCommand, GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
+import { GetDomainsCommand, GetDomainsCommandInput, GetDomainsCommandOutput } from "./commands/GetDomainsCommand";
 import {
   GetExportSnapshotRecordsCommand,
   GetExportSnapshotRecordsCommandInput,
-  GetExportSnapshotRecordsCommandOutput
+  GetExportSnapshotRecordsCommandOutput,
 } from "./commands/GetExportSnapshotRecordsCommand";
 import {
   GetInstanceAccessDetailsCommand,
   GetInstanceAccessDetailsCommandInput,
-  GetInstanceAccessDetailsCommandOutput
+  GetInstanceAccessDetailsCommandOutput,
 } from "./commands/GetInstanceAccessDetailsCommand";
-import {
-  GetInstanceCommand,
-  GetInstanceCommandInput,
-  GetInstanceCommandOutput
-} from "./commands/GetInstanceCommand";
+import { GetInstanceCommand, GetInstanceCommandInput, GetInstanceCommandOutput } from "./commands/GetInstanceCommand";
 import {
   GetInstanceMetricDataCommand,
   GetInstanceMetricDataCommandInput,
-  GetInstanceMetricDataCommandOutput
+  GetInstanceMetricDataCommandOutput,
 } from "./commands/GetInstanceMetricDataCommand";
 import {
   GetInstancePortStatesCommand,
   GetInstancePortStatesCommandInput,
-  GetInstancePortStatesCommandOutput
+  GetInstancePortStatesCommandOutput,
 } from "./commands/GetInstancePortStatesCommand";
 import {
   GetInstanceSnapshotCommand,
   GetInstanceSnapshotCommandInput,
-  GetInstanceSnapshotCommandOutput
+  GetInstanceSnapshotCommandOutput,
 } from "./commands/GetInstanceSnapshotCommand";
 import {
   GetInstanceSnapshotsCommand,
   GetInstanceSnapshotsCommandInput,
-  GetInstanceSnapshotsCommandOutput
+  GetInstanceSnapshotsCommandOutput,
 } from "./commands/GetInstanceSnapshotsCommand";
 import {
   GetInstanceStateCommand,
   GetInstanceStateCommandInput,
-  GetInstanceStateCommandOutput
+  GetInstanceStateCommandOutput,
 } from "./commands/GetInstanceStateCommand";
 import {
   GetInstancesCommand,
   GetInstancesCommandInput,
-  GetInstancesCommandOutput
+  GetInstancesCommandOutput,
 } from "./commands/GetInstancesCommand";
-import {
-  GetKeyPairCommand,
-  GetKeyPairCommandInput,
-  GetKeyPairCommandOutput
-} from "./commands/GetKeyPairCommand";
-import {
-  GetKeyPairsCommand,
-  GetKeyPairsCommandInput,
-  GetKeyPairsCommandOutput
-} from "./commands/GetKeyPairsCommand";
+import { GetKeyPairCommand, GetKeyPairCommandInput, GetKeyPairCommandOutput } from "./commands/GetKeyPairCommand";
+import { GetKeyPairsCommand, GetKeyPairsCommandInput, GetKeyPairsCommandOutput } from "./commands/GetKeyPairsCommand";
 import {
   GetLoadBalancerCommand,
   GetLoadBalancerCommandInput,
-  GetLoadBalancerCommandOutput
+  GetLoadBalancerCommandOutput,
 } from "./commands/GetLoadBalancerCommand";
 import {
   GetLoadBalancerMetricDataCommand,
   GetLoadBalancerMetricDataCommandInput,
-  GetLoadBalancerMetricDataCommandOutput
+  GetLoadBalancerMetricDataCommandOutput,
 } from "./commands/GetLoadBalancerMetricDataCommand";
 import {
   GetLoadBalancerTlsCertificatesCommand,
   GetLoadBalancerTlsCertificatesCommandInput,
-  GetLoadBalancerTlsCertificatesCommandOutput
+  GetLoadBalancerTlsCertificatesCommandOutput,
 } from "./commands/GetLoadBalancerTlsCertificatesCommand";
 import {
   GetLoadBalancersCommand,
   GetLoadBalancersCommandInput,
-  GetLoadBalancersCommandOutput
+  GetLoadBalancersCommandOutput,
 } from "./commands/GetLoadBalancersCommand";
 import {
   GetOperationCommand,
   GetOperationCommandInput,
-  GetOperationCommandOutput
+  GetOperationCommandOutput,
 } from "./commands/GetOperationCommand";
 import {
   GetOperationsCommand,
   GetOperationsCommandInput,
-  GetOperationsCommandOutput
+  GetOperationsCommandOutput,
 } from "./commands/GetOperationsCommand";
 import {
   GetOperationsForResourceCommand,
   GetOperationsForResourceCommandInput,
-  GetOperationsForResourceCommandOutput
+  GetOperationsForResourceCommandOutput,
 } from "./commands/GetOperationsForResourceCommand";
-import {
-  GetRegionsCommand,
-  GetRegionsCommandInput,
-  GetRegionsCommandOutput
-} from "./commands/GetRegionsCommand";
+import { GetRegionsCommand, GetRegionsCommandInput, GetRegionsCommandOutput } from "./commands/GetRegionsCommand";
 import {
   GetRelationalDatabaseBlueprintsCommand,
   GetRelationalDatabaseBlueprintsCommandInput,
-  GetRelationalDatabaseBlueprintsCommandOutput
+  GetRelationalDatabaseBlueprintsCommandOutput,
 } from "./commands/GetRelationalDatabaseBlueprintsCommand";
 import {
   GetRelationalDatabaseBundlesCommand,
   GetRelationalDatabaseBundlesCommandInput,
-  GetRelationalDatabaseBundlesCommandOutput
+  GetRelationalDatabaseBundlesCommandOutput,
 } from "./commands/GetRelationalDatabaseBundlesCommand";
 import {
   GetRelationalDatabaseCommand,
   GetRelationalDatabaseCommandInput,
-  GetRelationalDatabaseCommandOutput
+  GetRelationalDatabaseCommandOutput,
 } from "./commands/GetRelationalDatabaseCommand";
 import {
   GetRelationalDatabaseEventsCommand,
   GetRelationalDatabaseEventsCommandInput,
-  GetRelationalDatabaseEventsCommandOutput
+  GetRelationalDatabaseEventsCommandOutput,
 } from "./commands/GetRelationalDatabaseEventsCommand";
 import {
   GetRelationalDatabaseLogEventsCommand,
   GetRelationalDatabaseLogEventsCommandInput,
-  GetRelationalDatabaseLogEventsCommandOutput
+  GetRelationalDatabaseLogEventsCommandOutput,
 } from "./commands/GetRelationalDatabaseLogEventsCommand";
 import {
   GetRelationalDatabaseLogStreamsCommand,
   GetRelationalDatabaseLogStreamsCommandInput,
-  GetRelationalDatabaseLogStreamsCommandOutput
+  GetRelationalDatabaseLogStreamsCommandOutput,
 } from "./commands/GetRelationalDatabaseLogStreamsCommand";
 import {
   GetRelationalDatabaseMasterUserPasswordCommand,
   GetRelationalDatabaseMasterUserPasswordCommandInput,
-  GetRelationalDatabaseMasterUserPasswordCommandOutput
+  GetRelationalDatabaseMasterUserPasswordCommandOutput,
 } from "./commands/GetRelationalDatabaseMasterUserPasswordCommand";
 import {
   GetRelationalDatabaseMetricDataCommand,
   GetRelationalDatabaseMetricDataCommandInput,
-  GetRelationalDatabaseMetricDataCommandOutput
+  GetRelationalDatabaseMetricDataCommandOutput,
 } from "./commands/GetRelationalDatabaseMetricDataCommand";
 import {
   GetRelationalDatabaseParametersCommand,
   GetRelationalDatabaseParametersCommandInput,
-  GetRelationalDatabaseParametersCommandOutput
+  GetRelationalDatabaseParametersCommandOutput,
 } from "./commands/GetRelationalDatabaseParametersCommand";
 import {
   GetRelationalDatabaseSnapshotCommand,
   GetRelationalDatabaseSnapshotCommandInput,
-  GetRelationalDatabaseSnapshotCommandOutput
+  GetRelationalDatabaseSnapshotCommandOutput,
 } from "./commands/GetRelationalDatabaseSnapshotCommand";
 import {
   GetRelationalDatabaseSnapshotsCommand,
   GetRelationalDatabaseSnapshotsCommandInput,
-  GetRelationalDatabaseSnapshotsCommandOutput
+  GetRelationalDatabaseSnapshotsCommandOutput,
 } from "./commands/GetRelationalDatabaseSnapshotsCommand";
 import {
   GetRelationalDatabasesCommand,
   GetRelationalDatabasesCommandInput,
-  GetRelationalDatabasesCommandOutput
+  GetRelationalDatabasesCommandOutput,
 } from "./commands/GetRelationalDatabasesCommand";
-import {
-  GetStaticIpCommand,
-  GetStaticIpCommandInput,
-  GetStaticIpCommandOutput
-} from "./commands/GetStaticIpCommand";
+import { GetStaticIpCommand, GetStaticIpCommandInput, GetStaticIpCommandOutput } from "./commands/GetStaticIpCommand";
 import {
   GetStaticIpsCommand,
   GetStaticIpsCommandInput,
-  GetStaticIpsCommandOutput
+  GetStaticIpsCommandOutput,
 } from "./commands/GetStaticIpsCommand";
 import {
   ImportKeyPairCommand,
   ImportKeyPairCommandInput,
-  ImportKeyPairCommandOutput
+  ImportKeyPairCommandOutput,
 } from "./commands/ImportKeyPairCommand";
-import {
-  IsVpcPeeredCommand,
-  IsVpcPeeredCommandInput,
-  IsVpcPeeredCommandOutput
-} from "./commands/IsVpcPeeredCommand";
+import { IsVpcPeeredCommand, IsVpcPeeredCommandInput, IsVpcPeeredCommandOutput } from "./commands/IsVpcPeeredCommand";
 import {
   OpenInstancePublicPortsCommand,
   OpenInstancePublicPortsCommandInput,
-  OpenInstancePublicPortsCommandOutput
+  OpenInstancePublicPortsCommandOutput,
 } from "./commands/OpenInstancePublicPortsCommand";
-import {
-  PeerVpcCommand,
-  PeerVpcCommandInput,
-  PeerVpcCommandOutput
-} from "./commands/PeerVpcCommand";
+import { PeerVpcCommand, PeerVpcCommandInput, PeerVpcCommandOutput } from "./commands/PeerVpcCommand";
 import {
   PutInstancePublicPortsCommand,
   PutInstancePublicPortsCommandInput,
-  PutInstancePublicPortsCommandOutput
+  PutInstancePublicPortsCommandOutput,
 } from "./commands/PutInstancePublicPortsCommand";
 import {
   RebootInstanceCommand,
   RebootInstanceCommandInput,
-  RebootInstanceCommandOutput
+  RebootInstanceCommandOutput,
 } from "./commands/RebootInstanceCommand";
 import {
   RebootRelationalDatabaseCommand,
   RebootRelationalDatabaseCommandInput,
-  RebootRelationalDatabaseCommandOutput
+  RebootRelationalDatabaseCommandOutput,
 } from "./commands/RebootRelationalDatabaseCommand";
 import {
   ReleaseStaticIpCommand,
   ReleaseStaticIpCommandInput,
-  ReleaseStaticIpCommandOutput
+  ReleaseStaticIpCommandOutput,
 } from "./commands/ReleaseStaticIpCommand";
 import {
   StartInstanceCommand,
   StartInstanceCommandInput,
-  StartInstanceCommandOutput
+  StartInstanceCommandOutput,
 } from "./commands/StartInstanceCommand";
 import {
   StartRelationalDatabaseCommand,
   StartRelationalDatabaseCommandInput,
-  StartRelationalDatabaseCommandOutput
+  StartRelationalDatabaseCommandOutput,
 } from "./commands/StartRelationalDatabaseCommand";
 import {
   StopInstanceCommand,
   StopInstanceCommandInput,
-  StopInstanceCommandOutput
+  StopInstanceCommandOutput,
 } from "./commands/StopInstanceCommand";
 import {
   StopRelationalDatabaseCommand,
   StopRelationalDatabaseCommandInput,
-  StopRelationalDatabaseCommandOutput
+  StopRelationalDatabaseCommandOutput,
 } from "./commands/StopRelationalDatabaseCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UnpeerVpcCommand,
-  UnpeerVpcCommandInput,
-  UnpeerVpcCommandOutput
-} from "./commands/UnpeerVpcCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UnpeerVpcCommand, UnpeerVpcCommandInput, UnpeerVpcCommandOutput } from "./commands/UnpeerVpcCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateDomainEntryCommand,
   UpdateDomainEntryCommandInput,
-  UpdateDomainEntryCommandOutput
+  UpdateDomainEntryCommandOutput,
 } from "./commands/UpdateDomainEntryCommand";
 import {
   UpdateLoadBalancerAttributeCommand,
   UpdateLoadBalancerAttributeCommandInput,
-  UpdateLoadBalancerAttributeCommandOutput
+  UpdateLoadBalancerAttributeCommandOutput,
 } from "./commands/UpdateLoadBalancerAttributeCommand";
 import {
   UpdateRelationalDatabaseCommand,
   UpdateRelationalDatabaseCommandInput,
-  UpdateRelationalDatabaseCommandOutput
+  UpdateRelationalDatabaseCommandOutput,
 } from "./commands/UpdateRelationalDatabaseCommand";
 import {
   UpdateRelationalDatabaseParametersCommand,
   UpdateRelationalDatabaseParametersCommandInput,
-  UpdateRelationalDatabaseParametersCommandOutput
+  UpdateRelationalDatabaseParametersCommandOutput,
 } from "./commands/UpdateRelationalDatabaseParametersCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -557,17 +481,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public allocateStaticIp(
     args: AllocateStaticIpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AllocateStaticIpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AllocateStaticIpCommandOutput) => void),
     cb?: (err: any, data?: AllocateStaticIpCommandOutput) => void
   ): Promise<AllocateStaticIpCommandOutput> | void {
     const command = new AllocateStaticIpCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -581,14 +502,8 @@ export class Lightsail extends LightsailClient {
    *       tags applied to the resource identified by <code>disk name</code>. For more information, see
    *       the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
    */
-  public attachDisk(
-    args: AttachDiskCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AttachDiskCommandOutput>;
-  public attachDisk(
-    args: AttachDiskCommandInput,
-    cb: (err: any, data?: AttachDiskCommandOutput) => void
-  ): void;
+  public attachDisk(args: AttachDiskCommandInput, options?: __HttpHandlerOptions): Promise<AttachDiskCommandOutput>;
+  public attachDisk(args: AttachDiskCommandInput, cb: (err: any, data?: AttachDiskCommandOutput) => void): void;
   public attachDisk(
     args: AttachDiskCommandInput,
     options: __HttpHandlerOptions,
@@ -596,17 +511,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public attachDisk(
     args: AttachDiskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachDiskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachDiskCommandOutput) => void),
     cb?: (err: any, data?: AttachDiskCommandOutput) => void
   ): Promise<AttachDiskCommandOutput> | void {
     const command = new AttachDiskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -636,17 +548,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public attachInstancesToLoadBalancer(
     args: AttachInstancesToLoadBalancerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachInstancesToLoadBalancerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachInstancesToLoadBalancerCommandOutput) => void),
     cb?: (err: any, data?: AttachInstancesToLoadBalancerCommandOutput) => void
   ): Promise<AttachInstancesToLoadBalancerCommandOutput> | void {
     const command = new AttachInstancesToLoadBalancerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -679,23 +588,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public attachLoadBalancerTlsCertificate(
     args: AttachLoadBalancerTlsCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AttachLoadBalancerTlsCertificateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AttachLoadBalancerTlsCertificateCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachLoadBalancerTlsCertificateCommandOutput) => void),
+    cb?: (err: any, data?: AttachLoadBalancerTlsCertificateCommandOutput) => void
   ): Promise<AttachLoadBalancerTlsCertificateCommandOutput> | void {
     const command = new AttachLoadBalancerTlsCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -720,17 +620,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public attachStaticIp(
     args: AttachStaticIpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachStaticIpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachStaticIpCommandOutput) => void),
     cb?: (err: any, data?: AttachStaticIpCommandOutput) => void
   ): Promise<AttachStaticIpCommandOutput> | void {
     const command = new AttachStaticIpCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -758,17 +655,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public closeInstancePublicPorts(
     args: CloseInstancePublicPortsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CloseInstancePublicPortsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CloseInstancePublicPortsCommandOutput) => void),
     cb?: (err: any, data?: CloseInstancePublicPortsCommandOutput) => void
   ): Promise<CloseInstancePublicPortsCommandOutput> | void {
     const command = new CloseInstancePublicPortsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -792,10 +686,7 @@ export class Lightsail extends LightsailClient {
     args: CopySnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CopySnapshotCommandOutput>;
-  public copySnapshot(
-    args: CopySnapshotCommandInput,
-    cb: (err: any, data?: CopySnapshotCommandOutput) => void
-  ): void;
+  public copySnapshot(args: CopySnapshotCommandInput, cb: (err: any, data?: CopySnapshotCommandOutput) => void): void;
   public copySnapshot(
     args: CopySnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -803,17 +694,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public copySnapshot(
     args: CopySnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopySnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopySnapshotCommandOutput) => void),
     cb?: (err: any, data?: CopySnapshotCommandOutput) => void
   ): Promise<CopySnapshotCommandOutput> | void {
     const command = new CopySnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -845,17 +733,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public createCloudFormationStack(
     args: CreateCloudFormationStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCloudFormationStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCloudFormationStackCommandOutput) => void),
     cb?: (err: any, data?: CreateCloudFormationStackCommandOutput) => void
   ): Promise<CreateCloudFormationStackCommandOutput> | void {
     const command = new CreateCloudFormationStackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -868,14 +753,8 @@ export class Lightsail extends LightsailClient {
    *          <p>The <code>create disk</code> operation supports tag-based access control via request
    *       tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
    */
-  public createDisk(
-    args: CreateDiskCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateDiskCommandOutput>;
-  public createDisk(
-    args: CreateDiskCommandInput,
-    cb: (err: any, data?: CreateDiskCommandOutput) => void
-  ): void;
+  public createDisk(args: CreateDiskCommandInput, options?: __HttpHandlerOptions): Promise<CreateDiskCommandOutput>;
+  public createDisk(args: CreateDiskCommandInput, cb: (err: any, data?: CreateDiskCommandOutput) => void): void;
   public createDisk(
     args: CreateDiskCommandInput,
     options: __HttpHandlerOptions,
@@ -883,17 +762,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public createDisk(
     args: CreateDiskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDiskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDiskCommandOutput) => void),
     cb?: (err: any, data?: CreateDiskCommandOutput) => void
   ): Promise<CreateDiskCommandOutput> | void {
     const command = new CreateDiskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -923,17 +799,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public createDiskFromSnapshot(
     args: CreateDiskFromSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDiskFromSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDiskFromSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CreateDiskFromSnapshotCommandOutput) => void
   ): Promise<CreateDiskFromSnapshotCommandOutput> | void {
     const command = new CreateDiskFromSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -977,17 +850,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public createDiskSnapshot(
     args: CreateDiskSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDiskSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDiskSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CreateDiskSnapshotCommandOutput) => void
   ): Promise<CreateDiskSnapshotCommandOutput> | void {
     const command = new CreateDiskSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1003,10 +873,7 @@ export class Lightsail extends LightsailClient {
     args: CreateDomainCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDomainCommandOutput>;
-  public createDomain(
-    args: CreateDomainCommandInput,
-    cb: (err: any, data?: CreateDomainCommandOutput) => void
-  ): void;
+  public createDomain(args: CreateDomainCommandInput, cb: (err: any, data?: CreateDomainCommandOutput) => void): void;
   public createDomain(
     args: CreateDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -1014,17 +881,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public createDomain(
     args: CreateDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDomainCommandOutput) => void),
     cb?: (err: any, data?: CreateDomainCommandOutput) => void
   ): Promise<CreateDomainCommandOutput> | void {
     const command = new CreateDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1054,17 +918,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public createDomainEntry(
     args: CreateDomainEntryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDomainEntryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDomainEntryCommandOutput) => void),
     cb?: (err: any, data?: CreateDomainEntryCommandOutput) => void
   ): Promise<CreateDomainEntryCommandOutput> | void {
     const command = new CreateDomainEntryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1091,17 +952,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public createInstances(
     args: CreateInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInstancesCommandOutput) => void),
     cb?: (err: any, data?: CreateInstancesCommandOutput) => void
   ): Promise<CreateInstancesCommandOutput> | void {
     const command = new CreateInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1130,17 +988,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public createInstancesFromSnapshot(
     args: CreateInstancesFromSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateInstancesFromSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInstancesFromSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CreateInstancesFromSnapshotCommandOutput) => void
   ): Promise<CreateInstancesFromSnapshotCommandOutput> | void {
     const command = new CreateInstancesFromSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1169,17 +1024,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public createInstanceSnapshot(
     args: CreateInstanceSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateInstanceSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInstanceSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CreateInstanceSnapshotCommandOutput) => void
   ): Promise<CreateInstanceSnapshotCommandOutput> | void {
     const command = new CreateInstanceSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1206,17 +1058,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public createKeyPair(
     args: CreateKeyPairCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateKeyPairCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateKeyPairCommandOutput) => void),
     cb?: (err: any, data?: CreateKeyPairCommandOutput) => void
   ): Promise<CreateKeyPairCommandOutput> | void {
     const command = new CreateKeyPairCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1248,17 +1097,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public createLoadBalancer(
     args: CreateLoadBalancerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLoadBalancerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLoadBalancerCommandOutput) => void),
     cb?: (err: any, data?: CreateLoadBalancerCommandOutput) => void
   ): Promise<CreateLoadBalancerCommandOutput> | void {
     const command = new CreateLoadBalancerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1287,23 +1133,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public createLoadBalancerTlsCertificate(
     args: CreateLoadBalancerTlsCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateLoadBalancerTlsCertificateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateLoadBalancerTlsCertificateCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLoadBalancerTlsCertificateCommandOutput) => void),
+    cb?: (err: any, data?: CreateLoadBalancerTlsCertificateCommandOutput) => void
   ): Promise<CreateLoadBalancerTlsCertificateCommandOutput> | void {
     const command = new CreateLoadBalancerTlsCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1330,17 +1167,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public createRelationalDatabase(
     args: CreateRelationalDatabaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRelationalDatabaseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRelationalDatabaseCommandOutput) => void),
     cb?: (err: any, data?: CreateRelationalDatabaseCommandOutput) => void
   ): Promise<CreateRelationalDatabaseCommandOutput> | void {
     const command = new CreateRelationalDatabaseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1362,38 +1196,23 @@ export class Lightsail extends LightsailClient {
   ): Promise<CreateRelationalDatabaseFromSnapshotCommandOutput>;
   public createRelationalDatabaseFromSnapshot(
     args: CreateRelationalDatabaseFromSnapshotCommandInput,
-    cb: (
-      err: any,
-      data?: CreateRelationalDatabaseFromSnapshotCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateRelationalDatabaseFromSnapshotCommandOutput) => void
   ): void;
   public createRelationalDatabaseFromSnapshot(
     args: CreateRelationalDatabaseFromSnapshotCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateRelationalDatabaseFromSnapshotCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateRelationalDatabaseFromSnapshotCommandOutput) => void
   ): void;
   public createRelationalDatabaseFromSnapshot(
     args: CreateRelationalDatabaseFromSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateRelationalDatabaseFromSnapshotCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateRelationalDatabaseFromSnapshotCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRelationalDatabaseFromSnapshotCommandOutput) => void),
+    cb?: (err: any, data?: CreateRelationalDatabaseFromSnapshotCommandOutput) => void
   ): Promise<CreateRelationalDatabaseFromSnapshotCommandOutput> | void {
     const command = new CreateRelationalDatabaseFromSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1421,23 +1240,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public createRelationalDatabaseSnapshot(
     args: CreateRelationalDatabaseSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateRelationalDatabaseSnapshotCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateRelationalDatabaseSnapshotCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRelationalDatabaseSnapshotCommandOutput) => void),
+    cb?: (err: any, data?: CreateRelationalDatabaseSnapshotCommandOutput) => void
   ): Promise<CreateRelationalDatabaseSnapshotCommandOutput> | void {
     const command = new CreateRelationalDatabaseSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1462,17 +1272,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public deleteAutoSnapshot(
     args: DeleteAutoSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAutoSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAutoSnapshotCommandOutput) => void),
     cb?: (err: any, data?: DeleteAutoSnapshotCommandOutput) => void
   ): Promise<DeleteAutoSnapshotCommandOutput> | void {
     const command = new DeleteAutoSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1490,14 +1297,8 @@ export class Lightsail extends LightsailClient {
    *       tags applied to the resource identified by <code>disk name</code>. For more information, see
    *       the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
    */
-  public deleteDisk(
-    args: DeleteDiskCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteDiskCommandOutput>;
-  public deleteDisk(
-    args: DeleteDiskCommandInput,
-    cb: (err: any, data?: DeleteDiskCommandOutput) => void
-  ): void;
+  public deleteDisk(args: DeleteDiskCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDiskCommandOutput>;
+  public deleteDisk(args: DeleteDiskCommandInput, cb: (err: any, data?: DeleteDiskCommandOutput) => void): void;
   public deleteDisk(
     args: DeleteDiskCommandInput,
     options: __HttpHandlerOptions,
@@ -1505,17 +1306,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public deleteDisk(
     args: DeleteDiskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDiskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDiskCommandOutput) => void),
     cb?: (err: any, data?: DeleteDiskCommandOutput) => void
   ): Promise<DeleteDiskCommandOutput> | void {
     const command = new DeleteDiskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1548,17 +1346,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public deleteDiskSnapshot(
     args: DeleteDiskSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDiskSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDiskSnapshotCommandOutput) => void),
     cb?: (err: any, data?: DeleteDiskSnapshotCommandOutput) => void
   ): Promise<DeleteDiskSnapshotCommandOutput> | void {
     const command = new DeleteDiskSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1575,10 +1370,7 @@ export class Lightsail extends LightsailClient {
     args: DeleteDomainCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDomainCommandOutput>;
-  public deleteDomain(
-    args: DeleteDomainCommandInput,
-    cb: (err: any, data?: DeleteDomainCommandOutput) => void
-  ): void;
+  public deleteDomain(args: DeleteDomainCommandInput, cb: (err: any, data?: DeleteDomainCommandOutput) => void): void;
   public deleteDomain(
     args: DeleteDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -1586,17 +1378,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public deleteDomain(
     args: DeleteDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDomainCommandOutput) => void),
     cb?: (err: any, data?: DeleteDomainCommandOutput) => void
   ): Promise<DeleteDomainCommandOutput> | void {
     const command = new DeleteDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1624,17 +1413,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public deleteDomainEntry(
     args: DeleteDomainEntryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDomainEntryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDomainEntryCommandOutput) => void),
     cb?: (err: any, data?: DeleteDomainEntryCommandOutput) => void
   ): Promise<DeleteDomainEntryCommandOutput> | void {
     const command = new DeleteDomainEntryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1662,17 +1448,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public deleteInstance(
     args: DeleteInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInstanceCommandOutput) => void),
     cb?: (err: any, data?: DeleteInstanceCommandOutput) => void
   ): Promise<DeleteInstanceCommandOutput> | void {
     const command = new DeleteInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1701,17 +1484,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public deleteInstanceSnapshot(
     args: DeleteInstanceSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteInstanceSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInstanceSnapshotCommandOutput) => void),
     cb?: (err: any, data?: DeleteInstanceSnapshotCommandOutput) => void
   ): Promise<DeleteInstanceSnapshotCommandOutput> | void {
     const command = new DeleteInstanceSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1739,17 +1519,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public deleteKeyPair(
     args: DeleteKeyPairCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteKeyPairCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteKeyPairCommandOutput) => void),
     cb?: (err: any, data?: DeleteKeyPairCommandOutput) => void
   ): Promise<DeleteKeyPairCommandOutput> | void {
     const command = new DeleteKeyPairCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1782,17 +1559,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public deleteKnownHostKeys(
     args: DeleteKnownHostKeysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteKnownHostKeysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteKnownHostKeysCommandOutput) => void),
     cb?: (err: any, data?: DeleteKnownHostKeysCommandOutput) => void
   ): Promise<DeleteKnownHostKeysCommandOutput> | void {
     const command = new DeleteKnownHostKeysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1822,17 +1596,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public deleteLoadBalancer(
     args: DeleteLoadBalancerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLoadBalancerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLoadBalancerCommandOutput) => void),
     cb?: (err: any, data?: DeleteLoadBalancerCommandOutput) => void
   ): Promise<DeleteLoadBalancerCommandOutput> | void {
     const command = new DeleteLoadBalancerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1860,23 +1631,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public deleteLoadBalancerTlsCertificate(
     args: DeleteLoadBalancerTlsCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteLoadBalancerTlsCertificateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteLoadBalancerTlsCertificateCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLoadBalancerTlsCertificateCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLoadBalancerTlsCertificateCommandOutput) => void
   ): Promise<DeleteLoadBalancerTlsCertificateCommandOutput> | void {
     const command = new DeleteLoadBalancerTlsCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1904,17 +1666,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public deleteRelationalDatabase(
     args: DeleteRelationalDatabaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRelationalDatabaseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRelationalDatabaseCommandOutput) => void),
     cb?: (err: any, data?: DeleteRelationalDatabaseCommandOutput) => void
   ): Promise<DeleteRelationalDatabaseCommandOutput> | void {
     const command = new DeleteRelationalDatabaseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1942,23 +1701,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public deleteRelationalDatabaseSnapshot(
     args: DeleteRelationalDatabaseSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteRelationalDatabaseSnapshotCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteRelationalDatabaseSnapshotCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRelationalDatabaseSnapshotCommandOutput) => void),
+    cb?: (err: any, data?: DeleteRelationalDatabaseSnapshotCommandOutput) => void
   ): Promise<DeleteRelationalDatabaseSnapshotCommandOutput> | void {
     const command = new DeleteRelationalDatabaseSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1973,14 +1723,8 @@ export class Lightsail extends LightsailClient {
    *       tags applied to the resource identified by <code>disk name</code>. For more information, see
    *       the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
    */
-  public detachDisk(
-    args: DetachDiskCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DetachDiskCommandOutput>;
-  public detachDisk(
-    args: DetachDiskCommandInput,
-    cb: (err: any, data?: DetachDiskCommandOutput) => void
-  ): void;
+  public detachDisk(args: DetachDiskCommandInput, options?: __HttpHandlerOptions): Promise<DetachDiskCommandOutput>;
+  public detachDisk(args: DetachDiskCommandInput, cb: (err: any, data?: DetachDiskCommandOutput) => void): void;
   public detachDisk(
     args: DetachDiskCommandInput,
     options: __HttpHandlerOptions,
@@ -1988,17 +1732,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public detachDisk(
     args: DetachDiskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachDiskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachDiskCommandOutput) => void),
     cb?: (err: any, data?: DetachDiskCommandOutput) => void
   ): Promise<DetachDiskCommandOutput> | void {
     const command = new DetachDiskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2028,20 +1769,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public detachInstancesFromLoadBalancer(
     args: DetachInstancesFromLoadBalancerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DetachInstancesFromLoadBalancerCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachInstancesFromLoadBalancerCommandOutput) => void),
     cb?: (err: any, data?: DetachInstancesFromLoadBalancerCommandOutput) => void
   ): Promise<DetachInstancesFromLoadBalancerCommandOutput> | void {
     const command = new DetachInstancesFromLoadBalancerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2067,17 +1802,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public detachStaticIp(
     args: DetachStaticIpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachStaticIpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachStaticIpCommandOutput) => void),
     cb?: (err: any, data?: DetachStaticIpCommandOutput) => void
   ): Promise<DetachStaticIpCommandOutput> | void {
     const command = new DetachStaticIpCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2091,10 +1823,7 @@ export class Lightsail extends LightsailClient {
     args: DisableAddOnCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DisableAddOnCommandOutput>;
-  public disableAddOn(
-    args: DisableAddOnCommandInput,
-    cb: (err: any, data?: DisableAddOnCommandOutput) => void
-  ): void;
+  public disableAddOn(args: DisableAddOnCommandInput, cb: (err: any, data?: DisableAddOnCommandOutput) => void): void;
   public disableAddOn(
     args: DisableAddOnCommandInput,
     options: __HttpHandlerOptions,
@@ -2102,17 +1831,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public disableAddOn(
     args: DisableAddOnCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableAddOnCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableAddOnCommandOutput) => void),
     cb?: (err: any, data?: DisableAddOnCommandOutput) => void
   ): Promise<DisableAddOnCommandOutput> | void {
     const command = new DisableAddOnCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2137,17 +1863,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public downloadDefaultKeyPair(
     args: DownloadDefaultKeyPairCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DownloadDefaultKeyPairCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DownloadDefaultKeyPairCommandOutput) => void),
     cb?: (err: any, data?: DownloadDefaultKeyPairCommandOutput) => void
   ): Promise<DownloadDefaultKeyPairCommandOutput> | void {
     const command = new DownloadDefaultKeyPairCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2158,14 +1881,8 @@ export class Lightsail extends LightsailClient {
    * <p>Enables or modifies an add-on for an Amazon Lightsail resource. For more information, see
    *       the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail Dev Guide</a>.</p>
    */
-  public enableAddOn(
-    args: EnableAddOnCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<EnableAddOnCommandOutput>;
-  public enableAddOn(
-    args: EnableAddOnCommandInput,
-    cb: (err: any, data?: EnableAddOnCommandOutput) => void
-  ): void;
+  public enableAddOn(args: EnableAddOnCommandInput, options?: __HttpHandlerOptions): Promise<EnableAddOnCommandOutput>;
+  public enableAddOn(args: EnableAddOnCommandInput, cb: (err: any, data?: EnableAddOnCommandOutput) => void): void;
   public enableAddOn(
     args: EnableAddOnCommandInput,
     options: __HttpHandlerOptions,
@@ -2173,17 +1890,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public enableAddOn(
     args: EnableAddOnCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableAddOnCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableAddOnCommandOutput) => void),
     cb?: (err: any, data?: EnableAddOnCommandOutput) => void
   ): Promise<EnableAddOnCommandOutput> | void {
     const command = new EnableAddOnCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2222,17 +1936,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public exportSnapshot(
     args: ExportSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExportSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportSnapshotCommandOutput) => void),
     cb?: (err: any, data?: ExportSnapshotCommandOutput) => void
   ): Promise<ExportSnapshotCommandOutput> | void {
     const command = new ExportSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2257,17 +1968,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getActiveNames(
     args: GetActiveNamesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetActiveNamesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetActiveNamesCommandOutput) => void),
     cb?: (err: any, data?: GetActiveNamesCommandOutput) => void
   ): Promise<GetActiveNamesCommandOutput> | void {
     const command = new GetActiveNamesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2293,17 +2001,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getAutoSnapshots(
     args: GetAutoSnapshotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAutoSnapshotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAutoSnapshotsCommandOutput) => void),
     cb?: (err: any, data?: GetAutoSnapshotsCommandOutput) => void
   ): Promise<GetAutoSnapshotsCommandOutput> | void {
     const command = new GetAutoSnapshotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2337,17 +2042,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getBlueprints(
     args: GetBlueprintsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBlueprintsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBlueprintsCommandOutput) => void),
     cb?: (err: any, data?: GetBlueprintsCommandOutput) => void
   ): Promise<GetBlueprintsCommandOutput> | void {
     const command = new GetBlueprintsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2358,14 +2060,8 @@ export class Lightsail extends LightsailClient {
    * <p>Returns the list of bundles that are available for purchase. A bundle describes the
    *       specs for your virtual private server (or <i>instance</i>).</p>
    */
-  public getBundles(
-    args: GetBundlesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetBundlesCommandOutput>;
-  public getBundles(
-    args: GetBundlesCommandInput,
-    cb: (err: any, data?: GetBundlesCommandOutput) => void
-  ): void;
+  public getBundles(args: GetBundlesCommandInput, options?: __HttpHandlerOptions): Promise<GetBundlesCommandOutput>;
+  public getBundles(args: GetBundlesCommandInput, cb: (err: any, data?: GetBundlesCommandOutput) => void): void;
   public getBundles(
     args: GetBundlesCommandInput,
     options: __HttpHandlerOptions,
@@ -2373,17 +2069,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getBundles(
     args: GetBundlesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBundlesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBundlesCommandOutput) => void),
     cb?: (err: any, data?: GetBundlesCommandOutput) => void
   ): Promise<GetBundlesCommandOutput> | void {
     const command = new GetBundlesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2411,17 +2104,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getCloudFormationStackRecords(
     args: GetCloudFormationStackRecordsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCloudFormationStackRecordsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCloudFormationStackRecordsCommandOutput) => void),
     cb?: (err: any, data?: GetCloudFormationStackRecordsCommandOutput) => void
   ): Promise<GetCloudFormationStackRecordsCommandOutput> | void {
     const command = new GetCloudFormationStackRecordsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2431,14 +2121,8 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Returns information about a specific block storage disk.</p>
    */
-  public getDisk(
-    args: GetDiskCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDiskCommandOutput>;
-  public getDisk(
-    args: GetDiskCommandInput,
-    cb: (err: any, data?: GetDiskCommandOutput) => void
-  ): void;
+  public getDisk(args: GetDiskCommandInput, options?: __HttpHandlerOptions): Promise<GetDiskCommandOutput>;
+  public getDisk(args: GetDiskCommandInput, cb: (err: any, data?: GetDiskCommandOutput) => void): void;
   public getDisk(
     args: GetDiskCommandInput,
     options: __HttpHandlerOptions,
@@ -2446,17 +2130,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getDisk(
     args: GetDiskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDiskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDiskCommandOutput) => void),
     cb?: (err: any, data?: GetDiskCommandOutput) => void
   ): Promise<GetDiskCommandOutput> | void {
     const command = new GetDiskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2470,14 +2151,8 @@ export class Lightsail extends LightsailClient {
    *       list more manageable. You can use the pageToken and nextPageToken values to retrieve the next
    *       items in the list.</p>
    */
-  public getDisks(
-    args: GetDisksCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDisksCommandOutput>;
-  public getDisks(
-    args: GetDisksCommandInput,
-    cb: (err: any, data?: GetDisksCommandOutput) => void
-  ): void;
+  public getDisks(args: GetDisksCommandInput, options?: __HttpHandlerOptions): Promise<GetDisksCommandOutput>;
+  public getDisks(args: GetDisksCommandInput, cb: (err: any, data?: GetDisksCommandOutput) => void): void;
   public getDisks(
     args: GetDisksCommandInput,
     options: __HttpHandlerOptions,
@@ -2485,17 +2160,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getDisks(
     args: GetDisksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDisksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDisksCommandOutput) => void),
     cb?: (err: any, data?: GetDisksCommandOutput) => void
   ): Promise<GetDisksCommandOutput> | void {
     const command = new GetDisksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2520,17 +2192,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getDiskSnapshot(
     args: GetDiskSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDiskSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDiskSnapshotCommandOutput) => void),
     cb?: (err: any, data?: GetDiskSnapshotCommandOutput) => void
   ): Promise<GetDiskSnapshotCommandOutput> | void {
     const command = new GetDiskSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2559,17 +2228,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getDiskSnapshots(
     args: GetDiskSnapshotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDiskSnapshotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDiskSnapshotsCommandOutput) => void),
     cb?: (err: any, data?: GetDiskSnapshotsCommandOutput) => void
   ): Promise<GetDiskSnapshotsCommandOutput> | void {
     const command = new GetDiskSnapshotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2579,14 +2245,8 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Returns information about a specific domain recordset.</p>
    */
-  public getDomain(
-    args: GetDomainCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDomainCommandOutput>;
-  public getDomain(
-    args: GetDomainCommandInput,
-    cb: (err: any, data?: GetDomainCommandOutput) => void
-  ): void;
+  public getDomain(args: GetDomainCommandInput, options?: __HttpHandlerOptions): Promise<GetDomainCommandOutput>;
+  public getDomain(args: GetDomainCommandInput, cb: (err: any, data?: GetDomainCommandOutput) => void): void;
   public getDomain(
     args: GetDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -2594,17 +2254,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getDomain(
     args: GetDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainCommandOutput) => void),
     cb?: (err: any, data?: GetDomainCommandOutput) => void
   ): Promise<GetDomainCommandOutput> | void {
     const command = new GetDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2614,14 +2271,8 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Returns a list of all domains in the user's account.</p>
    */
-  public getDomains(
-    args: GetDomainsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDomainsCommandOutput>;
-  public getDomains(
-    args: GetDomainsCommandInput,
-    cb: (err: any, data?: GetDomainsCommandOutput) => void
-  ): void;
+  public getDomains(args: GetDomainsCommandInput, options?: __HttpHandlerOptions): Promise<GetDomainsCommandOutput>;
+  public getDomains(args: GetDomainsCommandInput, cb: (err: any, data?: GetDomainsCommandOutput) => void): void;
   public getDomains(
     args: GetDomainsCommandInput,
     options: __HttpHandlerOptions,
@@ -2629,17 +2280,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getDomains(
     args: GetDomainsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDomainsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainsCommandOutput) => void),
     cb?: (err: any, data?: GetDomainsCommandOutput) => void
   ): Promise<GetDomainsCommandOutput> | void {
     const command = new GetDomainsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2667,17 +2315,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getExportSnapshotRecords(
     args: GetExportSnapshotRecordsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetExportSnapshotRecordsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetExportSnapshotRecordsCommandOutput) => void),
     cb?: (err: any, data?: GetExportSnapshotRecordsCommandOutput) => void
   ): Promise<GetExportSnapshotRecordsCommandOutput> | void {
     const command = new GetExportSnapshotRecordsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2688,14 +2333,8 @@ export class Lightsail extends LightsailClient {
    * <p>Returns information about a specific Amazon Lightsail instance, which is a virtual
    *       private server.</p>
    */
-  public getInstance(
-    args: GetInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetInstanceCommandOutput>;
-  public getInstance(
-    args: GetInstanceCommandInput,
-    cb: (err: any, data?: GetInstanceCommandOutput) => void
-  ): void;
+  public getInstance(args: GetInstanceCommandInput, options?: __HttpHandlerOptions): Promise<GetInstanceCommandOutput>;
+  public getInstance(args: GetInstanceCommandInput, cb: (err: any, data?: GetInstanceCommandOutput) => void): void;
   public getInstance(
     args: GetInstanceCommandInput,
     options: __HttpHandlerOptions,
@@ -2703,17 +2342,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getInstance(
     args: GetInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInstanceCommandOutput) => void),
     cb?: (err: any, data?: GetInstanceCommandOutput) => void
   ): Promise<GetInstanceCommandOutput> | void {
     const command = new GetInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2742,17 +2378,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getInstanceAccessDetails(
     args: GetInstanceAccessDetailsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInstanceAccessDetailsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInstanceAccessDetailsCommandOutput) => void),
     cb?: (err: any, data?: GetInstanceAccessDetailsCommandOutput) => void
   ): Promise<GetInstanceAccessDetailsCommandOutput> | void {
     const command = new GetInstanceAccessDetailsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2778,17 +2411,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getInstanceMetricData(
     args: GetInstanceMetricDataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInstanceMetricDataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInstanceMetricDataCommandOutput) => void),
     cb?: (err: any, data?: GetInstanceMetricDataCommandOutput) => void
   ): Promise<GetInstanceMetricDataCommandOutput> | void {
     const command = new GetInstanceMetricDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2814,17 +2444,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getInstancePortStates(
     args: GetInstancePortStatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInstancePortStatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInstancePortStatesCommandOutput) => void),
     cb?: (err: any, data?: GetInstancePortStatesCommandOutput) => void
   ): Promise<GetInstancePortStatesCommandOutput> | void {
     const command = new GetInstancePortStatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2839,10 +2466,7 @@ export class Lightsail extends LightsailClient {
     args: GetInstancesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetInstancesCommandOutput>;
-  public getInstances(
-    args: GetInstancesCommandInput,
-    cb: (err: any, data?: GetInstancesCommandOutput) => void
-  ): void;
+  public getInstances(args: GetInstancesCommandInput, cb: (err: any, data?: GetInstancesCommandOutput) => void): void;
   public getInstances(
     args: GetInstancesCommandInput,
     options: __HttpHandlerOptions,
@@ -2850,17 +2474,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getInstances(
     args: GetInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInstancesCommandOutput) => void),
     cb?: (err: any, data?: GetInstancesCommandOutput) => void
   ): Promise<GetInstancesCommandOutput> | void {
     const command = new GetInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2885,17 +2506,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getInstanceSnapshot(
     args: GetInstanceSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInstanceSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInstanceSnapshotCommandOutput) => void),
     cb?: (err: any, data?: GetInstanceSnapshotCommandOutput) => void
   ): Promise<GetInstanceSnapshotCommandOutput> | void {
     const command = new GetInstanceSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2920,17 +2538,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getInstanceSnapshots(
     args: GetInstanceSnapshotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInstanceSnapshotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInstanceSnapshotsCommandOutput) => void),
     cb?: (err: any, data?: GetInstanceSnapshotsCommandOutput) => void
   ): Promise<GetInstanceSnapshotsCommandOutput> | void {
     const command = new GetInstanceSnapshotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2955,17 +2570,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getInstanceState(
     args: GetInstanceStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInstanceStateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInstanceStateCommandOutput) => void),
     cb?: (err: any, data?: GetInstanceStateCommandOutput) => void
   ): Promise<GetInstanceStateCommandOutput> | void {
     const command = new GetInstanceStateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2975,14 +2587,8 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Returns information about a specific key pair.</p>
    */
-  public getKeyPair(
-    args: GetKeyPairCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetKeyPairCommandOutput>;
-  public getKeyPair(
-    args: GetKeyPairCommandInput,
-    cb: (err: any, data?: GetKeyPairCommandOutput) => void
-  ): void;
+  public getKeyPair(args: GetKeyPairCommandInput, options?: __HttpHandlerOptions): Promise<GetKeyPairCommandOutput>;
+  public getKeyPair(args: GetKeyPairCommandInput, cb: (err: any, data?: GetKeyPairCommandOutput) => void): void;
   public getKeyPair(
     args: GetKeyPairCommandInput,
     options: __HttpHandlerOptions,
@@ -2990,17 +2596,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getKeyPair(
     args: GetKeyPairCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetKeyPairCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetKeyPairCommandOutput) => void),
     cb?: (err: any, data?: GetKeyPairCommandOutput) => void
   ): Promise<GetKeyPairCommandOutput> | void {
     const command = new GetKeyPairCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3010,14 +2613,8 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Returns information about all key pairs in the user's account.</p>
    */
-  public getKeyPairs(
-    args: GetKeyPairsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetKeyPairsCommandOutput>;
-  public getKeyPairs(
-    args: GetKeyPairsCommandInput,
-    cb: (err: any, data?: GetKeyPairsCommandOutput) => void
-  ): void;
+  public getKeyPairs(args: GetKeyPairsCommandInput, options?: __HttpHandlerOptions): Promise<GetKeyPairsCommandOutput>;
+  public getKeyPairs(args: GetKeyPairsCommandInput, cb: (err: any, data?: GetKeyPairsCommandOutput) => void): void;
   public getKeyPairs(
     args: GetKeyPairsCommandInput,
     options: __HttpHandlerOptions,
@@ -3025,17 +2622,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getKeyPairs(
     args: GetKeyPairsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetKeyPairsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetKeyPairsCommandOutput) => void),
     cb?: (err: any, data?: GetKeyPairsCommandOutput) => void
   ): Promise<GetKeyPairsCommandOutput> | void {
     const command = new GetKeyPairsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3060,17 +2654,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getLoadBalancer(
     args: GetLoadBalancerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLoadBalancerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLoadBalancerCommandOutput) => void),
     cb?: (err: any, data?: GetLoadBalancerCommandOutput) => void
   ): Promise<GetLoadBalancerCommandOutput> | void {
     const command = new GetLoadBalancerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3095,17 +2686,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getLoadBalancerMetricData(
     args: GetLoadBalancerMetricDataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLoadBalancerMetricDataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLoadBalancerMetricDataCommandOutput) => void),
     cb?: (err: any, data?: GetLoadBalancerMetricDataCommandOutput) => void
   ): Promise<GetLoadBalancerMetricDataCommandOutput> | void {
     const command = new GetLoadBalancerMetricDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3133,17 +2721,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getLoadBalancers(
     args: GetLoadBalancersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLoadBalancersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLoadBalancersCommandOutput) => void),
     cb?: (err: any, data?: GetLoadBalancersCommandOutput) => void
   ): Promise<GetLoadBalancersCommandOutput> | void {
     const command = new GetLoadBalancersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3172,20 +2757,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getLoadBalancerTlsCertificates(
     args: GetLoadBalancerTlsCertificatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetLoadBalancerTlsCertificatesCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLoadBalancerTlsCertificatesCommandOutput) => void),
     cb?: (err: any, data?: GetLoadBalancerTlsCertificatesCommandOutput) => void
   ): Promise<GetLoadBalancerTlsCertificatesCommandOutput> | void {
     const command = new GetLoadBalancerTlsCertificatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3200,10 +2779,7 @@ export class Lightsail extends LightsailClient {
     args: GetOperationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetOperationCommandOutput>;
-  public getOperation(
-    args: GetOperationCommandInput,
-    cb: (err: any, data?: GetOperationCommandOutput) => void
-  ): void;
+  public getOperation(args: GetOperationCommandInput, cb: (err: any, data?: GetOperationCommandOutput) => void): void;
   public getOperation(
     args: GetOperationCommandInput,
     options: __HttpHandlerOptions,
@@ -3211,17 +2787,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getOperation(
     args: GetOperationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOperationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOperationCommandOutput) => void),
     cb?: (err: any, data?: GetOperationCommandOutput) => void
   ): Promise<GetOperationCommandOutput> | void {
     const command = new GetOperationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3249,17 +2822,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getOperations(
     args: GetOperationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOperationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOperationsCommandOutput) => void),
     cb?: (err: any, data?: GetOperationsCommandOutput) => void
   ): Promise<GetOperationsCommandOutput> | void {
     const command = new GetOperationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3284,17 +2854,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getOperationsForResource(
     args: GetOperationsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOperationsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOperationsForResourceCommandOutput) => void),
     cb?: (err: any, data?: GetOperationsForResourceCommandOutput) => void
   ): Promise<GetOperationsForResourceCommandOutput> | void {
     const command = new GetOperationsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3306,14 +2873,8 @@ export class Lightsail extends LightsailClient {
    *         availability zones</code> parameter to also return the Availability Zones in a
    *       region.</p>
    */
-  public getRegions(
-    args: GetRegionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetRegionsCommandOutput>;
-  public getRegions(
-    args: GetRegionsCommandInput,
-    cb: (err: any, data?: GetRegionsCommandOutput) => void
-  ): void;
+  public getRegions(args: GetRegionsCommandInput, options?: __HttpHandlerOptions): Promise<GetRegionsCommandOutput>;
+  public getRegions(args: GetRegionsCommandInput, cb: (err: any, data?: GetRegionsCommandOutput) => void): void;
   public getRegions(
     args: GetRegionsCommandInput,
     options: __HttpHandlerOptions,
@@ -3321,17 +2882,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getRegions(
     args: GetRegionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRegionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRegionsCommandOutput) => void),
     cb?: (err: any, data?: GetRegionsCommandOutput) => void
   ): Promise<GetRegionsCommandOutput> | void {
     const command = new GetRegionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3356,17 +2914,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getRelationalDatabase(
     args: GetRelationalDatabaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRelationalDatabaseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRelationalDatabaseCommandOutput) => void),
     cb?: (err: any, data?: GetRelationalDatabaseCommandOutput) => void
   ): Promise<GetRelationalDatabaseCommandOutput> | void {
     const command = new GetRelationalDatabaseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3394,20 +2949,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getRelationalDatabaseBlueprints(
     args: GetRelationalDatabaseBlueprintsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetRelationalDatabaseBlueprintsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRelationalDatabaseBlueprintsCommandOutput) => void),
     cb?: (err: any, data?: GetRelationalDatabaseBlueprintsCommandOutput) => void
   ): Promise<GetRelationalDatabaseBlueprintsCommandOutput> | void {
     const command = new GetRelationalDatabaseBlueprintsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3435,17 +2984,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getRelationalDatabaseBundles(
     args: GetRelationalDatabaseBundlesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRelationalDatabaseBundlesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRelationalDatabaseBundlesCommandOutput) => void),
     cb?: (err: any, data?: GetRelationalDatabaseBundlesCommandOutput) => void
   ): Promise<GetRelationalDatabaseBundlesCommandOutput> | void {
     const command = new GetRelationalDatabaseBundlesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3470,17 +3016,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getRelationalDatabaseEvents(
     args: GetRelationalDatabaseEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRelationalDatabaseEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRelationalDatabaseEventsCommandOutput) => void),
     cb?: (err: any, data?: GetRelationalDatabaseEventsCommandOutput) => void
   ): Promise<GetRelationalDatabaseEventsCommandOutput> | void {
     const command = new GetRelationalDatabaseEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3505,20 +3048,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getRelationalDatabaseLogEvents(
     args: GetRelationalDatabaseLogEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetRelationalDatabaseLogEventsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRelationalDatabaseLogEventsCommandOutput) => void),
     cb?: (err: any, data?: GetRelationalDatabaseLogEventsCommandOutput) => void
   ): Promise<GetRelationalDatabaseLogEventsCommandOutput> | void {
     const command = new GetRelationalDatabaseLogEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3544,20 +3081,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getRelationalDatabaseLogStreams(
     args: GetRelationalDatabaseLogStreamsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetRelationalDatabaseLogStreamsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRelationalDatabaseLogStreamsCommandOutput) => void),
     cb?: (err: any, data?: GetRelationalDatabaseLogStreamsCommandOutput) => void
   ): Promise<GetRelationalDatabaseLogStreamsCommandOutput> | void {
     const command = new GetRelationalDatabaseLogStreamsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3577,38 +3108,25 @@ export class Lightsail extends LightsailClient {
   ): Promise<GetRelationalDatabaseMasterUserPasswordCommandOutput>;
   public getRelationalDatabaseMasterUserPassword(
     args: GetRelationalDatabaseMasterUserPasswordCommandInput,
-    cb: (
-      err: any,
-      data?: GetRelationalDatabaseMasterUserPasswordCommandOutput
-    ) => void
+    cb: (err: any, data?: GetRelationalDatabaseMasterUserPasswordCommandOutput) => void
   ): void;
   public getRelationalDatabaseMasterUserPassword(
     args: GetRelationalDatabaseMasterUserPasswordCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetRelationalDatabaseMasterUserPasswordCommandOutput
-    ) => void
+    cb: (err: any, data?: GetRelationalDatabaseMasterUserPasswordCommandOutput) => void
   ): void;
   public getRelationalDatabaseMasterUserPassword(
     args: GetRelationalDatabaseMasterUserPasswordCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetRelationalDatabaseMasterUserPasswordCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetRelationalDatabaseMasterUserPasswordCommandOutput
-    ) => void
+      | ((err: any, data?: GetRelationalDatabaseMasterUserPasswordCommandOutput) => void),
+    cb?: (err: any, data?: GetRelationalDatabaseMasterUserPasswordCommandOutput) => void
   ): Promise<GetRelationalDatabaseMasterUserPasswordCommandOutput> | void {
     const command = new GetRelationalDatabaseMasterUserPasswordCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3634,20 +3152,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getRelationalDatabaseMetricData(
     args: GetRelationalDatabaseMetricDataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetRelationalDatabaseMetricDataCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRelationalDatabaseMetricDataCommandOutput) => void),
     cb?: (err: any, data?: GetRelationalDatabaseMetricDataCommandOutput) => void
   ): Promise<GetRelationalDatabaseMetricDataCommandOutput> | void {
     const command = new GetRelationalDatabaseMetricDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3676,20 +3188,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getRelationalDatabaseParameters(
     args: GetRelationalDatabaseParametersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetRelationalDatabaseParametersCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRelationalDatabaseParametersCommandOutput) => void),
     cb?: (err: any, data?: GetRelationalDatabaseParametersCommandOutput) => void
   ): Promise<GetRelationalDatabaseParametersCommandOutput> | void {
     const command = new GetRelationalDatabaseParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3714,17 +3220,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getRelationalDatabases(
     args: GetRelationalDatabasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRelationalDatabasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRelationalDatabasesCommandOutput) => void),
     cb?: (err: any, data?: GetRelationalDatabasesCommandOutput) => void
   ): Promise<GetRelationalDatabasesCommandOutput> | void {
     const command = new GetRelationalDatabasesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3749,17 +3252,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getRelationalDatabaseSnapshot(
     args: GetRelationalDatabaseSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRelationalDatabaseSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRelationalDatabaseSnapshotCommandOutput) => void),
     cb?: (err: any, data?: GetRelationalDatabaseSnapshotCommandOutput) => void
   ): Promise<GetRelationalDatabaseSnapshotCommandOutput> | void {
     const command = new GetRelationalDatabaseSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3784,20 +3284,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getRelationalDatabaseSnapshots(
     args: GetRelationalDatabaseSnapshotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetRelationalDatabaseSnapshotsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRelationalDatabaseSnapshotsCommandOutput) => void),
     cb?: (err: any, data?: GetRelationalDatabaseSnapshotsCommandOutput) => void
   ): Promise<GetRelationalDatabaseSnapshotsCommandOutput> | void {
     const command = new GetRelationalDatabaseSnapshotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3807,14 +3301,8 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Returns information about a specific static IP.</p>
    */
-  public getStaticIp(
-    args: GetStaticIpCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetStaticIpCommandOutput>;
-  public getStaticIp(
-    args: GetStaticIpCommandInput,
-    cb: (err: any, data?: GetStaticIpCommandOutput) => void
-  ): void;
+  public getStaticIp(args: GetStaticIpCommandInput, options?: __HttpHandlerOptions): Promise<GetStaticIpCommandOutput>;
+  public getStaticIp(args: GetStaticIpCommandInput, cb: (err: any, data?: GetStaticIpCommandOutput) => void): void;
   public getStaticIp(
     args: GetStaticIpCommandInput,
     options: __HttpHandlerOptions,
@@ -3822,17 +3310,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getStaticIp(
     args: GetStaticIpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetStaticIpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStaticIpCommandOutput) => void),
     cb?: (err: any, data?: GetStaticIpCommandOutput) => void
   ): Promise<GetStaticIpCommandOutput> | void {
     const command = new GetStaticIpCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3846,10 +3331,7 @@ export class Lightsail extends LightsailClient {
     args: GetStaticIpsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetStaticIpsCommandOutput>;
-  public getStaticIps(
-    args: GetStaticIpsCommandInput,
-    cb: (err: any, data?: GetStaticIpsCommandOutput) => void
-  ): void;
+  public getStaticIps(args: GetStaticIpsCommandInput, cb: (err: any, data?: GetStaticIpsCommandOutput) => void): void;
   public getStaticIps(
     args: GetStaticIpsCommandInput,
     options: __HttpHandlerOptions,
@@ -3857,17 +3339,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getStaticIps(
     args: GetStaticIpsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetStaticIpsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStaticIpsCommandOutput) => void),
     cb?: (err: any, data?: GetStaticIpsCommandOutput) => void
   ): Promise<GetStaticIpsCommandOutput> | void {
     const command = new GetStaticIpsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3892,17 +3371,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public importKeyPair(
     args: ImportKeyPairCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportKeyPairCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportKeyPairCommandOutput) => void),
     cb?: (err: any, data?: ImportKeyPairCommandOutput) => void
   ): Promise<ImportKeyPairCommandOutput> | void {
     const command = new ImportKeyPairCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3912,14 +3388,8 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Returns a Boolean value indicating whether your Lightsail VPC is peered.</p>
    */
-  public isVpcPeered(
-    args: IsVpcPeeredCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<IsVpcPeeredCommandOutput>;
-  public isVpcPeered(
-    args: IsVpcPeeredCommandInput,
-    cb: (err: any, data?: IsVpcPeeredCommandOutput) => void
-  ): void;
+  public isVpcPeered(args: IsVpcPeeredCommandInput, options?: __HttpHandlerOptions): Promise<IsVpcPeeredCommandOutput>;
+  public isVpcPeered(args: IsVpcPeeredCommandInput, cb: (err: any, data?: IsVpcPeeredCommandOutput) => void): void;
   public isVpcPeered(
     args: IsVpcPeeredCommandInput,
     options: __HttpHandlerOptions,
@@ -3927,17 +3397,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public isVpcPeered(
     args: IsVpcPeeredCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: IsVpcPeeredCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: IsVpcPeeredCommandOutput) => void),
     cb?: (err: any, data?: IsVpcPeeredCommandOutput) => void
   ): Promise<IsVpcPeeredCommandOutput> | void {
     const command = new IsVpcPeeredCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3965,17 +3432,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public openInstancePublicPorts(
     args: OpenInstancePublicPortsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: OpenInstancePublicPortsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: OpenInstancePublicPortsCommandOutput) => void),
     cb?: (err: any, data?: OpenInstancePublicPortsCommandOutput) => void
   ): Promise<OpenInstancePublicPortsCommandOutput> | void {
     const command = new OpenInstancePublicPortsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3985,14 +3449,8 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Tries to peer the Lightsail VPC with the user's default VPC.</p>
    */
-  public peerVpc(
-    args: PeerVpcCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PeerVpcCommandOutput>;
-  public peerVpc(
-    args: PeerVpcCommandInput,
-    cb: (err: any, data?: PeerVpcCommandOutput) => void
-  ): void;
+  public peerVpc(args: PeerVpcCommandInput, options?: __HttpHandlerOptions): Promise<PeerVpcCommandOutput>;
+  public peerVpc(args: PeerVpcCommandInput, cb: (err: any, data?: PeerVpcCommandOutput) => void): void;
   public peerVpc(
     args: PeerVpcCommandInput,
     options: __HttpHandlerOptions,
@@ -4000,17 +3458,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public peerVpc(
     args: PeerVpcCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PeerVpcCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PeerVpcCommandOutput) => void),
     cb?: (err: any, data?: PeerVpcCommandOutput) => void
   ): Promise<PeerVpcCommandOutput> | void {
     const command = new PeerVpcCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4039,17 +3494,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public putInstancePublicPorts(
     args: PutInstancePublicPortsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutInstancePublicPortsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutInstancePublicPortsCommandOutput) => void),
     cb?: (err: any, data?: PutInstancePublicPortsCommandOutput) => void
   ): Promise<PutInstancePublicPortsCommandOutput> | void {
     const command = new PutInstancePublicPortsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4077,17 +3529,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public rebootInstance(
     args: RebootInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RebootInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootInstanceCommandOutput) => void),
     cb?: (err: any, data?: RebootInstanceCommandOutput) => void
   ): Promise<RebootInstanceCommandOutput> | void {
     const command = new RebootInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4115,17 +3564,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public rebootRelationalDatabase(
     args: RebootRelationalDatabaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RebootRelationalDatabaseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootRelationalDatabaseCommandOutput) => void),
     cb?: (err: any, data?: RebootRelationalDatabaseCommandOutput) => void
   ): Promise<RebootRelationalDatabaseCommandOutput> | void {
     const command = new RebootRelationalDatabaseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4150,17 +3596,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public releaseStaticIp(
     args: ReleaseStaticIpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReleaseStaticIpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReleaseStaticIpCommandOutput) => void),
     cb?: (err: any, data?: ReleaseStaticIpCommandOutput) => void
   ): Promise<ReleaseStaticIpCommandOutput> | void {
     const command = new ReleaseStaticIpCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4194,17 +3637,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public startInstance(
     args: StartInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartInstanceCommandOutput) => void),
     cb?: (err: any, data?: StartInstanceCommandOutput) => void
   ): Promise<StartInstanceCommandOutput> | void {
     const command = new StartInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4233,17 +3673,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public startRelationalDatabase(
     args: StartRelationalDatabaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartRelationalDatabaseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartRelationalDatabaseCommandOutput) => void),
     cb?: (err: any, data?: StartRelationalDatabaseCommandOutput) => void
   ): Promise<StartRelationalDatabaseCommandOutput> | void {
     const command = new StartRelationalDatabaseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4265,10 +3702,7 @@ export class Lightsail extends LightsailClient {
     args: StopInstanceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopInstanceCommandOutput>;
-  public stopInstance(
-    args: StopInstanceCommandInput,
-    cb: (err: any, data?: StopInstanceCommandOutput) => void
-  ): void;
+  public stopInstance(args: StopInstanceCommandInput, cb: (err: any, data?: StopInstanceCommandOutput) => void): void;
   public stopInstance(
     args: StopInstanceCommandInput,
     options: __HttpHandlerOptions,
@@ -4276,17 +3710,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public stopInstance(
     args: StopInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopInstanceCommandOutput) => void),
     cb?: (err: any, data?: StopInstanceCommandOutput) => void
   ): Promise<StopInstanceCommandOutput> | void {
     const command = new StopInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4314,17 +3745,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public stopRelationalDatabase(
     args: StopRelationalDatabaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopRelationalDatabaseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopRelationalDatabaseCommandOutput) => void),
     cb?: (err: any, data?: StopRelationalDatabaseCommandOutput) => void
   ): Promise<StopRelationalDatabaseCommandOutput> | void {
     const command = new StopRelationalDatabaseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4340,14 +3768,8 @@ export class Lightsail extends LightsailClient {
    *       and resource tags applied to the resource identified by <code>resource name</code>. For more
    *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -4355,17 +3777,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4375,14 +3794,8 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Attempts to unpeer the Lightsail VPC from the user's default VPC.</p>
    */
-  public unpeerVpc(
-    args: UnpeerVpcCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UnpeerVpcCommandOutput>;
-  public unpeerVpc(
-    args: UnpeerVpcCommandInput,
-    cb: (err: any, data?: UnpeerVpcCommandOutput) => void
-  ): void;
+  public unpeerVpc(args: UnpeerVpcCommandInput, options?: __HttpHandlerOptions): Promise<UnpeerVpcCommandOutput>;
+  public unpeerVpc(args: UnpeerVpcCommandInput, cb: (err: any, data?: UnpeerVpcCommandOutput) => void): void;
   public unpeerVpc(
     args: UnpeerVpcCommandInput,
     options: __HttpHandlerOptions,
@@ -4390,17 +3803,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public unpeerVpc(
     args: UnpeerVpcCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnpeerVpcCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnpeerVpcCommandOutput) => void),
     cb?: (err: any, data?: UnpeerVpcCommandOutput) => void
   ): Promise<UnpeerVpcCommandOutput> | void {
     const command = new UnpeerVpcCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4429,17 +3839,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4467,17 +3874,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public updateDomainEntry(
     args: UpdateDomainEntryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDomainEntryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDomainEntryCommandOutput) => void),
     cb?: (err: any, data?: UpdateDomainEntryCommandOutput) => void
   ): Promise<UpdateDomainEntryCommandOutput> | void {
     const command = new UpdateDomainEntryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4506,17 +3910,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public updateLoadBalancerAttribute(
     args: UpdateLoadBalancerAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateLoadBalancerAttributeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLoadBalancerAttributeCommandOutput) => void),
     cb?: (err: any, data?: UpdateLoadBalancerAttributeCommandOutput) => void
   ): Promise<UpdateLoadBalancerAttributeCommandOutput> | void {
     const command = new UpdateLoadBalancerAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4546,17 +3947,14 @@ export class Lightsail extends LightsailClient {
   ): void;
   public updateRelationalDatabase(
     args: UpdateRelationalDatabaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRelationalDatabaseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRelationalDatabaseCommandOutput) => void),
     cb?: (err: any, data?: UpdateRelationalDatabaseCommandOutput) => void
   ): Promise<UpdateRelationalDatabaseCommandOutput> | void {
     const command = new UpdateRelationalDatabaseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4581,38 +3979,23 @@ export class Lightsail extends LightsailClient {
   ): Promise<UpdateRelationalDatabaseParametersCommandOutput>;
   public updateRelationalDatabaseParameters(
     args: UpdateRelationalDatabaseParametersCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateRelationalDatabaseParametersCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateRelationalDatabaseParametersCommandOutput) => void
   ): void;
   public updateRelationalDatabaseParameters(
     args: UpdateRelationalDatabaseParametersCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateRelationalDatabaseParametersCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateRelationalDatabaseParametersCommandOutput) => void
   ): void;
   public updateRelationalDatabaseParameters(
     args: UpdateRelationalDatabaseParametersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateRelationalDatabaseParametersCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateRelationalDatabaseParametersCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRelationalDatabaseParametersCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRelationalDatabaseParametersCommandOutput) => void
   ): Promise<UpdateRelationalDatabaseParametersCommandOutput> | void {
     const command = new UpdateRelationalDatabaseParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

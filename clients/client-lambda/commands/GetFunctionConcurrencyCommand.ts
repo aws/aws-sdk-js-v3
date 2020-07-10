@@ -1,21 +1,11 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  GetFunctionConcurrencyRequest,
-  GetFunctionConcurrencyResponse
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { GetFunctionConcurrencyRequest, GetFunctionConcurrencyResponse } from "../models/index";
 import {
   deserializeAws_restJson1GetFunctionConcurrencyCommand,
-  serializeAws_restJson1GetFunctionConcurrencyCommand
+  serializeAws_restJson1GetFunctionConcurrencyCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetFunctionConcurrencyCommandInput = GetFunctionConcurrencyRequest;
-export type GetFunctionConcurrencyCommandOutput = GetFunctionConcurrencyResponse &
-  __MetadataBearer;
+export type GetFunctionConcurrencyCommandOutput = GetFunctionConcurrencyResponse & __MetadataBearer;
 
 export class GetFunctionConcurrencyCommand extends $Command<
   GetFunctionConcurrencyCommandInput,
@@ -49,18 +38,13 @@ export class GetFunctionConcurrencyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetFunctionConcurrencyCommandInput,
-    GetFunctionConcurrencyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetFunctionConcurrencyCommandInput, GetFunctionConcurrencyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class GetFunctionConcurrencyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetFunctionConcurrencyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetFunctionConcurrencyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetFunctionConcurrencyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetFunctionConcurrencyCommandOutput> {
-    return deserializeAws_restJson1GetFunctionConcurrencyCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFunctionConcurrencyCommandOutput> {
+    return deserializeAws_restJson1GetFunctionConcurrencyCommand(output, context);
   }
 
   // Start section: command_body_extra

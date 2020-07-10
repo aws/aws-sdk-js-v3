@@ -1,21 +1,11 @@
-import {
-  OpsWorksClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OpsWorksClient";
-import {
-  DescribeElasticIpsRequest,
-  DescribeElasticIpsResult
-} from "../models/index";
+import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
+import { DescribeElasticIpsRequest, DescribeElasticIpsResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeElasticIpsCommand,
-  serializeAws_json1_1DescribeElasticIpsCommand
+  serializeAws_json1_1DescribeElasticIpsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeElasticIpsCommandInput = DescribeElasticIpsRequest;
-export type DescribeElasticIpsCommandOutput = DescribeElasticIpsResult &
-  __MetadataBearer;
+export type DescribeElasticIpsCommandOutput = DescribeElasticIpsResult & __MetadataBearer;
 
 export class DescribeElasticIpsCommand extends $Command<
   DescribeElasticIpsCommandInput,
@@ -50,14 +39,12 @@ export class DescribeElasticIpsCommand extends $Command<
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeElasticIpsCommandInput, DescribeElasticIpsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class DescribeElasticIpsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeElasticIpsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeElasticIpsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeElasticIpsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeElasticIpsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeElasticIpsCommandOutput> {
     return deserializeAws_json1_1DescribeElasticIpsCommand(output, context);
   }
 

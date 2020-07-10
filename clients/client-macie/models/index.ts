@@ -1,16 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have required permissions to access the requested resource.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   message?: string;
@@ -22,10 +16,9 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export interface AssociateMemberAccountRequest {
@@ -38,13 +31,10 @@ export interface AssociateMemberAccountRequest {
 }
 
 export namespace AssociateMemberAccountRequest {
-  export const filterSensitiveLog = (
-    obj: AssociateMemberAccountRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateMemberAccountRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateMemberAccountRequest =>
-    __isa(o, "AssociateMemberAccountRequest");
+  export const isa = (o: any): o is AssociateMemberAccountRequest => __isa(o, "AssociateMemberAccountRequest");
 }
 
 export interface AssociateS3ResourcesRequest {
@@ -63,13 +53,10 @@ export interface AssociateS3ResourcesRequest {
 }
 
 export namespace AssociateS3ResourcesRequest {
-  export const filterSensitiveLog = (
-    obj: AssociateS3ResourcesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateS3ResourcesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateS3ResourcesRequest =>
-    __isa(o, "AssociateS3ResourcesRequest");
+  export const isa = (o: any): o is AssociateS3ResourcesRequest => __isa(o, "AssociateS3ResourcesRequest");
 }
 
 export interface AssociateS3ResourcesResult {
@@ -83,10 +70,9 @@ export interface AssociateS3ResourcesResult {
 
 export namespace AssociateS3ResourcesResult {
   export const filterSensitiveLog = (obj: AssociateS3ResourcesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateS3ResourcesResult =>
-    __isa(o, "AssociateS3ResourcesResult");
+  export const isa = (o: any): o is AssociateS3ResourcesResult => __isa(o, "AssociateS3ResourcesResult");
 }
 
 /**
@@ -111,10 +97,9 @@ export interface ClassificationType {
 
 export namespace ClassificationType {
   export const filterSensitiveLog = (obj: ClassificationType): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClassificationType =>
-    __isa(o, "ClassificationType");
+  export const isa = (o: any): o is ClassificationType => __isa(o, "ClassificationType");
 }
 
 /**
@@ -139,10 +124,9 @@ export interface ClassificationTypeUpdate {
 
 export namespace ClassificationTypeUpdate {
   export const filterSensitiveLog = (obj: ClassificationTypeUpdate): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClassificationTypeUpdate =>
-    __isa(o, "ClassificationTypeUpdate");
+  export const isa = (o: any): o is ClassificationTypeUpdate => __isa(o, "ClassificationTypeUpdate");
 }
 
 export interface DisassociateMemberAccountRequest {
@@ -154,13 +138,10 @@ export interface DisassociateMemberAccountRequest {
 }
 
 export namespace DisassociateMemberAccountRequest {
-  export const filterSensitiveLog = (
-    obj: DisassociateMemberAccountRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateMemberAccountRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateMemberAccountRequest =>
-    __isa(o, "DisassociateMemberAccountRequest");
+  export const isa = (o: any): o is DisassociateMemberAccountRequest => __isa(o, "DisassociateMemberAccountRequest");
 }
 
 export interface DisassociateS3ResourcesRequest {
@@ -179,13 +160,10 @@ export interface DisassociateS3ResourcesRequest {
 }
 
 export namespace DisassociateS3ResourcesRequest {
-  export const filterSensitiveLog = (
-    obj: DisassociateS3ResourcesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateS3ResourcesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateS3ResourcesRequest =>
-    __isa(o, "DisassociateS3ResourcesRequest");
+  export const isa = (o: any): o is DisassociateS3ResourcesRequest => __isa(o, "DisassociateS3ResourcesRequest");
 }
 
 export interface DisassociateS3ResourcesResult {
@@ -198,13 +176,10 @@ export interface DisassociateS3ResourcesResult {
 }
 
 export namespace DisassociateS3ResourcesResult {
-  export const filterSensitiveLog = (
-    obj: DisassociateS3ResourcesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateS3ResourcesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateS3ResourcesResult =>
-    __isa(o, "DisassociateS3ResourcesResult");
+  export const isa = (o: any): o is DisassociateS3ResourcesResult => __isa(o, "DisassociateS3ResourcesResult");
 }
 
 /**
@@ -230,10 +205,9 @@ export interface FailedS3Resource {
 
 export namespace FailedS3Resource {
   export const filterSensitiveLog = (obj: FailedS3Resource): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FailedS3Resource =>
-    __isa(o, "FailedS3Resource");
+  export const isa = (o: any): o is FailedS3Resource => __isa(o, "FailedS3Resource");
 }
 
 /**
@@ -252,19 +226,16 @@ export interface InternalException extends __SmithyException, $MetadataBearer {
 
 export namespace InternalException {
   export const filterSensitiveLog = (obj: InternalException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalException =>
-    __isa(o, "InternalException");
+  export const isa = (o: any): o is InternalException => __isa(o, "InternalException");
 }
 
 /**
  * <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter. </p>
  */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends __SmithyException, $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
   /**
@@ -282,19 +253,16 @@ export interface InvalidInputException
 
 export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
+  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
  * <p>The request was rejected because it attempted to create resources beyond the current
  *       AWS account limits. The error code describes the limit exceeded. </p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -311,10 +279,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListMemberAccountsRequest {
@@ -336,10 +303,9 @@ export interface ListMemberAccountsRequest {
 
 export namespace ListMemberAccountsRequest {
   export const filterSensitiveLog = (obj: ListMemberAccountsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListMemberAccountsRequest =>
-    __isa(o, "ListMemberAccountsRequest");
+  export const isa = (o: any): o is ListMemberAccountsRequest => __isa(o, "ListMemberAccountsRequest");
 }
 
 export interface ListMemberAccountsResult {
@@ -361,10 +327,9 @@ export interface ListMemberAccountsResult {
 
 export namespace ListMemberAccountsResult {
   export const filterSensitiveLog = (obj: ListMemberAccountsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListMemberAccountsResult =>
-    __isa(o, "ListMemberAccountsResult");
+  export const isa = (o: any): o is ListMemberAccountsResult => __isa(o, "ListMemberAccountsResult");
 }
 
 export interface ListS3ResourcesRequest {
@@ -391,10 +356,9 @@ export interface ListS3ResourcesRequest {
 
 export namespace ListS3ResourcesRequest {
   export const filterSensitiveLog = (obj: ListS3ResourcesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListS3ResourcesRequest =>
-    __isa(o, "ListS3ResourcesRequest");
+  export const isa = (o: any): o is ListS3ResourcesRequest => __isa(o, "ListS3ResourcesRequest");
 }
 
 export interface ListS3ResourcesResult {
@@ -415,10 +379,9 @@ export interface ListS3ResourcesResult {
 
 export namespace ListS3ResourcesResult {
   export const filterSensitiveLog = (obj: ListS3ResourcesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListS3ResourcesResult =>
-    __isa(o, "ListS3ResourcesResult");
+  export const isa = (o: any): o is ListS3ResourcesResult => __isa(o, "ListS3ResourcesResult");
 }
 
 /**
@@ -434,18 +397,18 @@ export interface MemberAccount {
 
 export namespace MemberAccount {
   export const filterSensitiveLog = (obj: MemberAccount): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is MemberAccount => __isa(o, "MemberAccount");
 }
 
 export enum S3ContinuousClassificationType {
-  FULL = "FULL"
+  FULL = "FULL",
 }
 
 export enum S3OneTimeClassificationType {
   FULL = "FULL",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 /**
@@ -468,7 +431,7 @@ export interface S3Resource {
 
 export namespace S3Resource {
   export const filterSensitiveLog = (obj: S3Resource): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is S3Resource => __isa(o, "S3Resource");
 }
@@ -499,10 +462,9 @@ export interface S3ResourceClassification {
 
 export namespace S3ResourceClassification {
   export const filterSensitiveLog = (obj: S3ResourceClassification): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is S3ResourceClassification =>
-    __isa(o, "S3ResourceClassification");
+  export const isa = (o: any): o is S3ResourceClassification => __isa(o, "S3ResourceClassification");
 }
 
 /**
@@ -529,13 +491,10 @@ export interface S3ResourceClassificationUpdate {
 }
 
 export namespace S3ResourceClassificationUpdate {
-  export const filterSensitiveLog = (
-    obj: S3ResourceClassificationUpdate
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: S3ResourceClassificationUpdate): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is S3ResourceClassificationUpdate =>
-    __isa(o, "S3ResourceClassificationUpdate");
+  export const isa = (o: any): o is S3ResourceClassificationUpdate => __isa(o, "S3ResourceClassificationUpdate");
 }
 
 export interface UpdateS3ResourcesRequest {
@@ -554,10 +513,9 @@ export interface UpdateS3ResourcesRequest {
 
 export namespace UpdateS3ResourcesRequest {
   export const filterSensitiveLog = (obj: UpdateS3ResourcesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateS3ResourcesRequest =>
-    __isa(o, "UpdateS3ResourcesRequest");
+  export const isa = (o: any): o is UpdateS3ResourcesRequest => __isa(o, "UpdateS3ResourcesRequest");
 }
 
 export interface UpdateS3ResourcesResult {
@@ -571,8 +529,7 @@ export interface UpdateS3ResourcesResult {
 
 export namespace UpdateS3ResourcesResult {
   export const filterSensitiveLog = (obj: UpdateS3ResourcesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateS3ResourcesResult =>
-    __isa(o, "UpdateS3ResourcesResult");
+  export const isa = (o: any): o is UpdateS3ResourcesResult => __isa(o, "UpdateS3ResourcesResult");
 }

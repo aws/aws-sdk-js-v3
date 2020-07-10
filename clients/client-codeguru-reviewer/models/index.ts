@@ -1,16 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -18,10 +12,9 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export interface AssociateRepositoryRequest {
@@ -55,10 +48,9 @@ export interface AssociateRepositoryRequest {
 
 export namespace AssociateRepositoryRequest {
   export const filterSensitiveLog = (obj: AssociateRepositoryRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateRepositoryRequest =>
-    __isa(o, "AssociateRepositoryRequest");
+  export const isa = (o: any): o is AssociateRepositoryRequest => __isa(o, "AssociateRepositoryRequest");
 }
 
 export interface AssociateRepositoryResponse {
@@ -70,13 +62,10 @@ export interface AssociateRepositoryResponse {
 }
 
 export namespace AssociateRepositoryResponse {
-  export const filterSensitiveLog = (
-    obj: AssociateRepositoryResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateRepositoryResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateRepositoryResponse =>
-    __isa(o, "AssociateRepositoryResponse");
+  export const isa = (o: any): o is AssociateRepositoryResponse => __isa(o, "AssociateRepositoryResponse");
 }
 
 /**
@@ -92,10 +81,9 @@ export interface CodeCommitRepository {
 
 export namespace CodeCommitRepository {
   export const filterSensitiveLog = (obj: CodeCommitRepository): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CodeCommitRepository =>
-    __isa(o, "CodeCommitRepository");
+  export const isa = (o: any): o is CodeCommitRepository => __isa(o, "CodeCommitRepository");
 }
 
 /**
@@ -112,10 +100,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 
 export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConflictException =>
-    __isa(o, "ConflictException");
+  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface DescribeRepositoryAssociationRequest {
@@ -127,10 +114,8 @@ export interface DescribeRepositoryAssociationRequest {
 }
 
 export namespace DescribeRepositoryAssociationRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeRepositoryAssociationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeRepositoryAssociationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeRepositoryAssociationRequest =>
     __isa(o, "DescribeRepositoryAssociationRequest");
@@ -145,10 +130,8 @@ export interface DescribeRepositoryAssociationResponse {
 }
 
 export namespace DescribeRepositoryAssociationResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeRepositoryAssociationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeRepositoryAssociationResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeRepositoryAssociationResponse =>
     __isa(o, "DescribeRepositoryAssociationResponse");
@@ -163,13 +146,10 @@ export interface DisassociateRepositoryRequest {
 }
 
 export namespace DisassociateRepositoryRequest {
-  export const filterSensitiveLog = (
-    obj: DisassociateRepositoryRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateRepositoryRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateRepositoryRequest =>
-    __isa(o, "DisassociateRepositoryRequest");
+  export const isa = (o: any): o is DisassociateRepositoryRequest => __isa(o, "DisassociateRepositoryRequest");
 }
 
 export interface DisassociateRepositoryResponse {
@@ -181,21 +161,16 @@ export interface DisassociateRepositoryResponse {
 }
 
 export namespace DisassociateRepositoryResponse {
-  export const filterSensitiveLog = (
-    obj: DisassociateRepositoryResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateRepositoryResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateRepositoryResponse =>
-    __isa(o, "DisassociateRepositoryResponse");
+  export const isa = (o: any): o is DisassociateRepositoryResponse => __isa(o, "DisassociateRepositoryResponse");
 }
 
 /**
  * <p>The server encountered an internal error and is unable to complete the request.</p>
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -203,10 +178,9 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 export interface ListRepositoryAssociationsRequest {
@@ -259,13 +233,10 @@ export interface ListRepositoryAssociationsRequest {
 }
 
 export namespace ListRepositoryAssociationsRequest {
-  export const filterSensitiveLog = (
-    obj: ListRepositoryAssociationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListRepositoryAssociationsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListRepositoryAssociationsRequest =>
-    __isa(o, "ListRepositoryAssociationsRequest");
+  export const isa = (o: any): o is ListRepositoryAssociationsRequest => __isa(o, "ListRepositoryAssociationsRequest");
 }
 
 export interface ListRepositoryAssociationsResponse {
@@ -285,10 +256,8 @@ export interface ListRepositoryAssociationsResponse {
 }
 
 export namespace ListRepositoryAssociationsResponse {
-  export const filterSensitiveLog = (
-    obj: ListRepositoryAssociationsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListRepositoryAssociationsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListRepositoryAssociationsResponse =>
     __isa(o, "ListRepositoryAssociationsResponse");
@@ -305,15 +274,14 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 
 export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export enum ProviderType {
   CODE_COMMIT = "CodeCommit",
-  GIT_HUB = "GitHub"
+  GIT_HUB = "GitHub",
 }
 
 /**
@@ -329,7 +297,7 @@ export interface Repository {
 
 export namespace Repository {
   export const filterSensitiveLog = (obj: Repository): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Repository => __isa(o, "Repository");
 }
@@ -387,17 +355,16 @@ export interface RepositoryAssociation {
 
 export namespace RepositoryAssociation {
   export const filterSensitiveLog = (obj: RepositoryAssociation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RepositoryAssociation =>
-    __isa(o, "RepositoryAssociation");
+  export const isa = (o: any): o is RepositoryAssociation => __isa(o, "RepositoryAssociation");
 }
 
 export enum RepositoryAssociationState {
   ASSOCIATED = "Associated",
   ASSOCIATING = "Associating",
   DISASSOCIATING = "Disassociating",
-  FAILED = "Failed"
+  FAILED = "Failed",
 }
 
 /**
@@ -467,21 +434,16 @@ export interface RepositoryAssociationSummary {
 }
 
 export namespace RepositoryAssociationSummary {
-  export const filterSensitiveLog = (
-    obj: RepositoryAssociationSummary
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RepositoryAssociationSummary): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RepositoryAssociationSummary =>
-    __isa(o, "RepositoryAssociationSummary");
+  export const isa = (o: any): o is RepositoryAssociationSummary => __isa(o, "RepositoryAssociationSummary");
 }
 
 /**
  * <p>The request was denied due to request throttling.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   Message?: string;
@@ -489,18 +451,15 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
  * <p>The input fails to satisfy the specified constraints.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   Message?: string;
@@ -508,8 +467,7 @@ export interface ValidationException
 
 export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

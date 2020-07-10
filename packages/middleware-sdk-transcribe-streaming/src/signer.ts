@@ -3,7 +3,7 @@ import {
   HttpRequest as IHttpRequest,
   RequestSigningArguments,
   RequestPresigner,
-  RequestPresigningArguments
+  RequestPresigningArguments,
 } from "@aws-sdk/types";
 import { SignatureV4 as BaseSignatureV4 } from "@aws-sdk/signature-v4";
 import { HttpRequest } from "@aws-sdk/protocol-http";
@@ -14,17 +14,11 @@ export class SignatureV4 implements RequestSigner, RequestPresigner {
     this.signer = options.signer;
   }
 
-  public presign(
-    originalRequest: IHttpRequest,
-    options: RequestPresigningArguments = {}
-  ): Promise<IHttpRequest> {
+  public presign(originalRequest: IHttpRequest, options: RequestPresigningArguments = {}): Promise<IHttpRequest> {
     return this.signer.presign(originalRequest, options);
   }
 
-  public async sign(
-    toSign: IHttpRequest,
-    options?: RequestSigningArguments
-  ): Promise<IHttpRequest> {
+  public async sign(toSign: IHttpRequest, options?: RequestSigningArguments): Promise<IHttpRequest> {
     if (HttpRequest.isInstance(toSign)) {
       // Presign the endpoint url with empty body, otherwise
       // the payload hash would be UNSINGED-PAYLOAD
@@ -36,14 +30,12 @@ export class SignatureV4 implements RequestSigner, RequestPresigner {
           // Not to sign headers. Transcribe-streaming WebSocket
           // request omits headers except for required 'host' header. If we sign
           // the other headers, the signature could be mismatch.
-          unsignableHeaders: new Set(
-            Object.keys(toSign.headers).filter(header => header !== "host")
-          )
+          unsignableHeaders: new Set(Object.keys(toSign.headers).filter((header) => header !== "host")),
         }
       );
       return {
         ...signedRequest,
-        body: toSign.body
+        body: toSign.body,
       };
     } else {
       return this.signer.sign(toSign, options);

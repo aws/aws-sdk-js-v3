@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DescribeInstallationMediaMessage,
-  InstallationMediaMessage
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DescribeInstallationMediaMessage, InstallationMediaMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeInstallationMediaCommand,
-  serializeAws_queryDescribeInstallationMediaCommand
+  serializeAws_queryDescribeInstallationMediaCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeInstallationMediaCommandInput = DescribeInstallationMediaMessage;
-export type DescribeInstallationMediaCommandOutput = InstallationMediaMessage &
-  __MetadataBearer;
+export type DescribeInstallationMediaCommandOutput = InstallationMediaMessage & __MetadataBearer;
 
 export class DescribeInstallationMediaCommand extends $Command<
   DescribeInstallationMediaCommandInput,
@@ -49,18 +38,13 @@ export class DescribeInstallationMediaCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeInstallationMediaCommandInput,
-    DescribeInstallationMediaCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeInstallationMediaCommandInput, DescribeInstallationMediaCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +54,7 @@ export class DescribeInstallationMediaCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeInstallationMediaCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeInstallationMediaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeInstallationMediaCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class DescribeInstallationMediaCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstallationMediaCommandOutput> {
-    return deserializeAws_queryDescribeInstallationMediaCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeInstallationMediaCommand(output, context);
   }
 
   // Start section: command_body_extra

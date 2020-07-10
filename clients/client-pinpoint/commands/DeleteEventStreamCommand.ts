@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  DeleteEventStreamRequest,
-  DeleteEventStreamResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { DeleteEventStreamRequest, DeleteEventStreamResponse } from "../models/index";
 import {
   deserializeAws_restJson1DeleteEventStreamCommand,
-  serializeAws_restJson1DeleteEventStreamCommand
+  serializeAws_restJson1DeleteEventStreamCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteEventStreamCommandInput = DeleteEventStreamRequest;
-export type DeleteEventStreamCommandOutput = DeleteEventStreamResponse &
-  __MetadataBearer;
+export type DeleteEventStreamCommandOutput = DeleteEventStreamResponse & __MetadataBearer;
 
 export class DeleteEventStreamCommand extends $Command<
   DeleteEventStreamCommandInput,
@@ -50,14 +39,12 @@ export class DeleteEventStreamCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteEventStreamCommandInput, DeleteEventStreamCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class DeleteEventStreamCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteEventStreamCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteEventStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteEventStreamCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteEventStreamCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventStreamCommandOutput> {
     return deserializeAws_restJson1DeleteEventStreamCommand(output, context);
   }
 

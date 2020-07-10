@@ -1,223 +1,127 @@
-import {
-  CancelUpdateStackCommandInput,
-  CancelUpdateStackCommandOutput
-} from "../commands/CancelUpdateStackCommand";
+import { CancelUpdateStackCommandInput, CancelUpdateStackCommandOutput } from "../commands/CancelUpdateStackCommand";
 import {
   ContinueUpdateRollbackCommandInput,
-  ContinueUpdateRollbackCommandOutput
+  ContinueUpdateRollbackCommandOutput,
 } from "../commands/ContinueUpdateRollbackCommand";
-import {
-  CreateChangeSetCommandInput,
-  CreateChangeSetCommandOutput
-} from "../commands/CreateChangeSetCommand";
-import {
-  CreateStackCommandInput,
-  CreateStackCommandOutput
-} from "../commands/CreateStackCommand";
+import { CreateChangeSetCommandInput, CreateChangeSetCommandOutput } from "../commands/CreateChangeSetCommand";
+import { CreateStackCommandInput, CreateStackCommandOutput } from "../commands/CreateStackCommand";
 import {
   CreateStackInstancesCommandInput,
-  CreateStackInstancesCommandOutput
+  CreateStackInstancesCommandOutput,
 } from "../commands/CreateStackInstancesCommand";
-import {
-  CreateStackSetCommandInput,
-  CreateStackSetCommandOutput
-} from "../commands/CreateStackSetCommand";
-import {
-  DeleteChangeSetCommandInput,
-  DeleteChangeSetCommandOutput
-} from "../commands/DeleteChangeSetCommand";
-import {
-  DeleteStackCommandInput,
-  DeleteStackCommandOutput
-} from "../commands/DeleteStackCommand";
+import { CreateStackSetCommandInput, CreateStackSetCommandOutput } from "../commands/CreateStackSetCommand";
+import { DeleteChangeSetCommandInput, DeleteChangeSetCommandOutput } from "../commands/DeleteChangeSetCommand";
+import { DeleteStackCommandInput, DeleteStackCommandOutput } from "../commands/DeleteStackCommand";
 import {
   DeleteStackInstancesCommandInput,
-  DeleteStackInstancesCommandOutput
+  DeleteStackInstancesCommandOutput,
 } from "../commands/DeleteStackInstancesCommand";
-import {
-  DeleteStackSetCommandInput,
-  DeleteStackSetCommandOutput
-} from "../commands/DeleteStackSetCommand";
-import {
-  DeregisterTypeCommandInput,
-  DeregisterTypeCommandOutput
-} from "../commands/DeregisterTypeCommand";
+import { DeleteStackSetCommandInput, DeleteStackSetCommandOutput } from "../commands/DeleteStackSetCommand";
+import { DeregisterTypeCommandInput, DeregisterTypeCommandOutput } from "../commands/DeregisterTypeCommand";
 import {
   DescribeAccountLimitsCommandInput,
-  DescribeAccountLimitsCommandOutput
+  DescribeAccountLimitsCommandOutput,
 } from "../commands/DescribeAccountLimitsCommand";
-import {
-  DescribeChangeSetCommandInput,
-  DescribeChangeSetCommandOutput
-} from "../commands/DescribeChangeSetCommand";
+import { DescribeChangeSetCommandInput, DescribeChangeSetCommandOutput } from "../commands/DescribeChangeSetCommand";
 import {
   DescribeStackDriftDetectionStatusCommandInput,
-  DescribeStackDriftDetectionStatusCommandOutput
+  DescribeStackDriftDetectionStatusCommandOutput,
 } from "../commands/DescribeStackDriftDetectionStatusCommand";
 import {
   DescribeStackEventsCommandInput,
-  DescribeStackEventsCommandOutput
+  DescribeStackEventsCommandOutput,
 } from "../commands/DescribeStackEventsCommand";
 import {
   DescribeStackInstanceCommandInput,
-  DescribeStackInstanceCommandOutput
+  DescribeStackInstanceCommandOutput,
 } from "../commands/DescribeStackInstanceCommand";
 import {
   DescribeStackResourceCommandInput,
-  DescribeStackResourceCommandOutput
+  DescribeStackResourceCommandOutput,
 } from "../commands/DescribeStackResourceCommand";
 import {
   DescribeStackResourceDriftsCommandInput,
-  DescribeStackResourceDriftsCommandOutput
+  DescribeStackResourceDriftsCommandOutput,
 } from "../commands/DescribeStackResourceDriftsCommand";
 import {
   DescribeStackResourcesCommandInput,
-  DescribeStackResourcesCommandOutput
+  DescribeStackResourcesCommandOutput,
 } from "../commands/DescribeStackResourcesCommand";
-import {
-  DescribeStackSetCommandInput,
-  DescribeStackSetCommandOutput
-} from "../commands/DescribeStackSetCommand";
+import { DescribeStackSetCommandInput, DescribeStackSetCommandOutput } from "../commands/DescribeStackSetCommand";
 import {
   DescribeStackSetOperationCommandInput,
-  DescribeStackSetOperationCommandOutput
+  DescribeStackSetOperationCommandOutput,
 } from "../commands/DescribeStackSetOperationCommand";
-import {
-  DescribeStacksCommandInput,
-  DescribeStacksCommandOutput
-} from "../commands/DescribeStacksCommand";
-import {
-  DescribeTypeCommandInput,
-  DescribeTypeCommandOutput
-} from "../commands/DescribeTypeCommand";
+import { DescribeStacksCommandInput, DescribeStacksCommandOutput } from "../commands/DescribeStacksCommand";
+import { DescribeTypeCommandInput, DescribeTypeCommandOutput } from "../commands/DescribeTypeCommand";
 import {
   DescribeTypeRegistrationCommandInput,
-  DescribeTypeRegistrationCommandOutput
+  DescribeTypeRegistrationCommandOutput,
 } from "../commands/DescribeTypeRegistrationCommand";
-import {
-  DetectStackDriftCommandInput,
-  DetectStackDriftCommandOutput
-} from "../commands/DetectStackDriftCommand";
+import { DetectStackDriftCommandInput, DetectStackDriftCommandOutput } from "../commands/DetectStackDriftCommand";
 import {
   DetectStackResourceDriftCommandInput,
-  DetectStackResourceDriftCommandOutput
+  DetectStackResourceDriftCommandOutput,
 } from "../commands/DetectStackResourceDriftCommand";
 import {
   DetectStackSetDriftCommandInput,
-  DetectStackSetDriftCommandOutput
+  DetectStackSetDriftCommandOutput,
 } from "../commands/DetectStackSetDriftCommand";
 import {
   EstimateTemplateCostCommandInput,
-  EstimateTemplateCostCommandOutput
+  EstimateTemplateCostCommandOutput,
 } from "../commands/EstimateTemplateCostCommand";
-import {
-  ExecuteChangeSetCommandInput,
-  ExecuteChangeSetCommandOutput
-} from "../commands/ExecuteChangeSetCommand";
-import {
-  GetStackPolicyCommandInput,
-  GetStackPolicyCommandOutput
-} from "../commands/GetStackPolicyCommand";
-import {
-  GetTemplateCommandInput,
-  GetTemplateCommandOutput
-} from "../commands/GetTemplateCommand";
-import {
-  GetTemplateSummaryCommandInput,
-  GetTemplateSummaryCommandOutput
-} from "../commands/GetTemplateSummaryCommand";
-import {
-  ListChangeSetsCommandInput,
-  ListChangeSetsCommandOutput
-} from "../commands/ListChangeSetsCommand";
-import {
-  ListExportsCommandInput,
-  ListExportsCommandOutput
-} from "../commands/ListExportsCommand";
-import {
-  ListImportsCommandInput,
-  ListImportsCommandOutput
-} from "../commands/ListImportsCommand";
-import {
-  ListStackInstancesCommandInput,
-  ListStackInstancesCommandOutput
-} from "../commands/ListStackInstancesCommand";
-import {
-  ListStackResourcesCommandInput,
-  ListStackResourcesCommandOutput
-} from "../commands/ListStackResourcesCommand";
+import { ExecuteChangeSetCommandInput, ExecuteChangeSetCommandOutput } from "../commands/ExecuteChangeSetCommand";
+import { GetStackPolicyCommandInput, GetStackPolicyCommandOutput } from "../commands/GetStackPolicyCommand";
+import { GetTemplateCommandInput, GetTemplateCommandOutput } from "../commands/GetTemplateCommand";
+import { GetTemplateSummaryCommandInput, GetTemplateSummaryCommandOutput } from "../commands/GetTemplateSummaryCommand";
+import { ListChangeSetsCommandInput, ListChangeSetsCommandOutput } from "../commands/ListChangeSetsCommand";
+import { ListExportsCommandInput, ListExportsCommandOutput } from "../commands/ListExportsCommand";
+import { ListImportsCommandInput, ListImportsCommandOutput } from "../commands/ListImportsCommand";
+import { ListStackInstancesCommandInput, ListStackInstancesCommandOutput } from "../commands/ListStackInstancesCommand";
+import { ListStackResourcesCommandInput, ListStackResourcesCommandOutput } from "../commands/ListStackResourcesCommand";
 import {
   ListStackSetOperationResultsCommandInput,
-  ListStackSetOperationResultsCommandOutput
+  ListStackSetOperationResultsCommandOutput,
 } from "../commands/ListStackSetOperationResultsCommand";
 import {
   ListStackSetOperationsCommandInput,
-  ListStackSetOperationsCommandOutput
+  ListStackSetOperationsCommandOutput,
 } from "../commands/ListStackSetOperationsCommand";
-import {
-  ListStackSetsCommandInput,
-  ListStackSetsCommandOutput
-} from "../commands/ListStackSetsCommand";
-import {
-  ListStacksCommandInput,
-  ListStacksCommandOutput
-} from "../commands/ListStacksCommand";
+import { ListStackSetsCommandInput, ListStackSetsCommandOutput } from "../commands/ListStackSetsCommand";
+import { ListStacksCommandInput, ListStacksCommandOutput } from "../commands/ListStacksCommand";
 import {
   ListTypeRegistrationsCommandInput,
-  ListTypeRegistrationsCommandOutput
+  ListTypeRegistrationsCommandOutput,
 } from "../commands/ListTypeRegistrationsCommand";
-import {
-  ListTypeVersionsCommandInput,
-  ListTypeVersionsCommandOutput
-} from "../commands/ListTypeVersionsCommand";
-import {
-  ListTypesCommandInput,
-  ListTypesCommandOutput
-} from "../commands/ListTypesCommand";
+import { ListTypeVersionsCommandInput, ListTypeVersionsCommandOutput } from "../commands/ListTypeVersionsCommand";
+import { ListTypesCommandInput, ListTypesCommandOutput } from "../commands/ListTypesCommand";
 import {
   RecordHandlerProgressCommandInput,
-  RecordHandlerProgressCommandOutput
+  RecordHandlerProgressCommandOutput,
 } from "../commands/RecordHandlerProgressCommand";
-import {
-  RegisterTypeCommandInput,
-  RegisterTypeCommandOutput
-} from "../commands/RegisterTypeCommand";
-import {
-  SetStackPolicyCommandInput,
-  SetStackPolicyCommandOutput
-} from "../commands/SetStackPolicyCommand";
+import { RegisterTypeCommandInput, RegisterTypeCommandOutput } from "../commands/RegisterTypeCommand";
+import { SetStackPolicyCommandInput, SetStackPolicyCommandOutput } from "../commands/SetStackPolicyCommand";
 import {
   SetTypeDefaultVersionCommandInput,
-  SetTypeDefaultVersionCommandOutput
+  SetTypeDefaultVersionCommandOutput,
 } from "../commands/SetTypeDefaultVersionCommand";
-import {
-  SignalResourceCommandInput,
-  SignalResourceCommandOutput
-} from "../commands/SignalResourceCommand";
+import { SignalResourceCommandInput, SignalResourceCommandOutput } from "../commands/SignalResourceCommand";
 import {
   StopStackSetOperationCommandInput,
-  StopStackSetOperationCommandOutput
+  StopStackSetOperationCommandOutput,
 } from "../commands/StopStackSetOperationCommand";
-import {
-  UpdateStackCommandInput,
-  UpdateStackCommandOutput
-} from "../commands/UpdateStackCommand";
+import { UpdateStackCommandInput, UpdateStackCommandOutput } from "../commands/UpdateStackCommand";
 import {
   UpdateStackInstancesCommandInput,
-  UpdateStackInstancesCommandOutput
+  UpdateStackInstancesCommandOutput,
 } from "../commands/UpdateStackInstancesCommand";
-import {
-  UpdateStackSetCommandInput,
-  UpdateStackSetCommandOutput
-} from "../commands/UpdateStackSetCommand";
+import { UpdateStackSetCommandInput, UpdateStackSetCommandOutput } from "../commands/UpdateStackSetCommand";
 import {
   UpdateTerminationProtectionCommandInput,
-  UpdateTerminationProtectionCommandOutput
+  UpdateTerminationProtectionCommandOutput,
 } from "../commands/UpdateTerminationProtectionCommand";
-import {
-  ValidateTemplateCommandInput,
-  ValidateTemplateCommandOutput
-} from "../commands/ValidateTemplateCommand";
+import { ValidateTemplateCommandInput, ValidateTemplateCommandOutput } from "../commands/ValidateTemplateCommand";
 import {
   AccountGateResult,
   AccountLimit,
@@ -392,24 +296,21 @@ import {
   UpdateTerminationProtectionInput,
   UpdateTerminationProtectionOutput,
   ValidateTemplateInput,
-  ValidateTemplateOutput
+  ValidateTemplateOutput,
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
-  getValueFromTextNode as __getValueFromTextNode
+  getValueFromTextNode as __getValueFromTextNode,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { parse as xmlParse } from "fast-xml-parser";
 import { v4 as generateIdempotencyToken } from "uuid";
@@ -419,13 +320,13 @@ export const serializeAws_queryCancelUpdateStackCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryCancelUpdateStackInput(input, context),
     Action: "CancelUpdateStack",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -435,13 +336,13 @@ export const serializeAws_queryContinueUpdateRollbackCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryContinueUpdateRollbackInput(input, context),
     Action: "ContinueUpdateRollback",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -451,13 +352,13 @@ export const serializeAws_queryCreateChangeSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryCreateChangeSetInput(input, context),
     Action: "CreateChangeSet",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -467,13 +368,13 @@ export const serializeAws_queryCreateStackCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryCreateStackInput(input, context),
     Action: "CreateStack",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -483,13 +384,13 @@ export const serializeAws_queryCreateStackInstancesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryCreateStackInstancesInput(input, context),
     Action: "CreateStackInstances",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -499,13 +400,13 @@ export const serializeAws_queryCreateStackSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryCreateStackSetInput(input, context),
     Action: "CreateStackSet",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -515,13 +416,13 @@ export const serializeAws_queryDeleteChangeSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDeleteChangeSetInput(input, context),
     Action: "DeleteChangeSet",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -531,13 +432,13 @@ export const serializeAws_queryDeleteStackCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDeleteStackInput(input, context),
     Action: "DeleteStack",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -547,13 +448,13 @@ export const serializeAws_queryDeleteStackInstancesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDeleteStackInstancesInput(input, context),
     Action: "DeleteStackInstances",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -563,13 +464,13 @@ export const serializeAws_queryDeleteStackSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDeleteStackSetInput(input, context),
     Action: "DeleteStackSet",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -579,13 +480,13 @@ export const serializeAws_queryDeregisterTypeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDeregisterTypeInput(input, context),
     Action: "DeregisterType",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -595,13 +496,13 @@ export const serializeAws_queryDescribeAccountLimitsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeAccountLimitsInput(input, context),
     Action: "DescribeAccountLimits",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -611,13 +512,13 @@ export const serializeAws_queryDescribeChangeSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeChangeSetInput(input, context),
     Action: "DescribeChangeSet",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -627,13 +528,13 @@ export const serializeAws_queryDescribeStackDriftDetectionStatusCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeStackDriftDetectionStatusInput(input, context),
     Action: "DescribeStackDriftDetectionStatus",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -643,13 +544,13 @@ export const serializeAws_queryDescribeStackEventsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeStackEventsInput(input, context),
     Action: "DescribeStackEvents",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -659,13 +560,13 @@ export const serializeAws_queryDescribeStackInstanceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeStackInstanceInput(input, context),
     Action: "DescribeStackInstance",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -675,13 +576,13 @@ export const serializeAws_queryDescribeStackResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeStackResourceInput(input, context),
     Action: "DescribeStackResource",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -691,13 +592,13 @@ export const serializeAws_queryDescribeStackResourceDriftsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeStackResourceDriftsInput(input, context),
     Action: "DescribeStackResourceDrifts",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -707,13 +608,13 @@ export const serializeAws_queryDescribeStackResourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeStackResourcesInput(input, context),
     Action: "DescribeStackResources",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -723,13 +624,13 @@ export const serializeAws_queryDescribeStacksCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeStacksInput(input, context),
     Action: "DescribeStacks",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -739,13 +640,13 @@ export const serializeAws_queryDescribeStackSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeStackSetInput(input, context),
     Action: "DescribeStackSet",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -755,13 +656,13 @@ export const serializeAws_queryDescribeStackSetOperationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeStackSetOperationInput(input, context),
     Action: "DescribeStackSetOperation",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -771,13 +672,13 @@ export const serializeAws_queryDescribeTypeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeTypeInput(input, context),
     Action: "DescribeType",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -787,13 +688,13 @@ export const serializeAws_queryDescribeTypeRegistrationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeTypeRegistrationInput(input, context),
     Action: "DescribeTypeRegistration",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -803,13 +704,13 @@ export const serializeAws_queryDetectStackDriftCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDetectStackDriftInput(input, context),
     Action: "DetectStackDrift",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -819,13 +720,13 @@ export const serializeAws_queryDetectStackResourceDriftCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDetectStackResourceDriftInput(input, context),
     Action: "DetectStackResourceDrift",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -835,13 +736,13 @@ export const serializeAws_queryDetectStackSetDriftCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryDetectStackSetDriftInput(input, context),
     Action: "DetectStackSetDrift",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -851,13 +752,13 @@ export const serializeAws_queryEstimateTemplateCostCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryEstimateTemplateCostInput(input, context),
     Action: "EstimateTemplateCost",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -867,13 +768,13 @@ export const serializeAws_queryExecuteChangeSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryExecuteChangeSetInput(input, context),
     Action: "ExecuteChangeSet",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -883,13 +784,13 @@ export const serializeAws_queryGetStackPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryGetStackPolicyInput(input, context),
     Action: "GetStackPolicy",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -899,13 +800,13 @@ export const serializeAws_queryGetTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryGetTemplateInput(input, context),
     Action: "GetTemplate",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -915,13 +816,13 @@ export const serializeAws_queryGetTemplateSummaryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryGetTemplateSummaryInput(input, context),
     Action: "GetTemplateSummary",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -931,13 +832,13 @@ export const serializeAws_queryListChangeSetsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryListChangeSetsInput(input, context),
     Action: "ListChangeSets",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -947,13 +848,13 @@ export const serializeAws_queryListExportsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryListExportsInput(input, context),
     Action: "ListExports",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -963,13 +864,13 @@ export const serializeAws_queryListImportsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryListImportsInput(input, context),
     Action: "ListImports",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -979,13 +880,13 @@ export const serializeAws_queryListStackInstancesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryListStackInstancesInput(input, context),
     Action: "ListStackInstances",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -995,13 +896,13 @@ export const serializeAws_queryListStackResourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryListStackResourcesInput(input, context),
     Action: "ListStackResources",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1011,13 +912,13 @@ export const serializeAws_queryListStacksCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryListStacksInput(input, context),
     Action: "ListStacks",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1027,13 +928,13 @@ export const serializeAws_queryListStackSetOperationResultsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryListStackSetOperationResultsInput(input, context),
     Action: "ListStackSetOperationResults",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1043,13 +944,13 @@ export const serializeAws_queryListStackSetOperationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryListStackSetOperationsInput(input, context),
     Action: "ListStackSetOperations",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1059,13 +960,13 @@ export const serializeAws_queryListStackSetsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryListStackSetsInput(input, context),
     Action: "ListStackSets",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1075,13 +976,13 @@ export const serializeAws_queryListTypeRegistrationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryListTypeRegistrationsInput(input, context),
     Action: "ListTypeRegistrations",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1091,13 +992,13 @@ export const serializeAws_queryListTypesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryListTypesInput(input, context),
     Action: "ListTypes",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1107,13 +1008,13 @@ export const serializeAws_queryListTypeVersionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryListTypeVersionsInput(input, context),
     Action: "ListTypeVersions",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1123,13 +1024,13 @@ export const serializeAws_queryRecordHandlerProgressCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryRecordHandlerProgressInput(input, context),
     Action: "RecordHandlerProgress",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1139,13 +1040,13 @@ export const serializeAws_queryRegisterTypeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryRegisterTypeInput(input, context),
     Action: "RegisterType",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1155,13 +1056,13 @@ export const serializeAws_querySetStackPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_querySetStackPolicyInput(input, context),
     Action: "SetStackPolicy",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1171,13 +1072,13 @@ export const serializeAws_querySetTypeDefaultVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_querySetTypeDefaultVersionInput(input, context),
     Action: "SetTypeDefaultVersion",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1187,13 +1088,13 @@ export const serializeAws_querySignalResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_querySignalResourceInput(input, context),
     Action: "SignalResource",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1203,13 +1104,13 @@ export const serializeAws_queryStopStackSetOperationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryStopStackSetOperationInput(input, context),
     Action: "StopStackSetOperation",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1219,13 +1120,13 @@ export const serializeAws_queryUpdateStackCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryUpdateStackInput(input, context),
     Action: "UpdateStack",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1235,13 +1136,13 @@ export const serializeAws_queryUpdateStackInstancesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryUpdateStackInstancesInput(input, context),
     Action: "UpdateStackInstances",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1251,13 +1152,13 @@ export const serializeAws_queryUpdateStackSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryUpdateStackSetInput(input, context),
     Action: "UpdateStackSet",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1267,13 +1168,13 @@ export const serializeAws_queryUpdateTerminationProtectionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryUpdateTerminationProtectionInput(input, context),
     Action: "UpdateTerminationProtection",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1283,13 +1184,13 @@ export const serializeAws_queryValidateTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
     ...serializeAws_queryValidateTemplateInput(input, context),
     Action: "ValidateTemplate",
-    Version: "2010-05-15"
+    Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1303,7 +1204,7 @@ export const deserializeAws_queryCancelUpdateStackCommand = async (
   }
   await collectBody(output.body, context);
   const response: CancelUpdateStackCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 };
@@ -1314,7 +1215,7 @@ const deserializeAws_queryCancelUpdateStackCommandError = async (
 ): Promise<CancelUpdateStackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1323,12 +1224,9 @@ const deserializeAws_queryCancelUpdateStackCommandError = async (
     case "TokenAlreadyExistsException":
     case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
       response = {
-        ...(await deserializeAws_queryTokenAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1337,10 +1235,9 @@ const deserializeAws_queryCancelUpdateStackCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1354,21 +1251,15 @@ export const deserializeAws_queryContinueUpdateRollbackCommand = async (
   context: __SerdeContext
 ): Promise<ContinueUpdateRollbackCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryContinueUpdateRollbackCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryContinueUpdateRollbackCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryContinueUpdateRollbackOutput(
-    data.ContinueUpdateRollbackResult,
-    context
-  );
+  contents = deserializeAws_queryContinueUpdateRollbackOutput(data.ContinueUpdateRollbackResult, context);
   const response: ContinueUpdateRollbackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ContinueUpdateRollbackOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1379,7 +1270,7 @@ const deserializeAws_queryContinueUpdateRollbackCommandError = async (
 ): Promise<ContinueUpdateRollbackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1388,12 +1279,9 @@ const deserializeAws_queryContinueUpdateRollbackCommandError = async (
     case "TokenAlreadyExistsException":
     case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
       response = {
-        ...(await deserializeAws_queryTokenAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1402,10 +1290,9 @@ const deserializeAws_queryContinueUpdateRollbackCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1423,14 +1310,11 @@ export const deserializeAws_queryCreateChangeSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateChangeSetOutput(
-    data.CreateChangeSetResult,
-    context
-  );
+  contents = deserializeAws_queryCreateChangeSetOutput(data.CreateChangeSetResult, context);
   const response: CreateChangeSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateChangeSetOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1441,7 +1325,7 @@ const deserializeAws_queryCreateChangeSetCommandError = async (
 ): Promise<CreateChangeSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1450,34 +1334,25 @@ const deserializeAws_queryCreateChangeSetCommandError = async (
     case "AlreadyExistsException":
     case "com.amazonaws.cloudformation#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_queryAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InsufficientCapabilitiesException":
     case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
       response = {
-        ...(await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cloudformation#LimitExceededException":
       response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1486,10 +1361,9 @@ const deserializeAws_queryCreateChangeSetCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1507,14 +1381,11 @@ export const deserializeAws_queryCreateStackCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateStackOutput(
-    data.CreateStackResult,
-    context
-  );
+  contents = deserializeAws_queryCreateStackOutput(data.CreateStackResult, context);
   const response: CreateStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateStackOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1525,7 +1396,7 @@ const deserializeAws_queryCreateStackCommandError = async (
 ): Promise<CreateStackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1534,45 +1405,33 @@ const deserializeAws_queryCreateStackCommandError = async (
     case "AlreadyExistsException":
     case "com.amazonaws.cloudformation#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_queryAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InsufficientCapabilitiesException":
     case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
       response = {
-        ...(await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cloudformation#LimitExceededException":
       response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TokenAlreadyExistsException":
     case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
       response = {
-        ...(await deserializeAws_queryTokenAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1581,10 +1440,9 @@ const deserializeAws_queryCreateStackCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1598,21 +1456,15 @@ export const deserializeAws_queryCreateStackInstancesCommand = async (
   context: __SerdeContext
 ): Promise<CreateStackInstancesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryCreateStackInstancesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryCreateStackInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateStackInstancesOutput(
-    data.CreateStackInstancesResult,
-    context
-  );
+  contents = deserializeAws_queryCreateStackInstancesOutput(data.CreateStackInstancesResult, context);
   const response: CreateStackInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateStackInstancesOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1623,7 +1475,7 @@ const deserializeAws_queryCreateStackInstancesCommandError = async (
 ): Promise<CreateStackInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1632,67 +1484,49 @@ const deserializeAws_queryCreateStackInstancesCommandError = async (
     case "InvalidOperationException":
     case "com.amazonaws.cloudformation#InvalidOperationException":
       response = {
-        ...(await deserializeAws_queryInvalidOperationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cloudformation#LimitExceededException":
       response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationIdAlreadyExistsException":
     case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
       response = {
-        ...(await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationInProgressException":
     case "com.amazonaws.cloudformation#OperationInProgressException":
       response = {
-        ...(await deserializeAws_queryOperationInProgressExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "StackSetNotFoundException":
     case "com.amazonaws.cloudformation#StackSetNotFoundException":
       response = {
-        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "StaleRequestException":
     case "com.amazonaws.cloudformation#StaleRequestException":
       response = {
-        ...(await deserializeAws_queryStaleRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStaleRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1701,10 +1535,9 @@ const deserializeAws_queryCreateStackInstancesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1722,14 +1555,11 @@ export const deserializeAws_queryCreateStackSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateStackSetOutput(
-    data.CreateStackSetResult,
-    context
-  );
+  contents = deserializeAws_queryCreateStackSetOutput(data.CreateStackSetResult, context);
   const response: CreateStackSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateStackSetOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1740,7 +1570,7 @@ const deserializeAws_queryCreateStackSetCommandError = async (
 ): Promise<CreateStackSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1749,34 +1579,25 @@ const deserializeAws_queryCreateStackSetCommandError = async (
     case "CreatedButModifiedException":
     case "com.amazonaws.cloudformation#CreatedButModifiedException":
       response = {
-        ...(await deserializeAws_queryCreatedButModifiedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryCreatedButModifiedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cloudformation#LimitExceededException":
       response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NameAlreadyExistsException":
     case "com.amazonaws.cloudformation#NameAlreadyExistsException":
       response = {
-        ...(await deserializeAws_queryNameAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryNameAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1785,10 +1606,9 @@ const deserializeAws_queryCreateStackSetCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1806,14 +1626,11 @@ export const deserializeAws_queryDeleteChangeSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteChangeSetOutput(
-    data.DeleteChangeSetResult,
-    context
-  );
+  contents = deserializeAws_queryDeleteChangeSetOutput(data.DeleteChangeSetResult, context);
   const response: DeleteChangeSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteChangeSetOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1824,7 +1641,7 @@ const deserializeAws_queryDeleteChangeSetCommandError = async (
 ): Promise<DeleteChangeSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1833,12 +1650,9 @@ const deserializeAws_queryDeleteChangeSetCommandError = async (
     case "InvalidChangeSetStatusException":
     case "com.amazonaws.cloudformation#InvalidChangeSetStatusException":
       response = {
-        ...(await deserializeAws_queryInvalidChangeSetStatusExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidChangeSetStatusExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1847,10 +1661,9 @@ const deserializeAws_queryDeleteChangeSetCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1868,7 +1681,7 @@ export const deserializeAws_queryDeleteStackCommand = async (
   }
   await collectBody(output.body, context);
   const response: DeleteStackCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 };
@@ -1879,7 +1692,7 @@ const deserializeAws_queryDeleteStackCommandError = async (
 ): Promise<DeleteStackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1888,12 +1701,9 @@ const deserializeAws_queryDeleteStackCommandError = async (
     case "TokenAlreadyExistsException":
     case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
       response = {
-        ...(await deserializeAws_queryTokenAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1902,10 +1712,9 @@ const deserializeAws_queryDeleteStackCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1919,21 +1728,15 @@ export const deserializeAws_queryDeleteStackInstancesCommand = async (
   context: __SerdeContext
 ): Promise<DeleteStackInstancesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDeleteStackInstancesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteStackInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteStackInstancesOutput(
-    data.DeleteStackInstancesResult,
-    context
-  );
+  contents = deserializeAws_queryDeleteStackInstancesOutput(data.DeleteStackInstancesResult, context);
   const response: DeleteStackInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteStackInstancesOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1944,7 +1747,7 @@ const deserializeAws_queryDeleteStackInstancesCommandError = async (
 ): Promise<DeleteStackInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1953,56 +1756,41 @@ const deserializeAws_queryDeleteStackInstancesCommandError = async (
     case "InvalidOperationException":
     case "com.amazonaws.cloudformation#InvalidOperationException":
       response = {
-        ...(await deserializeAws_queryInvalidOperationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationIdAlreadyExistsException":
     case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
       response = {
-        ...(await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationInProgressException":
     case "com.amazonaws.cloudformation#OperationInProgressException":
       response = {
-        ...(await deserializeAws_queryOperationInProgressExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "StackSetNotFoundException":
     case "com.amazonaws.cloudformation#StackSetNotFoundException":
       response = {
-        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "StaleRequestException":
     case "com.amazonaws.cloudformation#StaleRequestException":
       response = {
-        ...(await deserializeAws_queryStaleRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStaleRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2011,10 +1799,9 @@ const deserializeAws_queryDeleteStackInstancesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2032,14 +1819,11 @@ export const deserializeAws_queryDeleteStackSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteStackSetOutput(
-    data.DeleteStackSetResult,
-    context
-  );
+  contents = deserializeAws_queryDeleteStackSetOutput(data.DeleteStackSetResult, context);
   const response: DeleteStackSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteStackSetOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2050,7 +1834,7 @@ const deserializeAws_queryDeleteStackSetCommandError = async (
 ): Promise<DeleteStackSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2059,23 +1843,17 @@ const deserializeAws_queryDeleteStackSetCommandError = async (
     case "OperationInProgressException":
     case "com.amazonaws.cloudformation#OperationInProgressException":
       response = {
-        ...(await deserializeAws_queryOperationInProgressExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "StackSetNotEmptyException":
     case "com.amazonaws.cloudformation#StackSetNotEmptyException":
       response = {
-        ...(await deserializeAws_queryStackSetNotEmptyExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStackSetNotEmptyExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2084,10 +1862,9 @@ const deserializeAws_queryDeleteStackSetCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2105,14 +1882,11 @@ export const deserializeAws_queryDeregisterTypeCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeregisterTypeOutput(
-    data.DeregisterTypeResult,
-    context
-  );
+  contents = deserializeAws_queryDeregisterTypeOutput(data.DeregisterTypeResult, context);
   const response: DeregisterTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeregisterTypeOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2123,7 +1897,7 @@ const deserializeAws_queryDeregisterTypeCommandError = async (
 ): Promise<DeregisterTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2132,23 +1906,17 @@ const deserializeAws_queryDeregisterTypeCommandError = async (
     case "CFNRegistryException":
     case "com.amazonaws.cloudformation#CFNRegistryException":
       response = {
-        ...(await deserializeAws_queryCFNRegistryExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TypeNotFoundException":
     case "com.amazonaws.cloudformation#TypeNotFoundException":
       response = {
-        ...(await deserializeAws_queryTypeNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2157,10 +1925,9 @@ const deserializeAws_queryDeregisterTypeCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2174,21 +1941,15 @@ export const deserializeAws_queryDescribeAccountLimitsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccountLimitsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeAccountLimitsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeAccountLimitsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeAccountLimitsOutput(
-    data.DescribeAccountLimitsResult,
-    context
-  );
+  contents = deserializeAws_queryDescribeAccountLimitsOutput(data.DescribeAccountLimitsResult, context);
   const response: DescribeAccountLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAccountLimitsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2199,7 +1960,7 @@ const deserializeAws_queryDescribeAccountLimitsCommandError = async (
 ): Promise<DescribeAccountLimitsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2211,10 +1972,9 @@ const deserializeAws_queryDescribeAccountLimitsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2232,14 +1992,11 @@ export const deserializeAws_queryDescribeChangeSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeChangeSetOutput(
-    data.DescribeChangeSetResult,
-    context
-  );
+  contents = deserializeAws_queryDescribeChangeSetOutput(data.DescribeChangeSetResult, context);
   const response: DescribeChangeSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeChangeSetOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2250,7 +2007,7 @@ const deserializeAws_queryDescribeChangeSetCommandError = async (
 ): Promise<DescribeChangeSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2259,12 +2016,9 @@ const deserializeAws_queryDescribeChangeSetCommandError = async (
     case "ChangeSetNotFoundException":
     case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
       response = {
-        ...(await deserializeAws_queryChangeSetNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2273,10 +2027,9 @@ const deserializeAws_queryDescribeChangeSetCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2290,10 +2043,7 @@ export const deserializeAws_queryDescribeStackDriftDetectionStatusCommand = asyn
   context: __SerdeContext
 ): Promise<DescribeStackDriftDetectionStatusCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeStackDriftDetectionStatusCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeStackDriftDetectionStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2304,7 +2054,7 @@ export const deserializeAws_queryDescribeStackDriftDetectionStatusCommand = asyn
   const response: DescribeStackDriftDetectionStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStackDriftDetectionStatusOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2315,7 +2065,7 @@ const deserializeAws_queryDescribeStackDriftDetectionStatusCommandError = async 
 ): Promise<DescribeStackDriftDetectionStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2327,10 +2077,9 @@ const deserializeAws_queryDescribeStackDriftDetectionStatusCommandError = async 
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2348,14 +2097,11 @@ export const deserializeAws_queryDescribeStackEventsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeStackEventsOutput(
-    data.DescribeStackEventsResult,
-    context
-  );
+  contents = deserializeAws_queryDescribeStackEventsOutput(data.DescribeStackEventsResult, context);
   const response: DescribeStackEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStackEventsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2366,7 +2112,7 @@ const deserializeAws_queryDescribeStackEventsCommandError = async (
 ): Promise<DescribeStackEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2378,10 +2124,9 @@ const deserializeAws_queryDescribeStackEventsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2395,21 +2140,15 @@ export const deserializeAws_queryDescribeStackInstanceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStackInstanceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeStackInstanceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeStackInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeStackInstanceOutput(
-    data.DescribeStackInstanceResult,
-    context
-  );
+  contents = deserializeAws_queryDescribeStackInstanceOutput(data.DescribeStackInstanceResult, context);
   const response: DescribeStackInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStackInstanceOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2420,7 +2159,7 @@ const deserializeAws_queryDescribeStackInstanceCommandError = async (
 ): Promise<DescribeStackInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2429,23 +2168,17 @@ const deserializeAws_queryDescribeStackInstanceCommandError = async (
     case "StackInstanceNotFoundException":
     case "com.amazonaws.cloudformation#StackInstanceNotFoundException":
       response = {
-        ...(await deserializeAws_queryStackInstanceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStackInstanceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "StackSetNotFoundException":
     case "com.amazonaws.cloudformation#StackSetNotFoundException":
       response = {
-        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2454,10 +2187,9 @@ const deserializeAws_queryDescribeStackInstanceCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2471,21 +2203,15 @@ export const deserializeAws_queryDescribeStackResourceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStackResourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeStackResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeStackResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeStackResourceOutput(
-    data.DescribeStackResourceResult,
-    context
-  );
+  contents = deserializeAws_queryDescribeStackResourceOutput(data.DescribeStackResourceResult, context);
   const response: DescribeStackResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStackResourceOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2496,7 +2222,7 @@ const deserializeAws_queryDescribeStackResourceCommandError = async (
 ): Promise<DescribeStackResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2508,10 +2234,9 @@ const deserializeAws_queryDescribeStackResourceCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2525,21 +2250,15 @@ export const deserializeAws_queryDescribeStackResourceDriftsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStackResourceDriftsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeStackResourceDriftsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeStackResourceDriftsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeStackResourceDriftsOutput(
-    data.DescribeStackResourceDriftsResult,
-    context
-  );
+  contents = deserializeAws_queryDescribeStackResourceDriftsOutput(data.DescribeStackResourceDriftsResult, context);
   const response: DescribeStackResourceDriftsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStackResourceDriftsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2550,7 +2269,7 @@ const deserializeAws_queryDescribeStackResourceDriftsCommandError = async (
 ): Promise<DescribeStackResourceDriftsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2562,10 +2281,9 @@ const deserializeAws_queryDescribeStackResourceDriftsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2579,21 +2297,15 @@ export const deserializeAws_queryDescribeStackResourcesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStackResourcesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeStackResourcesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeStackResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeStackResourcesOutput(
-    data.DescribeStackResourcesResult,
-    context
-  );
+  contents = deserializeAws_queryDescribeStackResourcesOutput(data.DescribeStackResourcesResult, context);
   const response: DescribeStackResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStackResourcesOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2604,7 +2316,7 @@ const deserializeAws_queryDescribeStackResourcesCommandError = async (
 ): Promise<DescribeStackResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2616,10 +2328,9 @@ const deserializeAws_queryDescribeStackResourcesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2637,14 +2348,11 @@ export const deserializeAws_queryDescribeStacksCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeStacksOutput(
-    data.DescribeStacksResult,
-    context
-  );
+  contents = deserializeAws_queryDescribeStacksOutput(data.DescribeStacksResult, context);
   const response: DescribeStacksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStacksOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2655,7 +2363,7 @@ const deserializeAws_queryDescribeStacksCommandError = async (
 ): Promise<DescribeStacksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2667,10 +2375,9 @@ const deserializeAws_queryDescribeStacksCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2688,14 +2395,11 @@ export const deserializeAws_queryDescribeStackSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeStackSetOutput(
-    data.DescribeStackSetResult,
-    context
-  );
+  contents = deserializeAws_queryDescribeStackSetOutput(data.DescribeStackSetResult, context);
   const response: DescribeStackSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStackSetOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2706,7 +2410,7 @@ const deserializeAws_queryDescribeStackSetCommandError = async (
 ): Promise<DescribeStackSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2715,12 +2419,9 @@ const deserializeAws_queryDescribeStackSetCommandError = async (
     case "StackSetNotFoundException":
     case "com.amazonaws.cloudformation#StackSetNotFoundException":
       response = {
-        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2729,10 +2430,9 @@ const deserializeAws_queryDescribeStackSetCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2746,21 +2446,15 @@ export const deserializeAws_queryDescribeStackSetOperationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStackSetOperationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeStackSetOperationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeStackSetOperationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeStackSetOperationOutput(
-    data.DescribeStackSetOperationResult,
-    context
-  );
+  contents = deserializeAws_queryDescribeStackSetOperationOutput(data.DescribeStackSetOperationResult, context);
   const response: DescribeStackSetOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStackSetOperationOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2771,7 +2465,7 @@ const deserializeAws_queryDescribeStackSetOperationCommandError = async (
 ): Promise<DescribeStackSetOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2780,23 +2474,17 @@ const deserializeAws_queryDescribeStackSetOperationCommandError = async (
     case "OperationNotFoundException":
     case "com.amazonaws.cloudformation#OperationNotFoundException":
       response = {
-        ...(await deserializeAws_queryOperationNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryOperationNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "StackSetNotFoundException":
     case "com.amazonaws.cloudformation#StackSetNotFoundException":
       response = {
-        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2805,10 +2493,9 @@ const deserializeAws_queryDescribeStackSetOperationCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2826,14 +2513,11 @@ export const deserializeAws_queryDescribeTypeCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeTypeOutput(
-    data.DescribeTypeResult,
-    context
-  );
+  contents = deserializeAws_queryDescribeTypeOutput(data.DescribeTypeResult, context);
   const response: DescribeTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTypeOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2844,7 +2528,7 @@ const deserializeAws_queryDescribeTypeCommandError = async (
 ): Promise<DescribeTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2853,23 +2537,17 @@ const deserializeAws_queryDescribeTypeCommandError = async (
     case "CFNRegistryException":
     case "com.amazonaws.cloudformation#CFNRegistryException":
       response = {
-        ...(await deserializeAws_queryCFNRegistryExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TypeNotFoundException":
     case "com.amazonaws.cloudformation#TypeNotFoundException":
       response = {
-        ...(await deserializeAws_queryTypeNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2878,10 +2556,9 @@ const deserializeAws_queryDescribeTypeCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2895,21 +2572,15 @@ export const deserializeAws_queryDescribeTypeRegistrationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTypeRegistrationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeTypeRegistrationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeTypeRegistrationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeTypeRegistrationOutput(
-    data.DescribeTypeRegistrationResult,
-    context
-  );
+  contents = deserializeAws_queryDescribeTypeRegistrationOutput(data.DescribeTypeRegistrationResult, context);
   const response: DescribeTypeRegistrationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTypeRegistrationOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2920,7 +2591,7 @@ const deserializeAws_queryDescribeTypeRegistrationCommandError = async (
 ): Promise<DescribeTypeRegistrationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2929,12 +2600,9 @@ const deserializeAws_queryDescribeTypeRegistrationCommandError = async (
     case "CFNRegistryException":
     case "com.amazonaws.cloudformation#CFNRegistryException":
       response = {
-        ...(await deserializeAws_queryCFNRegistryExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2943,10 +2611,9 @@ const deserializeAws_queryDescribeTypeRegistrationCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2964,14 +2631,11 @@ export const deserializeAws_queryDetectStackDriftCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDetectStackDriftOutput(
-    data.DetectStackDriftResult,
-    context
-  );
+  contents = deserializeAws_queryDetectStackDriftOutput(data.DetectStackDriftResult, context);
   const response: DetectStackDriftCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectStackDriftOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2982,7 +2646,7 @@ const deserializeAws_queryDetectStackDriftCommandError = async (
 ): Promise<DetectStackDriftCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2994,10 +2658,9 @@ const deserializeAws_queryDetectStackDriftCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3011,21 +2674,15 @@ export const deserializeAws_queryDetectStackResourceDriftCommand = async (
   context: __SerdeContext
 ): Promise<DetectStackResourceDriftCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDetectStackResourceDriftCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDetectStackResourceDriftCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDetectStackResourceDriftOutput(
-    data.DetectStackResourceDriftResult,
-    context
-  );
+  contents = deserializeAws_queryDetectStackResourceDriftOutput(data.DetectStackResourceDriftResult, context);
   const response: DetectStackResourceDriftCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectStackResourceDriftOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3036,7 +2693,7 @@ const deserializeAws_queryDetectStackResourceDriftCommandError = async (
 ): Promise<DetectStackResourceDriftCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3048,10 +2705,9 @@ const deserializeAws_queryDetectStackResourceDriftCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3069,14 +2725,11 @@ export const deserializeAws_queryDetectStackSetDriftCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDetectStackSetDriftOutput(
-    data.DetectStackSetDriftResult,
-    context
-  );
+  contents = deserializeAws_queryDetectStackSetDriftOutput(data.DetectStackSetDriftResult, context);
   const response: DetectStackSetDriftCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectStackSetDriftOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3087,7 +2740,7 @@ const deserializeAws_queryDetectStackSetDriftCommandError = async (
 ): Promise<DetectStackSetDriftCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3096,34 +2749,25 @@ const deserializeAws_queryDetectStackSetDriftCommandError = async (
     case "InvalidOperationException":
     case "com.amazonaws.cloudformation#InvalidOperationException":
       response = {
-        ...(await deserializeAws_queryInvalidOperationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationInProgressException":
     case "com.amazonaws.cloudformation#OperationInProgressException":
       response = {
-        ...(await deserializeAws_queryOperationInProgressExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "StackSetNotFoundException":
     case "com.amazonaws.cloudformation#StackSetNotFoundException":
       response = {
-        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3132,10 +2776,9 @@ const deserializeAws_queryDetectStackSetDriftCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3149,21 +2792,15 @@ export const deserializeAws_queryEstimateTemplateCostCommand = async (
   context: __SerdeContext
 ): Promise<EstimateTemplateCostCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryEstimateTemplateCostCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryEstimateTemplateCostCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryEstimateTemplateCostOutput(
-    data.EstimateTemplateCostResult,
-    context
-  );
+  contents = deserializeAws_queryEstimateTemplateCostOutput(data.EstimateTemplateCostResult, context);
   const response: EstimateTemplateCostCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "EstimateTemplateCostOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3174,7 +2811,7 @@ const deserializeAws_queryEstimateTemplateCostCommandError = async (
 ): Promise<EstimateTemplateCostCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3186,10 +2823,9 @@ const deserializeAws_queryEstimateTemplateCostCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3207,14 +2843,11 @@ export const deserializeAws_queryExecuteChangeSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryExecuteChangeSetOutput(
-    data.ExecuteChangeSetResult,
-    context
-  );
+  contents = deserializeAws_queryExecuteChangeSetOutput(data.ExecuteChangeSetResult, context);
   const response: ExecuteChangeSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ExecuteChangeSetOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3225,7 +2858,7 @@ const deserializeAws_queryExecuteChangeSetCommandError = async (
 ): Promise<ExecuteChangeSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3234,45 +2867,33 @@ const deserializeAws_queryExecuteChangeSetCommandError = async (
     case "ChangeSetNotFoundException":
     case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
       response = {
-        ...(await deserializeAws_queryChangeSetNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InsufficientCapabilitiesException":
     case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
       response = {
-        ...(await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidChangeSetStatusException":
     case "com.amazonaws.cloudformation#InvalidChangeSetStatusException":
       response = {
-        ...(await deserializeAws_queryInvalidChangeSetStatusExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidChangeSetStatusExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TokenAlreadyExistsException":
     case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
       response = {
-        ...(await deserializeAws_queryTokenAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3281,10 +2902,9 @@ const deserializeAws_queryExecuteChangeSetCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3302,14 +2922,11 @@ export const deserializeAws_queryGetStackPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetStackPolicyOutput(
-    data.GetStackPolicyResult,
-    context
-  );
+  contents = deserializeAws_queryGetStackPolicyOutput(data.GetStackPolicyResult, context);
   const response: GetStackPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetStackPolicyOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3320,7 +2937,7 @@ const deserializeAws_queryGetStackPolicyCommandError = async (
 ): Promise<GetStackPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3332,10 +2949,9 @@ const deserializeAws_queryGetStackPolicyCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3353,14 +2969,11 @@ export const deserializeAws_queryGetTemplateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetTemplateOutput(
-    data.GetTemplateResult,
-    context
-  );
+  contents = deserializeAws_queryGetTemplateOutput(data.GetTemplateResult, context);
   const response: GetTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTemplateOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3371,7 +2984,7 @@ const deserializeAws_queryGetTemplateCommandError = async (
 ): Promise<GetTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3380,12 +2993,9 @@ const deserializeAws_queryGetTemplateCommandError = async (
     case "ChangeSetNotFoundException":
     case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
       response = {
-        ...(await deserializeAws_queryChangeSetNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3394,10 +3004,9 @@ const deserializeAws_queryGetTemplateCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3415,14 +3024,11 @@ export const deserializeAws_queryGetTemplateSummaryCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetTemplateSummaryOutput(
-    data.GetTemplateSummaryResult,
-    context
-  );
+  contents = deserializeAws_queryGetTemplateSummaryOutput(data.GetTemplateSummaryResult, context);
   const response: GetTemplateSummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTemplateSummaryOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3433,7 +3039,7 @@ const deserializeAws_queryGetTemplateSummaryCommandError = async (
 ): Promise<GetTemplateSummaryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3442,12 +3048,9 @@ const deserializeAws_queryGetTemplateSummaryCommandError = async (
     case "StackSetNotFoundException":
     case "com.amazonaws.cloudformation#StackSetNotFoundException":
       response = {
-        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3456,10 +3059,9 @@ const deserializeAws_queryGetTemplateSummaryCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3477,14 +3079,11 @@ export const deserializeAws_queryListChangeSetsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListChangeSetsOutput(
-    data.ListChangeSetsResult,
-    context
-  );
+  contents = deserializeAws_queryListChangeSetsOutput(data.ListChangeSetsResult, context);
   const response: ListChangeSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListChangeSetsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3495,7 +3094,7 @@ const deserializeAws_queryListChangeSetsCommandError = async (
 ): Promise<ListChangeSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3507,10 +3106,9 @@ const deserializeAws_queryListChangeSetsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3528,14 +3126,11 @@ export const deserializeAws_queryListExportsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListExportsOutput(
-    data.ListExportsResult,
-    context
-  );
+  contents = deserializeAws_queryListExportsOutput(data.ListExportsResult, context);
   const response: ListExportsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListExportsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3546,7 +3141,7 @@ const deserializeAws_queryListExportsCommandError = async (
 ): Promise<ListExportsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3558,10 +3153,9 @@ const deserializeAws_queryListExportsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3579,14 +3173,11 @@ export const deserializeAws_queryListImportsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListImportsOutput(
-    data.ListImportsResult,
-    context
-  );
+  contents = deserializeAws_queryListImportsOutput(data.ListImportsResult, context);
   const response: ListImportsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListImportsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3597,7 +3188,7 @@ const deserializeAws_queryListImportsCommandError = async (
 ): Promise<ListImportsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3609,10 +3200,9 @@ const deserializeAws_queryListImportsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3630,14 +3220,11 @@ export const deserializeAws_queryListStackInstancesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListStackInstancesOutput(
-    data.ListStackInstancesResult,
-    context
-  );
+  contents = deserializeAws_queryListStackInstancesOutput(data.ListStackInstancesResult, context);
   const response: ListStackInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListStackInstancesOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3648,7 +3235,7 @@ const deserializeAws_queryListStackInstancesCommandError = async (
 ): Promise<ListStackInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3657,12 +3244,9 @@ const deserializeAws_queryListStackInstancesCommandError = async (
     case "StackSetNotFoundException":
     case "com.amazonaws.cloudformation#StackSetNotFoundException":
       response = {
-        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3671,10 +3255,9 @@ const deserializeAws_queryListStackInstancesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3692,14 +3275,11 @@ export const deserializeAws_queryListStackResourcesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListStackResourcesOutput(
-    data.ListStackResourcesResult,
-    context
-  );
+  contents = deserializeAws_queryListStackResourcesOutput(data.ListStackResourcesResult, context);
   const response: ListStackResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListStackResourcesOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3710,7 +3290,7 @@ const deserializeAws_queryListStackResourcesCommandError = async (
 ): Promise<ListStackResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3722,10 +3302,9 @@ const deserializeAws_queryListStackResourcesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3743,14 +3322,11 @@ export const deserializeAws_queryListStacksCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListStacksOutput(
-    data.ListStacksResult,
-    context
-  );
+  contents = deserializeAws_queryListStacksOutput(data.ListStacksResult, context);
   const response: ListStacksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListStacksOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3761,7 +3337,7 @@ const deserializeAws_queryListStacksCommandError = async (
 ): Promise<ListStacksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3773,10 +3349,9 @@ const deserializeAws_queryListStacksCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3790,21 +3365,15 @@ export const deserializeAws_queryListStackSetOperationResultsCommand = async (
   context: __SerdeContext
 ): Promise<ListStackSetOperationResultsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryListStackSetOperationResultsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryListStackSetOperationResultsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListStackSetOperationResultsOutput(
-    data.ListStackSetOperationResultsResult,
-    context
-  );
+  contents = deserializeAws_queryListStackSetOperationResultsOutput(data.ListStackSetOperationResultsResult, context);
   const response: ListStackSetOperationResultsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListStackSetOperationResultsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3815,7 +3384,7 @@ const deserializeAws_queryListStackSetOperationResultsCommandError = async (
 ): Promise<ListStackSetOperationResultsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3824,23 +3393,17 @@ const deserializeAws_queryListStackSetOperationResultsCommandError = async (
     case "OperationNotFoundException":
     case "com.amazonaws.cloudformation#OperationNotFoundException":
       response = {
-        ...(await deserializeAws_queryOperationNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryOperationNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "StackSetNotFoundException":
     case "com.amazonaws.cloudformation#StackSetNotFoundException":
       response = {
-        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3849,10 +3412,9 @@ const deserializeAws_queryListStackSetOperationResultsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3866,21 +3428,15 @@ export const deserializeAws_queryListStackSetOperationsCommand = async (
   context: __SerdeContext
 ): Promise<ListStackSetOperationsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryListStackSetOperationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryListStackSetOperationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListStackSetOperationsOutput(
-    data.ListStackSetOperationsResult,
-    context
-  );
+  contents = deserializeAws_queryListStackSetOperationsOutput(data.ListStackSetOperationsResult, context);
   const response: ListStackSetOperationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListStackSetOperationsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3891,7 +3447,7 @@ const deserializeAws_queryListStackSetOperationsCommandError = async (
 ): Promise<ListStackSetOperationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3900,12 +3456,9 @@ const deserializeAws_queryListStackSetOperationsCommandError = async (
     case "StackSetNotFoundException":
     case "com.amazonaws.cloudformation#StackSetNotFoundException":
       response = {
-        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3914,10 +3467,9 @@ const deserializeAws_queryListStackSetOperationsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3935,14 +3487,11 @@ export const deserializeAws_queryListStackSetsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListStackSetsOutput(
-    data.ListStackSetsResult,
-    context
-  );
+  contents = deserializeAws_queryListStackSetsOutput(data.ListStackSetsResult, context);
   const response: ListStackSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListStackSetsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3953,7 +3502,7 @@ const deserializeAws_queryListStackSetsCommandError = async (
 ): Promise<ListStackSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3965,10 +3514,9 @@ const deserializeAws_queryListStackSetsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3982,21 +3530,15 @@ export const deserializeAws_queryListTypeRegistrationsCommand = async (
   context: __SerdeContext
 ): Promise<ListTypeRegistrationsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryListTypeRegistrationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryListTypeRegistrationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListTypeRegistrationsOutput(
-    data.ListTypeRegistrationsResult,
-    context
-  );
+  contents = deserializeAws_queryListTypeRegistrationsOutput(data.ListTypeRegistrationsResult, context);
   const response: ListTypeRegistrationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTypeRegistrationsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -4007,7 +3549,7 @@ const deserializeAws_queryListTypeRegistrationsCommandError = async (
 ): Promise<ListTypeRegistrationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4016,12 +3558,9 @@ const deserializeAws_queryListTypeRegistrationsCommandError = async (
     case "CFNRegistryException":
     case "com.amazonaws.cloudformation#CFNRegistryException":
       response = {
-        ...(await deserializeAws_queryCFNRegistryExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4030,10 +3569,9 @@ const deserializeAws_queryListTypeRegistrationsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4055,7 +3593,7 @@ export const deserializeAws_queryListTypesCommand = async (
   const response: ListTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTypesOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -4066,7 +3604,7 @@ const deserializeAws_queryListTypesCommandError = async (
 ): Promise<ListTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4075,12 +3613,9 @@ const deserializeAws_queryListTypesCommandError = async (
     case "CFNRegistryException":
     case "com.amazonaws.cloudformation#CFNRegistryException":
       response = {
-        ...(await deserializeAws_queryCFNRegistryExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4089,10 +3624,9 @@ const deserializeAws_queryListTypesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4110,14 +3644,11 @@ export const deserializeAws_queryListTypeVersionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListTypeVersionsOutput(
-    data.ListTypeVersionsResult,
-    context
-  );
+  contents = deserializeAws_queryListTypeVersionsOutput(data.ListTypeVersionsResult, context);
   const response: ListTypeVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTypeVersionsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -4128,7 +3659,7 @@ const deserializeAws_queryListTypeVersionsCommandError = async (
 ): Promise<ListTypeVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4137,12 +3668,9 @@ const deserializeAws_queryListTypeVersionsCommandError = async (
     case "CFNRegistryException":
     case "com.amazonaws.cloudformation#CFNRegistryException":
       response = {
-        ...(await deserializeAws_queryCFNRegistryExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4151,10 +3679,9 @@ const deserializeAws_queryListTypeVersionsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4168,21 +3695,15 @@ export const deserializeAws_queryRecordHandlerProgressCommand = async (
   context: __SerdeContext
 ): Promise<RecordHandlerProgressCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryRecordHandlerProgressCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryRecordHandlerProgressCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryRecordHandlerProgressOutput(
-    data.RecordHandlerProgressResult,
-    context
-  );
+  contents = deserializeAws_queryRecordHandlerProgressOutput(data.RecordHandlerProgressResult, context);
   const response: RecordHandlerProgressCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RecordHandlerProgressOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -4193,7 +3714,7 @@ const deserializeAws_queryRecordHandlerProgressCommandError = async (
 ): Promise<RecordHandlerProgressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4202,23 +3723,17 @@ const deserializeAws_queryRecordHandlerProgressCommandError = async (
     case "InvalidStateTransitionException":
     case "com.amazonaws.cloudformation#InvalidStateTransitionException":
       response = {
-        ...(await deserializeAws_queryInvalidStateTransitionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidStateTransitionExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationStatusCheckFailedException":
     case "com.amazonaws.cloudformation#OperationStatusCheckFailedException":
       response = {
-        ...(await deserializeAws_queryOperationStatusCheckFailedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryOperationStatusCheckFailedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4227,10 +3742,9 @@ const deserializeAws_queryRecordHandlerProgressCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4248,14 +3762,11 @@ export const deserializeAws_queryRegisterTypeCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryRegisterTypeOutput(
-    data.RegisterTypeResult,
-    context
-  );
+  contents = deserializeAws_queryRegisterTypeOutput(data.RegisterTypeResult, context);
   const response: RegisterTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RegisterTypeOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -4266,7 +3777,7 @@ const deserializeAws_queryRegisterTypeCommandError = async (
 ): Promise<RegisterTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4275,12 +3786,9 @@ const deserializeAws_queryRegisterTypeCommandError = async (
     case "CFNRegistryException":
     case "com.amazonaws.cloudformation#CFNRegistryException":
       response = {
-        ...(await deserializeAws_queryCFNRegistryExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4289,10 +3797,9 @@ const deserializeAws_queryRegisterTypeCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4310,7 +3817,7 @@ export const deserializeAws_querySetStackPolicyCommand = async (
   }
   await collectBody(output.body, context);
   const response: SetStackPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 };
@@ -4321,7 +3828,7 @@ const deserializeAws_querySetStackPolicyCommandError = async (
 ): Promise<SetStackPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4333,10 +3840,9 @@ const deserializeAws_querySetStackPolicyCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4350,21 +3856,15 @@ export const deserializeAws_querySetTypeDefaultVersionCommand = async (
   context: __SerdeContext
 ): Promise<SetTypeDefaultVersionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_querySetTypeDefaultVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_querySetTypeDefaultVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySetTypeDefaultVersionOutput(
-    data.SetTypeDefaultVersionResult,
-    context
-  );
+  contents = deserializeAws_querySetTypeDefaultVersionOutput(data.SetTypeDefaultVersionResult, context);
   const response: SetTypeDefaultVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SetTypeDefaultVersionOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -4375,7 +3875,7 @@ const deserializeAws_querySetTypeDefaultVersionCommandError = async (
 ): Promise<SetTypeDefaultVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4384,23 +3884,17 @@ const deserializeAws_querySetTypeDefaultVersionCommandError = async (
     case "CFNRegistryException":
     case "com.amazonaws.cloudformation#CFNRegistryException":
       response = {
-        ...(await deserializeAws_queryCFNRegistryExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TypeNotFoundException":
     case "com.amazonaws.cloudformation#TypeNotFoundException":
       response = {
-        ...(await deserializeAws_queryTypeNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4409,10 +3903,9 @@ const deserializeAws_querySetTypeDefaultVersionCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4430,7 +3923,7 @@ export const deserializeAws_querySignalResourceCommand = async (
   }
   await collectBody(output.body, context);
   const response: SignalResourceCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 };
@@ -4441,7 +3934,7 @@ const deserializeAws_querySignalResourceCommandError = async (
 ): Promise<SignalResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4453,10 +3946,9 @@ const deserializeAws_querySignalResourceCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4470,21 +3962,15 @@ export const deserializeAws_queryStopStackSetOperationCommand = async (
   context: __SerdeContext
 ): Promise<StopStackSetOperationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryStopStackSetOperationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryStopStackSetOperationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryStopStackSetOperationOutput(
-    data.StopStackSetOperationResult,
-    context
-  );
+  contents = deserializeAws_queryStopStackSetOperationOutput(data.StopStackSetOperationResult, context);
   const response: StopStackSetOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopStackSetOperationOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -4495,7 +3981,7 @@ const deserializeAws_queryStopStackSetOperationCommandError = async (
 ): Promise<StopStackSetOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4504,34 +3990,25 @@ const deserializeAws_queryStopStackSetOperationCommandError = async (
     case "InvalidOperationException":
     case "com.amazonaws.cloudformation#InvalidOperationException":
       response = {
-        ...(await deserializeAws_queryInvalidOperationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationNotFoundException":
     case "com.amazonaws.cloudformation#OperationNotFoundException":
       response = {
-        ...(await deserializeAws_queryOperationNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryOperationNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "StackSetNotFoundException":
     case "com.amazonaws.cloudformation#StackSetNotFoundException":
       response = {
-        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4540,10 +4017,9 @@ const deserializeAws_queryStopStackSetOperationCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4561,14 +4037,11 @@ export const deserializeAws_queryUpdateStackCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUpdateStackOutput(
-    data.UpdateStackResult,
-    context
-  );
+  contents = deserializeAws_queryUpdateStackOutput(data.UpdateStackResult, context);
   const response: UpdateStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateStackOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -4579,7 +4052,7 @@ const deserializeAws_queryUpdateStackCommandError = async (
 ): Promise<UpdateStackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4588,23 +4061,17 @@ const deserializeAws_queryUpdateStackCommandError = async (
     case "InsufficientCapabilitiesException":
     case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
       response = {
-        ...(await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TokenAlreadyExistsException":
     case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
       response = {
-        ...(await deserializeAws_queryTokenAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4613,10 +4080,9 @@ const deserializeAws_queryUpdateStackCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4630,21 +4096,15 @@ export const deserializeAws_queryUpdateStackInstancesCommand = async (
   context: __SerdeContext
 ): Promise<UpdateStackInstancesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryUpdateStackInstancesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateStackInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUpdateStackInstancesOutput(
-    data.UpdateStackInstancesResult,
-    context
-  );
+  contents = deserializeAws_queryUpdateStackInstancesOutput(data.UpdateStackInstancesResult, context);
   const response: UpdateStackInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateStackInstancesOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -4655,7 +4115,7 @@ const deserializeAws_queryUpdateStackInstancesCommandError = async (
 ): Promise<UpdateStackInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4664,67 +4124,49 @@ const deserializeAws_queryUpdateStackInstancesCommandError = async (
     case "InvalidOperationException":
     case "com.amazonaws.cloudformation#InvalidOperationException":
       response = {
-        ...(await deserializeAws_queryInvalidOperationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationIdAlreadyExistsException":
     case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
       response = {
-        ...(await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationInProgressException":
     case "com.amazonaws.cloudformation#OperationInProgressException":
       response = {
-        ...(await deserializeAws_queryOperationInProgressExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "StackInstanceNotFoundException":
     case "com.amazonaws.cloudformation#StackInstanceNotFoundException":
       response = {
-        ...(await deserializeAws_queryStackInstanceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStackInstanceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "StackSetNotFoundException":
     case "com.amazonaws.cloudformation#StackSetNotFoundException":
       response = {
-        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "StaleRequestException":
     case "com.amazonaws.cloudformation#StaleRequestException":
       response = {
-        ...(await deserializeAws_queryStaleRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStaleRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4733,10 +4175,9 @@ const deserializeAws_queryUpdateStackInstancesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4754,14 +4195,11 @@ export const deserializeAws_queryUpdateStackSetCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUpdateStackSetOutput(
-    data.UpdateStackSetResult,
-    context
-  );
+  contents = deserializeAws_queryUpdateStackSetOutput(data.UpdateStackSetResult, context);
   const response: UpdateStackSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateStackSetOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -4772,7 +4210,7 @@ const deserializeAws_queryUpdateStackSetCommandError = async (
 ): Promise<UpdateStackSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4781,67 +4219,49 @@ const deserializeAws_queryUpdateStackSetCommandError = async (
     case "InvalidOperationException":
     case "com.amazonaws.cloudformation#InvalidOperationException":
       response = {
-        ...(await deserializeAws_queryInvalidOperationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationIdAlreadyExistsException":
     case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
       response = {
-        ...(await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationInProgressException":
     case "com.amazonaws.cloudformation#OperationInProgressException":
       response = {
-        ...(await deserializeAws_queryOperationInProgressExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "StackInstanceNotFoundException":
     case "com.amazonaws.cloudformation#StackInstanceNotFoundException":
       response = {
-        ...(await deserializeAws_queryStackInstanceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStackInstanceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "StackSetNotFoundException":
     case "com.amazonaws.cloudformation#StackSetNotFoundException":
       response = {
-        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "StaleRequestException":
     case "com.amazonaws.cloudformation#StaleRequestException":
       response = {
-        ...(await deserializeAws_queryStaleRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStaleRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4850,10 +4270,9 @@ const deserializeAws_queryUpdateStackSetCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4867,21 +4286,15 @@ export const deserializeAws_queryUpdateTerminationProtectionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTerminationProtectionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryUpdateTerminationProtectionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateTerminationProtectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUpdateTerminationProtectionOutput(
-    data.UpdateTerminationProtectionResult,
-    context
-  );
+  contents = deserializeAws_queryUpdateTerminationProtectionOutput(data.UpdateTerminationProtectionResult, context);
   const response: UpdateTerminationProtectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateTerminationProtectionOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -4892,7 +4305,7 @@ const deserializeAws_queryUpdateTerminationProtectionCommandError = async (
 ): Promise<UpdateTerminationProtectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4904,10 +4317,9 @@ const deserializeAws_queryUpdateTerminationProtectionCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4925,14 +4337,11 @@ export const deserializeAws_queryValidateTemplateCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryValidateTemplateOutput(
-    data.ValidateTemplateResult,
-    context
-  );
+  contents = deserializeAws_queryValidateTemplateOutput(data.ValidateTemplateResult, context);
   const response: ValidateTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ValidateTemplateOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -4943,7 +4352,7 @@ const deserializeAws_queryValidateTemplateCommandError = async (
 ): Promise<ValidateTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4955,10 +4364,9 @@ const deserializeAws_queryValidateTemplateCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4972,15 +4380,12 @@ const deserializeAws_queryAlreadyExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryAlreadyExistsException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryAlreadyExistsException(body.Error, context);
   const contents: AlreadyExistsException = {
     name: "AlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4990,15 +4395,12 @@ const deserializeAws_queryCFNRegistryExceptionResponse = async (
   context: __SerdeContext
 ): Promise<CFNRegistryException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryCFNRegistryException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryCFNRegistryException(body.Error, context);
   const contents: CFNRegistryException = {
     name: "CFNRegistryException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5008,15 +4410,12 @@ const deserializeAws_queryChangeSetNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ChangeSetNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryChangeSetNotFoundException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryChangeSetNotFoundException(body.Error, context);
   const contents: ChangeSetNotFoundException = {
     name: "ChangeSetNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5026,15 +4425,12 @@ const deserializeAws_queryCreatedButModifiedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<CreatedButModifiedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryCreatedButModifiedException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryCreatedButModifiedException(body.Error, context);
   const contents: CreatedButModifiedException = {
     name: "CreatedButModifiedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5044,15 +4440,12 @@ const deserializeAws_queryInsufficientCapabilitiesExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InsufficientCapabilitiesException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInsufficientCapabilitiesException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryInsufficientCapabilitiesException(body.Error, context);
   const contents: InsufficientCapabilitiesException = {
     name: "InsufficientCapabilitiesException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5062,15 +4455,12 @@ const deserializeAws_queryInvalidChangeSetStatusExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidChangeSetStatusException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidChangeSetStatusException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryInvalidChangeSetStatusException(body.Error, context);
   const contents: InvalidChangeSetStatusException = {
     name: "InvalidChangeSetStatusException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5080,15 +4470,12 @@ const deserializeAws_queryInvalidOperationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidOperationException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryInvalidOperationException(body.Error, context);
   const contents: InvalidOperationException = {
     name: "InvalidOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5098,15 +4485,12 @@ const deserializeAws_queryInvalidStateTransitionExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidStateTransitionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidStateTransitionException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryInvalidStateTransitionException(body.Error, context);
   const contents: InvalidStateTransitionException = {
     name: "InvalidStateTransitionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5116,15 +4500,12 @@ const deserializeAws_queryLimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryLimitExceededException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryLimitExceededException(body.Error, context);
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5134,15 +4515,12 @@ const deserializeAws_queryNameAlreadyExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NameAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryNameAlreadyExistsException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryNameAlreadyExistsException(body.Error, context);
   const contents: NameAlreadyExistsException = {
     name: "NameAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5152,15 +4530,12 @@ const deserializeAws_queryOperationIdAlreadyExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<OperationIdAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryOperationIdAlreadyExistsException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryOperationIdAlreadyExistsException(body.Error, context);
   const contents: OperationIdAlreadyExistsException = {
     name: "OperationIdAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5170,15 +4545,12 @@ const deserializeAws_queryOperationInProgressExceptionResponse = async (
   context: __SerdeContext
 ): Promise<OperationInProgressException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryOperationInProgressException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryOperationInProgressException(body.Error, context);
   const contents: OperationInProgressException = {
     name: "OperationInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5188,15 +4560,12 @@ const deserializeAws_queryOperationNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<OperationNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryOperationNotFoundException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryOperationNotFoundException(body.Error, context);
   const contents: OperationNotFoundException = {
     name: "OperationNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5206,15 +4575,12 @@ const deserializeAws_queryOperationStatusCheckFailedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<OperationStatusCheckFailedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryOperationStatusCheckFailedException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryOperationStatusCheckFailedException(body.Error, context);
   const contents: OperationStatusCheckFailedException = {
     name: "OperationStatusCheckFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5224,15 +4590,12 @@ const deserializeAws_queryStackInstanceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<StackInstanceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryStackInstanceNotFoundException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryStackInstanceNotFoundException(body.Error, context);
   const contents: StackInstanceNotFoundException = {
     name: "StackInstanceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5242,15 +4605,12 @@ const deserializeAws_queryStackSetNotEmptyExceptionResponse = async (
   context: __SerdeContext
 ): Promise<StackSetNotEmptyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryStackSetNotEmptyException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryStackSetNotEmptyException(body.Error, context);
   const contents: StackSetNotEmptyException = {
     name: "StackSetNotEmptyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5260,15 +4620,12 @@ const deserializeAws_queryStackSetNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<StackSetNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryStackSetNotFoundException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryStackSetNotFoundException(body.Error, context);
   const contents: StackSetNotFoundException = {
     name: "StackSetNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5278,15 +4635,12 @@ const deserializeAws_queryStaleRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<StaleRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryStaleRequestException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryStaleRequestException(body.Error, context);
   const contents: StaleRequestException = {
     name: "StaleRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5296,15 +4650,12 @@ const deserializeAws_queryTokenAlreadyExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TokenAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryTokenAlreadyExistsException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryTokenAlreadyExistsException(body.Error, context);
   const contents: TokenAlreadyExistsException = {
     name: "TokenAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5314,23 +4665,17 @@ const deserializeAws_queryTypeNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TypeNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryTypeNotFoundException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryTypeNotFoundException(body.Error, context);
   const contents: TypeNotFoundException = {
     name: "TypeNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
 
-const serializeAws_queryAccountList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryAccountList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -5340,10 +4685,7 @@ const serializeAws_queryAccountList = (
   return entries;
 };
 
-const serializeAws_queryCancelUpdateStackInput = (
-  input: CancelUpdateStackInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryCancelUpdateStackInput = (input: CancelUpdateStackInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ClientRequestToken !== undefined) {
     entries["ClientRequestToken"] = input.ClientRequestToken;
@@ -5354,10 +4696,7 @@ const serializeAws_queryCancelUpdateStackInput = (
   return entries;
 };
 
-const serializeAws_queryCapabilities = (
-  input: (Capability | string)[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryCapabilities = (input: (Capability | string)[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -5376,10 +4715,7 @@ const serializeAws_queryContinueUpdateRollbackInput = (
     entries["ClientRequestToken"] = input.ClientRequestToken;
   }
   if (input.ResourcesToSkip !== undefined) {
-    const memberEntries = serializeAws_queryResourcesToSkip(
-      input.ResourcesToSkip,
-      context
-    );
+    const memberEntries = serializeAws_queryResourcesToSkip(input.ResourcesToSkip, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourcesToSkip.${key}`;
       entries[loc] = value;
@@ -5394,16 +4730,10 @@ const serializeAws_queryContinueUpdateRollbackInput = (
   return entries;
 };
 
-const serializeAws_queryCreateChangeSetInput = (
-  input: CreateChangeSetInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryCreateChangeSetInput = (input: CreateChangeSetInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Capabilities !== undefined) {
-    const memberEntries = serializeAws_queryCapabilities(
-      input.Capabilities,
-      context
-    );
+    const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Capabilities.${key}`;
       entries[loc] = value;
@@ -5422,40 +4752,28 @@ const serializeAws_queryCreateChangeSetInput = (
     entries["Description"] = input.Description;
   }
   if (input.NotificationARNs !== undefined) {
-    const memberEntries = serializeAws_queryNotificationARNs(
-      input.NotificationARNs,
-      context
-    );
+    const memberEntries = serializeAws_queryNotificationARNs(input.NotificationARNs, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NotificationARNs.${key}`;
       entries[loc] = value;
     });
   }
   if (input.Parameters !== undefined) {
-    const memberEntries = serializeAws_queryParameters(
-      input.Parameters,
-      context
-    );
+    const memberEntries = serializeAws_queryParameters(input.Parameters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
     });
   }
   if (input.ResourceTypes !== undefined) {
-    const memberEntries = serializeAws_queryResourceTypes(
-      input.ResourceTypes,
-      context
-    );
+    const memberEntries = serializeAws_queryResourceTypes(input.ResourceTypes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceTypes.${key}`;
       entries[loc] = value;
     });
   }
   if (input.ResourcesToImport !== undefined) {
-    const memberEntries = serializeAws_queryResourcesToImport(
-      input.ResourcesToImport,
-      context
-    );
+    const memberEntries = serializeAws_queryResourcesToImport(input.ResourcesToImport, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourcesToImport.${key}`;
       entries[loc] = value;
@@ -5465,10 +4783,7 @@ const serializeAws_queryCreateChangeSetInput = (
     entries["RoleARN"] = input.RoleARN;
   }
   if (input.RollbackConfiguration !== undefined) {
-    const memberEntries = serializeAws_queryRollbackConfiguration(
-      input.RollbackConfiguration,
-      context
-    );
+    const memberEntries = serializeAws_queryRollbackConfiguration(input.RollbackConfiguration, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RollbackConfiguration.${key}`;
       entries[loc] = value;
@@ -5496,16 +4811,10 @@ const serializeAws_queryCreateChangeSetInput = (
   return entries;
 };
 
-const serializeAws_queryCreateStackInput = (
-  input: CreateStackInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryCreateStackInput = (input: CreateStackInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Capabilities !== undefined) {
-    const memberEntries = serializeAws_queryCapabilities(
-      input.Capabilities,
-      context
-    );
+    const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Capabilities.${key}`;
       entries[loc] = value;
@@ -5521,10 +4830,7 @@ const serializeAws_queryCreateStackInput = (
     entries["EnableTerminationProtection"] = input.EnableTerminationProtection;
   }
   if (input.NotificationARNs !== undefined) {
-    const memberEntries = serializeAws_queryNotificationARNs(
-      input.NotificationARNs,
-      context
-    );
+    const memberEntries = serializeAws_queryNotificationARNs(input.NotificationARNs, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NotificationARNs.${key}`;
       entries[loc] = value;
@@ -5534,20 +4840,14 @@ const serializeAws_queryCreateStackInput = (
     entries["OnFailure"] = input.OnFailure;
   }
   if (input.Parameters !== undefined) {
-    const memberEntries = serializeAws_queryParameters(
-      input.Parameters,
-      context
-    );
+    const memberEntries = serializeAws_queryParameters(input.Parameters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
     });
   }
   if (input.ResourceTypes !== undefined) {
-    const memberEntries = serializeAws_queryResourceTypes(
-      input.ResourceTypes,
-      context
-    );
+    const memberEntries = serializeAws_queryResourceTypes(input.ResourceTypes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceTypes.${key}`;
       entries[loc] = value;
@@ -5557,10 +4857,7 @@ const serializeAws_queryCreateStackInput = (
     entries["RoleARN"] = input.RoleARN;
   }
   if (input.RollbackConfiguration !== undefined) {
-    const memberEntries = serializeAws_queryRollbackConfiguration(
-      input.RollbackConfiguration,
-      context
-    );
+    const memberEntries = serializeAws_queryRollbackConfiguration(input.RollbackConfiguration, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RollbackConfiguration.${key}`;
       entries[loc] = value;
@@ -5600,10 +4897,7 @@ const serializeAws_queryCreateStackInstancesInput = (
 ): any => {
   const entries: any = {};
   if (input.Accounts !== undefined) {
-    const memberEntries = serializeAws_queryAccountList(
-      input.Accounts,
-      context
-    );
+    const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Accounts.${key}`;
       entries[loc] = value;
@@ -5616,20 +4910,14 @@ const serializeAws_queryCreateStackInstancesInput = (
     entries["OperationId"] = input.OperationId;
   }
   if (input.OperationPreferences !== undefined) {
-    const memberEntries = serializeAws_queryStackSetOperationPreferences(
-      input.OperationPreferences,
-      context
-    );
+    const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OperationPreferences.${key}`;
       entries[loc] = value;
     });
   }
   if (input.ParameterOverrides !== undefined) {
-    const memberEntries = serializeAws_queryParameters(
-      input.ParameterOverrides,
-      context
-    );
+    const memberEntries = serializeAws_queryParameters(input.ParameterOverrides, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ParameterOverrides.${key}`;
       entries[loc] = value;
@@ -5648,19 +4936,13 @@ const serializeAws_queryCreateStackInstancesInput = (
   return entries;
 };
 
-const serializeAws_queryCreateStackSetInput = (
-  input: CreateStackSetInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryCreateStackSetInput = (input: CreateStackSetInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.AdministrationRoleARN !== undefined) {
     entries["AdministrationRoleARN"] = input.AdministrationRoleARN;
   }
   if (input.Capabilities !== undefined) {
-    const memberEntries = serializeAws_queryCapabilities(
-      input.Capabilities,
-      context
-    );
+    const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Capabilities.${key}`;
       entries[loc] = value;
@@ -5679,10 +4961,7 @@ const serializeAws_queryCreateStackSetInput = (
     entries["ExecutionRoleName"] = input.ExecutionRoleName;
   }
   if (input.Parameters !== undefined) {
-    const memberEntries = serializeAws_queryParameters(
-      input.Parameters,
-      context
-    );
+    const memberEntries = serializeAws_queryParameters(input.Parameters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
@@ -5707,10 +4986,7 @@ const serializeAws_queryCreateStackSetInput = (
   return entries;
 };
 
-const serializeAws_queryDeleteChangeSetInput = (
-  input: DeleteChangeSetInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDeleteChangeSetInput = (input: DeleteChangeSetInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ChangeSetName !== undefined) {
     entries["ChangeSetName"] = input.ChangeSetName;
@@ -5721,19 +4997,13 @@ const serializeAws_queryDeleteChangeSetInput = (
   return entries;
 };
 
-const serializeAws_queryDeleteStackInput = (
-  input: DeleteStackInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDeleteStackInput = (input: DeleteStackInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ClientRequestToken !== undefined) {
     entries["ClientRequestToken"] = input.ClientRequestToken;
   }
   if (input.RetainResources !== undefined) {
-    const memberEntries = serializeAws_queryRetainResources(
-      input.RetainResources,
-      context
-    );
+    const memberEntries = serializeAws_queryRetainResources(input.RetainResources, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RetainResources.${key}`;
       entries[loc] = value;
@@ -5754,10 +5024,7 @@ const serializeAws_queryDeleteStackInstancesInput = (
 ): any => {
   const entries: any = {};
   if (input.Accounts !== undefined) {
-    const memberEntries = serializeAws_queryAccountList(
-      input.Accounts,
-      context
-    );
+    const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Accounts.${key}`;
       entries[loc] = value;
@@ -5770,10 +5037,7 @@ const serializeAws_queryDeleteStackInstancesInput = (
     entries["OperationId"] = input.OperationId;
   }
   if (input.OperationPreferences !== undefined) {
-    const memberEntries = serializeAws_queryStackSetOperationPreferences(
-      input.OperationPreferences,
-      context
-    );
+    const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OperationPreferences.${key}`;
       entries[loc] = value;
@@ -5795,10 +5059,7 @@ const serializeAws_queryDeleteStackInstancesInput = (
   return entries;
 };
 
-const serializeAws_queryDeleteStackSetInput = (
-  input: DeleteStackSetInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDeleteStackSetInput = (input: DeleteStackSetInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.StackSetName !== undefined) {
     entries["StackSetName"] = input.StackSetName;
@@ -5806,10 +5067,7 @@ const serializeAws_queryDeleteStackSetInput = (
   return entries;
 };
 
-const serializeAws_queryDeregisterTypeInput = (
-  input: DeregisterTypeInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDeregisterTypeInput = (input: DeregisterTypeInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Arn !== undefined) {
     entries["Arn"] = input.Arn;
@@ -5837,10 +5095,7 @@ const serializeAws_queryDescribeAccountLimitsInput = (
   return entries;
 };
 
-const serializeAws_queryDescribeChangeSetInput = (
-  input: DescribeChangeSetInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDescribeChangeSetInput = (input: DescribeChangeSetInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ChangeSetName !== undefined) {
     entries["ChangeSetName"] = input.ChangeSetName;
@@ -5865,10 +5120,7 @@ const serializeAws_queryDescribeStackDriftDetectionStatusInput = (
   return entries;
 };
 
-const serializeAws_queryDescribeStackEventsInput = (
-  input: DescribeStackEventsInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDescribeStackEventsInput = (input: DescribeStackEventsInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.NextToken !== undefined) {
     entries["NextToken"] = input.NextToken;
@@ -5954,10 +5206,7 @@ const serializeAws_queryDescribeStackResourcesInput = (
   return entries;
 };
 
-const serializeAws_queryDescribeStackSetInput = (
-  input: DescribeStackSetInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDescribeStackSetInput = (input: DescribeStackSetInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.StackSetName !== undefined) {
     entries["StackSetName"] = input.StackSetName;
@@ -5979,10 +5228,7 @@ const serializeAws_queryDescribeStackSetOperationInput = (
   return entries;
 };
 
-const serializeAws_queryDescribeStacksInput = (
-  input: DescribeStacksInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDescribeStacksInput = (input: DescribeStacksInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.NextToken !== undefined) {
     entries["NextToken"] = input.NextToken;
@@ -5993,10 +5239,7 @@ const serializeAws_queryDescribeStacksInput = (
   return entries;
 };
 
-const serializeAws_queryDescribeTypeInput = (
-  input: DescribeTypeInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDescribeTypeInput = (input: DescribeTypeInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Arn !== undefined) {
     entries["Arn"] = input.Arn;
@@ -6024,16 +5267,10 @@ const serializeAws_queryDescribeTypeRegistrationInput = (
   return entries;
 };
 
-const serializeAws_queryDetectStackDriftInput = (
-  input: DetectStackDriftInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDetectStackDriftInput = (input: DetectStackDriftInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.LogicalResourceIds !== undefined) {
-    const memberEntries = serializeAws_queryLogicalResourceIds(
-      input.LogicalResourceIds,
-      context
-    );
+    const memberEntries = serializeAws_queryLogicalResourceIds(input.LogicalResourceIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LogicalResourceIds.${key}`;
       entries[loc] = value;
@@ -6059,10 +5296,7 @@ const serializeAws_queryDetectStackResourceDriftInput = (
   return entries;
 };
 
-const serializeAws_queryDetectStackSetDriftInput = (
-  input: DetectStackSetDriftInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDetectStackSetDriftInput = (input: DetectStackSetDriftInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.OperationId === undefined) {
     input.OperationId = generateIdempotencyToken();
@@ -6071,10 +5305,7 @@ const serializeAws_queryDetectStackSetDriftInput = (
     entries["OperationId"] = input.OperationId;
   }
   if (input.OperationPreferences !== undefined) {
-    const memberEntries = serializeAws_queryStackSetOperationPreferences(
-      input.OperationPreferences,
-      context
-    );
+    const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OperationPreferences.${key}`;
       entries[loc] = value;
@@ -6092,10 +5323,7 @@ const serializeAws_queryEstimateTemplateCostInput = (
 ): any => {
   const entries: any = {};
   if (input.Parameters !== undefined) {
-    const memberEntries = serializeAws_queryParameters(
-      input.Parameters,
-      context
-    );
+    const memberEntries = serializeAws_queryParameters(input.Parameters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
@@ -6110,10 +5338,7 @@ const serializeAws_queryEstimateTemplateCostInput = (
   return entries;
 };
 
-const serializeAws_queryExecuteChangeSetInput = (
-  input: ExecuteChangeSetInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryExecuteChangeSetInput = (input: ExecuteChangeSetInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ChangeSetName !== undefined) {
     entries["ChangeSetName"] = input.ChangeSetName;
@@ -6127,10 +5352,7 @@ const serializeAws_queryExecuteChangeSetInput = (
   return entries;
 };
 
-const serializeAws_queryGetStackPolicyInput = (
-  input: GetStackPolicyInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryGetStackPolicyInput = (input: GetStackPolicyInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.StackName !== undefined) {
     entries["StackName"] = input.StackName;
@@ -6138,10 +5360,7 @@ const serializeAws_queryGetStackPolicyInput = (
   return entries;
 };
 
-const serializeAws_queryGetTemplateInput = (
-  input: GetTemplateInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryGetTemplateInput = (input: GetTemplateInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ChangeSetName !== undefined) {
     entries["ChangeSetName"] = input.ChangeSetName;
@@ -6155,10 +5374,7 @@ const serializeAws_queryGetTemplateInput = (
   return entries;
 };
 
-const serializeAws_queryGetTemplateSummaryInput = (
-  input: GetTemplateSummaryInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryGetTemplateSummaryInput = (input: GetTemplateSummaryInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.StackName !== undefined) {
     entries["StackName"] = input.StackName;
@@ -6175,10 +5391,7 @@ const serializeAws_queryGetTemplateSummaryInput = (
   return entries;
 };
 
-const serializeAws_queryListChangeSetsInput = (
-  input: ListChangeSetsInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryListChangeSetsInput = (input: ListChangeSetsInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.NextToken !== undefined) {
     entries["NextToken"] = input.NextToken;
@@ -6189,10 +5402,7 @@ const serializeAws_queryListChangeSetsInput = (
   return entries;
 };
 
-const serializeAws_queryListExportsInput = (
-  input: ListExportsInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryListExportsInput = (input: ListExportsInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.NextToken !== undefined) {
     entries["NextToken"] = input.NextToken;
@@ -6200,10 +5410,7 @@ const serializeAws_queryListExportsInput = (
   return entries;
 };
 
-const serializeAws_queryListImportsInput = (
-  input: ListImportsInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryListImportsInput = (input: ListImportsInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ExportName !== undefined) {
     entries["ExportName"] = input.ExportName;
@@ -6214,10 +5421,7 @@ const serializeAws_queryListImportsInput = (
   return entries;
 };
 
-const serializeAws_queryListStackInstancesInput = (
-  input: ListStackInstancesInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryListStackInstancesInput = (input: ListStackInstancesInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.MaxResults !== undefined) {
     entries["MaxResults"] = input.MaxResults;
@@ -6237,10 +5441,7 @@ const serializeAws_queryListStackInstancesInput = (
   return entries;
 };
 
-const serializeAws_queryListStackResourcesInput = (
-  input: ListStackResourcesInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryListStackResourcesInput = (input: ListStackResourcesInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.NextToken !== undefined) {
     entries["NextToken"] = input.NextToken;
@@ -6288,10 +5489,7 @@ const serializeAws_queryListStackSetOperationsInput = (
   return entries;
 };
 
-const serializeAws_queryListStackSetsInput = (
-  input: ListStackSetsInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryListStackSetsInput = (input: ListStackSetsInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.MaxResults !== undefined) {
     entries["MaxResults"] = input.MaxResults;
@@ -6305,19 +5503,13 @@ const serializeAws_queryListStackSetsInput = (
   return entries;
 };
 
-const serializeAws_queryListStacksInput = (
-  input: ListStacksInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryListStacksInput = (input: ListStacksInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.NextToken !== undefined) {
     entries["NextToken"] = input.NextToken;
   }
   if (input.StackStatusFilter !== undefined) {
-    const memberEntries = serializeAws_queryStackStatusFilter(
-      input.StackStatusFilter,
-      context
-    );
+    const memberEntries = serializeAws_queryStackStatusFilter(input.StackStatusFilter, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StackStatusFilter.${key}`;
       entries[loc] = value;
@@ -6352,10 +5544,7 @@ const serializeAws_queryListTypeRegistrationsInput = (
   return entries;
 };
 
-const serializeAws_queryListTypesInput = (
-  input: ListTypesInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryListTypesInput = (input: ListTypesInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DeprecatedStatus !== undefined) {
     entries["DeprecatedStatus"] = input.DeprecatedStatus;
@@ -6375,10 +5564,7 @@ const serializeAws_queryListTypesInput = (
   return entries;
 };
 
-const serializeAws_queryListTypeVersionsInput = (
-  input: ListTypeVersionsInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryListTypeVersionsInput = (input: ListTypeVersionsInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Arn !== undefined) {
     entries["Arn"] = input.Arn;
@@ -6401,10 +5587,7 @@ const serializeAws_queryListTypeVersionsInput = (
   return entries;
 };
 
-const serializeAws_queryLoggingConfig = (
-  input: LoggingConfig,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryLoggingConfig = (input: LoggingConfig, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.LogGroupName !== undefined) {
     entries["LogGroupName"] = input.LogGroupName;
@@ -6415,10 +5598,7 @@ const serializeAws_queryLoggingConfig = (
   return entries;
 };
 
-const serializeAws_queryLogicalResourceIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryLogicalResourceIds = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6428,10 +5608,7 @@ const serializeAws_queryLogicalResourceIds = (
   return entries;
 };
 
-const serializeAws_queryNotificationARNs = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryNotificationARNs = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6441,10 +5618,7 @@ const serializeAws_queryNotificationARNs = (
   return entries;
 };
 
-const serializeAws_queryParameter = (
-  input: Parameter,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryParameter = (input: Parameter, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ParameterKey !== undefined) {
     entries["ParameterKey"] = input.ParameterKey;
@@ -6461,10 +5635,7 @@ const serializeAws_queryParameter = (
   return entries;
 };
 
-const serializeAws_queryParameters = (
-  input: Parameter[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryParameters = (input: Parameter[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6506,10 +5677,7 @@ const serializeAws_queryRecordHandlerProgressInput = (
   return entries;
 };
 
-const serializeAws_queryRegionList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryRegionList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6519,10 +5687,7 @@ const serializeAws_queryRegionList = (
   return entries;
 };
 
-const serializeAws_queryRegisterTypeInput = (
-  input: RegisterTypeInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryRegisterTypeInput = (input: RegisterTypeInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ClientRequestToken !== undefined) {
     entries["ClientRequestToken"] = input.ClientRequestToken;
@@ -6531,10 +5696,7 @@ const serializeAws_queryRegisterTypeInput = (
     entries["ExecutionRoleArn"] = input.ExecutionRoleArn;
   }
   if (input.LoggingConfig !== undefined) {
-    const memberEntries = serializeAws_queryLoggingConfig(
-      input.LoggingConfig,
-      context
-    );
+    const memberEntries = serializeAws_queryLoggingConfig(input.LoggingConfig, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoggingConfig.${key}`;
       entries[loc] = value;
@@ -6558,7 +5720,7 @@ const serializeAws_queryResourceIdentifierProperties = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  Object.keys(input).forEach(key => {
+  Object.keys(input).forEach((key) => {
     entries[`entry.${counter}.key`] = key;
     entries[`entry.${counter}.value`] = input[key];
     counter++;
@@ -6566,10 +5728,7 @@ const serializeAws_queryResourceIdentifierProperties = (
   return entries;
 };
 
-const serializeAws_queryResourcesToImport = (
-  input: ResourceToImport[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryResourcesToImport = (input: ResourceToImport[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6582,10 +5741,7 @@ const serializeAws_queryResourcesToImport = (
   return entries;
 };
 
-const serializeAws_queryResourcesToSkip = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryResourcesToSkip = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6595,19 +5751,13 @@ const serializeAws_queryResourcesToSkip = (
   return entries;
 };
 
-const serializeAws_queryResourceToImport = (
-  input: ResourceToImport,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryResourceToImport = (input: ResourceToImport, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.LogicalResourceId !== undefined) {
     entries["LogicalResourceId"] = input.LogicalResourceId;
   }
   if (input.ResourceIdentifier !== undefined) {
-    const memberEntries = serializeAws_queryResourceIdentifierProperties(
-      input.ResourceIdentifier,
-      context
-    );
+    const memberEntries = serializeAws_queryResourceIdentifierProperties(input.ResourceIdentifier, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceIdentifier.${key}`;
       entries[loc] = value;
@@ -6619,10 +5769,7 @@ const serializeAws_queryResourceToImport = (
   return entries;
 };
 
-const serializeAws_queryResourceTypes = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryResourceTypes = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6632,10 +5779,7 @@ const serializeAws_queryResourceTypes = (
   return entries;
 };
 
-const serializeAws_queryRetainResources = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryRetainResources = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6645,19 +5789,13 @@ const serializeAws_queryRetainResources = (
   return entries;
 };
 
-const serializeAws_queryRollbackConfiguration = (
-  input: RollbackConfiguration,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryRollbackConfiguration = (input: RollbackConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.MonitoringTimeInMinutes !== undefined) {
     entries["MonitoringTimeInMinutes"] = input.MonitoringTimeInMinutes;
   }
   if (input.RollbackTriggers !== undefined) {
-    const memberEntries = serializeAws_queryRollbackTriggers(
-      input.RollbackTriggers,
-      context
-    );
+    const memberEntries = serializeAws_queryRollbackTriggers(input.RollbackTriggers, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RollbackTriggers.${key}`;
       entries[loc] = value;
@@ -6666,10 +5804,7 @@ const serializeAws_queryRollbackConfiguration = (
   return entries;
 };
 
-const serializeAws_queryRollbackTrigger = (
-  input: RollbackTrigger,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryRollbackTrigger = (input: RollbackTrigger, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Arn !== undefined) {
     entries["Arn"] = input.Arn;
@@ -6680,10 +5815,7 @@ const serializeAws_queryRollbackTrigger = (
   return entries;
 };
 
-const serializeAws_queryRollbackTriggers = (
-  input: RollbackTrigger[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryRollbackTriggers = (input: RollbackTrigger[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6696,10 +5828,7 @@ const serializeAws_queryRollbackTriggers = (
   return entries;
 };
 
-const serializeAws_querySetStackPolicyInput = (
-  input: SetStackPolicyInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_querySetStackPolicyInput = (input: SetStackPolicyInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.StackName !== undefined) {
     entries["StackName"] = input.StackName;
@@ -6733,10 +5862,7 @@ const serializeAws_querySetTypeDefaultVersionInput = (
   return entries;
 };
 
-const serializeAws_querySignalResourceInput = (
-  input: SignalResourceInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_querySignalResourceInput = (input: SignalResourceInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.LogicalResourceId !== undefined) {
     entries["LogicalResourceId"] = input.LogicalResourceId;
@@ -6784,10 +5910,7 @@ const serializeAws_queryStackSetOperationPreferences = (
     entries["MaxConcurrentPercentage"] = input.MaxConcurrentPercentage;
   }
   if (input.RegionOrder !== undefined) {
-    const memberEntries = serializeAws_queryRegionList(
-      input.RegionOrder,
-      context
-    );
+    const memberEntries = serializeAws_queryRegionList(input.RegionOrder, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RegionOrder.${key}`;
       entries[loc] = value;
@@ -6796,10 +5919,7 @@ const serializeAws_queryStackSetOperationPreferences = (
   return entries;
 };
 
-const serializeAws_queryStackStatusFilter = (
-  input: (StackStatus | string)[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryStackStatusFilter = (input: (StackStatus | string)[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6847,16 +5967,10 @@ const serializeAws_queryTags = (input: Tag[], context: __SerdeContext): any => {
   return entries;
 };
 
-const serializeAws_queryUpdateStackInput = (
-  input: UpdateStackInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryUpdateStackInput = (input: UpdateStackInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Capabilities !== undefined) {
-    const memberEntries = serializeAws_queryCapabilities(
-      input.Capabilities,
-      context
-    );
+    const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Capabilities.${key}`;
       entries[loc] = value;
@@ -6866,30 +5980,21 @@ const serializeAws_queryUpdateStackInput = (
     entries["ClientRequestToken"] = input.ClientRequestToken;
   }
   if (input.NotificationARNs !== undefined) {
-    const memberEntries = serializeAws_queryNotificationARNs(
-      input.NotificationARNs,
-      context
-    );
+    const memberEntries = serializeAws_queryNotificationARNs(input.NotificationARNs, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NotificationARNs.${key}`;
       entries[loc] = value;
     });
   }
   if (input.Parameters !== undefined) {
-    const memberEntries = serializeAws_queryParameters(
-      input.Parameters,
-      context
-    );
+    const memberEntries = serializeAws_queryParameters(input.Parameters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
     });
   }
   if (input.ResourceTypes !== undefined) {
-    const memberEntries = serializeAws_queryResourceTypes(
-      input.ResourceTypes,
-      context
-    );
+    const memberEntries = serializeAws_queryResourceTypes(input.ResourceTypes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceTypes.${key}`;
       entries[loc] = value;
@@ -6899,10 +6004,7 @@ const serializeAws_queryUpdateStackInput = (
     entries["RoleARN"] = input.RoleARN;
   }
   if (input.RollbackConfiguration !== undefined) {
-    const memberEntries = serializeAws_queryRollbackConfiguration(
-      input.RollbackConfiguration,
-      context
-    );
+    const memberEntries = serializeAws_queryRollbackConfiguration(input.RollbackConfiguration, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RollbackConfiguration.${key}`;
       entries[loc] = value;
@@ -6948,10 +6050,7 @@ const serializeAws_queryUpdateStackInstancesInput = (
 ): any => {
   const entries: any = {};
   if (input.Accounts !== undefined) {
-    const memberEntries = serializeAws_queryAccountList(
-      input.Accounts,
-      context
-    );
+    const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Accounts.${key}`;
       entries[loc] = value;
@@ -6964,20 +6063,14 @@ const serializeAws_queryUpdateStackInstancesInput = (
     entries["OperationId"] = input.OperationId;
   }
   if (input.OperationPreferences !== undefined) {
-    const memberEntries = serializeAws_queryStackSetOperationPreferences(
-      input.OperationPreferences,
-      context
-    );
+    const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OperationPreferences.${key}`;
       entries[loc] = value;
     });
   }
   if (input.ParameterOverrides !== undefined) {
-    const memberEntries = serializeAws_queryParameters(
-      input.ParameterOverrides,
-      context
-    );
+    const memberEntries = serializeAws_queryParameters(input.ParameterOverrides, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ParameterOverrides.${key}`;
       entries[loc] = value;
@@ -6996,16 +6089,10 @@ const serializeAws_queryUpdateStackInstancesInput = (
   return entries;
 };
 
-const serializeAws_queryUpdateStackSetInput = (
-  input: UpdateStackSetInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryUpdateStackSetInput = (input: UpdateStackSetInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Accounts !== undefined) {
-    const memberEntries = serializeAws_queryAccountList(
-      input.Accounts,
-      context
-    );
+    const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Accounts.${key}`;
       entries[loc] = value;
@@ -7015,10 +6102,7 @@ const serializeAws_queryUpdateStackSetInput = (
     entries["AdministrationRoleARN"] = input.AdministrationRoleARN;
   }
   if (input.Capabilities !== undefined) {
-    const memberEntries = serializeAws_queryCapabilities(
-      input.Capabilities,
-      context
-    );
+    const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Capabilities.${key}`;
       entries[loc] = value;
@@ -7037,20 +6121,14 @@ const serializeAws_queryUpdateStackSetInput = (
     entries["OperationId"] = input.OperationId;
   }
   if (input.OperationPreferences !== undefined) {
-    const memberEntries = serializeAws_queryStackSetOperationPreferences(
-      input.OperationPreferences,
-      context
-    );
+    const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OperationPreferences.${key}`;
       entries[loc] = value;
     });
   }
   if (input.Parameters !== undefined) {
-    const memberEntries = serializeAws_queryParameters(
-      input.Parameters,
-      context
-    );
+    const memberEntries = serializeAws_queryParameters(input.Parameters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
@@ -7099,10 +6177,7 @@ const serializeAws_queryUpdateTerminationProtectionInput = (
   return entries;
 };
 
-const serializeAws_queryValidateTemplateInput = (
-  input: ValidateTemplateInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryValidateTemplateInput = (input: ValidateTemplateInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.TemplateBody !== undefined) {
     entries["TemplateBody"] = input.TemplateBody;
@@ -7113,14 +6188,11 @@ const serializeAws_queryValidateTemplateInput = (
   return entries;
 };
 
-const deserializeAws_queryAccountGateResult = (
-  output: any,
-  context: __SerdeContext
-): AccountGateResult => {
+const deserializeAws_queryAccountGateResult = (output: any, context: __SerdeContext): AccountGateResult => {
   let contents: any = {
     __type: "AccountGateResult",
     Status: undefined,
-    StatusReason: undefined
+    StatusReason: undefined,
   };
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
@@ -7131,14 +6203,11 @@ const deserializeAws_queryAccountGateResult = (
   return contents;
 };
 
-const deserializeAws_queryAccountLimit = (
-  output: any,
-  context: __SerdeContext
-): AccountLimit => {
+const deserializeAws_queryAccountLimit = (output: any, context: __SerdeContext): AccountLimit => {
   let contents: any = {
     __type: "AccountLimit",
     Name: undefined,
-    Value: undefined
+    Value: undefined,
   };
   if (output["Name"] !== undefined) {
     contents.Name = output["Name"];
@@ -7149,29 +6218,18 @@ const deserializeAws_queryAccountLimit = (
   return contents;
 };
 
-const deserializeAws_queryAccountLimitList = (
-  output: any,
-  context: __SerdeContext
-): AccountLimit[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryAccountLimit(entry, context)
-  );
+const deserializeAws_queryAccountLimitList = (output: any, context: __SerdeContext): AccountLimit[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryAccountLimit(entry, context));
 };
 
-const deserializeAws_queryAllowedValues = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_queryAllowedValues = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_queryAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): AlreadyExistsException => {
+const deserializeAws_queryAlreadyExistsException = (output: any, context: __SerdeContext): AlreadyExistsException => {
   let contents: any = {
     __type: "AlreadyExistsException",
-    Message: undefined
+    Message: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
@@ -7179,20 +6237,14 @@ const deserializeAws_queryAlreadyExistsException = (
   return contents;
 };
 
-const deserializeAws_queryCapabilities = (
-  output: any,
-  context: __SerdeContext
-): (Capability | string)[] => {
+const deserializeAws_queryCapabilities = (output: any, context: __SerdeContext): (Capability | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_queryCFNRegistryException = (
-  output: any,
-  context: __SerdeContext
-): CFNRegistryException => {
+const deserializeAws_queryCFNRegistryException = (output: any, context: __SerdeContext): CFNRegistryException => {
   let contents: any = {
     __type: "CFNRegistryException",
-    Message: undefined
+    Message: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
@@ -7200,20 +6252,14 @@ const deserializeAws_queryCFNRegistryException = (
   return contents;
 };
 
-const deserializeAws_queryChange = (
-  output: any,
-  context: __SerdeContext
-): Change => {
+const deserializeAws_queryChange = (output: any, context: __SerdeContext): Change => {
   let contents: any = {
     __type: "Change",
     ResourceChange: undefined,
-    Type: undefined
+    Type: undefined,
   };
   if (output["ResourceChange"] !== undefined) {
-    contents.ResourceChange = deserializeAws_queryResourceChange(
-      output["ResourceChange"],
-      context
-    );
+    contents.ResourceChange = deserializeAws_queryResourceChange(output["ResourceChange"], context);
   }
   if (output["Type"] !== undefined) {
     contents.Type = output["Type"];
@@ -7221,13 +6267,8 @@ const deserializeAws_queryChange = (
   return contents;
 };
 
-const deserializeAws_queryChanges = (
-  output: any,
-  context: __SerdeContext
-): Change[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryChange(entry, context)
-  );
+const deserializeAws_queryChanges = (output: any, context: __SerdeContext): Change[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryChange(entry, context));
 };
 
 const deserializeAws_queryChangeSetNotFoundException = (
@@ -7236,7 +6277,7 @@ const deserializeAws_queryChangeSetNotFoundException = (
 ): ChangeSetNotFoundException => {
   let contents: any = {
     __type: "ChangeSetNotFoundException",
-    Message: undefined
+    Message: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
@@ -7244,19 +6285,11 @@ const deserializeAws_queryChangeSetNotFoundException = (
   return contents;
 };
 
-const deserializeAws_queryChangeSetSummaries = (
-  output: any,
-  context: __SerdeContext
-): ChangeSetSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryChangeSetSummary(entry, context)
-  );
+const deserializeAws_queryChangeSetSummaries = (output: any, context: __SerdeContext): ChangeSetSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryChangeSetSummary(entry, context));
 };
 
-const deserializeAws_queryChangeSetSummary = (
-  output: any,
-  context: __SerdeContext
-): ChangeSetSummary => {
+const deserializeAws_queryChangeSetSummary = (output: any, context: __SerdeContext): ChangeSetSummary => {
   let contents: any = {
     __type: "ChangeSetSummary",
     ChangeSetId: undefined,
@@ -7267,7 +6300,7 @@ const deserializeAws_queryChangeSetSummary = (
     StackId: undefined,
     StackName: undefined,
     Status: undefined,
-    StatusReason: undefined
+    StatusReason: undefined,
   };
   if (output["ChangeSetId"] !== undefined) {
     contents.ChangeSetId = output["ChangeSetId"];
@@ -7304,19 +6337,16 @@ const deserializeAws_queryContinueUpdateRollbackOutput = (
   context: __SerdeContext
 ): ContinueUpdateRollbackOutput => {
   let contents: any = {
-    __type: "ContinueUpdateRollbackOutput"
+    __type: "ContinueUpdateRollbackOutput",
   };
   return contents;
 };
 
-const deserializeAws_queryCreateChangeSetOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateChangeSetOutput => {
+const deserializeAws_queryCreateChangeSetOutput = (output: any, context: __SerdeContext): CreateChangeSetOutput => {
   let contents: any = {
     __type: "CreateChangeSetOutput",
     Id: undefined,
-    StackId: undefined
+    StackId: undefined,
   };
   if (output["Id"] !== undefined) {
     contents.Id = output["Id"];
@@ -7333,7 +6363,7 @@ const deserializeAws_queryCreatedButModifiedException = (
 ): CreatedButModifiedException => {
   let contents: any = {
     __type: "CreatedButModifiedException",
-    Message: undefined
+    Message: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
@@ -7347,7 +6377,7 @@ const deserializeAws_queryCreateStackInstancesOutput = (
 ): CreateStackInstancesOutput => {
   let contents: any = {
     __type: "CreateStackInstancesOutput",
-    OperationId: undefined
+    OperationId: undefined,
   };
   if (output["OperationId"] !== undefined) {
     contents.OperationId = output["OperationId"];
@@ -7355,13 +6385,10 @@ const deserializeAws_queryCreateStackInstancesOutput = (
   return contents;
 };
 
-const deserializeAws_queryCreateStackOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateStackOutput => {
+const deserializeAws_queryCreateStackOutput = (output: any, context: __SerdeContext): CreateStackOutput => {
   let contents: any = {
     __type: "CreateStackOutput",
-    StackId: undefined
+    StackId: undefined,
   };
   if (output["StackId"] !== undefined) {
     contents.StackId = output["StackId"];
@@ -7369,13 +6396,10 @@ const deserializeAws_queryCreateStackOutput = (
   return contents;
 };
 
-const deserializeAws_queryCreateStackSetOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateStackSetOutput => {
+const deserializeAws_queryCreateStackSetOutput = (output: any, context: __SerdeContext): CreateStackSetOutput => {
   let contents: any = {
     __type: "CreateStackSetOutput",
-    StackSetId: undefined
+    StackSetId: undefined,
   };
   if (output["StackSetId"] !== undefined) {
     contents.StackSetId = output["StackSetId"];
@@ -7383,12 +6407,9 @@ const deserializeAws_queryCreateStackSetOutput = (
   return contents;
 };
 
-const deserializeAws_queryDeleteChangeSetOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteChangeSetOutput => {
+const deserializeAws_queryDeleteChangeSetOutput = (output: any, context: __SerdeContext): DeleteChangeSetOutput => {
   let contents: any = {
-    __type: "DeleteChangeSetOutput"
+    __type: "DeleteChangeSetOutput",
   };
   return contents;
 };
@@ -7399,7 +6420,7 @@ const deserializeAws_queryDeleteStackInstancesOutput = (
 ): DeleteStackInstancesOutput => {
   let contents: any = {
     __type: "DeleteStackInstancesOutput",
-    OperationId: undefined
+    OperationId: undefined,
   };
   if (output["OperationId"] !== undefined) {
     contents.OperationId = output["OperationId"];
@@ -7407,22 +6428,16 @@ const deserializeAws_queryDeleteStackInstancesOutput = (
   return contents;
 };
 
-const deserializeAws_queryDeleteStackSetOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteStackSetOutput => {
+const deserializeAws_queryDeleteStackSetOutput = (output: any, context: __SerdeContext): DeleteStackSetOutput => {
   let contents: any = {
-    __type: "DeleteStackSetOutput"
+    __type: "DeleteStackSetOutput",
   };
   return contents;
 };
 
-const deserializeAws_queryDeregisterTypeOutput = (
-  output: any,
-  context: __SerdeContext
-): DeregisterTypeOutput => {
+const deserializeAws_queryDeregisterTypeOutput = (output: any, context: __SerdeContext): DeregisterTypeOutput => {
   let contents: any = {
-    __type: "DeregisterTypeOutput"
+    __type: "DeregisterTypeOutput",
   };
   return contents;
 };
@@ -7434,15 +6449,12 @@ const deserializeAws_queryDescribeAccountLimitsOutput = (
   let contents: any = {
     __type: "DescribeAccountLimitsOutput",
     AccountLimits: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.AccountLimits === "") {
     contents.AccountLimits = [];
   }
-  if (
-    output["AccountLimits"] !== undefined &&
-    output["AccountLimits"]["member"] !== undefined
-  ) {
+  if (output["AccountLimits"] !== undefined && output["AccountLimits"]["member"] !== undefined) {
     contents.AccountLimits = deserializeAws_queryAccountLimitList(
       __getArrayIfSingleItem(output["AccountLimits"]["member"]),
       context
@@ -7454,10 +6466,7 @@ const deserializeAws_queryDescribeAccountLimitsOutput = (
   return contents;
 };
 
-const deserializeAws_queryDescribeChangeSetOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeChangeSetOutput => {
+const deserializeAws_queryDescribeChangeSetOutput = (output: any, context: __SerdeContext): DescribeChangeSetOutput => {
   let contents: any = {
     __type: "DescribeChangeSetOutput",
     Capabilities: undefined,
@@ -7475,15 +6484,12 @@ const deserializeAws_queryDescribeChangeSetOutput = (
     StackName: undefined,
     Status: undefined,
     StatusReason: undefined,
-    Tags: undefined
+    Tags: undefined,
   };
   if (output.Capabilities === "") {
     contents.Capabilities = [];
   }
-  if (
-    output["Capabilities"] !== undefined &&
-    output["Capabilities"]["member"] !== undefined
-  ) {
+  if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
     contents.Capabilities = deserializeAws_queryCapabilities(
       __getArrayIfSingleItem(output["Capabilities"]["member"]),
       context
@@ -7498,14 +6504,8 @@ const deserializeAws_queryDescribeChangeSetOutput = (
   if (output.Changes === "") {
     contents.Changes = [];
   }
-  if (
-    output["Changes"] !== undefined &&
-    output["Changes"]["member"] !== undefined
-  ) {
-    contents.Changes = deserializeAws_queryChanges(
-      __getArrayIfSingleItem(output["Changes"]["member"]),
-      context
-    );
+  if (output["Changes"] !== undefined && output["Changes"]["member"] !== undefined) {
+    contents.Changes = deserializeAws_queryChanges(__getArrayIfSingleItem(output["Changes"]["member"]), context);
   }
   if (output["CreationTime"] !== undefined) {
     contents.CreationTime = new Date(output["CreationTime"]);
@@ -7522,10 +6522,7 @@ const deserializeAws_queryDescribeChangeSetOutput = (
   if (output.NotificationARNs === "") {
     contents.NotificationARNs = [];
   }
-  if (
-    output["NotificationARNs"] !== undefined &&
-    output["NotificationARNs"]["member"] !== undefined
-  ) {
+  if (output["NotificationARNs"] !== undefined && output["NotificationARNs"]["member"] !== undefined) {
     contents.NotificationARNs = deserializeAws_queryNotificationARNs(
       __getArrayIfSingleItem(output["NotificationARNs"]["member"]),
       context
@@ -7534,10 +6531,7 @@ const deserializeAws_queryDescribeChangeSetOutput = (
   if (output.Parameters === "") {
     contents.Parameters = [];
   }
-  if (
-    output["Parameters"] !== undefined &&
-    output["Parameters"]["member"] !== undefined
-  ) {
+  if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
     contents.Parameters = deserializeAws_queryParameters(
       __getArrayIfSingleItem(output["Parameters"]["member"]),
       context
@@ -7565,10 +6559,7 @@ const deserializeAws_queryDescribeChangeSetOutput = (
     contents.Tags = [];
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_queryTags(
-      __getArrayIfSingleItem(output["Tags"]["member"]),
-      context
-    );
+    contents.Tags = deserializeAws_queryTags(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
@@ -7585,7 +6576,7 @@ const deserializeAws_queryDescribeStackDriftDetectionStatusOutput = (
     StackDriftDetectionId: undefined,
     StackDriftStatus: undefined,
     StackId: undefined,
-    Timestamp: undefined
+    Timestamp: undefined,
   };
   if (output["DetectionStatus"] !== undefined) {
     contents.DetectionStatus = output["DetectionStatus"];
@@ -7594,9 +6585,7 @@ const deserializeAws_queryDescribeStackDriftDetectionStatusOutput = (
     contents.DetectionStatusReason = output["DetectionStatusReason"];
   }
   if (output["DriftedStackResourceCount"] !== undefined) {
-    contents.DriftedStackResourceCount = parseInt(
-      output["DriftedStackResourceCount"]
-    );
+    contents.DriftedStackResourceCount = parseInt(output["DriftedStackResourceCount"]);
   }
   if (output["StackDriftDetectionId"] !== undefined) {
     contents.StackDriftDetectionId = output["StackDriftDetectionId"];
@@ -7620,7 +6609,7 @@ const deserializeAws_queryDescribeStackEventsOutput = (
   let contents: any = {
     __type: "DescribeStackEventsOutput",
     NextToken: undefined,
-    StackEvents: undefined
+    StackEvents: undefined,
   };
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
@@ -7628,10 +6617,7 @@ const deserializeAws_queryDescribeStackEventsOutput = (
   if (output.StackEvents === "") {
     contents.StackEvents = [];
   }
-  if (
-    output["StackEvents"] !== undefined &&
-    output["StackEvents"]["member"] !== undefined
-  ) {
+  if (output["StackEvents"] !== undefined && output["StackEvents"]["member"] !== undefined) {
     contents.StackEvents = deserializeAws_queryStackEvents(
       __getArrayIfSingleItem(output["StackEvents"]["member"]),
       context
@@ -7646,13 +6632,10 @@ const deserializeAws_queryDescribeStackInstanceOutput = (
 ): DescribeStackInstanceOutput => {
   let contents: any = {
     __type: "DescribeStackInstanceOutput",
-    StackInstance: undefined
+    StackInstance: undefined,
   };
   if (output["StackInstance"] !== undefined) {
-    contents.StackInstance = deserializeAws_queryStackInstance(
-      output["StackInstance"],
-      context
-    );
+    contents.StackInstance = deserializeAws_queryStackInstance(output["StackInstance"], context);
   }
   return contents;
 };
@@ -7664,7 +6647,7 @@ const deserializeAws_queryDescribeStackResourceDriftsOutput = (
   let contents: any = {
     __type: "DescribeStackResourceDriftsOutput",
     NextToken: undefined,
-    StackResourceDrifts: undefined
+    StackResourceDrifts: undefined,
   };
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
@@ -7672,10 +6655,7 @@ const deserializeAws_queryDescribeStackResourceDriftsOutput = (
   if (output.StackResourceDrifts === "") {
     contents.StackResourceDrifts = [];
   }
-  if (
-    output["StackResourceDrifts"] !== undefined &&
-    output["StackResourceDrifts"]["member"] !== undefined
-  ) {
+  if (output["StackResourceDrifts"] !== undefined && output["StackResourceDrifts"]["member"] !== undefined) {
     contents.StackResourceDrifts = deserializeAws_queryStackResourceDrifts(
       __getArrayIfSingleItem(output["StackResourceDrifts"]["member"]),
       context
@@ -7690,13 +6670,10 @@ const deserializeAws_queryDescribeStackResourceOutput = (
 ): DescribeStackResourceOutput => {
   let contents: any = {
     __type: "DescribeStackResourceOutput",
-    StackResourceDetail: undefined
+    StackResourceDetail: undefined,
   };
   if (output["StackResourceDetail"] !== undefined) {
-    contents.StackResourceDetail = deserializeAws_queryStackResourceDetail(
-      output["StackResourceDetail"],
-      context
-    );
+    contents.StackResourceDetail = deserializeAws_queryStackResourceDetail(output["StackResourceDetail"], context);
   }
   return contents;
 };
@@ -7707,15 +6684,12 @@ const deserializeAws_queryDescribeStackResourcesOutput = (
 ): DescribeStackResourcesOutput => {
   let contents: any = {
     __type: "DescribeStackResourcesOutput",
-    StackResources: undefined
+    StackResources: undefined,
   };
   if (output.StackResources === "") {
     contents.StackResources = [];
   }
-  if (
-    output["StackResources"] !== undefined &&
-    output["StackResources"]["member"] !== undefined
-  ) {
+  if (output["StackResources"] !== undefined && output["StackResources"]["member"] !== undefined) {
     contents.StackResources = deserializeAws_queryStackResources(
       __getArrayIfSingleItem(output["StackResources"]["member"]),
       context
@@ -7730,42 +6704,30 @@ const deserializeAws_queryDescribeStackSetOperationOutput = (
 ): DescribeStackSetOperationOutput => {
   let contents: any = {
     __type: "DescribeStackSetOperationOutput",
-    StackSetOperation: undefined
+    StackSetOperation: undefined,
   };
   if (output["StackSetOperation"] !== undefined) {
-    contents.StackSetOperation = deserializeAws_queryStackSetOperation(
-      output["StackSetOperation"],
-      context
-    );
+    contents.StackSetOperation = deserializeAws_queryStackSetOperation(output["StackSetOperation"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDescribeStackSetOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeStackSetOutput => {
+const deserializeAws_queryDescribeStackSetOutput = (output: any, context: __SerdeContext): DescribeStackSetOutput => {
   let contents: any = {
     __type: "DescribeStackSetOutput",
-    StackSet: undefined
+    StackSet: undefined,
   };
   if (output["StackSet"] !== undefined) {
-    contents.StackSet = deserializeAws_queryStackSet(
-      output["StackSet"],
-      context
-    );
+    contents.StackSet = deserializeAws_queryStackSet(output["StackSet"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDescribeStacksOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeStacksOutput => {
+const deserializeAws_queryDescribeStacksOutput = (output: any, context: __SerdeContext): DescribeStacksOutput => {
   let contents: any = {
     __type: "DescribeStacksOutput",
     NextToken: undefined,
-    Stacks: undefined
+    Stacks: undefined,
   };
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
@@ -7773,22 +6735,13 @@ const deserializeAws_queryDescribeStacksOutput = (
   if (output.Stacks === "") {
     contents.Stacks = [];
   }
-  if (
-    output["Stacks"] !== undefined &&
-    output["Stacks"]["member"] !== undefined
-  ) {
-    contents.Stacks = deserializeAws_queryStacks(
-      __getArrayIfSingleItem(output["Stacks"]["member"]),
-      context
-    );
+  if (output["Stacks"] !== undefined && output["Stacks"]["member"] !== undefined) {
+    contents.Stacks = deserializeAws_queryStacks(__getArrayIfSingleItem(output["Stacks"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryDescribeTypeOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeTypeOutput => {
+const deserializeAws_queryDescribeTypeOutput = (output: any, context: __SerdeContext): DescribeTypeOutput => {
   let contents: any = {
     __type: "DescribeTypeOutput",
     Arn: undefined,
@@ -7805,7 +6758,7 @@ const deserializeAws_queryDescribeTypeOutput = (
     TimeCreated: undefined,
     Type: undefined,
     TypeName: undefined,
-    Visibility: undefined
+    Visibility: undefined,
   };
   if (output["Arn"] !== undefined) {
     contents.Arn = output["Arn"];
@@ -7829,10 +6782,7 @@ const deserializeAws_queryDescribeTypeOutput = (
     contents.LastUpdated = new Date(output["LastUpdated"]);
   }
   if (output["LoggingConfig"] !== undefined) {
-    contents.LoggingConfig = deserializeAws_queryLoggingConfig(
-      output["LoggingConfig"],
-      context
-    );
+    contents.LoggingConfig = deserializeAws_queryLoggingConfig(output["LoggingConfig"], context);
   }
   if (output["ProvisioningType"] !== undefined) {
     contents.ProvisioningType = output["ProvisioningType"];
@@ -7867,7 +6817,7 @@ const deserializeAws_queryDescribeTypeRegistrationOutput = (
     Description: undefined,
     ProgressStatus: undefined,
     TypeArn: undefined,
-    TypeVersionArn: undefined
+    TypeVersionArn: undefined,
   };
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
@@ -7884,13 +6834,10 @@ const deserializeAws_queryDescribeTypeRegistrationOutput = (
   return contents;
 };
 
-const deserializeAws_queryDetectStackDriftOutput = (
-  output: any,
-  context: __SerdeContext
-): DetectStackDriftOutput => {
+const deserializeAws_queryDetectStackDriftOutput = (output: any, context: __SerdeContext): DetectStackDriftOutput => {
   let contents: any = {
     __type: "DetectStackDriftOutput",
-    StackDriftDetectionId: undefined
+    StackDriftDetectionId: undefined,
   };
   if (output["StackDriftDetectionId"] !== undefined) {
     contents.StackDriftDetectionId = output["StackDriftDetectionId"];
@@ -7904,13 +6851,10 @@ const deserializeAws_queryDetectStackResourceDriftOutput = (
 ): DetectStackResourceDriftOutput => {
   let contents: any = {
     __type: "DetectStackResourceDriftOutput",
-    StackResourceDrift: undefined
+    StackResourceDrift: undefined,
   };
   if (output["StackResourceDrift"] !== undefined) {
-    contents.StackResourceDrift = deserializeAws_queryStackResourceDrift(
-      output["StackResourceDrift"],
-      context
-    );
+    contents.StackResourceDrift = deserializeAws_queryStackResourceDrift(output["StackResourceDrift"], context);
   }
   return contents;
 };
@@ -7921,7 +6865,7 @@ const deserializeAws_queryDetectStackSetDriftOutput = (
 ): DetectStackSetDriftOutput => {
   let contents: any = {
     __type: "DetectStackSetDriftOutput",
-    OperationId: undefined
+    OperationId: undefined,
   };
   if (output["OperationId"] !== undefined) {
     contents.OperationId = output["OperationId"];
@@ -7935,7 +6879,7 @@ const deserializeAws_queryEstimateTemplateCostOutput = (
 ): EstimateTemplateCostOutput => {
   let contents: any = {
     __type: "EstimateTemplateCostOutput",
-    Url: undefined
+    Url: undefined,
   };
   if (output["Url"] !== undefined) {
     contents.Url = output["Url"];
@@ -7943,25 +6887,19 @@ const deserializeAws_queryEstimateTemplateCostOutput = (
   return contents;
 };
 
-const deserializeAws_queryExecuteChangeSetOutput = (
-  output: any,
-  context: __SerdeContext
-): ExecuteChangeSetOutput => {
+const deserializeAws_queryExecuteChangeSetOutput = (output: any, context: __SerdeContext): ExecuteChangeSetOutput => {
   let contents: any = {
-    __type: "ExecuteChangeSetOutput"
+    __type: "ExecuteChangeSetOutput",
   };
   return contents;
 };
 
-const deserializeAws_queryExport = (
-  output: any,
-  context: __SerdeContext
-): Export => {
+const deserializeAws_queryExport = (output: any, context: __SerdeContext): Export => {
   let contents: any = {
     __type: "Export",
     ExportingStackId: undefined,
     Name: undefined,
-    Value: undefined
+    Value: undefined,
   };
   if (output["ExportingStackId"] !== undefined) {
     contents.ExportingStackId = output["ExportingStackId"];
@@ -7975,22 +6913,14 @@ const deserializeAws_queryExport = (
   return contents;
 };
 
-const deserializeAws_queryExports = (
-  output: any,
-  context: __SerdeContext
-): Export[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryExport(entry, context)
-  );
+const deserializeAws_queryExports = (output: any, context: __SerdeContext): Export[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryExport(entry, context));
 };
 
-const deserializeAws_queryGetStackPolicyOutput = (
-  output: any,
-  context: __SerdeContext
-): GetStackPolicyOutput => {
+const deserializeAws_queryGetStackPolicyOutput = (output: any, context: __SerdeContext): GetStackPolicyOutput => {
   let contents: any = {
     __type: "GetStackPolicyOutput",
-    StackPolicyBody: undefined
+    StackPolicyBody: undefined,
   };
   if (output["StackPolicyBody"] !== undefined) {
     contents.StackPolicyBody = output["StackPolicyBody"];
@@ -7998,22 +6928,16 @@ const deserializeAws_queryGetStackPolicyOutput = (
   return contents;
 };
 
-const deserializeAws_queryGetTemplateOutput = (
-  output: any,
-  context: __SerdeContext
-): GetTemplateOutput => {
+const deserializeAws_queryGetTemplateOutput = (output: any, context: __SerdeContext): GetTemplateOutput => {
   let contents: any = {
     __type: "GetTemplateOutput",
     StagesAvailable: undefined,
-    TemplateBody: undefined
+    TemplateBody: undefined,
   };
   if (output.StagesAvailable === "") {
     contents.StagesAvailable = [];
   }
-  if (
-    output["StagesAvailable"] !== undefined &&
-    output["StagesAvailable"]["member"] !== undefined
-  ) {
+  if (output["StagesAvailable"] !== undefined && output["StagesAvailable"]["member"] !== undefined) {
     contents.StagesAvailable = deserializeAws_queryStageList(
       __getArrayIfSingleItem(output["StagesAvailable"]["member"]),
       context
@@ -8039,15 +6963,12 @@ const deserializeAws_queryGetTemplateSummaryOutput = (
     Parameters: undefined,
     ResourceIdentifierSummaries: undefined,
     ResourceTypes: undefined,
-    Version: undefined
+    Version: undefined,
   };
   if (output.Capabilities === "") {
     contents.Capabilities = [];
   }
-  if (
-    output["Capabilities"] !== undefined &&
-    output["Capabilities"]["member"] !== undefined
-  ) {
+  if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
     contents.Capabilities = deserializeAws_queryCapabilities(
       __getArrayIfSingleItem(output["Capabilities"]["member"]),
       context
@@ -8059,10 +6980,7 @@ const deserializeAws_queryGetTemplateSummaryOutput = (
   if (output.DeclaredTransforms === "") {
     contents.DeclaredTransforms = [];
   }
-  if (
-    output["DeclaredTransforms"] !== undefined &&
-    output["DeclaredTransforms"]["member"] !== undefined
-  ) {
+  if (output["DeclaredTransforms"] !== undefined && output["DeclaredTransforms"]["member"] !== undefined) {
     contents.DeclaredTransforms = deserializeAws_queryTransformsList(
       __getArrayIfSingleItem(output["DeclaredTransforms"]["member"]),
       context
@@ -8077,10 +6995,7 @@ const deserializeAws_queryGetTemplateSummaryOutput = (
   if (output.Parameters === "") {
     contents.Parameters = [];
   }
-  if (
-    output["Parameters"] !== undefined &&
-    output["Parameters"]["member"] !== undefined
-  ) {
+  if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
     contents.Parameters = deserializeAws_queryParameterDeclarations(
       __getArrayIfSingleItem(output["Parameters"]["member"]),
       context
@@ -8101,10 +7016,7 @@ const deserializeAws_queryGetTemplateSummaryOutput = (
   if (output.ResourceTypes === "") {
     contents.ResourceTypes = [];
   }
-  if (
-    output["ResourceTypes"] !== undefined &&
-    output["ResourceTypes"]["member"] !== undefined
-  ) {
+  if (output["ResourceTypes"] !== undefined && output["ResourceTypes"]["member"] !== undefined) {
     contents.ResourceTypes = deserializeAws_queryResourceTypes(
       __getArrayIfSingleItem(output["ResourceTypes"]["member"]),
       context
@@ -8116,10 +7028,7 @@ const deserializeAws_queryGetTemplateSummaryOutput = (
   return contents;
 };
 
-const deserializeAws_queryImports = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_queryImports = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8129,7 +7038,7 @@ const deserializeAws_queryInsufficientCapabilitiesException = (
 ): InsufficientCapabilitiesException => {
   let contents: any = {
     __type: "InsufficientCapabilitiesException",
-    Message: undefined
+    Message: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
@@ -8143,7 +7052,7 @@ const deserializeAws_queryInvalidChangeSetStatusException = (
 ): InvalidChangeSetStatusException => {
   let contents: any = {
     __type: "InvalidChangeSetStatusException",
-    Message: undefined
+    Message: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
@@ -8157,7 +7066,7 @@ const deserializeAws_queryInvalidOperationException = (
 ): InvalidOperationException => {
   let contents: any = {
     __type: "InvalidOperationException",
-    Message: undefined
+    Message: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
@@ -8171,7 +7080,7 @@ const deserializeAws_queryInvalidStateTransitionException = (
 ): InvalidStateTransitionException => {
   let contents: any = {
     __type: "InvalidStateTransitionException",
-    Message: undefined
+    Message: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
@@ -8179,13 +7088,10 @@ const deserializeAws_queryInvalidStateTransitionException = (
   return contents;
 };
 
-const deserializeAws_queryLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): LimitExceededException => {
+const deserializeAws_queryLimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   let contents: any = {
     __type: "LimitExceededException",
-    Message: undefined
+    Message: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
@@ -8193,14 +7099,11 @@ const deserializeAws_queryLimitExceededException = (
   return contents;
 };
 
-const deserializeAws_queryListChangeSetsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListChangeSetsOutput => {
+const deserializeAws_queryListChangeSetsOutput = (output: any, context: __SerdeContext): ListChangeSetsOutput => {
   let contents: any = {
     __type: "ListChangeSetsOutput",
     NextToken: undefined,
-    Summaries: undefined
+    Summaries: undefined,
   };
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
@@ -8208,10 +7111,7 @@ const deserializeAws_queryListChangeSetsOutput = (
   if (output.Summaries === "") {
     contents.Summaries = [];
   }
-  if (
-    output["Summaries"] !== undefined &&
-    output["Summaries"]["member"] !== undefined
-  ) {
+  if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
     contents.Summaries = deserializeAws_queryChangeSetSummaries(
       __getArrayIfSingleItem(output["Summaries"]["member"]),
       context
@@ -8220,26 +7120,17 @@ const deserializeAws_queryListChangeSetsOutput = (
   return contents;
 };
 
-const deserializeAws_queryListExportsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListExportsOutput => {
+const deserializeAws_queryListExportsOutput = (output: any, context: __SerdeContext): ListExportsOutput => {
   let contents: any = {
     __type: "ListExportsOutput",
     Exports: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.Exports === "") {
     contents.Exports = [];
   }
-  if (
-    output["Exports"] !== undefined &&
-    output["Exports"]["member"] !== undefined
-  ) {
-    contents.Exports = deserializeAws_queryExports(
-      __getArrayIfSingleItem(output["Exports"]["member"]),
-      context
-    );
+  if (output["Exports"] !== undefined && output["Exports"]["member"] !== undefined) {
+    contents.Exports = deserializeAws_queryExports(__getArrayIfSingleItem(output["Exports"]["member"]), context);
   }
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
@@ -8247,26 +7138,17 @@ const deserializeAws_queryListExportsOutput = (
   return contents;
 };
 
-const deserializeAws_queryListImportsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListImportsOutput => {
+const deserializeAws_queryListImportsOutput = (output: any, context: __SerdeContext): ListImportsOutput => {
   let contents: any = {
     __type: "ListImportsOutput",
     Imports: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.Imports === "") {
     contents.Imports = [];
   }
-  if (
-    output["Imports"] !== undefined &&
-    output["Imports"]["member"] !== undefined
-  ) {
-    contents.Imports = deserializeAws_queryImports(
-      __getArrayIfSingleItem(output["Imports"]["member"]),
-      context
-    );
+  if (output["Imports"] !== undefined && output["Imports"]["member"] !== undefined) {
+    contents.Imports = deserializeAws_queryImports(__getArrayIfSingleItem(output["Imports"]["member"]), context);
   }
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
@@ -8281,7 +7163,7 @@ const deserializeAws_queryListStackInstancesOutput = (
   let contents: any = {
     __type: "ListStackInstancesOutput",
     NextToken: undefined,
-    Summaries: undefined
+    Summaries: undefined,
   };
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
@@ -8289,10 +7171,7 @@ const deserializeAws_queryListStackInstancesOutput = (
   if (output.Summaries === "") {
     contents.Summaries = [];
   }
-  if (
-    output["Summaries"] !== undefined &&
-    output["Summaries"]["member"] !== undefined
-  ) {
+  if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
     contents.Summaries = deserializeAws_queryStackInstanceSummaries(
       __getArrayIfSingleItem(output["Summaries"]["member"]),
       context
@@ -8308,7 +7187,7 @@ const deserializeAws_queryListStackResourcesOutput = (
   let contents: any = {
     __type: "ListStackResourcesOutput",
     NextToken: undefined,
-    StackResourceSummaries: undefined
+    StackResourceSummaries: undefined,
   };
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
@@ -8316,10 +7195,7 @@ const deserializeAws_queryListStackResourcesOutput = (
   if (output.StackResourceSummaries === "") {
     contents.StackResourceSummaries = [];
   }
-  if (
-    output["StackResourceSummaries"] !== undefined &&
-    output["StackResourceSummaries"]["member"] !== undefined
-  ) {
+  if (output["StackResourceSummaries"] !== undefined && output["StackResourceSummaries"]["member"] !== undefined) {
     contents.StackResourceSummaries = deserializeAws_queryStackResourceSummaries(
       __getArrayIfSingleItem(output["StackResourceSummaries"]["member"]),
       context
@@ -8335,7 +7211,7 @@ const deserializeAws_queryListStackSetOperationResultsOutput = (
   let contents: any = {
     __type: "ListStackSetOperationResultsOutput",
     NextToken: undefined,
-    Summaries: undefined
+    Summaries: undefined,
   };
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
@@ -8343,10 +7219,7 @@ const deserializeAws_queryListStackSetOperationResultsOutput = (
   if (output.Summaries === "") {
     contents.Summaries = [];
   }
-  if (
-    output["Summaries"] !== undefined &&
-    output["Summaries"]["member"] !== undefined
-  ) {
+  if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
     contents.Summaries = deserializeAws_queryStackSetOperationResultSummaries(
       __getArrayIfSingleItem(output["Summaries"]["member"]),
       context
@@ -8362,7 +7235,7 @@ const deserializeAws_queryListStackSetOperationsOutput = (
   let contents: any = {
     __type: "ListStackSetOperationsOutput",
     NextToken: undefined,
-    Summaries: undefined
+    Summaries: undefined,
   };
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
@@ -8370,10 +7243,7 @@ const deserializeAws_queryListStackSetOperationsOutput = (
   if (output.Summaries === "") {
     contents.Summaries = [];
   }
-  if (
-    output["Summaries"] !== undefined &&
-    output["Summaries"]["member"] !== undefined
-  ) {
+  if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
     contents.Summaries = deserializeAws_queryStackSetOperationSummaries(
       __getArrayIfSingleItem(output["Summaries"]["member"]),
       context
@@ -8382,14 +7252,11 @@ const deserializeAws_queryListStackSetOperationsOutput = (
   return contents;
 };
 
-const deserializeAws_queryListStackSetsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListStackSetsOutput => {
+const deserializeAws_queryListStackSetsOutput = (output: any, context: __SerdeContext): ListStackSetsOutput => {
   let contents: any = {
     __type: "ListStackSetsOutput",
     NextToken: undefined,
-    Summaries: undefined
+    Summaries: undefined,
   };
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
@@ -8397,10 +7264,7 @@ const deserializeAws_queryListStackSetsOutput = (
   if (output.Summaries === "") {
     contents.Summaries = [];
   }
-  if (
-    output["Summaries"] !== undefined &&
-    output["Summaries"]["member"] !== undefined
-  ) {
+  if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
     contents.Summaries = deserializeAws_queryStackSetSummaries(
       __getArrayIfSingleItem(output["Summaries"]["member"]),
       context
@@ -8409,14 +7273,11 @@ const deserializeAws_queryListStackSetsOutput = (
   return contents;
 };
 
-const deserializeAws_queryListStacksOutput = (
-  output: any,
-  context: __SerdeContext
-): ListStacksOutput => {
+const deserializeAws_queryListStacksOutput = (output: any, context: __SerdeContext): ListStacksOutput => {
   let contents: any = {
     __type: "ListStacksOutput",
     NextToken: undefined,
-    StackSummaries: undefined
+    StackSummaries: undefined,
   };
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
@@ -8424,10 +7285,7 @@ const deserializeAws_queryListStacksOutput = (
   if (output.StackSummaries === "") {
     contents.StackSummaries = [];
   }
-  if (
-    output["StackSummaries"] !== undefined &&
-    output["StackSummaries"]["member"] !== undefined
-  ) {
+  if (output["StackSummaries"] !== undefined && output["StackSummaries"]["member"] !== undefined) {
     contents.StackSummaries = deserializeAws_queryStackSummaries(
       __getArrayIfSingleItem(output["StackSummaries"]["member"]),
       context
@@ -8443,7 +7301,7 @@ const deserializeAws_queryListTypeRegistrationsOutput = (
   let contents: any = {
     __type: "ListTypeRegistrationsOutput",
     NextToken: undefined,
-    RegistrationTokenList: undefined
+    RegistrationTokenList: undefined,
   };
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
@@ -8451,10 +7309,7 @@ const deserializeAws_queryListTypeRegistrationsOutput = (
   if (output.RegistrationTokenList === "") {
     contents.RegistrationTokenList = [];
   }
-  if (
-    output["RegistrationTokenList"] !== undefined &&
-    output["RegistrationTokenList"]["member"] !== undefined
-  ) {
+  if (output["RegistrationTokenList"] !== undefined && output["RegistrationTokenList"]["member"] !== undefined) {
     contents.RegistrationTokenList = deserializeAws_queryRegistrationTokenList(
       __getArrayIfSingleItem(output["RegistrationTokenList"]["member"]),
       context
@@ -8463,14 +7318,11 @@ const deserializeAws_queryListTypeRegistrationsOutput = (
   return contents;
 };
 
-const deserializeAws_queryListTypesOutput = (
-  output: any,
-  context: __SerdeContext
-): ListTypesOutput => {
+const deserializeAws_queryListTypesOutput = (output: any, context: __SerdeContext): ListTypesOutput => {
   let contents: any = {
     __type: "ListTypesOutput",
     NextToken: undefined,
-    TypeSummaries: undefined
+    TypeSummaries: undefined,
   };
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
@@ -8478,10 +7330,7 @@ const deserializeAws_queryListTypesOutput = (
   if (output.TypeSummaries === "") {
     contents.TypeSummaries = [];
   }
-  if (
-    output["TypeSummaries"] !== undefined &&
-    output["TypeSummaries"]["member"] !== undefined
-  ) {
+  if (output["TypeSummaries"] !== undefined && output["TypeSummaries"]["member"] !== undefined) {
     contents.TypeSummaries = deserializeAws_queryTypeSummaries(
       __getArrayIfSingleItem(output["TypeSummaries"]["member"]),
       context
@@ -8490,14 +7339,11 @@ const deserializeAws_queryListTypesOutput = (
   return contents;
 };
 
-const deserializeAws_queryListTypeVersionsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListTypeVersionsOutput => {
+const deserializeAws_queryListTypeVersionsOutput = (output: any, context: __SerdeContext): ListTypeVersionsOutput => {
   let contents: any = {
     __type: "ListTypeVersionsOutput",
     NextToken: undefined,
-    TypeVersionSummaries: undefined
+    TypeVersionSummaries: undefined,
   };
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
@@ -8505,10 +7351,7 @@ const deserializeAws_queryListTypeVersionsOutput = (
   if (output.TypeVersionSummaries === "") {
     contents.TypeVersionSummaries = [];
   }
-  if (
-    output["TypeVersionSummaries"] !== undefined &&
-    output["TypeVersionSummaries"]["member"] !== undefined
-  ) {
+  if (output["TypeVersionSummaries"] !== undefined && output["TypeVersionSummaries"]["member"] !== undefined) {
     contents.TypeVersionSummaries = deserializeAws_queryTypeVersionSummaries(
       __getArrayIfSingleItem(output["TypeVersionSummaries"]["member"]),
       context
@@ -8517,14 +7360,11 @@ const deserializeAws_queryListTypeVersionsOutput = (
   return contents;
 };
 
-const deserializeAws_queryLoggingConfig = (
-  output: any,
-  context: __SerdeContext
-): LoggingConfig => {
+const deserializeAws_queryLoggingConfig = (output: any, context: __SerdeContext): LoggingConfig => {
   let contents: any = {
     __type: "LoggingConfig",
     LogGroupName: undefined,
-    LogRoleArn: undefined
+    LogRoleArn: undefined,
   };
   if (output["LogGroupName"] !== undefined) {
     contents.LogGroupName = output["LogGroupName"];
@@ -8535,10 +7375,7 @@ const deserializeAws_queryLoggingConfig = (
   return contents;
 };
 
-const deserializeAws_queryLogicalResourceIds = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_queryLogicalResourceIds = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8548,7 +7385,7 @@ const deserializeAws_queryNameAlreadyExistsException = (
 ): NameAlreadyExistsException => {
   let contents: any = {
     __type: "NameAlreadyExistsException",
-    Message: undefined
+    Message: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
@@ -8556,10 +7393,7 @@ const deserializeAws_queryNameAlreadyExistsException = (
   return contents;
 };
 
-const deserializeAws_queryNotificationARNs = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_queryNotificationARNs = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8569,7 +7403,7 @@ const deserializeAws_queryOperationIdAlreadyExistsException = (
 ): OperationIdAlreadyExistsException => {
   let contents: any = {
     __type: "OperationIdAlreadyExistsException",
-    Message: undefined
+    Message: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
@@ -8583,7 +7417,7 @@ const deserializeAws_queryOperationInProgressException = (
 ): OperationInProgressException => {
   let contents: any = {
     __type: "OperationInProgressException",
-    Message: undefined
+    Message: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
@@ -8597,7 +7431,7 @@ const deserializeAws_queryOperationNotFoundException = (
 ): OperationNotFoundException => {
   let contents: any = {
     __type: "OperationNotFoundException",
-    Message: undefined
+    Message: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
@@ -8611,7 +7445,7 @@ const deserializeAws_queryOperationStatusCheckFailedException = (
 ): OperationStatusCheckFailedException => {
   let contents: any = {
     __type: "OperationStatusCheckFailedException",
-    Message: undefined
+    Message: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
@@ -8619,16 +7453,13 @@ const deserializeAws_queryOperationStatusCheckFailedException = (
   return contents;
 };
 
-const deserializeAws_queryOutput = (
-  output: any,
-  context: __SerdeContext
-): Output => {
+const deserializeAws_queryOutput = (output: any, context: __SerdeContext): Output => {
   let contents: any = {
     __type: "Output",
     Description: undefined,
     ExportName: undefined,
     OutputKey: undefined,
-    OutputValue: undefined
+    OutputValue: undefined,
   };
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
@@ -8645,25 +7476,17 @@ const deserializeAws_queryOutput = (
   return contents;
 };
 
-const deserializeAws_queryOutputs = (
-  output: any,
-  context: __SerdeContext
-): Output[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryOutput(entry, context)
-  );
+const deserializeAws_queryOutputs = (output: any, context: __SerdeContext): Output[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryOutput(entry, context));
 };
 
-const deserializeAws_queryParameter = (
-  output: any,
-  context: __SerdeContext
-): Parameter => {
+const deserializeAws_queryParameter = (output: any, context: __SerdeContext): Parameter => {
   let contents: any = {
     __type: "Parameter",
     ParameterKey: undefined,
     ParameterValue: undefined,
     ResolvedValue: undefined,
-    UsePreviousValue: undefined
+    UsePreviousValue: undefined,
   };
   if (output["ParameterKey"] !== undefined) {
     contents.ParameterKey = output["ParameterKey"];
@@ -8680,21 +7503,15 @@ const deserializeAws_queryParameter = (
   return contents;
 };
 
-const deserializeAws_queryParameterConstraints = (
-  output: any,
-  context: __SerdeContext
-): ParameterConstraints => {
+const deserializeAws_queryParameterConstraints = (output: any, context: __SerdeContext): ParameterConstraints => {
   let contents: any = {
     __type: "ParameterConstraints",
-    AllowedValues: undefined
+    AllowedValues: undefined,
   };
   if (output.AllowedValues === "") {
     contents.AllowedValues = [];
   }
-  if (
-    output["AllowedValues"] !== undefined &&
-    output["AllowedValues"]["member"] !== undefined
-  ) {
+  if (output["AllowedValues"] !== undefined && output["AllowedValues"]["member"] !== undefined) {
     contents.AllowedValues = deserializeAws_queryAllowedValues(
       __getArrayIfSingleItem(output["AllowedValues"]["member"]),
       context
@@ -8703,10 +7520,7 @@ const deserializeAws_queryParameterConstraints = (
   return contents;
 };
 
-const deserializeAws_queryParameterDeclaration = (
-  output: any,
-  context: __SerdeContext
-): ParameterDeclaration => {
+const deserializeAws_queryParameterDeclaration = (output: any, context: __SerdeContext): ParameterDeclaration => {
   let contents: any = {
     __type: "ParameterDeclaration",
     DefaultValue: undefined,
@@ -8714,7 +7528,7 @@ const deserializeAws_queryParameterDeclaration = (
     NoEcho: undefined,
     ParameterConstraints: undefined,
     ParameterKey: undefined,
-    ParameterType: undefined
+    ParameterType: undefined,
   };
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = output["DefaultValue"];
@@ -8726,10 +7540,7 @@ const deserializeAws_queryParameterDeclaration = (
     contents.NoEcho = output["NoEcho"] == "true";
   }
   if (output["ParameterConstraints"] !== undefined) {
-    contents.ParameterConstraints = deserializeAws_queryParameterConstraints(
-      output["ParameterConstraints"],
-      context
-    );
+    contents.ParameterConstraints = deserializeAws_queryParameterConstraints(output["ParameterConstraints"], context);
   }
   if (output["ParameterKey"] !== undefined) {
     contents.ParameterKey = output["ParameterKey"];
@@ -8740,31 +7551,19 @@ const deserializeAws_queryParameterDeclaration = (
   return contents;
 };
 
-const deserializeAws_queryParameterDeclarations = (
-  output: any,
-  context: __SerdeContext
-): ParameterDeclaration[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryParameterDeclaration(entry, context)
-  );
+const deserializeAws_queryParameterDeclarations = (output: any, context: __SerdeContext): ParameterDeclaration[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryParameterDeclaration(entry, context));
 };
 
-const deserializeAws_queryParameters = (
-  output: any,
-  context: __SerdeContext
-): Parameter[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryParameter(entry, context)
-  );
+const deserializeAws_queryParameters = (output: any, context: __SerdeContext): Parameter[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryParameter(entry, context));
 };
 
 const deserializeAws_queryPhysicalResourceIdContext = (
   output: any,
   context: __SerdeContext
 ): PhysicalResourceIdContextKeyValuePair[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryPhysicalResourceIdContextKeyValuePair(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_queryPhysicalResourceIdContextKeyValuePair(entry, context));
 };
 
 const deserializeAws_queryPhysicalResourceIdContextKeyValuePair = (
@@ -8774,7 +7573,7 @@ const deserializeAws_queryPhysicalResourceIdContextKeyValuePair = (
   let contents: any = {
     __type: "PhysicalResourceIdContextKeyValuePair",
     Key: undefined,
-    Value: undefined
+    Value: undefined,
   };
   if (output["Key"] !== undefined) {
     contents.Key = output["Key"];
@@ -8785,16 +7584,13 @@ const deserializeAws_queryPhysicalResourceIdContextKeyValuePair = (
   return contents;
 };
 
-const deserializeAws_queryPropertyDifference = (
-  output: any,
-  context: __SerdeContext
-): PropertyDifference => {
+const deserializeAws_queryPropertyDifference = (output: any, context: __SerdeContext): PropertyDifference => {
   let contents: any = {
     __type: "PropertyDifference",
     ActualValue: undefined,
     DifferenceType: undefined,
     ExpectedValue: undefined,
-    PropertyPath: undefined
+    PropertyPath: undefined,
   };
   if (output["ActualValue"] !== undefined) {
     contents.ActualValue = output["ActualValue"];
@@ -8811,13 +7607,8 @@ const deserializeAws_queryPropertyDifference = (
   return contents;
 };
 
-const deserializeAws_queryPropertyDifferences = (
-  output: any,
-  context: __SerdeContext
-): PropertyDifference[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryPropertyDifference(entry, context)
-  );
+const deserializeAws_queryPropertyDifferences = (output: any, context: __SerdeContext): PropertyDifference[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryPropertyDifference(entry, context));
 };
 
 const deserializeAws_queryRecordHandlerProgressOutput = (
@@ -8825,25 +7616,19 @@ const deserializeAws_queryRecordHandlerProgressOutput = (
   context: __SerdeContext
 ): RecordHandlerProgressOutput => {
   let contents: any = {
-    __type: "RecordHandlerProgressOutput"
+    __type: "RecordHandlerProgressOutput",
   };
   return contents;
 };
 
-const deserializeAws_queryRegionList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_queryRegionList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_queryRegisterTypeOutput = (
-  output: any,
-  context: __SerdeContext
-): RegisterTypeOutput => {
+const deserializeAws_queryRegisterTypeOutput = (output: any, context: __SerdeContext): RegisterTypeOutput => {
   let contents: any = {
     __type: "RegisterTypeOutput",
-    RegistrationToken: undefined
+    RegistrationToken: undefined,
   };
   if (output["RegistrationToken"] !== undefined) {
     contents.RegistrationToken = output["RegistrationToken"];
@@ -8851,17 +7636,11 @@ const deserializeAws_queryRegisterTypeOutput = (
   return contents;
 };
 
-const deserializeAws_queryRegistrationTokenList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_queryRegistrationTokenList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_queryResourceChange = (
-  output: any,
-  context: __SerdeContext
-): ResourceChange => {
+const deserializeAws_queryResourceChange = (output: any, context: __SerdeContext): ResourceChange => {
   let contents: any = {
     __type: "ResourceChange",
     Action: undefined,
@@ -8870,7 +7649,7 @@ const deserializeAws_queryResourceChange = (
     PhysicalResourceId: undefined,
     Replacement: undefined,
     ResourceType: undefined,
-    Scope: undefined
+    Scope: undefined,
   };
   if (output["Action"] !== undefined) {
     contents.Action = output["Action"];
@@ -8878,10 +7657,7 @@ const deserializeAws_queryResourceChange = (
   if (output.Details === "") {
     contents.Details = [];
   }
-  if (
-    output["Details"] !== undefined &&
-    output["Details"]["member"] !== undefined
-  ) {
+  if (output["Details"] !== undefined && output["Details"]["member"] !== undefined) {
     contents.Details = deserializeAws_queryResourceChangeDetails(
       __getArrayIfSingleItem(output["Details"]["member"]),
       context
@@ -8902,28 +7678,19 @@ const deserializeAws_queryResourceChange = (
   if (output.Scope === "") {
     contents.Scope = [];
   }
-  if (
-    output["Scope"] !== undefined &&
-    output["Scope"]["member"] !== undefined
-  ) {
-    contents.Scope = deserializeAws_queryScope(
-      __getArrayIfSingleItem(output["Scope"]["member"]),
-      context
-    );
+  if (output["Scope"] !== undefined && output["Scope"]["member"] !== undefined) {
+    contents.Scope = deserializeAws_queryScope(__getArrayIfSingleItem(output["Scope"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryResourceChangeDetail = (
-  output: any,
-  context: __SerdeContext
-): ResourceChangeDetail => {
+const deserializeAws_queryResourceChangeDetail = (output: any, context: __SerdeContext): ResourceChangeDetail => {
   let contents: any = {
     __type: "ResourceChangeDetail",
     CausingEntity: undefined,
     ChangeSource: undefined,
     Evaluation: undefined,
-    Target: undefined
+    Target: undefined,
   };
   if (output["CausingEntity"] !== undefined) {
     contents.CausingEntity = output["CausingEntity"];
@@ -8935,27 +7702,16 @@ const deserializeAws_queryResourceChangeDetail = (
     contents.Evaluation = output["Evaluation"];
   }
   if (output["Target"] !== undefined) {
-    contents.Target = deserializeAws_queryResourceTargetDefinition(
-      output["Target"],
-      context
-    );
+    contents.Target = deserializeAws_queryResourceTargetDefinition(output["Target"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryResourceChangeDetails = (
-  output: any,
-  context: __SerdeContext
-): ResourceChangeDetail[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryResourceChangeDetail(entry, context)
-  );
+const deserializeAws_queryResourceChangeDetails = (output: any, context: __SerdeContext): ResourceChangeDetail[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryResourceChangeDetail(entry, context));
 };
 
-const deserializeAws_queryResourceIdentifiers = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_queryResourceIdentifiers = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8963,9 +7719,7 @@ const deserializeAws_queryResourceIdentifierSummaries = (
   output: any,
   context: __SerdeContext
 ): ResourceIdentifierSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryResourceIdentifierSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_queryResourceIdentifierSummary(entry, context));
 };
 
 const deserializeAws_queryResourceIdentifierSummary = (
@@ -8976,15 +7730,12 @@ const deserializeAws_queryResourceIdentifierSummary = (
     __type: "ResourceIdentifierSummary",
     LogicalResourceIds: undefined,
     ResourceIdentifiers: undefined,
-    ResourceType: undefined
+    ResourceType: undefined,
   };
   if (output.LogicalResourceIds === "") {
     contents.LogicalResourceIds = [];
   }
-  if (
-    output["LogicalResourceIds"] !== undefined &&
-    output["LogicalResourceIds"]["member"] !== undefined
-  ) {
+  if (output["LogicalResourceIds"] !== undefined && output["LogicalResourceIds"]["member"] !== undefined) {
     contents.LogicalResourceIds = deserializeAws_queryLogicalResourceIds(
       __getArrayIfSingleItem(output["LogicalResourceIds"]["member"]),
       context
@@ -8993,10 +7744,7 @@ const deserializeAws_queryResourceIdentifierSummary = (
   if (output.ResourceIdentifiers === "") {
     contents.ResourceIdentifiers = [];
   }
-  if (
-    output["ResourceIdentifiers"] !== undefined &&
-    output["ResourceIdentifiers"]["member"] !== undefined
-  ) {
+  if (output["ResourceIdentifiers"] !== undefined && output["ResourceIdentifiers"]["member"] !== undefined) {
     contents.ResourceIdentifiers = deserializeAws_queryResourceIdentifiers(
       __getArrayIfSingleItem(output["ResourceIdentifiers"]["member"]),
       context
@@ -9016,7 +7764,7 @@ const deserializeAws_queryResourceTargetDefinition = (
     __type: "ResourceTargetDefinition",
     Attribute: undefined,
     Name: undefined,
-    RequiresRecreation: undefined
+    RequiresRecreation: undefined,
   };
   if (output["Attribute"] !== undefined) {
     contents.Attribute = output["Attribute"];
@@ -9030,34 +7778,23 @@ const deserializeAws_queryResourceTargetDefinition = (
   return contents;
 };
 
-const deserializeAws_queryResourceTypes = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_queryResourceTypes = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_queryRollbackConfiguration = (
-  output: any,
-  context: __SerdeContext
-): RollbackConfiguration => {
+const deserializeAws_queryRollbackConfiguration = (output: any, context: __SerdeContext): RollbackConfiguration => {
   let contents: any = {
     __type: "RollbackConfiguration",
     MonitoringTimeInMinutes: undefined,
-    RollbackTriggers: undefined
+    RollbackTriggers: undefined,
   };
   if (output["MonitoringTimeInMinutes"] !== undefined) {
-    contents.MonitoringTimeInMinutes = parseInt(
-      output["MonitoringTimeInMinutes"]
-    );
+    contents.MonitoringTimeInMinutes = parseInt(output["MonitoringTimeInMinutes"]);
   }
   if (output.RollbackTriggers === "") {
     contents.RollbackTriggers = [];
   }
-  if (
-    output["RollbackTriggers"] !== undefined &&
-    output["RollbackTriggers"]["member"] !== undefined
-  ) {
+  if (output["RollbackTriggers"] !== undefined && output["RollbackTriggers"]["member"] !== undefined) {
     contents.RollbackTriggers = deserializeAws_queryRollbackTriggers(
       __getArrayIfSingleItem(output["RollbackTriggers"]["member"]),
       context
@@ -9066,14 +7803,11 @@ const deserializeAws_queryRollbackConfiguration = (
   return contents;
 };
 
-const deserializeAws_queryRollbackTrigger = (
-  output: any,
-  context: __SerdeContext
-): RollbackTrigger => {
+const deserializeAws_queryRollbackTrigger = (output: any, context: __SerdeContext): RollbackTrigger => {
   let contents: any = {
     __type: "RollbackTrigger",
     Arn: undefined,
-    Type: undefined
+    Type: undefined,
   };
   if (output["Arn"] !== undefined) {
     contents.Arn = output["Arn"];
@@ -9084,19 +7818,11 @@ const deserializeAws_queryRollbackTrigger = (
   return contents;
 };
 
-const deserializeAws_queryRollbackTriggers = (
-  output: any,
-  context: __SerdeContext
-): RollbackTrigger[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryRollbackTrigger(entry, context)
-  );
+const deserializeAws_queryRollbackTriggers = (output: any, context: __SerdeContext): RollbackTrigger[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryRollbackTrigger(entry, context));
 };
 
-const deserializeAws_queryScope = (
-  output: any,
-  context: __SerdeContext
-): (ResourceAttribute | string)[] => {
+const deserializeAws_queryScope = (output: any, context: __SerdeContext): (ResourceAttribute | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -9105,15 +7831,12 @@ const deserializeAws_querySetTypeDefaultVersionOutput = (
   context: __SerdeContext
 ): SetTypeDefaultVersionOutput => {
   let contents: any = {
-    __type: "SetTypeDefaultVersionOutput"
+    __type: "SetTypeDefaultVersionOutput",
   };
   return contents;
 };
 
-const deserializeAws_queryStack = (
-  output: any,
-  context: __SerdeContext
-): Stack => {
+const deserializeAws_queryStack = (output: any, context: __SerdeContext): Stack => {
   let contents: any = {
     __type: "Stack",
     Capabilities: undefined,
@@ -9137,15 +7860,12 @@ const deserializeAws_queryStack = (
     StackStatus: undefined,
     StackStatusReason: undefined,
     Tags: undefined,
-    TimeoutInMinutes: undefined
+    TimeoutInMinutes: undefined,
   };
   if (output.Capabilities === "") {
     contents.Capabilities = [];
   }
-  if (
-    output["Capabilities"] !== undefined &&
-    output["Capabilities"]["member"] !== undefined
-  ) {
+  if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
     contents.Capabilities = deserializeAws_queryCapabilities(
       __getArrayIfSingleItem(output["Capabilities"]["member"]),
       context
@@ -9167,14 +7887,10 @@ const deserializeAws_queryStack = (
     contents.DisableRollback = output["DisableRollback"] == "true";
   }
   if (output["DriftInformation"] !== undefined) {
-    contents.DriftInformation = deserializeAws_queryStackDriftInformation(
-      output["DriftInformation"],
-      context
-    );
+    contents.DriftInformation = deserializeAws_queryStackDriftInformation(output["DriftInformation"], context);
   }
   if (output["EnableTerminationProtection"] !== undefined) {
-    contents.EnableTerminationProtection =
-      output["EnableTerminationProtection"] == "true";
+    contents.EnableTerminationProtection = output["EnableTerminationProtection"] == "true";
   }
   if (output["LastUpdatedTime"] !== undefined) {
     contents.LastUpdatedTime = new Date(output["LastUpdatedTime"]);
@@ -9182,10 +7898,7 @@ const deserializeAws_queryStack = (
   if (output.NotificationARNs === "") {
     contents.NotificationARNs = [];
   }
-  if (
-    output["NotificationARNs"] !== undefined &&
-    output["NotificationARNs"]["member"] !== undefined
-  ) {
+  if (output["NotificationARNs"] !== undefined && output["NotificationARNs"]["member"] !== undefined) {
     contents.NotificationARNs = deserializeAws_queryNotificationARNs(
       __getArrayIfSingleItem(output["NotificationARNs"]["member"]),
       context
@@ -9194,22 +7907,13 @@ const deserializeAws_queryStack = (
   if (output.Outputs === "") {
     contents.Outputs = [];
   }
-  if (
-    output["Outputs"] !== undefined &&
-    output["Outputs"]["member"] !== undefined
-  ) {
-    contents.Outputs = deserializeAws_queryOutputs(
-      __getArrayIfSingleItem(output["Outputs"]["member"]),
-      context
-    );
+  if (output["Outputs"] !== undefined && output["Outputs"]["member"] !== undefined) {
+    contents.Outputs = deserializeAws_queryOutputs(__getArrayIfSingleItem(output["Outputs"]["member"]), context);
   }
   if (output.Parameters === "") {
     contents.Parameters = [];
   }
-  if (
-    output["Parameters"] !== undefined &&
-    output["Parameters"]["member"] !== undefined
-  ) {
+  if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
     contents.Parameters = deserializeAws_queryParameters(
       __getArrayIfSingleItem(output["Parameters"]["member"]),
       context
@@ -9246,10 +7950,7 @@ const deserializeAws_queryStack = (
     contents.Tags = [];
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_queryTags(
-      __getArrayIfSingleItem(output["Tags"]["member"]),
-      context
-    );
+    contents.Tags = deserializeAws_queryTags(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["TimeoutInMinutes"] !== undefined) {
     contents.TimeoutInMinutes = parseInt(output["TimeoutInMinutes"]);
@@ -9257,14 +7958,11 @@ const deserializeAws_queryStack = (
   return contents;
 };
 
-const deserializeAws_queryStackDriftInformation = (
-  output: any,
-  context: __SerdeContext
-): StackDriftInformation => {
+const deserializeAws_queryStackDriftInformation = (output: any, context: __SerdeContext): StackDriftInformation => {
   let contents: any = {
     __type: "StackDriftInformation",
     LastCheckTimestamp: undefined,
-    StackDriftStatus: undefined
+    StackDriftStatus: undefined,
   };
   if (output["LastCheckTimestamp"] !== undefined) {
     contents.LastCheckTimestamp = new Date(output["LastCheckTimestamp"]);
@@ -9282,7 +7980,7 @@ const deserializeAws_queryStackDriftInformationSummary = (
   let contents: any = {
     __type: "StackDriftInformationSummary",
     LastCheckTimestamp: undefined,
-    StackDriftStatus: undefined
+    StackDriftStatus: undefined,
   };
   if (output["LastCheckTimestamp"] !== undefined) {
     contents.LastCheckTimestamp = new Date(output["LastCheckTimestamp"]);
@@ -9293,10 +7991,7 @@ const deserializeAws_queryStackDriftInformationSummary = (
   return contents;
 };
 
-const deserializeAws_queryStackEvent = (
-  output: any,
-  context: __SerdeContext
-): StackEvent => {
+const deserializeAws_queryStackEvent = (output: any, context: __SerdeContext): StackEvent => {
   let contents: any = {
     __type: "StackEvent",
     ClientRequestToken: undefined,
@@ -9309,7 +8004,7 @@ const deserializeAws_queryStackEvent = (
     ResourceType: undefined,
     StackId: undefined,
     StackName: undefined,
-    Timestamp: undefined
+    Timestamp: undefined,
   };
   if (output["ClientRequestToken"] !== undefined) {
     contents.ClientRequestToken = output["ClientRequestToken"];
@@ -9347,19 +8042,11 @@ const deserializeAws_queryStackEvent = (
   return contents;
 };
 
-const deserializeAws_queryStackEvents = (
-  output: any,
-  context: __SerdeContext
-): StackEvent[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryStackEvent(entry, context)
-  );
+const deserializeAws_queryStackEvents = (output: any, context: __SerdeContext): StackEvent[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryStackEvent(entry, context));
 };
 
-const deserializeAws_queryStackInstance = (
-  output: any,
-  context: __SerdeContext
-): StackInstance => {
+const deserializeAws_queryStackInstance = (output: any, context: __SerdeContext): StackInstance => {
   let contents: any = {
     __type: "StackInstance",
     Account: undefined,
@@ -9370,7 +8057,7 @@ const deserializeAws_queryStackInstance = (
     StackId: undefined,
     StackSetId: undefined,
     Status: undefined,
-    StatusReason: undefined
+    StatusReason: undefined,
   };
   if (output["Account"] !== undefined) {
     contents.Account = output["Account"];
@@ -9379,17 +8066,12 @@ const deserializeAws_queryStackInstance = (
     contents.DriftStatus = output["DriftStatus"];
   }
   if (output["LastDriftCheckTimestamp"] !== undefined) {
-    contents.LastDriftCheckTimestamp = new Date(
-      output["LastDriftCheckTimestamp"]
-    );
+    contents.LastDriftCheckTimestamp = new Date(output["LastDriftCheckTimestamp"]);
   }
   if (output.ParameterOverrides === "") {
     contents.ParameterOverrides = [];
   }
-  if (
-    output["ParameterOverrides"] !== undefined &&
-    output["ParameterOverrides"]["member"] !== undefined
-  ) {
+  if (output["ParameterOverrides"] !== undefined && output["ParameterOverrides"]["member"] !== undefined) {
     contents.ParameterOverrides = deserializeAws_queryParameters(
       __getArrayIfSingleItem(output["ParameterOverrides"]["member"]),
       context
@@ -9419,7 +8101,7 @@ const deserializeAws_queryStackInstanceNotFoundException = (
 ): StackInstanceNotFoundException => {
   let contents: any = {
     __type: "StackInstanceNotFoundException",
-    Message: undefined
+    Message: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
@@ -9427,19 +8109,11 @@ const deserializeAws_queryStackInstanceNotFoundException = (
   return contents;
 };
 
-const deserializeAws_queryStackInstanceSummaries = (
-  output: any,
-  context: __SerdeContext
-): StackInstanceSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryStackInstanceSummary(entry, context)
-  );
+const deserializeAws_queryStackInstanceSummaries = (output: any, context: __SerdeContext): StackInstanceSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryStackInstanceSummary(entry, context));
 };
 
-const deserializeAws_queryStackInstanceSummary = (
-  output: any,
-  context: __SerdeContext
-): StackInstanceSummary => {
+const deserializeAws_queryStackInstanceSummary = (output: any, context: __SerdeContext): StackInstanceSummary => {
   let contents: any = {
     __type: "StackInstanceSummary",
     Account: undefined,
@@ -9449,7 +8123,7 @@ const deserializeAws_queryStackInstanceSummary = (
     StackId: undefined,
     StackSetId: undefined,
     Status: undefined,
-    StatusReason: undefined
+    StatusReason: undefined,
   };
   if (output["Account"] !== undefined) {
     contents.Account = output["Account"];
@@ -9458,9 +8132,7 @@ const deserializeAws_queryStackInstanceSummary = (
     contents.DriftStatus = output["DriftStatus"];
   }
   if (output["LastDriftCheckTimestamp"] !== undefined) {
-    contents.LastDriftCheckTimestamp = new Date(
-      output["LastDriftCheckTimestamp"]
-    );
+    contents.LastDriftCheckTimestamp = new Date(output["LastDriftCheckTimestamp"]);
   }
   if (output["Region"] !== undefined) {
     contents.Region = output["Region"];
@@ -9480,10 +8152,7 @@ const deserializeAws_queryStackInstanceSummary = (
   return contents;
 };
 
-const deserializeAws_queryStackResource = (
-  output: any,
-  context: __SerdeContext
-): StackResource => {
+const deserializeAws_queryStackResource = (output: any, context: __SerdeContext): StackResource => {
   let contents: any = {
     __type: "StackResource",
     Description: undefined,
@@ -9495,16 +8164,13 @@ const deserializeAws_queryStackResource = (
     ResourceType: undefined,
     StackId: undefined,
     StackName: undefined,
-    Timestamp: undefined
+    Timestamp: undefined,
   };
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
   }
   if (output["DriftInformation"] !== undefined) {
-    contents.DriftInformation = deserializeAws_queryStackResourceDriftInformation(
-      output["DriftInformation"],
-      context
-    );
+    contents.DriftInformation = deserializeAws_queryStackResourceDriftInformation(output["DriftInformation"], context);
   }
   if (output["LogicalResourceId"] !== undefined) {
     contents.LogicalResourceId = output["LogicalResourceId"];
@@ -9533,10 +8199,7 @@ const deserializeAws_queryStackResource = (
   return contents;
 };
 
-const deserializeAws_queryStackResourceDetail = (
-  output: any,
-  context: __SerdeContext
-): StackResourceDetail => {
+const deserializeAws_queryStackResourceDetail = (output: any, context: __SerdeContext): StackResourceDetail => {
   let contents: any = {
     __type: "StackResourceDetail",
     Description: undefined,
@@ -9549,16 +8212,13 @@ const deserializeAws_queryStackResourceDetail = (
     ResourceStatusReason: undefined,
     ResourceType: undefined,
     StackId: undefined,
-    StackName: undefined
+    StackName: undefined,
   };
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
   }
   if (output["DriftInformation"] !== undefined) {
-    contents.DriftInformation = deserializeAws_queryStackResourceDriftInformation(
-      output["DriftInformation"],
-      context
-    );
+    contents.DriftInformation = deserializeAws_queryStackResourceDriftInformation(output["DriftInformation"], context);
   }
   if (output["LastUpdatedTimestamp"] !== undefined) {
     contents.LastUpdatedTimestamp = new Date(output["LastUpdatedTimestamp"]);
@@ -9590,10 +8250,7 @@ const deserializeAws_queryStackResourceDetail = (
   return contents;
 };
 
-const deserializeAws_queryStackResourceDrift = (
-  output: any,
-  context: __SerdeContext
-): StackResourceDrift => {
+const deserializeAws_queryStackResourceDrift = (output: any, context: __SerdeContext): StackResourceDrift => {
   let contents: any = {
     __type: "StackResourceDrift",
     ActualProperties: undefined,
@@ -9605,7 +8262,7 @@ const deserializeAws_queryStackResourceDrift = (
     ResourceType: undefined,
     StackId: undefined,
     StackResourceDriftStatus: undefined,
-    Timestamp: undefined
+    Timestamp: undefined,
   };
   if (output["ActualProperties"] !== undefined) {
     contents.ActualProperties = output["ActualProperties"];
@@ -9634,10 +8291,7 @@ const deserializeAws_queryStackResourceDrift = (
   if (output.PropertyDifferences === "") {
     contents.PropertyDifferences = [];
   }
-  if (
-    output["PropertyDifferences"] !== undefined &&
-    output["PropertyDifferences"]["member"] !== undefined
-  ) {
+  if (output["PropertyDifferences"] !== undefined && output["PropertyDifferences"]["member"] !== undefined) {
     contents.PropertyDifferences = deserializeAws_queryPropertyDifferences(
       __getArrayIfSingleItem(output["PropertyDifferences"]["member"]),
       context
@@ -9665,7 +8319,7 @@ const deserializeAws_queryStackResourceDriftInformation = (
   let contents: any = {
     __type: "StackResourceDriftInformation",
     LastCheckTimestamp: undefined,
-    StackResourceDriftStatus: undefined
+    StackResourceDriftStatus: undefined,
   };
   if (output["LastCheckTimestamp"] !== undefined) {
     contents.LastCheckTimestamp = new Date(output["LastCheckTimestamp"]);
@@ -9683,7 +8337,7 @@ const deserializeAws_queryStackResourceDriftInformationSummary = (
   let contents: any = {
     __type: "StackResourceDriftInformationSummary",
     LastCheckTimestamp: undefined,
-    StackResourceDriftStatus: undefined
+    StackResourceDriftStatus: undefined,
   };
   if (output["LastCheckTimestamp"] !== undefined) {
     contents.LastCheckTimestamp = new Date(output["LastCheckTimestamp"]);
@@ -9694,37 +8348,19 @@ const deserializeAws_queryStackResourceDriftInformationSummary = (
   return contents;
 };
 
-const deserializeAws_queryStackResourceDrifts = (
-  output: any,
-  context: __SerdeContext
-): StackResourceDrift[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryStackResourceDrift(entry, context)
-  );
+const deserializeAws_queryStackResourceDrifts = (output: any, context: __SerdeContext): StackResourceDrift[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryStackResourceDrift(entry, context));
 };
 
-const deserializeAws_queryStackResources = (
-  output: any,
-  context: __SerdeContext
-): StackResource[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryStackResource(entry, context)
-  );
+const deserializeAws_queryStackResources = (output: any, context: __SerdeContext): StackResource[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryStackResource(entry, context));
 };
 
-const deserializeAws_queryStackResourceSummaries = (
-  output: any,
-  context: __SerdeContext
-): StackResourceSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryStackResourceSummary(entry, context)
-  );
+const deserializeAws_queryStackResourceSummaries = (output: any, context: __SerdeContext): StackResourceSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryStackResourceSummary(entry, context));
 };
 
-const deserializeAws_queryStackResourceSummary = (
-  output: any,
-  context: __SerdeContext
-): StackResourceSummary => {
+const deserializeAws_queryStackResourceSummary = (output: any, context: __SerdeContext): StackResourceSummary => {
   let contents: any = {
     __type: "StackResourceSummary",
     DriftInformation: undefined,
@@ -9733,7 +8369,7 @@ const deserializeAws_queryStackResourceSummary = (
     PhysicalResourceId: undefined,
     ResourceStatus: undefined,
     ResourceStatusReason: undefined,
-    ResourceType: undefined
+    ResourceType: undefined,
   };
   if (output["DriftInformation"] !== undefined) {
     contents.DriftInformation = deserializeAws_queryStackResourceDriftInformationSummary(
@@ -9762,19 +8398,11 @@ const deserializeAws_queryStackResourceSummary = (
   return contents;
 };
 
-const deserializeAws_queryStacks = (
-  output: any,
-  context: __SerdeContext
-): Stack[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryStack(entry, context)
-  );
+const deserializeAws_queryStacks = (output: any, context: __SerdeContext): Stack[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryStack(entry, context));
 };
 
-const deserializeAws_queryStackSet = (
-  output: any,
-  context: __SerdeContext
-): StackSet => {
+const deserializeAws_queryStackSet = (output: any, context: __SerdeContext): StackSet => {
   let contents: any = {
     __type: "StackSet",
     AdministrationRoleARN: undefined,
@@ -9788,7 +8416,7 @@ const deserializeAws_queryStackSet = (
     StackSetName: undefined,
     Status: undefined,
     Tags: undefined,
-    TemplateBody: undefined
+    TemplateBody: undefined,
   };
   if (output["AdministrationRoleARN"] !== undefined) {
     contents.AdministrationRoleARN = output["AdministrationRoleARN"];
@@ -9796,10 +8424,7 @@ const deserializeAws_queryStackSet = (
   if (output.Capabilities === "") {
     contents.Capabilities = [];
   }
-  if (
-    output["Capabilities"] !== undefined &&
-    output["Capabilities"]["member"] !== undefined
-  ) {
+  if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
     contents.Capabilities = deserializeAws_queryCapabilities(
       __getArrayIfSingleItem(output["Capabilities"]["member"]),
       context
@@ -9814,10 +8439,7 @@ const deserializeAws_queryStackSet = (
   if (output.Parameters === "") {
     contents.Parameters = [];
   }
-  if (
-    output["Parameters"] !== undefined &&
-    output["Parameters"]["member"] !== undefined
-  ) {
+  if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
     contents.Parameters = deserializeAws_queryParameters(
       __getArrayIfSingleItem(output["Parameters"]["member"]),
       context
@@ -9845,10 +8467,7 @@ const deserializeAws_queryStackSet = (
     contents.Tags = [];
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_queryTags(
-      __getArrayIfSingleItem(output["Tags"]["member"]),
-      context
-    );
+    contents.Tags = deserializeAws_queryTags(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["TemplateBody"] !== undefined) {
     contents.TemplateBody = output["TemplateBody"];
@@ -9869,7 +8488,7 @@ const deserializeAws_queryStackSetDriftDetectionDetails = (
     InProgressStackInstancesCount: undefined,
     InSyncStackInstancesCount: undefined,
     LastDriftCheckTimestamp: undefined,
-    TotalStackInstancesCount: undefined
+    TotalStackInstancesCount: undefined,
   };
   if (output["DriftDetectionStatus"] !== undefined) {
     contents.DriftDetectionStatus = output["DriftDetectionStatus"];
@@ -9878,34 +8497,22 @@ const deserializeAws_queryStackSetDriftDetectionDetails = (
     contents.DriftStatus = output["DriftStatus"];
   }
   if (output["DriftedStackInstancesCount"] !== undefined) {
-    contents.DriftedStackInstancesCount = parseInt(
-      output["DriftedStackInstancesCount"]
-    );
+    contents.DriftedStackInstancesCount = parseInt(output["DriftedStackInstancesCount"]);
   }
   if (output["FailedStackInstancesCount"] !== undefined) {
-    contents.FailedStackInstancesCount = parseInt(
-      output["FailedStackInstancesCount"]
-    );
+    contents.FailedStackInstancesCount = parseInt(output["FailedStackInstancesCount"]);
   }
   if (output["InProgressStackInstancesCount"] !== undefined) {
-    contents.InProgressStackInstancesCount = parseInt(
-      output["InProgressStackInstancesCount"]
-    );
+    contents.InProgressStackInstancesCount = parseInt(output["InProgressStackInstancesCount"]);
   }
   if (output["InSyncStackInstancesCount"] !== undefined) {
-    contents.InSyncStackInstancesCount = parseInt(
-      output["InSyncStackInstancesCount"]
-    );
+    contents.InSyncStackInstancesCount = parseInt(output["InSyncStackInstancesCount"]);
   }
   if (output["LastDriftCheckTimestamp"] !== undefined) {
-    contents.LastDriftCheckTimestamp = new Date(
-      output["LastDriftCheckTimestamp"]
-    );
+    contents.LastDriftCheckTimestamp = new Date(output["LastDriftCheckTimestamp"]);
   }
   if (output["TotalStackInstancesCount"] !== undefined) {
-    contents.TotalStackInstancesCount = parseInt(
-      output["TotalStackInstancesCount"]
-    );
+    contents.TotalStackInstancesCount = parseInt(output["TotalStackInstancesCount"]);
   }
   return contents;
 };
@@ -9916,7 +8523,7 @@ const deserializeAws_queryStackSetNotEmptyException = (
 ): StackSetNotEmptyException => {
   let contents: any = {
     __type: "StackSetNotEmptyException",
-    Message: undefined
+    Message: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
@@ -9930,7 +8537,7 @@ const deserializeAws_queryStackSetNotFoundException = (
 ): StackSetNotFoundException => {
   let contents: any = {
     __type: "StackSetNotFoundException",
-    Message: undefined
+    Message: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
@@ -9938,10 +8545,7 @@ const deserializeAws_queryStackSetNotFoundException = (
   return contents;
 };
 
-const deserializeAws_queryStackSetOperation = (
-  output: any,
-  context: __SerdeContext
-): StackSetOperation => {
+const deserializeAws_queryStackSetOperation = (output: any, context: __SerdeContext): StackSetOperation => {
   let contents: any = {
     __type: "StackSetOperation",
     Action: undefined,
@@ -9954,7 +8558,7 @@ const deserializeAws_queryStackSetOperation = (
     RetainStacks: undefined,
     StackSetDriftDetectionDetails: undefined,
     StackSetId: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output["Action"] !== undefined) {
     contents.Action = output["Action"];
@@ -10008,31 +8612,24 @@ const deserializeAws_queryStackSetOperationPreferences = (
     FailureTolerancePercentage: undefined,
     MaxConcurrentCount: undefined,
     MaxConcurrentPercentage: undefined,
-    RegionOrder: undefined
+    RegionOrder: undefined,
   };
   if (output["FailureToleranceCount"] !== undefined) {
     contents.FailureToleranceCount = parseInt(output["FailureToleranceCount"]);
   }
   if (output["FailureTolerancePercentage"] !== undefined) {
-    contents.FailureTolerancePercentage = parseInt(
-      output["FailureTolerancePercentage"]
-    );
+    contents.FailureTolerancePercentage = parseInt(output["FailureTolerancePercentage"]);
   }
   if (output["MaxConcurrentCount"] !== undefined) {
     contents.MaxConcurrentCount = parseInt(output["MaxConcurrentCount"]);
   }
   if (output["MaxConcurrentPercentage"] !== undefined) {
-    contents.MaxConcurrentPercentage = parseInt(
-      output["MaxConcurrentPercentage"]
-    );
+    contents.MaxConcurrentPercentage = parseInt(output["MaxConcurrentPercentage"]);
   }
   if (output.RegionOrder === "") {
     contents.RegionOrder = [];
   }
-  if (
-    output["RegionOrder"] !== undefined &&
-    output["RegionOrder"]["member"] !== undefined
-  ) {
+  if (output["RegionOrder"] !== undefined && output["RegionOrder"]["member"] !== undefined) {
     contents.RegionOrder = deserializeAws_queryRegionList(
       __getArrayIfSingleItem(output["RegionOrder"]["member"]),
       context
@@ -10045,9 +8642,7 @@ const deserializeAws_queryStackSetOperationResultSummaries = (
   output: any,
   context: __SerdeContext
 ): StackSetOperationResultSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryStackSetOperationResultSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_queryStackSetOperationResultSummary(entry, context));
 };
 
 const deserializeAws_queryStackSetOperationResultSummary = (
@@ -10060,16 +8655,13 @@ const deserializeAws_queryStackSetOperationResultSummary = (
     AccountGateResult: undefined,
     Region: undefined,
     Status: undefined,
-    StatusReason: undefined
+    StatusReason: undefined,
   };
   if (output["Account"] !== undefined) {
     contents.Account = output["Account"];
   }
   if (output["AccountGateResult"] !== undefined) {
-    contents.AccountGateResult = deserializeAws_queryAccountGateResult(
-      output["AccountGateResult"],
-      context
-    );
+    contents.AccountGateResult = deserializeAws_queryAccountGateResult(output["AccountGateResult"], context);
   }
   if (output["Region"] !== undefined) {
     contents.Region = output["Region"];
@@ -10087,9 +8679,7 @@ const deserializeAws_queryStackSetOperationSummaries = (
   output: any,
   context: __SerdeContext
 ): StackSetOperationSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryStackSetOperationSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_queryStackSetOperationSummary(entry, context));
 };
 
 const deserializeAws_queryStackSetOperationSummary = (
@@ -10102,7 +8692,7 @@ const deserializeAws_queryStackSetOperationSummary = (
     CreationTimestamp: undefined,
     EndTimestamp: undefined,
     OperationId: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output["Action"] !== undefined) {
     contents.Action = output["Action"];
@@ -10122,19 +8712,11 @@ const deserializeAws_queryStackSetOperationSummary = (
   return contents;
 };
 
-const deserializeAws_queryStackSetSummaries = (
-  output: any,
-  context: __SerdeContext
-): StackSetSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryStackSetSummary(entry, context)
-  );
+const deserializeAws_queryStackSetSummaries = (output: any, context: __SerdeContext): StackSetSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryStackSetSummary(entry, context));
 };
 
-const deserializeAws_queryStackSetSummary = (
-  output: any,
-  context: __SerdeContext
-): StackSetSummary => {
+const deserializeAws_queryStackSetSummary = (output: any, context: __SerdeContext): StackSetSummary => {
   let contents: any = {
     __type: "StackSetSummary",
     Description: undefined,
@@ -10142,7 +8724,7 @@ const deserializeAws_queryStackSetSummary = (
     LastDriftCheckTimestamp: undefined,
     StackSetId: undefined,
     StackSetName: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
@@ -10151,9 +8733,7 @@ const deserializeAws_queryStackSetSummary = (
     contents.DriftStatus = output["DriftStatus"];
   }
   if (output["LastDriftCheckTimestamp"] !== undefined) {
-    contents.LastDriftCheckTimestamp = new Date(
-      output["LastDriftCheckTimestamp"]
-    );
+    contents.LastDriftCheckTimestamp = new Date(output["LastDriftCheckTimestamp"]);
   }
   if (output["StackSetId"] !== undefined) {
     contents.StackSetId = output["StackSetId"];
@@ -10167,19 +8747,11 @@ const deserializeAws_queryStackSetSummary = (
   return contents;
 };
 
-const deserializeAws_queryStackSummaries = (
-  output: any,
-  context: __SerdeContext
-): StackSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryStackSummary(entry, context)
-  );
+const deserializeAws_queryStackSummaries = (output: any, context: __SerdeContext): StackSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryStackSummary(entry, context));
 };
 
-const deserializeAws_queryStackSummary = (
-  output: any,
-  context: __SerdeContext
-): StackSummary => {
+const deserializeAws_queryStackSummary = (output: any, context: __SerdeContext): StackSummary => {
   let contents: any = {
     __type: "StackSummary",
     CreationTime: undefined,
@@ -10192,7 +8764,7 @@ const deserializeAws_queryStackSummary = (
     StackName: undefined,
     StackStatus: undefined,
     StackStatusReason: undefined,
-    TemplateDescription: undefined
+    TemplateDescription: undefined,
   };
   if (output["CreationTime"] !== undefined) {
     contents.CreationTime = new Date(output["CreationTime"]);
@@ -10201,10 +8773,7 @@ const deserializeAws_queryStackSummary = (
     contents.DeletionTime = new Date(output["DeletionTime"]);
   }
   if (output["DriftInformation"] !== undefined) {
-    contents.DriftInformation = deserializeAws_queryStackDriftInformationSummary(
-      output["DriftInformation"],
-      context
-    );
+    contents.DriftInformation = deserializeAws_queryStackDriftInformationSummary(output["DriftInformation"], context);
   }
   if (output["LastUpdatedTime"] !== undefined) {
     contents.LastUpdatedTime = new Date(output["LastUpdatedTime"]);
@@ -10233,20 +8802,14 @@ const deserializeAws_queryStackSummary = (
   return contents;
 };
 
-const deserializeAws_queryStageList = (
-  output: any,
-  context: __SerdeContext
-): (TemplateStage | string)[] => {
+const deserializeAws_queryStageList = (output: any, context: __SerdeContext): (TemplateStage | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_queryStaleRequestException = (
-  output: any,
-  context: __SerdeContext
-): StaleRequestException => {
+const deserializeAws_queryStaleRequestException = (output: any, context: __SerdeContext): StaleRequestException => {
   let contents: any = {
     __type: "StaleRequestException",
-    Message: undefined
+    Message: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
@@ -10259,7 +8822,7 @@ const deserializeAws_queryStopStackSetOperationOutput = (
   context: __SerdeContext
 ): StopStackSetOperationOutput => {
   let contents: any = {
-    __type: "StopStackSetOperationOutput"
+    __type: "StopStackSetOperationOutput",
   };
   return contents;
 };
@@ -10268,7 +8831,7 @@ const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
   let contents: any = {
     __type: "Tag",
     Key: undefined,
-    Value: undefined
+    Value: undefined,
   };
   if (output["Key"] !== undefined) {
     contents.Key = output["Key"];
@@ -10279,25 +8842,17 @@ const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
   return contents;
 };
 
-const deserializeAws_queryTags = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryTag(entry, context)
-  );
+const deserializeAws_queryTags = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryTag(entry, context));
 };
 
-const deserializeAws_queryTemplateParameter = (
-  output: any,
-  context: __SerdeContext
-): TemplateParameter => {
+const deserializeAws_queryTemplateParameter = (output: any, context: __SerdeContext): TemplateParameter => {
   let contents: any = {
     __type: "TemplateParameter",
     DefaultValue: undefined,
     Description: undefined,
     NoEcho: undefined,
-    ParameterKey: undefined
+    ParameterKey: undefined,
   };
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = output["DefaultValue"];
@@ -10314,13 +8869,8 @@ const deserializeAws_queryTemplateParameter = (
   return contents;
 };
 
-const deserializeAws_queryTemplateParameters = (
-  output: any,
-  context: __SerdeContext
-): TemplateParameter[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryTemplateParameter(entry, context)
-  );
+const deserializeAws_queryTemplateParameters = (output: any, context: __SerdeContext): TemplateParameter[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryTemplateParameter(entry, context));
 };
 
 const deserializeAws_queryTokenAlreadyExistsException = (
@@ -10329,7 +8879,7 @@ const deserializeAws_queryTokenAlreadyExistsException = (
 ): TokenAlreadyExistsException => {
   let contents: any = {
     __type: "TokenAlreadyExistsException",
-    Message: undefined
+    Message: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
@@ -10337,20 +8887,14 @@ const deserializeAws_queryTokenAlreadyExistsException = (
   return contents;
 };
 
-const deserializeAws_queryTransformsList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_queryTransformsList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_queryTypeNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): TypeNotFoundException => {
+const deserializeAws_queryTypeNotFoundException = (output: any, context: __SerdeContext): TypeNotFoundException => {
   let contents: any = {
     __type: "TypeNotFoundException",
-    Message: undefined
+    Message: undefined,
   };
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
@@ -10358,19 +8902,11 @@ const deserializeAws_queryTypeNotFoundException = (
   return contents;
 };
 
-const deserializeAws_queryTypeSummaries = (
-  output: any,
-  context: __SerdeContext
-): TypeSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryTypeSummary(entry, context)
-  );
+const deserializeAws_queryTypeSummaries = (output: any, context: __SerdeContext): TypeSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryTypeSummary(entry, context));
 };
 
-const deserializeAws_queryTypeSummary = (
-  output: any,
-  context: __SerdeContext
-): TypeSummary => {
+const deserializeAws_queryTypeSummary = (output: any, context: __SerdeContext): TypeSummary => {
   let contents: any = {
     __type: "TypeSummary",
     DefaultVersionId: undefined,
@@ -10378,7 +8914,7 @@ const deserializeAws_queryTypeSummary = (
     LastUpdated: undefined,
     Type: undefined,
     TypeArn: undefined,
-    TypeName: undefined
+    TypeName: undefined,
   };
   if (output["DefaultVersionId"] !== undefined) {
     contents.DefaultVersionId = output["DefaultVersionId"];
@@ -10401,19 +8937,11 @@ const deserializeAws_queryTypeSummary = (
   return contents;
 };
 
-const deserializeAws_queryTypeVersionSummaries = (
-  output: any,
-  context: __SerdeContext
-): TypeVersionSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryTypeVersionSummary(entry, context)
-  );
+const deserializeAws_queryTypeVersionSummaries = (output: any, context: __SerdeContext): TypeVersionSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryTypeVersionSummary(entry, context));
 };
 
-const deserializeAws_queryTypeVersionSummary = (
-  output: any,
-  context: __SerdeContext
-): TypeVersionSummary => {
+const deserializeAws_queryTypeVersionSummary = (output: any, context: __SerdeContext): TypeVersionSummary => {
   let contents: any = {
     __type: "TypeVersionSummary",
     Arn: undefined,
@@ -10421,7 +8949,7 @@ const deserializeAws_queryTypeVersionSummary = (
     TimeCreated: undefined,
     Type: undefined,
     TypeName: undefined,
-    VersionId: undefined
+    VersionId: undefined,
   };
   if (output["Arn"] !== undefined) {
     contents.Arn = output["Arn"];
@@ -10450,7 +8978,7 @@ const deserializeAws_queryUpdateStackInstancesOutput = (
 ): UpdateStackInstancesOutput => {
   let contents: any = {
     __type: "UpdateStackInstancesOutput",
-    OperationId: undefined
+    OperationId: undefined,
   };
   if (output["OperationId"] !== undefined) {
     contents.OperationId = output["OperationId"];
@@ -10458,13 +8986,10 @@ const deserializeAws_queryUpdateStackInstancesOutput = (
   return contents;
 };
 
-const deserializeAws_queryUpdateStackOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateStackOutput => {
+const deserializeAws_queryUpdateStackOutput = (output: any, context: __SerdeContext): UpdateStackOutput => {
   let contents: any = {
     __type: "UpdateStackOutput",
-    StackId: undefined
+    StackId: undefined,
   };
   if (output["StackId"] !== undefined) {
     contents.StackId = output["StackId"];
@@ -10472,13 +8997,10 @@ const deserializeAws_queryUpdateStackOutput = (
   return contents;
 };
 
-const deserializeAws_queryUpdateStackSetOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateStackSetOutput => {
+const deserializeAws_queryUpdateStackSetOutput = (output: any, context: __SerdeContext): UpdateStackSetOutput => {
   let contents: any = {
     __type: "UpdateStackSetOutput",
-    OperationId: undefined
+    OperationId: undefined,
   };
   if (output["OperationId"] !== undefined) {
     contents.OperationId = output["OperationId"];
@@ -10492,7 +9014,7 @@ const deserializeAws_queryUpdateTerminationProtectionOutput = (
 ): UpdateTerminationProtectionOutput => {
   let contents: any = {
     __type: "UpdateTerminationProtectionOutput",
-    StackId: undefined
+    StackId: undefined,
   };
   if (output["StackId"] !== undefined) {
     contents.StackId = output["StackId"];
@@ -10500,25 +9022,19 @@ const deserializeAws_queryUpdateTerminationProtectionOutput = (
   return contents;
 };
 
-const deserializeAws_queryValidateTemplateOutput = (
-  output: any,
-  context: __SerdeContext
-): ValidateTemplateOutput => {
+const deserializeAws_queryValidateTemplateOutput = (output: any, context: __SerdeContext): ValidateTemplateOutput => {
   let contents: any = {
     __type: "ValidateTemplateOutput",
     Capabilities: undefined,
     CapabilitiesReason: undefined,
     DeclaredTransforms: undefined,
     Description: undefined,
-    Parameters: undefined
+    Parameters: undefined,
   };
   if (output.Capabilities === "") {
     contents.Capabilities = [];
   }
-  if (
-    output["Capabilities"] !== undefined &&
-    output["Capabilities"]["member"] !== undefined
-  ) {
+  if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
     contents.Capabilities = deserializeAws_queryCapabilities(
       __getArrayIfSingleItem(output["Capabilities"]["member"]),
       context
@@ -10530,10 +9046,7 @@ const deserializeAws_queryValidateTemplateOutput = (
   if (output.DeclaredTransforms === "") {
     contents.DeclaredTransforms = [];
   }
-  if (
-    output["DeclaredTransforms"] !== undefined &&
-    output["DeclaredTransforms"]["member"] !== undefined
-  ) {
+  if (output["DeclaredTransforms"] !== undefined && output["DeclaredTransforms"]["member"] !== undefined) {
     contents.DeclaredTransforms = deserializeAws_queryTransformsList(
       __getArrayIfSingleItem(output["DeclaredTransforms"]["member"]),
       context
@@ -10545,10 +9058,7 @@ const deserializeAws_queryValidateTemplateOutput = (
   if (output.Parameters === "") {
     contents.Parameters = [];
   }
-  if (
-    output["Parameters"] !== undefined &&
-    output["Parameters"]["member"] !== undefined
-  ) {
+  if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
     contents.Parameters = deserializeAws_queryTemplateParameters(
       __getArrayIfSingleItem(output["Parameters"]["member"]),
       context
@@ -10560,28 +9070,20 @@ const deserializeAws_queryValidateTemplateOutput = (
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"]
+  requestId: output.headers["x-amzn-requestid"],
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
-  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -10597,7 +9099,7 @@ const buildHttpRpcRequest = async (
     port,
     method: "POST",
     path,
-    headers
+    headers,
   };
   if (resolvedHostname !== undefined) {
     contents.hostname = resolvedHostname;
@@ -10617,13 +9119,13 @@ const decodeEscapedXML = (str: string) =>
     .replace(/&lt;/g, "<");
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then(encoded => {
+  collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       const parsedObj = xmlParse(encoded, {
         attributeNamePrefix: "",
         ignoreAttributes: false,
         parseNodeValue: false,
-        tagValueProcessor: (val, tagName) => decodeEscapedXML(val)
+        tagValueProcessor: (val, tagName) => decodeEscapedXML(val),
       });
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
@@ -10637,16 +9139,9 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
-const buildFormUrlencodedString = (formEntries: {
-  [key: string]: string;
-}): string =>
+const buildFormUrlencodedString = (formEntries: { [key: string]: string }): string =>
   Object.entries(formEntries)
-    .map(
-      ([key, value]) =>
-        __extendedEncodeURIComponent(key) +
-        "=" +
-        __extendedEncodeURIComponent(value)
-    )
+    .map(([key, value]) => __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value))
     .join("&");
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {

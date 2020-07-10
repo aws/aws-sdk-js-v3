@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -27,10 +23,9 @@ export interface AssumedRoleUser {
 
 export namespace AssumedRoleUser {
   export const filterSensitiveLog = (obj: AssumedRoleUser): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssumedRoleUser =>
-    __isa(o, "AssumedRoleUser");
+  export const isa = (o: any): o is AssumedRoleUser => __isa(o, "AssumedRoleUser");
 }
 
 export interface AssumeRoleRequest {
@@ -220,10 +215,9 @@ export interface AssumeRoleRequest {
 
 export namespace AssumeRoleRequest {
   export const filterSensitiveLog = (obj: AssumeRoleRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssumeRoleRequest =>
-    __isa(o, "AssumeRoleRequest");
+  export const isa = (o: any): o is AssumeRoleRequest => __isa(o, "AssumeRoleRequest");
 }
 
 /**
@@ -261,10 +255,9 @@ export interface AssumeRoleResponse {
 
 export namespace AssumeRoleResponse {
   export const filterSensitiveLog = (obj: AssumeRoleResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssumeRoleResponse =>
-    __isa(o, "AssumeRoleResponse");
+  export const isa = (o: any): o is AssumeRoleResponse => __isa(o, "AssumeRoleResponse");
 }
 
 export interface AssumeRoleWithSAMLRequest {
@@ -368,10 +361,9 @@ export interface AssumeRoleWithSAMLRequest {
 
 export namespace AssumeRoleWithSAMLRequest {
   export const filterSensitiveLog = (obj: AssumeRoleWithSAMLRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssumeRoleWithSAMLRequest =>
-    __isa(o, "AssumeRoleWithSAMLRequest");
+  export const isa = (o: any): o is AssumeRoleWithSAMLRequest => __isa(o, "AssumeRoleWithSAMLRequest");
 }
 
 /**
@@ -447,10 +439,9 @@ export interface AssumeRoleWithSAMLResponse {
 
 export namespace AssumeRoleWithSAMLResponse {
   export const filterSensitiveLog = (obj: AssumeRoleWithSAMLResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssumeRoleWithSAMLResponse =>
-    __isa(o, "AssumeRoleWithSAMLResponse");
+  export const isa = (o: any): o is AssumeRoleWithSAMLResponse => __isa(o, "AssumeRoleWithSAMLResponse");
 }
 
 export interface AssumeRoleWithWebIdentityRequest {
@@ -567,13 +558,10 @@ export interface AssumeRoleWithWebIdentityRequest {
 }
 
 export namespace AssumeRoleWithWebIdentityRequest {
-  export const filterSensitiveLog = (
-    obj: AssumeRoleWithWebIdentityRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssumeRoleWithWebIdentityRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssumeRoleWithWebIdentityRequest =>
-    __isa(o, "AssumeRoleWithWebIdentityRequest");
+  export const isa = (o: any): o is AssumeRoleWithWebIdentityRequest => __isa(o, "AssumeRoleWithWebIdentityRequest");
 }
 
 /**
@@ -635,13 +623,10 @@ export interface AssumeRoleWithWebIdentityResponse {
 }
 
 export namespace AssumeRoleWithWebIdentityResponse {
-  export const filterSensitiveLog = (
-    obj: AssumeRoleWithWebIdentityResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssumeRoleWithWebIdentityResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssumeRoleWithWebIdentityResponse =>
-    __isa(o, "AssumeRoleWithWebIdentityResponse");
+  export const isa = (o: any): o is AssumeRoleWithWebIdentityResponse => __isa(o, "AssumeRoleWithWebIdentityResponse");
 }
 
 /**
@@ -673,7 +658,7 @@ export interface Credentials {
 
 export namespace Credentials {
   export const filterSensitiveLog = (obj: Credentials): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Credentials => __isa(o, "Credentials");
 }
@@ -687,13 +672,10 @@ export interface DecodeAuthorizationMessageRequest {
 }
 
 export namespace DecodeAuthorizationMessageRequest {
-  export const filterSensitiveLog = (
-    obj: DecodeAuthorizationMessageRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DecodeAuthorizationMessageRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DecodeAuthorizationMessageRequest =>
-    __isa(o, "DecodeAuthorizationMessageRequest");
+  export const isa = (o: any): o is DecodeAuthorizationMessageRequest => __isa(o, "DecodeAuthorizationMessageRequest");
 }
 
 /**
@@ -709,10 +691,8 @@ export interface DecodeAuthorizationMessageResponse {
 }
 
 export namespace DecodeAuthorizationMessageResponse {
-  export const filterSensitiveLog = (
-    obj: DecodeAuthorizationMessageResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DecodeAuthorizationMessageResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DecodeAuthorizationMessageResponse =>
     __isa(o, "DecodeAuthorizationMessageResponse");
@@ -722,9 +702,7 @@ export namespace DecodeAuthorizationMessageResponse {
  * <p>The web identity token that was passed is expired or is not valid. Get a new identity
  *             token from the identity provider and then retry the request.</p>
  */
-export interface ExpiredTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ExpiredTokenException extends __SmithyException, $MetadataBearer {
   name: "ExpiredTokenException";
   $fault: "client";
   message?: string;
@@ -732,10 +710,9 @@ export interface ExpiredTokenException
 
 export namespace ExpiredTokenException {
   export const filterSensitiveLog = (obj: ExpiredTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExpiredTokenException =>
-    __isa(o, "ExpiredTokenException");
+  export const isa = (o: any): o is ExpiredTokenException => __isa(o, "ExpiredTokenException");
 }
 
 /**
@@ -759,7 +736,7 @@ export interface FederatedUser {
 
 export namespace FederatedUser {
   export const filterSensitiveLog = (obj: FederatedUser): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is FederatedUser => __isa(o, "FederatedUser");
 }
@@ -776,10 +753,9 @@ export interface GetAccessKeyInfoRequest {
 
 export namespace GetAccessKeyInfoRequest {
   export const filterSensitiveLog = (obj: GetAccessKeyInfoRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAccessKeyInfoRequest =>
-    __isa(o, "GetAccessKeyInfoRequest");
+  export const isa = (o: any): o is GetAccessKeyInfoRequest => __isa(o, "GetAccessKeyInfoRequest");
 }
 
 export interface GetAccessKeyInfoResponse {
@@ -792,10 +768,9 @@ export interface GetAccessKeyInfoResponse {
 
 export namespace GetAccessKeyInfoResponse {
   export const filterSensitiveLog = (obj: GetAccessKeyInfoResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAccessKeyInfoResponse =>
-    __isa(o, "GetAccessKeyInfoResponse");
+  export const isa = (o: any): o is GetAccessKeyInfoResponse => __isa(o, "GetAccessKeyInfoResponse");
 }
 
 export interface GetCallerIdentityRequest {
@@ -804,10 +779,9 @@ export interface GetCallerIdentityRequest {
 
 export namespace GetCallerIdentityRequest {
   export const filterSensitiveLog = (obj: GetCallerIdentityRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetCallerIdentityRequest =>
-    __isa(o, "GetCallerIdentityRequest");
+  export const isa = (o: any): o is GetCallerIdentityRequest => __isa(o, "GetCallerIdentityRequest");
 }
 
 /**
@@ -838,10 +812,9 @@ export interface GetCallerIdentityResponse {
 
 export namespace GetCallerIdentityResponse {
   export const filterSensitiveLog = (obj: GetCallerIdentityResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetCallerIdentityResponse =>
-    __isa(o, "GetCallerIdentityResponse");
+  export const isa = (o: any): o is GetCallerIdentityResponse => __isa(o, "GetCallerIdentityResponse");
 }
 
 export interface GetFederationTokenRequest {
@@ -968,10 +941,9 @@ export interface GetFederationTokenRequest {
 
 export namespace GetFederationTokenRequest {
   export const filterSensitiveLog = (obj: GetFederationTokenRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetFederationTokenRequest =>
-    __isa(o, "GetFederationTokenRequest");
+  export const isa = (o: any): o is GetFederationTokenRequest => __isa(o, "GetFederationTokenRequest");
 }
 
 /**
@@ -1008,10 +980,9 @@ export interface GetFederationTokenResponse {
 
 export namespace GetFederationTokenResponse {
   export const filterSensitiveLog = (obj: GetFederationTokenResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetFederationTokenResponse =>
-    __isa(o, "GetFederationTokenResponse");
+  export const isa = (o: any): o is GetFederationTokenResponse => __isa(o, "GetFederationTokenResponse");
 }
 
 export interface GetSessionTokenRequest {
@@ -1053,10 +1024,9 @@ export interface GetSessionTokenRequest {
 
 export namespace GetSessionTokenRequest {
   export const filterSensitiveLog = (obj: GetSessionTokenRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSessionTokenRequest =>
-    __isa(o, "GetSessionTokenRequest");
+  export const isa = (o: any): o is GetSessionTokenRequest => __isa(o, "GetSessionTokenRequest");
 }
 
 /**
@@ -1078,10 +1048,9 @@ export interface GetSessionTokenResponse {
 
 export namespace GetSessionTokenResponse {
   export const filterSensitiveLog = (obj: GetSessionTokenResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSessionTokenResponse =>
-    __isa(o, "GetSessionTokenResponse");
+  export const isa = (o: any): o is GetSessionTokenResponse => __isa(o, "GetSessionTokenResponse");
 }
 
 /**
@@ -1091,22 +1060,17 @@ export namespace GetSessionTokenResponse {
  *             times so that you don't exceed the request rate. If the error persists, the
  *             identity provider might be down or not responding.</p>
  */
-export interface IDPCommunicationErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IDPCommunicationErrorException extends __SmithyException, $MetadataBearer {
   name: "IDPCommunicationErrorException";
   $fault: "client";
   message?: string;
 }
 
 export namespace IDPCommunicationErrorException {
-  export const filterSensitiveLog = (
-    obj: IDPCommunicationErrorException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: IDPCommunicationErrorException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is IDPCommunicationErrorException =>
-    __isa(o, "IDPCommunicationErrorException");
+  export const isa = (o: any): o is IDPCommunicationErrorException => __isa(o, "IDPCommunicationErrorException");
 }
 
 /**
@@ -1115,9 +1079,7 @@ export namespace IDPCommunicationErrorException {
  *         <p>If this error is returned for the <code>AssumeRoleWithWebIdentity</code> operation, it
  *             can also mean that the claim has expired or has been explicitly revoked. </p>
  */
-export interface IDPRejectedClaimException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IDPRejectedClaimException extends __SmithyException, $MetadataBearer {
   name: "IDPRejectedClaimException";
   $fault: "client";
   message?: string;
@@ -1125,10 +1087,9 @@ export interface IDPRejectedClaimException
 
 export namespace IDPRejectedClaimException {
   export const filterSensitiveLog = (obj: IDPRejectedClaimException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is IDPRejectedClaimException =>
-    __isa(o, "IDPRejectedClaimException");
+  export const isa = (o: any): o is IDPRejectedClaimException => __isa(o, "IDPRejectedClaimException");
 }
 
 /**
@@ -1136,19 +1097,15 @@ export namespace IDPRejectedClaimException {
  *             was invalid. This can happen if the token contains invalid characters, such as
  *             linebreaks. </p>
  */
-export interface InvalidAuthorizationMessageException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidAuthorizationMessageException extends __SmithyException, $MetadataBearer {
   name: "InvalidAuthorizationMessageException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidAuthorizationMessageException {
-  export const filterSensitiveLog = (
-    obj: InvalidAuthorizationMessageException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidAuthorizationMessageException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidAuthorizationMessageException =>
     __isa(o, "InvalidAuthorizationMessageException");
@@ -1158,44 +1115,34 @@ export namespace InvalidAuthorizationMessageException {
  * <p>The web identity token that was passed could not be validated by AWS. Get a new
  *             identity token from the identity provider and then retry the request.</p>
  */
-export interface InvalidIdentityTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidIdentityTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidIdentityTokenException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidIdentityTokenException {
-  export const filterSensitiveLog = (
-    obj: InvalidIdentityTokenException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidIdentityTokenException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidIdentityTokenException =>
-    __isa(o, "InvalidIdentityTokenException");
+  export const isa = (o: any): o is InvalidIdentityTokenException => __isa(o, "InvalidIdentityTokenException");
 }
 
 /**
  * <p>The request was rejected because the policy document was malformed. The error message
  *             describes the specific error.</p>
  */
-export interface MalformedPolicyDocumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MalformedPolicyDocumentException extends __SmithyException, $MetadataBearer {
   name: "MalformedPolicyDocumentException";
   $fault: "client";
   message?: string;
 }
 
 export namespace MalformedPolicyDocumentException {
-  export const filterSensitiveLog = (
-    obj: MalformedPolicyDocumentException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MalformedPolicyDocumentException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MalformedPolicyDocumentException =>
-    __isa(o, "MalformedPolicyDocumentException");
+  export const isa = (o: any): o is MalformedPolicyDocumentException => __isa(o, "MalformedPolicyDocumentException");
 }
 
 /**
@@ -1209,22 +1156,17 @@ export namespace MalformedPolicyDocumentException {
  *             session tag limits. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">IAM and STS Entity
  *                 Character Limits</a> in the <i>IAM User Guide</i>.</p>
  */
-export interface PackedPolicyTooLargeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PackedPolicyTooLargeException extends __SmithyException, $MetadataBearer {
   name: "PackedPolicyTooLargeException";
   $fault: "client";
   message?: string;
 }
 
 export namespace PackedPolicyTooLargeException {
-  export const filterSensitiveLog = (
-    obj: PackedPolicyTooLargeException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PackedPolicyTooLargeException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PackedPolicyTooLargeException =>
-    __isa(o, "PackedPolicyTooLargeException");
+  export const isa = (o: any): o is PackedPolicyTooLargeException => __isa(o, "PackedPolicyTooLargeException");
 }
 
 /**
@@ -1243,10 +1185,9 @@ export interface PolicyDescriptorType {
 
 export namespace PolicyDescriptorType {
   export const filterSensitiveLog = (obj: PolicyDescriptorType): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PolicyDescriptorType =>
-    __isa(o, "PolicyDescriptorType");
+  export const isa = (o: any): o is PolicyDescriptorType => __isa(o, "PolicyDescriptorType");
 }
 
 /**
@@ -1256,9 +1197,7 @@ export namespace PolicyDescriptorType {
  *                 Deactivating AWS STS in an AWS Region</a> in the <i>IAM User
  *                     Guide</i>.</p>
  */
-export interface RegionDisabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RegionDisabledException extends __SmithyException, $MetadataBearer {
   name: "RegionDisabledException";
   $fault: "client";
   message?: string;
@@ -1266,10 +1205,9 @@ export interface RegionDisabledException
 
 export namespace RegionDisabledException {
   export const filterSensitiveLog = (obj: RegionDisabledException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RegionDisabledException =>
-    __isa(o, "RegionDisabledException");
+  export const isa = (o: any): o is RegionDisabledException => __isa(o, "RegionDisabledException");
 }
 
 /**
@@ -1299,7 +1237,7 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }

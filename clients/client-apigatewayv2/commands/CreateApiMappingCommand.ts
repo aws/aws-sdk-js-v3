@@ -1,21 +1,11 @@
-import {
-  ApiGatewayV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ApiGatewayV2Client";
-import {
-  CreateApiMappingRequest,
-  CreateApiMappingResponse
-} from "../models/index";
+import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
+import { CreateApiMappingRequest, CreateApiMappingResponse } from "../models/index";
 import {
   deserializeAws_restJson1CreateApiMappingCommand,
-  serializeAws_restJson1CreateApiMappingCommand
+  serializeAws_restJson1CreateApiMappingCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateApiMappingCommandInput = CreateApiMappingRequest;
-export type CreateApiMappingCommandOutput = CreateApiMappingResponse &
-  __MetadataBearer;
+export type CreateApiMappingCommandOutput = CreateApiMappingResponse & __MetadataBearer;
 
 export class CreateApiMappingCommand extends $Command<
   CreateApiMappingCommandInput,
@@ -50,14 +39,12 @@ export class CreateApiMappingCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateApiMappingCommandInput, CreateApiMappingCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class CreateApiMappingCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateApiMappingCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateApiMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateApiMappingCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateApiMappingCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApiMappingCommandOutput> {
     return deserializeAws_restJson1CreateApiMappingCommand(output, context);
   }
 

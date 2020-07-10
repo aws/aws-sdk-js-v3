@@ -7,63 +7,53 @@ describe("format url", () => {
     hostname: "foo.mock-region.awsamazon.com",
     path: "/",
     method: "GET",
-    headers: {}
+    headers: {},
   };
 
   it("should use correct protocol", () => {
     let request = {
-      ...requestTemplate
+      ...requestTemplate,
     };
     expect(formatUrl(request).indexOf("https")).toBe(0);
     request = {
       ...requestTemplate,
-      protocol: "http"
+      protocol: "http",
     };
     expect(formatUrl(request).indexOf("http")).toBe(0);
   });
 
   it("should use currect hostname", () => {
-    expect(formatUrl(requestTemplate)).toEqual(
-      "https://foo.mock-region.awsamazon.com/"
-    );
+    expect(formatUrl(requestTemplate)).toEqual("https://foo.mock-region.awsamazon.com/");
   });
 
   it("should append port number to hostname", () => {
     let request = {
       ...requestTemplate,
-      port: 80
+      port: 80,
     };
-    expect(formatUrl(request)).toEqual(
-      "https://foo.mock-region.awsamazon.com:80/"
-    );
+    expect(formatUrl(request)).toEqual("https://foo.mock-region.awsamazon.com:80/");
   });
 
   describe("path string", () => {
     it("should encodeURI simple path", () => {
       let request = {
         ...requestTemplate,
-        path: "/foo"
+        path: "/foo",
       };
-      expect(formatUrl(request)).toEqual(
-        "https://foo.mock-region.awsamazon.com/foo"
-      );
+      expect(formatUrl(request)).toEqual("https://foo.mock-region.awsamazon.com/foo");
       request = {
         ...requestTemplate,
-        path: "/b/c/d"
+        path: "/b/c/d",
       };
-      expect(formatUrl(request)).toEqual(
-        "https://foo.mock-region.awsamazon.com/b/c/d"
-      );
+      expect(formatUrl(request)).toEqual("https://foo.mock-region.awsamazon.com/b/c/d");
     });
 
     it("should not uri encode the path(input should be already encoded)", () => {
       let request = {
         ...requestTemplate,
-        path: "%3Ba/b/c"
+        path: "%3Ba/b/c",
       };
-      expect(formatUrl(request)).toEqual(
-        "https://foo.mock-region.awsamazon.com/%3Ba/b/c"
-      );
+      expect(formatUrl(request)).toEqual("https://foo.mock-region.awsamazon.com/%3Ba/b/c");
     });
   });
 
@@ -73,64 +63,52 @@ describe("format url", () => {
         ...requestTemplate,
         query: {
           foo: "foo",
-          bar: "bar"
-        }
+          bar: "bar",
+        },
       };
-      expect(formatUrl(request)).toBe(
-        "https://foo.mock-region.awsamazon.com/?bar=bar&foo=foo"
-      );
+      expect(formatUrl(request)).toBe("https://foo.mock-region.awsamazon.com/?bar=bar&foo=foo");
       request = {
         ...requestTemplate,
         query: {
           foo: "foo",
-          bar: ""
-        }
+          bar: "",
+        },
       };
-      expect(formatUrl(request)).toBe(
-        "https://foo.mock-region.awsamazon.com/?bar=&foo=foo"
-      );
+      expect(formatUrl(request)).toBe("https://foo.mock-region.awsamazon.com/?bar=&foo=foo");
     });
 
     it("should encode query with value as array", () => {
       let request = {
         ...requestTemplate,
         query: {
-          foo: ["query", "with", "array", "value"]
-        }
+          foo: ["query", "with", "array", "value"],
+        },
       };
-      expect(formatUrl(request)).toBe(
-        "https://foo.mock-region.awsamazon.com/?foo=query&foo=with&foo=array&foo=value"
-      );
+      expect(formatUrl(request)).toBe("https://foo.mock-region.awsamazon.com/?foo=query&foo=with&foo=array&foo=value");
     });
 
     it("should encode pure string (when value is null)", () => {
       let request = {
         ...requestTemplate,
         query: {
-          query: null
-        }
+          query: null,
+        },
       };
-      expect(formatUrl(request)).toBe(
-        "https://foo.mock-region.awsamazon.com/?query"
-      );
+      expect(formatUrl(request)).toBe("https://foo.mock-region.awsamazon.com/?query");
       let queryLikePath = {
         ...requestTemplate,
         query: {
-          "a/query/string": null
-        }
+          "a/query/string": null,
+        },
       };
-      expect(formatUrl(queryLikePath)).toBe(
-        "https://foo.mock-region.awsamazon.com/?a%2Fquery%2Fstring"
-      );
+      expect(formatUrl(queryLikePath)).toBe("https://foo.mock-region.awsamazon.com/?a%2Fquery%2Fstring");
       let complicateQuery = {
         ...requestTemplate,
         query: {
-          "that's all": null
-        }
+          "that's all": null,
+        },
       };
-      expect(formatUrl(complicateQuery)).toBe(
-        "https://foo.mock-region.awsamazon.com/?that%27s%20all"
-      );
+      expect(formatUrl(complicateQuery)).toBe("https://foo.mock-region.awsamazon.com/?that%27s%20all");
     });
   });
 });

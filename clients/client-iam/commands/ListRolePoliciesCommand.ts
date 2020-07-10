@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  ListRolePoliciesRequest,
-  ListRolePoliciesResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { ListRolePoliciesRequest, ListRolePoliciesResponse } from "../models/index";
 import {
   deserializeAws_queryListRolePoliciesCommand,
-  serializeAws_queryListRolePoliciesCommand
+  serializeAws_queryListRolePoliciesCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListRolePoliciesCommandInput = ListRolePoliciesRequest;
-export type ListRolePoliciesCommandOutput = ListRolePoliciesResponse &
-  __MetadataBearer;
+export type ListRolePoliciesCommandOutput = ListRolePoliciesResponse & __MetadataBearer;
 
 export class ListRolePoliciesCommand extends $Command<
   ListRolePoliciesCommandInput,
@@ -50,14 +39,12 @@ export class ListRolePoliciesCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListRolePoliciesCommandInput, ListRolePoliciesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class ListRolePoliciesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListRolePoliciesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListRolePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListRolePoliciesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListRolePoliciesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRolePoliciesCommandOutput> {
     return deserializeAws_queryListRolePoliciesCommand(output, context);
   }
 

@@ -1,18 +1,8 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
 import { SubscribeInput, SubscribeResponse } from "../models/index";
-import {
-  deserializeAws_querySubscribeCommand,
-  serializeAws_querySubscribeCommand
-} from "../protocols/Aws_query";
+import { deserializeAws_querySubscribeCommand, serializeAws_querySubscribeCommand } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,17 +11,13 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type SubscribeCommandInput = SubscribeInput;
 export type SubscribeCommandOutput = SubscribeResponse & __MetadataBearer;
 
-export class SubscribeCommand extends $Command<
-  SubscribeCommandInput,
-  SubscribeCommandOutput,
-  SNSClientResolvedConfig
-> {
+export class SubscribeCommand extends $Command<SubscribeCommandInput, SubscribeCommandOutput, SNSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,14 +32,12 @@ export class SubscribeCommand extends $Command<
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SubscribeCommandInput, SubscribeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +47,11 @@ export class SubscribeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SubscribeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SubscribeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySubscribeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SubscribeCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubscribeCommandOutput> {
     return deserializeAws_querySubscribeCommand(output, context);
   }
 

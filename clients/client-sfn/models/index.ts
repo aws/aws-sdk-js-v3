@@ -1,16 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>The specified activity does not exist.</p>
  */
-export interface ActivityDoesNotExist
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ActivityDoesNotExist extends __SmithyException, $MetadataBearer {
   name: "ActivityDoesNotExist";
   $fault: "client";
   message?: string;
@@ -18,10 +12,9 @@ export interface ActivityDoesNotExist
 
 export namespace ActivityDoesNotExist {
   export const filterSensitiveLog = (obj: ActivityDoesNotExist): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ActivityDoesNotExist =>
-    __isa(o, "ActivityDoesNotExist");
+  export const isa = (o: any): o is ActivityDoesNotExist => __isa(o, "ActivityDoesNotExist");
 }
 
 /**
@@ -44,19 +37,16 @@ export namespace ActivityFailedEventDetails {
   export const filterSensitiveLog = (obj: ActivityFailedEventDetails): any => ({
     ...obj,
     ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
+    ...(obj.error && { error: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ActivityFailedEventDetails =>
-    __isa(o, "ActivityFailedEventDetails");
+  export const isa = (o: any): o is ActivityFailedEventDetails => __isa(o, "ActivityFailedEventDetails");
 }
 
 /**
  * <p>The maximum number of activities has been reached. Existing activities must be deleted
  *       before a new activity can be created.</p>
  */
-export interface ActivityLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ActivityLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "ActivityLimitExceeded";
   $fault: "client";
   message?: string;
@@ -64,10 +54,9 @@ export interface ActivityLimitExceeded
 
 export namespace ActivityLimitExceeded {
   export const filterSensitiveLog = (obj: ActivityLimitExceeded): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ActivityLimitExceeded =>
-    __isa(o, "ActivityLimitExceeded");
+  export const isa = (o: any): o is ActivityLimitExceeded => __isa(o, "ActivityLimitExceeded");
 }
 
 /**
@@ -114,10 +103,9 @@ export interface ActivityListItem {
 
 export namespace ActivityListItem {
   export const filterSensitiveLog = (obj: ActivityListItem): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ActivityListItem =>
-    __isa(o, "ActivityListItem");
+  export const isa = (o: any): o is ActivityListItem => __isa(o, "ActivityListItem");
 }
 
 /**
@@ -147,14 +135,11 @@ export interface ActivityScheduledEventDetails {
 }
 
 export namespace ActivityScheduledEventDetails {
-  export const filterSensitiveLog = (
-    obj: ActivityScheduledEventDetails
-  ): any => ({
+  export const filterSensitiveLog = (obj: ActivityScheduledEventDetails): any => ({
     ...obj,
-    ...(obj.input && { input: SENSITIVE_STRING })
+    ...(obj.input && { input: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ActivityScheduledEventDetails =>
-    __isa(o, "ActivityScheduledEventDetails");
+  export const isa = (o: any): o is ActivityScheduledEventDetails => __isa(o, "ActivityScheduledEventDetails");
 }
 
 /**
@@ -175,12 +160,10 @@ export interface ActivityScheduleFailedEventDetails {
 }
 
 export namespace ActivityScheduleFailedEventDetails {
-  export const filterSensitiveLog = (
-    obj: ActivityScheduleFailedEventDetails
-  ): any => ({
+  export const filterSensitiveLog = (obj: ActivityScheduleFailedEventDetails): any => ({
     ...obj,
     ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
+    ...(obj.error && { error: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is ActivityScheduleFailedEventDetails =>
     __isa(o, "ActivityScheduleFailedEventDetails");
@@ -199,13 +182,10 @@ export interface ActivityStartedEventDetails {
 }
 
 export namespace ActivityStartedEventDetails {
-  export const filterSensitiveLog = (
-    obj: ActivityStartedEventDetails
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ActivityStartedEventDetails): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ActivityStartedEventDetails =>
-    __isa(o, "ActivityStartedEventDetails");
+  export const isa = (o: any): o is ActivityStartedEventDetails => __isa(o, "ActivityStartedEventDetails");
 }
 
 /**
@@ -221,14 +201,11 @@ export interface ActivitySucceededEventDetails {
 }
 
 export namespace ActivitySucceededEventDetails {
-  export const filterSensitiveLog = (
-    obj: ActivitySucceededEventDetails
-  ): any => ({
+  export const filterSensitiveLog = (obj: ActivitySucceededEventDetails): any => ({
     ...obj,
-    ...(obj.output && { output: SENSITIVE_STRING })
+    ...(obj.output && { output: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ActivitySucceededEventDetails =>
-    __isa(o, "ActivitySucceededEventDetails");
+  export const isa = (o: any): o is ActivitySucceededEventDetails => __isa(o, "ActivitySucceededEventDetails");
 }
 
 /**
@@ -248,37 +225,29 @@ export interface ActivityTimedOutEventDetails {
 }
 
 export namespace ActivityTimedOutEventDetails {
-  export const filterSensitiveLog = (
-    obj: ActivityTimedOutEventDetails
-  ): any => ({
+  export const filterSensitiveLog = (obj: ActivityTimedOutEventDetails): any => ({
     ...obj,
     ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
+    ...(obj.error && { error: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ActivityTimedOutEventDetails =>
-    __isa(o, "ActivityTimedOutEventDetails");
+  export const isa = (o: any): o is ActivityTimedOutEventDetails => __isa(o, "ActivityTimedOutEventDetails");
 }
 
 /**
  * <p>The maximum number of workers concurrently polling for activity tasks has been
  *       reached.</p>
  */
-export interface ActivityWorkerLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ActivityWorkerLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "ActivityWorkerLimitExceeded";
   $fault: "client";
   message?: string;
 }
 
 export namespace ActivityWorkerLimitExceeded {
-  export const filterSensitiveLog = (
-    obj: ActivityWorkerLimitExceeded
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ActivityWorkerLimitExceeded): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ActivityWorkerLimitExceeded =>
-    __isa(o, "ActivityWorkerLimitExceeded");
+  export const isa = (o: any): o is ActivityWorkerLimitExceeded => __isa(o, "ActivityWorkerLimitExceeded");
 }
 
 /**
@@ -295,10 +264,9 @@ export interface CloudWatchLogsLogGroup {
 
 export namespace CloudWatchLogsLogGroup {
   export const filterSensitiveLog = (obj: CloudWatchLogsLogGroup): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CloudWatchLogsLogGroup =>
-    __isa(o, "CloudWatchLogsLogGroup");
+  export const isa = (o: any): o is CloudWatchLogsLogGroup => __isa(o, "CloudWatchLogsLogGroup");
 }
 
 export interface CreateActivityInput {
@@ -344,10 +312,9 @@ export interface CreateActivityInput {
 
 export namespace CreateActivityInput {
   export const filterSensitiveLog = (obj: CreateActivityInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateActivityInput =>
-    __isa(o, "CreateActivityInput");
+  export const isa = (o: any): o is CreateActivityInput => __isa(o, "CreateActivityInput");
 }
 
 export interface CreateActivityOutput {
@@ -365,10 +332,9 @@ export interface CreateActivityOutput {
 
 export namespace CreateActivityOutput {
   export const filterSensitiveLog = (obj: CreateActivityOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateActivityOutput =>
-    __isa(o, "CreateActivityOutput");
+  export const isa = (o: any): o is CreateActivityOutput => __isa(o, "CreateActivityOutput");
 }
 
 export interface CreateStateMachineInput {
@@ -433,10 +399,9 @@ export interface CreateStateMachineInput {
 export namespace CreateStateMachineInput {
   export const filterSensitiveLog = (obj: CreateStateMachineInput): any => ({
     ...obj,
-    ...(obj.definition && { definition: SENSITIVE_STRING })
+    ...(obj.definition && { definition: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateStateMachineInput =>
-    __isa(o, "CreateStateMachineInput");
+  export const isa = (o: any): o is CreateStateMachineInput => __isa(o, "CreateStateMachineInput");
 }
 
 export interface CreateStateMachineOutput {
@@ -454,10 +419,9 @@ export interface CreateStateMachineOutput {
 
 export namespace CreateStateMachineOutput {
   export const filterSensitiveLog = (obj: CreateStateMachineOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateStateMachineOutput =>
-    __isa(o, "CreateStateMachineOutput");
+  export const isa = (o: any): o is CreateStateMachineOutput => __isa(o, "CreateStateMachineOutput");
 }
 
 export interface DeleteActivityInput {
@@ -470,10 +434,9 @@ export interface DeleteActivityInput {
 
 export namespace DeleteActivityInput {
   export const filterSensitiveLog = (obj: DeleteActivityInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteActivityInput =>
-    __isa(o, "DeleteActivityInput");
+  export const isa = (o: any): o is DeleteActivityInput => __isa(o, "DeleteActivityInput");
 }
 
 export interface DeleteActivityOutput {
@@ -482,10 +445,9 @@ export interface DeleteActivityOutput {
 
 export namespace DeleteActivityOutput {
   export const filterSensitiveLog = (obj: DeleteActivityOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteActivityOutput =>
-    __isa(o, "DeleteActivityOutput");
+  export const isa = (o: any): o is DeleteActivityOutput => __isa(o, "DeleteActivityOutput");
 }
 
 export interface DeleteStateMachineInput {
@@ -498,10 +460,9 @@ export interface DeleteStateMachineInput {
 
 export namespace DeleteStateMachineInput {
   export const filterSensitiveLog = (obj: DeleteStateMachineInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteStateMachineInput =>
-    __isa(o, "DeleteStateMachineInput");
+  export const isa = (o: any): o is DeleteStateMachineInput => __isa(o, "DeleteStateMachineInput");
 }
 
 export interface DeleteStateMachineOutput {
@@ -510,10 +471,9 @@ export interface DeleteStateMachineOutput {
 
 export namespace DeleteStateMachineOutput {
   export const filterSensitiveLog = (obj: DeleteStateMachineOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteStateMachineOutput =>
-    __isa(o, "DeleteStateMachineOutput");
+  export const isa = (o: any): o is DeleteStateMachineOutput => __isa(o, "DeleteStateMachineOutput");
 }
 
 export interface DescribeActivityInput {
@@ -526,10 +486,9 @@ export interface DescribeActivityInput {
 
 export namespace DescribeActivityInput {
   export const filterSensitiveLog = (obj: DescribeActivityInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeActivityInput =>
-    __isa(o, "DescribeActivityInput");
+  export const isa = (o: any): o is DescribeActivityInput => __isa(o, "DescribeActivityInput");
 }
 
 export interface DescribeActivityOutput {
@@ -573,10 +532,9 @@ export interface DescribeActivityOutput {
 
 export namespace DescribeActivityOutput {
   export const filterSensitiveLog = (obj: DescribeActivityOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeActivityOutput =>
-    __isa(o, "DescribeActivityOutput");
+  export const isa = (o: any): o is DescribeActivityOutput => __isa(o, "DescribeActivityOutput");
 }
 
 export interface DescribeExecutionInput {
@@ -589,10 +547,9 @@ export interface DescribeExecutionInput {
 
 export namespace DescribeExecutionInput {
   export const filterSensitiveLog = (obj: DescribeExecutionInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeExecutionInput =>
-    __isa(o, "DescribeExecutionInput");
+  export const isa = (o: any): o is DescribeExecutionInput => __isa(o, "DescribeExecutionInput");
 }
 
 export interface DescribeExecutionOutput {
@@ -667,10 +624,9 @@ export namespace DescribeExecutionOutput {
   export const filterSensitiveLog = (obj: DescribeExecutionOutput): any => ({
     ...obj,
     ...(obj.input && { input: SENSITIVE_STRING }),
-    ...(obj.output && { output: SENSITIVE_STRING })
+    ...(obj.output && { output: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DescribeExecutionOutput =>
-    __isa(o, "DescribeExecutionOutput");
+  export const isa = (o: any): o is DescribeExecutionOutput => __isa(o, "DescribeExecutionOutput");
 }
 
 export interface DescribeStateMachineForExecutionInput {
@@ -682,10 +638,8 @@ export interface DescribeStateMachineForExecutionInput {
 }
 
 export namespace DescribeStateMachineForExecutionInput {
-  export const filterSensitiveLog = (
-    obj: DescribeStateMachineForExecutionInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeStateMachineForExecutionInput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeStateMachineForExecutionInput =>
     __isa(o, "DescribeStateMachineForExecutionInput");
@@ -721,11 +675,9 @@ export interface DescribeStateMachineForExecutionOutput {
 }
 
 export namespace DescribeStateMachineForExecutionOutput {
-  export const filterSensitiveLog = (
-    obj: DescribeStateMachineForExecutionOutput
-  ): any => ({
+  export const filterSensitiveLog = (obj: DescribeStateMachineForExecutionOutput): any => ({
     ...obj,
-    ...(obj.definition && { definition: SENSITIVE_STRING })
+    ...(obj.definition && { definition: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is DescribeStateMachineForExecutionOutput =>
     __isa(o, "DescribeStateMachineForExecutionOutput");
@@ -741,10 +693,9 @@ export interface DescribeStateMachineInput {
 
 export namespace DescribeStateMachineInput {
   export const filterSensitiveLog = (obj: DescribeStateMachineInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeStateMachineInput =>
-    __isa(o, "DescribeStateMachineInput");
+  export const isa = (o: any): o is DescribeStateMachineInput => __isa(o, "DescribeStateMachineInput");
 }
 
 export interface DescribeStateMachineOutput {
@@ -815,10 +766,9 @@ export interface DescribeStateMachineOutput {
 export namespace DescribeStateMachineOutput {
   export const filterSensitiveLog = (obj: DescribeStateMachineOutput): any => ({
     ...obj,
-    ...(obj.definition && { definition: SENSITIVE_STRING })
+    ...(obj.definition && { definition: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DescribeStateMachineOutput =>
-    __isa(o, "DescribeStateMachineOutput");
+  export const isa = (o: any): o is DescribeStateMachineOutput => __isa(o, "DescribeStateMachineOutput");
 }
 
 /**
@@ -838,15 +788,12 @@ export interface ExecutionAbortedEventDetails {
 }
 
 export namespace ExecutionAbortedEventDetails {
-  export const filterSensitiveLog = (
-    obj: ExecutionAbortedEventDetails
-  ): any => ({
+  export const filterSensitiveLog = (obj: ExecutionAbortedEventDetails): any => ({
     ...obj,
     ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
+    ...(obj.error && { error: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ExecutionAbortedEventDetails =>
-    __isa(o, "ExecutionAbortedEventDetails");
+  export const isa = (o: any): o is ExecutionAbortedEventDetails => __isa(o, "ExecutionAbortedEventDetails");
 }
 
 /**
@@ -857,9 +804,7 @@ export namespace ExecutionAbortedEventDetails {
  *         idempotent.</p>
  *          </note>
  */
-export interface ExecutionAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ExecutionAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "ExecutionAlreadyExists";
   $fault: "client";
   message?: string;
@@ -867,18 +812,15 @@ export interface ExecutionAlreadyExists
 
 export namespace ExecutionAlreadyExists {
   export const filterSensitiveLog = (obj: ExecutionAlreadyExists): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExecutionAlreadyExists =>
-    __isa(o, "ExecutionAlreadyExists");
+  export const isa = (o: any): o is ExecutionAlreadyExists => __isa(o, "ExecutionAlreadyExists");
 }
 
 /**
  * <p>The specified execution does not exist.</p>
  */
-export interface ExecutionDoesNotExist
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ExecutionDoesNotExist extends __SmithyException, $MetadataBearer {
   name: "ExecutionDoesNotExist";
   $fault: "client";
   message?: string;
@@ -886,10 +828,9 @@ export interface ExecutionDoesNotExist
 
 export namespace ExecutionDoesNotExist {
   export const filterSensitiveLog = (obj: ExecutionDoesNotExist): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExecutionDoesNotExist =>
-    __isa(o, "ExecutionDoesNotExist");
+  export const isa = (o: any): o is ExecutionDoesNotExist => __isa(o, "ExecutionDoesNotExist");
 }
 
 /**
@@ -909,24 +850,19 @@ export interface ExecutionFailedEventDetails {
 }
 
 export namespace ExecutionFailedEventDetails {
-  export const filterSensitiveLog = (
-    obj: ExecutionFailedEventDetails
-  ): any => ({
+  export const filterSensitiveLog = (obj: ExecutionFailedEventDetails): any => ({
     ...obj,
     ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
+    ...(obj.error && { error: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ExecutionFailedEventDetails =>
-    __isa(o, "ExecutionFailedEventDetails");
+  export const isa = (o: any): o is ExecutionFailedEventDetails => __isa(o, "ExecutionFailedEventDetails");
 }
 
 /**
  * <p>The maximum number of running executions has been reached. Running executions must end or
  *       be stopped before a new execution can be started.</p>
  */
-export interface ExecutionLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ExecutionLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "ExecutionLimitExceeded";
   $fault: "client";
   message?: string;
@@ -934,10 +870,9 @@ export interface ExecutionLimitExceeded
 
 export namespace ExecutionLimitExceeded {
   export const filterSensitiveLog = (obj: ExecutionLimitExceeded): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExecutionLimitExceeded =>
-    __isa(o, "ExecutionLimitExceeded");
+  export const isa = (o: any): o is ExecutionLimitExceeded => __isa(o, "ExecutionLimitExceeded");
 }
 
 /**
@@ -999,10 +934,9 @@ export interface ExecutionListItem {
 
 export namespace ExecutionListItem {
   export const filterSensitiveLog = (obj: ExecutionListItem): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExecutionListItem =>
-    __isa(o, "ExecutionListItem");
+  export const isa = (o: any): o is ExecutionListItem => __isa(o, "ExecutionListItem");
 }
 
 /**
@@ -1022,22 +956,14 @@ export interface ExecutionStartedEventDetails {
 }
 
 export namespace ExecutionStartedEventDetails {
-  export const filterSensitiveLog = (
-    obj: ExecutionStartedEventDetails
-  ): any => ({
+  export const filterSensitiveLog = (obj: ExecutionStartedEventDetails): any => ({
     ...obj,
-    ...(obj.input && { input: SENSITIVE_STRING })
+    ...(obj.input && { input: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ExecutionStartedEventDetails =>
-    __isa(o, "ExecutionStartedEventDetails");
+  export const isa = (o: any): o is ExecutionStartedEventDetails => __isa(o, "ExecutionStartedEventDetails");
 }
 
-export type ExecutionStatus =
-  | "ABORTED"
-  | "FAILED"
-  | "RUNNING"
-  | "SUCCEEDED"
-  | "TIMED_OUT";
+export type ExecutionStatus = "ABORTED" | "FAILED" | "RUNNING" | "SUCCEEDED" | "TIMED_OUT";
 
 /**
  * <p>Contains details about the successful termination of the execution.</p>
@@ -1051,14 +977,11 @@ export interface ExecutionSucceededEventDetails {
 }
 
 export namespace ExecutionSucceededEventDetails {
-  export const filterSensitiveLog = (
-    obj: ExecutionSucceededEventDetails
-  ): any => ({
+  export const filterSensitiveLog = (obj: ExecutionSucceededEventDetails): any => ({
     ...obj,
-    ...(obj.output && { output: SENSITIVE_STRING })
+    ...(obj.output && { output: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ExecutionSucceededEventDetails =>
-    __isa(o, "ExecutionSucceededEventDetails");
+  export const isa = (o: any): o is ExecutionSucceededEventDetails => __isa(o, "ExecutionSucceededEventDetails");
 }
 
 /**
@@ -1078,15 +1001,12 @@ export interface ExecutionTimedOutEventDetails {
 }
 
 export namespace ExecutionTimedOutEventDetails {
-  export const filterSensitiveLog = (
-    obj: ExecutionTimedOutEventDetails
-  ): any => ({
+  export const filterSensitiveLog = (obj: ExecutionTimedOutEventDetails): any => ({
     ...obj,
     ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
+    ...(obj.error && { error: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ExecutionTimedOutEventDetails =>
-    __isa(o, "ExecutionTimedOutEventDetails");
+  export const isa = (o: any): o is ExecutionTimedOutEventDetails => __isa(o, "ExecutionTimedOutEventDetails");
 }
 
 export interface GetActivityTaskInput {
@@ -1106,10 +1026,9 @@ export interface GetActivityTaskInput {
 
 export namespace GetActivityTaskInput {
   export const filterSensitiveLog = (obj: GetActivityTaskInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetActivityTaskInput =>
-    __isa(o, "GetActivityTaskInput");
+  export const isa = (o: any): o is GetActivityTaskInput => __isa(o, "GetActivityTaskInput");
 }
 
 export interface GetActivityTaskOutput {
@@ -1131,10 +1050,9 @@ export interface GetActivityTaskOutput {
 export namespace GetActivityTaskOutput {
   export const filterSensitiveLog = (obj: GetActivityTaskOutput): any => ({
     ...obj,
-    ...(obj.input && { input: SENSITIVE_STRING })
+    ...(obj.input && { input: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetActivityTaskOutput =>
-    __isa(o, "GetActivityTaskOutput");
+  export const isa = (o: any): o is GetActivityTaskOutput => __isa(o, "GetActivityTaskOutput");
 }
 
 export interface GetExecutionHistoryInput {
@@ -1165,10 +1083,9 @@ export interface GetExecutionHistoryInput {
 
 export namespace GetExecutionHistoryInput {
   export const filterSensitiveLog = (obj: GetExecutionHistoryInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetExecutionHistoryInput =>
-    __isa(o, "GetExecutionHistoryInput");
+  export const isa = (o: any): o is GetExecutionHistoryInput => __isa(o, "GetExecutionHistoryInput");
 }
 
 export interface GetExecutionHistoryOutput {
@@ -1188,12 +1105,9 @@ export interface GetExecutionHistoryOutput {
 export namespace GetExecutionHistoryOutput {
   export const filterSensitiveLog = (obj: GetExecutionHistoryOutput): any => ({
     ...obj,
-    ...(obj.events && {
-      events: obj.events.map(item => HistoryEvent.filterSensitiveLog(item))
-    })
+    ...(obj.events && { events: obj.events.map((item) => HistoryEvent.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is GetExecutionHistoryOutput =>
-    __isa(o, "GetExecutionHistoryOutput");
+  export const isa = (o: any): o is GetExecutionHistoryOutput => __isa(o, "GetExecutionHistoryOutput");
 }
 
 /**
@@ -1389,130 +1303,102 @@ export namespace HistoryEvent {
   export const filterSensitiveLog = (obj: HistoryEvent): any => ({
     ...obj,
     ...(obj.activityFailedEventDetails && {
-      activityFailedEventDetails: ActivityFailedEventDetails.filterSensitiveLog(
-        obj.activityFailedEventDetails
-      )
+      activityFailedEventDetails: ActivityFailedEventDetails.filterSensitiveLog(obj.activityFailedEventDetails),
     }),
     ...(obj.activityScheduleFailedEventDetails && {
       activityScheduleFailedEventDetails: ActivityScheduleFailedEventDetails.filterSensitiveLog(
         obj.activityScheduleFailedEventDetails
-      )
+      ),
     }),
     ...(obj.activityScheduledEventDetails && {
       activityScheduledEventDetails: ActivityScheduledEventDetails.filterSensitiveLog(
         obj.activityScheduledEventDetails
-      )
+      ),
     }),
     ...(obj.activitySucceededEventDetails && {
       activitySucceededEventDetails: ActivitySucceededEventDetails.filterSensitiveLog(
         obj.activitySucceededEventDetails
-      )
+      ),
     }),
     ...(obj.activityTimedOutEventDetails && {
-      activityTimedOutEventDetails: ActivityTimedOutEventDetails.filterSensitiveLog(
-        obj.activityTimedOutEventDetails
-      )
+      activityTimedOutEventDetails: ActivityTimedOutEventDetails.filterSensitiveLog(obj.activityTimedOutEventDetails),
     }),
     ...(obj.executionAbortedEventDetails && {
-      executionAbortedEventDetails: ExecutionAbortedEventDetails.filterSensitiveLog(
-        obj.executionAbortedEventDetails
-      )
+      executionAbortedEventDetails: ExecutionAbortedEventDetails.filterSensitiveLog(obj.executionAbortedEventDetails),
     }),
     ...(obj.executionFailedEventDetails && {
-      executionFailedEventDetails: ExecutionFailedEventDetails.filterSensitiveLog(
-        obj.executionFailedEventDetails
-      )
+      executionFailedEventDetails: ExecutionFailedEventDetails.filterSensitiveLog(obj.executionFailedEventDetails),
     }),
     ...(obj.executionStartedEventDetails && {
-      executionStartedEventDetails: ExecutionStartedEventDetails.filterSensitiveLog(
-        obj.executionStartedEventDetails
-      )
+      executionStartedEventDetails: ExecutionStartedEventDetails.filterSensitiveLog(obj.executionStartedEventDetails),
     }),
     ...(obj.executionSucceededEventDetails && {
       executionSucceededEventDetails: ExecutionSucceededEventDetails.filterSensitiveLog(
         obj.executionSucceededEventDetails
-      )
+      ),
     }),
     ...(obj.executionTimedOutEventDetails && {
       executionTimedOutEventDetails: ExecutionTimedOutEventDetails.filterSensitiveLog(
         obj.executionTimedOutEventDetails
-      )
+      ),
     }),
     ...(obj.lambdaFunctionFailedEventDetails && {
       lambdaFunctionFailedEventDetails: LambdaFunctionFailedEventDetails.filterSensitiveLog(
         obj.lambdaFunctionFailedEventDetails
-      )
+      ),
     }),
     ...(obj.lambdaFunctionScheduleFailedEventDetails && {
       lambdaFunctionScheduleFailedEventDetails: LambdaFunctionScheduleFailedEventDetails.filterSensitiveLog(
         obj.lambdaFunctionScheduleFailedEventDetails
-      )
+      ),
     }),
     ...(obj.lambdaFunctionScheduledEventDetails && {
       lambdaFunctionScheduledEventDetails: LambdaFunctionScheduledEventDetails.filterSensitiveLog(
         obj.lambdaFunctionScheduledEventDetails
-      )
+      ),
     }),
     ...(obj.lambdaFunctionStartFailedEventDetails && {
       lambdaFunctionStartFailedEventDetails: LambdaFunctionStartFailedEventDetails.filterSensitiveLog(
         obj.lambdaFunctionStartFailedEventDetails
-      )
+      ),
     }),
     ...(obj.lambdaFunctionSucceededEventDetails && {
       lambdaFunctionSucceededEventDetails: LambdaFunctionSucceededEventDetails.filterSensitiveLog(
         obj.lambdaFunctionSucceededEventDetails
-      )
+      ),
     }),
     ...(obj.lambdaFunctionTimedOutEventDetails && {
       lambdaFunctionTimedOutEventDetails: LambdaFunctionTimedOutEventDetails.filterSensitiveLog(
         obj.lambdaFunctionTimedOutEventDetails
-      )
+      ),
     }),
     ...(obj.stateEnteredEventDetails && {
-      stateEnteredEventDetails: StateEnteredEventDetails.filterSensitiveLog(
-        obj.stateEnteredEventDetails
-      )
+      stateEnteredEventDetails: StateEnteredEventDetails.filterSensitiveLog(obj.stateEnteredEventDetails),
     }),
     ...(obj.stateExitedEventDetails && {
-      stateExitedEventDetails: StateExitedEventDetails.filterSensitiveLog(
-        obj.stateExitedEventDetails
-      )
+      stateExitedEventDetails: StateExitedEventDetails.filterSensitiveLog(obj.stateExitedEventDetails),
     }),
     ...(obj.taskFailedEventDetails && {
-      taskFailedEventDetails: TaskFailedEventDetails.filterSensitiveLog(
-        obj.taskFailedEventDetails
-      )
+      taskFailedEventDetails: TaskFailedEventDetails.filterSensitiveLog(obj.taskFailedEventDetails),
     }),
     ...(obj.taskScheduledEventDetails && {
-      taskScheduledEventDetails: TaskScheduledEventDetails.filterSensitiveLog(
-        obj.taskScheduledEventDetails
-      )
+      taskScheduledEventDetails: TaskScheduledEventDetails.filterSensitiveLog(obj.taskScheduledEventDetails),
     }),
     ...(obj.taskStartFailedEventDetails && {
-      taskStartFailedEventDetails: TaskStartFailedEventDetails.filterSensitiveLog(
-        obj.taskStartFailedEventDetails
-      )
+      taskStartFailedEventDetails: TaskStartFailedEventDetails.filterSensitiveLog(obj.taskStartFailedEventDetails),
     }),
     ...(obj.taskSubmitFailedEventDetails && {
-      taskSubmitFailedEventDetails: TaskSubmitFailedEventDetails.filterSensitiveLog(
-        obj.taskSubmitFailedEventDetails
-      )
+      taskSubmitFailedEventDetails: TaskSubmitFailedEventDetails.filterSensitiveLog(obj.taskSubmitFailedEventDetails),
     }),
     ...(obj.taskSubmittedEventDetails && {
-      taskSubmittedEventDetails: TaskSubmittedEventDetails.filterSensitiveLog(
-        obj.taskSubmittedEventDetails
-      )
+      taskSubmittedEventDetails: TaskSubmittedEventDetails.filterSensitiveLog(obj.taskSubmittedEventDetails),
     }),
     ...(obj.taskSucceededEventDetails && {
-      taskSucceededEventDetails: TaskSucceededEventDetails.filterSensitiveLog(
-        obj.taskSucceededEventDetails
-      )
+      taskSucceededEventDetails: TaskSucceededEventDetails.filterSensitiveLog(obj.taskSucceededEventDetails),
     }),
     ...(obj.taskTimedOutEventDetails && {
-      taskTimedOutEventDetails: TaskTimedOutEventDetails.filterSensitiveLog(
-        obj.taskTimedOutEventDetails
-      )
-    })
+      taskTimedOutEventDetails: TaskTimedOutEventDetails.filterSensitiveLog(obj.taskTimedOutEventDetails),
+    }),
   });
   export const isa = (o: any): o is HistoryEvent => __isa(o, "HistoryEvent");
 }
@@ -1585,7 +1471,7 @@ export interface InvalidArn extends __SmithyException, $MetadataBearer {
 
 export namespace InvalidArn {
   export const filterSensitiveLog = (obj: InvalidArn): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is InvalidArn => __isa(o, "InvalidArn");
 }
@@ -1601,18 +1487,15 @@ export interface InvalidDefinition extends __SmithyException, $MetadataBearer {
 
 export namespace InvalidDefinition {
   export const filterSensitiveLog = (obj: InvalidDefinition): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidDefinition =>
-    __isa(o, "InvalidDefinition");
+  export const isa = (o: any): o is InvalidDefinition => __isa(o, "InvalidDefinition");
 }
 
 /**
  * <p>The provided JSON input data is invalid.</p>
  */
-export interface InvalidExecutionInput
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidExecutionInput extends __SmithyException, $MetadataBearer {
   name: "InvalidExecutionInput";
   $fault: "client";
   message?: string;
@@ -1620,31 +1503,25 @@ export interface InvalidExecutionInput
 
 export namespace InvalidExecutionInput {
   export const filterSensitiveLog = (obj: InvalidExecutionInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidExecutionInput =>
-    __isa(o, "InvalidExecutionInput");
+  export const isa = (o: any): o is InvalidExecutionInput => __isa(o, "InvalidExecutionInput");
 }
 
 /**
  * <p></p>
  */
-export interface InvalidLoggingConfiguration
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidLoggingConfiguration extends __SmithyException, $MetadataBearer {
   name: "InvalidLoggingConfiguration";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidLoggingConfiguration {
-  export const filterSensitiveLog = (
-    obj: InvalidLoggingConfiguration
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidLoggingConfiguration): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidLoggingConfiguration =>
-    __isa(o, "InvalidLoggingConfiguration");
+  export const isa = (o: any): o is InvalidLoggingConfiguration => __isa(o, "InvalidLoggingConfiguration");
 }
 
 /**
@@ -1658,7 +1535,7 @@ export interface InvalidName extends __SmithyException, $MetadataBearer {
 
 export namespace InvalidName {
   export const filterSensitiveLog = (obj: InvalidName): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is InvalidName => __isa(o, "InvalidName");
 }
@@ -1674,7 +1551,7 @@ export interface InvalidOutput extends __SmithyException, $MetadataBearer {
 
 export namespace InvalidOutput {
   export const filterSensitiveLog = (obj: InvalidOutput): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is InvalidOutput => __isa(o, "InvalidOutput");
 }
@@ -1690,7 +1567,7 @@ export interface InvalidToken extends __SmithyException, $MetadataBearer {
 
 export namespace InvalidToken {
   export const filterSensitiveLog = (obj: InvalidToken): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is InvalidToken => __isa(o, "InvalidToken");
 }
@@ -1712,15 +1589,12 @@ export interface LambdaFunctionFailedEventDetails {
 }
 
 export namespace LambdaFunctionFailedEventDetails {
-  export const filterSensitiveLog = (
-    obj: LambdaFunctionFailedEventDetails
-  ): any => ({
+  export const filterSensitiveLog = (obj: LambdaFunctionFailedEventDetails): any => ({
     ...obj,
     ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
+    ...(obj.error && { error: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is LambdaFunctionFailedEventDetails =>
-    __isa(o, "LambdaFunctionFailedEventDetails");
+  export const isa = (o: any): o is LambdaFunctionFailedEventDetails => __isa(o, "LambdaFunctionFailedEventDetails");
 }
 
 /**
@@ -1745,11 +1619,9 @@ export interface LambdaFunctionScheduledEventDetails {
 }
 
 export namespace LambdaFunctionScheduledEventDetails {
-  export const filterSensitiveLog = (
-    obj: LambdaFunctionScheduledEventDetails
-  ): any => ({
+  export const filterSensitiveLog = (obj: LambdaFunctionScheduledEventDetails): any => ({
     ...obj,
-    ...(obj.input && { input: SENSITIVE_STRING })
+    ...(obj.input && { input: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is LambdaFunctionScheduledEventDetails =>
     __isa(o, "LambdaFunctionScheduledEventDetails");
@@ -1773,12 +1645,10 @@ export interface LambdaFunctionScheduleFailedEventDetails {
 }
 
 export namespace LambdaFunctionScheduleFailedEventDetails {
-  export const filterSensitiveLog = (
-    obj: LambdaFunctionScheduleFailedEventDetails
-  ): any => ({
+  export const filterSensitiveLog = (obj: LambdaFunctionScheduleFailedEventDetails): any => ({
     ...obj,
     ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
+    ...(obj.error && { error: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is LambdaFunctionScheduleFailedEventDetails =>
     __isa(o, "LambdaFunctionScheduleFailedEventDetails");
@@ -1801,12 +1671,10 @@ export interface LambdaFunctionStartFailedEventDetails {
 }
 
 export namespace LambdaFunctionStartFailedEventDetails {
-  export const filterSensitiveLog = (
-    obj: LambdaFunctionStartFailedEventDetails
-  ): any => ({
+  export const filterSensitiveLog = (obj: LambdaFunctionStartFailedEventDetails): any => ({
     ...obj,
     ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
+    ...(obj.error && { error: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is LambdaFunctionStartFailedEventDetails =>
     __isa(o, "LambdaFunctionStartFailedEventDetails");
@@ -1825,11 +1693,9 @@ export interface LambdaFunctionSucceededEventDetails {
 }
 
 export namespace LambdaFunctionSucceededEventDetails {
-  export const filterSensitiveLog = (
-    obj: LambdaFunctionSucceededEventDetails
-  ): any => ({
+  export const filterSensitiveLog = (obj: LambdaFunctionSucceededEventDetails): any => ({
     ...obj,
-    ...(obj.output && { output: SENSITIVE_STRING })
+    ...(obj.output && { output: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is LambdaFunctionSucceededEventDetails =>
     __isa(o, "LambdaFunctionSucceededEventDetails");
@@ -1852,12 +1718,10 @@ export interface LambdaFunctionTimedOutEventDetails {
 }
 
 export namespace LambdaFunctionTimedOutEventDetails {
-  export const filterSensitiveLog = (
-    obj: LambdaFunctionTimedOutEventDetails
-  ): any => ({
+  export const filterSensitiveLog = (obj: LambdaFunctionTimedOutEventDetails): any => ({
     ...obj,
     ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
+    ...(obj.error && { error: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is LambdaFunctionTimedOutEventDetails =>
     __isa(o, "LambdaFunctionTimedOutEventDetails");
@@ -1881,10 +1745,9 @@ export interface ListActivitiesInput {
 
 export namespace ListActivitiesInput {
   export const filterSensitiveLog = (obj: ListActivitiesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListActivitiesInput =>
-    __isa(o, "ListActivitiesInput");
+  export const isa = (o: any): o is ListActivitiesInput => __isa(o, "ListActivitiesInput");
 }
 
 export interface ListActivitiesOutput {
@@ -1903,10 +1766,9 @@ export interface ListActivitiesOutput {
 
 export namespace ListActivitiesOutput {
   export const filterSensitiveLog = (obj: ListActivitiesOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListActivitiesOutput =>
-    __isa(o, "ListActivitiesOutput");
+  export const isa = (o: any): o is ListActivitiesOutput => __isa(o, "ListActivitiesOutput");
 }
 
 export interface ListExecutionsInput {
@@ -1938,10 +1800,9 @@ export interface ListExecutionsInput {
 
 export namespace ListExecutionsInput {
   export const filterSensitiveLog = (obj: ListExecutionsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListExecutionsInput =>
-    __isa(o, "ListExecutionsInput");
+  export const isa = (o: any): o is ListExecutionsInput => __isa(o, "ListExecutionsInput");
 }
 
 export interface ListExecutionsOutput {
@@ -1960,10 +1821,9 @@ export interface ListExecutionsOutput {
 
 export namespace ListExecutionsOutput {
   export const filterSensitiveLog = (obj: ListExecutionsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListExecutionsOutput =>
-    __isa(o, "ListExecutionsOutput");
+  export const isa = (o: any): o is ListExecutionsOutput => __isa(o, "ListExecutionsOutput");
 }
 
 export interface ListStateMachinesInput {
@@ -1984,10 +1844,9 @@ export interface ListStateMachinesInput {
 
 export namespace ListStateMachinesInput {
   export const filterSensitiveLog = (obj: ListStateMachinesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListStateMachinesInput =>
-    __isa(o, "ListStateMachinesInput");
+  export const isa = (o: any): o is ListStateMachinesInput => __isa(o, "ListStateMachinesInput");
 }
 
 export interface ListStateMachinesOutput {
@@ -2003,10 +1862,9 @@ export interface ListStateMachinesOutput {
 
 export namespace ListStateMachinesOutput {
   export const filterSensitiveLog = (obj: ListStateMachinesOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListStateMachinesOutput =>
-    __isa(o, "ListStateMachinesOutput");
+  export const isa = (o: any): o is ListStateMachinesOutput => __isa(o, "ListStateMachinesOutput");
 }
 
 export interface ListTagsForResourceInput {
@@ -2019,10 +1877,9 @@ export interface ListTagsForResourceInput {
 
 export namespace ListTagsForResourceInput {
   export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceInput =>
-    __isa(o, "ListTagsForResourceInput");
+  export const isa = (o: any): o is ListTagsForResourceInput => __isa(o, "ListTagsForResourceInput");
 }
 
 export interface ListTagsForResourceOutput {
@@ -2035,10 +1892,9 @@ export interface ListTagsForResourceOutput {
 
 export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceOutput =>
-    __isa(o, "ListTagsForResourceOutput");
+  export const isa = (o: any): o is ListTagsForResourceOutput => __isa(o, "ListTagsForResourceOutput");
 }
 
 /**
@@ -2054,10 +1910,9 @@ export interface LogDestination {
 
 export namespace LogDestination {
   export const filterSensitiveLog = (obj: LogDestination): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LogDestination =>
-    __isa(o, "LogDestination");
+  export const isa = (o: any): o is LogDestination => __isa(o, "LogDestination");
 }
 
 /**
@@ -2085,10 +1940,9 @@ export interface LoggingConfiguration {
 
 export namespace LoggingConfiguration {
   export const filterSensitiveLog = (obj: LoggingConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LoggingConfiguration =>
-    __isa(o, "LoggingConfiguration");
+  export const isa = (o: any): o is LoggingConfiguration => __isa(o, "LoggingConfiguration");
 }
 
 export type LogLevel = "ALL" | "ERROR" | "FATAL" | "OFF";
@@ -2111,10 +1965,9 @@ export interface MapIterationEventDetails {
 
 export namespace MapIterationEventDetails {
   export const filterSensitiveLog = (obj: MapIterationEventDetails): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MapIterationEventDetails =>
-    __isa(o, "MapIterationEventDetails");
+  export const isa = (o: any): o is MapIterationEventDetails => __isa(o, "MapIterationEventDetails");
 }
 
 /**
@@ -2129,22 +1982,17 @@ export interface MapStateStartedEventDetails {
 }
 
 export namespace MapStateStartedEventDetails {
-  export const filterSensitiveLog = (
-    obj: MapStateStartedEventDetails
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MapStateStartedEventDetails): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MapStateStartedEventDetails =>
-    __isa(o, "MapStateStartedEventDetails");
+  export const isa = (o: any): o is MapStateStartedEventDetails => __isa(o, "MapStateStartedEventDetails");
 }
 
 /**
  * <p>Request is missing a required parameter. This error occurs if both <code>definition</code>
  *       and <code>roleArn</code> are not specified.</p>
  */
-export interface MissingRequiredParameter
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MissingRequiredParameter extends __SmithyException, $MetadataBearer {
   name: "MissingRequiredParameter";
   $fault: "client";
   message?: string;
@@ -2152,10 +2000,9 @@ export interface MissingRequiredParameter
 
 export namespace MissingRequiredParameter {
   export const filterSensitiveLog = (obj: MissingRequiredParameter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MissingRequiredParameter =>
-    __isa(o, "MissingRequiredParameter");
+  export const isa = (o: any): o is MissingRequiredParameter => __isa(o, "MissingRequiredParameter");
 }
 
 /**
@@ -2171,10 +2018,9 @@ export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
 
 export namespace ResourceNotFound {
   export const filterSensitiveLog = (obj: ResourceNotFound): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFound =>
-    __isa(o, "ResourceNotFound");
+  export const isa = (o: any): o is ResourceNotFound => __isa(o, "ResourceNotFound");
 }
 
 export interface SendTaskFailureInput {
@@ -2201,10 +2047,9 @@ export namespace SendTaskFailureInput {
   export const filterSensitiveLog = (obj: SendTaskFailureInput): any => ({
     ...obj,
     ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
+    ...(obj.error && { error: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is SendTaskFailureInput =>
-    __isa(o, "SendTaskFailureInput");
+  export const isa = (o: any): o is SendTaskFailureInput => __isa(o, "SendTaskFailureInput");
 }
 
 export interface SendTaskFailureOutput {
@@ -2213,10 +2058,9 @@ export interface SendTaskFailureOutput {
 
 export namespace SendTaskFailureOutput {
   export const filterSensitiveLog = (obj: SendTaskFailureOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SendTaskFailureOutput =>
-    __isa(o, "SendTaskFailureOutput");
+  export const isa = (o: any): o is SendTaskFailureOutput => __isa(o, "SendTaskFailureOutput");
 }
 
 export interface SendTaskHeartbeatInput {
@@ -2231,10 +2075,9 @@ export interface SendTaskHeartbeatInput {
 
 export namespace SendTaskHeartbeatInput {
   export const filterSensitiveLog = (obj: SendTaskHeartbeatInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SendTaskHeartbeatInput =>
-    __isa(o, "SendTaskHeartbeatInput");
+  export const isa = (o: any): o is SendTaskHeartbeatInput => __isa(o, "SendTaskHeartbeatInput");
 }
 
 export interface SendTaskHeartbeatOutput {
@@ -2243,10 +2086,9 @@ export interface SendTaskHeartbeatOutput {
 
 export namespace SendTaskHeartbeatOutput {
   export const filterSensitiveLog = (obj: SendTaskHeartbeatOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SendTaskHeartbeatOutput =>
-    __isa(o, "SendTaskHeartbeatOutput");
+  export const isa = (o: any): o is SendTaskHeartbeatOutput => __isa(o, "SendTaskHeartbeatOutput");
 }
 
 export interface SendTaskSuccessInput {
@@ -2267,10 +2109,9 @@ export interface SendTaskSuccessInput {
 export namespace SendTaskSuccessInput {
   export const filterSensitiveLog = (obj: SendTaskSuccessInput): any => ({
     ...obj,
-    ...(obj.output && { output: SENSITIVE_STRING })
+    ...(obj.output && { output: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is SendTaskSuccessInput =>
-    __isa(o, "SendTaskSuccessInput");
+  export const isa = (o: any): o is SendTaskSuccessInput => __isa(o, "SendTaskSuccessInput");
 }
 
 export interface SendTaskSuccessOutput {
@@ -2279,10 +2120,9 @@ export interface SendTaskSuccessOutput {
 
 export namespace SendTaskSuccessOutput {
   export const filterSensitiveLog = (obj: SendTaskSuccessOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SendTaskSuccessOutput =>
-    __isa(o, "SendTaskSuccessOutput");
+  export const isa = (o: any): o is SendTaskSuccessOutput => __isa(o, "SendTaskSuccessOutput");
 }
 
 export interface StartExecutionInput {
@@ -2337,10 +2177,9 @@ export interface StartExecutionInput {
 export namespace StartExecutionInput {
   export const filterSensitiveLog = (obj: StartExecutionInput): any => ({
     ...obj,
-    ...(obj.input && { input: SENSITIVE_STRING })
+    ...(obj.input && { input: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is StartExecutionInput =>
-    __isa(o, "StartExecutionInput");
+  export const isa = (o: any): o is StartExecutionInput => __isa(o, "StartExecutionInput");
 }
 
 export interface StartExecutionOutput {
@@ -2358,10 +2197,9 @@ export interface StartExecutionOutput {
 
 export namespace StartExecutionOutput {
   export const filterSensitiveLog = (obj: StartExecutionOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartExecutionOutput =>
-    __isa(o, "StartExecutionOutput");
+  export const isa = (o: any): o is StartExecutionOutput => __isa(o, "StartExecutionOutput");
 }
 
 /**
@@ -2383,10 +2221,9 @@ export interface StateEnteredEventDetails {
 export namespace StateEnteredEventDetails {
   export const filterSensitiveLog = (obj: StateEnteredEventDetails): any => ({
     ...obj,
-    ...(obj.input && { input: SENSITIVE_STRING })
+    ...(obj.input && { input: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is StateEnteredEventDetails =>
-    __isa(o, "StateEnteredEventDetails");
+  export const isa = (o: any): o is StateEnteredEventDetails => __isa(o, "StateEnteredEventDetails");
 }
 
 /**
@@ -2429,19 +2266,16 @@ export interface StateExitedEventDetails {
 export namespace StateExitedEventDetails {
   export const filterSensitiveLog = (obj: StateExitedEventDetails): any => ({
     ...obj,
-    ...(obj.output && { output: SENSITIVE_STRING })
+    ...(obj.output && { output: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is StateExitedEventDetails =>
-    __isa(o, "StateExitedEventDetails");
+  export const isa = (o: any): o is StateExitedEventDetails => __isa(o, "StateExitedEventDetails");
 }
 
 /**
  * <p>A state machine with the same name but a different definition or role ARN already
  *       exists.</p>
  */
-export interface StateMachineAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
+export interface StateMachineAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "StateMachineAlreadyExists";
   $fault: "client";
   message?: string;
@@ -2449,18 +2283,15 @@ export interface StateMachineAlreadyExists
 
 export namespace StateMachineAlreadyExists {
   export const filterSensitiveLog = (obj: StateMachineAlreadyExists): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StateMachineAlreadyExists =>
-    __isa(o, "StateMachineAlreadyExists");
+  export const isa = (o: any): o is StateMachineAlreadyExists => __isa(o, "StateMachineAlreadyExists");
 }
 
 /**
  * <p>The specified state machine is being deleted.</p>
  */
-export interface StateMachineDeleting
-  extends __SmithyException,
-    $MetadataBearer {
+export interface StateMachineDeleting extends __SmithyException, $MetadataBearer {
   name: "StateMachineDeleting";
   $fault: "client";
   message?: string;
@@ -2468,18 +2299,15 @@ export interface StateMachineDeleting
 
 export namespace StateMachineDeleting {
   export const filterSensitiveLog = (obj: StateMachineDeleting): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StateMachineDeleting =>
-    __isa(o, "StateMachineDeleting");
+  export const isa = (o: any): o is StateMachineDeleting => __isa(o, "StateMachineDeleting");
 }
 
 /**
  * <p>The specified state machine does not exist.</p>
  */
-export interface StateMachineDoesNotExist
-  extends __SmithyException,
-    $MetadataBearer {
+export interface StateMachineDoesNotExist extends __SmithyException, $MetadataBearer {
   name: "StateMachineDoesNotExist";
   $fault: "client";
   message?: string;
@@ -2487,19 +2315,16 @@ export interface StateMachineDoesNotExist
 
 export namespace StateMachineDoesNotExist {
   export const filterSensitiveLog = (obj: StateMachineDoesNotExist): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StateMachineDoesNotExist =>
-    __isa(o, "StateMachineDoesNotExist");
+  export const isa = (o: any): o is StateMachineDoesNotExist => __isa(o, "StateMachineDoesNotExist");
 }
 
 /**
  * <p>The maximum number of state machines has been reached. Existing state machines must be
  *       deleted before a new state machine can be created.</p>
  */
-export interface StateMachineLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface StateMachineLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "StateMachineLimitExceeded";
   $fault: "client";
   message?: string;
@@ -2507,10 +2332,9 @@ export interface StateMachineLimitExceeded
 
 export namespace StateMachineLimitExceeded {
   export const filterSensitiveLog = (obj: StateMachineLimitExceeded): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StateMachineLimitExceeded =>
-    __isa(o, "StateMachineLimitExceeded");
+  export const isa = (o: any): o is StateMachineLimitExceeded => __isa(o, "StateMachineLimitExceeded");
 }
 
 /**
@@ -2562,10 +2386,9 @@ export interface StateMachineListItem {
 
 export namespace StateMachineListItem {
   export const filterSensitiveLog = (obj: StateMachineListItem): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StateMachineListItem =>
-    __isa(o, "StateMachineListItem");
+  export const isa = (o: any): o is StateMachineListItem => __isa(o, "StateMachineListItem");
 }
 
 export type StateMachineStatus = "ACTIVE" | "DELETING";
@@ -2575,22 +2398,17 @@ export type StateMachineType = "EXPRESS" | "STANDARD";
 /**
  * <p></p>
  */
-export interface StateMachineTypeNotSupported
-  extends __SmithyException,
-    $MetadataBearer {
+export interface StateMachineTypeNotSupported extends __SmithyException, $MetadataBearer {
   name: "StateMachineTypeNotSupported";
   $fault: "client";
   message?: string;
 }
 
 export namespace StateMachineTypeNotSupported {
-  export const filterSensitiveLog = (
-    obj: StateMachineTypeNotSupported
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StateMachineTypeNotSupported): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StateMachineTypeNotSupported =>
-    __isa(o, "StateMachineTypeNotSupported");
+  export const isa = (o: any): o is StateMachineTypeNotSupported => __isa(o, "StateMachineTypeNotSupported");
 }
 
 export interface StopExecutionInput {
@@ -2615,10 +2433,9 @@ export namespace StopExecutionInput {
   export const filterSensitiveLog = (obj: StopExecutionInput): any => ({
     ...obj,
     ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
+    ...(obj.error && { error: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is StopExecutionInput =>
-    __isa(o, "StopExecutionInput");
+  export const isa = (o: any): o is StopExecutionInput => __isa(o, "StopExecutionInput");
 }
 
 export interface StopExecutionOutput {
@@ -2631,10 +2448,9 @@ export interface StopExecutionOutput {
 
 export namespace StopExecutionOutput {
   export const filterSensitiveLog = (obj: StopExecutionOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StopExecutionOutput =>
-    __isa(o, "StopExecutionOutput");
+  export const isa = (o: any): o is StopExecutionOutput => __isa(o, "StopExecutionOutput");
 }
 
 /**
@@ -2661,7 +2477,7 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -2682,10 +2498,9 @@ export interface TagResourceInput {
 
 export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceInput =>
-    __isa(o, "TagResourceInput");
+  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
 export interface TagResourceOutput {
@@ -2694,10 +2509,9 @@ export interface TagResourceOutput {
 
 export namespace TagResourceOutput {
   export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceOutput =>
-    __isa(o, "TagResourceOutput");
+  export const isa = (o: any): o is TagResourceOutput => __isa(o, "TagResourceOutput");
 }
 
 export interface TaskDoesNotExist extends __SmithyException, $MetadataBearer {
@@ -2708,10 +2522,9 @@ export interface TaskDoesNotExist extends __SmithyException, $MetadataBearer {
 
 export namespace TaskDoesNotExist {
   export const filterSensitiveLog = (obj: TaskDoesNotExist): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TaskDoesNotExist =>
-    __isa(o, "TaskDoesNotExist");
+  export const isa = (o: any): o is TaskDoesNotExist => __isa(o, "TaskDoesNotExist");
 }
 
 /**
@@ -2744,10 +2557,9 @@ export namespace TaskFailedEventDetails {
   export const filterSensitiveLog = (obj: TaskFailedEventDetails): any => ({
     ...obj,
     ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
+    ...(obj.error && { error: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is TaskFailedEventDetails =>
-    __isa(o, "TaskFailedEventDetails");
+  export const isa = (o: any): o is TaskFailedEventDetails => __isa(o, "TaskFailedEventDetails");
 }
 
 /**
@@ -2784,10 +2596,9 @@ export interface TaskScheduledEventDetails {
 export namespace TaskScheduledEventDetails {
   export const filterSensitiveLog = (obj: TaskScheduledEventDetails): any => ({
     ...obj,
-    ...(obj.parameters && { parameters: SENSITIVE_STRING })
+    ...(obj.parameters && { parameters: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is TaskScheduledEventDetails =>
-    __isa(o, "TaskScheduledEventDetails");
+  export const isa = (o: any): o is TaskScheduledEventDetails => __isa(o, "TaskScheduledEventDetails");
 }
 
 /**
@@ -2808,10 +2619,9 @@ export interface TaskStartedEventDetails {
 
 export namespace TaskStartedEventDetails {
   export const filterSensitiveLog = (obj: TaskStartedEventDetails): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TaskStartedEventDetails =>
-    __isa(o, "TaskStartedEventDetails");
+  export const isa = (o: any): o is TaskStartedEventDetails => __isa(o, "TaskStartedEventDetails");
 }
 
 /**
@@ -2841,15 +2651,12 @@ export interface TaskStartFailedEventDetails {
 }
 
 export namespace TaskStartFailedEventDetails {
-  export const filterSensitiveLog = (
-    obj: TaskStartFailedEventDetails
-  ): any => ({
+  export const filterSensitiveLog = (obj: TaskStartFailedEventDetails): any => ({
     ...obj,
     ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
+    ...(obj.error && { error: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is TaskStartFailedEventDetails =>
-    __isa(o, "TaskStartFailedEventDetails");
+  export const isa = (o: any): o is TaskStartFailedEventDetails => __isa(o, "TaskStartFailedEventDetails");
 }
 
 /**
@@ -2879,15 +2686,12 @@ export interface TaskSubmitFailedEventDetails {
 }
 
 export namespace TaskSubmitFailedEventDetails {
-  export const filterSensitiveLog = (
-    obj: TaskSubmitFailedEventDetails
-  ): any => ({
+  export const filterSensitiveLog = (obj: TaskSubmitFailedEventDetails): any => ({
     ...obj,
     ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
+    ...(obj.error && { error: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is TaskSubmitFailedEventDetails =>
-    __isa(o, "TaskSubmitFailedEventDetails");
+  export const isa = (o: any): o is TaskSubmitFailedEventDetails => __isa(o, "TaskSubmitFailedEventDetails");
 }
 
 /**
@@ -2914,10 +2718,9 @@ export interface TaskSubmittedEventDetails {
 export namespace TaskSubmittedEventDetails {
   export const filterSensitiveLog = (obj: TaskSubmittedEventDetails): any => ({
     ...obj,
-    ...(obj.output && { output: SENSITIVE_STRING })
+    ...(obj.output && { output: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is TaskSubmittedEventDetails =>
-    __isa(o, "TaskSubmittedEventDetails");
+  export const isa = (o: any): o is TaskSubmittedEventDetails => __isa(o, "TaskSubmittedEventDetails");
 }
 
 /**
@@ -2945,10 +2748,9 @@ export interface TaskSucceededEventDetails {
 export namespace TaskSucceededEventDetails {
   export const filterSensitiveLog = (obj: TaskSucceededEventDetails): any => ({
     ...obj,
-    ...(obj.output && { output: SENSITIVE_STRING })
+    ...(obj.output && { output: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is TaskSucceededEventDetails =>
-    __isa(o, "TaskSucceededEventDetails");
+  export const isa = (o: any): o is TaskSucceededEventDetails => __isa(o, "TaskSucceededEventDetails");
 }
 
 export interface TaskTimedOut extends __SmithyException, $MetadataBearer {
@@ -2959,7 +2761,7 @@ export interface TaskTimedOut extends __SmithyException, $MetadataBearer {
 
 export namespace TaskTimedOut {
   export const filterSensitiveLog = (obj: TaskTimedOut): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TaskTimedOut => __isa(o, "TaskTimedOut");
 }
@@ -2994,10 +2796,9 @@ export namespace TaskTimedOutEventDetails {
   export const filterSensitiveLog = (obj: TaskTimedOutEventDetails): any => ({
     ...obj,
     ...(obj.cause && { cause: SENSITIVE_STRING }),
-    ...(obj.error && { error: SENSITIVE_STRING })
+    ...(obj.error && { error: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is TaskTimedOutEventDetails =>
-    __isa(o, "TaskTimedOutEventDetails");
+  export const isa = (o: any): o is TaskTimedOutEventDetails => __isa(o, "TaskTimedOutEventDetails");
 }
 
 /**
@@ -3013,7 +2814,7 @@ export interface TooManyTags extends __SmithyException, $MetadataBearer {
 
 export namespace TooManyTags {
   export const filterSensitiveLog = (obj: TooManyTags): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TooManyTags => __isa(o, "TooManyTags");
 }
@@ -3033,10 +2834,9 @@ export interface UntagResourceInput {
 
 export namespace UntagResourceInput {
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceInput =>
-    __isa(o, "UntagResourceInput");
+  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
 export interface UntagResourceOutput {
@@ -3045,10 +2845,9 @@ export interface UntagResourceOutput {
 
 export namespace UntagResourceOutput {
   export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceOutput =>
-    __isa(o, "UntagResourceOutput");
+  export const isa = (o: any): o is UntagResourceOutput => __isa(o, "UntagResourceOutput");
 }
 
 export interface UpdateStateMachineInput {
@@ -3077,10 +2876,9 @@ export interface UpdateStateMachineInput {
 export namespace UpdateStateMachineInput {
   export const filterSensitiveLog = (obj: UpdateStateMachineInput): any => ({
     ...obj,
-    ...(obj.definition && { definition: SENSITIVE_STRING })
+    ...(obj.definition && { definition: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateStateMachineInput =>
-    __isa(o, "UpdateStateMachineInput");
+  export const isa = (o: any): o is UpdateStateMachineInput => __isa(o, "UpdateStateMachineInput");
 }
 
 export interface UpdateStateMachineOutput {
@@ -3093,8 +2891,7 @@ export interface UpdateStateMachineOutput {
 
 export namespace UpdateStateMachineOutput {
   export const filterSensitiveLog = (obj: UpdateStateMachineOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateStateMachineOutput =>
-    __isa(o, "UpdateStateMachineOutput");
+  export const isa = (o: any): o is UpdateStateMachineOutput => __isa(o, "UpdateStateMachineOutput");
 }

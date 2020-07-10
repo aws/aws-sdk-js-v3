@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -68,7 +64,7 @@ export interface Accelerator {
 
 export namespace Accelerator {
   export const filterSensitiveLog = (obj: Accelerator): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Accelerator => __isa(o, "Accelerator");
 }
@@ -103,52 +99,41 @@ export interface AcceleratorAttributes {
 
 export namespace AcceleratorAttributes {
   export const filterSensitiveLog = (obj: AcceleratorAttributes): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AcceleratorAttributes =>
-    __isa(o, "AcceleratorAttributes");
+  export const isa = (o: any): o is AcceleratorAttributes => __isa(o, "AcceleratorAttributes");
 }
 
 /**
  * <p>The accelerator that you specified could not be disabled.</p>
  */
-export interface AcceleratorNotDisabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AcceleratorNotDisabledException extends __SmithyException, $MetadataBearer {
   name: "AcceleratorNotDisabledException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AcceleratorNotDisabledException {
-  export const filterSensitiveLog = (
-    obj: AcceleratorNotDisabledException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceleratorNotDisabledException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AcceleratorNotDisabledException =>
-    __isa(o, "AcceleratorNotDisabledException");
+  export const isa = (o: any): o is AcceleratorNotDisabledException => __isa(o, "AcceleratorNotDisabledException");
 }
 
 /**
  * <p>The accelerator that you specified doesn't exist.</p>
  */
-export interface AcceleratorNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AcceleratorNotFoundException extends __SmithyException, $MetadataBearer {
   name: "AcceleratorNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AcceleratorNotFoundException {
-  export const filterSensitiveLog = (
-    obj: AcceleratorNotFoundException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceleratorNotFoundException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AcceleratorNotFoundException =>
-    __isa(o, "AcceleratorNotFoundException");
+  export const isa = (o: any): o is AcceleratorNotFoundException => __isa(o, "AcceleratorNotFoundException");
 }
 
 export type AcceleratorStatus = "DEPLOYED" | "IN_PROGRESS";
@@ -156,9 +141,7 @@ export type AcceleratorStatus = "DEPLOYED" | "IN_PROGRESS";
 /**
  * <p>You don't have access permission.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -166,29 +149,24 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
  * <p>The listener that you specified has an endpoint group associated with it. You must remove all dependent resources
  * 			from a listener before you can delete it.</p>
  */
-export interface AssociatedEndpointGroupFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AssociatedEndpointGroupFoundException extends __SmithyException, $MetadataBearer {
   name: "AssociatedEndpointGroupFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AssociatedEndpointGroupFoundException {
-  export const filterSensitiveLog = (
-    obj: AssociatedEndpointGroupFoundException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociatedEndpointGroupFoundException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AssociatedEndpointGroupFoundException =>
     __isa(o, "AssociatedEndpointGroupFoundException");
@@ -198,22 +176,17 @@ export namespace AssociatedEndpointGroupFoundException {
  * <p>The accelerator that you specified has a listener associated with it. You must remove all dependent resources from an
  * 			accelerator before you can delete it.</p>
  */
-export interface AssociatedListenerFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AssociatedListenerFoundException extends __SmithyException, $MetadataBearer {
   name: "AssociatedListenerFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AssociatedListenerFoundException {
-  export const filterSensitiveLog = (
-    obj: AssociatedListenerFoundException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociatedListenerFoundException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssociatedListenerFoundException =>
-    __isa(o, "AssociatedListenerFoundException");
+  export const isa = (o: any): o is AssociatedListenerFoundException => __isa(o, "AssociatedListenerFoundException");
 }
 
 export type ClientAffinity = "NONE" | "SOURCE_IP";
@@ -247,10 +220,9 @@ export interface CreateAcceleratorRequest {
 
 export namespace CreateAcceleratorRequest {
   export const filterSensitiveLog = (obj: CreateAcceleratorRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateAcceleratorRequest =>
-    __isa(o, "CreateAcceleratorRequest");
+  export const isa = (o: any): o is CreateAcceleratorRequest => __isa(o, "CreateAcceleratorRequest");
 }
 
 export interface CreateAcceleratorResponse {
@@ -263,10 +235,9 @@ export interface CreateAcceleratorResponse {
 
 export namespace CreateAcceleratorResponse {
   export const filterSensitiveLog = (obj: CreateAcceleratorResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateAcceleratorResponse =>
-    __isa(o, "CreateAcceleratorResponse");
+  export const isa = (o: any): o is CreateAcceleratorResponse => __isa(o, "CreateAcceleratorResponse");
 }
 
 export interface CreateEndpointGroupRequest {
@@ -335,10 +306,9 @@ export interface CreateEndpointGroupRequest {
 
 export namespace CreateEndpointGroupRequest {
   export const filterSensitiveLog = (obj: CreateEndpointGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateEndpointGroupRequest =>
-    __isa(o, "CreateEndpointGroupRequest");
+  export const isa = (o: any): o is CreateEndpointGroupRequest => __isa(o, "CreateEndpointGroupRequest");
 }
 
 export interface CreateEndpointGroupResponse {
@@ -350,13 +320,10 @@ export interface CreateEndpointGroupResponse {
 }
 
 export namespace CreateEndpointGroupResponse {
-  export const filterSensitiveLog = (
-    obj: CreateEndpointGroupResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateEndpointGroupResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateEndpointGroupResponse =>
-    __isa(o, "CreateEndpointGroupResponse");
+  export const isa = (o: any): o is CreateEndpointGroupResponse => __isa(o, "CreateEndpointGroupResponse");
 }
 
 export interface CreateListenerRequest {
@@ -401,10 +368,9 @@ export interface CreateListenerRequest {
 
 export namespace CreateListenerRequest {
   export const filterSensitiveLog = (obj: CreateListenerRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateListenerRequest =>
-    __isa(o, "CreateListenerRequest");
+  export const isa = (o: any): o is CreateListenerRequest => __isa(o, "CreateListenerRequest");
 }
 
 export interface CreateListenerResponse {
@@ -417,10 +383,9 @@ export interface CreateListenerResponse {
 
 export namespace CreateListenerResponse {
   export const filterSensitiveLog = (obj: CreateListenerResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateListenerResponse =>
-    __isa(o, "CreateListenerResponse");
+  export const isa = (o: any): o is CreateListenerResponse => __isa(o, "CreateListenerResponse");
 }
 
 export interface DeleteAcceleratorRequest {
@@ -433,10 +398,9 @@ export interface DeleteAcceleratorRequest {
 
 export namespace DeleteAcceleratorRequest {
   export const filterSensitiveLog = (obj: DeleteAcceleratorRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteAcceleratorRequest =>
-    __isa(o, "DeleteAcceleratorRequest");
+  export const isa = (o: any): o is DeleteAcceleratorRequest => __isa(o, "DeleteAcceleratorRequest");
 }
 
 export interface DeleteEndpointGroupRequest {
@@ -449,10 +413,9 @@ export interface DeleteEndpointGroupRequest {
 
 export namespace DeleteEndpointGroupRequest {
   export const filterSensitiveLog = (obj: DeleteEndpointGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteEndpointGroupRequest =>
-    __isa(o, "DeleteEndpointGroupRequest");
+  export const isa = (o: any): o is DeleteEndpointGroupRequest => __isa(o, "DeleteEndpointGroupRequest");
 }
 
 export interface DeleteListenerRequest {
@@ -465,10 +428,9 @@ export interface DeleteListenerRequest {
 
 export namespace DeleteListenerRequest {
   export const filterSensitiveLog = (obj: DeleteListenerRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteListenerRequest =>
-    __isa(o, "DeleteListenerRequest");
+  export const isa = (o: any): o is DeleteListenerRequest => __isa(o, "DeleteListenerRequest");
 }
 
 export interface DescribeAcceleratorAttributesRequest {
@@ -480,10 +442,8 @@ export interface DescribeAcceleratorAttributesRequest {
 }
 
 export namespace DescribeAcceleratorAttributesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeAcceleratorAttributesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAcceleratorAttributesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeAcceleratorAttributesRequest =>
     __isa(o, "DescribeAcceleratorAttributesRequest");
@@ -498,10 +458,8 @@ export interface DescribeAcceleratorAttributesResponse {
 }
 
 export namespace DescribeAcceleratorAttributesResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeAcceleratorAttributesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAcceleratorAttributesResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeAcceleratorAttributesResponse =>
     __isa(o, "DescribeAcceleratorAttributesResponse");
@@ -517,10 +475,9 @@ export interface DescribeAcceleratorRequest {
 
 export namespace DescribeAcceleratorRequest {
   export const filterSensitiveLog = (obj: DescribeAcceleratorRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAcceleratorRequest =>
-    __isa(o, "DescribeAcceleratorRequest");
+  export const isa = (o: any): o is DescribeAcceleratorRequest => __isa(o, "DescribeAcceleratorRequest");
 }
 
 export interface DescribeAcceleratorResponse {
@@ -532,13 +489,10 @@ export interface DescribeAcceleratorResponse {
 }
 
 export namespace DescribeAcceleratorResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeAcceleratorResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAcceleratorResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAcceleratorResponse =>
-    __isa(o, "DescribeAcceleratorResponse");
+  export const isa = (o: any): o is DescribeAcceleratorResponse => __isa(o, "DescribeAcceleratorResponse");
 }
 
 export interface DescribeEndpointGroupRequest {
@@ -550,13 +504,10 @@ export interface DescribeEndpointGroupRequest {
 }
 
 export namespace DescribeEndpointGroupRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeEndpointGroupRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeEndpointGroupRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeEndpointGroupRequest =>
-    __isa(o, "DescribeEndpointGroupRequest");
+  export const isa = (o: any): o is DescribeEndpointGroupRequest => __isa(o, "DescribeEndpointGroupRequest");
 }
 
 export interface DescribeEndpointGroupResponse {
@@ -568,13 +519,10 @@ export interface DescribeEndpointGroupResponse {
 }
 
 export namespace DescribeEndpointGroupResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeEndpointGroupResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeEndpointGroupResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeEndpointGroupResponse =>
-    __isa(o, "DescribeEndpointGroupResponse");
+  export const isa = (o: any): o is DescribeEndpointGroupResponse => __isa(o, "DescribeEndpointGroupResponse");
 }
 
 export interface DescribeListenerRequest {
@@ -587,10 +535,9 @@ export interface DescribeListenerRequest {
 
 export namespace DescribeListenerRequest {
   export const filterSensitiveLog = (obj: DescribeListenerRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeListenerRequest =>
-    __isa(o, "DescribeListenerRequest");
+  export const isa = (o: any): o is DescribeListenerRequest => __isa(o, "DescribeListenerRequest");
 }
 
 export interface DescribeListenerResponse {
@@ -603,10 +550,9 @@ export interface DescribeListenerResponse {
 
 export namespace DescribeListenerResponse {
   export const filterSensitiveLog = (obj: DescribeListenerResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeListenerResponse =>
-    __isa(o, "DescribeListenerResponse");
+  export const isa = (o: any): o is DescribeListenerResponse => __isa(o, "DescribeListenerResponse");
 }
 
 /**
@@ -643,10 +589,9 @@ export interface EndpointConfiguration {
 
 export namespace EndpointConfiguration {
   export const filterSensitiveLog = (obj: EndpointConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EndpointConfiguration =>
-    __isa(o, "EndpointConfiguration");
+  export const isa = (o: any): o is EndpointConfiguration => __isa(o, "EndpointConfiguration");
 }
 
 /**
@@ -723,10 +668,9 @@ export interface EndpointDescription {
 
 export namespace EndpointDescription {
   export const filterSensitiveLog = (obj: EndpointDescription): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EndpointDescription =>
-    __isa(o, "EndpointDescription");
+  export const isa = (o: any): o is EndpointDescription => __isa(o, "EndpointDescription");
 }
 
 /**
@@ -793,7 +737,7 @@ export interface EndpointGroup {
 
 export namespace EndpointGroup {
   export const filterSensitiveLog = (obj: EndpointGroup): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is EndpointGroup => __isa(o, "EndpointGroup");
 }
@@ -801,19 +745,15 @@ export namespace EndpointGroup {
 /**
  * <p>The endpoint group that you specified already exists.</p>
  */
-export interface EndpointGroupAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EndpointGroupAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "EndpointGroupAlreadyExistsException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace EndpointGroupAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: EndpointGroupAlreadyExistsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EndpointGroupAlreadyExistsException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is EndpointGroupAlreadyExistsException =>
     __isa(o, "EndpointGroupAlreadyExistsException");
@@ -822,28 +762,23 @@ export namespace EndpointGroupAlreadyExistsException {
 /**
  * <p>The endpoint group that you specified doesn't exist.</p>
  */
-export interface EndpointGroupNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EndpointGroupNotFoundException extends __SmithyException, $MetadataBearer {
   name: "EndpointGroupNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace EndpointGroupNotFoundException {
-  export const filterSensitiveLog = (
-    obj: EndpointGroupNotFoundException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EndpointGroupNotFoundException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is EndpointGroupNotFoundException =>
-    __isa(o, "EndpointGroupNotFoundException");
+  export const isa = (o: any): o is EndpointGroupNotFoundException => __isa(o, "EndpointGroupNotFoundException");
 }
 
 export enum HealthCheckProtocol {
   HTTP = "HTTP",
   HTTPS = "HTTPS",
-  TCP = "TCP"
+  TCP = "TCP",
 }
 
 export type HealthState = "HEALTHY" | "INITIAL" | "UNHEALTHY";
@@ -851,30 +786,23 @@ export type HealthState = "HEALTHY" | "INITIAL" | "UNHEALTHY";
 /**
  * <p>There was an internal error for AWS Global Accelerator.</p>
  */
-export interface InternalServiceErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceErrorException";
   $fault: "server";
   Message?: string;
 }
 
 export namespace InternalServiceErrorException {
-  export const filterSensitiveLog = (
-    obj: InternalServiceErrorException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServiceErrorException =>
-    __isa(o, "InternalServiceErrorException");
+  export const isa = (o: any): o is InternalServiceErrorException => __isa(o, "InternalServiceErrorException");
 }
 
 /**
  * <p>An argument that you specified is invalid.</p>
  */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -882,18 +810,15 @@ export interface InvalidArgumentException
 
 export namespace InvalidArgumentException {
   export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidArgumentException =>
-    __isa(o, "InvalidArgumentException");
+  export const isa = (o: any): o is InvalidArgumentException => __isa(o, "InvalidArgumentException");
 }
 
 /**
  * <p>There isn't another item to return.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -901,18 +826,15 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException =>
-    __isa(o, "InvalidNextTokenException");
+  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
  * <p>The port numbers that you specified are not valid numbers or are not unique for this accelerator.</p>
  */
-export interface InvalidPortRangeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPortRangeException extends __SmithyException, $MetadataBearer {
   name: "InvalidPortRangeException";
   $fault: "client";
   Message?: string;
@@ -920,14 +842,13 @@ export interface InvalidPortRangeException
 
 export namespace InvalidPortRangeException {
   export const filterSensitiveLog = (obj: InvalidPortRangeException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidPortRangeException =>
-    __isa(o, "InvalidPortRangeException");
+  export const isa = (o: any): o is InvalidPortRangeException => __isa(o, "InvalidPortRangeException");
 }
 
 export enum IpAddressType {
-  IPV4 = "IPV4"
+  IPV4 = "IPV4",
 }
 
 /**
@@ -948,7 +869,7 @@ export interface IpSet {
 
 export namespace IpSet {
   export const filterSensitiveLog = (obj: IpSet): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is IpSet => __isa(o, "IpSet");
 }
@@ -956,9 +877,7 @@ export namespace IpSet {
 /**
  * <p>Processing your request would cause you to exceed an AWS Global Accelerator limit.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -966,10 +885,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListAcceleratorsRequest {
@@ -987,10 +905,9 @@ export interface ListAcceleratorsRequest {
 
 export namespace ListAcceleratorsRequest {
   export const filterSensitiveLog = (obj: ListAcceleratorsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListAcceleratorsRequest =>
-    __isa(o, "ListAcceleratorsRequest");
+  export const isa = (o: any): o is ListAcceleratorsRequest => __isa(o, "ListAcceleratorsRequest");
 }
 
 export interface ListAcceleratorsResponse {
@@ -1008,10 +925,9 @@ export interface ListAcceleratorsResponse {
 
 export namespace ListAcceleratorsResponse {
   export const filterSensitiveLog = (obj: ListAcceleratorsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListAcceleratorsResponse =>
-    __isa(o, "ListAcceleratorsResponse");
+  export const isa = (o: any): o is ListAcceleratorsResponse => __isa(o, "ListAcceleratorsResponse");
 }
 
 export interface ListEndpointGroupsRequest {
@@ -1034,10 +950,9 @@ export interface ListEndpointGroupsRequest {
 
 export namespace ListEndpointGroupsRequest {
   export const filterSensitiveLog = (obj: ListEndpointGroupsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListEndpointGroupsRequest =>
-    __isa(o, "ListEndpointGroupsRequest");
+  export const isa = (o: any): o is ListEndpointGroupsRequest => __isa(o, "ListEndpointGroupsRequest");
 }
 
 export interface ListEndpointGroupsResponse {
@@ -1055,10 +970,9 @@ export interface ListEndpointGroupsResponse {
 
 export namespace ListEndpointGroupsResponse {
   export const filterSensitiveLog = (obj: ListEndpointGroupsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListEndpointGroupsResponse =>
-    __isa(o, "ListEndpointGroupsResponse");
+  export const isa = (o: any): o is ListEndpointGroupsResponse => __isa(o, "ListEndpointGroupsResponse");
 }
 
 /**
@@ -1100,7 +1014,7 @@ export interface Listener {
 
 export namespace Listener {
   export const filterSensitiveLog = (obj: Listener): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Listener => __isa(o, "Listener");
 }
@@ -1108,9 +1022,7 @@ export namespace Listener {
 /**
  * <p>The listener that you specified doesn't exist.</p>
  */
-export interface ListenerNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ListenerNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ListenerNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1118,10 +1030,9 @@ export interface ListenerNotFoundException
 
 export namespace ListenerNotFoundException {
   export const filterSensitiveLog = (obj: ListenerNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListenerNotFoundException =>
-    __isa(o, "ListenerNotFoundException");
+  export const isa = (o: any): o is ListenerNotFoundException => __isa(o, "ListenerNotFoundException");
 }
 
 export interface ListListenersRequest {
@@ -1144,10 +1055,9 @@ export interface ListListenersRequest {
 
 export namespace ListListenersRequest {
   export const filterSensitiveLog = (obj: ListListenersRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListListenersRequest =>
-    __isa(o, "ListListenersRequest");
+  export const isa = (o: any): o is ListListenersRequest => __isa(o, "ListListenersRequest");
 }
 
 export interface ListListenersResponse {
@@ -1165,10 +1075,9 @@ export interface ListListenersResponse {
 
 export namespace ListListenersResponse {
   export const filterSensitiveLog = (obj: ListListenersResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListListenersResponse =>
-    __isa(o, "ListListenersResponse");
+  export const isa = (o: any): o is ListListenersResponse => __isa(o, "ListListenersResponse");
 }
 
 /**
@@ -1189,14 +1098,14 @@ export interface PortRange {
 
 export namespace PortRange {
   export const filterSensitiveLog = (obj: PortRange): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PortRange => __isa(o, "PortRange");
 }
 
 export enum Protocol {
   TCP = "TCP",
-  UDP = "UDP"
+  UDP = "UDP",
 }
 
 export interface UpdateAcceleratorAttributesRequest {
@@ -1230,10 +1139,8 @@ export interface UpdateAcceleratorAttributesRequest {
 }
 
 export namespace UpdateAcceleratorAttributesRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateAcceleratorAttributesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateAcceleratorAttributesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdateAcceleratorAttributesRequest =>
     __isa(o, "UpdateAcceleratorAttributesRequest");
@@ -1248,10 +1155,8 @@ export interface UpdateAcceleratorAttributesResponse {
 }
 
 export namespace UpdateAcceleratorAttributesResponse {
-  export const filterSensitiveLog = (
-    obj: UpdateAcceleratorAttributesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateAcceleratorAttributesResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdateAcceleratorAttributesResponse =>
     __isa(o, "UpdateAcceleratorAttributesResponse");
@@ -1285,10 +1190,9 @@ export interface UpdateAcceleratorRequest {
 
 export namespace UpdateAcceleratorRequest {
   export const filterSensitiveLog = (obj: UpdateAcceleratorRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateAcceleratorRequest =>
-    __isa(o, "UpdateAcceleratorRequest");
+  export const isa = (o: any): o is UpdateAcceleratorRequest => __isa(o, "UpdateAcceleratorRequest");
 }
 
 export interface UpdateAcceleratorResponse {
@@ -1301,10 +1205,9 @@ export interface UpdateAcceleratorResponse {
 
 export namespace UpdateAcceleratorResponse {
   export const filterSensitiveLog = (obj: UpdateAcceleratorResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateAcceleratorResponse =>
-    __isa(o, "UpdateAcceleratorResponse");
+  export const isa = (o: any): o is UpdateAcceleratorResponse => __isa(o, "UpdateAcceleratorResponse");
 }
 
 export interface UpdateEndpointGroupRequest {
@@ -1361,10 +1264,9 @@ export interface UpdateEndpointGroupRequest {
 
 export namespace UpdateEndpointGroupRequest {
   export const filterSensitiveLog = (obj: UpdateEndpointGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateEndpointGroupRequest =>
-    __isa(o, "UpdateEndpointGroupRequest");
+  export const isa = (o: any): o is UpdateEndpointGroupRequest => __isa(o, "UpdateEndpointGroupRequest");
 }
 
 export interface UpdateEndpointGroupResponse {
@@ -1376,13 +1278,10 @@ export interface UpdateEndpointGroupResponse {
 }
 
 export namespace UpdateEndpointGroupResponse {
-  export const filterSensitiveLog = (
-    obj: UpdateEndpointGroupResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateEndpointGroupResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateEndpointGroupResponse =>
-    __isa(o, "UpdateEndpointGroupResponse");
+  export const isa = (o: any): o is UpdateEndpointGroupResponse => __isa(o, "UpdateEndpointGroupResponse");
 }
 
 export interface UpdateListenerRequest {
@@ -1421,10 +1320,9 @@ export interface UpdateListenerRequest {
 
 export namespace UpdateListenerRequest {
   export const filterSensitiveLog = (obj: UpdateListenerRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateListenerRequest =>
-    __isa(o, "UpdateListenerRequest");
+  export const isa = (o: any): o is UpdateListenerRequest => __isa(o, "UpdateListenerRequest");
 }
 
 export interface UpdateListenerResponse {
@@ -1437,8 +1335,7 @@ export interface UpdateListenerResponse {
 
 export namespace UpdateListenerResponse {
   export const filterSensitiveLog = (obj: UpdateListenerResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateListenerResponse =>
-    __isa(o, "UpdateListenerResponse");
+  export const isa = (o: any): o is UpdateListenerResponse => __isa(o, "UpdateListenerResponse");
 }

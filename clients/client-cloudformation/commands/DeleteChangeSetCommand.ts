@@ -1,18 +1,11 @@
-import {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFormationClient";
+import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { DeleteChangeSetInput, DeleteChangeSetOutput } from "../models/index";
 import {
   deserializeAws_queryDeleteChangeSetCommand,
-  serializeAws_queryDeleteChangeSetCommand
+  serializeAws_queryDeleteChangeSetCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteChangeSetCommandInput = DeleteChangeSetInput;
-export type DeleteChangeSetCommandOutput = DeleteChangeSetOutput &
-  __MetadataBearer;
+export type DeleteChangeSetCommandOutput = DeleteChangeSetOutput & __MetadataBearer;
 
 export class DeleteChangeSetCommand extends $Command<
   DeleteChangeSetCommandInput,
@@ -47,14 +39,12 @@ export class DeleteChangeSetCommand extends $Command<
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteChangeSetCommandInput, DeleteChangeSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class DeleteChangeSetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteChangeSetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteChangeSetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteChangeSetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChangeSetCommandOutput> {
     return deserializeAws_queryDeleteChangeSetCommand(output, context);
   }
 

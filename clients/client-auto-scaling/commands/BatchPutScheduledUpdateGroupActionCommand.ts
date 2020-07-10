@@ -1,21 +1,11 @@
-import {
-  AutoScalingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AutoScalingClient";
-import {
-  BatchPutScheduledUpdateGroupActionAnswer,
-  BatchPutScheduledUpdateGroupActionType
-} from "../models/index";
+import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
+import { BatchPutScheduledUpdateGroupActionAnswer, BatchPutScheduledUpdateGroupActionType } from "../models/index";
 import {
   deserializeAws_queryBatchPutScheduledUpdateGroupActionCommand,
-  serializeAws_queryBatchPutScheduledUpdateGroupActionCommand
+  serializeAws_queryBatchPutScheduledUpdateGroupActionCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type BatchPutScheduledUpdateGroupActionCommandInput = BatchPutScheduledUpdateGroupActionType;
@@ -49,18 +39,13 @@ export class BatchPutScheduledUpdateGroupActionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchPutScheduledUpdateGroupActionCommandInput,
-    BatchPutScheduledUpdateGroupActionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchPutScheduledUpdateGroupActionCommandInput, BatchPutScheduledUpdateGroupActionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +59,14 @@ export class BatchPutScheduledUpdateGroupActionCommand extends $Command<
     input: BatchPutScheduledUpdateGroupActionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryBatchPutScheduledUpdateGroupActionCommand(
-      input,
-      context
-    );
+    return serializeAws_queryBatchPutScheduledUpdateGroupActionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchPutScheduledUpdateGroupActionCommandOutput> {
-    return deserializeAws_queryBatchPutScheduledUpdateGroupActionCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryBatchPutScheduledUpdateGroupActionCommand(output, context);
   }
 
   // Start section: command_body_extra

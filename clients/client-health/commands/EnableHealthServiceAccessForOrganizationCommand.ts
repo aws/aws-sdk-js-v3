@@ -1,17 +1,10 @@
-import {
-  HealthClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../HealthClient";
+import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import {
   deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand,
-  serializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand
+  serializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -20,7 +13,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type EnableHealthServiceAccessForOrganizationCommandInput = {};
@@ -34,9 +27,7 @@ export class EnableHealthServiceAccessForOrganizationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: EnableHealthServiceAccessForOrganizationCommandInput
-  ) {
+  constructor(readonly input: EnableHealthServiceAccessForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -50,14 +41,12 @@ export class EnableHealthServiceAccessForOrganizationCommand extends $Command<
     EnableHealthServiceAccessForOrganizationCommandInput,
     EnableHealthServiceAccessForOrganizationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -71,20 +60,14 @@ export class EnableHealthServiceAccessForOrganizationCommand extends $Command<
     input: EnableHealthServiceAccessForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableHealthServiceAccessForOrganizationCommandOutput> {
-    return deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

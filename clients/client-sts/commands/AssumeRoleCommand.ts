@@ -1,18 +1,8 @@
-import {
-  STSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../STSClient";
+import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient";
 import { AssumeRoleRequest, AssumeRoleResponse } from "../models/index";
-import {
-  deserializeAws_queryAssumeRoleCommand,
-  serializeAws_queryAssumeRoleCommand
-} from "../protocols/Aws_query";
+import { deserializeAws_queryAssumeRoleCommand, serializeAws_queryAssumeRoleCommand } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +11,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type AssumeRoleCommandInput = AssumeRoleRequest;
@@ -46,14 +36,12 @@ export class AssumeRoleCommand extends $Command<
     configuration: STSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AssumeRoleCommandInput, AssumeRoleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +51,11 @@ export class AssumeRoleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AssumeRoleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AssumeRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAssumeRoleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AssumeRoleCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssumeRoleCommandOutput> {
     return deserializeAws_queryAssumeRoleCommand(output, context);
   }
 

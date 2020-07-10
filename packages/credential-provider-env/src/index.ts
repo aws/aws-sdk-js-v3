@@ -21,12 +21,10 @@ export function fromEnv(): CredentialProvider {
         accessKeyId,
         secretAccessKey,
         sessionToken: process.env[ENV_SESSION],
-        expiration: expiry ? new Date(expiry) : undefined
+        expiration: expiry ? new Date(expiry) : undefined,
       });
     }
 
-    return Promise.reject(
-      new ProviderError("Unable to find environment variable credentials.")
-    );
+    return Promise.reject(new ProviderError("Unable to find environment variable credentials."));
   };
 }

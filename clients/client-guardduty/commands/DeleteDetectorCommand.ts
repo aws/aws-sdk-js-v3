@@ -1,18 +1,11 @@
-import {
-  GuardDutyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GuardDutyClient";
+import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { DeleteDetectorRequest, DeleteDetectorResponse } from "../models/index";
 import {
   deserializeAws_restJson1DeleteDetectorCommand,
-  serializeAws_restJson1DeleteDetectorCommand
+  serializeAws_restJson1DeleteDetectorCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteDetectorCommandInput = DeleteDetectorRequest;
-export type DeleteDetectorCommandOutput = DeleteDetectorResponse &
-  __MetadataBearer;
+export type DeleteDetectorCommandOutput = DeleteDetectorResponse & __MetadataBearer;
 
 export class DeleteDetectorCommand extends $Command<
   DeleteDetectorCommandInput,
@@ -47,14 +39,12 @@ export class DeleteDetectorCommand extends $Command<
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDetectorCommandInput, DeleteDetectorCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class DeleteDetectorCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteDetectorCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDetectorCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteDetectorCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDetectorCommandOutput> {
     return deserializeAws_restJson1DeleteDetectorCommand(output, context);
   }
 

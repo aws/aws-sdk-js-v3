@@ -1,18 +1,11 @@
 import { CreateRegistryRequest, CreateRegistryResponse } from "../models/index";
 import {
   deserializeAws_restJson1CreateRegistryCommand,
-  serializeAws_restJson1CreateRegistryCommand
+  serializeAws_restJson1CreateRegistryCommand,
 } from "../protocols/Aws_restJson1";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  schemasClientResolvedConfig
-} from "../schemasClient";
+import { ServiceInputTypes, ServiceOutputTypes, schemasClientResolvedConfig } from "../schemasClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateRegistryCommandInput = CreateRegistryRequest;
-export type CreateRegistryCommandOutput = CreateRegistryResponse &
-  __MetadataBearer;
+export type CreateRegistryCommandOutput = CreateRegistryResponse & __MetadataBearer;
 
 export class CreateRegistryCommand extends $Command<
   CreateRegistryCommandInput,
@@ -47,14 +39,12 @@ export class CreateRegistryCommand extends $Command<
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateRegistryCommandInput, CreateRegistryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class CreateRegistryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateRegistryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateRegistryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateRegistryCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateRegistryCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRegistryCommandOutput> {
     return deserializeAws_restJson1CreateRegistryCommand(output, context);
   }
 

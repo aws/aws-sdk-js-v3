@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TextractClientResolvedConfig
-} from "../TextractClient";
-import {
-  DetectDocumentTextRequest,
-  DetectDocumentTextResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
+import { DetectDocumentTextRequest, DetectDocumentTextResponse } from "../models/index";
 import {
   deserializeAws_json1_1DetectDocumentTextCommand,
-  serializeAws_json1_1DetectDocumentTextCommand
+  serializeAws_json1_1DetectDocumentTextCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DetectDocumentTextCommandInput = DetectDocumentTextRequest;
-export type DetectDocumentTextCommandOutput = DetectDocumentTextResponse &
-  __MetadataBearer;
+export type DetectDocumentTextCommandOutput = DetectDocumentTextResponse & __MetadataBearer;
 
 export class DetectDocumentTextCommand extends $Command<
   DetectDocumentTextCommandInput,
@@ -50,14 +39,12 @@ export class DetectDocumentTextCommand extends $Command<
     configuration: TextractClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetectDocumentTextCommandInput, DetectDocumentTextCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class DetectDocumentTextCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DetectDocumentTextCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DetectDocumentTextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectDocumentTextCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DetectDocumentTextCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectDocumentTextCommandOutput> {
     return deserializeAws_json1_1DetectDocumentTextCommand(output, context);
   }
 

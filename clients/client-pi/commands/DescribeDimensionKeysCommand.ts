@@ -1,21 +1,11 @@
-import {
-  PIClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PIClient";
-import {
-  DescribeDimensionKeysRequest,
-  DescribeDimensionKeysResponse
-} from "../models/index";
+import { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
+import { DescribeDimensionKeysRequest, DescribeDimensionKeysResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeDimensionKeysCommand,
-  serializeAws_json1_1DescribeDimensionKeysCommand
+  serializeAws_json1_1DescribeDimensionKeysCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeDimensionKeysCommandInput = DescribeDimensionKeysRequest;
-export type DescribeDimensionKeysCommandOutput = DescribeDimensionKeysResponse &
-  __MetadataBearer;
+export type DescribeDimensionKeysCommandOutput = DescribeDimensionKeysResponse & __MetadataBearer;
 
 export class DescribeDimensionKeysCommand extends $Command<
   DescribeDimensionKeysCommandInput,
@@ -49,18 +38,13 @@ export class DescribeDimensionKeysCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PIClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDimensionKeysCommandInput,
-    DescribeDimensionKeysCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDimensionKeysCommandInput, DescribeDimensionKeysCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DescribeDimensionKeysCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDimensionKeysCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeDimensionKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDimensionKeysCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeDimensionKeysCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDimensionKeysCommandOutput> {
     return deserializeAws_json1_1DescribeDimensionKeysCommand(output, context);
   }
 

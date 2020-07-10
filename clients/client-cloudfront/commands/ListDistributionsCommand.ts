@@ -1,21 +1,11 @@
-import {
-  CloudFrontClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFrontClient";
-import {
-  ListDistributionsRequest,
-  ListDistributionsResult
-} from "../models/index";
+import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { ListDistributionsRequest, ListDistributionsResult } from "../models/index";
 import {
   deserializeAws_restXmlListDistributionsCommand,
-  serializeAws_restXmlListDistributionsCommand
+  serializeAws_restXmlListDistributionsCommand,
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListDistributionsCommandInput = ListDistributionsRequest;
-export type ListDistributionsCommandOutput = ListDistributionsResult &
-  __MetadataBearer;
+export type ListDistributionsCommandOutput = ListDistributionsResult & __MetadataBearer;
 
 export class ListDistributionsCommand extends $Command<
   ListDistributionsCommandInput,
@@ -50,14 +39,12 @@ export class ListDistributionsCommand extends $Command<
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDistributionsCommandInput, ListDistributionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class ListDistributionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListDistributionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListDistributionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListDistributionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListDistributionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDistributionsCommandOutput> {
     return deserializeAws_restXmlListDistributionsCommand(output, context);
   }
 

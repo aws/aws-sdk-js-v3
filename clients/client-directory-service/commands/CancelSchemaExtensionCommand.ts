@@ -1,21 +1,11 @@
-import {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DirectoryServiceClient";
-import {
-  CancelSchemaExtensionRequest,
-  CancelSchemaExtensionResult
-} from "../models/index";
+import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
+import { CancelSchemaExtensionRequest, CancelSchemaExtensionResult } from "../models/index";
 import {
   deserializeAws_json1_1CancelSchemaExtensionCommand,
-  serializeAws_json1_1CancelSchemaExtensionCommand
+  serializeAws_json1_1CancelSchemaExtensionCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CancelSchemaExtensionCommandInput = CancelSchemaExtensionRequest;
-export type CancelSchemaExtensionCommandOutput = CancelSchemaExtensionResult &
-  __MetadataBearer;
+export type CancelSchemaExtensionCommandOutput = CancelSchemaExtensionResult & __MetadataBearer;
 
 export class CancelSchemaExtensionCommand extends $Command<
   CancelSchemaExtensionCommandInput,
@@ -49,18 +38,13 @@ export class CancelSchemaExtensionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CancelSchemaExtensionCommandInput,
-    CancelSchemaExtensionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CancelSchemaExtensionCommandInput, CancelSchemaExtensionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class CancelSchemaExtensionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CancelSchemaExtensionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CancelSchemaExtensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelSchemaExtensionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CancelSchemaExtensionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelSchemaExtensionCommandOutput> {
     return deserializeAws_json1_1CancelSchemaExtensionCommand(output, context);
   }
 

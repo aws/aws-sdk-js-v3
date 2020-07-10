@@ -4,7 +4,7 @@ import {
   InitializeHandlerOptions,
   InitializeHandlerOutput,
   InitializeMiddleware,
-  MetadataBearer
+  MetadataBearer,
 } from "@aws-sdk/types";
 
 export function accountIdDefaultMiddleware(): InitializeMiddleware<any, any> {
@@ -24,5 +24,5 @@ export function accountIdDefaultMiddleware(): InitializeMiddleware<any, any> {
 export const accountIdDefaultMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["ACCOUNT_ID_DEFAULT"],
-  name: "accountIdDefaultMiddleware"
+  name: "accountIdDefaultMiddleware",
 };

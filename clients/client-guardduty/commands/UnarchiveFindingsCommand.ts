@@ -1,21 +1,11 @@
-import {
-  GuardDutyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GuardDutyClient";
-import {
-  UnarchiveFindingsRequest,
-  UnarchiveFindingsResponse
-} from "../models/index";
+import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { UnarchiveFindingsRequest, UnarchiveFindingsResponse } from "../models/index";
 import {
   deserializeAws_restJson1UnarchiveFindingsCommand,
-  serializeAws_restJson1UnarchiveFindingsCommand
+  serializeAws_restJson1UnarchiveFindingsCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UnarchiveFindingsCommandInput = UnarchiveFindingsRequest;
-export type UnarchiveFindingsCommandOutput = UnarchiveFindingsResponse &
-  __MetadataBearer;
+export type UnarchiveFindingsCommandOutput = UnarchiveFindingsResponse & __MetadataBearer;
 
 export class UnarchiveFindingsCommand extends $Command<
   UnarchiveFindingsCommandInput,
@@ -50,14 +39,12 @@ export class UnarchiveFindingsCommand extends $Command<
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UnarchiveFindingsCommandInput, UnarchiveFindingsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class UnarchiveFindingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UnarchiveFindingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UnarchiveFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UnarchiveFindingsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UnarchiveFindingsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnarchiveFindingsCommandOutput> {
     return deserializeAws_restJson1UnarchiveFindingsCommand(output, context);
   }
 

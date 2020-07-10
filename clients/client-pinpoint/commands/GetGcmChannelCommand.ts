@@ -1,18 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { GetGcmChannelRequest, GetGcmChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1GetGcmChannelCommand,
-  serializeAws_restJson1GetGcmChannelCommand
+  serializeAws_restJson1GetGcmChannelCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetGcmChannelCommandInput = GetGcmChannelRequest;
-export type GetGcmChannelCommandOutput = GetGcmChannelResponse &
-  __MetadataBearer;
+export type GetGcmChannelCommandOutput = GetGcmChannelResponse & __MetadataBearer;
 
 export class GetGcmChannelCommand extends $Command<
   GetGcmChannelCommandInput,
@@ -47,14 +39,12 @@ export class GetGcmChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetGcmChannelCommandInput, GetGcmChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class GetGcmChannelCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetGcmChannelCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetGcmChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetGcmChannelCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetGcmChannelCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGcmChannelCommandOutput> {
     return deserializeAws_restJson1GetGcmChannelCommand(output, context);
   }
 

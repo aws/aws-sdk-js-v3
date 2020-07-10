@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DescribeDBLogFilesMessage,
-  DescribeDBLogFilesResponse
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DescribeDBLogFilesMessage, DescribeDBLogFilesResponse } from "../models/index";
 import {
   deserializeAws_queryDescribeDBLogFilesCommand,
-  serializeAws_queryDescribeDBLogFilesCommand
+  serializeAws_queryDescribeDBLogFilesCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeDBLogFilesCommandInput = DescribeDBLogFilesMessage;
-export type DescribeDBLogFilesCommandOutput = DescribeDBLogFilesResponse &
-  __MetadataBearer;
+export type DescribeDBLogFilesCommandOutput = DescribeDBLogFilesResponse & __MetadataBearer;
 
 export class DescribeDBLogFilesCommand extends $Command<
   DescribeDBLogFilesCommandInput,
@@ -50,14 +39,12 @@ export class DescribeDBLogFilesCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDBLogFilesCommandInput, DescribeDBLogFilesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class DescribeDBLogFilesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDBLogFilesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeDBLogFilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBLogFilesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeDBLogFilesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBLogFilesCommandOutput> {
     return deserializeAws_queryDescribeDBLogFilesCommand(output, context);
   }
 

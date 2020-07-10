@@ -11,7 +11,7 @@ export const CLOCK_SKEW_ERROR_CODES = [
   "RequestExpired",
   "RequestInTheFuture",
   "RequestTimeTooSkewed",
-  "SignatureDoesNotMatch"
+  "SignatureDoesNotMatch",
 ];
 
 /**
@@ -33,18 +33,13 @@ export const THROTTLING_ERROR_CODES = [
   "RequestThrottled",
   "SlowDown",
   "PriorRequestNotComplete",
-  "EC2ThrottledException"
+  "EC2ThrottledException",
 ];
 
 /**
  * Error codes that indicate transient issues
  */
-export const TRANSIENT_ERROR_CODES = [
-  "AbortError",
-  "TimeoutError",
-  "RequestTimeout",
-  "RequestTimeoutException"
-];
+export const TRANSIENT_ERROR_CODES = ["AbortError", "TimeoutError", "RequestTimeout", "RequestTimeoutException"];
 
 /**
  * Error codes that indicate transient issues

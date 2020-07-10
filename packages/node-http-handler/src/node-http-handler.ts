@@ -36,12 +36,7 @@ export class NodeHttpHandler implements HttpHandler {
   // Node http handler is hard-coded to http/1.1: https://github.com/nodejs/node/blob/ff5664b83b89c55e4ab5d5f60068fb457f1f5872/lib/_http_server.js#L286
   public readonly metadata = { handlerProtocol: "http/1.1" };
 
-  constructor({
-    connectionTimeout,
-    socketTimeout,
-    httpAgent,
-    httpsAgent
-  }: NodeHttpOptions = {}) {
+  constructor({ connectionTimeout, socketTimeout, httpAgent, httpsAgent }: NodeHttpOptions = {}) {
     this.connectionTimeout = connectionTimeout;
     this.socketTimeout = socketTimeout;
     const keepAlive = true;
@@ -54,10 +49,7 @@ export class NodeHttpHandler implements HttpHandler {
     this.httpsAgent.destroy();
   }
 
-  handle(
-    request: HttpRequest,
-    { abortSignal }: HttpHandlerOptions
-  ): Promise<{ response: HttpResponse }> {
+  handle(request: HttpRequest, { abortSignal }: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return new Promise((resolve, reject) => {
       // if the request was already aborted, prevent doing extra work
       if (abortSignal?.aborted) {
@@ -76,15 +68,15 @@ export class NodeHttpHandler implements HttpHandler {
         method: request.method,
         path: queryString ? `${request.path}?${queryString}` : request.path,
         port: request.port,
-        agent: isSSL ? this.httpsAgent : this.httpAgent
+        agent: isSSL ? this.httpsAgent : this.httpAgent,
       };
 
       // create the http request
-      const req = (isSSL ? https : http).request(nodeHttpsOptions, res => {
+      const req = (isSSL ? https : http).request(nodeHttpsOptions, (res) => {
         const httpResponse = new HttpResponse({
           statusCode: res.statusCode || -1,
           headers: getTransformedHeaders(res.headers),
-          body: res
+          body: res,
         });
         resolve({ response: httpResponse });
       });

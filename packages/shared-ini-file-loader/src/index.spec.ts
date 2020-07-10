@@ -1,29 +1,17 @@
 import { join, sep } from "path";
-import {
-  ENV_CONFIG_PATH,
-  ENV_CREDENTIALS_PATH,
-  loadSharedConfigFiles
-} from "./";
+import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH, loadSharedConfigFiles } from "./";
 
 jest.mock("fs", () => {
   interface FsModule {
     __addMatcher(toMatch: string, toReturn: string): void;
     __clearMatchers(): void;
-    readFile: (
-      path: string,
-      encoding: string,
-      cb: (err: Error | null, data?: string) => void
-    ) => void;
+    readFile: (path: string, encoding: string, cb: (err: Error | null, data?: string) => void) => void;
   }
 
   const fs: FsModule = <FsModule>jest.genMockFromModule("fs");
   let matchers = new Map<string, string>();
 
-  function readFile(
-    path: string,
-    encoding: string,
-    callback: (err: Error | null, data?: string) => void
-  ): void {
+  function readFile(path: string, encoding: string, callback: (err: Error | null, data?: string) => void): void {
     if (matchers.has(path)) {
       callback(null, matchers.get(path));
       return;
@@ -62,19 +50,19 @@ import { homedir } from "os";
 const DEFAULT_CREDS = {
   accessKeyId: "AKIAIOSFODNN7EXAMPLE",
   secretAccessKey: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
-  sessionToken: "sessionToken"
+  sessionToken: "sessionToken",
 };
 
 const FOO_CREDS = {
   accessKeyId: "foo",
   secretAccessKey: "bar",
-  sessionToken: "baz"
+  sessionToken: "baz",
 };
 
 const FIZZ_CREDS = {
   accessKeyId: "fizz",
   secretAccessKey: "buzz",
-  sessionToken: "pop"
+  sessionToken: "pop",
 };
 
 const envAtLoadTime: { [key: string]: string | undefined } = [
@@ -83,7 +71,7 @@ const envAtLoadTime: { [key: string]: string | undefined } = [
   "HOME",
   "USERPROFILE",
   "HOMEPATH",
-  "HOMEDRIVE"
+  "HOMEDRIVE",
 ].reduce((envState: { [key: string]: string | undefined }, varName: string) => {
   envState[varName] = process.env[varName];
   return envState;
@@ -91,14 +79,14 @@ const envAtLoadTime: { [key: string]: string | undefined } = [
 
 beforeEach(() => {
   __clearMatchers();
-  Object.keys(envAtLoadTime).forEach(envKey => {
+  Object.keys(envAtLoadTime).forEach((envKey) => {
     delete process.env[envKey];
   });
 });
 
 afterAll(() => {
   __clearMatchers();
-  Object.keys(envAtLoadTime).forEach(envKey => {
+  Object.keys(envAtLoadTime).forEach((envKey) => {
     process.env[envKey] = envAtLoadTime[envKey];
   });
 });
@@ -125,13 +113,13 @@ aws_session_token = ${FOO_CREDS.sessionToken}`;
       default: {
         aws_access_key_id: DEFAULT_CREDS.accessKeyId,
         aws_secret_access_key: DEFAULT_CREDS.secretAccessKey,
-        aws_session_token: DEFAULT_CREDS.sessionToken
+        aws_session_token: DEFAULT_CREDS.sessionToken,
       },
       foo: {
         aws_access_key_id: FOO_CREDS.accessKeyId,
         aws_secret_access_key: FOO_CREDS.secretAccessKey,
-        aws_session_token: FOO_CREDS.sessionToken
-      }
+        aws_session_token: FOO_CREDS.sessionToken,
+      },
     };
 
     const DEFAULT_PATH = join(homedir(), ".aws", "credentials");
@@ -141,7 +129,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`;
 
       expect(await loadSharedConfigFiles()).toEqual({
         configFile: {},
-        credentialsFile: parsed
+        credentialsFile: parsed,
       });
     });
 
@@ -151,7 +139,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`;
 
       expect(await loadSharedConfigFiles({ filepath: customPath })).toEqual({
         configFile: {},
-        credentialsFile: parsed
+        credentialsFile: parsed,
       });
     });
 
@@ -161,7 +149,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`;
 
       expect(await loadSharedConfigFiles()).toEqual({
         configFile: {},
-        credentialsFile: parsed
+        credentialsFile: parsed,
       });
     });
 
@@ -174,47 +162,38 @@ aws_session_token = ${FOO_CREDS.sessionToken}`;
 
       expect(await loadSharedConfigFiles({ filepath: customPath })).toEqual({
         configFile: {},
-        credentialsFile: parsed
+        credentialsFile: parsed,
       });
     });
 
     it("should use $HOME when available", async () => {
       process.env.HOME = `${sep}foo${sep}bar`;
-      __addMatcher(
-        `${sep}foo${sep}bar${sep}.aws${sep}credentials`,
-        SIMPLE_CREDS_FILE
-      );
+      __addMatcher(`${sep}foo${sep}bar${sep}.aws${sep}credentials`, SIMPLE_CREDS_FILE);
 
       expect(await loadSharedConfigFiles()).toEqual({
         configFile: {},
-        credentialsFile: parsed
+        credentialsFile: parsed,
       });
     });
 
     it("should use $USERPROFILE when available", async () => {
       process.env.USERPROFILE = "C:\\Users\\user";
-      __addMatcher(
-        `C:\\Users\\user${sep}.aws${sep}credentials`,
-        SIMPLE_CREDS_FILE
-      );
+      __addMatcher(`C:\\Users\\user${sep}.aws${sep}credentials`, SIMPLE_CREDS_FILE);
 
       expect(await loadSharedConfigFiles()).toEqual({
         configFile: {},
-        credentialsFile: parsed
+        credentialsFile: parsed,
       });
     });
 
     it("should use $HOMEPATH/$HOMEDRIVE when available", async () => {
       process.env.HOMEDRIVE = "D:\\";
       process.env.HOMEPATH = "Users\\user";
-      __addMatcher(
-        `D:\\Users\\user${sep}.aws${sep}credentials`,
-        SIMPLE_CREDS_FILE
-      );
+      __addMatcher(`D:\\Users\\user${sep}.aws${sep}credentials`, SIMPLE_CREDS_FILE);
 
       expect(await loadSharedConfigFiles()).toEqual({
         configFile: {},
-        credentialsFile: parsed
+        credentialsFile: parsed,
       });
     });
 
@@ -243,8 +222,8 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
       expect(await loadSharedConfigFiles()).toEqual({
         configFile: {},
         credentialsFile: {
-          default: parsed.default
-        }
+          default: parsed.default,
+        },
       });
     });
 
@@ -274,8 +253,8 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
       expect(await loadSharedConfigFiles()).toEqual({
         configFile: {},
         credentialsFile: {
-          default: parsed.default
-        }
+          default: parsed.default,
+        },
       });
     });
 
@@ -305,8 +284,8 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
       expect(await loadSharedConfigFiles()).toEqual({
         configFile: {},
         credentialsFile: {
-          default: parsed.default
-        }
+          default: parsed.default,
+        },
       });
     });
   });
@@ -331,18 +310,18 @@ aws_session_token = ${FIZZ_CREDS.sessionToken}`;
       default: {
         aws_access_key_id: DEFAULT_CREDS.accessKeyId,
         aws_secret_access_key: DEFAULT_CREDS.secretAccessKey,
-        aws_session_token: DEFAULT_CREDS.sessionToken
+        aws_session_token: DEFAULT_CREDS.sessionToken,
       },
       foo: {
         aws_access_key_id: FOO_CREDS.accessKeyId,
         aws_secret_access_key: FOO_CREDS.secretAccessKey,
-        aws_session_token: FOO_CREDS.sessionToken
+        aws_session_token: FOO_CREDS.sessionToken,
       },
       "fizz buzz": {
         aws_access_key_id: FIZZ_CREDS.accessKeyId,
         aws_secret_access_key: FIZZ_CREDS.secretAccessKey,
-        aws_session_token: FIZZ_CREDS.sessionToken
-      }
+        aws_session_token: FIZZ_CREDS.sessionToken,
+      },
     };
 
     const DEFAULT_PATH = join(homedir(), ".aws", "config");
@@ -352,7 +331,7 @@ aws_session_token = ${FIZZ_CREDS.sessionToken}`;
 
       expect(await loadSharedConfigFiles()).toEqual({
         credentialsFile: {},
-        configFile: parsed
+        configFile: parsed,
       });
     });
 
@@ -388,11 +367,9 @@ key = value`
       const customPath = join(homedir(), ".aws", "foo");
       __addMatcher(customPath, SIMPLE_CONFIG_FILE);
 
-      expect(
-        await loadSharedConfigFiles({ configFilepath: customPath })
-      ).toEqual({
+      expect(await loadSharedConfigFiles({ configFilepath: customPath })).toEqual({
         credentialsFile: {},
-        configFile: parsed
+        configFile: parsed,
       });
     });
 
@@ -402,7 +379,7 @@ key = value`
 
       expect(await loadSharedConfigFiles()).toEqual({
         credentialsFile: {},
-        configFile: parsed
+        configFile: parsed,
       });
     });
 
@@ -427,24 +404,19 @@ aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
 aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
       );
 
-      expect(
-        await loadSharedConfigFiles({ configFilepath: customPath })
-      ).toEqual({
+      expect(await loadSharedConfigFiles({ configFilepath: customPath })).toEqual({
         credentialsFile: {},
-        configFile: { default: parsed.default }
+        configFile: { default: parsed.default },
       });
     });
 
     it("should use $HOME when available", async () => {
       process.env.HOME = `${sep}foo${sep}bar`;
-      __addMatcher(
-        `${sep}foo${sep}bar${sep}.aws${sep}config`,
-        SIMPLE_CONFIG_FILE
-      );
+      __addMatcher(`${sep}foo${sep}bar${sep}.aws${sep}config`, SIMPLE_CONFIG_FILE);
 
       expect(await loadSharedConfigFiles()).toEqual({
         credentialsFile: {},
-        configFile: parsed
+        configFile: parsed,
       });
     });
 
@@ -454,7 +426,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
 
       expect(await loadSharedConfigFiles()).toEqual({
         credentialsFile: {},
-        configFile: parsed
+        configFile: parsed,
       });
     });
 
@@ -465,7 +437,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
 
       expect(await loadSharedConfigFiles()).toEqual({
         credentialsFile: {},
-        configFile: parsed
+        configFile: parsed,
       });
     });
 
@@ -493,7 +465,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
 
       expect(await loadSharedConfigFiles()).toEqual({
         credentialsFile: {},
-        configFile: { default: parsed.default }
+        configFile: { default: parsed.default },
       });
     });
 
@@ -522,7 +494,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
 
       expect(await loadSharedConfigFiles()).toEqual({
         credentialsFile: {},
-        configFile: { default: parsed.default }
+        configFile: { default: parsed.default },
       });
     });
 
@@ -551,7 +523,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
 
       expect(await loadSharedConfigFiles()).toEqual({
         credentialsFile: {},
-        configFile: { default: parsed.default }
+        configFile: { default: parsed.default },
       });
     });
   });

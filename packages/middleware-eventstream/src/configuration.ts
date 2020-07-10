@@ -3,7 +3,7 @@ import {
   Decoder,
   EventSigner,
   EventStreamPayloadHandler,
-  EventStreamPayloadHandlerProvider
+  EventStreamPayloadHandlerProvider,
 } from "@aws-sdk/types";
 
 export interface EventStreamInputConfig {}
@@ -26,11 +26,11 @@ export function resolveEventStreamConfig<T>(
   const eventSigner = input.signer;
   const eventStreamPayloadHandler = input.eventStreamPayloadHandlerProvider({
     ...input,
-    eventSigner
+    eventSigner,
   });
   return {
     ...input,
     eventSigner,
-    eventStreamPayloadHandler
+    eventStreamPayloadHandler,
   };
 }

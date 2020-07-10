@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  SimulatePolicyResponse,
-  SimulatePrincipalPolicyRequest
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { SimulatePolicyResponse, SimulatePrincipalPolicyRequest } from "../models/index";
 import {
   deserializeAws_querySimulatePrincipalPolicyCommand,
-  serializeAws_querySimulatePrincipalPolicyCommand
+  serializeAws_querySimulatePrincipalPolicyCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type SimulatePrincipalPolicyCommandInput = SimulatePrincipalPolicyRequest;
-export type SimulatePrincipalPolicyCommandOutput = SimulatePolicyResponse &
-  __MetadataBearer;
+export type SimulatePrincipalPolicyCommandOutput = SimulatePolicyResponse & __MetadataBearer;
 
 export class SimulatePrincipalPolicyCommand extends $Command<
   SimulatePrincipalPolicyCommandInput,
@@ -49,18 +38,13 @@ export class SimulatePrincipalPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SimulatePrincipalPolicyCommandInput,
-    SimulatePrincipalPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SimulatePrincipalPolicyCommandInput, SimulatePrincipalPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class SimulatePrincipalPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SimulatePrincipalPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SimulatePrincipalPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySimulatePrincipalPolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SimulatePrincipalPolicyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SimulatePrincipalPolicyCommandOutput> {
     return deserializeAws_querySimulatePrincipalPolicyCommand(output, context);
   }
 

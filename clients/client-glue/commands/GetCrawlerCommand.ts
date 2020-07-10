@@ -1,18 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetCrawlerRequest, GetCrawlerResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetCrawlerCommand,
-  serializeAws_json1_1GetCrawlerCommand
+  serializeAws_json1_1GetCrawlerCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetCrawlerCommandInput = GetCrawlerRequest;
@@ -46,14 +39,12 @@ export class GetCrawlerCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCrawlerCommandInput, GetCrawlerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +54,11 @@ export class GetCrawlerCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetCrawlerCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetCrawlerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCrawlerCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetCrawlerCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCrawlerCommandOutput> {
     return deserializeAws_json1_1GetCrawlerCommand(output, context);
   }
 

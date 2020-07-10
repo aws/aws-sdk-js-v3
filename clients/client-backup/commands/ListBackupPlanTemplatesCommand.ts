@@ -1,21 +1,11 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
-import {
-  ListBackupPlanTemplatesInput,
-  ListBackupPlanTemplatesOutput
-} from "../models/index";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { ListBackupPlanTemplatesInput, ListBackupPlanTemplatesOutput } from "../models/index";
 import {
   deserializeAws_restJson1ListBackupPlanTemplatesCommand,
-  serializeAws_restJson1ListBackupPlanTemplatesCommand
+  serializeAws_restJson1ListBackupPlanTemplatesCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListBackupPlanTemplatesCommandInput = ListBackupPlanTemplatesInput;
-export type ListBackupPlanTemplatesCommandOutput = ListBackupPlanTemplatesOutput &
-  __MetadataBearer;
+export type ListBackupPlanTemplatesCommandOutput = ListBackupPlanTemplatesOutput & __MetadataBearer;
 
 export class ListBackupPlanTemplatesCommand extends $Command<
   ListBackupPlanTemplatesCommandInput,
@@ -49,18 +38,13 @@ export class ListBackupPlanTemplatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListBackupPlanTemplatesCommandInput,
-    ListBackupPlanTemplatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListBackupPlanTemplatesCommandInput, ListBackupPlanTemplatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class ListBackupPlanTemplatesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListBackupPlanTemplatesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListBackupPlanTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListBackupPlanTemplatesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListBackupPlanTemplatesCommandOutput> {
-    return deserializeAws_restJson1ListBackupPlanTemplatesCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBackupPlanTemplatesCommandOutput> {
+    return deserializeAws_restJson1ListBackupPlanTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

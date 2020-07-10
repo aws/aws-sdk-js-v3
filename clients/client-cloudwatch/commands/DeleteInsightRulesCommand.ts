@@ -1,21 +1,11 @@
-import {
-  CloudWatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchClient";
-import {
-  DeleteInsightRulesInput,
-  DeleteInsightRulesOutput
-} from "../models/index";
+import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
+import { DeleteInsightRulesInput, DeleteInsightRulesOutput } from "../models/index";
 import {
   deserializeAws_queryDeleteInsightRulesCommand,
-  serializeAws_queryDeleteInsightRulesCommand
+  serializeAws_queryDeleteInsightRulesCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteInsightRulesCommandInput = DeleteInsightRulesInput;
-export type DeleteInsightRulesCommandOutput = DeleteInsightRulesOutput &
-  __MetadataBearer;
+export type DeleteInsightRulesCommandOutput = DeleteInsightRulesOutput & __MetadataBearer;
 
 export class DeleteInsightRulesCommand extends $Command<
   DeleteInsightRulesCommandInput,
@@ -50,14 +39,12 @@ export class DeleteInsightRulesCommand extends $Command<
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteInsightRulesCommandInput, DeleteInsightRulesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class DeleteInsightRulesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteInsightRulesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteInsightRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteInsightRulesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteInsightRulesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInsightRulesCommandOutput> {
     return deserializeAws_queryDeleteInsightRulesCommand(output, context);
   }
 

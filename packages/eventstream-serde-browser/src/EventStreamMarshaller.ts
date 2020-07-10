@@ -1,11 +1,6 @@
 import { EventStreamMarshaller as UniversalEventStreamMarshaller } from "@aws-sdk/eventstream-serde-universal";
 import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
-import {
-  Encoder,
-  Decoder,
-  Message,
-  EventStreamMarshaller as IEventStreamMarshaller
-} from "@aws-sdk/types";
+import { Encoder, Decoder, Message, EventStreamMarshaller as IEventStreamMarshaller } from "@aws-sdk/types";
 import { readableStreamtoIterable, iterableToReadableStream } from "./utils";
 
 export interface EventStreamMarshaller extends IEventStreamMarshaller {}
@@ -38,7 +33,7 @@ export class EventStreamMarshaller {
     this.eventMarshaller = new EventMarshaller(utf8Encoder, utf8Decoder);
     this.universalMarshaller = new UniversalEventStreamMarshaller({
       utf8Decoder,
-      utf8Encoder
+      utf8Encoder,
     });
   }
 
@@ -46,9 +41,7 @@ export class EventStreamMarshaller {
     body: ReadableStream<Uint8Array> | AsyncIterable<Uint8Array>,
     deserializer: (input: { [event: string]: Message }) => Promise<T>
   ): AsyncIterable<T> {
-    const bodyIterable = isReadableStream(body)
-      ? readableStreamtoIterable(body)
-      : body;
+    const bodyIterable = isReadableStream(body) ? readableStreamtoIterable(body) : body;
     return this.universalMarshaller.deserialize(bodyIterable, deserializer);
   }
 
@@ -62,17 +55,9 @@ export class EventStreamMarshaller {
    * * https://bugzilla.mozilla.org/show_bug.cgi?id=1387483
    *
    */
-  serialize<T>(
-    input: AsyncIterable<T>,
-    serializer: (event: T) => Message
-  ): ReadableStream | AsyncIterable<Uint8Array> {
-    const serialziedIterable = this.universalMarshaller.serialize(
-      input,
-      serializer
-    );
-    return typeof ReadableStream === "function"
-      ? iterableToReadableStream(serialziedIterable)
-      : serialziedIterable;
+  serialize<T>(input: AsyncIterable<T>, serializer: (event: T) => Message): ReadableStream | AsyncIterable<Uint8Array> {
+    const serialziedIterable = this.universalMarshaller.serialize(input, serializer);
+    return typeof ReadableStream === "function" ? iterableToReadableStream(serialziedIterable) : serialziedIterable;
   }
 }
 

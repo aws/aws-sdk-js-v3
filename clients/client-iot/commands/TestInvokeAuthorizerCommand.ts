@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  TestInvokeAuthorizerRequest,
-  TestInvokeAuthorizerResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { TestInvokeAuthorizerRequest, TestInvokeAuthorizerResponse } from "../models/index";
 import {
   deserializeAws_restJson1TestInvokeAuthorizerCommand,
-  serializeAws_restJson1TestInvokeAuthorizerCommand
+  serializeAws_restJson1TestInvokeAuthorizerCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type TestInvokeAuthorizerCommandInput = TestInvokeAuthorizerRequest;
-export type TestInvokeAuthorizerCommandOutput = TestInvokeAuthorizerResponse &
-  __MetadataBearer;
+export type TestInvokeAuthorizerCommandOutput = TestInvokeAuthorizerResponse & __MetadataBearer;
 
 export class TestInvokeAuthorizerCommand extends $Command<
   TestInvokeAuthorizerCommandInput,
@@ -49,18 +38,13 @@ export class TestInvokeAuthorizerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    TestInvokeAuthorizerCommandInput,
-    TestInvokeAuthorizerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<TestInvokeAuthorizerCommandInput, TestInvokeAuthorizerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class TestInvokeAuthorizerCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: TestInvokeAuthorizerCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: TestInvokeAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1TestInvokeAuthorizerCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<TestInvokeAuthorizerCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestInvokeAuthorizerCommandOutput> {
     return deserializeAws_restJson1TestInvokeAuthorizerCommand(output, context);
   }
 

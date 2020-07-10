@@ -1,21 +1,11 @@
-import {
-  CodeDeployClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeDeployClient";
-import {
-  GetDeploymentConfigInput,
-  GetDeploymentConfigOutput
-} from "../models/index";
+import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
+import { GetDeploymentConfigInput, GetDeploymentConfigOutput } from "../models/index";
 import {
   deserializeAws_json1_1GetDeploymentConfigCommand,
-  serializeAws_json1_1GetDeploymentConfigCommand
+  serializeAws_json1_1GetDeploymentConfigCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetDeploymentConfigCommandInput = GetDeploymentConfigInput;
-export type GetDeploymentConfigCommandOutput = GetDeploymentConfigOutput &
-  __MetadataBearer;
+export type GetDeploymentConfigCommandOutput = GetDeploymentConfigOutput & __MetadataBearer;
 
 export class GetDeploymentConfigCommand extends $Command<
   GetDeploymentConfigCommandInput,
@@ -49,18 +38,13 @@ export class GetDeploymentConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDeploymentConfigCommandInput,
-    GetDeploymentConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDeploymentConfigCommandInput, GetDeploymentConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class GetDeploymentConfigCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDeploymentConfigCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDeploymentConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDeploymentConfigCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDeploymentConfigCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentConfigCommandOutput> {
     return deserializeAws_json1_1GetDeploymentConfigCommand(output, context);
   }
 

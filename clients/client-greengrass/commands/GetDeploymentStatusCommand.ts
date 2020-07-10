@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient";
-import {
-  GetDeploymentStatusRequest,
-  GetDeploymentStatusResponse
-} from "../models/index";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { GetDeploymentStatusRequest, GetDeploymentStatusResponse } from "../models/index";
 import {
   deserializeAws_restJson1GetDeploymentStatusCommand,
-  serializeAws_restJson1GetDeploymentStatusCommand
+  serializeAws_restJson1GetDeploymentStatusCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetDeploymentStatusCommandInput = GetDeploymentStatusRequest;
-export type GetDeploymentStatusCommandOutput = GetDeploymentStatusResponse &
-  __MetadataBearer;
+export type GetDeploymentStatusCommandOutput = GetDeploymentStatusResponse & __MetadataBearer;
 
 export class GetDeploymentStatusCommand extends $Command<
   GetDeploymentStatusCommandInput,
@@ -49,18 +38,13 @@ export class GetDeploymentStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDeploymentStatusCommandInput,
-    GetDeploymentStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDeploymentStatusCommandInput, GetDeploymentStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class GetDeploymentStatusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDeploymentStatusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDeploymentStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDeploymentStatusCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDeploymentStatusCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentStatusCommandOutput> {
     return deserializeAws_restJson1GetDeploymentStatusCommand(output, context);
   }
 

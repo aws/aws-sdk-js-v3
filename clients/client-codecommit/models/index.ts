@@ -1,16 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
  */
-export interface ActorDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ActorDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "ActorDoesNotExistException";
   $fault: "client";
   /**
@@ -21,10 +15,9 @@ export interface ActorDoesNotExistException
 
 export namespace ActorDoesNotExistException {
   export const filterSensitiveLog = (obj: ActorDoesNotExistException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ActorDoesNotExistException =>
-    __isa(o, "ActorDoesNotExistException");
+  export const isa = (o: any): o is ActorDoesNotExistException => __isa(o, "ActorDoesNotExistException");
 }
 
 /**
@@ -45,7 +38,7 @@ export interface Approval {
 
 export namespace Approval {
   export const filterSensitiveLog = (obj: Approval): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Approval => __isa(o, "Approval");
 }
@@ -98,7 +91,7 @@ export interface ApprovalRule {
 
 export namespace ApprovalRule {
   export const filterSensitiveLog = (obj: ApprovalRule): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ApprovalRule => __isa(o, "ApprovalRule");
 }
@@ -106,9 +99,7 @@ export namespace ApprovalRule {
 /**
  * <p>The content for the approval rule is empty. You must provide some content for an approval rule. The content cannot be null.</p>
  */
-export interface ApprovalRuleContentRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleContentRequiredException extends __SmithyException, $MetadataBearer {
   name: "ApprovalRuleContentRequiredException";
   $fault: "client";
   /**
@@ -118,10 +109,8 @@ export interface ApprovalRuleContentRequiredException
 }
 
 export namespace ApprovalRuleContentRequiredException {
-  export const filterSensitiveLog = (
-    obj: ApprovalRuleContentRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ApprovalRuleContentRequiredException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ApprovalRuleContentRequiredException =>
     __isa(o, "ApprovalRuleContentRequiredException");
@@ -130,9 +119,7 @@ export namespace ApprovalRuleContentRequiredException {
 /**
  * <p>The specified approval rule does not exist.</p>
  */
-export interface ApprovalRuleDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "ApprovalRuleDoesNotExistException";
   $fault: "client";
   /**
@@ -142,13 +129,10 @@ export interface ApprovalRuleDoesNotExistException
 }
 
 export namespace ApprovalRuleDoesNotExistException {
-  export const filterSensitiveLog = (
-    obj: ApprovalRuleDoesNotExistException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ApprovalRuleDoesNotExistException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ApprovalRuleDoesNotExistException =>
-    __isa(o, "ApprovalRuleDoesNotExistException");
+  export const isa = (o: any): o is ApprovalRuleDoesNotExistException => __isa(o, "ApprovalRuleDoesNotExistException");
 }
 
 /**
@@ -174,19 +158,16 @@ export interface ApprovalRuleEventMetadata {
 
 export namespace ApprovalRuleEventMetadata {
   export const filterSensitiveLog = (obj: ApprovalRuleEventMetadata): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ApprovalRuleEventMetadata =>
-    __isa(o, "ApprovalRuleEventMetadata");
+  export const isa = (o: any): o is ApprovalRuleEventMetadata => __isa(o, "ApprovalRuleEventMetadata");
 }
 
 /**
  * <p>An approval rule with that name already exists. Approval rule names must be unique
  *             within the scope of a pull request.</p>
  */
-export interface ApprovalRuleNameAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleNameAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ApprovalRuleNameAlreadyExistsException";
   $fault: "client";
   /**
@@ -196,10 +177,8 @@ export interface ApprovalRuleNameAlreadyExistsException
 }
 
 export namespace ApprovalRuleNameAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: ApprovalRuleNameAlreadyExistsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ApprovalRuleNameAlreadyExistsException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ApprovalRuleNameAlreadyExistsException =>
     __isa(o, "ApprovalRuleNameAlreadyExistsException");
@@ -208,9 +187,7 @@ export namespace ApprovalRuleNameAlreadyExistsException {
 /**
  * <p>An approval rule name is required, but was not specified.</p>
  */
-export interface ApprovalRuleNameRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleNameRequiredException extends __SmithyException, $MetadataBearer {
   name: "ApprovalRuleNameRequiredException";
   $fault: "client";
   /**
@@ -220,13 +197,10 @@ export interface ApprovalRuleNameRequiredException
 }
 
 export namespace ApprovalRuleNameRequiredException {
-  export const filterSensitiveLog = (
-    obj: ApprovalRuleNameRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ApprovalRuleNameRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ApprovalRuleNameRequiredException =>
-    __isa(o, "ApprovalRuleNameRequiredException");
+  export const isa = (o: any): o is ApprovalRuleNameRequiredException => __isa(o, "ApprovalRuleNameRequiredException");
 }
 
 /**
@@ -246,10 +220,8 @@ export interface ApprovalRuleOverriddenEventMetadata {
 }
 
 export namespace ApprovalRuleOverriddenEventMetadata {
-  export const filterSensitiveLog = (
-    obj: ApprovalRuleOverriddenEventMetadata
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ApprovalRuleOverriddenEventMetadata): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ApprovalRuleOverriddenEventMetadata =>
     __isa(o, "ApprovalRuleOverriddenEventMetadata");
@@ -303,18 +275,15 @@ export interface ApprovalRuleTemplate {
 
 export namespace ApprovalRuleTemplate {
   export const filterSensitiveLog = (obj: ApprovalRuleTemplate): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ApprovalRuleTemplate =>
-    __isa(o, "ApprovalRuleTemplate");
+  export const isa = (o: any): o is ApprovalRuleTemplate => __isa(o, "ApprovalRuleTemplate");
 }
 
 /**
  * <p>The content for the approval rule template is empty. You must provide some content for an approval rule template. The content cannot be null.</p>
  */
-export interface ApprovalRuleTemplateContentRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleTemplateContentRequiredException extends __SmithyException, $MetadataBearer {
   name: "ApprovalRuleTemplateContentRequiredException";
   $fault: "client";
   /**
@@ -324,14 +293,10 @@ export interface ApprovalRuleTemplateContentRequiredException
 }
 
 export namespace ApprovalRuleTemplateContentRequiredException {
-  export const filterSensitiveLog = (
-    obj: ApprovalRuleTemplateContentRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ApprovalRuleTemplateContentRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ApprovalRuleTemplateContentRequiredException =>
+  export const isa = (o: any): o is ApprovalRuleTemplateContentRequiredException =>
     __isa(o, "ApprovalRuleTemplateContentRequiredException");
 }
 
@@ -339,9 +304,7 @@ export namespace ApprovalRuleTemplateContentRequiredException {
  * <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the AWS Region where the template
  *         was created, and then try again.</p>
  */
-export interface ApprovalRuleTemplateDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleTemplateDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "ApprovalRuleTemplateDoesNotExistException";
   $fault: "client";
   /**
@@ -351,10 +314,8 @@ export interface ApprovalRuleTemplateDoesNotExistException
 }
 
 export namespace ApprovalRuleTemplateDoesNotExistException {
-  export const filterSensitiveLog = (
-    obj: ApprovalRuleTemplateDoesNotExistException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ApprovalRuleTemplateDoesNotExistException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ApprovalRuleTemplateDoesNotExistException =>
     __isa(o, "ApprovalRuleTemplateDoesNotExistException");
@@ -364,9 +325,7 @@ export namespace ApprovalRuleTemplateDoesNotExistException {
  * <p>The approval rule template is associated with one or more repositories. You cannot delete a template that is associated with a repository. Remove
  *         all associations, and then try again.</p>
  */
-export interface ApprovalRuleTemplateInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleTemplateInUseException extends __SmithyException, $MetadataBearer {
   name: "ApprovalRuleTemplateInUseException";
   $fault: "client";
   /**
@@ -376,10 +335,8 @@ export interface ApprovalRuleTemplateInUseException
 }
 
 export namespace ApprovalRuleTemplateInUseException {
-  export const filterSensitiveLog = (
-    obj: ApprovalRuleTemplateInUseException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ApprovalRuleTemplateInUseException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ApprovalRuleTemplateInUseException =>
     __isa(o, "ApprovalRuleTemplateInUseException");
@@ -390,9 +347,7 @@ export namespace ApprovalRuleTemplateInUseException {
  *             that name already exists in this AWS Region for your AWS account. Approval rule template
  *             names must be unique.</p>
  */
-export interface ApprovalRuleTemplateNameAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleTemplateNameAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ApprovalRuleTemplateNameAlreadyExistsException";
   $fault: "client";
   /**
@@ -402,23 +357,17 @@ export interface ApprovalRuleTemplateNameAlreadyExistsException
 }
 
 export namespace ApprovalRuleTemplateNameAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: ApprovalRuleTemplateNameAlreadyExistsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ApprovalRuleTemplateNameAlreadyExistsException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ApprovalRuleTemplateNameAlreadyExistsException =>
+  export const isa = (o: any): o is ApprovalRuleTemplateNameAlreadyExistsException =>
     __isa(o, "ApprovalRuleTemplateNameAlreadyExistsException");
 }
 
 /**
  * <p>An approval rule template name is required, but was not specified.</p>
  */
-export interface ApprovalRuleTemplateNameRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleTemplateNameRequiredException extends __SmithyException, $MetadataBearer {
   name: "ApprovalRuleTemplateNameRequiredException";
   $fault: "client";
   /**
@@ -428,10 +377,8 @@ export interface ApprovalRuleTemplateNameRequiredException
 }
 
 export namespace ApprovalRuleTemplateNameRequiredException {
-  export const filterSensitiveLog = (
-    obj: ApprovalRuleTemplateNameRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ApprovalRuleTemplateNameRequiredException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ApprovalRuleTemplateNameRequiredException =>
     __isa(o, "ApprovalRuleTemplateNameRequiredException");
@@ -439,7 +386,7 @@ export namespace ApprovalRuleTemplateNameRequiredException {
 
 export enum ApprovalState {
   APPROVE = "APPROVE",
-  REVOKE = "REVOKE"
+  REVOKE = "REVOKE",
 }
 
 /**
@@ -459,21 +406,16 @@ export interface ApprovalStateChangedEventMetadata {
 }
 
 export namespace ApprovalStateChangedEventMetadata {
-  export const filterSensitiveLog = (
-    obj: ApprovalStateChangedEventMetadata
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ApprovalStateChangedEventMetadata): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ApprovalStateChangedEventMetadata =>
-    __isa(o, "ApprovalStateChangedEventMetadata");
+  export const isa = (o: any): o is ApprovalStateChangedEventMetadata => __isa(o, "ApprovalStateChangedEventMetadata");
 }
 
 /**
  * <p>An approval state is required, but was not specified.</p>
  */
-export interface ApprovalStateRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApprovalStateRequiredException extends __SmithyException, $MetadataBearer {
   name: "ApprovalStateRequiredException";
   $fault: "client";
   /**
@@ -483,13 +425,10 @@ export interface ApprovalStateRequiredException
 }
 
 export namespace ApprovalStateRequiredException {
-  export const filterSensitiveLog = (
-    obj: ApprovalStateRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ApprovalStateRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ApprovalStateRequiredException =>
-    __isa(o, "ApprovalStateRequiredException");
+  export const isa = (o: any): o is ApprovalStateRequiredException => __isa(o, "ApprovalStateRequiredException");
 }
 
 export interface AssociateApprovalRuleTemplateWithRepositoryInput {
@@ -506,23 +445,17 @@ export interface AssociateApprovalRuleTemplateWithRepositoryInput {
 }
 
 export namespace AssociateApprovalRuleTemplateWithRepositoryInput {
-  export const filterSensitiveLog = (
-    obj: AssociateApprovalRuleTemplateWithRepositoryInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateApprovalRuleTemplateWithRepositoryInput): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is AssociateApprovalRuleTemplateWithRepositoryInput =>
+  export const isa = (o: any): o is AssociateApprovalRuleTemplateWithRepositoryInput =>
     __isa(o, "AssociateApprovalRuleTemplateWithRepositoryInput");
 }
 
 /**
  * <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
  */
-export interface AuthorDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AuthorDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "AuthorDoesNotExistException";
   $fault: "client";
   /**
@@ -532,13 +465,10 @@ export interface AuthorDoesNotExistException
 }
 
 export namespace AuthorDoesNotExistException {
-  export const filterSensitiveLog = (
-    obj: AuthorDoesNotExistException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AuthorDoesNotExistException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AuthorDoesNotExistException =>
-    __isa(o, "AuthorDoesNotExistException");
+  export const isa = (o: any): o is AuthorDoesNotExistException => __isa(o, "AuthorDoesNotExistException");
 }
 
 /**
@@ -563,14 +493,10 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesError {
 }
 
 export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesError {
-  export const filterSensitiveLog = (
-    obj: BatchAssociateApprovalRuleTemplateWithRepositoriesError
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchAssociateApprovalRuleTemplateWithRepositoriesError): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is BatchAssociateApprovalRuleTemplateWithRepositoriesError =>
+  export const isa = (o: any): o is BatchAssociateApprovalRuleTemplateWithRepositoriesError =>
     __isa(o, "BatchAssociateApprovalRuleTemplateWithRepositoriesError");
 }
 
@@ -591,14 +517,10 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
 }
 
 export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
-  export const filterSensitiveLog = (
-    obj: BatchAssociateApprovalRuleTemplateWithRepositoriesInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchAssociateApprovalRuleTemplateWithRepositoriesInput): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is BatchAssociateApprovalRuleTemplateWithRepositoriesInput =>
+  export const isa = (o: any): o is BatchAssociateApprovalRuleTemplateWithRepositoriesInput =>
     __isa(o, "BatchAssociateApprovalRuleTemplateWithRepositoriesInput");
 }
 
@@ -616,14 +538,10 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
 }
 
 export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
-  export const filterSensitiveLog = (
-    obj: BatchAssociateApprovalRuleTemplateWithRepositoriesOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchAssociateApprovalRuleTemplateWithRepositoriesOutput): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is BatchAssociateApprovalRuleTemplateWithRepositoriesOutput =>
+  export const isa = (o: any): o is BatchAssociateApprovalRuleTemplateWithRepositoriesOutput =>
     __isa(o, "BatchAssociateApprovalRuleTemplateWithRepositoriesOutput");
 }
 
@@ -649,13 +567,10 @@ export interface BatchDescribeMergeConflictsError {
 }
 
 export namespace BatchDescribeMergeConflictsError {
-  export const filterSensitiveLog = (
-    obj: BatchDescribeMergeConflictsError
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchDescribeMergeConflictsError): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is BatchDescribeMergeConflictsError =>
-    __isa(o, "BatchDescribeMergeConflictsError");
+  export const isa = (o: any): o is BatchDescribeMergeConflictsError => __isa(o, "BatchDescribeMergeConflictsError");
 }
 
 export interface BatchDescribeMergeConflictsInput {
@@ -720,13 +635,10 @@ export interface BatchDescribeMergeConflictsInput {
 }
 
 export namespace BatchDescribeMergeConflictsInput {
-  export const filterSensitiveLog = (
-    obj: BatchDescribeMergeConflictsInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchDescribeMergeConflictsInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is BatchDescribeMergeConflictsInput =>
-    __isa(o, "BatchDescribeMergeConflictsInput");
+  export const isa = (o: any): o is BatchDescribeMergeConflictsInput => __isa(o, "BatchDescribeMergeConflictsInput");
 }
 
 export interface BatchDescribeMergeConflictsOutput {
@@ -763,13 +675,10 @@ export interface BatchDescribeMergeConflictsOutput {
 }
 
 export namespace BatchDescribeMergeConflictsOutput {
-  export const filterSensitiveLog = (
-    obj: BatchDescribeMergeConflictsOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchDescribeMergeConflictsOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is BatchDescribeMergeConflictsOutput =>
-    __isa(o, "BatchDescribeMergeConflictsOutput");
+  export const isa = (o: any): o is BatchDescribeMergeConflictsOutput => __isa(o, "BatchDescribeMergeConflictsOutput");
 }
 
 /**
@@ -795,14 +704,10 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
 }
 
 export namespace BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
-  export const filterSensitiveLog = (
-    obj: BatchDisassociateApprovalRuleTemplateFromRepositoriesError
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchDisassociateApprovalRuleTemplateFromRepositoriesError): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is BatchDisassociateApprovalRuleTemplateFromRepositoriesError =>
+  export const isa = (o: any): o is BatchDisassociateApprovalRuleTemplateFromRepositoriesError =>
     __isa(o, "BatchDisassociateApprovalRuleTemplateFromRepositoriesError");
 }
 
@@ -824,14 +729,10 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
 }
 
 export namespace BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
-  export const filterSensitiveLog = (
-    obj: BatchDisassociateApprovalRuleTemplateFromRepositoriesInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchDisassociateApprovalRuleTemplateFromRepositoriesInput): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is BatchDisassociateApprovalRuleTemplateFromRepositoriesInput =>
+  export const isa = (o: any): o is BatchDisassociateApprovalRuleTemplateFromRepositoriesInput =>
     __isa(o, "BatchDisassociateApprovalRuleTemplateFromRepositoriesInput");
 }
 
@@ -846,20 +747,14 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput {
   /**
    * <p>A list of any errors that might have occurred while attempting to remove the association between the template and the repositories.</p>
    */
-  errors:
-    | BatchDisassociateApprovalRuleTemplateFromRepositoriesError[]
-    | undefined;
+  errors: BatchDisassociateApprovalRuleTemplateFromRepositoriesError[] | undefined;
 }
 
 export namespace BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput {
-  export const filterSensitiveLog = (
-    obj: BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput =>
+  export const isa = (o: any): o is BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput =>
     __isa(o, "BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput");
 }
 
@@ -886,10 +781,9 @@ export interface BatchGetCommitsError {
 
 export namespace BatchGetCommitsError {
   export const filterSensitiveLog = (obj: BatchGetCommitsError): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BatchGetCommitsError =>
-    __isa(o, "BatchGetCommitsError");
+  export const isa = (o: any): o is BatchGetCommitsError => __isa(o, "BatchGetCommitsError");
 }
 
 export interface BatchGetCommitsInput {
@@ -911,10 +805,9 @@ export interface BatchGetCommitsInput {
 
 export namespace BatchGetCommitsInput {
   export const filterSensitiveLog = (obj: BatchGetCommitsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BatchGetCommitsInput =>
-    __isa(o, "BatchGetCommitsInput");
+  export const isa = (o: any): o is BatchGetCommitsInput => __isa(o, "BatchGetCommitsInput");
 }
 
 export interface BatchGetCommitsOutput {
@@ -934,10 +827,9 @@ export interface BatchGetCommitsOutput {
 
 export namespace BatchGetCommitsOutput {
   export const filterSensitiveLog = (obj: BatchGetCommitsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BatchGetCommitsOutput =>
-    __isa(o, "BatchGetCommitsOutput");
+  export const isa = (o: any): o is BatchGetCommitsOutput => __isa(o, "BatchGetCommitsOutput");
 }
 
 /**
@@ -956,10 +848,9 @@ export interface BatchGetRepositoriesInput {
 
 export namespace BatchGetRepositoriesInput {
   export const filterSensitiveLog = (obj: BatchGetRepositoriesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BatchGetRepositoriesInput =>
-    __isa(o, "BatchGetRepositoriesInput");
+  export const isa = (o: any): o is BatchGetRepositoriesInput => __isa(o, "BatchGetRepositoriesInput");
 }
 
 /**
@@ -980,18 +871,15 @@ export interface BatchGetRepositoriesOutput {
 
 export namespace BatchGetRepositoriesOutput {
   export const filterSensitiveLog = (obj: BatchGetRepositoriesOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BatchGetRepositoriesOutput =>
-    __isa(o, "BatchGetRepositoriesOutput");
+  export const isa = (o: any): o is BatchGetRepositoriesOutput => __isa(o, "BatchGetRepositoriesOutput");
 }
 
 /**
  * <p>The before commit ID and the after commit ID are the same, which is not valid. The before commit ID and the after commit ID must be different commit IDs.</p>
  */
-export interface BeforeCommitIdAndAfterCommitIdAreSameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BeforeCommitIdAndAfterCommitIdAreSameException extends __SmithyException, $MetadataBearer {
   name: "BeforeCommitIdAndAfterCommitIdAreSameException";
   $fault: "client";
   /**
@@ -1001,23 +889,17 @@ export interface BeforeCommitIdAndAfterCommitIdAreSameException
 }
 
 export namespace BeforeCommitIdAndAfterCommitIdAreSameException {
-  export const filterSensitiveLog = (
-    obj: BeforeCommitIdAndAfterCommitIdAreSameException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BeforeCommitIdAndAfterCommitIdAreSameException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is BeforeCommitIdAndAfterCommitIdAreSameException =>
+  export const isa = (o: any): o is BeforeCommitIdAndAfterCommitIdAreSameException =>
     __isa(o, "BeforeCommitIdAndAfterCommitIdAreSameException");
 }
 
 /**
  * <p>The specified blob does not exist.</p>
  */
-export interface BlobIdDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BlobIdDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "BlobIdDoesNotExistException";
   $fault: "client";
   /**
@@ -1027,21 +909,16 @@ export interface BlobIdDoesNotExistException
 }
 
 export namespace BlobIdDoesNotExistException {
-  export const filterSensitiveLog = (
-    obj: BlobIdDoesNotExistException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BlobIdDoesNotExistException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is BlobIdDoesNotExistException =>
-    __isa(o, "BlobIdDoesNotExistException");
+  export const isa = (o: any): o is BlobIdDoesNotExistException => __isa(o, "BlobIdDoesNotExistException");
 }
 
 /**
  * <p>A blob ID is required, but was not specified.</p>
  */
-export interface BlobIdRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BlobIdRequiredException extends __SmithyException, $MetadataBearer {
   name: "BlobIdRequiredException";
   $fault: "client";
   /**
@@ -1052,10 +929,9 @@ export interface BlobIdRequiredException
 
 export namespace BlobIdRequiredException {
   export const filterSensitiveLog = (obj: BlobIdRequiredException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BlobIdRequiredException =>
-    __isa(o, "BlobIdRequiredException");
+  export const isa = (o: any): o is BlobIdRequiredException => __isa(o, "BlobIdRequiredException");
 }
 
 /**
@@ -1099,7 +975,7 @@ export interface BlobMetadata {
 
 export namespace BlobMetadata {
   export const filterSensitiveLog = (obj: BlobMetadata): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is BlobMetadata => __isa(o, "BlobMetadata");
 }
@@ -1107,9 +983,7 @@ export namespace BlobMetadata {
 /**
  * <p>The specified branch does not exist.</p>
  */
-export interface BranchDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BranchDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "BranchDoesNotExistException";
   $fault: "client";
   /**
@@ -1119,13 +993,10 @@ export interface BranchDoesNotExistException
 }
 
 export namespace BranchDoesNotExistException {
-  export const filterSensitiveLog = (
-    obj: BranchDoesNotExistException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BranchDoesNotExistException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is BranchDoesNotExistException =>
-    __isa(o, "BranchDoesNotExistException");
+  export const isa = (o: any): o is BranchDoesNotExistException => __isa(o, "BranchDoesNotExistException");
 }
 
 /**
@@ -1146,7 +1017,7 @@ export interface BranchInfo {
 
 export namespace BranchInfo {
   export const filterSensitiveLog = (obj: BranchInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is BranchInfo => __isa(o, "BranchInfo");
 }
@@ -1154,9 +1025,7 @@ export namespace BranchInfo {
 /**
  * <p>The specified branch name already exists.</p>
  */
-export interface BranchNameExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BranchNameExistsException extends __SmithyException, $MetadataBearer {
   name: "BranchNameExistsException";
   $fault: "client";
   /**
@@ -1167,19 +1036,16 @@ export interface BranchNameExistsException
 
 export namespace BranchNameExistsException {
   export const filterSensitiveLog = (obj: BranchNameExistsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BranchNameExistsException =>
-    __isa(o, "BranchNameExistsException");
+  export const isa = (o: any): o is BranchNameExistsException => __isa(o, "BranchNameExistsException");
 }
 
 /**
  * <p>The specified branch name is not valid because it is a tag name. Enter the name of a
  *             branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.</p>
  */
-export interface BranchNameIsTagNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BranchNameIsTagNameException extends __SmithyException, $MetadataBearer {
   name: "BranchNameIsTagNameException";
   $fault: "client";
   /**
@@ -1189,21 +1055,16 @@ export interface BranchNameIsTagNameException
 }
 
 export namespace BranchNameIsTagNameException {
-  export const filterSensitiveLog = (
-    obj: BranchNameIsTagNameException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BranchNameIsTagNameException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is BranchNameIsTagNameException =>
-    __isa(o, "BranchNameIsTagNameException");
+  export const isa = (o: any): o is BranchNameIsTagNameException => __isa(o, "BranchNameIsTagNameException");
 }
 
 /**
  * <p>A branch name is required, but was not specified.</p>
  */
-export interface BranchNameRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BranchNameRequiredException extends __SmithyException, $MetadataBearer {
   name: "BranchNameRequiredException";
   $fault: "client";
   /**
@@ -1213,22 +1074,17 @@ export interface BranchNameRequiredException
 }
 
 export namespace BranchNameRequiredException {
-  export const filterSensitiveLog = (
-    obj: BranchNameRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BranchNameRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is BranchNameRequiredException =>
-    __isa(o, "BranchNameRequiredException");
+  export const isa = (o: any): o is BranchNameRequiredException => __isa(o, "BranchNameRequiredException");
 }
 
 /**
  * <p>The approval rule cannot be deleted from the pull request because it was created by an
  *             approval rule template and applied to the pull request automatically.</p>
  */
-export interface CannotDeleteApprovalRuleFromTemplateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CannotDeleteApprovalRuleFromTemplateException extends __SmithyException, $MetadataBearer {
   name: "CannotDeleteApprovalRuleFromTemplateException";
   $fault: "client";
   /**
@@ -1238,14 +1094,10 @@ export interface CannotDeleteApprovalRuleFromTemplateException
 }
 
 export namespace CannotDeleteApprovalRuleFromTemplateException {
-  export const filterSensitiveLog = (
-    obj: CannotDeleteApprovalRuleFromTemplateException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CannotDeleteApprovalRuleFromTemplateException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CannotDeleteApprovalRuleFromTemplateException =>
+  export const isa = (o: any): o is CannotDeleteApprovalRuleFromTemplateException =>
     __isa(o, "CannotDeleteApprovalRuleFromTemplateException");
 }
 
@@ -1253,9 +1105,7 @@ export namespace CannotDeleteApprovalRuleFromTemplateException {
  * <p>The approval rule cannot be modified for the pull request because it was created by an
  *             approval rule template and applied to the pull request automatically.</p>
  */
-export interface CannotModifyApprovalRuleFromTemplateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CannotModifyApprovalRuleFromTemplateException extends __SmithyException, $MetadataBearer {
   name: "CannotModifyApprovalRuleFromTemplateException";
   $fault: "client";
   /**
@@ -1265,21 +1115,17 @@ export interface CannotModifyApprovalRuleFromTemplateException
 }
 
 export namespace CannotModifyApprovalRuleFromTemplateException {
-  export const filterSensitiveLog = (
-    obj: CannotModifyApprovalRuleFromTemplateException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CannotModifyApprovalRuleFromTemplateException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CannotModifyApprovalRuleFromTemplateException =>
+  export const isa = (o: any): o is CannotModifyApprovalRuleFromTemplateException =>
     __isa(o, "CannotModifyApprovalRuleFromTemplateException");
 }
 
 export enum ChangeTypeEnum {
   ADDED = "A",
   DELETED = "D",
-  MODIFIED = "M"
+  MODIFIED = "M",
 }
 
 /**
@@ -1289,9 +1135,7 @@ export enum ChangeTypeEnum {
  *             parameters and a token is included, the request returns information about the initial
  *             request that used that token.</p>
  */
-export interface ClientRequestTokenRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClientRequestTokenRequiredException extends __SmithyException, $MetadataBearer {
   name: "ClientRequestTokenRequiredException";
   $fault: "client";
   /**
@@ -1301,10 +1145,8 @@ export interface ClientRequestTokenRequiredException
 }
 
 export namespace ClientRequestTokenRequiredException {
-  export const filterSensitiveLog = (
-    obj: ClientRequestTokenRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClientRequestTokenRequiredException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ClientRequestTokenRequiredException =>
     __isa(o, "ClientRequestTokenRequiredException");
@@ -1361,7 +1203,7 @@ export interface Comment {
 
 export namespace Comment {
   export const filterSensitiveLog = (obj: Comment): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Comment => __isa(o, "Comment");
 }
@@ -1369,9 +1211,7 @@ export namespace Comment {
 /**
  * <p>The comment is empty. You must provide some content for a comment. The content cannot be null.</p>
  */
-export interface CommentContentRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommentContentRequiredException extends __SmithyException, $MetadataBearer {
   name: "CommentContentRequiredException";
   $fault: "client";
   /**
@@ -1381,21 +1221,16 @@ export interface CommentContentRequiredException
 }
 
 export namespace CommentContentRequiredException {
-  export const filterSensitiveLog = (
-    obj: CommentContentRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CommentContentRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CommentContentRequiredException =>
-    __isa(o, "CommentContentRequiredException");
+  export const isa = (o: any): o is CommentContentRequiredException => __isa(o, "CommentContentRequiredException");
 }
 
 /**
  * <p>The comment is too large. Comments are limited to 1,000 characters.</p>
  */
-export interface CommentContentSizeLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommentContentSizeLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "CommentContentSizeLimitExceededException";
   $fault: "client";
   /**
@@ -1405,10 +1240,8 @@ export interface CommentContentSizeLimitExceededException
 }
 
 export namespace CommentContentSizeLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: CommentContentSizeLimitExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CommentContentSizeLimitExceededException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CommentContentSizeLimitExceededException =>
     __isa(o, "CommentContentSizeLimitExceededException");
@@ -1417,9 +1250,7 @@ export namespace CommentContentSizeLimitExceededException {
 /**
  * <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
  */
-export interface CommentDeletedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommentDeletedException extends __SmithyException, $MetadataBearer {
   name: "CommentDeletedException";
   $fault: "client";
   /**
@@ -1430,19 +1261,16 @@ export interface CommentDeletedException
 
 export namespace CommentDeletedException {
   export const filterSensitiveLog = (obj: CommentDeletedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CommentDeletedException =>
-    __isa(o, "CommentDeletedException");
+  export const isa = (o: any): o is CommentDeletedException => __isa(o, "CommentDeletedException");
 }
 
 /**
  * <p>No comment exists with the provided ID. Verify that you have used the correct ID, and
  *             then try again.</p>
  */
-export interface CommentDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommentDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "CommentDoesNotExistException";
   $fault: "client";
   /**
@@ -1452,21 +1280,16 @@ export interface CommentDoesNotExistException
 }
 
 export namespace CommentDoesNotExistException {
-  export const filterSensitiveLog = (
-    obj: CommentDoesNotExistException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CommentDoesNotExistException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CommentDoesNotExistException =>
-    __isa(o, "CommentDoesNotExistException");
+  export const isa = (o: any): o is CommentDoesNotExistException => __isa(o, "CommentDoesNotExistException");
 }
 
 /**
  * <p>The comment ID is missing or null. A comment ID is required.</p>
  */
-export interface CommentIdRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommentIdRequiredException extends __SmithyException, $MetadataBearer {
   name: "CommentIdRequiredException";
   $fault: "client";
   /**
@@ -1477,18 +1300,15 @@ export interface CommentIdRequiredException
 
 export namespace CommentIdRequiredException {
   export const filterSensitiveLog = (obj: CommentIdRequiredException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CommentIdRequiredException =>
-    __isa(o, "CommentIdRequiredException");
+  export const isa = (o: any): o is CommentIdRequiredException => __isa(o, "CommentIdRequiredException");
 }
 
 /**
  * <p>You cannot modify or delete this comment. Only comment authors can modify or delete their comments.</p>
  */
-export interface CommentNotCreatedByCallerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommentNotCreatedByCallerException extends __SmithyException, $MetadataBearer {
   name: "CommentNotCreatedByCallerException";
   $fault: "client";
   /**
@@ -1498,10 +1318,8 @@ export interface CommentNotCreatedByCallerException
 }
 
 export namespace CommentNotCreatedByCallerException {
-  export const filterSensitiveLog = (
-    obj: CommentNotCreatedByCallerException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CommentNotCreatedByCallerException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CommentNotCreatedByCallerException =>
     __isa(o, "CommentNotCreatedByCallerException");
@@ -1554,10 +1372,9 @@ export interface CommentsForComparedCommit {
 
 export namespace CommentsForComparedCommit {
   export const filterSensitiveLog = (obj: CommentsForComparedCommit): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CommentsForComparedCommit =>
-    __isa(o, "CommentsForComparedCommit");
+  export const isa = (o: any): o is CommentsForComparedCommit => __isa(o, "CommentsForComparedCommit");
 }
 
 /**
@@ -1613,10 +1430,9 @@ export interface CommentsForPullRequest {
 
 export namespace CommentsForPullRequest {
   export const filterSensitiveLog = (obj: CommentsForPullRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CommentsForPullRequest =>
-    __isa(o, "CommentsForPullRequest");
+  export const isa = (o: any): o is CommentsForPullRequest => __isa(o, "CommentsForPullRequest");
 }
 
 /**
@@ -1669,7 +1485,7 @@ export interface Commit {
 
 export namespace Commit {
   export const filterSensitiveLog = (obj: Commit): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Commit => __isa(o, "Commit");
 }
@@ -1677,9 +1493,7 @@ export namespace Commit {
 /**
  * <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
  */
-export interface CommitDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommitDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "CommitDoesNotExistException";
   $fault: "client";
   /**
@@ -1689,21 +1503,16 @@ export interface CommitDoesNotExistException
 }
 
 export namespace CommitDoesNotExistException {
-  export const filterSensitiveLog = (
-    obj: CommitDoesNotExistException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CommitDoesNotExistException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CommitDoesNotExistException =>
-    __isa(o, "CommitDoesNotExistException");
+  export const isa = (o: any): o is CommitDoesNotExistException => __isa(o, "CommitDoesNotExistException");
 }
 
 /**
  * <p>The specified commit ID does not exist.</p>
  */
-export interface CommitIdDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommitIdDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "CommitIdDoesNotExistException";
   $fault: "client";
   /**
@@ -1713,21 +1522,16 @@ export interface CommitIdDoesNotExistException
 }
 
 export namespace CommitIdDoesNotExistException {
-  export const filterSensitiveLog = (
-    obj: CommitIdDoesNotExistException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CommitIdDoesNotExistException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CommitIdDoesNotExistException =>
-    __isa(o, "CommitIdDoesNotExistException");
+  export const isa = (o: any): o is CommitIdDoesNotExistException => __isa(o, "CommitIdDoesNotExistException");
 }
 
 /**
  * <p>A commit ID was not specified.</p>
  */
-export interface CommitIdRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommitIdRequiredException extends __SmithyException, $MetadataBearer {
   name: "CommitIdRequiredException";
   $fault: "client";
   /**
@@ -1738,18 +1542,15 @@ export interface CommitIdRequiredException
 
 export namespace CommitIdRequiredException {
   export const filterSensitiveLog = (obj: CommitIdRequiredException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CommitIdRequiredException =>
-    __isa(o, "CommitIdRequiredException");
+  export const isa = (o: any): o is CommitIdRequiredException => __isa(o, "CommitIdRequiredException");
 }
 
 /**
  * <p>The maximum number of allowed commit IDs in a batch request is 100. Verify that your batch requests contains no more than 100 commit IDs, and then try again.</p>
  */
-export interface CommitIdsLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommitIdsLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "CommitIdsLimitExceededException";
   $fault: "client";
   /**
@@ -1759,21 +1560,16 @@ export interface CommitIdsLimitExceededException
 }
 
 export namespace CommitIdsLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: CommitIdsLimitExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CommitIdsLimitExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CommitIdsLimitExceededException =>
-    __isa(o, "CommitIdsLimitExceededException");
+  export const isa = (o: any): o is CommitIdsLimitExceededException => __isa(o, "CommitIdsLimitExceededException");
 }
 
 /**
  * <p>A list of commit IDs is required, but was either not specified or the list was empty.</p>
  */
-export interface CommitIdsListRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommitIdsListRequiredException extends __SmithyException, $MetadataBearer {
   name: "CommitIdsListRequiredException";
   $fault: "client";
   /**
@@ -1783,21 +1579,16 @@ export interface CommitIdsListRequiredException
 }
 
 export namespace CommitIdsListRequiredException {
-  export const filterSensitiveLog = (
-    obj: CommitIdsListRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CommitIdsListRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CommitIdsListRequiredException =>
-    __isa(o, "CommitIdsListRequiredException");
+  export const isa = (o: any): o is CommitIdsListRequiredException => __isa(o, "CommitIdsListRequiredException");
 }
 
 /**
  * <p>The commit message is too long. Provide a shorter string. </p>
  */
-export interface CommitMessageLengthExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommitMessageLengthExceededException extends __SmithyException, $MetadataBearer {
   name: "CommitMessageLengthExceededException";
   $fault: "client";
   /**
@@ -1807,10 +1598,8 @@ export interface CommitMessageLengthExceededException
 }
 
 export namespace CommitMessageLengthExceededException {
-  export const filterSensitiveLog = (
-    obj: CommitMessageLengthExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CommitMessageLengthExceededException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CommitMessageLengthExceededException =>
     __isa(o, "CommitMessageLengthExceededException");
@@ -1819,9 +1608,7 @@ export namespace CommitMessageLengthExceededException {
 /**
  * <p>A commit was not specified.</p>
  */
-export interface CommitRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommitRequiredException extends __SmithyException, $MetadataBearer {
   name: "CommitRequiredException";
   $fault: "client";
   /**
@@ -1832,18 +1619,15 @@ export interface CommitRequiredException
 
 export namespace CommitRequiredException {
   export const filterSensitiveLog = (obj: CommitRequiredException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CommitRequiredException =>
-    __isa(o, "CommitRequiredException");
+  export const isa = (o: any): o is CommitRequiredException => __isa(o, "CommitRequiredException");
 }
 
 /**
  * <p>The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.</p>
  */
-export interface ConcurrentReferenceUpdateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentReferenceUpdateException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentReferenceUpdateException";
   $fault: "client";
   /**
@@ -1853,10 +1637,8 @@ export interface ConcurrentReferenceUpdateException
 }
 
 export namespace ConcurrentReferenceUpdateException {
-  export const filterSensitiveLog = (
-    obj: ConcurrentReferenceUpdateException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConcurrentReferenceUpdateException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ConcurrentReferenceUpdateException =>
     __isa(o, "ConcurrentReferenceUpdateException");
@@ -1880,14 +1662,14 @@ export interface Conflict {
 
 export namespace Conflict {
   export const filterSensitiveLog = (obj: Conflict): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Conflict => __isa(o, "Conflict");
 }
 
 export enum ConflictDetailLevelTypeEnum {
   FILE_LEVEL = "FILE_LEVEL",
-  LINE_LEVEL = "LINE_LEVEL"
+  LINE_LEVEL = "LINE_LEVEL",
 }
 
 /**
@@ -1948,10 +1730,9 @@ export interface ConflictMetadata {
 
 export namespace ConflictMetadata {
   export const filterSensitiveLog = (obj: ConflictMetadata): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConflictMetadata =>
-    __isa(o, "ConflictMetadata");
+  export const isa = (o: any): o is ConflictMetadata => __isa(o, "ConflictMetadata");
 }
 
 /**
@@ -1978,17 +1759,16 @@ export interface ConflictResolution {
 
 export namespace ConflictResolution {
   export const filterSensitiveLog = (obj: ConflictResolution): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConflictResolution =>
-    __isa(o, "ConflictResolution");
+  export const isa = (o: any): o is ConflictResolution => __isa(o, "ConflictResolution");
 }
 
 export enum ConflictResolutionStrategyTypeEnum {
   ACCEPT_DESTINATION = "ACCEPT_DESTINATION",
   ACCEPT_SOURCE = "ACCEPT_SOURCE",
   AUTOMERGE = "AUTOMERGE",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 export interface CreateApprovalRuleTemplateInput {
@@ -2057,13 +1837,10 @@ export interface CreateApprovalRuleTemplateInput {
 }
 
 export namespace CreateApprovalRuleTemplateInput {
-  export const filterSensitiveLog = (
-    obj: CreateApprovalRuleTemplateInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateApprovalRuleTemplateInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateApprovalRuleTemplateInput =>
-    __isa(o, "CreateApprovalRuleTemplateInput");
+  export const isa = (o: any): o is CreateApprovalRuleTemplateInput => __isa(o, "CreateApprovalRuleTemplateInput");
 }
 
 export interface CreateApprovalRuleTemplateOutput {
@@ -2075,13 +1852,10 @@ export interface CreateApprovalRuleTemplateOutput {
 }
 
 export namespace CreateApprovalRuleTemplateOutput {
-  export const filterSensitiveLog = (
-    obj: CreateApprovalRuleTemplateOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateApprovalRuleTemplateOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateApprovalRuleTemplateOutput =>
-    __isa(o, "CreateApprovalRuleTemplateOutput");
+  export const isa = (o: any): o is CreateApprovalRuleTemplateOutput => __isa(o, "CreateApprovalRuleTemplateOutput");
 }
 
 /**
@@ -2107,10 +1881,9 @@ export interface CreateBranchInput {
 
 export namespace CreateBranchInput {
   export const filterSensitiveLog = (obj: CreateBranchInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateBranchInput =>
-    __isa(o, "CreateBranchInput");
+  export const isa = (o: any): o is CreateBranchInput => __isa(o, "CreateBranchInput");
 }
 
 export interface CreateCommitInput {
@@ -2173,10 +1946,9 @@ export interface CreateCommitInput {
 
 export namespace CreateCommitInput {
   export const filterSensitiveLog = (obj: CreateCommitInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateCommitInput =>
-    __isa(o, "CreateCommitInput");
+  export const isa = (o: any): o is CreateCommitInput => __isa(o, "CreateCommitInput");
 }
 
 export interface CreateCommitOutput {
@@ -2209,10 +1981,9 @@ export interface CreateCommitOutput {
 
 export namespace CreateCommitOutput {
   export const filterSensitiveLog = (obj: CreateCommitOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateCommitOutput =>
-    __isa(o, "CreateCommitOutput");
+  export const isa = (o: any): o is CreateCommitOutput => __isa(o, "CreateCommitOutput");
 }
 
 export interface CreatePullRequestApprovalRuleInput {
@@ -2276,10 +2047,8 @@ export interface CreatePullRequestApprovalRuleInput {
 }
 
 export namespace CreatePullRequestApprovalRuleInput {
-  export const filterSensitiveLog = (
-    obj: CreatePullRequestApprovalRuleInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreatePullRequestApprovalRuleInput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreatePullRequestApprovalRuleInput =>
     __isa(o, "CreatePullRequestApprovalRuleInput");
@@ -2294,10 +2063,8 @@ export interface CreatePullRequestApprovalRuleOutput {
 }
 
 export namespace CreatePullRequestApprovalRuleOutput {
-  export const filterSensitiveLog = (
-    obj: CreatePullRequestApprovalRuleOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreatePullRequestApprovalRuleOutput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreatePullRequestApprovalRuleOutput =>
     __isa(o, "CreatePullRequestApprovalRuleOutput");
@@ -2338,10 +2105,9 @@ export interface CreatePullRequestInput {
 
 export namespace CreatePullRequestInput {
   export const filterSensitiveLog = (obj: CreatePullRequestInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreatePullRequestInput =>
-    __isa(o, "CreatePullRequestInput");
+  export const isa = (o: any): o is CreatePullRequestInput => __isa(o, "CreatePullRequestInput");
 }
 
 export interface CreatePullRequestOutput {
@@ -2354,10 +2120,9 @@ export interface CreatePullRequestOutput {
 
 export namespace CreatePullRequestOutput {
   export const filterSensitiveLog = (obj: CreatePullRequestOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreatePullRequestOutput =>
-    __isa(o, "CreatePullRequestOutput");
+  export const isa = (o: any): o is CreatePullRequestOutput => __isa(o, "CreatePullRequestOutput");
 }
 
 /**
@@ -2397,10 +2162,9 @@ export interface CreateRepositoryInput {
 
 export namespace CreateRepositoryInput {
   export const filterSensitiveLog = (obj: CreateRepositoryInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateRepositoryInput =>
-    __isa(o, "CreateRepositoryInput");
+  export const isa = (o: any): o is CreateRepositoryInput => __isa(o, "CreateRepositoryInput");
 }
 
 /**
@@ -2416,10 +2180,9 @@ export interface CreateRepositoryOutput {
 
 export namespace CreateRepositoryOutput {
   export const filterSensitiveLog = (obj: CreateRepositoryOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateRepositoryOutput =>
-    __isa(o, "CreateRepositoryOutput");
+  export const isa = (o: any): o is CreateRepositoryOutput => __isa(o, "CreateRepositoryOutput");
 }
 
 export interface CreateUnreferencedMergeCommitInput {
@@ -2492,10 +2255,8 @@ export interface CreateUnreferencedMergeCommitInput {
 }
 
 export namespace CreateUnreferencedMergeCommitInput {
-  export const filterSensitiveLog = (
-    obj: CreateUnreferencedMergeCommitInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateUnreferencedMergeCommitInput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateUnreferencedMergeCommitInput =>
     __isa(o, "CreateUnreferencedMergeCommitInput");
@@ -2515,10 +2276,8 @@ export interface CreateUnreferencedMergeCommitOutput {
 }
 
 export namespace CreateUnreferencedMergeCommitOutput {
-  export const filterSensitiveLog = (
-    obj: CreateUnreferencedMergeCommitOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateUnreferencedMergeCommitOutput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateUnreferencedMergeCommitOutput =>
     __isa(o, "CreateUnreferencedMergeCommitOutput");
@@ -2527,9 +2286,7 @@ export namespace CreateUnreferencedMergeCommitOutput {
 /**
  * <p>The specified branch is the default branch for the repository, and cannot be deleted. To delete this branch, you must first set another branch as the default branch.</p>
  */
-export interface DefaultBranchCannotBeDeletedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DefaultBranchCannotBeDeletedException extends __SmithyException, $MetadataBearer {
   name: "DefaultBranchCannotBeDeletedException";
   $fault: "client";
   /**
@@ -2539,10 +2296,8 @@ export interface DefaultBranchCannotBeDeletedException
 }
 
 export namespace DefaultBranchCannotBeDeletedException {
-  export const filterSensitiveLog = (
-    obj: DefaultBranchCannotBeDeletedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DefaultBranchCannotBeDeletedException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DefaultBranchCannotBeDeletedException =>
     __isa(o, "DefaultBranchCannotBeDeletedException");
@@ -2557,13 +2312,10 @@ export interface DeleteApprovalRuleTemplateInput {
 }
 
 export namespace DeleteApprovalRuleTemplateInput {
-  export const filterSensitiveLog = (
-    obj: DeleteApprovalRuleTemplateInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteApprovalRuleTemplateInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteApprovalRuleTemplateInput =>
-    __isa(o, "DeleteApprovalRuleTemplateInput");
+  export const isa = (o: any): o is DeleteApprovalRuleTemplateInput => __isa(o, "DeleteApprovalRuleTemplateInput");
 }
 
 export interface DeleteApprovalRuleTemplateOutput {
@@ -2576,13 +2328,10 @@ export interface DeleteApprovalRuleTemplateOutput {
 }
 
 export namespace DeleteApprovalRuleTemplateOutput {
-  export const filterSensitiveLog = (
-    obj: DeleteApprovalRuleTemplateOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteApprovalRuleTemplateOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteApprovalRuleTemplateOutput =>
-    __isa(o, "DeleteApprovalRuleTemplateOutput");
+  export const isa = (o: any): o is DeleteApprovalRuleTemplateOutput => __isa(o, "DeleteApprovalRuleTemplateOutput");
 }
 
 /**
@@ -2603,10 +2352,9 @@ export interface DeleteBranchInput {
 
 export namespace DeleteBranchInput {
   export const filterSensitiveLog = (obj: DeleteBranchInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteBranchInput =>
-    __isa(o, "DeleteBranchInput");
+  export const isa = (o: any): o is DeleteBranchInput => __isa(o, "DeleteBranchInput");
 }
 
 /**
@@ -2622,10 +2370,9 @@ export interface DeleteBranchOutput {
 
 export namespace DeleteBranchOutput {
   export const filterSensitiveLog = (obj: DeleteBranchOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteBranchOutput =>
-    __isa(o, "DeleteBranchOutput");
+  export const isa = (o: any): o is DeleteBranchOutput => __isa(o, "DeleteBranchOutput");
 }
 
 export interface DeleteCommentContentInput {
@@ -2639,10 +2386,9 @@ export interface DeleteCommentContentInput {
 
 export namespace DeleteCommentContentInput {
   export const filterSensitiveLog = (obj: DeleteCommentContentInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteCommentContentInput =>
-    __isa(o, "DeleteCommentContentInput");
+  export const isa = (o: any): o is DeleteCommentContentInput => __isa(o, "DeleteCommentContentInput");
 }
 
 export interface DeleteCommentContentOutput {
@@ -2655,10 +2401,9 @@ export interface DeleteCommentContentOutput {
 
 export namespace DeleteCommentContentOutput {
   export const filterSensitiveLog = (obj: DeleteCommentContentOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteCommentContentOutput =>
-    __isa(o, "DeleteCommentContentOutput");
+  export const isa = (o: any): o is DeleteCommentContentOutput => __isa(o, "DeleteCommentContentOutput");
 }
 
 /**
@@ -2674,10 +2419,9 @@ export interface DeleteFileEntry {
 
 export namespace DeleteFileEntry {
   export const filterSensitiveLog = (obj: DeleteFileEntry): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteFileEntry =>
-    __isa(o, "DeleteFileEntry");
+  export const isa = (o: any): o is DeleteFileEntry => __isa(o, "DeleteFileEntry");
 }
 
 export interface DeleteFileInput {
@@ -2736,10 +2480,9 @@ export interface DeleteFileInput {
 
 export namespace DeleteFileInput {
   export const filterSensitiveLog = (obj: DeleteFileInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteFileInput =>
-    __isa(o, "DeleteFileInput");
+  export const isa = (o: any): o is DeleteFileInput => __isa(o, "DeleteFileInput");
 }
 
 export interface DeleteFileOutput {
@@ -2768,10 +2511,9 @@ export interface DeleteFileOutput {
 
 export namespace DeleteFileOutput {
   export const filterSensitiveLog = (obj: DeleteFileOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteFileOutput =>
-    __isa(o, "DeleteFileOutput");
+  export const isa = (o: any): o is DeleteFileOutput => __isa(o, "DeleteFileOutput");
 }
 
 export interface DeletePullRequestApprovalRuleInput {
@@ -2788,10 +2530,8 @@ export interface DeletePullRequestApprovalRuleInput {
 }
 
 export namespace DeletePullRequestApprovalRuleInput {
-  export const filterSensitiveLog = (
-    obj: DeletePullRequestApprovalRuleInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeletePullRequestApprovalRuleInput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeletePullRequestApprovalRuleInput =>
     __isa(o, "DeletePullRequestApprovalRuleInput");
@@ -2810,10 +2550,8 @@ export interface DeletePullRequestApprovalRuleOutput {
 }
 
 export namespace DeletePullRequestApprovalRuleOutput {
-  export const filterSensitiveLog = (
-    obj: DeletePullRequestApprovalRuleOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeletePullRequestApprovalRuleOutput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeletePullRequestApprovalRuleOutput =>
     __isa(o, "DeletePullRequestApprovalRuleOutput");
@@ -2832,10 +2570,9 @@ export interface DeleteRepositoryInput {
 
 export namespace DeleteRepositoryInput {
   export const filterSensitiveLog = (obj: DeleteRepositoryInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteRepositoryInput =>
-    __isa(o, "DeleteRepositoryInput");
+  export const isa = (o: any): o is DeleteRepositoryInput => __isa(o, "DeleteRepositoryInput");
 }
 
 /**
@@ -2851,10 +2588,9 @@ export interface DeleteRepositoryOutput {
 
 export namespace DeleteRepositoryOutput {
   export const filterSensitiveLog = (obj: DeleteRepositoryOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteRepositoryOutput =>
-    __isa(o, "DeleteRepositoryOutput");
+  export const isa = (o: any): o is DeleteRepositoryOutput => __isa(o, "DeleteRepositoryOutput");
 }
 
 export interface DescribeMergeConflictsInput {
@@ -2914,13 +2650,10 @@ export interface DescribeMergeConflictsInput {
 }
 
 export namespace DescribeMergeConflictsInput {
-  export const filterSensitiveLog = (
-    obj: DescribeMergeConflictsInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeMergeConflictsInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeMergeConflictsInput =>
-    __isa(o, "DescribeMergeConflictsInput");
+  export const isa = (o: any): o is DescribeMergeConflictsInput => __isa(o, "DescribeMergeConflictsInput");
 }
 
 export interface DescribeMergeConflictsOutput {
@@ -2957,13 +2690,10 @@ export interface DescribeMergeConflictsOutput {
 }
 
 export namespace DescribeMergeConflictsOutput {
-  export const filterSensitiveLog = (
-    obj: DescribeMergeConflictsOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeMergeConflictsOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeMergeConflictsOutput =>
-    __isa(o, "DescribeMergeConflictsOutput");
+  export const isa = (o: any): o is DescribeMergeConflictsOutput => __isa(o, "DescribeMergeConflictsOutput");
 }
 
 export interface DescribePullRequestEventsInput {
@@ -2999,13 +2729,10 @@ export interface DescribePullRequestEventsInput {
 }
 
 export namespace DescribePullRequestEventsInput {
-  export const filterSensitiveLog = (
-    obj: DescribePullRequestEventsInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribePullRequestEventsInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribePullRequestEventsInput =>
-    __isa(o, "DescribePullRequestEventsInput");
+  export const isa = (o: any): o is DescribePullRequestEventsInput => __isa(o, "DescribePullRequestEventsInput");
 }
 
 export interface DescribePullRequestEventsOutput {
@@ -3022,13 +2749,10 @@ export interface DescribePullRequestEventsOutput {
 }
 
 export namespace DescribePullRequestEventsOutput {
-  export const filterSensitiveLog = (
-    obj: DescribePullRequestEventsOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribePullRequestEventsOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribePullRequestEventsOutput =>
-    __isa(o, "DescribePullRequestEventsOutput");
+  export const isa = (o: any): o is DescribePullRequestEventsOutput => __isa(o, "DescribePullRequestEventsOutput");
 }
 
 /**
@@ -3056,7 +2780,7 @@ export interface Difference {
 
 export namespace Difference {
   export const filterSensitiveLog = (obj: Difference): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Difference => __isa(o, "Difference");
 }
@@ -3065,9 +2789,7 @@ export namespace Difference {
  * <p>A file cannot be added to the repository because the specified path name has the same name as a file that already exists in this repository.
  *         Either provide a different name for the file, or specify a different path for the file.</p>
  */
-export interface DirectoryNameConflictsWithFileNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DirectoryNameConflictsWithFileNameException extends __SmithyException, $MetadataBearer {
   name: "DirectoryNameConflictsWithFileNameException";
   $fault: "client";
   /**
@@ -3077,14 +2799,10 @@ export interface DirectoryNameConflictsWithFileNameException
 }
 
 export namespace DirectoryNameConflictsWithFileNameException {
-  export const filterSensitiveLog = (
-    obj: DirectoryNameConflictsWithFileNameException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DirectoryNameConflictsWithFileNameException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DirectoryNameConflictsWithFileNameException =>
+  export const isa = (o: any): o is DirectoryNameConflictsWithFileNameException =>
     __isa(o, "DirectoryNameConflictsWithFileNameException");
 }
 
@@ -3102,23 +2820,17 @@ export interface DisassociateApprovalRuleTemplateFromRepositoryInput {
 }
 
 export namespace DisassociateApprovalRuleTemplateFromRepositoryInput {
-  export const filterSensitiveLog = (
-    obj: DisassociateApprovalRuleTemplateFromRepositoryInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateApprovalRuleTemplateFromRepositoryInput): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DisassociateApprovalRuleTemplateFromRepositoryInput =>
+  export const isa = (o: any): o is DisassociateApprovalRuleTemplateFromRepositoryInput =>
     __isa(o, "DisassociateApprovalRuleTemplateFromRepositoryInput");
 }
 
 /**
  * <p>An encryption integrity check failed.</p>
  */
-export interface EncryptionIntegrityChecksFailedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EncryptionIntegrityChecksFailedException extends __SmithyException, $MetadataBearer {
   name: "EncryptionIntegrityChecksFailedException";
   $fault: "server";
   /**
@@ -3128,10 +2840,8 @@ export interface EncryptionIntegrityChecksFailedException
 }
 
 export namespace EncryptionIntegrityChecksFailedException {
-  export const filterSensitiveLog = (
-    obj: EncryptionIntegrityChecksFailedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EncryptionIntegrityChecksFailedException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is EncryptionIntegrityChecksFailedException =>
     __isa(o, "EncryptionIntegrityChecksFailedException");
@@ -3140,9 +2850,7 @@ export namespace EncryptionIntegrityChecksFailedException {
 /**
  * <p>An encryption key could not be accessed.</p>
  */
-export interface EncryptionKeyAccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EncryptionKeyAccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "EncryptionKeyAccessDeniedException";
   $fault: "client";
   /**
@@ -3152,10 +2860,8 @@ export interface EncryptionKeyAccessDeniedException
 }
 
 export namespace EncryptionKeyAccessDeniedException {
-  export const filterSensitiveLog = (
-    obj: EncryptionKeyAccessDeniedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EncryptionKeyAccessDeniedException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is EncryptionKeyAccessDeniedException =>
     __isa(o, "EncryptionKeyAccessDeniedException");
@@ -3164,9 +2870,7 @@ export namespace EncryptionKeyAccessDeniedException {
 /**
  * <p>The encryption key is disabled.</p>
  */
-export interface EncryptionKeyDisabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EncryptionKeyDisabledException extends __SmithyException, $MetadataBearer {
   name: "EncryptionKeyDisabledException";
   $fault: "client";
   /**
@@ -3176,21 +2880,16 @@ export interface EncryptionKeyDisabledException
 }
 
 export namespace EncryptionKeyDisabledException {
-  export const filterSensitiveLog = (
-    obj: EncryptionKeyDisabledException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EncryptionKeyDisabledException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is EncryptionKeyDisabledException =>
-    __isa(o, "EncryptionKeyDisabledException");
+  export const isa = (o: any): o is EncryptionKeyDisabledException => __isa(o, "EncryptionKeyDisabledException");
 }
 
 /**
  * <p>No encryption key was found.</p>
  */
-export interface EncryptionKeyNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EncryptionKeyNotFoundException extends __SmithyException, $MetadataBearer {
   name: "EncryptionKeyNotFoundException";
   $fault: "client";
   /**
@@ -3200,21 +2899,16 @@ export interface EncryptionKeyNotFoundException
 }
 
 export namespace EncryptionKeyNotFoundException {
-  export const filterSensitiveLog = (
-    obj: EncryptionKeyNotFoundException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EncryptionKeyNotFoundException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is EncryptionKeyNotFoundException =>
-    __isa(o, "EncryptionKeyNotFoundException");
+  export const isa = (o: any): o is EncryptionKeyNotFoundException => __isa(o, "EncryptionKeyNotFoundException");
 }
 
 /**
  * <p>The encryption key is not available.</p>
  */
-export interface EncryptionKeyUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EncryptionKeyUnavailableException extends __SmithyException, $MetadataBearer {
   name: "EncryptionKeyUnavailableException";
   $fault: "client";
   /**
@@ -3224,13 +2918,10 @@ export interface EncryptionKeyUnavailableException
 }
 
 export namespace EncryptionKeyUnavailableException {
-  export const filterSensitiveLog = (
-    obj: EncryptionKeyUnavailableException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EncryptionKeyUnavailableException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is EncryptionKeyUnavailableException =>
-    __isa(o, "EncryptionKeyUnavailableException");
+  export const isa = (o: any): o is EncryptionKeyUnavailableException => __isa(o, "EncryptionKeyUnavailableException");
 }
 
 export interface EvaluatePullRequestApprovalRulesInput {
@@ -3249,10 +2940,8 @@ export interface EvaluatePullRequestApprovalRulesInput {
 }
 
 export namespace EvaluatePullRequestApprovalRulesInput {
-  export const filterSensitiveLog = (
-    obj: EvaluatePullRequestApprovalRulesInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EvaluatePullRequestApprovalRulesInput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is EvaluatePullRequestApprovalRulesInput =>
     __isa(o, "EvaluatePullRequestApprovalRulesInput");
@@ -3268,10 +2957,8 @@ export interface EvaluatePullRequestApprovalRulesOutput {
 }
 
 export namespace EvaluatePullRequestApprovalRulesOutput {
-  export const filterSensitiveLog = (
-    obj: EvaluatePullRequestApprovalRulesOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EvaluatePullRequestApprovalRulesOutput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is EvaluatePullRequestApprovalRulesOutput =>
     __isa(o, "EvaluatePullRequestApprovalRulesOutput");
@@ -3305,7 +2992,7 @@ export interface Evaluation {
 
 export namespace Evaluation {
   export const filterSensitiveLog = (obj: Evaluation): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Evaluation => __isa(o, "Evaluation");
 }
@@ -3338,7 +3025,7 @@ export interface File {
 
 export namespace File {
   export const filterSensitiveLog = (obj: File): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is File => __isa(o, "File");
 }
@@ -3348,9 +3035,7 @@ export namespace File {
  *             specified for the same file. You cannot provide both. Either specify a source file or
  *             provide the file content directly.</p>
  */
-export interface FileContentAndSourceFileSpecifiedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FileContentAndSourceFileSpecifiedException extends __SmithyException, $MetadataBearer {
   name: "FileContentAndSourceFileSpecifiedException";
   $fault: "client";
   /**
@@ -3360,23 +3045,17 @@ export interface FileContentAndSourceFileSpecifiedException
 }
 
 export namespace FileContentAndSourceFileSpecifiedException {
-  export const filterSensitiveLog = (
-    obj: FileContentAndSourceFileSpecifiedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: FileContentAndSourceFileSpecifiedException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is FileContentAndSourceFileSpecifiedException =>
+  export const isa = (o: any): o is FileContentAndSourceFileSpecifiedException =>
     __isa(o, "FileContentAndSourceFileSpecifiedException");
 }
 
 /**
  * <p>The file cannot be added because it is empty. Empty files cannot be added to the repository with this API.</p>
  */
-export interface FileContentRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FileContentRequiredException extends __SmithyException, $MetadataBearer {
   name: "FileContentRequiredException";
   $fault: "client";
   /**
@@ -3386,13 +3065,10 @@ export interface FileContentRequiredException
 }
 
 export namespace FileContentRequiredException {
-  export const filterSensitiveLog = (
-    obj: FileContentRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: FileContentRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is FileContentRequiredException =>
-    __isa(o, "FileContentRequiredException");
+  export const isa = (o: any): o is FileContentRequiredException => __isa(o, "FileContentRequiredException");
 }
 
 /**
@@ -3400,9 +3076,7 @@ export namespace FileContentRequiredException {
  *             the combined file content change size is 7 MB. Consider making these changes using a Git
  *             client.</p>
  */
-export interface FileContentSizeLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FileContentSizeLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "FileContentSizeLimitExceededException";
   $fault: "client";
   /**
@@ -3412,10 +3086,8 @@ export interface FileContentSizeLimitExceededException
 }
 
 export namespace FileContentSizeLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: FileContentSizeLimitExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: FileContentSizeLimitExceededException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is FileContentSizeLimitExceededException =>
     __isa(o, "FileContentSizeLimitExceededException");
@@ -3425,9 +3097,7 @@ export namespace FileContentSizeLimitExceededException {
  * <p>The specified file does not exist. Verify that you have used the correct file name,
  *             full path, and extension.</p>
  */
-export interface FileDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FileDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "FileDoesNotExistException";
   $fault: "client";
   /**
@@ -3438,18 +3108,15 @@ export interface FileDoesNotExistException
 
 export namespace FileDoesNotExistException {
   export const filterSensitiveLog = (obj: FileDoesNotExistException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FileDoesNotExistException =>
-    __isa(o, "FileDoesNotExistException");
+  export const isa = (o: any): o is FileDoesNotExistException => __isa(o, "FileDoesNotExistException");
 }
 
 /**
  * <p>The commit cannot be created because no files have been specified as added, updated, or changed (PutFile or DeleteFile) for the commit.</p>
  */
-export interface FileEntryRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FileEntryRequiredException extends __SmithyException, $MetadataBearer {
   name: "FileEntryRequiredException";
   $fault: "client";
   /**
@@ -3460,10 +3127,9 @@ export interface FileEntryRequiredException
 
 export namespace FileEntryRequiredException {
   export const filterSensitiveLog = (obj: FileEntryRequiredException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FileEntryRequiredException =>
-    __isa(o, "FileEntryRequiredException");
+  export const isa = (o: any): o is FileEntryRequiredException => __isa(o, "FileEntryRequiredException");
 }
 
 /**
@@ -3490,7 +3156,7 @@ export interface FileMetadata {
 
 export namespace FileMetadata {
   export const filterSensitiveLog = (obj: FileMetadata): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is FileMetadata => __isa(o, "FileMetadata");
 }
@@ -3499,9 +3165,7 @@ export namespace FileMetadata {
  * <p>The commit cannot be created because no file mode has been specified. A file mode is
  *             required to update mode permissions for a file.</p>
  */
-export interface FileModeRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FileModeRequiredException extends __SmithyException, $MetadataBearer {
   name: "FileModeRequiredException";
   $fault: "client";
   /**
@@ -3512,10 +3176,9 @@ export interface FileModeRequiredException
 
 export namespace FileModeRequiredException {
   export const filterSensitiveLog = (obj: FileModeRequiredException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FileModeRequiredException =>
-    __isa(o, "FileModeRequiredException");
+  export const isa = (o: any): o is FileModeRequiredException => __isa(o, "FileModeRequiredException");
 }
 
 /**
@@ -3541,7 +3204,7 @@ export interface FileModes {
 
 export namespace FileModes {
   export const filterSensitiveLog = (obj: FileModes): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is FileModes => __isa(o, "FileModes");
 }
@@ -3549,16 +3212,14 @@ export namespace FileModes {
 export enum FileModeTypeEnum {
   EXECUTABLE = "EXECUTABLE",
   NORMAL = "NORMAL",
-  SYMLINK = "SYMLINK"
+  SYMLINK = "SYMLINK",
 }
 
 /**
  * <p>A file cannot be added to the repository because the specified file name has the same name as a directory in this repository. Either provide
  *         another name for the file, or add the file in a directory that does not match the file name.</p>
  */
-export interface FileNameConflictsWithDirectoryNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FileNameConflictsWithDirectoryNameException extends __SmithyException, $MetadataBearer {
   name: "FileNameConflictsWithDirectoryNameException";
   $fault: "client";
   /**
@@ -3568,14 +3229,10 @@ export interface FileNameConflictsWithDirectoryNameException
 }
 
 export namespace FileNameConflictsWithDirectoryNameException {
-  export const filterSensitiveLog = (
-    obj: FileNameConflictsWithDirectoryNameException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: FileNameConflictsWithDirectoryNameException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is FileNameConflictsWithDirectoryNameException =>
+  export const isa = (o: any): o is FileNameConflictsWithDirectoryNameException =>
     __isa(o, "FileNameConflictsWithDirectoryNameException");
 }
 
@@ -3583,9 +3240,7 @@ export namespace FileNameConflictsWithDirectoryNameException {
  * <p>The commit cannot be created because a specified file path points to a submodule. Verify that the destination files
  *         have valid file paths that do not point to a submodule.</p>
  */
-export interface FilePathConflictsWithSubmodulePathException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FilePathConflictsWithSubmodulePathException extends __SmithyException, $MetadataBearer {
   name: "FilePathConflictsWithSubmodulePathException";
   $fault: "client";
   /**
@@ -3595,14 +3250,10 @@ export interface FilePathConflictsWithSubmodulePathException
 }
 
 export namespace FilePathConflictsWithSubmodulePathException {
-  export const filterSensitiveLog = (
-    obj: FilePathConflictsWithSubmodulePathException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: FilePathConflictsWithSubmodulePathException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is FilePathConflictsWithSubmodulePathException =>
+  export const isa = (o: any): o is FilePathConflictsWithSubmodulePathException =>
     __isa(o, "FilePathConflictsWithSubmodulePathException");
 }
 
@@ -3629,7 +3280,7 @@ export interface FileSizes {
 
 export namespace FileSizes {
   export const filterSensitiveLog = (obj: FileSizes): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is FileSizes => __isa(o, "FileSizes");
 }
@@ -3638,9 +3289,7 @@ export namespace FileSizes {
  * <p>The specified file exceeds the file size limit for AWS CodeCommit. For more information about limits in AWS CodeCommit, see
  *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS CodeCommit User Guide</a>.</p>
  */
-export interface FileTooLargeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FileTooLargeException extends __SmithyException, $MetadataBearer {
   name: "FileTooLargeException";
   $fault: "client";
   /**
@@ -3651,10 +3300,9 @@ export interface FileTooLargeException
 
 export namespace FileTooLargeException {
   export const filterSensitiveLog = (obj: FileTooLargeException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FileTooLargeException =>
-    __isa(o, "FileTooLargeException");
+  export const isa = (o: any): o is FileTooLargeException => __isa(o, "FileTooLargeException");
 }
 
 /**
@@ -3680,7 +3328,7 @@ export interface Folder {
 
 export namespace Folder {
   export const filterSensitiveLog = (obj: Folder): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Folder => __isa(o, "Folder");
 }
@@ -3690,9 +3338,7 @@ export namespace Folder {
  *             folder whose contents exceed the limit of 6 MB. Either reduce the number and size of your changes,
  *         or split the changes across multiple folders.</p>
  */
-export interface FolderContentSizeLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FolderContentSizeLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "FolderContentSizeLimitExceededException";
   $fault: "client";
   /**
@@ -3702,10 +3348,8 @@ export interface FolderContentSizeLimitExceededException
 }
 
 export namespace FolderContentSizeLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: FolderContentSizeLimitExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: FolderContentSizeLimitExceededException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is FolderContentSizeLimitExceededException =>
     __isa(o, "FolderContentSizeLimitExceededException");
@@ -3715,9 +3359,7 @@ export namespace FolderContentSizeLimitExceededException {
  * <p>The specified folder does not exist. Either the folder name is not correct, or you did
  *             not enter the full path to the folder.</p>
  */
-export interface FolderDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FolderDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "FolderDoesNotExistException";
   $fault: "client";
   /**
@@ -3727,13 +3369,10 @@ export interface FolderDoesNotExistException
 }
 
 export namespace FolderDoesNotExistException {
-  export const filterSensitiveLog = (
-    obj: FolderDoesNotExistException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: FolderDoesNotExistException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is FolderDoesNotExistException =>
-    __isa(o, "FolderDoesNotExistException");
+  export const isa = (o: any): o is FolderDoesNotExistException => __isa(o, "FolderDoesNotExistException");
 }
 
 export interface GetApprovalRuleTemplateInput {
@@ -3745,13 +3384,10 @@ export interface GetApprovalRuleTemplateInput {
 }
 
 export namespace GetApprovalRuleTemplateInput {
-  export const filterSensitiveLog = (
-    obj: GetApprovalRuleTemplateInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetApprovalRuleTemplateInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetApprovalRuleTemplateInput =>
-    __isa(o, "GetApprovalRuleTemplateInput");
+  export const isa = (o: any): o is GetApprovalRuleTemplateInput => __isa(o, "GetApprovalRuleTemplateInput");
 }
 
 export interface GetApprovalRuleTemplateOutput {
@@ -3763,13 +3399,10 @@ export interface GetApprovalRuleTemplateOutput {
 }
 
 export namespace GetApprovalRuleTemplateOutput {
-  export const filterSensitiveLog = (
-    obj: GetApprovalRuleTemplateOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetApprovalRuleTemplateOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetApprovalRuleTemplateOutput =>
-    __isa(o, "GetApprovalRuleTemplateOutput");
+  export const isa = (o: any): o is GetApprovalRuleTemplateOutput => __isa(o, "GetApprovalRuleTemplateOutput");
 }
 
 /**
@@ -3790,7 +3423,7 @@ export interface GetBlobInput {
 
 export namespace GetBlobInput {
   export const filterSensitiveLog = (obj: GetBlobInput): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GetBlobInput => __isa(o, "GetBlobInput");
 }
@@ -3808,7 +3441,7 @@ export interface GetBlobOutput {
 
 export namespace GetBlobOutput {
   export const filterSensitiveLog = (obj: GetBlobOutput): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GetBlobOutput => __isa(o, "GetBlobOutput");
 }
@@ -3831,10 +3464,9 @@ export interface GetBranchInput {
 
 export namespace GetBranchInput {
   export const filterSensitiveLog = (obj: GetBranchInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetBranchInput =>
-    __isa(o, "GetBranchInput");
+  export const isa = (o: any): o is GetBranchInput => __isa(o, "GetBranchInput");
 }
 
 /**
@@ -3850,10 +3482,9 @@ export interface GetBranchOutput {
 
 export namespace GetBranchOutput {
   export const filterSensitiveLog = (obj: GetBranchOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetBranchOutput =>
-    __isa(o, "GetBranchOutput");
+  export const isa = (o: any): o is GetBranchOutput => __isa(o, "GetBranchOutput");
 }
 
 export interface GetCommentInput {
@@ -3867,10 +3498,9 @@ export interface GetCommentInput {
 
 export namespace GetCommentInput {
   export const filterSensitiveLog = (obj: GetCommentInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetCommentInput =>
-    __isa(o, "GetCommentInput");
+  export const isa = (o: any): o is GetCommentInput => __isa(o, "GetCommentInput");
 }
 
 export interface GetCommentOutput {
@@ -3883,10 +3513,9 @@ export interface GetCommentOutput {
 
 export namespace GetCommentOutput {
   export const filterSensitiveLog = (obj: GetCommentOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetCommentOutput =>
-    __isa(o, "GetCommentOutput");
+  export const isa = (o: any): o is GetCommentOutput => __isa(o, "GetCommentOutput");
 }
 
 export interface GetCommentsForComparedCommitInput {
@@ -3921,13 +3550,10 @@ export interface GetCommentsForComparedCommitInput {
 }
 
 export namespace GetCommentsForComparedCommitInput {
-  export const filterSensitiveLog = (
-    obj: GetCommentsForComparedCommitInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetCommentsForComparedCommitInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetCommentsForComparedCommitInput =>
-    __isa(o, "GetCommentsForComparedCommitInput");
+  export const isa = (o: any): o is GetCommentsForComparedCommitInput => __isa(o, "GetCommentsForComparedCommitInput");
 }
 
 export interface GetCommentsForComparedCommitOutput {
@@ -3944,10 +3570,8 @@ export interface GetCommentsForComparedCommitOutput {
 }
 
 export namespace GetCommentsForComparedCommitOutput {
-  export const filterSensitiveLog = (
-    obj: GetCommentsForComparedCommitOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetCommentsForComparedCommitOutput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetCommentsForComparedCommitOutput =>
     __isa(o, "GetCommentsForComparedCommitOutput");
@@ -3989,13 +3613,10 @@ export interface GetCommentsForPullRequestInput {
 }
 
 export namespace GetCommentsForPullRequestInput {
-  export const filterSensitiveLog = (
-    obj: GetCommentsForPullRequestInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetCommentsForPullRequestInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetCommentsForPullRequestInput =>
-    __isa(o, "GetCommentsForPullRequestInput");
+  export const isa = (o: any): o is GetCommentsForPullRequestInput => __isa(o, "GetCommentsForPullRequestInput");
 }
 
 export interface GetCommentsForPullRequestOutput {
@@ -4012,13 +3633,10 @@ export interface GetCommentsForPullRequestOutput {
 }
 
 export namespace GetCommentsForPullRequestOutput {
-  export const filterSensitiveLog = (
-    obj: GetCommentsForPullRequestOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetCommentsForPullRequestOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetCommentsForPullRequestOutput =>
-    __isa(o, "GetCommentsForPullRequestOutput");
+  export const isa = (o: any): o is GetCommentsForPullRequestOutput => __isa(o, "GetCommentsForPullRequestOutput");
 }
 
 /**
@@ -4039,10 +3657,9 @@ export interface GetCommitInput {
 
 export namespace GetCommitInput {
   export const filterSensitiveLog = (obj: GetCommitInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetCommitInput =>
-    __isa(o, "GetCommitInput");
+  export const isa = (o: any): o is GetCommitInput => __isa(o, "GetCommitInput");
 }
 
 /**
@@ -4058,10 +3675,9 @@ export interface GetCommitOutput {
 
 export namespace GetCommitOutput {
   export const filterSensitiveLog = (obj: GetCommitOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetCommitOutput =>
-    __isa(o, "GetCommitOutput");
+  export const isa = (o: any): o is GetCommitOutput => __isa(o, "GetCommitOutput");
 }
 
 export interface GetDifferencesInput {
@@ -4114,10 +3730,9 @@ export interface GetDifferencesInput {
 
 export namespace GetDifferencesInput {
   export const filterSensitiveLog = (obj: GetDifferencesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDifferencesInput =>
-    __isa(o, "GetDifferencesInput");
+  export const isa = (o: any): o is GetDifferencesInput => __isa(o, "GetDifferencesInput");
 }
 
 export interface GetDifferencesOutput {
@@ -4136,10 +3751,9 @@ export interface GetDifferencesOutput {
 
 export namespace GetDifferencesOutput {
   export const filterSensitiveLog = (obj: GetDifferencesOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDifferencesOutput =>
-    __isa(o, "GetDifferencesOutput");
+  export const isa = (o: any): o is GetDifferencesOutput => __isa(o, "GetDifferencesOutput");
 }
 
 export interface GetFileInput {
@@ -4166,7 +3780,7 @@ export interface GetFileInput {
 
 export namespace GetFileInput {
   export const filterSensitiveLog = (obj: GetFileInput): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GetFileInput => __isa(o, "GetFileInput");
 }
@@ -4212,7 +3826,7 @@ export interface GetFileOutput {
 
 export namespace GetFileOutput {
   export const filterSensitiveLog = (obj: GetFileOutput): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GetFileOutput => __isa(o, "GetFileOutput");
 }
@@ -4242,10 +3856,9 @@ export interface GetFolderInput {
 
 export namespace GetFolderInput {
   export const filterSensitiveLog = (obj: GetFolderInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetFolderInput =>
-    __isa(o, "GetFolderInput");
+  export const isa = (o: any): o is GetFolderInput => __isa(o, "GetFolderInput");
 }
 
 export interface GetFolderOutput {
@@ -4290,10 +3903,9 @@ export interface GetFolderOutput {
 
 export namespace GetFolderOutput {
   export const filterSensitiveLog = (obj: GetFolderOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetFolderOutput =>
-    __isa(o, "GetFolderOutput");
+  export const isa = (o: any): o is GetFolderOutput => __isa(o, "GetFolderOutput");
 }
 
 export interface GetMergeCommitInput {
@@ -4333,10 +3945,9 @@ export interface GetMergeCommitInput {
 
 export namespace GetMergeCommitInput {
   export const filterSensitiveLog = (obj: GetMergeCommitInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetMergeCommitInput =>
-    __isa(o, "GetMergeCommitInput");
+  export const isa = (o: any): o is GetMergeCommitInput => __isa(o, "GetMergeCommitInput");
 }
 
 export interface GetMergeCommitOutput {
@@ -4366,10 +3977,9 @@ export interface GetMergeCommitOutput {
 
 export namespace GetMergeCommitOutput {
   export const filterSensitiveLog = (obj: GetMergeCommitOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetMergeCommitOutput =>
-    __isa(o, "GetMergeCommitOutput");
+  export const isa = (o: any): o is GetMergeCommitOutput => __isa(o, "GetMergeCommitOutput");
 }
 
 export interface GetMergeConflictsInput {
@@ -4425,10 +4035,9 @@ export interface GetMergeConflictsInput {
 
 export namespace GetMergeConflictsInput {
   export const filterSensitiveLog = (obj: GetMergeConflictsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetMergeConflictsInput =>
-    __isa(o, "GetMergeConflictsInput");
+  export const isa = (o: any): o is GetMergeConflictsInput => __isa(o, "GetMergeConflictsInput");
 }
 
 export interface GetMergeConflictsOutput {
@@ -4467,10 +4076,9 @@ export interface GetMergeConflictsOutput {
 
 export namespace GetMergeConflictsOutput {
   export const filterSensitiveLog = (obj: GetMergeConflictsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetMergeConflictsOutput =>
-    __isa(o, "GetMergeConflictsOutput");
+  export const isa = (o: any): o is GetMergeConflictsOutput => __isa(o, "GetMergeConflictsOutput");
 }
 
 export interface GetMergeOptionsInput {
@@ -4510,10 +4118,9 @@ export interface GetMergeOptionsInput {
 
 export namespace GetMergeOptionsInput {
   export const filterSensitiveLog = (obj: GetMergeOptionsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetMergeOptionsInput =>
-    __isa(o, "GetMergeOptionsInput");
+  export const isa = (o: any): o is GetMergeOptionsInput => __isa(o, "GetMergeOptionsInput");
 }
 
 export interface GetMergeOptionsOutput {
@@ -4541,10 +4148,9 @@ export interface GetMergeOptionsOutput {
 
 export namespace GetMergeOptionsOutput {
   export const filterSensitiveLog = (obj: GetMergeOptionsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetMergeOptionsOutput =>
-    __isa(o, "GetMergeOptionsOutput");
+  export const isa = (o: any): o is GetMergeOptionsOutput => __isa(o, "GetMergeOptionsOutput");
 }
 
 export interface GetPullRequestApprovalStatesInput {
@@ -4561,13 +4167,10 @@ export interface GetPullRequestApprovalStatesInput {
 }
 
 export namespace GetPullRequestApprovalStatesInput {
-  export const filterSensitiveLog = (
-    obj: GetPullRequestApprovalStatesInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetPullRequestApprovalStatesInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetPullRequestApprovalStatesInput =>
-    __isa(o, "GetPullRequestApprovalStatesInput");
+  export const isa = (o: any): o is GetPullRequestApprovalStatesInput => __isa(o, "GetPullRequestApprovalStatesInput");
 }
 
 export interface GetPullRequestApprovalStatesOutput {
@@ -4579,10 +4182,8 @@ export interface GetPullRequestApprovalStatesOutput {
 }
 
 export namespace GetPullRequestApprovalStatesOutput {
-  export const filterSensitiveLog = (
-    obj: GetPullRequestApprovalStatesOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetPullRequestApprovalStatesOutput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetPullRequestApprovalStatesOutput =>
     __isa(o, "GetPullRequestApprovalStatesOutput");
@@ -4598,10 +4199,9 @@ export interface GetPullRequestInput {
 
 export namespace GetPullRequestInput {
   export const filterSensitiveLog = (obj: GetPullRequestInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetPullRequestInput =>
-    __isa(o, "GetPullRequestInput");
+  export const isa = (o: any): o is GetPullRequestInput => __isa(o, "GetPullRequestInput");
 }
 
 export interface GetPullRequestOutput {
@@ -4614,10 +4214,9 @@ export interface GetPullRequestOutput {
 
 export namespace GetPullRequestOutput {
   export const filterSensitiveLog = (obj: GetPullRequestOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetPullRequestOutput =>
-    __isa(o, "GetPullRequestOutput");
+  export const isa = (o: any): o is GetPullRequestOutput => __isa(o, "GetPullRequestOutput");
 }
 
 export interface GetPullRequestOverrideStateInput {
@@ -4636,13 +4235,10 @@ export interface GetPullRequestOverrideStateInput {
 }
 
 export namespace GetPullRequestOverrideStateInput {
-  export const filterSensitiveLog = (
-    obj: GetPullRequestOverrideStateInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetPullRequestOverrideStateInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetPullRequestOverrideStateInput =>
-    __isa(o, "GetPullRequestOverrideStateInput");
+  export const isa = (o: any): o is GetPullRequestOverrideStateInput => __isa(o, "GetPullRequestOverrideStateInput");
 }
 
 export interface GetPullRequestOverrideStateOutput {
@@ -4659,13 +4255,10 @@ export interface GetPullRequestOverrideStateOutput {
 }
 
 export namespace GetPullRequestOverrideStateOutput {
-  export const filterSensitiveLog = (
-    obj: GetPullRequestOverrideStateOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetPullRequestOverrideStateOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetPullRequestOverrideStateOutput =>
-    __isa(o, "GetPullRequestOverrideStateOutput");
+  export const isa = (o: any): o is GetPullRequestOverrideStateOutput => __isa(o, "GetPullRequestOverrideStateOutput");
 }
 
 /**
@@ -4681,10 +4274,9 @@ export interface GetRepositoryInput {
 
 export namespace GetRepositoryInput {
   export const filterSensitiveLog = (obj: GetRepositoryInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetRepositoryInput =>
-    __isa(o, "GetRepositoryInput");
+  export const isa = (o: any): o is GetRepositoryInput => __isa(o, "GetRepositoryInput");
 }
 
 /**
@@ -4700,10 +4292,9 @@ export interface GetRepositoryOutput {
 
 export namespace GetRepositoryOutput {
   export const filterSensitiveLog = (obj: GetRepositoryOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetRepositoryOutput =>
-    __isa(o, "GetRepositoryOutput");
+  export const isa = (o: any): o is GetRepositoryOutput => __isa(o, "GetRepositoryOutput");
 }
 
 /**
@@ -4719,10 +4310,9 @@ export interface GetRepositoryTriggersInput {
 
 export namespace GetRepositoryTriggersInput {
   export const filterSensitiveLog = (obj: GetRepositoryTriggersInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetRepositoryTriggersInput =>
-    __isa(o, "GetRepositoryTriggersInput");
+  export const isa = (o: any): o is GetRepositoryTriggersInput => __isa(o, "GetRepositoryTriggersInput");
 }
 
 /**
@@ -4742,22 +4332,17 @@ export interface GetRepositoryTriggersOutput {
 }
 
 export namespace GetRepositoryTriggersOutput {
-  export const filterSensitiveLog = (
-    obj: GetRepositoryTriggersOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetRepositoryTriggersOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetRepositoryTriggersOutput =>
-    __isa(o, "GetRepositoryTriggersOutput");
+  export const isa = (o: any): o is GetRepositoryTriggersOutput => __isa(o, "GetRepositoryTriggersOutput");
 }
 
 /**
  * <p>The client request token is not valid. Either the token is not in a valid format, or
  *             the token has been used in a previous request and cannot be reused.</p>
  */
-export interface IdempotencyParameterMismatchException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IdempotencyParameterMismatchException extends __SmithyException, $MetadataBearer {
   name: "IdempotencyParameterMismatchException";
   $fault: "client";
   /**
@@ -4767,10 +4352,8 @@ export interface IdempotencyParameterMismatchException
 }
 
 export namespace IdempotencyParameterMismatchException {
-  export const filterSensitiveLog = (
-    obj: IdempotencyParameterMismatchException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: IdempotencyParameterMismatchException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is IdempotencyParameterMismatchException =>
     __isa(o, "IdempotencyParameterMismatchException");
@@ -4780,9 +4363,7 @@ export namespace IdempotencyParameterMismatchException {
  * <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the user who initiated the change for the pull request,
  *             and then try again.</p>
  */
-export interface InvalidActorArnException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidActorArnException extends __SmithyException, $MetadataBearer {
   name: "InvalidActorArnException";
   $fault: "client";
   /**
@@ -4793,18 +4374,15 @@ export interface InvalidActorArnException
 
 export namespace InvalidActorArnException {
   export const filterSensitiveLog = (obj: InvalidActorArnException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidActorArnException =>
-    __isa(o, "InvalidActorArnException");
+  export const isa = (o: any): o is InvalidActorArnException => __isa(o, "InvalidActorArnException");
 }
 
 /**
  * <p>The content for the approval rule is not valid.</p>
  */
-export interface InvalidApprovalRuleContentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidApprovalRuleContentException extends __SmithyException, $MetadataBearer {
   name: "InvalidApprovalRuleContentException";
   $fault: "client";
   /**
@@ -4814,10 +4392,8 @@ export interface InvalidApprovalRuleContentException
 }
 
 export namespace InvalidApprovalRuleContentException {
-  export const filterSensitiveLog = (
-    obj: InvalidApprovalRuleContentException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidApprovalRuleContentException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidApprovalRuleContentException =>
     __isa(o, "InvalidApprovalRuleContentException");
@@ -4826,9 +4402,7 @@ export namespace InvalidApprovalRuleContentException {
 /**
  * <p>The name for the approval rule is not valid.</p>
  */
-export interface InvalidApprovalRuleNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidApprovalRuleNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidApprovalRuleNameException";
   $fault: "client";
   /**
@@ -4838,21 +4412,16 @@ export interface InvalidApprovalRuleNameException
 }
 
 export namespace InvalidApprovalRuleNameException {
-  export const filterSensitiveLog = (
-    obj: InvalidApprovalRuleNameException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidApprovalRuleNameException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidApprovalRuleNameException =>
-    __isa(o, "InvalidApprovalRuleNameException");
+  export const isa = (o: any): o is InvalidApprovalRuleNameException => __isa(o, "InvalidApprovalRuleNameException");
 }
 
 /**
  * <p>The content of the approval rule template is not valid.</p>
  */
-export interface InvalidApprovalRuleTemplateContentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidApprovalRuleTemplateContentException extends __SmithyException, $MetadataBearer {
   name: "InvalidApprovalRuleTemplateContentException";
   $fault: "client";
   /**
@@ -4862,14 +4431,10 @@ export interface InvalidApprovalRuleTemplateContentException
 }
 
 export namespace InvalidApprovalRuleTemplateContentException {
-  export const filterSensitiveLog = (
-    obj: InvalidApprovalRuleTemplateContentException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidApprovalRuleTemplateContentException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is InvalidApprovalRuleTemplateContentException =>
+  export const isa = (o: any): o is InvalidApprovalRuleTemplateContentException =>
     __isa(o, "InvalidApprovalRuleTemplateContentException");
 }
 
@@ -4879,9 +4444,7 @@ export namespace InvalidApprovalRuleTemplateContentException {
  *             CodeCommit, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS CodeCommit User
  *             Guide</a>.</p>
  */
-export interface InvalidApprovalRuleTemplateDescriptionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidApprovalRuleTemplateDescriptionException extends __SmithyException, $MetadataBearer {
   name: "InvalidApprovalRuleTemplateDescriptionException";
   $fault: "client";
   /**
@@ -4891,14 +4454,10 @@ export interface InvalidApprovalRuleTemplateDescriptionException
 }
 
 export namespace InvalidApprovalRuleTemplateDescriptionException {
-  export const filterSensitiveLog = (
-    obj: InvalidApprovalRuleTemplateDescriptionException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidApprovalRuleTemplateDescriptionException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is InvalidApprovalRuleTemplateDescriptionException =>
+  export const isa = (o: any): o is InvalidApprovalRuleTemplateDescriptionException =>
     __isa(o, "InvalidApprovalRuleTemplateDescriptionException");
 }
 
@@ -4908,9 +4467,7 @@ export namespace InvalidApprovalRuleTemplateDescriptionException {
  *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS
  *                 CodeCommit User Guide</a>.</p>
  */
-export interface InvalidApprovalRuleTemplateNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidApprovalRuleTemplateNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidApprovalRuleTemplateNameException";
   $fault: "client";
   /**
@@ -4920,10 +4477,8 @@ export interface InvalidApprovalRuleTemplateNameException
 }
 
 export namespace InvalidApprovalRuleTemplateNameException {
-  export const filterSensitiveLog = (
-    obj: InvalidApprovalRuleTemplateNameException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidApprovalRuleTemplateNameException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidApprovalRuleTemplateNameException =>
     __isa(o, "InvalidApprovalRuleTemplateNameException");
@@ -4932,9 +4487,7 @@ export namespace InvalidApprovalRuleTemplateNameException {
 /**
  * <p>The state for the approval is not valid. Valid values include APPROVE and REVOKE. </p>
  */
-export interface InvalidApprovalStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidApprovalStateException extends __SmithyException, $MetadataBearer {
   name: "InvalidApprovalStateException";
   $fault: "client";
   /**
@@ -4944,21 +4497,16 @@ export interface InvalidApprovalStateException
 }
 
 export namespace InvalidApprovalStateException {
-  export const filterSensitiveLog = (
-    obj: InvalidApprovalStateException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidApprovalStateException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidApprovalStateException =>
-    __isa(o, "InvalidApprovalStateException");
+  export const isa = (o: any): o is InvalidApprovalStateException => __isa(o, "InvalidApprovalStateException");
 }
 
 /**
  * <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the author of the pull request, and then try again.</p>
  */
-export interface InvalidAuthorArnException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidAuthorArnException extends __SmithyException, $MetadataBearer {
   name: "InvalidAuthorArnException";
   $fault: "client";
   /**
@@ -4969,18 +4517,15 @@ export interface InvalidAuthorArnException
 
 export namespace InvalidAuthorArnException {
   export const filterSensitiveLog = (obj: InvalidAuthorArnException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidAuthorArnException =>
-    __isa(o, "InvalidAuthorArnException");
+  export const isa = (o: any): o is InvalidAuthorArnException => __isa(o, "InvalidAuthorArnException");
 }
 
 /**
  * <p>The specified blob is not valid.</p>
  */
-export interface InvalidBlobIdException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidBlobIdException extends __SmithyException, $MetadataBearer {
   name: "InvalidBlobIdException";
   $fault: "client";
   /**
@@ -4991,18 +4536,15 @@ export interface InvalidBlobIdException
 
 export namespace InvalidBlobIdException {
   export const filterSensitiveLog = (obj: InvalidBlobIdException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidBlobIdException =>
-    __isa(o, "InvalidBlobIdException");
+  export const isa = (o: any): o is InvalidBlobIdException => __isa(o, "InvalidBlobIdException");
 }
 
 /**
  * <p>The specified reference name is not valid.</p>
  */
-export interface InvalidBranchNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidBranchNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidBranchNameException";
   $fault: "client";
   /**
@@ -5013,18 +4555,15 @@ export interface InvalidBranchNameException
 
 export namespace InvalidBranchNameException {
   export const filterSensitiveLog = (obj: InvalidBranchNameException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidBranchNameException =>
-    __isa(o, "InvalidBranchNameException");
+  export const isa = (o: any): o is InvalidBranchNameException => __isa(o, "InvalidBranchNameException");
 }
 
 /**
  * <p>The client request token is not valid.</p>
  */
-export interface InvalidClientRequestTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidClientRequestTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidClientRequestTokenException";
   $fault: "client";
   /**
@@ -5034,10 +4573,8 @@ export interface InvalidClientRequestTokenException
 }
 
 export namespace InvalidClientRequestTokenException {
-  export const filterSensitiveLog = (
-    obj: InvalidClientRequestTokenException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidClientRequestTokenException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidClientRequestTokenException =>
     __isa(o, "InvalidClientRequestTokenException");
@@ -5046,9 +4583,7 @@ export namespace InvalidClientRequestTokenException {
 /**
  * <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
  */
-export interface InvalidCommentIdException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidCommentIdException extends __SmithyException, $MetadataBearer {
   name: "InvalidCommentIdException";
   $fault: "client";
   /**
@@ -5059,18 +4594,15 @@ export interface InvalidCommentIdException
 
 export namespace InvalidCommentIdException {
   export const filterSensitiveLog = (obj: InvalidCommentIdException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidCommentIdException =>
-    __isa(o, "InvalidCommentIdException");
+  export const isa = (o: any): o is InvalidCommentIdException => __isa(o, "InvalidCommentIdException");
 }
 
 /**
  * <p>The specified commit is not valid.</p>
  */
-export interface InvalidCommitException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidCommitException extends __SmithyException, $MetadataBearer {
   name: "InvalidCommitException";
   $fault: "client";
   /**
@@ -5081,18 +4613,15 @@ export interface InvalidCommitException
 
 export namespace InvalidCommitException {
   export const filterSensitiveLog = (obj: InvalidCommitException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidCommitException =>
-    __isa(o, "InvalidCommitException");
+  export const isa = (o: any): o is InvalidCommitException => __isa(o, "InvalidCommitException");
 }
 
 /**
  * <p>The specified commit ID is not valid.</p>
  */
-export interface InvalidCommitIdException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidCommitIdException extends __SmithyException, $MetadataBearer {
   name: "InvalidCommitIdException";
   $fault: "client";
   /**
@@ -5103,18 +4632,15 @@ export interface InvalidCommitIdException
 
 export namespace InvalidCommitIdException {
   export const filterSensitiveLog = (obj: InvalidCommitIdException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidCommitIdException =>
-    __isa(o, "InvalidCommitIdException");
+  export const isa = (o: any): o is InvalidCommitIdException => __isa(o, "InvalidCommitIdException");
 }
 
 /**
  * <p>The specified conflict detail level is not valid.</p>
  */
-export interface InvalidConflictDetailLevelException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidConflictDetailLevelException extends __SmithyException, $MetadataBearer {
   name: "InvalidConflictDetailLevelException";
   $fault: "client";
   /**
@@ -5124,10 +4650,8 @@ export interface InvalidConflictDetailLevelException
 }
 
 export namespace InvalidConflictDetailLevelException {
-  export const filterSensitiveLog = (
-    obj: InvalidConflictDetailLevelException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidConflictDetailLevelException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidConflictDetailLevelException =>
     __isa(o, "InvalidConflictDetailLevelException");
@@ -5136,9 +4660,7 @@ export namespace InvalidConflictDetailLevelException {
 /**
  * <p>The specified conflict resolution list is not valid.</p>
  */
-export interface InvalidConflictResolutionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidConflictResolutionException extends __SmithyException, $MetadataBearer {
   name: "InvalidConflictResolutionException";
   $fault: "client";
   /**
@@ -5148,10 +4670,8 @@ export interface InvalidConflictResolutionException
 }
 
 export namespace InvalidConflictResolutionException {
-  export const filterSensitiveLog = (
-    obj: InvalidConflictResolutionException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidConflictResolutionException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidConflictResolutionException =>
     __isa(o, "InvalidConflictResolutionException");
@@ -5160,9 +4680,7 @@ export namespace InvalidConflictResolutionException {
 /**
  * <p>The specified conflict resolution strategy is not valid.</p>
  */
-export interface InvalidConflictResolutionStrategyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidConflictResolutionStrategyException extends __SmithyException, $MetadataBearer {
   name: "InvalidConflictResolutionStrategyException";
   $fault: "client";
   /**
@@ -5172,23 +4690,17 @@ export interface InvalidConflictResolutionStrategyException
 }
 
 export namespace InvalidConflictResolutionStrategyException {
-  export const filterSensitiveLog = (
-    obj: InvalidConflictResolutionStrategyException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidConflictResolutionStrategyException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is InvalidConflictResolutionStrategyException =>
+  export const isa = (o: any): o is InvalidConflictResolutionStrategyException =>
     __isa(o, "InvalidConflictResolutionStrategyException");
 }
 
 /**
  * <p>The specified continuation token is not valid.</p>
  */
-export interface InvalidContinuationTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidContinuationTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidContinuationTokenException";
   $fault: "client";
   /**
@@ -5198,21 +4710,16 @@ export interface InvalidContinuationTokenException
 }
 
 export namespace InvalidContinuationTokenException {
-  export const filterSensitiveLog = (
-    obj: InvalidContinuationTokenException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidContinuationTokenException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidContinuationTokenException =>
-    __isa(o, "InvalidContinuationTokenException");
+  export const isa = (o: any): o is InvalidContinuationTokenException => __isa(o, "InvalidContinuationTokenException");
 }
 
 /**
  * <p>The specified deletion parameter is not valid.</p>
  */
-export interface InvalidDeletionParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDeletionParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidDeletionParameterException";
   $fault: "client";
   /**
@@ -5222,22 +4729,17 @@ export interface InvalidDeletionParameterException
 }
 
 export namespace InvalidDeletionParameterException {
-  export const filterSensitiveLog = (
-    obj: InvalidDeletionParameterException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidDeletionParameterException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidDeletionParameterException =>
-    __isa(o, "InvalidDeletionParameterException");
+  export const isa = (o: any): o is InvalidDeletionParameterException => __isa(o, "InvalidDeletionParameterException");
 }
 
 /**
  * <p>The pull request description is not valid. Descriptions cannot be more than 1,000
  *             characters.</p>
  */
-export interface InvalidDescriptionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDescriptionException extends __SmithyException, $MetadataBearer {
   name: "InvalidDescriptionException";
   $fault: "client";
   /**
@@ -5247,21 +4749,16 @@ export interface InvalidDescriptionException
 }
 
 export namespace InvalidDescriptionException {
-  export const filterSensitiveLog = (
-    obj: InvalidDescriptionException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidDescriptionException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidDescriptionException =>
-    __isa(o, "InvalidDescriptionException");
+  export const isa = (o: any): o is InvalidDescriptionException => __isa(o, "InvalidDescriptionException");
 }
 
 /**
  * <p>The destination commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID. </p>
  */
-export interface InvalidDestinationCommitSpecifierException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDestinationCommitSpecifierException extends __SmithyException, $MetadataBearer {
   name: "InvalidDestinationCommitSpecifierException";
   $fault: "client";
   /**
@@ -5271,14 +4768,10 @@ export interface InvalidDestinationCommitSpecifierException
 }
 
 export namespace InvalidDestinationCommitSpecifierException {
-  export const filterSensitiveLog = (
-    obj: InvalidDestinationCommitSpecifierException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidDestinationCommitSpecifierException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is InvalidDestinationCommitSpecifierException =>
+  export const isa = (o: any): o is InvalidDestinationCommitSpecifierException =>
     __isa(o, "InvalidDestinationCommitSpecifierException");
 }
 
@@ -5286,9 +4779,7 @@ export namespace InvalidDestinationCommitSpecifierException {
  * <p>The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters
  *         allowed for an email address.</p>
  */
-export interface InvalidEmailException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidEmailException extends __SmithyException, $MetadataBearer {
   name: "InvalidEmailException";
   $fault: "client";
   /**
@@ -5299,19 +4790,16 @@ export interface InvalidEmailException
 
 export namespace InvalidEmailException {
   export const filterSensitiveLog = (obj: InvalidEmailException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidEmailException =>
-    __isa(o, "InvalidEmailException");
+  export const isa = (o: any): o is InvalidEmailException => __isa(o, "InvalidEmailException");
 }
 
 /**
  * <p>The location of the file is not valid. Make sure that you include the file name and
  *             extension.</p>
  */
-export interface InvalidFileLocationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidFileLocationException extends __SmithyException, $MetadataBearer {
   name: "InvalidFileLocationException";
   $fault: "client";
   /**
@@ -5321,21 +4809,16 @@ export interface InvalidFileLocationException
 }
 
 export namespace InvalidFileLocationException {
-  export const filterSensitiveLog = (
-    obj: InvalidFileLocationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidFileLocationException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidFileLocationException =>
-    __isa(o, "InvalidFileLocationException");
+  export const isa = (o: any): o is InvalidFileLocationException => __isa(o, "InvalidFileLocationException");
 }
 
 /**
  * <p>The specified file mode permission is not valid. For a list of valid file mode permissions, see <a>PutFile</a>. </p>
  */
-export interface InvalidFileModeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidFileModeException extends __SmithyException, $MetadataBearer {
   name: "InvalidFileModeException";
   $fault: "client";
   /**
@@ -5346,18 +4829,15 @@ export interface InvalidFileModeException
 
 export namespace InvalidFileModeException {
   export const filterSensitiveLog = (obj: InvalidFileModeException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidFileModeException =>
-    __isa(o, "InvalidFileModeException");
+  export const isa = (o: any): o is InvalidFileModeException => __isa(o, "InvalidFileModeException");
 }
 
 /**
  * <p>The position is not valid. Make sure that the line number exists in the version of the file you want to comment on.</p>
  */
-export interface InvalidFilePositionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidFilePositionException extends __SmithyException, $MetadataBearer {
   name: "InvalidFilePositionException";
   $fault: "client";
   /**
@@ -5367,21 +4847,16 @@ export interface InvalidFilePositionException
 }
 
 export namespace InvalidFilePositionException {
-  export const filterSensitiveLog = (
-    obj: InvalidFilePositionException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidFilePositionException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidFilePositionException =>
-    __isa(o, "InvalidFilePositionException");
+  export const isa = (o: any): o is InvalidFilePositionException => __isa(o, "InvalidFilePositionException");
 }
 
 /**
  * <p>The specified value for the number of conflict files to return is not valid.</p>
  */
-export interface InvalidMaxConflictFilesException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidMaxConflictFilesException extends __SmithyException, $MetadataBearer {
   name: "InvalidMaxConflictFilesException";
   $fault: "client";
   /**
@@ -5391,21 +4866,16 @@ export interface InvalidMaxConflictFilesException
 }
 
 export namespace InvalidMaxConflictFilesException {
-  export const filterSensitiveLog = (
-    obj: InvalidMaxConflictFilesException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidMaxConflictFilesException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidMaxConflictFilesException =>
-    __isa(o, "InvalidMaxConflictFilesException");
+  export const isa = (o: any): o is InvalidMaxConflictFilesException => __isa(o, "InvalidMaxConflictFilesException");
 }
 
 /**
  * <p>The specified value for the number of merge hunks to return is not valid.</p>
  */
-export interface InvalidMaxMergeHunksException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidMaxMergeHunksException extends __SmithyException, $MetadataBearer {
   name: "InvalidMaxMergeHunksException";
   $fault: "client";
   /**
@@ -5415,21 +4885,16 @@ export interface InvalidMaxMergeHunksException
 }
 
 export namespace InvalidMaxMergeHunksException {
-  export const filterSensitiveLog = (
-    obj: InvalidMaxMergeHunksException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidMaxMergeHunksException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidMaxMergeHunksException =>
-    __isa(o, "InvalidMaxMergeHunksException");
+  export const isa = (o: any): o is InvalidMaxMergeHunksException => __isa(o, "InvalidMaxMergeHunksException");
 }
 
 /**
  * <p>The specified number of maximum results is not valid.</p>
  */
-export interface InvalidMaxResultsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidMaxResultsException extends __SmithyException, $MetadataBearer {
   name: "InvalidMaxResultsException";
   $fault: "client";
   /**
@@ -5440,18 +4905,15 @@ export interface InvalidMaxResultsException
 
 export namespace InvalidMaxResultsException {
   export const filterSensitiveLog = (obj: InvalidMaxResultsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidMaxResultsException =>
-    __isa(o, "InvalidMaxResultsException");
+  export const isa = (o: any): o is InvalidMaxResultsException => __isa(o, "InvalidMaxResultsException");
 }
 
 /**
  * <p>The specified merge option is not valid for this operation. Not all merge strategies are supported for all operations.</p>
  */
-export interface InvalidMergeOptionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidMergeOptionException extends __SmithyException, $MetadataBearer {
   name: "InvalidMergeOptionException";
   $fault: "client";
   /**
@@ -5461,21 +4923,16 @@ export interface InvalidMergeOptionException
 }
 
 export namespace InvalidMergeOptionException {
-  export const filterSensitiveLog = (
-    obj: InvalidMergeOptionException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidMergeOptionException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidMergeOptionException =>
-    __isa(o, "InvalidMergeOptionException");
+  export const isa = (o: any): o is InvalidMergeOptionException => __isa(o, "InvalidMergeOptionException");
 }
 
 /**
  * <p>The specified sort order is not valid.</p>
  */
-export interface InvalidOrderException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidOrderException extends __SmithyException, $MetadataBearer {
   name: "InvalidOrderException";
   $fault: "client";
   /**
@@ -5486,18 +4943,15 @@ export interface InvalidOrderException
 
 export namespace InvalidOrderException {
   export const filterSensitiveLog = (obj: InvalidOrderException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidOrderException =>
-    __isa(o, "InvalidOrderException");
+  export const isa = (o: any): o is InvalidOrderException => __isa(o, "InvalidOrderException");
 }
 
 /**
  * <p>The override status is not valid. Valid statuses are OVERRIDE and REVOKE.</p>
  */
-export interface InvalidOverrideStatusException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidOverrideStatusException extends __SmithyException, $MetadataBearer {
   name: "InvalidOverrideStatusException";
   $fault: "client";
   /**
@@ -5507,22 +4961,17 @@ export interface InvalidOverrideStatusException
 }
 
 export namespace InvalidOverrideStatusException {
-  export const filterSensitiveLog = (
-    obj: InvalidOverrideStatusException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidOverrideStatusException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidOverrideStatusException =>
-    __isa(o, "InvalidOverrideStatusException");
+  export const isa = (o: any): o is InvalidOverrideStatusException => __isa(o, "InvalidOverrideStatusException");
 }
 
 /**
  * <p>The parent commit ID is not valid. The commit ID cannot be empty, and must match the head commit ID for the branch of the repository where you
  *         want to add or update a file.</p>
  */
-export interface InvalidParentCommitIdException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParentCommitIdException extends __SmithyException, $MetadataBearer {
   name: "InvalidParentCommitIdException";
   $fault: "client";
   /**
@@ -5532,21 +4981,16 @@ export interface InvalidParentCommitIdException
 }
 
 export namespace InvalidParentCommitIdException {
-  export const filterSensitiveLog = (
-    obj: InvalidParentCommitIdException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidParentCommitIdException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidParentCommitIdException =>
-    __isa(o, "InvalidParentCommitIdException");
+  export const isa = (o: any): o is InvalidParentCommitIdException => __isa(o, "InvalidParentCommitIdException");
 }
 
 /**
  * <p>The specified path is not valid.</p>
  */
-export interface InvalidPathException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPathException extends __SmithyException, $MetadataBearer {
   name: "InvalidPathException";
   $fault: "client";
   /**
@@ -5557,18 +5001,15 @@ export interface InvalidPathException
 
 export namespace InvalidPathException {
   export const filterSensitiveLog = (obj: InvalidPathException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidPathException =>
-    __isa(o, "InvalidPathException");
+  export const isa = (o: any): o is InvalidPathException => __isa(o, "InvalidPathException");
 }
 
 /**
  * <p>The pull request event type is not valid. </p>
  */
-export interface InvalidPullRequestEventTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPullRequestEventTypeException extends __SmithyException, $MetadataBearer {
   name: "InvalidPullRequestEventTypeException";
   $fault: "client";
   /**
@@ -5578,10 +5019,8 @@ export interface InvalidPullRequestEventTypeException
 }
 
 export namespace InvalidPullRequestEventTypeException {
-  export const filterSensitiveLog = (
-    obj: InvalidPullRequestEventTypeException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidPullRequestEventTypeException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidPullRequestEventTypeException =>
     __isa(o, "InvalidPullRequestEventTypeException");
@@ -5590,9 +5029,7 @@ export namespace InvalidPullRequestEventTypeException {
 /**
  * <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
  */
-export interface InvalidPullRequestIdException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPullRequestIdException extends __SmithyException, $MetadataBearer {
   name: "InvalidPullRequestIdException";
   $fault: "client";
   /**
@@ -5602,21 +5039,16 @@ export interface InvalidPullRequestIdException
 }
 
 export namespace InvalidPullRequestIdException {
-  export const filterSensitiveLog = (
-    obj: InvalidPullRequestIdException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidPullRequestIdException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidPullRequestIdException =>
-    __isa(o, "InvalidPullRequestIdException");
+  export const isa = (o: any): o is InvalidPullRequestIdException => __isa(o, "InvalidPullRequestIdException");
 }
 
 /**
  * <p>The pull request status is not valid. The only valid values are <code>OPEN</code> and <code>CLOSED</code>.</p>
  */
-export interface InvalidPullRequestStatusException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPullRequestStatusException extends __SmithyException, $MetadataBearer {
   name: "InvalidPullRequestStatusException";
   $fault: "client";
   /**
@@ -5626,21 +5058,16 @@ export interface InvalidPullRequestStatusException
 }
 
 export namespace InvalidPullRequestStatusException {
-  export const filterSensitiveLog = (
-    obj: InvalidPullRequestStatusException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidPullRequestStatusException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidPullRequestStatusException =>
-    __isa(o, "InvalidPullRequestStatusException");
+  export const isa = (o: any): o is InvalidPullRequestStatusException => __isa(o, "InvalidPullRequestStatusException");
 }
 
 /**
  * <p>The pull request status update is not valid. The only valid update is from <code>OPEN</code> to <code>CLOSED</code>.</p>
  */
-export interface InvalidPullRequestStatusUpdateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPullRequestStatusUpdateException extends __SmithyException, $MetadataBearer {
   name: "InvalidPullRequestStatusUpdateException";
   $fault: "client";
   /**
@@ -5650,10 +5077,8 @@ export interface InvalidPullRequestStatusUpdateException
 }
 
 export namespace InvalidPullRequestStatusUpdateException {
-  export const filterSensitiveLog = (
-    obj: InvalidPullRequestStatusUpdateException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidPullRequestStatusUpdateException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidPullRequestStatusUpdateException =>
     __isa(o, "InvalidPullRequestStatusUpdateException");
@@ -5664,9 +5089,7 @@ export namespace InvalidPullRequestStatusUpdateException {
  *             Git references format (for example, refs/heads/master). For more information, see <a href="https://git-scm.com/book/en/v2/Git-Internals-Git-References">Git Internals -
  *                 Git References</a> or consult your Git documentation.</p>
  */
-export interface InvalidReferenceNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidReferenceNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidReferenceNameException";
   $fault: "client";
   /**
@@ -5676,21 +5099,16 @@ export interface InvalidReferenceNameException
 }
 
 export namespace InvalidReferenceNameException {
-  export const filterSensitiveLog = (
-    obj: InvalidReferenceNameException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidReferenceNameException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidReferenceNameException =>
-    __isa(o, "InvalidReferenceNameException");
+  export const isa = (o: any): o is InvalidReferenceNameException => __isa(o, "InvalidReferenceNameException");
 }
 
 /**
  * <p>Either the enum is not in a valid format, or the specified file version enum is not valid in respect to the current file version.</p>
  */
-export interface InvalidRelativeFileVersionEnumException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRelativeFileVersionEnumException extends __SmithyException, $MetadataBearer {
   name: "InvalidRelativeFileVersionEnumException";
   $fault: "client";
   /**
@@ -5700,10 +5118,8 @@ export interface InvalidRelativeFileVersionEnumException
 }
 
 export namespace InvalidRelativeFileVersionEnumException {
-  export const filterSensitiveLog = (
-    obj: InvalidRelativeFileVersionEnumException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidRelativeFileVersionEnumException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidRelativeFileVersionEnumException =>
     __isa(o, "InvalidRelativeFileVersionEnumException");
@@ -5712,9 +5128,7 @@ export namespace InvalidRelativeFileVersionEnumException {
 /**
  * <p>Automerge was specified for resolving the conflict, but the replacement type is not valid or content is missing. </p>
  */
-export interface InvalidReplacementContentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidReplacementContentException extends __SmithyException, $MetadataBearer {
   name: "InvalidReplacementContentException";
   $fault: "client";
   /**
@@ -5724,10 +5138,8 @@ export interface InvalidReplacementContentException
 }
 
 export namespace InvalidReplacementContentException {
-  export const filterSensitiveLog = (
-    obj: InvalidReplacementContentException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidReplacementContentException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidReplacementContentException =>
     __isa(o, "InvalidReplacementContentException");
@@ -5736,9 +5148,7 @@ export namespace InvalidReplacementContentException {
 /**
  * <p>Automerge was specified for resolving the conflict, but the specified replacement type is not valid.</p>
  */
-export interface InvalidReplacementTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidReplacementTypeException extends __SmithyException, $MetadataBearer {
   name: "InvalidReplacementTypeException";
   $fault: "client";
   /**
@@ -5748,21 +5158,16 @@ export interface InvalidReplacementTypeException
 }
 
 export namespace InvalidReplacementTypeException {
-  export const filterSensitiveLog = (
-    obj: InvalidReplacementTypeException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidReplacementTypeException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidReplacementTypeException =>
-    __isa(o, "InvalidReplacementTypeException");
+  export const isa = (o: any): o is InvalidReplacementTypeException => __isa(o, "InvalidReplacementTypeException");
 }
 
 /**
  * <p>The specified repository description is not valid.</p>
  */
-export interface InvalidRepositoryDescriptionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRepositoryDescriptionException extends __SmithyException, $MetadataBearer {
   name: "InvalidRepositoryDescriptionException";
   $fault: "client";
   /**
@@ -5772,10 +5177,8 @@ export interface InvalidRepositoryDescriptionException
 }
 
 export namespace InvalidRepositoryDescriptionException {
-  export const filterSensitiveLog = (
-    obj: InvalidRepositoryDescriptionException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidRepositoryDescriptionException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidRepositoryDescriptionException =>
     __isa(o, "InvalidRepositoryDescriptionException");
@@ -5790,9 +5193,7 @@ export namespace InvalidRepositoryDescriptionException {
  *                 specified repository does not exist.</p>
  *          </note>
  */
-export interface InvalidRepositoryNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRepositoryNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidRepositoryNameException";
   $fault: "client";
   /**
@@ -5802,21 +5203,16 @@ export interface InvalidRepositoryNameException
 }
 
 export namespace InvalidRepositoryNameException {
-  export const filterSensitiveLog = (
-    obj: InvalidRepositoryNameException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidRepositoryNameException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRepositoryNameException =>
-    __isa(o, "InvalidRepositoryNameException");
+  export const isa = (o: any): o is InvalidRepositoryNameException => __isa(o, "InvalidRepositoryNameException");
 }
 
 /**
  * <p>One or more branch names specified for the trigger is not valid.</p>
  */
-export interface InvalidRepositoryTriggerBranchNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRepositoryTriggerBranchNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidRepositoryTriggerBranchNameException";
   $fault: "client";
   /**
@@ -5826,23 +5222,17 @@ export interface InvalidRepositoryTriggerBranchNameException
 }
 
 export namespace InvalidRepositoryTriggerBranchNameException {
-  export const filterSensitiveLog = (
-    obj: InvalidRepositoryTriggerBranchNameException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidRepositoryTriggerBranchNameException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is InvalidRepositoryTriggerBranchNameException =>
+  export const isa = (o: any): o is InvalidRepositoryTriggerBranchNameException =>
     __isa(o, "InvalidRepositoryTriggerBranchNameException");
 }
 
 /**
  * <p>The custom data provided for the trigger is not valid.</p>
  */
-export interface InvalidRepositoryTriggerCustomDataException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRepositoryTriggerCustomDataException extends __SmithyException, $MetadataBearer {
   name: "InvalidRepositoryTriggerCustomDataException";
   $fault: "client";
   /**
@@ -5852,23 +5242,17 @@ export interface InvalidRepositoryTriggerCustomDataException
 }
 
 export namespace InvalidRepositoryTriggerCustomDataException {
-  export const filterSensitiveLog = (
-    obj: InvalidRepositoryTriggerCustomDataException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidRepositoryTriggerCustomDataException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is InvalidRepositoryTriggerCustomDataException =>
+  export const isa = (o: any): o is InvalidRepositoryTriggerCustomDataException =>
     __isa(o, "InvalidRepositoryTriggerCustomDataException");
 }
 
 /**
  * <p>The Amazon Resource Name (ARN) for the trigger is not valid for the specified destination. The most common reason for this error is that the ARN does not meet the requirements for the service type.</p>
  */
-export interface InvalidRepositoryTriggerDestinationArnException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRepositoryTriggerDestinationArnException extends __SmithyException, $MetadataBearer {
   name: "InvalidRepositoryTriggerDestinationArnException";
   $fault: "client";
   /**
@@ -5878,23 +5262,17 @@ export interface InvalidRepositoryTriggerDestinationArnException
 }
 
 export namespace InvalidRepositoryTriggerDestinationArnException {
-  export const filterSensitiveLog = (
-    obj: InvalidRepositoryTriggerDestinationArnException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidRepositoryTriggerDestinationArnException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is InvalidRepositoryTriggerDestinationArnException =>
+  export const isa = (o: any): o is InvalidRepositoryTriggerDestinationArnException =>
     __isa(o, "InvalidRepositoryTriggerDestinationArnException");
 }
 
 /**
  * <p>One or more events specified for the trigger is not valid. Check to make sure that all events specified match the requirements for allowed events.</p>
  */
-export interface InvalidRepositoryTriggerEventsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRepositoryTriggerEventsException extends __SmithyException, $MetadataBearer {
   name: "InvalidRepositoryTriggerEventsException";
   $fault: "client";
   /**
@@ -5904,10 +5282,8 @@ export interface InvalidRepositoryTriggerEventsException
 }
 
 export namespace InvalidRepositoryTriggerEventsException {
-  export const filterSensitiveLog = (
-    obj: InvalidRepositoryTriggerEventsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidRepositoryTriggerEventsException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidRepositoryTriggerEventsException =>
     __isa(o, "InvalidRepositoryTriggerEventsException");
@@ -5916,9 +5292,7 @@ export namespace InvalidRepositoryTriggerEventsException {
 /**
  * <p>The name of the trigger is not valid.</p>
  */
-export interface InvalidRepositoryTriggerNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRepositoryTriggerNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidRepositoryTriggerNameException";
   $fault: "client";
   /**
@@ -5928,10 +5302,8 @@ export interface InvalidRepositoryTriggerNameException
 }
 
 export namespace InvalidRepositoryTriggerNameException {
-  export const filterSensitiveLog = (
-    obj: InvalidRepositoryTriggerNameException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidRepositoryTriggerNameException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidRepositoryTriggerNameException =>
     __isa(o, "InvalidRepositoryTriggerNameException");
@@ -5942,9 +5314,7 @@ export namespace InvalidRepositoryTriggerNameException {
  *             repository. Triggers must be created in the same Region as the target for the
  *             trigger.</p>
  */
-export interface InvalidRepositoryTriggerRegionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRepositoryTriggerRegionException extends __SmithyException, $MetadataBearer {
   name: "InvalidRepositoryTriggerRegionException";
   $fault: "client";
   /**
@@ -5954,10 +5324,8 @@ export interface InvalidRepositoryTriggerRegionException
 }
 
 export namespace InvalidRepositoryTriggerRegionException {
-  export const filterSensitiveLog = (
-    obj: InvalidRepositoryTriggerRegionException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidRepositoryTriggerRegionException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidRepositoryTriggerRegionException =>
     __isa(o, "InvalidRepositoryTriggerRegionException");
@@ -5968,9 +5336,7 @@ export namespace InvalidRepositoryTriggerRegionException {
  *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
  *             in the AWS CodeCommit User Guide.</p>
  */
-export interface InvalidResourceArnException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidResourceArnException extends __SmithyException, $MetadataBearer {
   name: "InvalidResourceArnException";
   $fault: "client";
   /**
@@ -5980,21 +5346,16 @@ export interface InvalidResourceArnException
 }
 
 export namespace InvalidResourceArnException {
-  export const filterSensitiveLog = (
-    obj: InvalidResourceArnException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidResourceArnException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidResourceArnException =>
-    __isa(o, "InvalidResourceArnException");
+  export const isa = (o: any): o is InvalidResourceArnException => __isa(o, "InvalidResourceArnException");
 }
 
 /**
  * <p>The revision ID is not valid. Use GetPullRequest to determine the value.</p>
  */
-export interface InvalidRevisionIdException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRevisionIdException extends __SmithyException, $MetadataBearer {
   name: "InvalidRevisionIdException";
   $fault: "client";
   /**
@@ -6005,18 +5366,15 @@ export interface InvalidRevisionIdException
 
 export namespace InvalidRevisionIdException {
   export const filterSensitiveLog = (obj: InvalidRevisionIdException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRevisionIdException =>
-    __isa(o, "InvalidRevisionIdException");
+  export const isa = (o: any): o is InvalidRevisionIdException => __isa(o, "InvalidRevisionIdException");
 }
 
 /**
  * <p>The SHA-256 hash signature for the rule content is not valid.</p>
  */
-export interface InvalidRuleContentSha256Exception
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRuleContentSha256Exception extends __SmithyException, $MetadataBearer {
   name: "InvalidRuleContentSha256Exception";
   $fault: "client";
   /**
@@ -6026,21 +5384,16 @@ export interface InvalidRuleContentSha256Exception
 }
 
 export namespace InvalidRuleContentSha256Exception {
-  export const filterSensitiveLog = (
-    obj: InvalidRuleContentSha256Exception
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidRuleContentSha256Exception): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRuleContentSha256Exception =>
-    __isa(o, "InvalidRuleContentSha256Exception");
+  export const isa = (o: any): o is InvalidRuleContentSha256Exception => __isa(o, "InvalidRuleContentSha256Exception");
 }
 
 /**
  * <p>The specified sort by value is not valid.</p>
  */
-export interface InvalidSortByException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSortByException extends __SmithyException, $MetadataBearer {
   name: "InvalidSortByException";
   $fault: "client";
   /**
@@ -6051,18 +5404,15 @@ export interface InvalidSortByException
 
 export namespace InvalidSortByException {
   export const filterSensitiveLog = (obj: InvalidSortByException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidSortByException =>
-    __isa(o, "InvalidSortByException");
+  export const isa = (o: any): o is InvalidSortByException => __isa(o, "InvalidSortByException");
 }
 
 /**
  * <p>The source commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID.</p>
  */
-export interface InvalidSourceCommitSpecifierException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSourceCommitSpecifierException extends __SmithyException, $MetadataBearer {
   name: "InvalidSourceCommitSpecifierException";
   $fault: "client";
   /**
@@ -6072,10 +5422,8 @@ export interface InvalidSourceCommitSpecifierException
 }
 
 export namespace InvalidSourceCommitSpecifierException {
-  export const filterSensitiveLog = (
-    obj: InvalidSourceCommitSpecifierException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidSourceCommitSpecifierException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidSourceCommitSpecifierException =>
     __isa(o, "InvalidSourceCommitSpecifierException");
@@ -6084,9 +5432,7 @@ export namespace InvalidSourceCommitSpecifierException {
 /**
  * <p>The specified tag is not valid. Key names cannot be prefixed with aws:.</p>
  */
-export interface InvalidSystemTagUsageException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSystemTagUsageException extends __SmithyException, $MetadataBearer {
   name: "InvalidSystemTagUsageException";
   $fault: "client";
   /**
@@ -6096,21 +5442,16 @@ export interface InvalidSystemTagUsageException
 }
 
 export namespace InvalidSystemTagUsageException {
-  export const filterSensitiveLog = (
-    obj: InvalidSystemTagUsageException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidSystemTagUsageException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidSystemTagUsageException =>
-    __isa(o, "InvalidSystemTagUsageException");
+  export const isa = (o: any): o is InvalidSystemTagUsageException => __isa(o, "InvalidSystemTagUsageException");
 }
 
 /**
  * <p>The list of tags is not valid.</p>
  */
-export interface InvalidTagKeysListException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTagKeysListException extends __SmithyException, $MetadataBearer {
   name: "InvalidTagKeysListException";
   $fault: "client";
   /**
@@ -6120,21 +5461,16 @@ export interface InvalidTagKeysListException
 }
 
 export namespace InvalidTagKeysListException {
-  export const filterSensitiveLog = (
-    obj: InvalidTagKeysListException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidTagKeysListException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidTagKeysListException =>
-    __isa(o, "InvalidTagKeysListException");
+  export const isa = (o: any): o is InvalidTagKeysListException => __isa(o, "InvalidTagKeysListException");
 }
 
 /**
  * <p>The map of tags is not valid.</p>
  */
-export interface InvalidTagsMapException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTagsMapException extends __SmithyException, $MetadataBearer {
   name: "InvalidTagsMapException";
   $fault: "client";
   /**
@@ -6145,18 +5481,15 @@ export interface InvalidTagsMapException
 
 export namespace InvalidTagsMapException {
   export const filterSensitiveLog = (obj: InvalidTagsMapException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidTagsMapException =>
-    __isa(o, "InvalidTagsMapException");
+  export const isa = (o: any): o is InvalidTagsMapException => __isa(o, "InvalidTagsMapException");
 }
 
 /**
  * <p>The specified target branch is not valid.</p>
  */
-export interface InvalidTargetBranchException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTargetBranchException extends __SmithyException, $MetadataBearer {
   name: "InvalidTargetBranchException";
   $fault: "client";
   /**
@@ -6166,21 +5499,16 @@ export interface InvalidTargetBranchException
 }
 
 export namespace InvalidTargetBranchException {
-  export const filterSensitiveLog = (
-    obj: InvalidTargetBranchException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidTargetBranchException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidTargetBranchException =>
-    __isa(o, "InvalidTargetBranchException");
+  export const isa = (o: any): o is InvalidTargetBranchException => __isa(o, "InvalidTargetBranchException");
 }
 
 /**
  * <p>The target for the pull request is not valid. A target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
  */
-export interface InvalidTargetException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTargetException extends __SmithyException, $MetadataBearer {
   name: "InvalidTargetException";
   $fault: "client";
   /**
@@ -6191,19 +5519,16 @@ export interface InvalidTargetException
 
 export namespace InvalidTargetException {
   export const filterSensitiveLog = (obj: InvalidTargetException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidTargetException =>
-    __isa(o, "InvalidTargetException");
+  export const isa = (o: any): o is InvalidTargetException => __isa(o, "InvalidTargetException");
 }
 
 /**
  * <p>The targets for the pull request is not valid or not in a valid format. Targets are a list of target objects. Each target object must contain the full values for
  *             the repository name, source branch, and destination branch for a pull request.</p>
  */
-export interface InvalidTargetsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTargetsException extends __SmithyException, $MetadataBearer {
   name: "InvalidTargetsException";
   $fault: "client";
   /**
@@ -6214,18 +5539,15 @@ export interface InvalidTargetsException
 
 export namespace InvalidTargetsException {
   export const filterSensitiveLog = (obj: InvalidTargetsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidTargetsException =>
-    __isa(o, "InvalidTargetsException");
+  export const isa = (o: any): o is InvalidTargetsException => __isa(o, "InvalidTargetsException");
 }
 
 /**
  * <p>The title of the pull request is not valid. Pull request titles cannot exceed 100 characters in length.</p>
  */
-export interface InvalidTitleException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTitleException extends __SmithyException, $MetadataBearer {
   name: "InvalidTitleException";
   $fault: "client";
   /**
@@ -6236,10 +5558,9 @@ export interface InvalidTitleException
 
 export namespace InvalidTitleException {
   export const filterSensitiveLog = (obj: InvalidTitleException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidTitleException =>
-    __isa(o, "InvalidTitleException");
+  export const isa = (o: any): o is InvalidTitleException => __isa(o, "InvalidTitleException");
 }
 
 /**
@@ -6265,7 +5586,7 @@ export interface IsBinaryFile {
 
 export namespace IsBinaryFile {
   export const filterSensitiveLog = (obj: IsBinaryFile): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is IsBinaryFile => __isa(o, "IsBinaryFile");
 }
@@ -6285,13 +5606,10 @@ export interface ListApprovalRuleTemplatesInput {
 }
 
 export namespace ListApprovalRuleTemplatesInput {
-  export const filterSensitiveLog = (
-    obj: ListApprovalRuleTemplatesInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListApprovalRuleTemplatesInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListApprovalRuleTemplatesInput =>
-    __isa(o, "ListApprovalRuleTemplatesInput");
+  export const isa = (o: any): o is ListApprovalRuleTemplatesInput => __isa(o, "ListApprovalRuleTemplatesInput");
 }
 
 export interface ListApprovalRuleTemplatesOutput {
@@ -6308,13 +5626,10 @@ export interface ListApprovalRuleTemplatesOutput {
 }
 
 export namespace ListApprovalRuleTemplatesOutput {
-  export const filterSensitiveLog = (
-    obj: ListApprovalRuleTemplatesOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListApprovalRuleTemplatesOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListApprovalRuleTemplatesOutput =>
-    __isa(o, "ListApprovalRuleTemplatesOutput");
+  export const isa = (o: any): o is ListApprovalRuleTemplatesOutput => __isa(o, "ListApprovalRuleTemplatesOutput");
 }
 
 export interface ListAssociatedApprovalRuleTemplatesForRepositoryInput {
@@ -6337,14 +5652,10 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryInput {
 }
 
 export namespace ListAssociatedApprovalRuleTemplatesForRepositoryInput {
-  export const filterSensitiveLog = (
-    obj: ListAssociatedApprovalRuleTemplatesForRepositoryInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAssociatedApprovalRuleTemplatesForRepositoryInput): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ListAssociatedApprovalRuleTemplatesForRepositoryInput =>
+  export const isa = (o: any): o is ListAssociatedApprovalRuleTemplatesForRepositoryInput =>
     __isa(o, "ListAssociatedApprovalRuleTemplatesForRepositoryInput");
 }
 
@@ -6362,14 +5673,10 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryOutput {
 }
 
 export namespace ListAssociatedApprovalRuleTemplatesForRepositoryOutput {
-  export const filterSensitiveLog = (
-    obj: ListAssociatedApprovalRuleTemplatesForRepositoryOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAssociatedApprovalRuleTemplatesForRepositoryOutput): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ListAssociatedApprovalRuleTemplatesForRepositoryOutput =>
+  export const isa = (o: any): o is ListAssociatedApprovalRuleTemplatesForRepositoryOutput =>
     __isa(o, "ListAssociatedApprovalRuleTemplatesForRepositoryOutput");
 }
 
@@ -6391,10 +5698,9 @@ export interface ListBranchesInput {
 
 export namespace ListBranchesInput {
   export const filterSensitiveLog = (obj: ListBranchesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListBranchesInput =>
-    __isa(o, "ListBranchesInput");
+  export const isa = (o: any): o is ListBranchesInput => __isa(o, "ListBranchesInput");
 }
 
 /**
@@ -6415,10 +5721,9 @@ export interface ListBranchesOutput {
 
 export namespace ListBranchesOutput {
   export const filterSensitiveLog = (obj: ListBranchesOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListBranchesOutput =>
-    __isa(o, "ListBranchesOutput");
+  export const isa = (o: any): o is ListBranchesOutput => __isa(o, "ListBranchesOutput");
 }
 
 export interface ListPullRequestsInput {
@@ -6453,10 +5758,9 @@ export interface ListPullRequestsInput {
 
 export namespace ListPullRequestsInput {
   export const filterSensitiveLog = (obj: ListPullRequestsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPullRequestsInput =>
-    __isa(o, "ListPullRequestsInput");
+  export const isa = (o: any): o is ListPullRequestsInput => __isa(o, "ListPullRequestsInput");
 }
 
 export interface ListPullRequestsOutput {
@@ -6474,10 +5778,9 @@ export interface ListPullRequestsOutput {
 
 export namespace ListPullRequestsOutput {
   export const filterSensitiveLog = (obj: ListPullRequestsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPullRequestsOutput =>
-    __isa(o, "ListPullRequestsOutput");
+  export const isa = (o: any): o is ListPullRequestsOutput => __isa(o, "ListPullRequestsOutput");
 }
 
 export interface ListRepositoriesForApprovalRuleTemplateInput {
@@ -6500,14 +5803,10 @@ export interface ListRepositoriesForApprovalRuleTemplateInput {
 }
 
 export namespace ListRepositoriesForApprovalRuleTemplateInput {
-  export const filterSensitiveLog = (
-    obj: ListRepositoriesForApprovalRuleTemplateInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListRepositoriesForApprovalRuleTemplateInput): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ListRepositoriesForApprovalRuleTemplateInput =>
+  export const isa = (o: any): o is ListRepositoriesForApprovalRuleTemplateInput =>
     __isa(o, "ListRepositoriesForApprovalRuleTemplateInput");
 }
 
@@ -6525,14 +5824,10 @@ export interface ListRepositoriesForApprovalRuleTemplateOutput {
 }
 
 export namespace ListRepositoriesForApprovalRuleTemplateOutput {
-  export const filterSensitiveLog = (
-    obj: ListRepositoriesForApprovalRuleTemplateOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListRepositoriesForApprovalRuleTemplateOutput): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ListRepositoriesForApprovalRuleTemplateOutput =>
+  export const isa = (o: any): o is ListRepositoriesForApprovalRuleTemplateOutput =>
     __isa(o, "ListRepositoriesForApprovalRuleTemplateOutput");
 }
 
@@ -6561,10 +5856,9 @@ export interface ListRepositoriesInput {
 
 export namespace ListRepositoriesInput {
   export const filterSensitiveLog = (obj: ListRepositoriesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListRepositoriesInput =>
-    __isa(o, "ListRepositoriesInput");
+  export const isa = (o: any): o is ListRepositoriesInput => __isa(o, "ListRepositoriesInput");
 }
 
 /**
@@ -6587,10 +5881,9 @@ export interface ListRepositoriesOutput {
 
 export namespace ListRepositoriesOutput {
   export const filterSensitiveLog = (obj: ListRepositoriesOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListRepositoriesOutput =>
-    __isa(o, "ListRepositoriesOutput");
+  export const isa = (o: any): o is ListRepositoriesOutput => __isa(o, "ListRepositoriesOutput");
 }
 
 export interface ListTagsForResourceInput {
@@ -6610,10 +5903,9 @@ export interface ListTagsForResourceInput {
 
 export namespace ListTagsForResourceInput {
   export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceInput =>
-    __isa(o, "ListTagsForResourceInput");
+  export const isa = (o: any): o is ListTagsForResourceInput => __isa(o, "ListTagsForResourceInput");
 }
 
 export interface ListTagsForResourceOutput {
@@ -6631,10 +5923,9 @@ export interface ListTagsForResourceOutput {
 
 export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceOutput =>
-    __isa(o, "ListTagsForResourceOutput");
+  export const isa = (o: any): o is ListTagsForResourceOutput => __isa(o, "ListTagsForResourceOutput");
 }
 
 /**
@@ -6661,7 +5952,7 @@ export interface Location {
 
 export namespace Location {
   export const filterSensitiveLog = (obj: Location): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Location => __isa(o, "Location");
 }
@@ -6669,9 +5960,7 @@ export namespace Location {
 /**
  * <p>The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.</p>
  */
-export interface ManualMergeRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ManualMergeRequiredException extends __SmithyException, $MetadataBearer {
   name: "ManualMergeRequiredException";
   $fault: "client";
   /**
@@ -6681,21 +5970,16 @@ export interface ManualMergeRequiredException
 }
 
 export namespace ManualMergeRequiredException {
-  export const filterSensitiveLog = (
-    obj: ManualMergeRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ManualMergeRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ManualMergeRequiredException =>
-    __isa(o, "ManualMergeRequiredException");
+  export const isa = (o: any): o is ManualMergeRequiredException => __isa(o, "ManualMergeRequiredException");
 }
 
 /**
  * <p>The number of branches for the trigger was exceeded.</p>
  */
-export interface MaximumBranchesExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaximumBranchesExceededException extends __SmithyException, $MetadataBearer {
   name: "MaximumBranchesExceededException";
   $fault: "client";
   /**
@@ -6705,21 +5989,16 @@ export interface MaximumBranchesExceededException
 }
 
 export namespace MaximumBranchesExceededException {
-  export const filterSensitiveLog = (
-    obj: MaximumBranchesExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MaximumBranchesExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MaximumBranchesExceededException =>
-    __isa(o, "MaximumBranchesExceededException");
+  export const isa = (o: any): o is MaximumBranchesExceededException => __isa(o, "MaximumBranchesExceededException");
 }
 
 /**
  * <p>The number of allowed conflict resolution entries was exceeded.</p>
  */
-export interface MaximumConflictResolutionEntriesExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaximumConflictResolutionEntriesExceededException extends __SmithyException, $MetadataBearer {
   name: "MaximumConflictResolutionEntriesExceededException";
   $fault: "client";
   /**
@@ -6729,23 +6008,17 @@ export interface MaximumConflictResolutionEntriesExceededException
 }
 
 export namespace MaximumConflictResolutionEntriesExceededException {
-  export const filterSensitiveLog = (
-    obj: MaximumConflictResolutionEntriesExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MaximumConflictResolutionEntriesExceededException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is MaximumConflictResolutionEntriesExceededException =>
+  export const isa = (o: any): o is MaximumConflictResolutionEntriesExceededException =>
     __isa(o, "MaximumConflictResolutionEntriesExceededException");
 }
 
 /**
  * <p>The number of files to load exceeds the allowed limit.</p>
  */
-export interface MaximumFileContentToLoadExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaximumFileContentToLoadExceededException extends __SmithyException, $MetadataBearer {
   name: "MaximumFileContentToLoadExceededException";
   $fault: "client";
   /**
@@ -6755,10 +6028,8 @@ export interface MaximumFileContentToLoadExceededException
 }
 
 export namespace MaximumFileContentToLoadExceededException {
-  export const filterSensitiveLog = (
-    obj: MaximumFileContentToLoadExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MaximumFileContentToLoadExceededException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is MaximumFileContentToLoadExceededException =>
     __isa(o, "MaximumFileContentToLoadExceededException");
@@ -6768,9 +6039,7 @@ export namespace MaximumFileContentToLoadExceededException {
  * <p>The number of specified files to change as part of this commit exceeds the maximum number of files
  *         that can be changed in a single commit. Consider using a Git client for these changes.</p>
  */
-export interface MaximumFileEntriesExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaximumFileEntriesExceededException extends __SmithyException, $MetadataBearer {
   name: "MaximumFileEntriesExceededException";
   $fault: "client";
   /**
@@ -6780,10 +6049,8 @@ export interface MaximumFileEntriesExceededException
 }
 
 export namespace MaximumFileEntriesExceededException {
-  export const filterSensitiveLog = (
-    obj: MaximumFileEntriesExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MaximumFileEntriesExceededException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is MaximumFileEntriesExceededException =>
     __isa(o, "MaximumFileEntriesExceededException");
@@ -6792,9 +6059,7 @@ export namespace MaximumFileEntriesExceededException {
 /**
  * <p>The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.</p>
  */
-export interface MaximumItemsToCompareExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaximumItemsToCompareExceededException extends __SmithyException, $MetadataBearer {
   name: "MaximumItemsToCompareExceededException";
   $fault: "client";
   /**
@@ -6804,10 +6069,8 @@ export interface MaximumItemsToCompareExceededException
 }
 
 export namespace MaximumItemsToCompareExceededException {
-  export const filterSensitiveLog = (
-    obj: MaximumItemsToCompareExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MaximumItemsToCompareExceededException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is MaximumItemsToCompareExceededException =>
     __isa(o, "MaximumItemsToCompareExceededException");
@@ -6816,9 +6079,7 @@ export namespace MaximumItemsToCompareExceededException {
 /**
  * <p>The number of approvals required for the approval rule exceeds the maximum number allowed.</p>
  */
-export interface MaximumNumberOfApprovalsExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaximumNumberOfApprovalsExceededException extends __SmithyException, $MetadataBearer {
   name: "MaximumNumberOfApprovalsExceededException";
   $fault: "client";
   /**
@@ -6828,10 +6089,8 @@ export interface MaximumNumberOfApprovalsExceededException
 }
 
 export namespace MaximumNumberOfApprovalsExceededException {
-  export const filterSensitiveLog = (
-    obj: MaximumNumberOfApprovalsExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MaximumNumberOfApprovalsExceededException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is MaximumNumberOfApprovalsExceededException =>
     __isa(o, "MaximumNumberOfApprovalsExceededException");
@@ -6841,9 +6100,7 @@ export namespace MaximumNumberOfApprovalsExceededException {
  * <p>You cannot create the pull request because the repository has too many open pull requests.
  *             The maximum number of open pull requests for a repository is 1,000. Close one or more open pull requests, and then try again.</p>
  */
-export interface MaximumOpenPullRequestsExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaximumOpenPullRequestsExceededException extends __SmithyException, $MetadataBearer {
   name: "MaximumOpenPullRequestsExceededException";
   $fault: "client";
   /**
@@ -6853,10 +6110,8 @@ export interface MaximumOpenPullRequestsExceededException
 }
 
 export namespace MaximumOpenPullRequestsExceededException {
-  export const filterSensitiveLog = (
-    obj: MaximumOpenPullRequestsExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MaximumOpenPullRequestsExceededException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is MaximumOpenPullRequestsExceededException =>
     __isa(o, "MaximumOpenPullRequestsExceededException");
@@ -6865,9 +6120,7 @@ export namespace MaximumOpenPullRequestsExceededException {
 /**
  * <p>The maximum number of allowed repository names was exceeded. Currently, this number is 100.</p>
  */
-export interface MaximumRepositoryNamesExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaximumRepositoryNamesExceededException extends __SmithyException, $MetadataBearer {
   name: "MaximumRepositoryNamesExceededException";
   $fault: "client";
   /**
@@ -6877,10 +6130,8 @@ export interface MaximumRepositoryNamesExceededException
 }
 
 export namespace MaximumRepositoryNamesExceededException {
-  export const filterSensitiveLog = (
-    obj: MaximumRepositoryNamesExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MaximumRepositoryNamesExceededException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is MaximumRepositoryNamesExceededException =>
     __isa(o, "MaximumRepositoryNamesExceededException");
@@ -6889,9 +6140,7 @@ export namespace MaximumRepositoryNamesExceededException {
 /**
  * <p>The number of triggers allowed for the repository was exceeded.</p>
  */
-export interface MaximumRepositoryTriggersExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaximumRepositoryTriggersExceededException extends __SmithyException, $MetadataBearer {
   name: "MaximumRepositoryTriggersExceededException";
   $fault: "client";
   /**
@@ -6901,14 +6150,10 @@ export interface MaximumRepositoryTriggersExceededException
 }
 
 export namespace MaximumRepositoryTriggersExceededException {
-  export const filterSensitiveLog = (
-    obj: MaximumRepositoryTriggersExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MaximumRepositoryTriggersExceededException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is MaximumRepositoryTriggersExceededException =>
+  export const isa = (o: any): o is MaximumRepositoryTriggersExceededException =>
     __isa(o, "MaximumRepositoryTriggersExceededException");
 }
 
@@ -6916,9 +6161,7 @@ export namespace MaximumRepositoryTriggersExceededException {
  * <p>The maximum number of approval rule templates for a repository has been exceeded. You cannot associate more than 25
  *         approval rule templates with a repository.</p>
  */
-export interface MaximumRuleTemplatesAssociatedWithRepositoryException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaximumRuleTemplatesAssociatedWithRepositoryException extends __SmithyException, $MetadataBearer {
   name: "MaximumRuleTemplatesAssociatedWithRepositoryException";
   $fault: "client";
   /**
@@ -6928,14 +6171,10 @@ export interface MaximumRuleTemplatesAssociatedWithRepositoryException
 }
 
 export namespace MaximumRuleTemplatesAssociatedWithRepositoryException {
-  export const filterSensitiveLog = (
-    obj: MaximumRuleTemplatesAssociatedWithRepositoryException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MaximumRuleTemplatesAssociatedWithRepositoryException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is MaximumRuleTemplatesAssociatedWithRepositoryException =>
+  export const isa = (o: any): o is MaximumRuleTemplatesAssociatedWithRepositoryException =>
     __isa(o, "MaximumRuleTemplatesAssociatedWithRepositoryException");
 }
 
@@ -6965,13 +6204,10 @@ export interface MergeBranchesByFastForwardInput {
 }
 
 export namespace MergeBranchesByFastForwardInput {
-  export const filterSensitiveLog = (
-    obj: MergeBranchesByFastForwardInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MergeBranchesByFastForwardInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MergeBranchesByFastForwardInput =>
-    __isa(o, "MergeBranchesByFastForwardInput");
+  export const isa = (o: any): o is MergeBranchesByFastForwardInput => __isa(o, "MergeBranchesByFastForwardInput");
 }
 
 export interface MergeBranchesByFastForwardOutput {
@@ -6988,13 +6224,10 @@ export interface MergeBranchesByFastForwardOutput {
 }
 
 export namespace MergeBranchesByFastForwardOutput {
-  export const filterSensitiveLog = (
-    obj: MergeBranchesByFastForwardOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MergeBranchesByFastForwardOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MergeBranchesByFastForwardOutput =>
-    __isa(o, "MergeBranchesByFastForwardOutput");
+  export const isa = (o: any): o is MergeBranchesByFastForwardOutput => __isa(o, "MergeBranchesByFastForwardOutput");
 }
 
 export interface MergeBranchesBySquashInput {
@@ -7069,10 +6302,9 @@ export interface MergeBranchesBySquashInput {
 
 export namespace MergeBranchesBySquashInput {
   export const filterSensitiveLog = (obj: MergeBranchesBySquashInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MergeBranchesBySquashInput =>
-    __isa(o, "MergeBranchesBySquashInput");
+  export const isa = (o: any): o is MergeBranchesBySquashInput => __isa(o, "MergeBranchesBySquashInput");
 }
 
 export interface MergeBranchesBySquashOutput {
@@ -7089,13 +6321,10 @@ export interface MergeBranchesBySquashOutput {
 }
 
 export namespace MergeBranchesBySquashOutput {
-  export const filterSensitiveLog = (
-    obj: MergeBranchesBySquashOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MergeBranchesBySquashOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MergeBranchesBySquashOutput =>
-    __isa(o, "MergeBranchesBySquashOutput");
+  export const isa = (o: any): o is MergeBranchesBySquashOutput => __isa(o, "MergeBranchesBySquashOutput");
 }
 
 export interface MergeBranchesByThreeWayInput {
@@ -7169,13 +6398,10 @@ export interface MergeBranchesByThreeWayInput {
 }
 
 export namespace MergeBranchesByThreeWayInput {
-  export const filterSensitiveLog = (
-    obj: MergeBranchesByThreeWayInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MergeBranchesByThreeWayInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MergeBranchesByThreeWayInput =>
-    __isa(o, "MergeBranchesByThreeWayInput");
+  export const isa = (o: any): o is MergeBranchesByThreeWayInput => __isa(o, "MergeBranchesByThreeWayInput");
 }
 
 export interface MergeBranchesByThreeWayOutput {
@@ -7192,13 +6418,10 @@ export interface MergeBranchesByThreeWayOutput {
 }
 
 export namespace MergeBranchesByThreeWayOutput {
-  export const filterSensitiveLog = (
-    obj: MergeBranchesByThreeWayOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MergeBranchesByThreeWayOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MergeBranchesByThreeWayOutput =>
-    __isa(o, "MergeBranchesByThreeWayOutput");
+  export const isa = (o: any): o is MergeBranchesByThreeWayOutput => __isa(o, "MergeBranchesByThreeWayOutput");
 }
 
 /**
@@ -7233,7 +6456,7 @@ export interface MergeHunk {
 
 export namespace MergeHunk {
   export const filterSensitiveLog = (obj: MergeHunk): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is MergeHunk => __isa(o, "MergeHunk");
 }
@@ -7262,10 +6485,9 @@ export interface MergeHunkDetail {
 
 export namespace MergeHunkDetail {
   export const filterSensitiveLog = (obj: MergeHunkDetail): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MergeHunkDetail =>
-    __isa(o, "MergeHunkDetail");
+  export const isa = (o: any): o is MergeHunkDetail => __isa(o, "MergeHunkDetail");
 }
 
 /**
@@ -7296,7 +6518,7 @@ export interface MergeMetadata {
 
 export namespace MergeMetadata {
   export const filterSensitiveLog = (obj: MergeMetadata): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is MergeMetadata => __isa(o, "MergeMetadata");
 }
@@ -7320,18 +6542,15 @@ export interface MergeOperations {
 
 export namespace MergeOperations {
   export const filterSensitiveLog = (obj: MergeOperations): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MergeOperations =>
-    __isa(o, "MergeOperations");
+  export const isa = (o: any): o is MergeOperations => __isa(o, "MergeOperations");
 }
 
 /**
  * <p>A merge option or stategy is required, and none was provided.</p>
  */
-export interface MergeOptionRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MergeOptionRequiredException extends __SmithyException, $MetadataBearer {
   name: "MergeOptionRequiredException";
   $fault: "client";
   /**
@@ -7341,19 +6560,16 @@ export interface MergeOptionRequiredException
 }
 
 export namespace MergeOptionRequiredException {
-  export const filterSensitiveLog = (
-    obj: MergeOptionRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MergeOptionRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MergeOptionRequiredException =>
-    __isa(o, "MergeOptionRequiredException");
+  export const isa = (o: any): o is MergeOptionRequiredException => __isa(o, "MergeOptionRequiredException");
 }
 
 export enum MergeOptionTypeEnum {
   FAST_FORWARD_MERGE = "FAST_FORWARD_MERGE",
   SQUASH_MERGE = "SQUASH_MERGE",
-  THREE_WAY_MERGE = "THREE_WAY_MERGE"
+  THREE_WAY_MERGE = "THREE_WAY_MERGE",
 }
 
 export interface MergePullRequestByFastForwardInput {
@@ -7376,10 +6592,8 @@ export interface MergePullRequestByFastForwardInput {
 }
 
 export namespace MergePullRequestByFastForwardInput {
-  export const filterSensitiveLog = (
-    obj: MergePullRequestByFastForwardInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MergePullRequestByFastForwardInput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is MergePullRequestByFastForwardInput =>
     __isa(o, "MergePullRequestByFastForwardInput");
@@ -7394,10 +6608,8 @@ export interface MergePullRequestByFastForwardOutput {
 }
 
 export namespace MergePullRequestByFastForwardOutput {
-  export const filterSensitiveLog = (
-    obj: MergePullRequestByFastForwardOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MergePullRequestByFastForwardOutput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is MergePullRequestByFastForwardOutput =>
     __isa(o, "MergePullRequestByFastForwardOutput");
@@ -7468,13 +6680,10 @@ export interface MergePullRequestBySquashInput {
 }
 
 export namespace MergePullRequestBySquashInput {
-  export const filterSensitiveLog = (
-    obj: MergePullRequestBySquashInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MergePullRequestBySquashInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MergePullRequestBySquashInput =>
-    __isa(o, "MergePullRequestBySquashInput");
+  export const isa = (o: any): o is MergePullRequestBySquashInput => __isa(o, "MergePullRequestBySquashInput");
 }
 
 export interface MergePullRequestBySquashOutput {
@@ -7486,13 +6695,10 @@ export interface MergePullRequestBySquashOutput {
 }
 
 export namespace MergePullRequestBySquashOutput {
-  export const filterSensitiveLog = (
-    obj: MergePullRequestBySquashOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MergePullRequestBySquashOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MergePullRequestBySquashOutput =>
-    __isa(o, "MergePullRequestBySquashOutput");
+  export const isa = (o: any): o is MergePullRequestBySquashOutput => __isa(o, "MergePullRequestBySquashOutput");
 }
 
 export interface MergePullRequestByThreeWayInput {
@@ -7560,13 +6766,10 @@ export interface MergePullRequestByThreeWayInput {
 }
 
 export namespace MergePullRequestByThreeWayInput {
-  export const filterSensitiveLog = (
-    obj: MergePullRequestByThreeWayInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MergePullRequestByThreeWayInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MergePullRequestByThreeWayInput =>
-    __isa(o, "MergePullRequestByThreeWayInput");
+  export const isa = (o: any): o is MergePullRequestByThreeWayInput => __isa(o, "MergePullRequestByThreeWayInput");
 }
 
 export interface MergePullRequestByThreeWayOutput {
@@ -7578,21 +6781,16 @@ export interface MergePullRequestByThreeWayOutput {
 }
 
 export namespace MergePullRequestByThreeWayOutput {
-  export const filterSensitiveLog = (
-    obj: MergePullRequestByThreeWayOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MergePullRequestByThreeWayOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MergePullRequestByThreeWayOutput =>
-    __isa(o, "MergePullRequestByThreeWayOutput");
+  export const isa = (o: any): o is MergePullRequestByThreeWayOutput => __isa(o, "MergePullRequestByThreeWayOutput");
 }
 
 /**
  * <p>More than one conflict resolution entries exists for the conflict. A conflict can have only one conflict resolution entry.</p>
  */
-export interface MultipleConflictResolutionEntriesException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MultipleConflictResolutionEntriesException extends __SmithyException, $MetadataBearer {
   name: "MultipleConflictResolutionEntriesException";
   $fault: "client";
   /**
@@ -7602,23 +6800,17 @@ export interface MultipleConflictResolutionEntriesException
 }
 
 export namespace MultipleConflictResolutionEntriesException {
-  export const filterSensitiveLog = (
-    obj: MultipleConflictResolutionEntriesException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MultipleConflictResolutionEntriesException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is MultipleConflictResolutionEntriesException =>
+  export const isa = (o: any): o is MultipleConflictResolutionEntriesException =>
     __isa(o, "MultipleConflictResolutionEntriesException");
 }
 
 /**
  * <p>You cannot include more than one repository in a pull request. Make sure you have specified only one repository name in your request, and then try again.</p>
  */
-export interface MultipleRepositoriesInPullRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MultipleRepositoriesInPullRequestException extends __SmithyException, $MetadataBearer {
   name: "MultipleRepositoriesInPullRequestException";
   $fault: "client";
   /**
@@ -7628,23 +6820,17 @@ export interface MultipleRepositoriesInPullRequestException
 }
 
 export namespace MultipleRepositoriesInPullRequestException {
-  export const filterSensitiveLog = (
-    obj: MultipleRepositoriesInPullRequestException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MultipleRepositoriesInPullRequestException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is MultipleRepositoriesInPullRequestException =>
+  export const isa = (o: any): o is MultipleRepositoriesInPullRequestException =>
     __isa(o, "MultipleRepositoriesInPullRequestException");
 }
 
 /**
  * <p>The user name is not valid because it has exceeded the character limit for author names. </p>
  */
-export interface NameLengthExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NameLengthExceededException extends __SmithyException, $MetadataBearer {
   name: "NameLengthExceededException";
   $fault: "client";
   /**
@@ -7654,13 +6840,10 @@ export interface NameLengthExceededException
 }
 
 export namespace NameLengthExceededException {
-  export const filterSensitiveLog = (
-    obj: NameLengthExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NameLengthExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is NameLengthExceededException =>
-    __isa(o, "NameLengthExceededException");
+  export const isa = (o: any): o is NameLengthExceededException => __isa(o, "NameLengthExceededException");
 }
 
 /**
@@ -7677,18 +6860,15 @@ export interface NoChangeException extends __SmithyException, $MetadataBearer {
 
 export namespace NoChangeException {
   export const filterSensitiveLog = (obj: NoChangeException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NoChangeException =>
-    __isa(o, "NoChangeException");
+  export const isa = (o: any): o is NoChangeException => __isa(o, "NoChangeException");
 }
 
 /**
  * <p>The approval rule cannot be added. The pull request has the maximum number of approval rules associated with it.</p>
  */
-export interface NumberOfRulesExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NumberOfRulesExceededException extends __SmithyException, $MetadataBearer {
   name: "NumberOfRulesExceededException";
   $fault: "client";
   /**
@@ -7698,21 +6878,16 @@ export interface NumberOfRulesExceededException
 }
 
 export namespace NumberOfRulesExceededException {
-  export const filterSensitiveLog = (
-    obj: NumberOfRulesExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NumberOfRulesExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is NumberOfRulesExceededException =>
-    __isa(o, "NumberOfRulesExceededException");
+  export const isa = (o: any): o is NumberOfRulesExceededException => __isa(o, "NumberOfRulesExceededException");
 }
 
 /**
  * <p>The maximum number of approval rule templates has been exceeded for this AWS Region. </p>
  */
-export interface NumberOfRuleTemplatesExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NumberOfRuleTemplatesExceededException extends __SmithyException, $MetadataBearer {
   name: "NumberOfRuleTemplatesExceededException";
   $fault: "client";
   /**
@@ -7722,10 +6897,8 @@ export interface NumberOfRuleTemplatesExceededException
 }
 
 export namespace NumberOfRuleTemplatesExceededException {
-  export const filterSensitiveLog = (
-    obj: NumberOfRuleTemplatesExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NumberOfRuleTemplatesExceededException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is NumberOfRuleTemplatesExceededException =>
     __isa(o, "NumberOfRuleTemplatesExceededException");
@@ -7735,7 +6908,7 @@ export enum ObjectTypeEnum {
   DIRECTORY = "DIRECTORY",
   FILE = "FILE",
   GIT_LINK = "GIT_LINK",
-  SYMBOLIC_LINK = "SYMBOLIC_LINK"
+  SYMBOLIC_LINK = "SYMBOLIC_LINK",
 }
 
 /**
@@ -7761,14 +6934,14 @@ export interface ObjectTypes {
 
 export namespace ObjectTypes {
   export const filterSensitiveLog = (obj: ObjectTypes): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ObjectTypes => __isa(o, "ObjectTypes");
 }
 
 export enum OrderEnum {
   ASCENDING = "ascending",
-  DESCENDING = "descending"
+  DESCENDING = "descending",
 }
 
 /**
@@ -7789,18 +6962,15 @@ export interface OriginApprovalRuleTemplate {
 
 export namespace OriginApprovalRuleTemplate {
   export const filterSensitiveLog = (obj: OriginApprovalRuleTemplate): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OriginApprovalRuleTemplate =>
-    __isa(o, "OriginApprovalRuleTemplate");
+  export const isa = (o: any): o is OriginApprovalRuleTemplate => __isa(o, "OriginApprovalRuleTemplate");
 }
 
 /**
  * <p>The pull request has already had its approval rules set to override.</p>
  */
-export interface OverrideAlreadySetException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OverrideAlreadySetException extends __SmithyException, $MetadataBearer {
   name: "OverrideAlreadySetException";
   $fault: "client";
   /**
@@ -7810,13 +6980,10 @@ export interface OverrideAlreadySetException
 }
 
 export namespace OverrideAlreadySetException {
-  export const filterSensitiveLog = (
-    obj: OverrideAlreadySetException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OverrideAlreadySetException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is OverrideAlreadySetException =>
-    __isa(o, "OverrideAlreadySetException");
+  export const isa = (o: any): o is OverrideAlreadySetException => __isa(o, "OverrideAlreadySetException");
 }
 
 export interface OverridePullRequestApprovalRulesInput {
@@ -7842,10 +7009,8 @@ export interface OverridePullRequestApprovalRulesInput {
 }
 
 export namespace OverridePullRequestApprovalRulesInput {
-  export const filterSensitiveLog = (
-    obj: OverridePullRequestApprovalRulesInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OverridePullRequestApprovalRulesInput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is OverridePullRequestApprovalRulesInput =>
     __isa(o, "OverridePullRequestApprovalRulesInput");
@@ -7853,15 +7018,13 @@ export namespace OverridePullRequestApprovalRulesInput {
 
 export enum OverrideStatus {
   OVERRIDE = "OVERRIDE",
-  REVOKE = "REVOKE"
+  REVOKE = "REVOKE",
 }
 
 /**
  * <p>An override status is required, but no value was provided. Valid values include OVERRIDE and REVOKE.</p>
  */
-export interface OverrideStatusRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OverrideStatusRequiredException extends __SmithyException, $MetadataBearer {
   name: "OverrideStatusRequiredException";
   $fault: "client";
   /**
@@ -7871,21 +7034,16 @@ export interface OverrideStatusRequiredException
 }
 
 export namespace OverrideStatusRequiredException {
-  export const filterSensitiveLog = (
-    obj: OverrideStatusRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OverrideStatusRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is OverrideStatusRequiredException =>
-    __isa(o, "OverrideStatusRequiredException");
+  export const isa = (o: any): o is OverrideStatusRequiredException => __isa(o, "OverrideStatusRequiredException");
 }
 
 /**
  * <p>The parent commit ID is not valid because it does not exist. The specified parent commit ID does not exist in the specified branch of the repository.</p>
  */
-export interface ParentCommitDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ParentCommitDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "ParentCommitDoesNotExistException";
   $fault: "client";
   /**
@@ -7895,22 +7053,17 @@ export interface ParentCommitDoesNotExistException
 }
 
 export namespace ParentCommitDoesNotExistException {
-  export const filterSensitiveLog = (
-    obj: ParentCommitDoesNotExistException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ParentCommitDoesNotExistException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ParentCommitDoesNotExistException =>
-    __isa(o, "ParentCommitDoesNotExistException");
+  export const isa = (o: any): o is ParentCommitDoesNotExistException => __isa(o, "ParentCommitDoesNotExistException");
 }
 
 /**
  * <p>The file could not be added because the provided parent commit ID is not the current tip of the specified branch. To view the full commit ID of the current head
  *         of the branch, use <a>GetBranch</a>.</p>
  */
-export interface ParentCommitIdOutdatedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ParentCommitIdOutdatedException extends __SmithyException, $MetadataBearer {
   name: "ParentCommitIdOutdatedException";
   $fault: "client";
   /**
@@ -7920,22 +7073,17 @@ export interface ParentCommitIdOutdatedException
 }
 
 export namespace ParentCommitIdOutdatedException {
-  export const filterSensitiveLog = (
-    obj: ParentCommitIdOutdatedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ParentCommitIdOutdatedException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ParentCommitIdOutdatedException =>
-    __isa(o, "ParentCommitIdOutdatedException");
+  export const isa = (o: any): o is ParentCommitIdOutdatedException => __isa(o, "ParentCommitIdOutdatedException");
 }
 
 /**
  * <p>A parent commit ID is required. To view the full commit ID of a branch in a repository, use <a>GetBranch</a> or a Git command
  *         (for example, git pull or git log).</p>
  */
-export interface ParentCommitIdRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ParentCommitIdRequiredException extends __SmithyException, $MetadataBearer {
   name: "ParentCommitIdRequiredException";
   $fault: "client";
   /**
@@ -7945,21 +7093,16 @@ export interface ParentCommitIdRequiredException
 }
 
 export namespace ParentCommitIdRequiredException {
-  export const filterSensitiveLog = (
-    obj: ParentCommitIdRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ParentCommitIdRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ParentCommitIdRequiredException =>
-    __isa(o, "ParentCommitIdRequiredException");
+  export const isa = (o: any): o is ParentCommitIdRequiredException => __isa(o, "ParentCommitIdRequiredException");
 }
 
 /**
  * <p>The specified path does not exist.</p>
  */
-export interface PathDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PathDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "PathDoesNotExistException";
   $fault: "client";
   /**
@@ -7970,18 +7113,15 @@ export interface PathDoesNotExistException
 
 export namespace PathDoesNotExistException {
   export const filterSensitiveLog = (obj: PathDoesNotExistException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PathDoesNotExistException =>
-    __isa(o, "PathDoesNotExistException");
+  export const isa = (o: any): o is PathDoesNotExistException => __isa(o, "PathDoesNotExistException");
 }
 
 /**
  * <p>The folderPath for a location cannot be null.</p>
  */
-export interface PathRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PathRequiredException extends __SmithyException, $MetadataBearer {
   name: "PathRequiredException";
   $fault: "client";
   /**
@@ -7992,10 +7132,9 @@ export interface PathRequiredException
 
 export namespace PathRequiredException {
   export const filterSensitiveLog = (obj: PathRequiredException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PathRequiredException =>
-    __isa(o, "PathRequiredException");
+  export const isa = (o: any): o is PathRequiredException => __isa(o, "PathRequiredException");
 }
 
 export interface PostCommentForComparedCommitInput {
@@ -8038,13 +7177,10 @@ export interface PostCommentForComparedCommitInput {
 }
 
 export namespace PostCommentForComparedCommitInput {
-  export const filterSensitiveLog = (
-    obj: PostCommentForComparedCommitInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PostCommentForComparedCommitInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PostCommentForComparedCommitInput =>
-    __isa(o, "PostCommentForComparedCommitInput");
+  export const isa = (o: any): o is PostCommentForComparedCommitInput => __isa(o, "PostCommentForComparedCommitInput");
 }
 
 export interface PostCommentForComparedCommitOutput {
@@ -8086,10 +7222,8 @@ export interface PostCommentForComparedCommitOutput {
 }
 
 export namespace PostCommentForComparedCommitOutput {
-  export const filterSensitiveLog = (
-    obj: PostCommentForComparedCommitOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PostCommentForComparedCommitOutput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PostCommentForComparedCommitOutput =>
     __isa(o, "PostCommentForComparedCommitOutput");
@@ -8139,13 +7273,10 @@ export interface PostCommentForPullRequestInput {
 }
 
 export namespace PostCommentForPullRequestInput {
-  export const filterSensitiveLog = (
-    obj: PostCommentForPullRequestInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PostCommentForPullRequestInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PostCommentForPullRequestInput =>
-    __isa(o, "PostCommentForPullRequestInput");
+  export const isa = (o: any): o is PostCommentForPullRequestInput => __isa(o, "PostCommentForPullRequestInput");
 }
 
 export interface PostCommentForPullRequestOutput {
@@ -8194,13 +7325,10 @@ export interface PostCommentForPullRequestOutput {
 }
 
 export namespace PostCommentForPullRequestOutput {
-  export const filterSensitiveLog = (
-    obj: PostCommentForPullRequestOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PostCommentForPullRequestOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PostCommentForPullRequestOutput =>
-    __isa(o, "PostCommentForPullRequestOutput");
+  export const isa = (o: any): o is PostCommentForPullRequestOutput => __isa(o, "PostCommentForPullRequestOutput");
 }
 
 export interface PostCommentReplyInput {
@@ -8227,10 +7355,9 @@ export interface PostCommentReplyInput {
 
 export namespace PostCommentReplyInput {
   export const filterSensitiveLog = (obj: PostCommentReplyInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PostCommentReplyInput =>
-    __isa(o, "PostCommentReplyInput");
+  export const isa = (o: any): o is PostCommentReplyInput => __isa(o, "PostCommentReplyInput");
 }
 
 export interface PostCommentReplyOutput {
@@ -8243,10 +7370,9 @@ export interface PostCommentReplyOutput {
 
 export namespace PostCommentReplyOutput {
   export const filterSensitiveLog = (obj: PostCommentReplyOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PostCommentReplyOutput =>
-    __isa(o, "PostCommentReplyOutput");
+  export const isa = (o: any): o is PostCommentReplyOutput => __isa(o, "PostCommentReplyOutput");
 }
 
 /**
@@ -8316,7 +7442,7 @@ export interface PullRequest {
 
 export namespace PullRequest {
   export const filterSensitiveLog = (obj: PullRequest): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PullRequest => __isa(o, "PullRequest");
 }
@@ -8324,9 +7450,7 @@ export namespace PullRequest {
 /**
  * <p>The pull request status cannot be updated because it is already closed.</p>
  */
-export interface PullRequestAlreadyClosedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PullRequestAlreadyClosedException extends __SmithyException, $MetadataBearer {
   name: "PullRequestAlreadyClosedException";
   $fault: "client";
   /**
@@ -8336,21 +7460,16 @@ export interface PullRequestAlreadyClosedException
 }
 
 export namespace PullRequestAlreadyClosedException {
-  export const filterSensitiveLog = (
-    obj: PullRequestAlreadyClosedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PullRequestAlreadyClosedException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PullRequestAlreadyClosedException =>
-    __isa(o, "PullRequestAlreadyClosedException");
+  export const isa = (o: any): o is PullRequestAlreadyClosedException => __isa(o, "PullRequestAlreadyClosedException");
 }
 
 /**
  * <p>The pull request cannot be merged because one or more approval rules applied to the pull request have conditions that have not been met.</p>
  */
-export interface PullRequestApprovalRulesNotSatisfiedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PullRequestApprovalRulesNotSatisfiedException extends __SmithyException, $MetadataBearer {
   name: "PullRequestApprovalRulesNotSatisfiedException";
   $fault: "client";
   /**
@@ -8360,14 +7479,10 @@ export interface PullRequestApprovalRulesNotSatisfiedException
 }
 
 export namespace PullRequestApprovalRulesNotSatisfiedException {
-  export const filterSensitiveLog = (
-    obj: PullRequestApprovalRulesNotSatisfiedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PullRequestApprovalRulesNotSatisfiedException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is PullRequestApprovalRulesNotSatisfiedException =>
+  export const isa = (o: any): o is PullRequestApprovalRulesNotSatisfiedException =>
     __isa(o, "PullRequestApprovalRulesNotSatisfiedException");
 }
 
@@ -8375,9 +7490,7 @@ export namespace PullRequestApprovalRulesNotSatisfiedException {
  * <p>The approval cannot be applied because the user approving the pull request matches the user who created the pull request. You cannot approve a pull
  *         request that you created.</p>
  */
-export interface PullRequestCannotBeApprovedByAuthorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PullRequestCannotBeApprovedByAuthorException extends __SmithyException, $MetadataBearer {
   name: "PullRequestCannotBeApprovedByAuthorException";
   $fault: "client";
   /**
@@ -8387,14 +7500,10 @@ export interface PullRequestCannotBeApprovedByAuthorException
 }
 
 export namespace PullRequestCannotBeApprovedByAuthorException {
-  export const filterSensitiveLog = (
-    obj: PullRequestCannotBeApprovedByAuthorException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PullRequestCannotBeApprovedByAuthorException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is PullRequestCannotBeApprovedByAuthorException =>
+  export const isa = (o: any): o is PullRequestCannotBeApprovedByAuthorException =>
     __isa(o, "PullRequestCannotBeApprovedByAuthorException");
 }
 
@@ -8425,21 +7534,16 @@ export interface PullRequestCreatedEventMetadata {
 }
 
 export namespace PullRequestCreatedEventMetadata {
-  export const filterSensitiveLog = (
-    obj: PullRequestCreatedEventMetadata
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PullRequestCreatedEventMetadata): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PullRequestCreatedEventMetadata =>
-    __isa(o, "PullRequestCreatedEventMetadata");
+  export const isa = (o: any): o is PullRequestCreatedEventMetadata => __isa(o, "PullRequestCreatedEventMetadata");
 }
 
 /**
  * <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
  */
-export interface PullRequestDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PullRequestDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "PullRequestDoesNotExistException";
   $fault: "client";
   /**
@@ -8449,13 +7553,10 @@ export interface PullRequestDoesNotExistException
 }
 
 export namespace PullRequestDoesNotExistException {
-  export const filterSensitiveLog = (
-    obj: PullRequestDoesNotExistException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PullRequestDoesNotExistException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PullRequestDoesNotExistException =>
-    __isa(o, "PullRequestDoesNotExistException");
+  export const isa = (o: any): o is PullRequestDoesNotExistException => __isa(o, "PullRequestDoesNotExistException");
 }
 
 /**
@@ -8525,10 +7626,9 @@ export interface PullRequestEvent {
 
 export namespace PullRequestEvent {
   export const filterSensitiveLog = (obj: PullRequestEvent): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PullRequestEvent =>
-    __isa(o, "PullRequestEvent");
+  export const isa = (o: any): o is PullRequestEvent => __isa(o, "PullRequestEvent");
 }
 
 export enum PullRequestEventType {
@@ -8540,15 +7640,13 @@ export enum PullRequestEventType {
   PULL_REQUEST_CREATED = "PULL_REQUEST_CREATED",
   PULL_REQUEST_MERGE_STATE_CHANGED = "PULL_REQUEST_MERGE_STATE_CHANGED",
   PULL_REQUEST_SOURCE_REFERENCE_UPDATED = "PULL_REQUEST_SOURCE_REFERENCE_UPDATED",
-  PULL_REQUEST_STATUS_CHANGED = "PULL_REQUEST_STATUS_CHANGED"
+  PULL_REQUEST_STATUS_CHANGED = "PULL_REQUEST_STATUS_CHANGED",
 }
 
 /**
  * <p>A pull request ID is required, but none was provided.</p>
  */
-export interface PullRequestIdRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PullRequestIdRequiredException extends __SmithyException, $MetadataBearer {
   name: "PullRequestIdRequiredException";
   $fault: "client";
   /**
@@ -8558,13 +7656,10 @@ export interface PullRequestIdRequiredException
 }
 
 export namespace PullRequestIdRequiredException {
-  export const filterSensitiveLog = (
-    obj: PullRequestIdRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PullRequestIdRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PullRequestIdRequiredException =>
-    __isa(o, "PullRequestIdRequiredException");
+  export const isa = (o: any): o is PullRequestIdRequiredException => __isa(o, "PullRequestIdRequiredException");
 }
 
 /**
@@ -8589,14 +7684,10 @@ export interface PullRequestMergedStateChangedEventMetadata {
 }
 
 export namespace PullRequestMergedStateChangedEventMetadata {
-  export const filterSensitiveLog = (
-    obj: PullRequestMergedStateChangedEventMetadata
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PullRequestMergedStateChangedEventMetadata): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is PullRequestMergedStateChangedEventMetadata =>
+  export const isa = (o: any): o is PullRequestMergedStateChangedEventMetadata =>
     __isa(o, "PullRequestMergedStateChangedEventMetadata");
 }
 
@@ -8627,14 +7718,10 @@ export interface PullRequestSourceReferenceUpdatedEventMetadata {
 }
 
 export namespace PullRequestSourceReferenceUpdatedEventMetadata {
-  export const filterSensitiveLog = (
-    obj: PullRequestSourceReferenceUpdatedEventMetadata
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PullRequestSourceReferenceUpdatedEventMetadata): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is PullRequestSourceReferenceUpdatedEventMetadata =>
+  export const isa = (o: any): o is PullRequestSourceReferenceUpdatedEventMetadata =>
     __isa(o, "PullRequestSourceReferenceUpdatedEventMetadata");
 }
 
@@ -8650,10 +7737,8 @@ export interface PullRequestStatusChangedEventMetadata {
 }
 
 export namespace PullRequestStatusChangedEventMetadata {
-  export const filterSensitiveLog = (
-    obj: PullRequestStatusChangedEventMetadata
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PullRequestStatusChangedEventMetadata): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PullRequestStatusChangedEventMetadata =>
     __isa(o, "PullRequestStatusChangedEventMetadata");
@@ -8661,15 +7746,13 @@ export namespace PullRequestStatusChangedEventMetadata {
 
 export enum PullRequestStatusEnum {
   CLOSED = "CLOSED",
-  OPEN = "OPEN"
+  OPEN = "OPEN",
 }
 
 /**
  * <p>A pull request status is required, but none was provided.</p>
  */
-export interface PullRequestStatusRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PullRequestStatusRequiredException extends __SmithyException, $MetadataBearer {
   name: "PullRequestStatusRequiredException";
   $fault: "client";
   /**
@@ -8679,10 +7762,8 @@ export interface PullRequestStatusRequiredException
 }
 
 export namespace PullRequestStatusRequiredException {
-  export const filterSensitiveLog = (
-    obj: PullRequestStatusRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PullRequestStatusRequiredException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PullRequestStatusRequiredException =>
     __isa(o, "PullRequestStatusRequiredException");
@@ -8734,10 +7815,9 @@ export interface PullRequestTarget {
 
 export namespace PullRequestTarget {
   export const filterSensitiveLog = (obj: PullRequestTarget): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PullRequestTarget =>
-    __isa(o, "PullRequestTarget");
+  export const isa = (o: any): o is PullRequestTarget => __isa(o, "PullRequestTarget");
 }
 
 /**
@@ -8769,7 +7849,7 @@ export interface PutFileEntry {
 
 export namespace PutFileEntry {
   export const filterSensitiveLog = (obj: PutFileEntry): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PutFileEntry => __isa(o, "PutFileEntry");
 }
@@ -8777,9 +7857,7 @@ export namespace PutFileEntry {
 /**
  * <p>The commit cannot be created because one or more files specified in the commit reference both a file and a folder.</p>
  */
-export interface PutFileEntryConflictException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PutFileEntryConflictException extends __SmithyException, $MetadataBearer {
   name: "PutFileEntryConflictException";
   $fault: "client";
   /**
@@ -8789,13 +7867,10 @@ export interface PutFileEntryConflictException
 }
 
 export namespace PutFileEntryConflictException {
-  export const filterSensitiveLog = (
-    obj: PutFileEntryConflictException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutFileEntryConflictException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutFileEntryConflictException =>
-    __isa(o, "PutFileEntryConflictException");
+  export const isa = (o: any): o is PutFileEntryConflictException => __isa(o, "PutFileEntryConflictException");
 }
 
 export interface PutFileInput {
@@ -8859,7 +7934,7 @@ export interface PutFileInput {
 
 export namespace PutFileInput {
   export const filterSensitiveLog = (obj: PutFileInput): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PutFileInput => __isa(o, "PutFileInput");
 }
@@ -8884,7 +7959,7 @@ export interface PutFileOutput {
 
 export namespace PutFileOutput {
   export const filterSensitiveLog = (obj: PutFileOutput): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PutFileOutput => __isa(o, "PutFileOutput");
 }
@@ -8907,10 +7982,9 @@ export interface PutRepositoryTriggersInput {
 
 export namespace PutRepositoryTriggersInput {
   export const filterSensitiveLog = (obj: PutRepositoryTriggersInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutRepositoryTriggersInput =>
-    __isa(o, "PutRepositoryTriggersInput");
+  export const isa = (o: any): o is PutRepositoryTriggersInput => __isa(o, "PutRepositoryTriggersInput");
 }
 
 /**
@@ -8925,21 +7999,16 @@ export interface PutRepositoryTriggersOutput {
 }
 
 export namespace PutRepositoryTriggersOutput {
-  export const filterSensitiveLog = (
-    obj: PutRepositoryTriggersOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutRepositoryTriggersOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutRepositoryTriggersOutput =>
-    __isa(o, "PutRepositoryTriggersOutput");
+  export const isa = (o: any): o is PutRepositoryTriggersOutput => __isa(o, "PutRepositoryTriggersOutput");
 }
 
 /**
  * <p>The specified reference does not exist. You must provide a full commit ID.</p>
  */
-export interface ReferenceDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReferenceDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "ReferenceDoesNotExistException";
   $fault: "client";
   /**
@@ -8949,21 +8018,16 @@ export interface ReferenceDoesNotExistException
 }
 
 export namespace ReferenceDoesNotExistException {
-  export const filterSensitiveLog = (
-    obj: ReferenceDoesNotExistException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReferenceDoesNotExistException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ReferenceDoesNotExistException =>
-    __isa(o, "ReferenceDoesNotExistException");
+  export const isa = (o: any): o is ReferenceDoesNotExistException => __isa(o, "ReferenceDoesNotExistException");
 }
 
 /**
  * <p>A reference name is required, but none was provided.</p>
  */
-export interface ReferenceNameRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReferenceNameRequiredException extends __SmithyException, $MetadataBearer {
   name: "ReferenceNameRequiredException";
   $fault: "client";
   /**
@@ -8973,21 +8037,16 @@ export interface ReferenceNameRequiredException
 }
 
 export namespace ReferenceNameRequiredException {
-  export const filterSensitiveLog = (
-    obj: ReferenceNameRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReferenceNameRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ReferenceNameRequiredException =>
-    __isa(o, "ReferenceNameRequiredException");
+  export const isa = (o: any): o is ReferenceNameRequiredException => __isa(o, "ReferenceNameRequiredException");
 }
 
 /**
  * <p>The specified reference is not a supported type. </p>
  */
-export interface ReferenceTypeNotSupportedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReferenceTypeNotSupportedException extends __SmithyException, $MetadataBearer {
   name: "ReferenceTypeNotSupportedException";
   $fault: "client";
   /**
@@ -8997,10 +8056,8 @@ export interface ReferenceTypeNotSupportedException
 }
 
 export namespace ReferenceTypeNotSupportedException {
-  export const filterSensitiveLog = (
-    obj: ReferenceTypeNotSupportedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReferenceTypeNotSupportedException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ReferenceTypeNotSupportedException =>
     __isa(o, "ReferenceTypeNotSupportedException");
@@ -9008,7 +8065,7 @@ export namespace ReferenceTypeNotSupportedException {
 
 export enum RelativeFileVersionEnum {
   AFTER = "AFTER",
-  BEFORE = "BEFORE"
+  BEFORE = "BEFORE",
 }
 
 /**
@@ -9039,18 +8096,15 @@ export interface ReplaceContentEntry {
 
 export namespace ReplaceContentEntry {
   export const filterSensitiveLog = (obj: ReplaceContentEntry): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReplaceContentEntry =>
-    __isa(o, "ReplaceContentEntry");
+  export const isa = (o: any): o is ReplaceContentEntry => __isa(o, "ReplaceContentEntry");
 }
 
 /**
  * <p>USE_NEW_CONTENT was specified, but no replacement content has been provided.</p>
  */
-export interface ReplacementContentRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReplacementContentRequiredException extends __SmithyException, $MetadataBearer {
   name: "ReplacementContentRequiredException";
   $fault: "client";
   /**
@@ -9060,10 +8114,8 @@ export interface ReplacementContentRequiredException
 }
 
 export namespace ReplacementContentRequiredException {
-  export const filterSensitiveLog = (
-    obj: ReplacementContentRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReplacementContentRequiredException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ReplacementContentRequiredException =>
     __isa(o, "ReplacementContentRequiredException");
@@ -9073,15 +8125,13 @@ export enum ReplacementTypeEnum {
   KEEP_BASE = "KEEP_BASE",
   KEEP_DESTINATION = "KEEP_DESTINATION",
   KEEP_SOURCE = "KEEP_SOURCE",
-  USE_NEW_CONTENT = "USE_NEW_CONTENT"
+  USE_NEW_CONTENT = "USE_NEW_CONTENT",
 }
 
 /**
  * <p>A replacement type is required.</p>
  */
-export interface ReplacementTypeRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReplacementTypeRequiredException extends __SmithyException, $MetadataBearer {
   name: "ReplacementTypeRequiredException";
   $fault: "client";
   /**
@@ -9091,21 +8141,16 @@ export interface ReplacementTypeRequiredException
 }
 
 export namespace ReplacementTypeRequiredException {
-  export const filterSensitiveLog = (
-    obj: ReplacementTypeRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReplacementTypeRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ReplacementTypeRequiredException =>
-    __isa(o, "ReplacementTypeRequiredException");
+  export const isa = (o: any): o is ReplacementTypeRequiredException => __isa(o, "ReplacementTypeRequiredException");
 }
 
 /**
  * <p>The specified repository does not exist.</p>
  */
-export interface RepositoryDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "RepositoryDoesNotExistException";
   $fault: "client";
   /**
@@ -9115,21 +8160,16 @@ export interface RepositoryDoesNotExistException
 }
 
 export namespace RepositoryDoesNotExistException {
-  export const filterSensitiveLog = (
-    obj: RepositoryDoesNotExistException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RepositoryDoesNotExistException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RepositoryDoesNotExistException =>
-    __isa(o, "RepositoryDoesNotExistException");
+  export const isa = (o: any): o is RepositoryDoesNotExistException => __isa(o, "RepositoryDoesNotExistException");
 }
 
 /**
  * <p>A repository resource limit was exceeded.</p>
  */
-export interface RepositoryLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "RepositoryLimitExceededException";
   $fault: "client";
   /**
@@ -9139,13 +8179,10 @@ export interface RepositoryLimitExceededException
 }
 
 export namespace RepositoryLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: RepositoryLimitExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RepositoryLimitExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RepositoryLimitExceededException =>
-    __isa(o, "RepositoryLimitExceededException");
+  export const isa = (o: any): o is RepositoryLimitExceededException => __isa(o, "RepositoryLimitExceededException");
 }
 
 /**
@@ -9206,18 +8243,15 @@ export interface RepositoryMetadata {
 
 export namespace RepositoryMetadata {
   export const filterSensitiveLog = (obj: RepositoryMetadata): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RepositoryMetadata =>
-    __isa(o, "RepositoryMetadata");
+  export const isa = (o: any): o is RepositoryMetadata => __isa(o, "RepositoryMetadata");
 }
 
 /**
  * <p>The specified repository name already exists.</p>
  */
-export interface RepositoryNameExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryNameExistsException extends __SmithyException, $MetadataBearer {
   name: "RepositoryNameExistsException";
   $fault: "client";
   /**
@@ -9227,13 +8261,10 @@ export interface RepositoryNameExistsException
 }
 
 export namespace RepositoryNameExistsException {
-  export const filterSensitiveLog = (
-    obj: RepositoryNameExistsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RepositoryNameExistsException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RepositoryNameExistsException =>
-    __isa(o, "RepositoryNameExistsException");
+  export const isa = (o: any): o is RepositoryNameExistsException => __isa(o, "RepositoryNameExistsException");
 }
 
 /**
@@ -9254,18 +8285,15 @@ export interface RepositoryNameIdPair {
 
 export namespace RepositoryNameIdPair {
   export const filterSensitiveLog = (obj: RepositoryNameIdPair): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RepositoryNameIdPair =>
-    __isa(o, "RepositoryNameIdPair");
+  export const isa = (o: any): o is RepositoryNameIdPair => __isa(o, "RepositoryNameIdPair");
 }
 
 /**
  * <p>A repository name is required, but was not specified.</p>
  */
-export interface RepositoryNameRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryNameRequiredException extends __SmithyException, $MetadataBearer {
   name: "RepositoryNameRequiredException";
   $fault: "client";
   /**
@@ -9275,21 +8303,16 @@ export interface RepositoryNameRequiredException
 }
 
 export namespace RepositoryNameRequiredException {
-  export const filterSensitiveLog = (
-    obj: RepositoryNameRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RepositoryNameRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RepositoryNameRequiredException =>
-    __isa(o, "RepositoryNameRequiredException");
+  export const isa = (o: any): o is RepositoryNameRequiredException => __isa(o, "RepositoryNameRequiredException");
 }
 
 /**
  * <p>At least one repository name object is required, but was not specified.</p>
  */
-export interface RepositoryNamesRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryNamesRequiredException extends __SmithyException, $MetadataBearer {
   name: "RepositoryNamesRequiredException";
   $fault: "client";
   /**
@@ -9299,21 +8322,16 @@ export interface RepositoryNamesRequiredException
 }
 
 export namespace RepositoryNamesRequiredException {
-  export const filterSensitiveLog = (
-    obj: RepositoryNamesRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RepositoryNamesRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RepositoryNamesRequiredException =>
-    __isa(o, "RepositoryNamesRequiredException");
+  export const isa = (o: any): o is RepositoryNamesRequiredException => __isa(o, "RepositoryNamesRequiredException");
 }
 
 /**
  * <p>The repository does not contain any pull requests with that pull request ID. Use GetPullRequest to verify the correct repository name for the pull request ID.</p>
  */
-export interface RepositoryNotAssociatedWithPullRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryNotAssociatedWithPullRequestException extends __SmithyException, $MetadataBearer {
   name: "RepositoryNotAssociatedWithPullRequestException";
   $fault: "client";
   /**
@@ -9323,14 +8341,10 @@ export interface RepositoryNotAssociatedWithPullRequestException
 }
 
 export namespace RepositoryNotAssociatedWithPullRequestException {
-  export const filterSensitiveLog = (
-    obj: RepositoryNotAssociatedWithPullRequestException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RepositoryNotAssociatedWithPullRequestException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is RepositoryNotAssociatedWithPullRequestException =>
+  export const isa = (o: any): o is RepositoryNotAssociatedWithPullRequestException =>
     __isa(o, "RepositoryNotAssociatedWithPullRequestException");
 }
 
@@ -9379,19 +8393,16 @@ export interface RepositoryTrigger {
 
 export namespace RepositoryTrigger {
   export const filterSensitiveLog = (obj: RepositoryTrigger): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RepositoryTrigger =>
-    __isa(o, "RepositoryTrigger");
+  export const isa = (o: any): o is RepositoryTrigger => __isa(o, "RepositoryTrigger");
 }
 
 /**
  * <p>At least one branch name is required, but was not specified in the trigger
  *             configuration.</p>
  */
-export interface RepositoryTriggerBranchNameListRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryTriggerBranchNameListRequiredException extends __SmithyException, $MetadataBearer {
   name: "RepositoryTriggerBranchNameListRequiredException";
   $fault: "client";
   /**
@@ -9401,14 +8412,10 @@ export interface RepositoryTriggerBranchNameListRequiredException
 }
 
 export namespace RepositoryTriggerBranchNameListRequiredException {
-  export const filterSensitiveLog = (
-    obj: RepositoryTriggerBranchNameListRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RepositoryTriggerBranchNameListRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is RepositoryTriggerBranchNameListRequiredException =>
+  export const isa = (o: any): o is RepositoryTriggerBranchNameListRequiredException =>
     __isa(o, "RepositoryTriggerBranchNameListRequiredException");
 }
 
@@ -9416,9 +8423,7 @@ export namespace RepositoryTriggerBranchNameListRequiredException {
  * <p>A destination ARN for the target service for the trigger is required, but was not
  *             specified.</p>
  */
-export interface RepositoryTriggerDestinationArnRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryTriggerDestinationArnRequiredException extends __SmithyException, $MetadataBearer {
   name: "RepositoryTriggerDestinationArnRequiredException";
   $fault: "client";
   /**
@@ -9428,14 +8433,10 @@ export interface RepositoryTriggerDestinationArnRequiredException
 }
 
 export namespace RepositoryTriggerDestinationArnRequiredException {
-  export const filterSensitiveLog = (
-    obj: RepositoryTriggerDestinationArnRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RepositoryTriggerDestinationArnRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is RepositoryTriggerDestinationArnRequiredException =>
+  export const isa = (o: any): o is RepositoryTriggerDestinationArnRequiredException =>
     __isa(o, "RepositoryTriggerDestinationArnRequiredException");
 }
 
@@ -9443,15 +8444,13 @@ export enum RepositoryTriggerEventEnum {
   ALL = "all",
   CREATE_REFERENCE = "createReference",
   DELETE_REFERENCE = "deleteReference",
-  UPDATE_REFERENCE = "updateReference"
+  UPDATE_REFERENCE = "updateReference",
 }
 
 /**
  * <p>At least one event for the trigger is required, but was not specified.</p>
  */
-export interface RepositoryTriggerEventsListRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryTriggerEventsListRequiredException extends __SmithyException, $MetadataBearer {
   name: "RepositoryTriggerEventsListRequiredException";
   $fault: "client";
   /**
@@ -9461,14 +8460,10 @@ export interface RepositoryTriggerEventsListRequiredException
 }
 
 export namespace RepositoryTriggerEventsListRequiredException {
-  export const filterSensitiveLog = (
-    obj: RepositoryTriggerEventsListRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RepositoryTriggerEventsListRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is RepositoryTriggerEventsListRequiredException =>
+  export const isa = (o: any): o is RepositoryTriggerEventsListRequiredException =>
     __isa(o, "RepositoryTriggerEventsListRequiredException");
 }
 
@@ -9489,21 +8484,16 @@ export interface RepositoryTriggerExecutionFailure {
 }
 
 export namespace RepositoryTriggerExecutionFailure {
-  export const filterSensitiveLog = (
-    obj: RepositoryTriggerExecutionFailure
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RepositoryTriggerExecutionFailure): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RepositoryTriggerExecutionFailure =>
-    __isa(o, "RepositoryTriggerExecutionFailure");
+  export const isa = (o: any): o is RepositoryTriggerExecutionFailure => __isa(o, "RepositoryTriggerExecutionFailure");
 }
 
 /**
  * <p>A name for the trigger is required, but was not specified.</p>
  */
-export interface RepositoryTriggerNameRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryTriggerNameRequiredException extends __SmithyException, $MetadataBearer {
   name: "RepositoryTriggerNameRequiredException";
   $fault: "client";
   /**
@@ -9513,10 +8503,8 @@ export interface RepositoryTriggerNameRequiredException
 }
 
 export namespace RepositoryTriggerNameRequiredException {
-  export const filterSensitiveLog = (
-    obj: RepositoryTriggerNameRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RepositoryTriggerNameRequiredException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RepositoryTriggerNameRequiredException =>
     __isa(o, "RepositoryTriggerNameRequiredException");
@@ -9525,9 +8513,7 @@ export namespace RepositoryTriggerNameRequiredException {
 /**
  * <p>The list of triggers for the repository is required, but was not specified.</p>
  */
-export interface RepositoryTriggersListRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryTriggersListRequiredException extends __SmithyException, $MetadataBearer {
   name: "RepositoryTriggersListRequiredException";
   $fault: "client";
   /**
@@ -9537,10 +8523,8 @@ export interface RepositoryTriggersListRequiredException
 }
 
 export namespace RepositoryTriggersListRequiredException {
-  export const filterSensitiveLog = (
-    obj: RepositoryTriggersListRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RepositoryTriggersListRequiredException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RepositoryTriggersListRequiredException =>
     __isa(o, "RepositoryTriggersListRequiredException");
@@ -9551,9 +8535,7 @@ export namespace RepositoryTriggersListRequiredException {
  *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
  *             in the AWS CodeCommit User Guide.</p>
  */
-export interface ResourceArnRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceArnRequiredException extends __SmithyException, $MetadataBearer {
   name: "ResourceArnRequiredException";
   $fault: "client";
   /**
@@ -9563,21 +8545,16 @@ export interface ResourceArnRequiredException
 }
 
 export namespace ResourceArnRequiredException {
-  export const filterSensitiveLog = (
-    obj: ResourceArnRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourceArnRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceArnRequiredException =>
-    __isa(o, "ResourceArnRequiredException");
+  export const isa = (o: any): o is ResourceArnRequiredException => __isa(o, "ResourceArnRequiredException");
 }
 
 /**
  * <p>The commit cannot be created because one of the changes specifies copying or moving a .gitkeep file.</p>
  */
-export interface RestrictedSourceFileException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RestrictedSourceFileException extends __SmithyException, $MetadataBearer {
   name: "RestrictedSourceFileException";
   $fault: "client";
   /**
@@ -9587,21 +8564,16 @@ export interface RestrictedSourceFileException
 }
 
 export namespace RestrictedSourceFileException {
-  export const filterSensitiveLog = (
-    obj: RestrictedSourceFileException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RestrictedSourceFileException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RestrictedSourceFileException =>
-    __isa(o, "RestrictedSourceFileException");
+  export const isa = (o: any): o is RestrictedSourceFileException => __isa(o, "RestrictedSourceFileException");
 }
 
 /**
  * <p>A revision ID is required, but was not provided.</p>
  */
-export interface RevisionIdRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RevisionIdRequiredException extends __SmithyException, $MetadataBearer {
   name: "RevisionIdRequiredException";
   $fault: "client";
   /**
@@ -9611,21 +8583,16 @@ export interface RevisionIdRequiredException
 }
 
 export namespace RevisionIdRequiredException {
-  export const filterSensitiveLog = (
-    obj: RevisionIdRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RevisionIdRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RevisionIdRequiredException =>
-    __isa(o, "RevisionIdRequiredException");
+  export const isa = (o: any): o is RevisionIdRequiredException => __isa(o, "RevisionIdRequiredException");
 }
 
 /**
  * <p>The revision ID provided in the request does not match the current revision ID. Use GetPullRequest to retrieve the current revision ID.</p>
  */
-export interface RevisionNotCurrentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RevisionNotCurrentException extends __SmithyException, $MetadataBearer {
   name: "RevisionNotCurrentException";
   $fault: "client";
   /**
@@ -9635,22 +8602,17 @@ export interface RevisionNotCurrentException
 }
 
 export namespace RevisionNotCurrentException {
-  export const filterSensitiveLog = (
-    obj: RevisionNotCurrentException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RevisionNotCurrentException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RevisionNotCurrentException =>
-    __isa(o, "RevisionNotCurrentException");
+  export const isa = (o: any): o is RevisionNotCurrentException => __isa(o, "RevisionNotCurrentException");
 }
 
 /**
  * <p>The file was not added or updated because the content of the file is exactly the same as the content of that file in the repository and branch
  *         that you specified.</p>
  */
-export interface SameFileContentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SameFileContentException extends __SmithyException, $MetadataBearer {
   name: "SameFileContentException";
   $fault: "client";
   /**
@@ -9661,10 +8623,9 @@ export interface SameFileContentException
 
 export namespace SameFileContentException {
   export const filterSensitiveLog = (obj: SameFileContentException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SameFileContentException =>
-    __isa(o, "SameFileContentException");
+  export const isa = (o: any): o is SameFileContentException => __isa(o, "SameFileContentException");
 }
 
 /**
@@ -9672,9 +8633,7 @@ export namespace SameFileContentException {
  *         you cannot make the same delete request to the same file in the same file path twice, or make a delete request and a move request to the same
  *         file as part of the same commit.</p>
  */
-export interface SamePathRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SamePathRequestException extends __SmithyException, $MetadataBearer {
   name: "SamePathRequestException";
   $fault: "client";
   /**
@@ -9685,10 +8644,9 @@ export interface SamePathRequestException
 
 export namespace SamePathRequestException {
   export const filterSensitiveLog = (obj: SamePathRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SamePathRequestException =>
-    __isa(o, "SamePathRequestException");
+  export const isa = (o: any): o is SamePathRequestException => __isa(o, "SamePathRequestException");
 }
 
 /**
@@ -9709,24 +8667,21 @@ export interface SetFileModeEntry {
 
 export namespace SetFileModeEntry {
   export const filterSensitiveLog = (obj: SetFileModeEntry): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SetFileModeEntry =>
-    __isa(o, "SetFileModeEntry");
+  export const isa = (o: any): o is SetFileModeEntry => __isa(o, "SetFileModeEntry");
 }
 
 export enum SortByEnum {
   MODIFIED_DATE = "lastModifiedDate",
-  REPOSITORY_NAME = "repositoryName"
+  REPOSITORY_NAME = "repositoryName",
 }
 
 /**
  * <p>The source branch and destination branch for the pull request are the same. You must
  *             specify different branches for the source and destination.</p>
  */
-export interface SourceAndDestinationAreSameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SourceAndDestinationAreSameException extends __SmithyException, $MetadataBearer {
   name: "SourceAndDestinationAreSameException";
   $fault: "client";
   /**
@@ -9736,10 +8691,8 @@ export interface SourceAndDestinationAreSameException
 }
 
 export namespace SourceAndDestinationAreSameException {
-  export const filterSensitiveLog = (
-    obj: SourceAndDestinationAreSameException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SourceAndDestinationAreSameException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is SourceAndDestinationAreSameException =>
     __isa(o, "SourceAndDestinationAreSameException");
@@ -9748,9 +8701,7 @@ export namespace SourceAndDestinationAreSameException {
 /**
  * <p>The commit cannot be created because no source files or file content have been specified for the commit.</p>
  */
-export interface SourceFileOrContentRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SourceFileOrContentRequiredException extends __SmithyException, $MetadataBearer {
   name: "SourceFileOrContentRequiredException";
   $fault: "client";
   /**
@@ -9760,10 +8711,8 @@ export interface SourceFileOrContentRequiredException
 }
 
 export namespace SourceFileOrContentRequiredException {
-  export const filterSensitiveLog = (
-    obj: SourceFileOrContentRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SourceFileOrContentRequiredException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is SourceFileOrContentRequiredException =>
     __isa(o, "SourceFileOrContentRequiredException");
@@ -9787,10 +8736,9 @@ export interface SourceFileSpecifier {
 
 export namespace SourceFileSpecifier {
   export const filterSensitiveLog = (obj: SourceFileSpecifier): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SourceFileSpecifier =>
-    __isa(o, "SourceFileSpecifier");
+  export const isa = (o: any): o is SourceFileSpecifier => __isa(o, "SourceFileSpecifier");
 }
 
 /**
@@ -9816,7 +8764,7 @@ export interface SubModule {
 
 export namespace SubModule {
   export const filterSensitiveLog = (obj: SubModule): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SubModule => __isa(o, "SubModule");
 }
@@ -9849,7 +8797,7 @@ export interface SymbolicLink {
 
 export namespace SymbolicLink {
   export const filterSensitiveLog = (obj: SymbolicLink): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SymbolicLink => __isa(o, "SymbolicLink");
 }
@@ -9857,9 +8805,7 @@ export namespace SymbolicLink {
 /**
  * <p>A list of tag keys is required. The list cannot be empty or null.</p>
  */
-export interface TagKeysListRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TagKeysListRequiredException extends __SmithyException, $MetadataBearer {
   name: "TagKeysListRequiredException";
   $fault: "client";
   /**
@@ -9869,13 +8815,10 @@ export interface TagKeysListRequiredException
 }
 
 export namespace TagKeysListRequiredException {
-  export const filterSensitiveLog = (
-    obj: TagKeysListRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TagKeysListRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TagKeysListRequiredException =>
-    __isa(o, "TagKeysListRequiredException");
+  export const isa = (o: any): o is TagKeysListRequiredException => __isa(o, "TagKeysListRequiredException");
 }
 
 /**
@@ -9892,10 +8835,9 @@ export interface TagPolicyException extends __SmithyException, $MetadataBearer {
 
 export namespace TagPolicyException {
   export const filterSensitiveLog = (obj: TagPolicyException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagPolicyException =>
-    __isa(o, "TagPolicyException");
+  export const isa = (o: any): o is TagPolicyException => __isa(o, "TagPolicyException");
 }
 
 export interface TagResourceInput {
@@ -9913,18 +8855,15 @@ export interface TagResourceInput {
 
 export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceInput =>
-    __isa(o, "TagResourceInput");
+  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
 /**
  * <p>A map of tags is required.</p>
  */
-export interface TagsMapRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TagsMapRequiredException extends __SmithyException, $MetadataBearer {
   name: "TagsMapRequiredException";
   $fault: "client";
   /**
@@ -9935,10 +8874,9 @@ export interface TagsMapRequiredException
 
 export namespace TagsMapRequiredException {
   export const filterSensitiveLog = (obj: TagsMapRequiredException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagsMapRequiredException =>
-    __isa(o, "TagsMapRequiredException");
+  export const isa = (o: any): o is TagsMapRequiredException => __isa(o, "TagsMapRequiredException");
 }
 
 /**
@@ -9965,7 +8903,7 @@ export interface Target {
 
 export namespace Target {
   export const filterSensitiveLog = (obj: Target): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Target => __isa(o, "Target");
 }
@@ -9973,9 +8911,7 @@ export namespace Target {
 /**
  * <p>A pull request target is required. It cannot be empty or null. A pull request target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
  */
-export interface TargetRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TargetRequiredException extends __SmithyException, $MetadataBearer {
   name: "TargetRequiredException";
   $fault: "client";
   /**
@@ -9986,18 +8922,15 @@ export interface TargetRequiredException
 
 export namespace TargetRequiredException {
   export const filterSensitiveLog = (obj: TargetRequiredException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TargetRequiredException =>
-    __isa(o, "TargetRequiredException");
+  export const isa = (o: any): o is TargetRequiredException => __isa(o, "TargetRequiredException");
 }
 
 /**
  * <p>An array of target objects is required. It cannot be empty or null.</p>
  */
-export interface TargetsRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TargetsRequiredException extends __SmithyException, $MetadataBearer {
   name: "TargetsRequiredException";
   $fault: "client";
   /**
@@ -10008,10 +8941,9 @@ export interface TargetsRequiredException
 
 export namespace TargetsRequiredException {
   export const filterSensitiveLog = (obj: TargetsRequiredException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TargetsRequiredException =>
-    __isa(o, "TargetsRequiredException");
+  export const isa = (o: any): o is TargetsRequiredException => __isa(o, "TargetsRequiredException");
 }
 
 /**
@@ -10031,13 +8963,10 @@ export interface TestRepositoryTriggersInput {
 }
 
 export namespace TestRepositoryTriggersInput {
-  export const filterSensitiveLog = (
-    obj: TestRepositoryTriggersInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TestRepositoryTriggersInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TestRepositoryTriggersInput =>
-    __isa(o, "TestRepositoryTriggersInput");
+  export const isa = (o: any): o is TestRepositoryTriggersInput => __isa(o, "TestRepositoryTriggersInput");
 }
 
 /**
@@ -10058,22 +8987,17 @@ export interface TestRepositoryTriggersOutput {
 }
 
 export namespace TestRepositoryTriggersOutput {
-  export const filterSensitiveLog = (
-    obj: TestRepositoryTriggersOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TestRepositoryTriggersOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TestRepositoryTriggersOutput =>
-    __isa(o, "TestRepositoryTriggersOutput");
+  export const isa = (o: any): o is TestRepositoryTriggersOutput => __isa(o, "TestRepositoryTriggersOutput");
 }
 
 /**
  * <p>The tip of the source branch in the destination repository does not match the tip of the source branch specified in your request.
  *             The pull request might have been updated. Make sure that you have the latest changes.</p>
  */
-export interface TipOfSourceReferenceIsDifferentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TipOfSourceReferenceIsDifferentException extends __SmithyException, $MetadataBearer {
   name: "TipOfSourceReferenceIsDifferentException";
   $fault: "client";
   /**
@@ -10083,10 +9007,8 @@ export interface TipOfSourceReferenceIsDifferentException
 }
 
 export namespace TipOfSourceReferenceIsDifferentException {
-  export const filterSensitiveLog = (
-    obj: TipOfSourceReferenceIsDifferentException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TipOfSourceReferenceIsDifferentException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is TipOfSourceReferenceIsDifferentException =>
     __isa(o, "TipOfSourceReferenceIsDifferentException");
@@ -10096,9 +9018,7 @@ export namespace TipOfSourceReferenceIsDifferentException {
  * <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
  *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
  */
-export interface TipsDivergenceExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TipsDivergenceExceededException extends __SmithyException, $MetadataBearer {
   name: "TipsDivergenceExceededException";
   $fault: "client";
   /**
@@ -10108,21 +9028,16 @@ export interface TipsDivergenceExceededException
 }
 
 export namespace TipsDivergenceExceededException {
-  export const filterSensitiveLog = (
-    obj: TipsDivergenceExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TipsDivergenceExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TipsDivergenceExceededException =>
-    __isa(o, "TipsDivergenceExceededException");
+  export const isa = (o: any): o is TipsDivergenceExceededException => __isa(o, "TipsDivergenceExceededException");
 }
 
 /**
  * <p>A pull request title is required. It cannot be empty or null.</p>
  */
-export interface TitleRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TitleRequiredException extends __SmithyException, $MetadataBearer {
   name: "TitleRequiredException";
   $fault: "client";
   /**
@@ -10133,18 +9048,15 @@ export interface TitleRequiredException
 
 export namespace TitleRequiredException {
   export const filterSensitiveLog = (obj: TitleRequiredException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TitleRequiredException =>
-    __isa(o, "TitleRequiredException");
+  export const isa = (o: any): o is TitleRequiredException => __isa(o, "TitleRequiredException");
 }
 
 /**
  * <p>The maximum number of tags for an AWS CodeCommit resource has been exceeded.</p>
  */
-export interface TooManyTagsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
   /**
@@ -10155,10 +9067,9 @@ export interface TooManyTagsException
 
 export namespace TooManyTagsException {
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsException =>
-    __isa(o, "TooManyTagsException");
+  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 export interface UntagResourceInput {
@@ -10176,10 +9087,9 @@ export interface UntagResourceInput {
 
 export namespace UntagResourceInput {
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceInput =>
-    __isa(o, "UntagResourceInput");
+  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
 export interface UpdateApprovalRuleTemplateContentInput {
@@ -10204,10 +9114,8 @@ export interface UpdateApprovalRuleTemplateContentInput {
 }
 
 export namespace UpdateApprovalRuleTemplateContentInput {
-  export const filterSensitiveLog = (
-    obj: UpdateApprovalRuleTemplateContentInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateContentInput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdateApprovalRuleTemplateContentInput =>
     __isa(o, "UpdateApprovalRuleTemplateContentInput");
@@ -10222,10 +9130,8 @@ export interface UpdateApprovalRuleTemplateContentOutput {
 }
 
 export namespace UpdateApprovalRuleTemplateContentOutput {
-  export const filterSensitiveLog = (
-    obj: UpdateApprovalRuleTemplateContentOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateContentOutput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdateApprovalRuleTemplateContentOutput =>
     __isa(o, "UpdateApprovalRuleTemplateContentOutput");
@@ -10245,14 +9151,10 @@ export interface UpdateApprovalRuleTemplateDescriptionInput {
 }
 
 export namespace UpdateApprovalRuleTemplateDescriptionInput {
-  export const filterSensitiveLog = (
-    obj: UpdateApprovalRuleTemplateDescriptionInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateDescriptionInput): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is UpdateApprovalRuleTemplateDescriptionInput =>
+  export const isa = (o: any): o is UpdateApprovalRuleTemplateDescriptionInput =>
     __isa(o, "UpdateApprovalRuleTemplateDescriptionInput");
 }
 
@@ -10265,14 +9167,10 @@ export interface UpdateApprovalRuleTemplateDescriptionOutput {
 }
 
 export namespace UpdateApprovalRuleTemplateDescriptionOutput {
-  export const filterSensitiveLog = (
-    obj: UpdateApprovalRuleTemplateDescriptionOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateDescriptionOutput): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is UpdateApprovalRuleTemplateDescriptionOutput =>
+  export const isa = (o: any): o is UpdateApprovalRuleTemplateDescriptionOutput =>
     __isa(o, "UpdateApprovalRuleTemplateDescriptionOutput");
 }
 
@@ -10290,10 +9188,8 @@ export interface UpdateApprovalRuleTemplateNameInput {
 }
 
 export namespace UpdateApprovalRuleTemplateNameInput {
-  export const filterSensitiveLog = (
-    obj: UpdateApprovalRuleTemplateNameInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateNameInput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdateApprovalRuleTemplateNameInput =>
     __isa(o, "UpdateApprovalRuleTemplateNameInput");
@@ -10308,10 +9204,8 @@ export interface UpdateApprovalRuleTemplateNameOutput {
 }
 
 export namespace UpdateApprovalRuleTemplateNameOutput {
-  export const filterSensitiveLog = (
-    obj: UpdateApprovalRuleTemplateNameOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateNameOutput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdateApprovalRuleTemplateNameOutput =>
     __isa(o, "UpdateApprovalRuleTemplateNameOutput");
@@ -10333,10 +9227,9 @@ export interface UpdateCommentInput {
 
 export namespace UpdateCommentInput {
   export const filterSensitiveLog = (obj: UpdateCommentInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateCommentInput =>
-    __isa(o, "UpdateCommentInput");
+  export const isa = (o: any): o is UpdateCommentInput => __isa(o, "UpdateCommentInput");
 }
 
 export interface UpdateCommentOutput {
@@ -10349,10 +9242,9 @@ export interface UpdateCommentOutput {
 
 export namespace UpdateCommentOutput {
   export const filterSensitiveLog = (obj: UpdateCommentOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateCommentOutput =>
-    __isa(o, "UpdateCommentOutput");
+  export const isa = (o: any): o is UpdateCommentOutput => __isa(o, "UpdateCommentOutput");
 }
 
 /**
@@ -10373,10 +9265,9 @@ export interface UpdateDefaultBranchInput {
 
 export namespace UpdateDefaultBranchInput {
   export const filterSensitiveLog = (obj: UpdateDefaultBranchInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateDefaultBranchInput =>
-    __isa(o, "UpdateDefaultBranchInput");
+  export const isa = (o: any): o is UpdateDefaultBranchInput => __isa(o, "UpdateDefaultBranchInput");
 }
 
 export interface UpdatePullRequestApprovalRuleContentInput {
@@ -10445,10 +9336,8 @@ export interface UpdatePullRequestApprovalRuleContentInput {
 }
 
 export namespace UpdatePullRequestApprovalRuleContentInput {
-  export const filterSensitiveLog = (
-    obj: UpdatePullRequestApprovalRuleContentInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdatePullRequestApprovalRuleContentInput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdatePullRequestApprovalRuleContentInput =>
     __isa(o, "UpdatePullRequestApprovalRuleContentInput");
@@ -10463,14 +9352,10 @@ export interface UpdatePullRequestApprovalRuleContentOutput {
 }
 
 export namespace UpdatePullRequestApprovalRuleContentOutput {
-  export const filterSensitiveLog = (
-    obj: UpdatePullRequestApprovalRuleContentOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdatePullRequestApprovalRuleContentOutput): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is UpdatePullRequestApprovalRuleContentOutput =>
+  export const isa = (o: any): o is UpdatePullRequestApprovalRuleContentOutput =>
     __isa(o, "UpdatePullRequestApprovalRuleContentOutput");
 }
 
@@ -10493,10 +9378,8 @@ export interface UpdatePullRequestApprovalStateInput {
 }
 
 export namespace UpdatePullRequestApprovalStateInput {
-  export const filterSensitiveLog = (
-    obj: UpdatePullRequestApprovalStateInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdatePullRequestApprovalStateInput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdatePullRequestApprovalStateInput =>
     __isa(o, "UpdatePullRequestApprovalStateInput");
@@ -10517,13 +9400,10 @@ export interface UpdatePullRequestDescriptionInput {
 }
 
 export namespace UpdatePullRequestDescriptionInput {
-  export const filterSensitiveLog = (
-    obj: UpdatePullRequestDescriptionInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdatePullRequestDescriptionInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdatePullRequestDescriptionInput =>
-    __isa(o, "UpdatePullRequestDescriptionInput");
+  export const isa = (o: any): o is UpdatePullRequestDescriptionInput => __isa(o, "UpdatePullRequestDescriptionInput");
 }
 
 export interface UpdatePullRequestDescriptionOutput {
@@ -10535,10 +9415,8 @@ export interface UpdatePullRequestDescriptionOutput {
 }
 
 export namespace UpdatePullRequestDescriptionOutput {
-  export const filterSensitiveLog = (
-    obj: UpdatePullRequestDescriptionOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdatePullRequestDescriptionOutput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdatePullRequestDescriptionOutput =>
     __isa(o, "UpdatePullRequestDescriptionOutput");
@@ -10560,13 +9438,10 @@ export interface UpdatePullRequestStatusInput {
 }
 
 export namespace UpdatePullRequestStatusInput {
-  export const filterSensitiveLog = (
-    obj: UpdatePullRequestStatusInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdatePullRequestStatusInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdatePullRequestStatusInput =>
-    __isa(o, "UpdatePullRequestStatusInput");
+  export const isa = (o: any): o is UpdatePullRequestStatusInput => __isa(o, "UpdatePullRequestStatusInput");
 }
 
 export interface UpdatePullRequestStatusOutput {
@@ -10578,13 +9453,10 @@ export interface UpdatePullRequestStatusOutput {
 }
 
 export namespace UpdatePullRequestStatusOutput {
-  export const filterSensitiveLog = (
-    obj: UpdatePullRequestStatusOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdatePullRequestStatusOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdatePullRequestStatusOutput =>
-    __isa(o, "UpdatePullRequestStatusOutput");
+  export const isa = (o: any): o is UpdatePullRequestStatusOutput => __isa(o, "UpdatePullRequestStatusOutput");
 }
 
 export interface UpdatePullRequestTitleInput {
@@ -10601,13 +9473,10 @@ export interface UpdatePullRequestTitleInput {
 }
 
 export namespace UpdatePullRequestTitleInput {
-  export const filterSensitiveLog = (
-    obj: UpdatePullRequestTitleInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdatePullRequestTitleInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdatePullRequestTitleInput =>
-    __isa(o, "UpdatePullRequestTitleInput");
+  export const isa = (o: any): o is UpdatePullRequestTitleInput => __isa(o, "UpdatePullRequestTitleInput");
 }
 
 export interface UpdatePullRequestTitleOutput {
@@ -10619,13 +9488,10 @@ export interface UpdatePullRequestTitleOutput {
 }
 
 export namespace UpdatePullRequestTitleOutput {
-  export const filterSensitiveLog = (
-    obj: UpdatePullRequestTitleOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdatePullRequestTitleOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdatePullRequestTitleOutput =>
-    __isa(o, "UpdatePullRequestTitleOutput");
+  export const isa = (o: any): o is UpdatePullRequestTitleOutput => __isa(o, "UpdatePullRequestTitleOutput");
 }
 
 /**
@@ -10645,13 +9511,10 @@ export interface UpdateRepositoryDescriptionInput {
 }
 
 export namespace UpdateRepositoryDescriptionInput {
-  export const filterSensitiveLog = (
-    obj: UpdateRepositoryDescriptionInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateRepositoryDescriptionInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateRepositoryDescriptionInput =>
-    __isa(o, "UpdateRepositoryDescriptionInput");
+  export const isa = (o: any): o is UpdateRepositoryDescriptionInput => __isa(o, "UpdateRepositoryDescriptionInput");
 }
 
 /**
@@ -10672,10 +9535,9 @@ export interface UpdateRepositoryNameInput {
 
 export namespace UpdateRepositoryNameInput {
   export const filterSensitiveLog = (obj: UpdateRepositoryNameInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateRepositoryNameInput =>
-    __isa(o, "UpdateRepositoryNameInput");
+  export const isa = (o: any): o is UpdateRepositoryNameInput => __isa(o, "UpdateRepositoryNameInput");
 }
 
 /**
@@ -10701,7 +9563,7 @@ export interface UserInfo {
 
 export namespace UserInfo {
   export const filterSensitiveLog = (obj: UserInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is UserInfo => __isa(o, "UserInfo");
 }

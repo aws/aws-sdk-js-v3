@@ -1,123 +1,72 @@
-import {
-  AddInstanceFleetCommandInput,
-  AddInstanceFleetCommandOutput
-} from "./commands/AddInstanceFleetCommand";
-import {
-  AddInstanceGroupsCommandInput,
-  AddInstanceGroupsCommandOutput
-} from "./commands/AddInstanceGroupsCommand";
-import {
-  AddJobFlowStepsCommandInput,
-  AddJobFlowStepsCommandOutput
-} from "./commands/AddJobFlowStepsCommand";
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "./commands/AddTagsCommand";
-import {
-  CancelStepsCommandInput,
-  CancelStepsCommandOutput
-} from "./commands/CancelStepsCommand";
+import { AddInstanceFleetCommandInput, AddInstanceFleetCommandOutput } from "./commands/AddInstanceFleetCommand";
+import { AddInstanceGroupsCommandInput, AddInstanceGroupsCommandOutput } from "./commands/AddInstanceGroupsCommand";
+import { AddJobFlowStepsCommandInput, AddJobFlowStepsCommandOutput } from "./commands/AddJobFlowStepsCommand";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import { CancelStepsCommandInput, CancelStepsCommandOutput } from "./commands/CancelStepsCommand";
 import {
   CreateSecurityConfigurationCommandInput,
-  CreateSecurityConfigurationCommandOutput
+  CreateSecurityConfigurationCommandOutput,
 } from "./commands/CreateSecurityConfigurationCommand";
 import {
   DeleteSecurityConfigurationCommandInput,
-  DeleteSecurityConfigurationCommandOutput
+  DeleteSecurityConfigurationCommandOutput,
 } from "./commands/DeleteSecurityConfigurationCommand";
-import {
-  DescribeClusterCommandInput,
-  DescribeClusterCommandOutput
-} from "./commands/DescribeClusterCommand";
-import {
-  DescribeJobFlowsCommandInput,
-  DescribeJobFlowsCommandOutput
-} from "./commands/DescribeJobFlowsCommand";
+import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
+import { DescribeJobFlowsCommandInput, DescribeJobFlowsCommandOutput } from "./commands/DescribeJobFlowsCommand";
 import {
   DescribeSecurityConfigurationCommandInput,
-  DescribeSecurityConfigurationCommandOutput
+  DescribeSecurityConfigurationCommandOutput,
 } from "./commands/DescribeSecurityConfigurationCommand";
-import {
-  DescribeStepCommandInput,
-  DescribeStepCommandOutput
-} from "./commands/DescribeStepCommand";
+import { DescribeStepCommandInput, DescribeStepCommandOutput } from "./commands/DescribeStepCommand";
 import {
   GetBlockPublicAccessConfigurationCommandInput,
-  GetBlockPublicAccessConfigurationCommandOutput
+  GetBlockPublicAccessConfigurationCommandOutput,
 } from "./commands/GetBlockPublicAccessConfigurationCommand";
 import {
   ListBootstrapActionsCommandInput,
-  ListBootstrapActionsCommandOutput
+  ListBootstrapActionsCommandOutput,
 } from "./commands/ListBootstrapActionsCommand";
-import {
-  ListClustersCommandInput,
-  ListClustersCommandOutput
-} from "./commands/ListClustersCommand";
-import {
-  ListInstanceFleetsCommandInput,
-  ListInstanceFleetsCommandOutput
-} from "./commands/ListInstanceFleetsCommand";
-import {
-  ListInstanceGroupsCommandInput,
-  ListInstanceGroupsCommandOutput
-} from "./commands/ListInstanceGroupsCommand";
-import {
-  ListInstancesCommandInput,
-  ListInstancesCommandOutput
-} from "./commands/ListInstancesCommand";
+import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
+import { ListInstanceFleetsCommandInput, ListInstanceFleetsCommandOutput } from "./commands/ListInstanceFleetsCommand";
+import { ListInstanceGroupsCommandInput, ListInstanceGroupsCommandOutput } from "./commands/ListInstanceGroupsCommand";
+import { ListInstancesCommandInput, ListInstancesCommandOutput } from "./commands/ListInstancesCommand";
 import {
   ListSecurityConfigurationsCommandInput,
-  ListSecurityConfigurationsCommandOutput
+  ListSecurityConfigurationsCommandOutput,
 } from "./commands/ListSecurityConfigurationsCommand";
-import {
-  ListStepsCommandInput,
-  ListStepsCommandOutput
-} from "./commands/ListStepsCommand";
-import {
-  ModifyClusterCommandInput,
-  ModifyClusterCommandOutput
-} from "./commands/ModifyClusterCommand";
+import { ListStepsCommandInput, ListStepsCommandOutput } from "./commands/ListStepsCommand";
+import { ModifyClusterCommandInput, ModifyClusterCommandOutput } from "./commands/ModifyClusterCommand";
 import {
   ModifyInstanceFleetCommandInput,
-  ModifyInstanceFleetCommandOutput
+  ModifyInstanceFleetCommandOutput,
 } from "./commands/ModifyInstanceFleetCommand";
 import {
   ModifyInstanceGroupsCommandInput,
-  ModifyInstanceGroupsCommandOutput
+  ModifyInstanceGroupsCommandOutput,
 } from "./commands/ModifyInstanceGroupsCommand";
 import {
   PutAutoScalingPolicyCommandInput,
-  PutAutoScalingPolicyCommandOutput
+  PutAutoScalingPolicyCommandOutput,
 } from "./commands/PutAutoScalingPolicyCommand";
 import {
   PutBlockPublicAccessConfigurationCommandInput,
-  PutBlockPublicAccessConfigurationCommandOutput
+  PutBlockPublicAccessConfigurationCommandOutput,
 } from "./commands/PutBlockPublicAccessConfigurationCommand";
 import {
   RemoveAutoScalingPolicyCommandInput,
-  RemoveAutoScalingPolicyCommandOutput
+  RemoveAutoScalingPolicyCommandOutput,
 } from "./commands/RemoveAutoScalingPolicyCommand";
-import {
-  RemoveTagsCommandInput,
-  RemoveTagsCommandOutput
-} from "./commands/RemoveTagsCommand";
-import {
-  RunJobFlowCommandInput,
-  RunJobFlowCommandOutput
-} from "./commands/RunJobFlowCommand";
+import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
+import { RunJobFlowCommandInput, RunJobFlowCommandOutput } from "./commands/RunJobFlowCommand";
 import {
   SetTerminationProtectionCommandInput,
-  SetTerminationProtectionCommandOutput
+  SetTerminationProtectionCommandOutput,
 } from "./commands/SetTerminationProtectionCommand";
 import {
   SetVisibleToAllUsersCommandInput,
-  SetVisibleToAllUsersCommandOutput
+  SetVisibleToAllUsersCommandOutput,
 } from "./commands/SetVisibleToAllUsersCommand";
-import {
-  TerminateJobFlowsCommandInput,
-  TerminateJobFlowsCommandOutput
-} from "./commands/TerminateJobFlowsCommand";
+import { TerminateJobFlowsCommandInput, TerminateJobFlowsCommandOutput } from "./commands/TerminateJobFlowsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -125,38 +74,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -167,7 +111,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -234,8 +178,7 @@ export type ServiceOutputTypes =
   | SetVisibleToAllUsersCommandOutput
   | TerminateJobFlowsCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -324,9 +267,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type EMRClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type EMRClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -335,9 +276,7 @@ export type EMRClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type EMRClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type EMRClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -360,7 +299,7 @@ export class EMRClient extends __Client<
   constructor(configuration: EMRClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

@@ -1,21 +1,11 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient";
-import {
-  DeleteReplicationGroupMessage,
-  DeleteReplicationGroupResult
-} from "../models/index";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
+import { DeleteReplicationGroupMessage, DeleteReplicationGroupResult } from "../models/index";
 import {
   deserializeAws_queryDeleteReplicationGroupCommand,
-  serializeAws_queryDeleteReplicationGroupCommand
+  serializeAws_queryDeleteReplicationGroupCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteReplicationGroupCommandInput = DeleteReplicationGroupMessage;
-export type DeleteReplicationGroupCommandOutput = DeleteReplicationGroupResult &
-  __MetadataBearer;
+export type DeleteReplicationGroupCommandOutput = DeleteReplicationGroupResult & __MetadataBearer;
 
 export class DeleteReplicationGroupCommand extends $Command<
   DeleteReplicationGroupCommandInput,
@@ -49,18 +38,13 @@ export class DeleteReplicationGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteReplicationGroupCommandInput,
-    DeleteReplicationGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteReplicationGroupCommandInput, DeleteReplicationGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DeleteReplicationGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteReplicationGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteReplicationGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteReplicationGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteReplicationGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReplicationGroupCommandOutput> {
     return deserializeAws_queryDeleteReplicationGroupCommand(output, context);
   }
 

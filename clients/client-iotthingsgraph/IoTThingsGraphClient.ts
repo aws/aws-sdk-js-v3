@@ -1,142 +1,100 @@
 import {
   AssociateEntityToThingCommandInput,
-  AssociateEntityToThingCommandOutput
+  AssociateEntityToThingCommandOutput,
 } from "./commands/AssociateEntityToThingCommand";
-import {
-  CreateFlowTemplateCommandInput,
-  CreateFlowTemplateCommandOutput
-} from "./commands/CreateFlowTemplateCommand";
+import { CreateFlowTemplateCommandInput, CreateFlowTemplateCommandOutput } from "./commands/CreateFlowTemplateCommand";
 import {
   CreateSystemInstanceCommandInput,
-  CreateSystemInstanceCommandOutput
+  CreateSystemInstanceCommandOutput,
 } from "./commands/CreateSystemInstanceCommand";
 import {
   CreateSystemTemplateCommandInput,
-  CreateSystemTemplateCommandOutput
+  CreateSystemTemplateCommandOutput,
 } from "./commands/CreateSystemTemplateCommand";
-import {
-  DeleteFlowTemplateCommandInput,
-  DeleteFlowTemplateCommandOutput
-} from "./commands/DeleteFlowTemplateCommand";
-import {
-  DeleteNamespaceCommandInput,
-  DeleteNamespaceCommandOutput
-} from "./commands/DeleteNamespaceCommand";
+import { DeleteFlowTemplateCommandInput, DeleteFlowTemplateCommandOutput } from "./commands/DeleteFlowTemplateCommand";
+import { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./commands/DeleteNamespaceCommand";
 import {
   DeleteSystemInstanceCommandInput,
-  DeleteSystemInstanceCommandOutput
+  DeleteSystemInstanceCommandOutput,
 } from "./commands/DeleteSystemInstanceCommand";
 import {
   DeleteSystemTemplateCommandInput,
-  DeleteSystemTemplateCommandOutput
+  DeleteSystemTemplateCommandOutput,
 } from "./commands/DeleteSystemTemplateCommand";
 import {
   DeploySystemInstanceCommandInput,
-  DeploySystemInstanceCommandOutput
+  DeploySystemInstanceCommandOutput,
 } from "./commands/DeploySystemInstanceCommand";
 import {
   DeprecateFlowTemplateCommandInput,
-  DeprecateFlowTemplateCommandOutput
+  DeprecateFlowTemplateCommandOutput,
 } from "./commands/DeprecateFlowTemplateCommand";
 import {
   DeprecateSystemTemplateCommandInput,
-  DeprecateSystemTemplateCommandOutput
+  DeprecateSystemTemplateCommandOutput,
 } from "./commands/DeprecateSystemTemplateCommand";
-import {
-  DescribeNamespaceCommandInput,
-  DescribeNamespaceCommandOutput
-} from "./commands/DescribeNamespaceCommand";
+import { DescribeNamespaceCommandInput, DescribeNamespaceCommandOutput } from "./commands/DescribeNamespaceCommand";
 import {
   DissociateEntityFromThingCommandInput,
-  DissociateEntityFromThingCommandOutput
+  DissociateEntityFromThingCommandOutput,
 } from "./commands/DissociateEntityFromThingCommand";
-import {
-  GetEntitiesCommandInput,
-  GetEntitiesCommandOutput
-} from "./commands/GetEntitiesCommand";
-import {
-  GetFlowTemplateCommandInput,
-  GetFlowTemplateCommandOutput
-} from "./commands/GetFlowTemplateCommand";
+import { GetEntitiesCommandInput, GetEntitiesCommandOutput } from "./commands/GetEntitiesCommand";
+import { GetFlowTemplateCommandInput, GetFlowTemplateCommandOutput } from "./commands/GetFlowTemplateCommand";
 import {
   GetFlowTemplateRevisionsCommandInput,
-  GetFlowTemplateRevisionsCommandOutput
+  GetFlowTemplateRevisionsCommandOutput,
 } from "./commands/GetFlowTemplateRevisionsCommand";
 import {
   GetNamespaceDeletionStatusCommandInput,
-  GetNamespaceDeletionStatusCommandOutput
+  GetNamespaceDeletionStatusCommandOutput,
 } from "./commands/GetNamespaceDeletionStatusCommand";
-import {
-  GetSystemInstanceCommandInput,
-  GetSystemInstanceCommandOutput
-} from "./commands/GetSystemInstanceCommand";
-import {
-  GetSystemTemplateCommandInput,
-  GetSystemTemplateCommandOutput
-} from "./commands/GetSystemTemplateCommand";
+import { GetSystemInstanceCommandInput, GetSystemInstanceCommandOutput } from "./commands/GetSystemInstanceCommand";
+import { GetSystemTemplateCommandInput, GetSystemTemplateCommandOutput } from "./commands/GetSystemTemplateCommand";
 import {
   GetSystemTemplateRevisionsCommandInput,
-  GetSystemTemplateRevisionsCommandOutput
+  GetSystemTemplateRevisionsCommandOutput,
 } from "./commands/GetSystemTemplateRevisionsCommand";
-import {
-  GetUploadStatusCommandInput,
-  GetUploadStatusCommandOutput
-} from "./commands/GetUploadStatusCommand";
+import { GetUploadStatusCommandInput, GetUploadStatusCommandOutput } from "./commands/GetUploadStatusCommand";
 import {
   ListFlowExecutionMessagesCommandInput,
-  ListFlowExecutionMessagesCommandOutput
+  ListFlowExecutionMessagesCommandOutput,
 } from "./commands/ListFlowExecutionMessagesCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  SearchEntitiesCommandInput,
-  SearchEntitiesCommandOutput
-} from "./commands/SearchEntitiesCommand";
+import { SearchEntitiesCommandInput, SearchEntitiesCommandOutput } from "./commands/SearchEntitiesCommand";
 import {
   SearchFlowExecutionsCommandInput,
-  SearchFlowExecutionsCommandOutput
+  SearchFlowExecutionsCommandOutput,
 } from "./commands/SearchFlowExecutionsCommand";
 import {
   SearchFlowTemplatesCommandInput,
-  SearchFlowTemplatesCommandOutput
+  SearchFlowTemplatesCommandOutput,
 } from "./commands/SearchFlowTemplatesCommand";
 import {
   SearchSystemInstancesCommandInput,
-  SearchSystemInstancesCommandOutput
+  SearchSystemInstancesCommandOutput,
 } from "./commands/SearchSystemInstancesCommand";
 import {
   SearchSystemTemplatesCommandInput,
-  SearchSystemTemplatesCommandOutput
+  SearchSystemTemplatesCommandOutput,
 } from "./commands/SearchSystemTemplatesCommand";
-import {
-  SearchThingsCommandInput,
-  SearchThingsCommandOutput
-} from "./commands/SearchThingsCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { SearchThingsCommandInput, SearchThingsCommandOutput } from "./commands/SearchThingsCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UndeploySystemInstanceCommandInput,
-  UndeploySystemInstanceCommandOutput
+  UndeploySystemInstanceCommandOutput,
 } from "./commands/UndeploySystemInstanceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateFlowTemplateCommandInput,
-  UpdateFlowTemplateCommandOutput
-} from "./commands/UpdateFlowTemplateCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateFlowTemplateCommandInput, UpdateFlowTemplateCommandOutput } from "./commands/UpdateFlowTemplateCommand";
 import {
   UpdateSystemTemplateCommandInput,
-  UpdateSystemTemplateCommandOutput
+  UpdateSystemTemplateCommandOutput,
 } from "./commands/UpdateSystemTemplateCommand";
 import {
   UploadEntityDefinitionsCommandInput,
-  UploadEntityDefinitionsCommandOutput
+  UploadEntityDefinitionsCommandOutput,
 } from "./commands/UploadEntityDefinitionsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -145,38 +103,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -187,7 +140,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -264,8 +217,7 @@ export type ServiceOutputTypes =
   | UpdateSystemTemplateCommandOutput
   | UploadEntityDefinitionsCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -354,9 +306,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type IoTThingsGraphClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type IoTThingsGraphClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -365,9 +315,7 @@ export type IoTThingsGraphClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type IoTThingsGraphClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type IoTThingsGraphClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -394,7 +342,7 @@ export class IoTThingsGraphClient extends __Client<
   constructor(configuration: IoTThingsGraphClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

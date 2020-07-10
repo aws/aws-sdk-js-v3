@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  CreateVirtualMFADeviceRequest,
-  CreateVirtualMFADeviceResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { CreateVirtualMFADeviceRequest, CreateVirtualMFADeviceResponse } from "../models/index";
 import {
   deserializeAws_queryCreateVirtualMFADeviceCommand,
-  serializeAws_queryCreateVirtualMFADeviceCommand
+  serializeAws_queryCreateVirtualMFADeviceCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateVirtualMFADeviceCommandInput = CreateVirtualMFADeviceRequest;
-export type CreateVirtualMFADeviceCommandOutput = CreateVirtualMFADeviceResponse &
-  __MetadataBearer;
+export type CreateVirtualMFADeviceCommandOutput = CreateVirtualMFADeviceResponse & __MetadataBearer;
 
 export class CreateVirtualMFADeviceCommand extends $Command<
   CreateVirtualMFADeviceCommandInput,
@@ -49,18 +38,13 @@ export class CreateVirtualMFADeviceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateVirtualMFADeviceCommandInput,
-    CreateVirtualMFADeviceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateVirtualMFADeviceCommandInput, CreateVirtualMFADeviceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class CreateVirtualMFADeviceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateVirtualMFADeviceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateVirtualMFADeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateVirtualMFADeviceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateVirtualMFADeviceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVirtualMFADeviceCommandOutput> {
     return deserializeAws_queryCreateVirtualMFADeviceCommand(output, context);
   }
 

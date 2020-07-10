@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DBSecurityGroupMessage,
-  DescribeDBSecurityGroupsMessage
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DBSecurityGroupMessage, DescribeDBSecurityGroupsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeDBSecurityGroupsCommand,
-  serializeAws_queryDescribeDBSecurityGroupsCommand
+  serializeAws_queryDescribeDBSecurityGroupsCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeDBSecurityGroupsCommandInput = DescribeDBSecurityGroupsMessage;
-export type DescribeDBSecurityGroupsCommandOutput = DBSecurityGroupMessage &
-  __MetadataBearer;
+export type DescribeDBSecurityGroupsCommandOutput = DBSecurityGroupMessage & __MetadataBearer;
 
 export class DescribeDBSecurityGroupsCommand extends $Command<
   DescribeDBSecurityGroupsCommandInput,
@@ -49,18 +38,13 @@ export class DescribeDBSecurityGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDBSecurityGroupsCommandInput,
-    DescribeDBSecurityGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDBSecurityGroupsCommandInput, DescribeDBSecurityGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DescribeDBSecurityGroupsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDBSecurityGroupsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeDBSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBSecurityGroupsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeDBSecurityGroupsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBSecurityGroupsCommandOutput> {
     return deserializeAws_queryDescribeDBSecurityGroupsCommand(output, context);
   }
 

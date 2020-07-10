@@ -1,17 +1,9 @@
-import {
-  getRetryPlugin,
-  retryMiddleware,
-  retryMiddlewareOptions
-} from "./retryMiddleware";
-import {
-  MiddlewareStack,
-  RetryStrategy,
-  FinalizeHandlerArguments
-} from "@aws-sdk/types";
+import { getRetryPlugin, retryMiddleware, retryMiddlewareOptions } from "./retryMiddleware";
+import { MiddlewareStack, RetryStrategy, FinalizeHandlerArguments } from "@aws-sdk/types";
 
 describe("getRetryPlugin", () => {
   const mockClientStack = {
-    add: jest.fn()
+    add: jest.fn(),
   };
 
   afterEach(() => {
@@ -19,18 +11,14 @@ describe("getRetryPlugin", () => {
   });
 
   describe("adds retryMiddleware", () => {
-    [1, 2, 3].forEach(maxAttempts => {
+    [1, 2, 3].forEach((maxAttempts) => {
       it(`when maxAttempts=${maxAttempts}`, () => {
         getRetryPlugin({
           maxAttempts: () => Promise.resolve(maxAttempts.toString()),
-          retryStrategy: {} as RetryStrategy
-        }).applyToStack(
-          (mockClientStack as unknown) as MiddlewareStack<any, any>
-        );
+          retryStrategy: {} as RetryStrategy,
+        }).applyToStack((mockClientStack as unknown) as MiddlewareStack<any, any>);
         expect(mockClientStack.add).toHaveBeenCalledTimes(1);
-        expect(mockClientStack.add.mock.calls[0][1]).toEqual(
-          retryMiddlewareOptions
-        );
+        expect(mockClientStack.add.mock.calls[0][1]).toEqual(retryMiddlewareOptions);
       });
     });
   });
@@ -45,16 +33,16 @@ describe("retryMiddleware", () => {
     const maxAttempts = 2;
     const next = jest.fn();
     const args = {
-      request: {}
+      request: {},
     };
     const mockRetryStrategy = {
       maxAttempts,
-      retry: jest.fn()
+      retry: jest.fn(),
     };
 
     await retryMiddleware({
       maxAttempts: () => Promise.resolve(maxAttempts.toString()),
-      retryStrategy: mockRetryStrategy
+      retryStrategy: mockRetryStrategy,
     })(next)(args as FinalizeHandlerArguments<any>);
     expect(mockRetryStrategy.retry).toHaveBeenCalledTimes(1);
     expect(mockRetryStrategy.retry).toHaveBeenCalledWith(next, args);

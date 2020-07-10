@@ -1,21 +1,11 @@
-import {
-  SecurityHubClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SecurityHubClient";
-import {
-  EnableSecurityHubRequest,
-  EnableSecurityHubResponse
-} from "../models/index";
+import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
+import { EnableSecurityHubRequest, EnableSecurityHubResponse } from "../models/index";
 import {
   deserializeAws_restJson1EnableSecurityHubCommand,
-  serializeAws_restJson1EnableSecurityHubCommand
+  serializeAws_restJson1EnableSecurityHubCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type EnableSecurityHubCommandInput = EnableSecurityHubRequest;
-export type EnableSecurityHubCommandOutput = EnableSecurityHubResponse &
-  __MetadataBearer;
+export type EnableSecurityHubCommandOutput = EnableSecurityHubResponse & __MetadataBearer;
 
 export class EnableSecurityHubCommand extends $Command<
   EnableSecurityHubCommandInput,
@@ -50,14 +39,12 @@ export class EnableSecurityHubCommand extends $Command<
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<EnableSecurityHubCommandInput, EnableSecurityHubCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class EnableSecurityHubCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: EnableSecurityHubCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: EnableSecurityHubCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1EnableSecurityHubCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<EnableSecurityHubCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableSecurityHubCommandOutput> {
     return deserializeAws_restJson1EnableSecurityHubCommand(output, context);
   }
 

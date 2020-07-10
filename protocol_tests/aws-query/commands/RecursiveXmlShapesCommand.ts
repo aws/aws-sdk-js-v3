@@ -1,18 +1,11 @@
-import {
-  QueryProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QueryProtocolClient";
+import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 import { RecursiveXmlShapesOutput } from "../models/index";
 import {
   deserializeAws_queryRecursiveXmlShapesCommand,
-  serializeAws_queryRecursiveXmlShapesCommand
+  serializeAws_queryRecursiveXmlShapesCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type RecursiveXmlShapesCommandInput = {};
-export type RecursiveXmlShapesCommandOutput = RecursiveXmlShapesOutput &
-  __MetadataBearer;
+export type RecursiveXmlShapesCommandOutput = RecursiveXmlShapesOutput & __MetadataBearer;
 
 export class RecursiveXmlShapesCommand extends $Command<
   RecursiveXmlShapesCommandInput,
@@ -47,14 +39,12 @@ export class RecursiveXmlShapesCommand extends $Command<
     configuration: QueryProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RecursiveXmlShapesCommandInput, RecursiveXmlShapesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class RecursiveXmlShapesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RecursiveXmlShapesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RecursiveXmlShapesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRecursiveXmlShapesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RecursiveXmlShapesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RecursiveXmlShapesCommandOutput> {
     return deserializeAws_queryRecursiveXmlShapesCommand(output, context);
   }
 

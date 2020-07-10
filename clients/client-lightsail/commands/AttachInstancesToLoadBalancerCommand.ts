@@ -1,21 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient";
-import {
-  AttachInstancesToLoadBalancerRequest,
-  AttachInstancesToLoadBalancerResult
-} from "../models/index";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { AttachInstancesToLoadBalancerRequest, AttachInstancesToLoadBalancerResult } from "../models/index";
 import {
   deserializeAws_json1_1AttachInstancesToLoadBalancerCommand,
-  serializeAws_json1_1AttachInstancesToLoadBalancerCommand
+  serializeAws_json1_1AttachInstancesToLoadBalancerCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type AttachInstancesToLoadBalancerCommandInput = AttachInstancesToLoadBalancerRequest;
-export type AttachInstancesToLoadBalancerCommandOutput = AttachInstancesToLoadBalancerResult &
-  __MetadataBearer;
+export type AttachInstancesToLoadBalancerCommandOutput = AttachInstancesToLoadBalancerResult & __MetadataBearer;
 
 export class AttachInstancesToLoadBalancerCommand extends $Command<
   AttachInstancesToLoadBalancerCommandInput,
@@ -49,18 +38,13 @@ export class AttachInstancesToLoadBalancerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AttachInstancesToLoadBalancerCommandInput,
-    AttachInstancesToLoadBalancerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AttachInstancesToLoadBalancerCommandInput, AttachInstancesToLoadBalancerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class AttachInstancesToLoadBalancerCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AttachInstancesToLoadBalancerCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AttachInstancesToLoadBalancerCommand(
-      input,
-      context
-    );
+  private serialize(input: AttachInstancesToLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1AttachInstancesToLoadBalancerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachInstancesToLoadBalancerCommandOutput> {
-    return deserializeAws_json1_1AttachInstancesToLoadBalancerCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AttachInstancesToLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

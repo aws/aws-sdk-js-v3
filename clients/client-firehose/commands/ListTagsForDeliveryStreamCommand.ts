@@ -1,21 +1,11 @@
-import {
-  FirehoseClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FirehoseClient";
-import {
-  ListTagsForDeliveryStreamInput,
-  ListTagsForDeliveryStreamOutput
-} from "../models/index";
+import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
+import { ListTagsForDeliveryStreamInput, ListTagsForDeliveryStreamOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListTagsForDeliveryStreamCommand,
-  serializeAws_json1_1ListTagsForDeliveryStreamCommand
+  serializeAws_json1_1ListTagsForDeliveryStreamCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListTagsForDeliveryStreamCommandInput = ListTagsForDeliveryStreamInput;
-export type ListTagsForDeliveryStreamCommandOutput = ListTagsForDeliveryStreamOutput &
-  __MetadataBearer;
+export type ListTagsForDeliveryStreamCommandOutput = ListTagsForDeliveryStreamOutput & __MetadataBearer;
 
 export class ListTagsForDeliveryStreamCommand extends $Command<
   ListTagsForDeliveryStreamCommandInput,
@@ -49,18 +38,13 @@ export class ListTagsForDeliveryStreamCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FirehoseClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTagsForDeliveryStreamCommandInput,
-    ListTagsForDeliveryStreamCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTagsForDeliveryStreamCommandInput, ListTagsForDeliveryStreamCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +54,7 @@ export class ListTagsForDeliveryStreamCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListTagsForDeliveryStreamCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListTagsForDeliveryStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTagsForDeliveryStreamCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class ListTagsForDeliveryStreamCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTagsForDeliveryStreamCommandOutput> {
-    return deserializeAws_json1_1ListTagsForDeliveryStreamCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTagsForDeliveryStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

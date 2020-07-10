@@ -1,21 +1,15 @@
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient";
-import {
-  UpdateApplicationRequest,
-  UpdateApplicationResponse
-} from "../models/index";
+import { UpdateApplicationRequest, UpdateApplicationResponse } from "../models/index";
 import {
   deserializeAws_restJson1UpdateApplicationCommand,
-  serializeAws_restJson1UpdateApplicationCommand
+  serializeAws_restJson1UpdateApplicationCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateApplicationCommandInput = UpdateApplicationRequest;
-export type UpdateApplicationCommandOutput = UpdateApplicationResponse &
-  __MetadataBearer;
+export type UpdateApplicationCommandOutput = UpdateApplicationResponse & __MetadataBearer;
 
 export class UpdateApplicationCommand extends $Command<
   UpdateApplicationCommandInput,
@@ -50,14 +43,12 @@ export class UpdateApplicationCommand extends $Command<
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateApplicationCommandInput, UpdateApplicationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +58,11 @@ export class UpdateApplicationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateApplicationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateApplicationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateApplicationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApplicationCommandOutput> {
     return deserializeAws_restJson1UpdateApplicationCommand(output, context);
   }
 

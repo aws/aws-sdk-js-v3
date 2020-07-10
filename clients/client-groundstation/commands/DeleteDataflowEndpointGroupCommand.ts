@@ -1,21 +1,11 @@
-import {
-  GroundStationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GroundStationClient";
-import {
-  DataflowEndpointGroupIdResponse,
-  DeleteDataflowEndpointGroupRequest
-} from "../models/index";
+import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
+import { DataflowEndpointGroupIdResponse, DeleteDataflowEndpointGroupRequest } from "../models/index";
 import {
   deserializeAws_restJson1DeleteDataflowEndpointGroupCommand,
-  serializeAws_restJson1DeleteDataflowEndpointGroupCommand
+  serializeAws_restJson1DeleteDataflowEndpointGroupCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteDataflowEndpointGroupCommandInput = DeleteDataflowEndpointGroupRequest;
-export type DeleteDataflowEndpointGroupCommandOutput = DataflowEndpointGroupIdResponse &
-  __MetadataBearer;
+export type DeleteDataflowEndpointGroupCommandOutput = DataflowEndpointGroupIdResponse & __MetadataBearer;
 
 export class DeleteDataflowEndpointGroupCommand extends $Command<
   DeleteDataflowEndpointGroupCommandInput,
@@ -49,18 +38,13 @@ export class DeleteDataflowEndpointGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDataflowEndpointGroupCommandInput,
-    DeleteDataflowEndpointGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDataflowEndpointGroupCommandInput, DeleteDataflowEndpointGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class DeleteDataflowEndpointGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteDataflowEndpointGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDataflowEndpointGroupCommand(
-      input,
-      context
-    );
+  private serialize(input: DeleteDataflowEndpointGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DeleteDataflowEndpointGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDataflowEndpointGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteDataflowEndpointGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteDataflowEndpointGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

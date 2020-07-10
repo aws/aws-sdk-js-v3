@@ -1,18 +1,11 @@
-import {
-  CloudTrailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudTrailClient";
+import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { ListPublicKeysRequest, ListPublicKeysResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListPublicKeysCommand,
-  serializeAws_json1_1ListPublicKeysCommand
+  serializeAws_json1_1ListPublicKeysCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListPublicKeysCommandInput = ListPublicKeysRequest;
-export type ListPublicKeysCommandOutput = ListPublicKeysResponse &
-  __MetadataBearer;
+export type ListPublicKeysCommandOutput = ListPublicKeysResponse & __MetadataBearer;
 
 export class ListPublicKeysCommand extends $Command<
   ListPublicKeysCommandInput,
@@ -47,14 +39,12 @@ export class ListPublicKeysCommand extends $Command<
     configuration: CloudTrailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListPublicKeysCommandInput, ListPublicKeysCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class ListPublicKeysCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListPublicKeysCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListPublicKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPublicKeysCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListPublicKeysCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPublicKeysCommandOutput> {
     return deserializeAws_json1_1ListPublicKeysCommand(output, context);
   }
 

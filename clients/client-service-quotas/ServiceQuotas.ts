@@ -2,82 +2,82 @@ import { ServiceQuotasClient } from "./ServiceQuotasClient";
 import {
   AssociateServiceQuotaTemplateCommand,
   AssociateServiceQuotaTemplateCommandInput,
-  AssociateServiceQuotaTemplateCommandOutput
+  AssociateServiceQuotaTemplateCommandOutput,
 } from "./commands/AssociateServiceQuotaTemplateCommand";
 import {
   DeleteServiceQuotaIncreaseRequestFromTemplateCommand,
   DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
-  DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
+  DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput,
 } from "./commands/DeleteServiceQuotaIncreaseRequestFromTemplateCommand";
 import {
   DisassociateServiceQuotaTemplateCommand,
   DisassociateServiceQuotaTemplateCommandInput,
-  DisassociateServiceQuotaTemplateCommandOutput
+  DisassociateServiceQuotaTemplateCommandOutput,
 } from "./commands/DisassociateServiceQuotaTemplateCommand";
 import {
   GetAWSDefaultServiceQuotaCommand,
   GetAWSDefaultServiceQuotaCommandInput,
-  GetAWSDefaultServiceQuotaCommandOutput
+  GetAWSDefaultServiceQuotaCommandOutput,
 } from "./commands/GetAWSDefaultServiceQuotaCommand";
 import {
   GetAssociationForServiceQuotaTemplateCommand,
   GetAssociationForServiceQuotaTemplateCommandInput,
-  GetAssociationForServiceQuotaTemplateCommandOutput
+  GetAssociationForServiceQuotaTemplateCommandOutput,
 } from "./commands/GetAssociationForServiceQuotaTemplateCommand";
 import {
   GetRequestedServiceQuotaChangeCommand,
   GetRequestedServiceQuotaChangeCommandInput,
-  GetRequestedServiceQuotaChangeCommandOutput
+  GetRequestedServiceQuotaChangeCommandOutput,
 } from "./commands/GetRequestedServiceQuotaChangeCommand";
 import {
   GetServiceQuotaCommand,
   GetServiceQuotaCommandInput,
-  GetServiceQuotaCommandOutput
+  GetServiceQuotaCommandOutput,
 } from "./commands/GetServiceQuotaCommand";
 import {
   GetServiceQuotaIncreaseRequestFromTemplateCommand,
   GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
-  GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
+  GetServiceQuotaIncreaseRequestFromTemplateCommandOutput,
 } from "./commands/GetServiceQuotaIncreaseRequestFromTemplateCommand";
 import {
   ListAWSDefaultServiceQuotasCommand,
   ListAWSDefaultServiceQuotasCommandInput,
-  ListAWSDefaultServiceQuotasCommandOutput
+  ListAWSDefaultServiceQuotasCommandOutput,
 } from "./commands/ListAWSDefaultServiceQuotasCommand";
 import {
   ListRequestedServiceQuotaChangeHistoryByQuotaCommand,
   ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
-  ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
+  ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput,
 } from "./commands/ListRequestedServiceQuotaChangeHistoryByQuotaCommand";
 import {
   ListRequestedServiceQuotaChangeHistoryCommand,
   ListRequestedServiceQuotaChangeHistoryCommandInput,
-  ListRequestedServiceQuotaChangeHistoryCommandOutput
+  ListRequestedServiceQuotaChangeHistoryCommandOutput,
 } from "./commands/ListRequestedServiceQuotaChangeHistoryCommand";
 import {
   ListServiceQuotaIncreaseRequestsInTemplateCommand,
   ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
-  ListServiceQuotaIncreaseRequestsInTemplateCommandOutput
+  ListServiceQuotaIncreaseRequestsInTemplateCommandOutput,
 } from "./commands/ListServiceQuotaIncreaseRequestsInTemplateCommand";
 import {
   ListServiceQuotasCommand,
   ListServiceQuotasCommandInput,
-  ListServiceQuotasCommandOutput
+  ListServiceQuotasCommandOutput,
 } from "./commands/ListServiceQuotasCommand";
 import {
   ListServicesCommand,
   ListServicesCommandInput,
-  ListServicesCommandOutput
+  ListServicesCommandOutput,
 } from "./commands/ListServicesCommand";
 import {
   PutServiceQuotaIncreaseRequestIntoTemplateCommand,
   PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
-  PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
+  PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput,
 } from "./commands/PutServiceQuotaIncreaseRequestIntoTemplateCommand";
 import {
   RequestServiceQuotaIncreaseCommand,
   RequestServiceQuotaIncreaseCommandInput,
-  RequestServiceQuotaIncreaseCommandOutput
+  RequestServiceQuotaIncreaseCommandOutput,
 } from "./commands/RequestServiceQuotaIncreaseCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -118,17 +118,14 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): void;
   public associateServiceQuotaTemplate(
     args: AssociateServiceQuotaTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateServiceQuotaTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateServiceQuotaTemplateCommandOutput) => void),
     cb?: (err: any, data?: AssociateServiceQuotaTemplateCommandOutput) => void
   ): Promise<AssociateServiceQuotaTemplateCommandOutput> | void {
     const command = new AssociateServiceQuotaTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -144,42 +141,25 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): Promise<DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput>;
   public deleteServiceQuotaIncreaseRequestFromTemplate(
     args: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput) => void
   ): void;
   public deleteServiceQuotaIncreaseRequestFromTemplate(
     args: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput) => void
   ): void;
   public deleteServiceQuotaIncreaseRequestFromTemplate(
     args: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
-    ) => void
-  ): Promise<
-    DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
-  > | void {
-    const command = new DeleteServiceQuotaIncreaseRequestFromTemplateCommand(
-      args
-    );
+      | ((err: any, data?: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput) => void
+  ): Promise<DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput> | void {
+    const command = new DeleteServiceQuotaIncreaseRequestFromTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -219,23 +199,14 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): void;
   public disassociateServiceQuotaTemplate(
     args: DisassociateServiceQuotaTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateServiceQuotaTemplateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateServiceQuotaTemplateCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateServiceQuotaTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateServiceQuotaTemplateCommandOutput) => void
   ): Promise<DisassociateServiceQuotaTemplateCommandOutput> | void {
     const command = new DisassociateServiceQuotaTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -252,38 +223,25 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): Promise<GetAssociationForServiceQuotaTemplateCommandOutput>;
   public getAssociationForServiceQuotaTemplate(
     args: GetAssociationForServiceQuotaTemplateCommandInput,
-    cb: (
-      err: any,
-      data?: GetAssociationForServiceQuotaTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: GetAssociationForServiceQuotaTemplateCommandOutput) => void
   ): void;
   public getAssociationForServiceQuotaTemplate(
     args: GetAssociationForServiceQuotaTemplateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetAssociationForServiceQuotaTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: GetAssociationForServiceQuotaTemplateCommandOutput) => void
   ): void;
   public getAssociationForServiceQuotaTemplate(
     args: GetAssociationForServiceQuotaTemplateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetAssociationForServiceQuotaTemplateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetAssociationForServiceQuotaTemplateCommandOutput
-    ) => void
+      | ((err: any, data?: GetAssociationForServiceQuotaTemplateCommandOutput) => void),
+    cb?: (err: any, data?: GetAssociationForServiceQuotaTemplateCommandOutput) => void
   ): Promise<GetAssociationForServiceQuotaTemplateCommandOutput> | void {
     const command = new GetAssociationForServiceQuotaTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -309,17 +267,14 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): void;
   public getAWSDefaultServiceQuota(
     args: GetAWSDefaultServiceQuotaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAWSDefaultServiceQuotaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAWSDefaultServiceQuotaCommandOutput) => void),
     cb?: (err: any, data?: GetAWSDefaultServiceQuotaCommandOutput) => void
   ): Promise<GetAWSDefaultServiceQuotaCommandOutput> | void {
     const command = new GetAWSDefaultServiceQuotaCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -344,20 +299,14 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): void;
   public getRequestedServiceQuotaChange(
     args: GetRequestedServiceQuotaChangeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetRequestedServiceQuotaChangeCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRequestedServiceQuotaChangeCommandOutput) => void),
     cb?: (err: any, data?: GetRequestedServiceQuotaChangeCommandOutput) => void
   ): Promise<GetRequestedServiceQuotaChangeCommandOutput> | void {
     const command = new GetRequestedServiceQuotaChangeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -385,17 +334,14 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): void;
   public getServiceQuota(
     args: GetServiceQuotaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetServiceQuotaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServiceQuotaCommandOutput) => void),
     cb?: (err: any, data?: GetServiceQuotaCommandOutput) => void
   ): Promise<GetServiceQuotaCommandOutput> | void {
     const command = new GetServiceQuotaCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -411,38 +357,25 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): Promise<GetServiceQuotaIncreaseRequestFromTemplateCommandOutput>;
   public getServiceQuotaIncreaseRequestFromTemplate(
     args: GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
-    cb: (
-      err: any,
-      data?: GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: GetServiceQuotaIncreaseRequestFromTemplateCommandOutput) => void
   ): void;
   public getServiceQuotaIncreaseRequestFromTemplate(
     args: GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: GetServiceQuotaIncreaseRequestFromTemplateCommandOutput) => void
   ): void;
   public getServiceQuotaIncreaseRequestFromTemplate(
     args: GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
-    ) => void
+      | ((err: any, data?: GetServiceQuotaIncreaseRequestFromTemplateCommandOutput) => void),
+    cb?: (err: any, data?: GetServiceQuotaIncreaseRequestFromTemplateCommandOutput) => void
   ): Promise<GetServiceQuotaIncreaseRequestFromTemplateCommandOutput> | void {
     const command = new GetServiceQuotaIncreaseRequestFromTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -479,17 +412,14 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): void;
   public listAWSDefaultServiceQuotas(
     args: ListAWSDefaultServiceQuotasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAWSDefaultServiceQuotasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAWSDefaultServiceQuotasCommandOutput) => void),
     cb?: (err: any, data?: ListAWSDefaultServiceQuotasCommandOutput) => void
   ): Promise<ListAWSDefaultServiceQuotasCommandOutput> | void {
     const command = new ListAWSDefaultServiceQuotasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -505,38 +435,25 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): Promise<ListRequestedServiceQuotaChangeHistoryCommandOutput>;
   public listRequestedServiceQuotaChangeHistory(
     args: ListRequestedServiceQuotaChangeHistoryCommandInput,
-    cb: (
-      err: any,
-      data?: ListRequestedServiceQuotaChangeHistoryCommandOutput
-    ) => void
+    cb: (err: any, data?: ListRequestedServiceQuotaChangeHistoryCommandOutput) => void
   ): void;
   public listRequestedServiceQuotaChangeHistory(
     args: ListRequestedServiceQuotaChangeHistoryCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListRequestedServiceQuotaChangeHistoryCommandOutput
-    ) => void
+    cb: (err: any, data?: ListRequestedServiceQuotaChangeHistoryCommandOutput) => void
   ): void;
   public listRequestedServiceQuotaChangeHistory(
     args: ListRequestedServiceQuotaChangeHistoryCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListRequestedServiceQuotaChangeHistoryCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListRequestedServiceQuotaChangeHistoryCommandOutput
-    ) => void
+      | ((err: any, data?: ListRequestedServiceQuotaChangeHistoryCommandOutput) => void),
+    cb?: (err: any, data?: ListRequestedServiceQuotaChangeHistoryCommandOutput) => void
   ): Promise<ListRequestedServiceQuotaChangeHistoryCommandOutput> | void {
     const command = new ListRequestedServiceQuotaChangeHistoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -555,42 +472,25 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): Promise<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput>;
   public listRequestedServiceQuotaChangeHistoryByQuota(
     args: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
-    cb: (
-      err: any,
-      data?: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
-    ) => void
+    cb: (err: any, data?: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput) => void
   ): void;
   public listRequestedServiceQuotaChangeHistoryByQuota(
     args: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
-    ) => void
+    cb: (err: any, data?: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput) => void
   ): void;
   public listRequestedServiceQuotaChangeHistoryByQuota(
     args: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
-    ) => void
-  ): Promise<
-    ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
-  > | void {
-    const command = new ListRequestedServiceQuotaChangeHistoryByQuotaCommand(
-      args
-    );
+      | ((err: any, data?: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput) => void),
+    cb?: (err: any, data?: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput) => void
+  ): Promise<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> | void {
+    const command = new ListRequestedServiceQuotaChangeHistoryByQuotaCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -606,38 +506,25 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): Promise<ListServiceQuotaIncreaseRequestsInTemplateCommandOutput>;
   public listServiceQuotaIncreaseRequestsInTemplate(
     args: ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
-    cb: (
-      err: any,
-      data?: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput) => void
   ): void;
   public listServiceQuotaIncreaseRequestsInTemplate(
     args: ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput) => void
   ): void;
   public listServiceQuotaIncreaseRequestsInTemplate(
     args: ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput
-    ) => void
+      | ((err: any, data?: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput) => void),
+    cb?: (err: any, data?: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput) => void
   ): Promise<ListServiceQuotaIncreaseRequestsInTemplateCommandOutput> | void {
     const command = new ListServiceQuotaIncreaseRequestsInTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -671,17 +558,14 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): void;
   public listServiceQuotas(
     args: ListServiceQuotasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListServiceQuotasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListServiceQuotasCommandOutput) => void),
     cb?: (err: any, data?: ListServiceQuotasCommandOutput) => void
   ): Promise<ListServiceQuotasCommandOutput> | void {
     const command = new ListServiceQuotasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -697,10 +581,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
     args: ListServicesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListServicesCommandOutput>;
-  public listServices(
-    args: ListServicesCommandInput,
-    cb: (err: any, data?: ListServicesCommandOutput) => void
-  ): void;
+  public listServices(args: ListServicesCommandInput, cb: (err: any, data?: ListServicesCommandOutput) => void): void;
   public listServices(
     args: ListServicesCommandInput,
     options: __HttpHandlerOptions,
@@ -708,17 +589,14 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): void;
   public listServices(
     args: ListServicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListServicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListServicesCommandOutput) => void),
     cb?: (err: any, data?: ListServicesCommandOutput) => void
   ): Promise<ListServicesCommandOutput> | void {
     const command = new ListServicesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -737,38 +615,25 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): Promise<PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput>;
   public putServiceQuotaIncreaseRequestIntoTemplate(
     args: PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
-    cb: (
-      err: any,
-      data?: PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput) => void
   ): void;
   public putServiceQuotaIncreaseRequestIntoTemplate(
     args: PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput) => void
   ): void;
   public putServiceQuotaIncreaseRequestIntoTemplate(
     args: PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
-    ) => void
+      | ((err: any, data?: PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput) => void),
+    cb?: (err: any, data?: PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput) => void
   ): Promise<PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput> | void {
     const command = new PutServiceQuotaIncreaseRequestIntoTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -794,17 +659,14 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): void;
   public requestServiceQuotaIncrease(
     args: RequestServiceQuotaIncreaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RequestServiceQuotaIncreaseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RequestServiceQuotaIncreaseCommandOutput) => void),
     cb?: (err: any, data?: RequestServiceQuotaIncreaseCommandOutput) => void
   ): Promise<RequestServiceQuotaIncreaseCommandOutput> | void {
     const command = new RequestServiceQuotaIncreaseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

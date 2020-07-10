@@ -1,63 +1,30 @@
-import {
-  CreateLedgerCommandInput,
-  CreateLedgerCommandOutput
-} from "./commands/CreateLedgerCommand";
-import {
-  DeleteLedgerCommandInput,
-  DeleteLedgerCommandOutput
-} from "./commands/DeleteLedgerCommand";
+import { CreateLedgerCommandInput, CreateLedgerCommandOutput } from "./commands/CreateLedgerCommand";
+import { DeleteLedgerCommandInput, DeleteLedgerCommandOutput } from "./commands/DeleteLedgerCommand";
 import {
   DescribeJournalS3ExportCommandInput,
-  DescribeJournalS3ExportCommandOutput
+  DescribeJournalS3ExportCommandOutput,
 } from "./commands/DescribeJournalS3ExportCommand";
-import {
-  DescribeLedgerCommandInput,
-  DescribeLedgerCommandOutput
-} from "./commands/DescribeLedgerCommand";
-import {
-  ExportJournalToS3CommandInput,
-  ExportJournalToS3CommandOutput
-} from "./commands/ExportJournalToS3Command";
-import {
-  GetBlockCommandInput,
-  GetBlockCommandOutput
-} from "./commands/GetBlockCommand";
-import {
-  GetDigestCommandInput,
-  GetDigestCommandOutput
-} from "./commands/GetDigestCommand";
-import {
-  GetRevisionCommandInput,
-  GetRevisionCommandOutput
-} from "./commands/GetRevisionCommand";
+import { DescribeLedgerCommandInput, DescribeLedgerCommandOutput } from "./commands/DescribeLedgerCommand";
+import { ExportJournalToS3CommandInput, ExportJournalToS3CommandOutput } from "./commands/ExportJournalToS3Command";
+import { GetBlockCommandInput, GetBlockCommandOutput } from "./commands/GetBlockCommand";
+import { GetDigestCommandInput, GetDigestCommandOutput } from "./commands/GetDigestCommand";
+import { GetRevisionCommandInput, GetRevisionCommandOutput } from "./commands/GetRevisionCommand";
 import {
   ListJournalS3ExportsCommandInput,
-  ListJournalS3ExportsCommandOutput
+  ListJournalS3ExportsCommandOutput,
 } from "./commands/ListJournalS3ExportsCommand";
 import {
   ListJournalS3ExportsForLedgerCommandInput,
-  ListJournalS3ExportsForLedgerCommandOutput
+  ListJournalS3ExportsForLedgerCommandOutput,
 } from "./commands/ListJournalS3ExportsForLedgerCommand";
-import {
-  ListLedgersCommandInput,
-  ListLedgersCommandOutput
-} from "./commands/ListLedgersCommand";
+import { ListLedgersCommandInput, ListLedgersCommandOutput } from "./commands/ListLedgersCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateLedgerCommandInput,
-  UpdateLedgerCommandOutput
-} from "./commands/UpdateLedgerCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateLedgerCommandInput, UpdateLedgerCommandOutput } from "./commands/UpdateLedgerCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -65,38 +32,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -107,7 +69,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -144,8 +106,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateLedgerCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -234,9 +195,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type QLDBClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type QLDBClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -245,9 +204,7 @@ export type QLDBClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type QLDBClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type QLDBClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -270,7 +227,7 @@ export class QLDBClient extends __Client<
   constructor(configuration: QLDBClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

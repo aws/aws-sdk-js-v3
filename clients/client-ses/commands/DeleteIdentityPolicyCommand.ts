@@ -1,21 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
-import {
-  DeleteIdentityPolicyRequest,
-  DeleteIdentityPolicyResponse
-} from "../models/index";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
+import { DeleteIdentityPolicyRequest, DeleteIdentityPolicyResponse } from "../models/index";
 import {
   deserializeAws_queryDeleteIdentityPolicyCommand,
-  serializeAws_queryDeleteIdentityPolicyCommand
+  serializeAws_queryDeleteIdentityPolicyCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteIdentityPolicyCommandInput = DeleteIdentityPolicyRequest;
-export type DeleteIdentityPolicyCommandOutput = DeleteIdentityPolicyResponse &
-  __MetadataBearer;
+export type DeleteIdentityPolicyCommandOutput = DeleteIdentityPolicyResponse & __MetadataBearer;
 
 export class DeleteIdentityPolicyCommand extends $Command<
   DeleteIdentityPolicyCommandInput,
@@ -49,18 +38,13 @@ export class DeleteIdentityPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteIdentityPolicyCommandInput,
-    DeleteIdentityPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteIdentityPolicyCommandInput, DeleteIdentityPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DeleteIdentityPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteIdentityPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteIdentityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteIdentityPolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteIdentityPolicyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIdentityPolicyCommandOutput> {
     return deserializeAws_queryDeleteIdentityPolicyCommand(output, context);
   }
 

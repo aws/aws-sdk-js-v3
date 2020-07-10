@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig
-} from "../StorageGatewayClient";
-import {
-  DescribeStorediSCSIVolumesInput,
-  DescribeStorediSCSIVolumesOutput
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
+import { DescribeStorediSCSIVolumesInput, DescribeStorediSCSIVolumesOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeStorediSCSIVolumesCommand,
-  serializeAws_json1_1DescribeStorediSCSIVolumesCommand
+  serializeAws_json1_1DescribeStorediSCSIVolumesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeStorediSCSIVolumesCommandInput = DescribeStorediSCSIVolumesInput;
-export type DescribeStorediSCSIVolumesCommandOutput = DescribeStorediSCSIVolumesOutput &
-  __MetadataBearer;
+export type DescribeStorediSCSIVolumesCommandOutput = DescribeStorediSCSIVolumesOutput & __MetadataBearer;
 
 export class DescribeStorediSCSIVolumesCommand extends $Command<
   DescribeStorediSCSIVolumesCommandInput,
@@ -49,18 +38,13 @@ export class DescribeStorediSCSIVolumesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeStorediSCSIVolumesCommandInput,
-    DescribeStorediSCSIVolumesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeStorediSCSIVolumesCommandInput, DescribeStorediSCSIVolumesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class DescribeStorediSCSIVolumesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeStorediSCSIVolumesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeStorediSCSIVolumesCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeStorediSCSIVolumesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeStorediSCSIVolumesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStorediSCSIVolumesCommandOutput> {
-    return deserializeAws_json1_1DescribeStorediSCSIVolumesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeStorediSCSIVolumesCommand(output, context);
   }
 
   // Start section: command_body_extra

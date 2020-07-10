@@ -1,19 +1,12 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { CreateBucketOutput, CreateBucketRequest } from "../models/index";
 import {
   deserializeAws_restXmlCreateBucketCommand,
-  serializeAws_restXmlCreateBucketCommand
+  serializeAws_restXmlCreateBucketCommand,
 } from "../protocols/Aws_restXml";
 import { getLocationConstraintPlugin } from "@aws-sdk/middleware-location-constraint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -22,7 +15,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateBucketCommandInput = CreateBucketRequest;
@@ -47,15 +40,13 @@ export class CreateBucketCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateBucketCommandInput, CreateBucketCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getLocationConstraintPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -65,17 +56,11 @@ export class CreateBucketCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateBucketCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateBucketCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateBucketCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBucketCommandOutput> {
     return deserializeAws_restXmlCreateBucketCommand(output, context);
   }
 

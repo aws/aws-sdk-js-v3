@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  ModifyVpcPeeringConnectionOptionsRequest,
-  ModifyVpcPeeringConnectionOptionsResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ModifyVpcPeeringConnectionOptionsRequest, ModifyVpcPeeringConnectionOptionsResult } from "../models/index";
 import {
   deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand,
-  serializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand
+  serializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand,
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ModifyVpcPeeringConnectionOptionsCommandInput = ModifyVpcPeeringConnectionOptionsRequest;
-export type ModifyVpcPeeringConnectionOptionsCommandOutput = ModifyVpcPeeringConnectionOptionsResult &
-  __MetadataBearer;
+export type ModifyVpcPeeringConnectionOptionsCommandOutput = ModifyVpcPeeringConnectionOptionsResult & __MetadataBearer;
 
 export class ModifyVpcPeeringConnectionOptionsCommand extends $Command<
   ModifyVpcPeeringConnectionOptionsCommandInput,
@@ -49,18 +38,13 @@ export class ModifyVpcPeeringConnectionOptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyVpcPeeringConnectionOptionsCommandInput,
-    ModifyVpcPeeringConnectionOptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyVpcPeeringConnectionOptionsCommandInput, ModifyVpcPeeringConnectionOptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +58,14 @@ export class ModifyVpcPeeringConnectionOptionsCommand extends $Command<
     input: ModifyVpcPeeringConnectionOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVpcPeeringConnectionOptionsCommandOutput> {
-    return deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

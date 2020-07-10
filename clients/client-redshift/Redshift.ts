@@ -2,432 +2,424 @@ import { RedshiftClient } from "./RedshiftClient";
 import {
   AcceptReservedNodeExchangeCommand,
   AcceptReservedNodeExchangeCommandInput,
-  AcceptReservedNodeExchangeCommandOutput
+  AcceptReservedNodeExchangeCommandOutput,
 } from "./commands/AcceptReservedNodeExchangeCommand";
 import {
   AuthorizeClusterSecurityGroupIngressCommand,
   AuthorizeClusterSecurityGroupIngressCommandInput,
-  AuthorizeClusterSecurityGroupIngressCommandOutput
+  AuthorizeClusterSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeClusterSecurityGroupIngressCommand";
 import {
   AuthorizeSnapshotAccessCommand,
   AuthorizeSnapshotAccessCommandInput,
-  AuthorizeSnapshotAccessCommandOutput
+  AuthorizeSnapshotAccessCommandOutput,
 } from "./commands/AuthorizeSnapshotAccessCommand";
 import {
   BatchDeleteClusterSnapshotsCommand,
   BatchDeleteClusterSnapshotsCommandInput,
-  BatchDeleteClusterSnapshotsCommandOutput
+  BatchDeleteClusterSnapshotsCommandOutput,
 } from "./commands/BatchDeleteClusterSnapshotsCommand";
 import {
   BatchModifyClusterSnapshotsCommand,
   BatchModifyClusterSnapshotsCommandInput,
-  BatchModifyClusterSnapshotsCommandOutput
+  BatchModifyClusterSnapshotsCommandOutput,
 } from "./commands/BatchModifyClusterSnapshotsCommand";
 import {
   CancelResizeCommand,
   CancelResizeCommandInput,
-  CancelResizeCommandOutput
+  CancelResizeCommandOutput,
 } from "./commands/CancelResizeCommand";
 import {
   CopyClusterSnapshotCommand,
   CopyClusterSnapshotCommandInput,
-  CopyClusterSnapshotCommandOutput
+  CopyClusterSnapshotCommandOutput,
 } from "./commands/CopyClusterSnapshotCommand";
 import {
   CreateClusterCommand,
   CreateClusterCommandInput,
-  CreateClusterCommandOutput
+  CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
 import {
   CreateClusterParameterGroupCommand,
   CreateClusterParameterGroupCommandInput,
-  CreateClusterParameterGroupCommandOutput
+  CreateClusterParameterGroupCommandOutput,
 } from "./commands/CreateClusterParameterGroupCommand";
 import {
   CreateClusterSecurityGroupCommand,
   CreateClusterSecurityGroupCommandInput,
-  CreateClusterSecurityGroupCommandOutput
+  CreateClusterSecurityGroupCommandOutput,
 } from "./commands/CreateClusterSecurityGroupCommand";
 import {
   CreateClusterSnapshotCommand,
   CreateClusterSnapshotCommandInput,
-  CreateClusterSnapshotCommandOutput
+  CreateClusterSnapshotCommandOutput,
 } from "./commands/CreateClusterSnapshotCommand";
 import {
   CreateClusterSubnetGroupCommand,
   CreateClusterSubnetGroupCommandInput,
-  CreateClusterSubnetGroupCommandOutput
+  CreateClusterSubnetGroupCommandOutput,
 } from "./commands/CreateClusterSubnetGroupCommand";
 import {
   CreateEventSubscriptionCommand,
   CreateEventSubscriptionCommandInput,
-  CreateEventSubscriptionCommandOutput
+  CreateEventSubscriptionCommandOutput,
 } from "./commands/CreateEventSubscriptionCommand";
 import {
   CreateHsmClientCertificateCommand,
   CreateHsmClientCertificateCommandInput,
-  CreateHsmClientCertificateCommandOutput
+  CreateHsmClientCertificateCommandOutput,
 } from "./commands/CreateHsmClientCertificateCommand";
 import {
   CreateHsmConfigurationCommand,
   CreateHsmConfigurationCommandInput,
-  CreateHsmConfigurationCommandOutput
+  CreateHsmConfigurationCommandOutput,
 } from "./commands/CreateHsmConfigurationCommand";
 import {
   CreateScheduledActionCommand,
   CreateScheduledActionCommandInput,
-  CreateScheduledActionCommandOutput
+  CreateScheduledActionCommandOutput,
 } from "./commands/CreateScheduledActionCommand";
 import {
   CreateSnapshotCopyGrantCommand,
   CreateSnapshotCopyGrantCommandInput,
-  CreateSnapshotCopyGrantCommandOutput
+  CreateSnapshotCopyGrantCommandOutput,
 } from "./commands/CreateSnapshotCopyGrantCommand";
 import {
   CreateSnapshotScheduleCommand,
   CreateSnapshotScheduleCommandInput,
-  CreateSnapshotScheduleCommandOutput
+  CreateSnapshotScheduleCommandOutput,
 } from "./commands/CreateSnapshotScheduleCommand";
-import {
-  CreateTagsCommand,
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "./commands/CreateTagsCommand";
+import { CreateTagsCommand, CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
   DeleteClusterCommand,
   DeleteClusterCommandInput,
-  DeleteClusterCommandOutput
+  DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
 import {
   DeleteClusterParameterGroupCommand,
   DeleteClusterParameterGroupCommandInput,
-  DeleteClusterParameterGroupCommandOutput
+  DeleteClusterParameterGroupCommandOutput,
 } from "./commands/DeleteClusterParameterGroupCommand";
 import {
   DeleteClusterSecurityGroupCommand,
   DeleteClusterSecurityGroupCommandInput,
-  DeleteClusterSecurityGroupCommandOutput
+  DeleteClusterSecurityGroupCommandOutput,
 } from "./commands/DeleteClusterSecurityGroupCommand";
 import {
   DeleteClusterSnapshotCommand,
   DeleteClusterSnapshotCommandInput,
-  DeleteClusterSnapshotCommandOutput
+  DeleteClusterSnapshotCommandOutput,
 } from "./commands/DeleteClusterSnapshotCommand";
 import {
   DeleteClusterSubnetGroupCommand,
   DeleteClusterSubnetGroupCommandInput,
-  DeleteClusterSubnetGroupCommandOutput
+  DeleteClusterSubnetGroupCommandOutput,
 } from "./commands/DeleteClusterSubnetGroupCommand";
 import {
   DeleteEventSubscriptionCommand,
   DeleteEventSubscriptionCommandInput,
-  DeleteEventSubscriptionCommandOutput
+  DeleteEventSubscriptionCommandOutput,
 } from "./commands/DeleteEventSubscriptionCommand";
 import {
   DeleteHsmClientCertificateCommand,
   DeleteHsmClientCertificateCommandInput,
-  DeleteHsmClientCertificateCommandOutput
+  DeleteHsmClientCertificateCommandOutput,
 } from "./commands/DeleteHsmClientCertificateCommand";
 import {
   DeleteHsmConfigurationCommand,
   DeleteHsmConfigurationCommandInput,
-  DeleteHsmConfigurationCommandOutput
+  DeleteHsmConfigurationCommandOutput,
 } from "./commands/DeleteHsmConfigurationCommand";
 import {
   DeleteScheduledActionCommand,
   DeleteScheduledActionCommandInput,
-  DeleteScheduledActionCommandOutput
+  DeleteScheduledActionCommandOutput,
 } from "./commands/DeleteScheduledActionCommand";
 import {
   DeleteSnapshotCopyGrantCommand,
   DeleteSnapshotCopyGrantCommandInput,
-  DeleteSnapshotCopyGrantCommandOutput
+  DeleteSnapshotCopyGrantCommandOutput,
 } from "./commands/DeleteSnapshotCopyGrantCommand";
 import {
   DeleteSnapshotScheduleCommand,
   DeleteSnapshotScheduleCommandInput,
-  DeleteSnapshotScheduleCommandOutput
+  DeleteSnapshotScheduleCommandOutput,
 } from "./commands/DeleteSnapshotScheduleCommand";
-import {
-  DeleteTagsCommand,
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
+import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
   DescribeAccountAttributesCommand,
   DescribeAccountAttributesCommandInput,
-  DescribeAccountAttributesCommandOutput
+  DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
 import {
   DescribeClusterDbRevisionsCommand,
   DescribeClusterDbRevisionsCommandInput,
-  DescribeClusterDbRevisionsCommandOutput
+  DescribeClusterDbRevisionsCommandOutput,
 } from "./commands/DescribeClusterDbRevisionsCommand";
 import {
   DescribeClusterParameterGroupsCommand,
   DescribeClusterParameterGroupsCommandInput,
-  DescribeClusterParameterGroupsCommandOutput
+  DescribeClusterParameterGroupsCommandOutput,
 } from "./commands/DescribeClusterParameterGroupsCommand";
 import {
   DescribeClusterParametersCommand,
   DescribeClusterParametersCommandInput,
-  DescribeClusterParametersCommandOutput
+  DescribeClusterParametersCommandOutput,
 } from "./commands/DescribeClusterParametersCommand";
 import {
   DescribeClusterSecurityGroupsCommand,
   DescribeClusterSecurityGroupsCommandInput,
-  DescribeClusterSecurityGroupsCommandOutput
+  DescribeClusterSecurityGroupsCommandOutput,
 } from "./commands/DescribeClusterSecurityGroupsCommand";
 import {
   DescribeClusterSnapshotsCommand,
   DescribeClusterSnapshotsCommandInput,
-  DescribeClusterSnapshotsCommandOutput
+  DescribeClusterSnapshotsCommandOutput,
 } from "./commands/DescribeClusterSnapshotsCommand";
 import {
   DescribeClusterSubnetGroupsCommand,
   DescribeClusterSubnetGroupsCommandInput,
-  DescribeClusterSubnetGroupsCommandOutput
+  DescribeClusterSubnetGroupsCommandOutput,
 } from "./commands/DescribeClusterSubnetGroupsCommand";
 import {
   DescribeClusterTracksCommand,
   DescribeClusterTracksCommandInput,
-  DescribeClusterTracksCommandOutput
+  DescribeClusterTracksCommandOutput,
 } from "./commands/DescribeClusterTracksCommand";
 import {
   DescribeClusterVersionsCommand,
   DescribeClusterVersionsCommandInput,
-  DescribeClusterVersionsCommandOutput
+  DescribeClusterVersionsCommandOutput,
 } from "./commands/DescribeClusterVersionsCommand";
 import {
   DescribeClustersCommand,
   DescribeClustersCommandInput,
-  DescribeClustersCommandOutput
+  DescribeClustersCommandOutput,
 } from "./commands/DescribeClustersCommand";
 import {
   DescribeDefaultClusterParametersCommand,
   DescribeDefaultClusterParametersCommandInput,
-  DescribeDefaultClusterParametersCommandOutput
+  DescribeDefaultClusterParametersCommandOutput,
 } from "./commands/DescribeDefaultClusterParametersCommand";
 import {
   DescribeEventCategoriesCommand,
   DescribeEventCategoriesCommandInput,
-  DescribeEventCategoriesCommandOutput
+  DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand";
 import {
   DescribeEventSubscriptionsCommand,
   DescribeEventSubscriptionsCommandInput,
-  DescribeEventSubscriptionsCommandOutput
+  DescribeEventSubscriptionsCommandOutput,
 } from "./commands/DescribeEventSubscriptionsCommand";
 import {
   DescribeEventsCommand,
   DescribeEventsCommandInput,
-  DescribeEventsCommandOutput
+  DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand";
 import {
   DescribeHsmClientCertificatesCommand,
   DescribeHsmClientCertificatesCommandInput,
-  DescribeHsmClientCertificatesCommandOutput
+  DescribeHsmClientCertificatesCommandOutput,
 } from "./commands/DescribeHsmClientCertificatesCommand";
 import {
   DescribeHsmConfigurationsCommand,
   DescribeHsmConfigurationsCommandInput,
-  DescribeHsmConfigurationsCommandOutput
+  DescribeHsmConfigurationsCommandOutput,
 } from "./commands/DescribeHsmConfigurationsCommand";
 import {
   DescribeLoggingStatusCommand,
   DescribeLoggingStatusCommandInput,
-  DescribeLoggingStatusCommandOutput
+  DescribeLoggingStatusCommandOutput,
 } from "./commands/DescribeLoggingStatusCommand";
 import {
   DescribeNodeConfigurationOptionsCommand,
   DescribeNodeConfigurationOptionsCommandInput,
-  DescribeNodeConfigurationOptionsCommandOutput
+  DescribeNodeConfigurationOptionsCommandOutput,
 } from "./commands/DescribeNodeConfigurationOptionsCommand";
 import {
   DescribeOrderableClusterOptionsCommand,
   DescribeOrderableClusterOptionsCommandInput,
-  DescribeOrderableClusterOptionsCommandOutput
+  DescribeOrderableClusterOptionsCommandOutput,
 } from "./commands/DescribeOrderableClusterOptionsCommand";
 import {
   DescribeReservedNodeOfferingsCommand,
   DescribeReservedNodeOfferingsCommandInput,
-  DescribeReservedNodeOfferingsCommandOutput
+  DescribeReservedNodeOfferingsCommandOutput,
 } from "./commands/DescribeReservedNodeOfferingsCommand";
 import {
   DescribeReservedNodesCommand,
   DescribeReservedNodesCommandInput,
-  DescribeReservedNodesCommandOutput
+  DescribeReservedNodesCommandOutput,
 } from "./commands/DescribeReservedNodesCommand";
 import {
   DescribeResizeCommand,
   DescribeResizeCommandInput,
-  DescribeResizeCommandOutput
+  DescribeResizeCommandOutput,
 } from "./commands/DescribeResizeCommand";
 import {
   DescribeScheduledActionsCommand,
   DescribeScheduledActionsCommandInput,
-  DescribeScheduledActionsCommandOutput
+  DescribeScheduledActionsCommandOutput,
 } from "./commands/DescribeScheduledActionsCommand";
 import {
   DescribeSnapshotCopyGrantsCommand,
   DescribeSnapshotCopyGrantsCommandInput,
-  DescribeSnapshotCopyGrantsCommandOutput
+  DescribeSnapshotCopyGrantsCommandOutput,
 } from "./commands/DescribeSnapshotCopyGrantsCommand";
 import {
   DescribeSnapshotSchedulesCommand,
   DescribeSnapshotSchedulesCommandInput,
-  DescribeSnapshotSchedulesCommandOutput
+  DescribeSnapshotSchedulesCommandOutput,
 } from "./commands/DescribeSnapshotSchedulesCommand";
 import {
   DescribeStorageCommand,
   DescribeStorageCommandInput,
-  DescribeStorageCommandOutput
+  DescribeStorageCommandOutput,
 } from "./commands/DescribeStorageCommand";
 import {
   DescribeTableRestoreStatusCommand,
   DescribeTableRestoreStatusCommandInput,
-  DescribeTableRestoreStatusCommandOutput
+  DescribeTableRestoreStatusCommandOutput,
 } from "./commands/DescribeTableRestoreStatusCommand";
 import {
   DescribeTagsCommand,
   DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
+  DescribeTagsCommandOutput,
 } from "./commands/DescribeTagsCommand";
 import {
   DisableLoggingCommand,
   DisableLoggingCommandInput,
-  DisableLoggingCommandOutput
+  DisableLoggingCommandOutput,
 } from "./commands/DisableLoggingCommand";
 import {
   DisableSnapshotCopyCommand,
   DisableSnapshotCopyCommandInput,
-  DisableSnapshotCopyCommandOutput
+  DisableSnapshotCopyCommandOutput,
 } from "./commands/DisableSnapshotCopyCommand";
 import {
   EnableLoggingCommand,
   EnableLoggingCommandInput,
-  EnableLoggingCommandOutput
+  EnableLoggingCommandOutput,
 } from "./commands/EnableLoggingCommand";
 import {
   EnableSnapshotCopyCommand,
   EnableSnapshotCopyCommandInput,
-  EnableSnapshotCopyCommandOutput
+  EnableSnapshotCopyCommandOutput,
 } from "./commands/EnableSnapshotCopyCommand";
 import {
   GetClusterCredentialsCommand,
   GetClusterCredentialsCommandInput,
-  GetClusterCredentialsCommandOutput
+  GetClusterCredentialsCommandOutput,
 } from "./commands/GetClusterCredentialsCommand";
 import {
   GetReservedNodeExchangeOfferingsCommand,
   GetReservedNodeExchangeOfferingsCommandInput,
-  GetReservedNodeExchangeOfferingsCommandOutput
+  GetReservedNodeExchangeOfferingsCommandOutput,
 } from "./commands/GetReservedNodeExchangeOfferingsCommand";
 import {
   ModifyClusterCommand,
   ModifyClusterCommandInput,
-  ModifyClusterCommandOutput
+  ModifyClusterCommandOutput,
 } from "./commands/ModifyClusterCommand";
 import {
   ModifyClusterDbRevisionCommand,
   ModifyClusterDbRevisionCommandInput,
-  ModifyClusterDbRevisionCommandOutput
+  ModifyClusterDbRevisionCommandOutput,
 } from "./commands/ModifyClusterDbRevisionCommand";
 import {
   ModifyClusterIamRolesCommand,
   ModifyClusterIamRolesCommandInput,
-  ModifyClusterIamRolesCommandOutput
+  ModifyClusterIamRolesCommandOutput,
 } from "./commands/ModifyClusterIamRolesCommand";
 import {
   ModifyClusterMaintenanceCommand,
   ModifyClusterMaintenanceCommandInput,
-  ModifyClusterMaintenanceCommandOutput
+  ModifyClusterMaintenanceCommandOutput,
 } from "./commands/ModifyClusterMaintenanceCommand";
 import {
   ModifyClusterParameterGroupCommand,
   ModifyClusterParameterGroupCommandInput,
-  ModifyClusterParameterGroupCommandOutput
+  ModifyClusterParameterGroupCommandOutput,
 } from "./commands/ModifyClusterParameterGroupCommand";
 import {
   ModifyClusterSnapshotCommand,
   ModifyClusterSnapshotCommandInput,
-  ModifyClusterSnapshotCommandOutput
+  ModifyClusterSnapshotCommandOutput,
 } from "./commands/ModifyClusterSnapshotCommand";
 import {
   ModifyClusterSnapshotScheduleCommand,
   ModifyClusterSnapshotScheduleCommandInput,
-  ModifyClusterSnapshotScheduleCommandOutput
+  ModifyClusterSnapshotScheduleCommandOutput,
 } from "./commands/ModifyClusterSnapshotScheduleCommand";
 import {
   ModifyClusterSubnetGroupCommand,
   ModifyClusterSubnetGroupCommandInput,
-  ModifyClusterSubnetGroupCommandOutput
+  ModifyClusterSubnetGroupCommandOutput,
 } from "./commands/ModifyClusterSubnetGroupCommand";
 import {
   ModifyEventSubscriptionCommand,
   ModifyEventSubscriptionCommandInput,
-  ModifyEventSubscriptionCommandOutput
+  ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand";
 import {
   ModifyScheduledActionCommand,
   ModifyScheduledActionCommandInput,
-  ModifyScheduledActionCommandOutput
+  ModifyScheduledActionCommandOutput,
 } from "./commands/ModifyScheduledActionCommand";
 import {
   ModifySnapshotCopyRetentionPeriodCommand,
   ModifySnapshotCopyRetentionPeriodCommandInput,
-  ModifySnapshotCopyRetentionPeriodCommandOutput
+  ModifySnapshotCopyRetentionPeriodCommandOutput,
 } from "./commands/ModifySnapshotCopyRetentionPeriodCommand";
 import {
   ModifySnapshotScheduleCommand,
   ModifySnapshotScheduleCommandInput,
-  ModifySnapshotScheduleCommandOutput
+  ModifySnapshotScheduleCommandOutput,
 } from "./commands/ModifySnapshotScheduleCommand";
 import {
   PurchaseReservedNodeOfferingCommand,
   PurchaseReservedNodeOfferingCommandInput,
-  PurchaseReservedNodeOfferingCommandOutput
+  PurchaseReservedNodeOfferingCommandOutput,
 } from "./commands/PurchaseReservedNodeOfferingCommand";
 import {
   RebootClusterCommand,
   RebootClusterCommandInput,
-  RebootClusterCommandOutput
+  RebootClusterCommandOutput,
 } from "./commands/RebootClusterCommand";
 import {
   ResetClusterParameterGroupCommand,
   ResetClusterParameterGroupCommandInput,
-  ResetClusterParameterGroupCommandOutput
+  ResetClusterParameterGroupCommandOutput,
 } from "./commands/ResetClusterParameterGroupCommand";
 import {
   ResizeClusterCommand,
   ResizeClusterCommandInput,
-  ResizeClusterCommandOutput
+  ResizeClusterCommandOutput,
 } from "./commands/ResizeClusterCommand";
 import {
   RestoreFromClusterSnapshotCommand,
   RestoreFromClusterSnapshotCommandInput,
-  RestoreFromClusterSnapshotCommandOutput
+  RestoreFromClusterSnapshotCommandOutput,
 } from "./commands/RestoreFromClusterSnapshotCommand";
 import {
   RestoreTableFromClusterSnapshotCommand,
   RestoreTableFromClusterSnapshotCommandInput,
-  RestoreTableFromClusterSnapshotCommandOutput
+  RestoreTableFromClusterSnapshotCommandOutput,
 } from "./commands/RestoreTableFromClusterSnapshotCommand";
 import {
   RevokeClusterSecurityGroupIngressCommand,
   RevokeClusterSecurityGroupIngressCommandInput,
-  RevokeClusterSecurityGroupIngressCommandOutput
+  RevokeClusterSecurityGroupIngressCommandOutput,
 } from "./commands/RevokeClusterSecurityGroupIngressCommand";
 import {
   RevokeSnapshotAccessCommand,
   RevokeSnapshotAccessCommandInput,
-  RevokeSnapshotAccessCommandOutput
+  RevokeSnapshotAccessCommandOutput,
 } from "./commands/RevokeSnapshotAccessCommand";
 import {
   RotateEncryptionKeyCommand,
   RotateEncryptionKeyCommandInput,
-  RotateEncryptionKeyCommandOutput
+  RotateEncryptionKeyCommandOutput,
 } from "./commands/RotateEncryptionKeyCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -476,17 +468,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public acceptReservedNodeExchange(
     args: AcceptReservedNodeExchangeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AcceptReservedNodeExchangeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptReservedNodeExchangeCommandOutput) => void),
     cb?: (err: any, data?: AcceptReservedNodeExchangeCommandOutput) => void
   ): Promise<AcceptReservedNodeExchangeCommandOutput> | void {
     const command = new AcceptReservedNodeExchangeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -517,38 +506,23 @@ export class Redshift extends RedshiftClient {
   ): Promise<AuthorizeClusterSecurityGroupIngressCommandOutput>;
   public authorizeClusterSecurityGroupIngress(
     args: AuthorizeClusterSecurityGroupIngressCommandInput,
-    cb: (
-      err: any,
-      data?: AuthorizeClusterSecurityGroupIngressCommandOutput
-    ) => void
+    cb: (err: any, data?: AuthorizeClusterSecurityGroupIngressCommandOutput) => void
   ): void;
   public authorizeClusterSecurityGroupIngress(
     args: AuthorizeClusterSecurityGroupIngressCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AuthorizeClusterSecurityGroupIngressCommandOutput
-    ) => void
+    cb: (err: any, data?: AuthorizeClusterSecurityGroupIngressCommandOutput) => void
   ): void;
   public authorizeClusterSecurityGroupIngress(
     args: AuthorizeClusterSecurityGroupIngressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AuthorizeClusterSecurityGroupIngressCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AuthorizeClusterSecurityGroupIngressCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AuthorizeClusterSecurityGroupIngressCommandOutput) => void),
+    cb?: (err: any, data?: AuthorizeClusterSecurityGroupIngressCommandOutput) => void
   ): Promise<AuthorizeClusterSecurityGroupIngressCommandOutput> | void {
     const command = new AuthorizeClusterSecurityGroupIngressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -578,17 +552,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public authorizeSnapshotAccess(
     args: AuthorizeSnapshotAccessCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AuthorizeSnapshotAccessCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AuthorizeSnapshotAccessCommandOutput) => void),
     cb?: (err: any, data?: AuthorizeSnapshotAccessCommandOutput) => void
   ): Promise<AuthorizeSnapshotAccessCommandOutput> | void {
     const command = new AuthorizeSnapshotAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -613,17 +584,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public batchDeleteClusterSnapshots(
     args: BatchDeleteClusterSnapshotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchDeleteClusterSnapshotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeleteClusterSnapshotsCommandOutput) => void),
     cb?: (err: any, data?: BatchDeleteClusterSnapshotsCommandOutput) => void
   ): Promise<BatchDeleteClusterSnapshotsCommandOutput> | void {
     const command = new BatchDeleteClusterSnapshotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -648,17 +616,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public batchModifyClusterSnapshots(
     args: BatchModifyClusterSnapshotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchModifyClusterSnapshotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchModifyClusterSnapshotsCommandOutput) => void),
     cb?: (err: any, data?: BatchModifyClusterSnapshotsCommandOutput) => void
   ): Promise<BatchModifyClusterSnapshotsCommandOutput> | void {
     const command = new BatchModifyClusterSnapshotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -672,10 +637,7 @@ export class Redshift extends RedshiftClient {
     args: CancelResizeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CancelResizeCommandOutput>;
-  public cancelResize(
-    args: CancelResizeCommandInput,
-    cb: (err: any, data?: CancelResizeCommandOutput) => void
-  ): void;
+  public cancelResize(args: CancelResizeCommandInput, cb: (err: any, data?: CancelResizeCommandOutput) => void): void;
   public cancelResize(
     args: CancelResizeCommandInput,
     options: __HttpHandlerOptions,
@@ -683,17 +645,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public cancelResize(
     args: CancelResizeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelResizeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelResizeCommandOutput) => void),
     cb?: (err: any, data?: CancelResizeCommandOutput) => void
   ): Promise<CancelResizeCommandOutput> | void {
     const command = new CancelResizeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -729,17 +688,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public copyClusterSnapshot(
     args: CopyClusterSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopyClusterSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyClusterSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CopyClusterSnapshotCommandOutput) => void
   ): Promise<CopyClusterSnapshotCommandOutput> | void {
     const command = new CopyClusterSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -770,17 +726,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public createCluster(
     args: CreateClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClusterCommandOutput) => void),
     cb?: (err: any, data?: CreateClusterCommandOutput) => void
   ): Promise<CreateClusterCommandOutput> | void {
     const command = new CreateClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -813,17 +766,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public createClusterParameterGroup(
     args: CreateClusterParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateClusterParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClusterParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateClusterParameterGroupCommandOutput) => void
   ): Promise<CreateClusterParameterGroupCommandOutput> | void {
     const command = new CreateClusterParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -853,17 +803,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public createClusterSecurityGroup(
     args: CreateClusterSecurityGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateClusterSecurityGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClusterSecurityGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateClusterSecurityGroupCommandOutput) => void
   ): Promise<CreateClusterSecurityGroupCommandOutput> | void {
     const command = new CreateClusterSecurityGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -893,17 +840,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public createClusterSnapshot(
     args: CreateClusterSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateClusterSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClusterSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CreateClusterSnapshotCommandOutput) => void
   ): Promise<CreateClusterSnapshotCommandOutput> | void {
     const command = new CreateClusterSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -934,17 +878,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public createClusterSubnetGroup(
     args: CreateClusterSubnetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateClusterSubnetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClusterSubnetGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateClusterSubnetGroupCommandOutput) => void
   ): Promise<CreateClusterSubnetGroupCommandOutput> | void {
     const command = new CreateClusterSubnetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -986,17 +927,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateEventSubscriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEventSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: CreateEventSubscriptionCommandOutput) => void
   ): Promise<CreateEventSubscriptionCommandOutput> | void {
     const command = new CreateEventSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1028,17 +966,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public createHsmClientCertificate(
     args: CreateHsmClientCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateHsmClientCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHsmClientCertificateCommandOutput) => void),
     cb?: (err: any, data?: CreateHsmClientCertificateCommandOutput) => void
   ): Promise<CreateHsmClientCertificateCommandOutput> | void {
     const command = new CreateHsmClientCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1069,17 +1004,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public createHsmConfiguration(
     args: CreateHsmConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateHsmConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHsmConfigurationCommandOutput) => void),
     cb?: (err: any, data?: CreateHsmConfigurationCommandOutput) => void
   ): Promise<CreateHsmConfigurationCommandOutput> | void {
     const command = new CreateHsmConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1106,17 +1038,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public createScheduledAction(
     args: CreateScheduledActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateScheduledActionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateScheduledActionCommandOutput) => void),
     cb?: (err: any, data?: CreateScheduledActionCommandOutput) => void
   ): Promise<CreateScheduledActionCommandOutput> | void {
     const command = new CreateScheduledActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1148,17 +1077,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public createSnapshotCopyGrant(
     args: CreateSnapshotCopyGrantCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSnapshotCopyGrantCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSnapshotCopyGrantCommandOutput) => void),
     cb?: (err: any, data?: CreateSnapshotCopyGrantCommandOutput) => void
   ): Promise<CreateSnapshotCopyGrantCommandOutput> | void {
     const command = new CreateSnapshotCopyGrantCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1183,17 +1109,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public createSnapshotSchedule(
     args: CreateSnapshotScheduleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSnapshotScheduleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSnapshotScheduleCommandOutput) => void),
     cb?: (err: any, data?: CreateSnapshotScheduleCommandOutput) => void
   ): Promise<CreateSnapshotScheduleCommandOutput> | void {
     const command = new CreateSnapshotScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1207,14 +1130,8 @@ export class Redshift extends RedshiftClient {
    *         <p>If you specify a key that already exists for the resource, the value for that key
    *             will be updated with the new value.</p>
    */
-  public createTags(
-    args: CreateTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateTagsCommandOutput>;
-  public createTags(
-    args: CreateTagsCommandInput,
-    cb: (err: any, data?: CreateTagsCommandOutput) => void
-  ): void;
+  public createTags(args: CreateTagsCommandInput, options?: __HttpHandlerOptions): Promise<CreateTagsCommandOutput>;
+  public createTags(args: CreateTagsCommandInput, cb: (err: any, data?: CreateTagsCommandOutput) => void): void;
   public createTags(
     args: CreateTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -1222,17 +1139,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public createTags(
     args: CreateTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTagsCommandOutput) => void),
     cb?: (err: any, data?: CreateTagsCommandOutput) => void
   ): Promise<CreateTagsCommandOutput> | void {
     const command = new CreateTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1272,17 +1186,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public deleteCluster(
     args: DeleteClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteClusterCommandOutput) => void),
     cb?: (err: any, data?: DeleteClusterCommandOutput) => void
   ): Promise<DeleteClusterCommandOutput> | void {
     const command = new DeleteClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1311,17 +1222,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public deleteClusterParameterGroup(
     args: DeleteClusterParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteClusterParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteClusterParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteClusterParameterGroupCommandOutput) => void
   ): Promise<DeleteClusterParameterGroupCommandOutput> | void {
     const command = new DeleteClusterParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1354,17 +1262,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public deleteClusterSecurityGroup(
     args: DeleteClusterSecurityGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteClusterSecurityGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteClusterSecurityGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteClusterSecurityGroupCommandOutput) => void
   ): Promise<DeleteClusterSecurityGroupCommandOutput> | void {
     const command = new DeleteClusterSecurityGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1395,17 +1300,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public deleteClusterSnapshot(
     args: DeleteClusterSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteClusterSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteClusterSnapshotCommandOutput) => void),
     cb?: (err: any, data?: DeleteClusterSnapshotCommandOutput) => void
   ): Promise<DeleteClusterSnapshotCommandOutput> | void {
     const command = new DeleteClusterSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1430,17 +1332,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public deleteClusterSubnetGroup(
     args: DeleteClusterSubnetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteClusterSubnetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteClusterSubnetGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteClusterSubnetGroupCommandOutput) => void
   ): Promise<DeleteClusterSubnetGroupCommandOutput> | void {
     const command = new DeleteClusterSubnetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1465,17 +1364,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public deleteEventSubscription(
     args: DeleteEventSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEventSubscriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: DeleteEventSubscriptionCommandOutput) => void
   ): Promise<DeleteEventSubscriptionCommandOutput> | void {
     const command = new DeleteEventSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1500,17 +1396,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public deleteHsmClientCertificate(
     args: DeleteHsmClientCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteHsmClientCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHsmClientCertificateCommandOutput) => void),
     cb?: (err: any, data?: DeleteHsmClientCertificateCommandOutput) => void
   ): Promise<DeleteHsmClientCertificateCommandOutput> | void {
     const command = new DeleteHsmClientCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1535,17 +1428,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public deleteHsmConfiguration(
     args: DeleteHsmConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteHsmConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHsmConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteHsmConfigurationCommandOutput) => void
   ): Promise<DeleteHsmConfigurationCommandOutput> | void {
     const command = new DeleteHsmConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1571,17 +1461,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public deleteScheduledAction(
     args: DeleteScheduledActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteScheduledActionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteScheduledActionCommandOutput) => void),
     cb?: (err: any, data?: DeleteScheduledActionCommandOutput) => void
   ): Promise<DeleteScheduledActionCommandOutput> | void {
     const command = new DeleteScheduledActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1606,17 +1493,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public deleteSnapshotCopyGrant(
     args: DeleteSnapshotCopyGrantCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSnapshotCopyGrantCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSnapshotCopyGrantCommandOutput) => void),
     cb?: (err: any, data?: DeleteSnapshotCopyGrantCommandOutput) => void
   ): Promise<DeleteSnapshotCopyGrantCommandOutput> | void {
     const command = new DeleteSnapshotCopyGrantCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1641,17 +1525,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public deleteSnapshotSchedule(
     args: DeleteSnapshotScheduleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSnapshotScheduleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSnapshotScheduleCommandOutput) => void),
     cb?: (err: any, data?: DeleteSnapshotScheduleCommandOutput) => void
   ): Promise<DeleteSnapshotScheduleCommandOutput> | void {
     const command = new DeleteSnapshotScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1662,14 +1543,8 @@ export class Redshift extends RedshiftClient {
    * <p>Deletes tags from a resource. You must provide the ARN of the resource
    *             from which you want to delete the tag or tags.</p>
    */
-  public deleteTags(
-    args: DeleteTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteTagsCommandOutput>;
-  public deleteTags(
-    args: DeleteTagsCommandInput,
-    cb: (err: any, data?: DeleteTagsCommandOutput) => void
-  ): void;
+  public deleteTags(args: DeleteTagsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTagsCommandOutput>;
+  public deleteTags(args: DeleteTagsCommandInput, cb: (err: any, data?: DeleteTagsCommandOutput) => void): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -1677,17 +1552,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1712,17 +1584,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAccountAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAccountAttributesCommandOutput) => void),
     cb?: (err: any, data?: DescribeAccountAttributesCommandOutput) => void
   ): Promise<DescribeAccountAttributesCommandOutput> | void {
     const command = new DescribeAccountAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1747,17 +1616,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeClusterDbRevisions(
     args: DescribeClusterDbRevisionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClusterDbRevisionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClusterDbRevisionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeClusterDbRevisionsCommandOutput) => void
   ): Promise<DescribeClusterDbRevisionsCommandOutput> | void {
     const command = new DescribeClusterDbRevisionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1798,20 +1664,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeClusterParameterGroups(
     args: DescribeClusterParameterGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeClusterParameterGroupsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClusterParameterGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeClusterParameterGroupsCommandOutput) => void
   ): Promise<DescribeClusterParameterGroupsCommandOutput> | void {
     const command = new DescribeClusterParameterGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1847,17 +1707,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeClusterParameters(
     args: DescribeClusterParametersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClusterParametersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClusterParametersCommandOutput) => void),
     cb?: (err: any, data?: DescribeClusterParametersCommandOutput) => void
   ): Promise<DescribeClusterParametersCommandOutput> | void {
     const command = new DescribeClusterParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1894,17 +1751,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeClusters(
     args: DescribeClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClustersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClustersCommandOutput) => void),
     cb?: (err: any, data?: DescribeClustersCommandOutput) => void
   ): Promise<DescribeClustersCommandOutput> | void {
     const command = new DescribeClustersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1943,17 +1797,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeClusterSecurityGroups(
     args: DescribeClusterSecurityGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClusterSecurityGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClusterSecurityGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeClusterSecurityGroupsCommandOutput) => void
   ): Promise<DescribeClusterSecurityGroupsCommandOutput> | void {
     const command = new DescribeClusterSecurityGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1990,17 +1841,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeClusterSnapshots(
     args: DescribeClusterSnapshotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClusterSnapshotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClusterSnapshotsCommandOutput) => void),
     cb?: (err: any, data?: DescribeClusterSnapshotsCommandOutput) => void
   ): Promise<DescribeClusterSnapshotsCommandOutput> | void {
     const command = new DescribeClusterSnapshotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2035,17 +1883,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeClusterSubnetGroups(
     args: DescribeClusterSubnetGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClusterSubnetGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClusterSubnetGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeClusterSubnetGroupsCommandOutput) => void
   ): Promise<DescribeClusterSubnetGroupsCommandOutput> | void {
     const command = new DescribeClusterSubnetGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2070,17 +1915,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeClusterTracks(
     args: DescribeClusterTracksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClusterTracksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClusterTracksCommandOutput) => void),
     cb?: (err: any, data?: DescribeClusterTracksCommandOutput) => void
   ): Promise<DescribeClusterTracksCommandOutput> | void {
     const command = new DescribeClusterTracksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2110,17 +1952,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeClusterVersions(
     args: DescribeClusterVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClusterVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClusterVersionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeClusterVersionsCommandOutput) => void
   ): Promise<DescribeClusterVersionsCommandOutput> | void {
     const command = new DescribeClusterVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2150,23 +1989,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeDefaultClusterParameters(
     args: DescribeDefaultClusterParametersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDefaultClusterParametersCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDefaultClusterParametersCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDefaultClusterParametersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDefaultClusterParametersCommandOutput) => void
   ): Promise<DescribeDefaultClusterParametersCommandOutput> | void {
     const command = new DescribeDefaultClusterParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2193,17 +2023,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventCategoriesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventCategoriesCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventCategoriesCommandOutput) => void
   ): Promise<DescribeEventCategoriesCommandOutput> | void {
     const command = new DescribeEventCategoriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2231,17 +2058,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeEvents(
     args: DescribeEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventsCommandOutput) => void
   ): Promise<DescribeEventsCommandOutput> | void {
     const command = new DescribeEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2276,17 +2100,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventSubscriptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventSubscriptionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
   ): Promise<DescribeEventSubscriptionsCommandOutput> | void {
     const command = new DescribeEventSubscriptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2321,17 +2142,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeHsmClientCertificates(
     args: DescribeHsmClientCertificatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeHsmClientCertificatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHsmClientCertificatesCommandOutput) => void),
     cb?: (err: any, data?: DescribeHsmClientCertificatesCommandOutput) => void
   ): Promise<DescribeHsmClientCertificatesCommandOutput> | void {
     const command = new DescribeHsmClientCertificatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2366,17 +2184,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeHsmConfigurations(
     args: DescribeHsmConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeHsmConfigurationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHsmConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: DescribeHsmConfigurationsCommandOutput) => void
   ): Promise<DescribeHsmConfigurationsCommandOutput> | void {
     const command = new DescribeHsmConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2402,17 +2217,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeLoggingStatus(
     args: DescribeLoggingStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLoggingStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLoggingStatusCommandOutput) => void),
     cb?: (err: any, data?: DescribeLoggingStatusCommandOutput) => void
   ): Promise<DescribeLoggingStatusCommandOutput> | void {
     const command = new DescribeLoggingStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2438,23 +2250,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeNodeConfigurationOptions(
     args: DescribeNodeConfigurationOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeNodeConfigurationOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeNodeConfigurationOptionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNodeConfigurationOptionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeNodeConfigurationOptionsCommandOutput) => void
   ): Promise<DescribeNodeConfigurationOptionsCommandOutput> | void {
     const command = new DescribeNodeConfigurationOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2487,20 +2290,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeOrderableClusterOptions(
     args: DescribeOrderableClusterOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeOrderableClusterOptionsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOrderableClusterOptionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeOrderableClusterOptionsCommandOutput) => void
   ): Promise<DescribeOrderableClusterOptionsCommandOutput> | void {
     const command = new DescribeOrderableClusterOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2534,17 +2331,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeReservedNodeOfferings(
     args: DescribeReservedNodeOfferingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeReservedNodeOfferingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReservedNodeOfferingsCommandOutput) => void),
     cb?: (err: any, data?: DescribeReservedNodeOfferingsCommandOutput) => void
   ): Promise<DescribeReservedNodeOfferingsCommandOutput> | void {
     const command = new DescribeReservedNodeOfferingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2569,17 +2363,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeReservedNodes(
     args: DescribeReservedNodesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeReservedNodesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReservedNodesCommandOutput) => void),
     cb?: (err: any, data?: DescribeReservedNodesCommandOutput) => void
   ): Promise<DescribeReservedNodesCommandOutput> | void {
     const command = new DescribeReservedNodesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2609,17 +2400,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeResize(
     args: DescribeResizeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeResizeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeResizeCommandOutput) => void),
     cb?: (err: any, data?: DescribeResizeCommandOutput) => void
   ): Promise<DescribeResizeCommandOutput> | void {
     const command = new DescribeResizeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2645,17 +2433,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeScheduledActions(
     args: DescribeScheduledActionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScheduledActionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScheduledActionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeScheduledActionsCommandOutput) => void
   ): Promise<DescribeScheduledActionsCommandOutput> | void {
     const command = new DescribeScheduledActionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2686,17 +2471,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeSnapshotCopyGrants(
     args: DescribeSnapshotCopyGrantsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSnapshotCopyGrantsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSnapshotCopyGrantsCommandOutput) => void),
     cb?: (err: any, data?: DescribeSnapshotCopyGrantsCommandOutput) => void
   ): Promise<DescribeSnapshotCopyGrantsCommandOutput> | void {
     const command = new DescribeSnapshotCopyGrantsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2721,17 +2503,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeSnapshotSchedules(
     args: DescribeSnapshotSchedulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSnapshotSchedulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSnapshotSchedulesCommandOutput) => void),
     cb?: (err: any, data?: DescribeSnapshotSchedulesCommandOutput) => void
   ): Promise<DescribeSnapshotSchedulesCommandOutput> | void {
     const command = new DescribeSnapshotSchedulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2756,17 +2535,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeStorage(
     args: DescribeStorageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStorageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStorageCommandOutput) => void),
     cb?: (err: any, data?: DescribeStorageCommandOutput) => void
   ): Promise<DescribeStorageCommandOutput> | void {
     const command = new DescribeStorageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2796,17 +2572,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeTableRestoreStatus(
     args: DescribeTableRestoreStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTableRestoreStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTableRestoreStatusCommandOutput) => void),
     cb?: (err: any, data?: DescribeTableRestoreStatusCommandOutput) => void
   ): Promise<DescribeTableRestoreStatusCommandOutput> | void {
     const command = new DescribeTableRestoreStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2844,10 +2617,7 @@ export class Redshift extends RedshiftClient {
     args: DescribeTagsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeTagsCommandOutput>;
-  public describeTags(
-    args: DescribeTagsCommandInput,
-    cb: (err: any, data?: DescribeTagsCommandOutput) => void
-  ): void;
+  public describeTags(args: DescribeTagsCommandInput, cb: (err: any, data?: DescribeTagsCommandOutput) => void): void;
   public describeTags(
     args: DescribeTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -2855,17 +2625,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeTags(
     args: DescribeTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTagsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTagsCommandOutput) => void
   ): Promise<DescribeTagsCommandOutput> | void {
     const command = new DescribeTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2891,17 +2658,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public disableLogging(
     args: DisableLoggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableLoggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableLoggingCommandOutput) => void),
     cb?: (err: any, data?: DisableLoggingCommandOutput) => void
   ): Promise<DisableLoggingCommandOutput> | void {
     const command = new DisableLoggingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2930,17 +2694,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public disableSnapshotCopy(
     args: DisableSnapshotCopyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableSnapshotCopyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableSnapshotCopyCommandOutput) => void),
     cb?: (err: any, data?: DisableSnapshotCopyCommandOutput) => void
   ): Promise<DisableSnapshotCopyCommandOutput> | void {
     const command = new DisableSnapshotCopyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2966,17 +2727,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public enableLogging(
     args: EnableLoggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableLoggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableLoggingCommandOutput) => void),
     cb?: (err: any, data?: EnableLoggingCommandOutput) => void
   ): Promise<EnableLoggingCommandOutput> | void {
     const command = new EnableLoggingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3002,17 +2760,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public enableSnapshotCopy(
     args: EnableSnapshotCopyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableSnapshotCopyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableSnapshotCopyCommandOutput) => void),
     cb?: (err: any, data?: EnableSnapshotCopyCommandOutput) => void
   ): Promise<EnableSnapshotCopyCommandOutput> | void {
     const command = new EnableSnapshotCopyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3057,17 +2812,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public getClusterCredentials(
     args: GetClusterCredentialsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetClusterCredentialsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetClusterCredentialsCommandOutput) => void),
     cb?: (err: any, data?: GetClusterCredentialsCommandOutput) => void
   ): Promise<GetClusterCredentialsCommandOutput> | void {
     const command = new GetClusterCredentialsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3093,23 +2845,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public getReservedNodeExchangeOfferings(
     args: GetReservedNodeExchangeOfferingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetReservedNodeExchangeOfferingsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetReservedNodeExchangeOfferingsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReservedNodeExchangeOfferingsCommandOutput) => void),
+    cb?: (err: any, data?: GetReservedNodeExchangeOfferingsCommandOutput) => void
   ): Promise<GetReservedNodeExchangeOfferingsCommandOutput> | void {
     const command = new GetReservedNodeExchangeOfferingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3142,17 +2885,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public modifyCluster(
     args: ModifyClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyClusterCommandOutput) => void),
     cb?: (err: any, data?: ModifyClusterCommandOutput) => void
   ): Promise<ModifyClusterCommandOutput> | void {
     const command = new ModifyClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3178,17 +2918,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public modifyClusterDbRevision(
     args: ModifyClusterDbRevisionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyClusterDbRevisionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyClusterDbRevisionCommandOutput) => void),
     cb?: (err: any, data?: ModifyClusterDbRevisionCommandOutput) => void
   ): Promise<ModifyClusterDbRevisionCommandOutput> | void {
     const command = new ModifyClusterDbRevisionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3215,17 +2952,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public modifyClusterIamRoles(
     args: ModifyClusterIamRolesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyClusterIamRolesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyClusterIamRolesCommandOutput) => void),
     cb?: (err: any, data?: ModifyClusterIamRolesCommandOutput) => void
   ): Promise<ModifyClusterIamRolesCommandOutput> | void {
     const command = new ModifyClusterIamRolesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3250,17 +2984,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public modifyClusterMaintenance(
     args: ModifyClusterMaintenanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyClusterMaintenanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyClusterMaintenanceCommandOutput) => void),
     cb?: (err: any, data?: ModifyClusterMaintenanceCommandOutput) => void
   ): Promise<ModifyClusterMaintenanceCommandOutput> | void {
     const command = new ModifyClusterMaintenanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3289,17 +3020,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public modifyClusterParameterGroup(
     args: ModifyClusterParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyClusterParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyClusterParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: ModifyClusterParameterGroupCommandOutput) => void
   ): Promise<ModifyClusterParameterGroupCommandOutput> | void {
     const command = new ModifyClusterParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3325,17 +3053,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public modifyClusterSnapshot(
     args: ModifyClusterSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyClusterSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyClusterSnapshotCommandOutput) => void),
     cb?: (err: any, data?: ModifyClusterSnapshotCommandOutput) => void
   ): Promise<ModifyClusterSnapshotCommandOutput> | void {
     const command = new ModifyClusterSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3360,17 +3085,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public modifyClusterSnapshotSchedule(
     args: ModifyClusterSnapshotScheduleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyClusterSnapshotScheduleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyClusterSnapshotScheduleCommandOutput) => void),
     cb?: (err: any, data?: ModifyClusterSnapshotScheduleCommandOutput) => void
   ): Promise<ModifyClusterSnapshotScheduleCommandOutput> | void {
     const command = new ModifyClusterSnapshotScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3396,17 +3118,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public modifyClusterSubnetGroup(
     args: ModifyClusterSubnetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyClusterSubnetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyClusterSubnetGroupCommandOutput) => void),
     cb?: (err: any, data?: ModifyClusterSubnetGroupCommandOutput) => void
   ): Promise<ModifyClusterSubnetGroupCommandOutput> | void {
     const command = new ModifyClusterSubnetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3431,17 +3150,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public modifyEventSubscription(
     args: ModifyEventSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyEventSubscriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyEventSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: ModifyEventSubscriptionCommandOutput) => void
   ): Promise<ModifyEventSubscriptionCommandOutput> | void {
     const command = new ModifyEventSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3467,17 +3183,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public modifyScheduledAction(
     args: ModifyScheduledActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyScheduledActionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyScheduledActionCommandOutput) => void),
     cb?: (err: any, data?: ModifyScheduledActionCommandOutput) => void
   ): Promise<ModifyScheduledActionCommandOutput> | void {
     const command = new ModifyScheduledActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3499,38 +3212,23 @@ export class Redshift extends RedshiftClient {
   ): Promise<ModifySnapshotCopyRetentionPeriodCommandOutput>;
   public modifySnapshotCopyRetentionPeriod(
     args: ModifySnapshotCopyRetentionPeriodCommandInput,
-    cb: (
-      err: any,
-      data?: ModifySnapshotCopyRetentionPeriodCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifySnapshotCopyRetentionPeriodCommandOutput) => void
   ): void;
   public modifySnapshotCopyRetentionPeriod(
     args: ModifySnapshotCopyRetentionPeriodCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifySnapshotCopyRetentionPeriodCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifySnapshotCopyRetentionPeriodCommandOutput) => void
   ): void;
   public modifySnapshotCopyRetentionPeriod(
     args: ModifySnapshotCopyRetentionPeriodCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifySnapshotCopyRetentionPeriodCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifySnapshotCopyRetentionPeriodCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifySnapshotCopyRetentionPeriodCommandOutput) => void),
+    cb?: (err: any, data?: ModifySnapshotCopyRetentionPeriodCommandOutput) => void
   ): Promise<ModifySnapshotCopyRetentionPeriodCommandOutput> | void {
     const command = new ModifySnapshotCopyRetentionPeriodCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3556,17 +3254,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public modifySnapshotSchedule(
     args: ModifySnapshotScheduleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifySnapshotScheduleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifySnapshotScheduleCommandOutput) => void),
     cb?: (err: any, data?: ModifySnapshotScheduleCommandOutput) => void
   ): Promise<ModifySnapshotScheduleCommandOutput> | void {
     const command = new ModifySnapshotScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3599,17 +3294,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public purchaseReservedNodeOffering(
     args: PurchaseReservedNodeOfferingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PurchaseReservedNodeOfferingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PurchaseReservedNodeOfferingCommandOutput) => void),
     cb?: (err: any, data?: PurchaseReservedNodeOfferingCommandOutput) => void
   ): Promise<PurchaseReservedNodeOfferingCommandOutput> | void {
     const command = new PurchaseReservedNodeOfferingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3641,17 +3333,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public rebootCluster(
     args: RebootClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RebootClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootClusterCommandOutput) => void),
     cb?: (err: any, data?: RebootClusterCommandOutput) => void
   ): Promise<RebootClusterCommandOutput> | void {
     const command = new RebootClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3679,17 +3368,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public resetClusterParameterGroup(
     args: ResetClusterParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResetClusterParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetClusterParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: ResetClusterParameterGroupCommandOutput) => void
   ): Promise<ResetClusterParameterGroupCommandOutput> | void {
     const command = new ResetClusterParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3744,17 +3430,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public resizeCluster(
     args: ResizeClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResizeClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResizeClusterCommandOutput) => void),
     cb?: (err: any, data?: ResizeClusterCommandOutput) => void
   ): Promise<ResizeClusterCommandOutput> | void {
     const command = new ResizeClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3790,17 +3473,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public restoreFromClusterSnapshot(
     args: RestoreFromClusterSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestoreFromClusterSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreFromClusterSnapshotCommandOutput) => void),
     cb?: (err: any, data?: RestoreFromClusterSnapshotCommandOutput) => void
   ): Promise<RestoreFromClusterSnapshotCommandOutput> | void {
     const command = new RestoreFromClusterSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3836,20 +3516,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public restoreTableFromClusterSnapshot(
     args: RestoreTableFromClusterSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RestoreTableFromClusterSnapshotCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreTableFromClusterSnapshotCommandOutput) => void),
     cb?: (err: any, data?: RestoreTableFromClusterSnapshotCommandOutput) => void
   ): Promise<RestoreTableFromClusterSnapshotCommandOutput> | void {
     const command = new RestoreTableFromClusterSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3869,38 +3543,23 @@ export class Redshift extends RedshiftClient {
   ): Promise<RevokeClusterSecurityGroupIngressCommandOutput>;
   public revokeClusterSecurityGroupIngress(
     args: RevokeClusterSecurityGroupIngressCommandInput,
-    cb: (
-      err: any,
-      data?: RevokeClusterSecurityGroupIngressCommandOutput
-    ) => void
+    cb: (err: any, data?: RevokeClusterSecurityGroupIngressCommandOutput) => void
   ): void;
   public revokeClusterSecurityGroupIngress(
     args: RevokeClusterSecurityGroupIngressCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RevokeClusterSecurityGroupIngressCommandOutput
-    ) => void
+    cb: (err: any, data?: RevokeClusterSecurityGroupIngressCommandOutput) => void
   ): void;
   public revokeClusterSecurityGroupIngress(
     args: RevokeClusterSecurityGroupIngressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RevokeClusterSecurityGroupIngressCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RevokeClusterSecurityGroupIngressCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeClusterSecurityGroupIngressCommandOutput) => void),
+    cb?: (err: any, data?: RevokeClusterSecurityGroupIngressCommandOutput) => void
   ): Promise<RevokeClusterSecurityGroupIngressCommandOutput> | void {
     const command = new RevokeClusterSecurityGroupIngressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3931,17 +3590,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public revokeSnapshotAccess(
     args: RevokeSnapshotAccessCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RevokeSnapshotAccessCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeSnapshotAccessCommandOutput) => void),
     cb?: (err: any, data?: RevokeSnapshotAccessCommandOutput) => void
   ): Promise<RevokeSnapshotAccessCommandOutput> | void {
     const command = new RevokeSnapshotAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3966,17 +3622,14 @@ export class Redshift extends RedshiftClient {
   ): void;
   public rotateEncryptionKey(
     args: RotateEncryptionKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RotateEncryptionKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RotateEncryptionKeyCommandOutput) => void),
     cb?: (err: any, data?: RotateEncryptionKeyCommandOutput) => void
   ): Promise<RotateEncryptionKeyCommandOutput> | void {
     const command = new RotateEncryptionKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

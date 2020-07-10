@@ -1,21 +1,14 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import {
   SetIdentityHeadersInNotificationsEnabledRequest,
-  SetIdentityHeadersInNotificationsEnabledResponse
+  SetIdentityHeadersInNotificationsEnabledResponse,
 } from "../models/index";
 import {
   deserializeAws_querySetIdentityHeadersInNotificationsEnabledCommand,
-  serializeAws_querySetIdentityHeadersInNotificationsEnabledCommand
+  serializeAws_querySetIdentityHeadersInNotificationsEnabledCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type SetIdentityHeadersInNotificationsEnabledCommandInput = SetIdentityHeadersInNotificationsEnabledRequest;
@@ -39,9 +32,7 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: SetIdentityHeadersInNotificationsEnabledCommandInput
-  ) {
+  constructor(readonly input: SetIdentityHeadersInNotificationsEnabledCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,14 +46,12 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
     SetIdentityHeadersInNotificationsEnabledCommandInput,
     SetIdentityHeadersInNotificationsEnabledCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +65,14 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
     input: SetIdentityHeadersInNotificationsEnabledCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetIdentityHeadersInNotificationsEnabledCommand(
-      input,
-      context
-    );
+    return serializeAws_querySetIdentityHeadersInNotificationsEnabledCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetIdentityHeadersInNotificationsEnabledCommandOutput> {
-    return deserializeAws_querySetIdentityHeadersInNotificationsEnabledCommand(
-      output,
-      context
-    );
+    return deserializeAws_querySetIdentityHeadersInNotificationsEnabledCommand(output, context);
   }
 
   // Start section: command_body_extra

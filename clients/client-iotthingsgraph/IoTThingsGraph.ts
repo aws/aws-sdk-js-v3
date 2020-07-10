@@ -2,177 +2,169 @@ import { IoTThingsGraphClient } from "./IoTThingsGraphClient";
 import {
   AssociateEntityToThingCommand,
   AssociateEntityToThingCommandInput,
-  AssociateEntityToThingCommandOutput
+  AssociateEntityToThingCommandOutput,
 } from "./commands/AssociateEntityToThingCommand";
 import {
   CreateFlowTemplateCommand,
   CreateFlowTemplateCommandInput,
-  CreateFlowTemplateCommandOutput
+  CreateFlowTemplateCommandOutput,
 } from "./commands/CreateFlowTemplateCommand";
 import {
   CreateSystemInstanceCommand,
   CreateSystemInstanceCommandInput,
-  CreateSystemInstanceCommandOutput
+  CreateSystemInstanceCommandOutput,
 } from "./commands/CreateSystemInstanceCommand";
 import {
   CreateSystemTemplateCommand,
   CreateSystemTemplateCommandInput,
-  CreateSystemTemplateCommandOutput
+  CreateSystemTemplateCommandOutput,
 } from "./commands/CreateSystemTemplateCommand";
 import {
   DeleteFlowTemplateCommand,
   DeleteFlowTemplateCommandInput,
-  DeleteFlowTemplateCommandOutput
+  DeleteFlowTemplateCommandOutput,
 } from "./commands/DeleteFlowTemplateCommand";
 import {
   DeleteNamespaceCommand,
   DeleteNamespaceCommandInput,
-  DeleteNamespaceCommandOutput
+  DeleteNamespaceCommandOutput,
 } from "./commands/DeleteNamespaceCommand";
 import {
   DeleteSystemInstanceCommand,
   DeleteSystemInstanceCommandInput,
-  DeleteSystemInstanceCommandOutput
+  DeleteSystemInstanceCommandOutput,
 } from "./commands/DeleteSystemInstanceCommand";
 import {
   DeleteSystemTemplateCommand,
   DeleteSystemTemplateCommandInput,
-  DeleteSystemTemplateCommandOutput
+  DeleteSystemTemplateCommandOutput,
 } from "./commands/DeleteSystemTemplateCommand";
 import {
   DeploySystemInstanceCommand,
   DeploySystemInstanceCommandInput,
-  DeploySystemInstanceCommandOutput
+  DeploySystemInstanceCommandOutput,
 } from "./commands/DeploySystemInstanceCommand";
 import {
   DeprecateFlowTemplateCommand,
   DeprecateFlowTemplateCommandInput,
-  DeprecateFlowTemplateCommandOutput
+  DeprecateFlowTemplateCommandOutput,
 } from "./commands/DeprecateFlowTemplateCommand";
 import {
   DeprecateSystemTemplateCommand,
   DeprecateSystemTemplateCommandInput,
-  DeprecateSystemTemplateCommandOutput
+  DeprecateSystemTemplateCommandOutput,
 } from "./commands/DeprecateSystemTemplateCommand";
 import {
   DescribeNamespaceCommand,
   DescribeNamespaceCommandInput,
-  DescribeNamespaceCommandOutput
+  DescribeNamespaceCommandOutput,
 } from "./commands/DescribeNamespaceCommand";
 import {
   DissociateEntityFromThingCommand,
   DissociateEntityFromThingCommandInput,
-  DissociateEntityFromThingCommandOutput
+  DissociateEntityFromThingCommandOutput,
 } from "./commands/DissociateEntityFromThingCommand";
-import {
-  GetEntitiesCommand,
-  GetEntitiesCommandInput,
-  GetEntitiesCommandOutput
-} from "./commands/GetEntitiesCommand";
+import { GetEntitiesCommand, GetEntitiesCommandInput, GetEntitiesCommandOutput } from "./commands/GetEntitiesCommand";
 import {
   GetFlowTemplateCommand,
   GetFlowTemplateCommandInput,
-  GetFlowTemplateCommandOutput
+  GetFlowTemplateCommandOutput,
 } from "./commands/GetFlowTemplateCommand";
 import {
   GetFlowTemplateRevisionsCommand,
   GetFlowTemplateRevisionsCommandInput,
-  GetFlowTemplateRevisionsCommandOutput
+  GetFlowTemplateRevisionsCommandOutput,
 } from "./commands/GetFlowTemplateRevisionsCommand";
 import {
   GetNamespaceDeletionStatusCommand,
   GetNamespaceDeletionStatusCommandInput,
-  GetNamespaceDeletionStatusCommandOutput
+  GetNamespaceDeletionStatusCommandOutput,
 } from "./commands/GetNamespaceDeletionStatusCommand";
 import {
   GetSystemInstanceCommand,
   GetSystemInstanceCommandInput,
-  GetSystemInstanceCommandOutput
+  GetSystemInstanceCommandOutput,
 } from "./commands/GetSystemInstanceCommand";
 import {
   GetSystemTemplateCommand,
   GetSystemTemplateCommandInput,
-  GetSystemTemplateCommandOutput
+  GetSystemTemplateCommandOutput,
 } from "./commands/GetSystemTemplateCommand";
 import {
   GetSystemTemplateRevisionsCommand,
   GetSystemTemplateRevisionsCommandInput,
-  GetSystemTemplateRevisionsCommandOutput
+  GetSystemTemplateRevisionsCommandOutput,
 } from "./commands/GetSystemTemplateRevisionsCommand";
 import {
   GetUploadStatusCommand,
   GetUploadStatusCommandInput,
-  GetUploadStatusCommandOutput
+  GetUploadStatusCommandOutput,
 } from "./commands/GetUploadStatusCommand";
 import {
   ListFlowExecutionMessagesCommand,
   ListFlowExecutionMessagesCommandInput,
-  ListFlowExecutionMessagesCommandOutput
+  ListFlowExecutionMessagesCommandOutput,
 } from "./commands/ListFlowExecutionMessagesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   SearchEntitiesCommand,
   SearchEntitiesCommandInput,
-  SearchEntitiesCommandOutput
+  SearchEntitiesCommandOutput,
 } from "./commands/SearchEntitiesCommand";
 import {
   SearchFlowExecutionsCommand,
   SearchFlowExecutionsCommandInput,
-  SearchFlowExecutionsCommandOutput
+  SearchFlowExecutionsCommandOutput,
 } from "./commands/SearchFlowExecutionsCommand";
 import {
   SearchFlowTemplatesCommand,
   SearchFlowTemplatesCommandInput,
-  SearchFlowTemplatesCommandOutput
+  SearchFlowTemplatesCommandOutput,
 } from "./commands/SearchFlowTemplatesCommand";
 import {
   SearchSystemInstancesCommand,
   SearchSystemInstancesCommandInput,
-  SearchSystemInstancesCommandOutput
+  SearchSystemInstancesCommandOutput,
 } from "./commands/SearchSystemInstancesCommand";
 import {
   SearchSystemTemplatesCommand,
   SearchSystemTemplatesCommandInput,
-  SearchSystemTemplatesCommandOutput
+  SearchSystemTemplatesCommandOutput,
 } from "./commands/SearchSystemTemplatesCommand";
 import {
   SearchThingsCommand,
   SearchThingsCommandInput,
-  SearchThingsCommandOutput
+  SearchThingsCommandOutput,
 } from "./commands/SearchThingsCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UndeploySystemInstanceCommand,
   UndeploySystemInstanceCommandInput,
-  UndeploySystemInstanceCommandOutput
+  UndeploySystemInstanceCommandOutput,
 } from "./commands/UndeploySystemInstanceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateFlowTemplateCommand,
   UpdateFlowTemplateCommandInput,
-  UpdateFlowTemplateCommandOutput
+  UpdateFlowTemplateCommandOutput,
 } from "./commands/UpdateFlowTemplateCommand";
 import {
   UpdateSystemTemplateCommand,
   UpdateSystemTemplateCommandInput,
-  UpdateSystemTemplateCommandOutput
+  UpdateSystemTemplateCommandOutput,
 } from "./commands/UpdateSystemTemplateCommand";
 import {
   UploadEntityDefinitionsCommand,
   UploadEntityDefinitionsCommandInput,
-  UploadEntityDefinitionsCommandOutput
+  UploadEntityDefinitionsCommandOutput,
 } from "./commands/UploadEntityDefinitionsCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -203,17 +195,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public associateEntityToThing(
     args: AssociateEntityToThingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateEntityToThingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateEntityToThingCommandOutput) => void),
     cb?: (err: any, data?: AssociateEntityToThingCommandOutput) => void
   ): Promise<AssociateEntityToThingCommandOutput> | void {
     const command = new AssociateEntityToThingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -240,17 +229,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public createFlowTemplate(
     args: CreateFlowTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFlowTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFlowTemplateCommandOutput) => void),
     cb?: (err: any, data?: CreateFlowTemplateCommandOutput) => void
   ): Promise<CreateFlowTemplateCommandOutput> | void {
     const command = new CreateFlowTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -283,17 +269,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public createSystemInstance(
     args: CreateSystemInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSystemInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSystemInstanceCommandOutput) => void),
     cb?: (err: any, data?: CreateSystemInstanceCommandOutput) => void
   ): Promise<CreateSystemInstanceCommandOutput> | void {
     const command = new CreateSystemInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -319,17 +302,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public createSystemTemplate(
     args: CreateSystemTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSystemTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSystemTemplateCommandOutput) => void),
     cb?: (err: any, data?: CreateSystemTemplateCommandOutput) => void
   ): Promise<CreateSystemTemplateCommandOutput> | void {
     const command = new CreateSystemTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -355,17 +335,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public deleteFlowTemplate(
     args: DeleteFlowTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFlowTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFlowTemplateCommandOutput) => void),
     cb?: (err: any, data?: DeleteFlowTemplateCommandOutput) => void
   ): Promise<DeleteFlowTemplateCommandOutput> | void {
     const command = new DeleteFlowTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -390,17 +367,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public deleteNamespace(
     args: DeleteNamespaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteNamespaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNamespaceCommandOutput) => void),
     cb?: (err: any, data?: DeleteNamespaceCommandOutput) => void
   ): Promise<DeleteNamespaceCommandOutput> | void {
     const command = new DeleteNamespaceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -427,17 +401,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public deleteSystemInstance(
     args: DeleteSystemInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSystemInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSystemInstanceCommandOutput) => void),
     cb?: (err: any, data?: DeleteSystemInstanceCommandOutput) => void
   ): Promise<DeleteSystemInstanceCommandOutput> | void {
     const command = new DeleteSystemInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -463,17 +434,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public deleteSystemTemplate(
     args: DeleteSystemTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSystemTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSystemTemplateCommandOutput) => void),
     cb?: (err: any, data?: DeleteSystemTemplateCommandOutput) => void
   ): Promise<DeleteSystemTemplateCommandOutput> | void {
     const command = new DeleteSystemTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -509,17 +477,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public deploySystemInstance(
     args: DeploySystemInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeploySystemInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeploySystemInstanceCommandOutput) => void),
     cb?: (err: any, data?: DeploySystemInstanceCommandOutput) => void
   ): Promise<DeploySystemInstanceCommandOutput> | void {
     const command = new DeploySystemInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -544,17 +509,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public deprecateFlowTemplate(
     args: DeprecateFlowTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeprecateFlowTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeprecateFlowTemplateCommandOutput) => void),
     cb?: (err: any, data?: DeprecateFlowTemplateCommandOutput) => void
   ): Promise<DeprecateFlowTemplateCommandOutput> | void {
     const command = new DeprecateFlowTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -579,17 +541,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public deprecateSystemTemplate(
     args: DeprecateSystemTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeprecateSystemTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeprecateSystemTemplateCommandOutput) => void),
     cb?: (err: any, data?: DeprecateSystemTemplateCommandOutput) => void
   ): Promise<DeprecateSystemTemplateCommandOutput> | void {
     const command = new DeprecateSystemTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -614,17 +573,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public describeNamespace(
     args: DescribeNamespaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeNamespaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNamespaceCommandOutput) => void),
     cb?: (err: any, data?: DescribeNamespaceCommandOutput) => void
   ): Promise<DescribeNamespaceCommandOutput> | void {
     const command = new DescribeNamespaceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -650,17 +606,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public dissociateEntityFromThing(
     args: DissociateEntityFromThingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DissociateEntityFromThingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DissociateEntityFromThingCommandOutput) => void),
     cb?: (err: any, data?: DissociateEntityFromThingCommandOutput) => void
   ): Promise<DissociateEntityFromThingCommandOutput> | void {
     const command = new DissociateEntityFromThingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -701,14 +654,8 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
    *          </ul>
    *          <p>This action doesn't return definitions for systems, flows, and deployments.</p>
    */
-  public getEntities(
-    args: GetEntitiesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetEntitiesCommandOutput>;
-  public getEntities(
-    args: GetEntitiesCommandInput,
-    cb: (err: any, data?: GetEntitiesCommandOutput) => void
-  ): void;
+  public getEntities(args: GetEntitiesCommandInput, options?: __HttpHandlerOptions): Promise<GetEntitiesCommandOutput>;
+  public getEntities(args: GetEntitiesCommandInput, cb: (err: any, data?: GetEntitiesCommandOutput) => void): void;
   public getEntities(
     args: GetEntitiesCommandInput,
     options: __HttpHandlerOptions,
@@ -716,17 +663,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public getEntities(
     args: GetEntitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEntitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEntitiesCommandOutput) => void),
     cb?: (err: any, data?: GetEntitiesCommandOutput) => void
   ): Promise<GetEntitiesCommandOutput> | void {
     const command = new GetEntitiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -751,17 +695,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public getFlowTemplate(
     args: GetFlowTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFlowTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFlowTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetFlowTemplateCommandOutput) => void
   ): Promise<GetFlowTemplateCommandOutput> | void {
     const command = new GetFlowTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -787,17 +728,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public getFlowTemplateRevisions(
     args: GetFlowTemplateRevisionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFlowTemplateRevisionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFlowTemplateRevisionsCommandOutput) => void),
     cb?: (err: any, data?: GetFlowTemplateRevisionsCommandOutput) => void
   ): Promise<GetFlowTemplateRevisionsCommandOutput> | void {
     const command = new GetFlowTemplateRevisionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -822,17 +760,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public getNamespaceDeletionStatus(
     args: GetNamespaceDeletionStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetNamespaceDeletionStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetNamespaceDeletionStatusCommandOutput) => void),
     cb?: (err: any, data?: GetNamespaceDeletionStatusCommandOutput) => void
   ): Promise<GetNamespaceDeletionStatusCommandOutput> | void {
     const command = new GetNamespaceDeletionStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -857,17 +792,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public getSystemInstance(
     args: GetSystemInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSystemInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSystemInstanceCommandOutput) => void),
     cb?: (err: any, data?: GetSystemInstanceCommandOutput) => void
   ): Promise<GetSystemInstanceCommandOutput> | void {
     const command = new GetSystemInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -892,17 +824,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public getSystemTemplate(
     args: GetSystemTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSystemTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSystemTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetSystemTemplateCommandOutput) => void
   ): Promise<GetSystemTemplateCommandOutput> | void {
     const command = new GetSystemTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -928,17 +857,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public getSystemTemplateRevisions(
     args: GetSystemTemplateRevisionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSystemTemplateRevisionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSystemTemplateRevisionsCommandOutput) => void),
     cb?: (err: any, data?: GetSystemTemplateRevisionsCommandOutput) => void
   ): Promise<GetSystemTemplateRevisionsCommandOutput> | void {
     const command = new GetSystemTemplateRevisionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -963,17 +889,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public getUploadStatus(
     args: GetUploadStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUploadStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUploadStatusCommandOutput) => void),
     cb?: (err: any, data?: GetUploadStatusCommandOutput) => void
   ): Promise<GetUploadStatusCommandOutput> | void {
     const command = new GetUploadStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -998,17 +921,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public listFlowExecutionMessages(
     args: ListFlowExecutionMessagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFlowExecutionMessagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFlowExecutionMessagesCommandOutput) => void),
     cb?: (err: any, data?: ListFlowExecutionMessagesCommandOutput) => void
   ): Promise<ListFlowExecutionMessagesCommandOutput> | void {
     const command = new ListFlowExecutionMessagesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1033,17 +953,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1068,17 +985,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public searchEntities(
     args: SearchEntitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchEntitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchEntitiesCommandOutput) => void),
     cb?: (err: any, data?: SearchEntitiesCommandOutput) => void
   ): Promise<SearchEntitiesCommandOutput> | void {
     const command = new SearchEntitiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1103,17 +1017,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public searchFlowExecutions(
     args: SearchFlowExecutionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchFlowExecutionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchFlowExecutionsCommandOutput) => void),
     cb?: (err: any, data?: SearchFlowExecutionsCommandOutput) => void
   ): Promise<SearchFlowExecutionsCommandOutput> | void {
     const command = new SearchFlowExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1138,17 +1049,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public searchFlowTemplates(
     args: SearchFlowTemplatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchFlowTemplatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchFlowTemplatesCommandOutput) => void),
     cb?: (err: any, data?: SearchFlowTemplatesCommandOutput) => void
   ): Promise<SearchFlowTemplatesCommandOutput> | void {
     const command = new SearchFlowTemplatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1173,17 +1081,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public searchSystemInstances(
     args: SearchSystemInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchSystemInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchSystemInstancesCommandOutput) => void),
     cb?: (err: any, data?: SearchSystemInstancesCommandOutput) => void
   ): Promise<SearchSystemInstancesCommandOutput> | void {
     const command = new SearchSystemInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1208,17 +1113,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public searchSystemTemplates(
     args: SearchSystemTemplatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchSystemTemplatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchSystemTemplatesCommandOutput) => void),
     cb?: (err: any, data?: SearchSystemTemplatesCommandOutput) => void
   ): Promise<SearchSystemTemplatesCommandOutput> | void {
     const command = new SearchSystemTemplatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1235,10 +1137,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
     args: SearchThingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SearchThingsCommandOutput>;
-  public searchThings(
-    args: SearchThingsCommandInput,
-    cb: (err: any, data?: SearchThingsCommandOutput) => void
-  ): void;
+  public searchThings(args: SearchThingsCommandInput, cb: (err: any, data?: SearchThingsCommandOutput) => void): void;
   public searchThings(
     args: SearchThingsCommandInput,
     options: __HttpHandlerOptions,
@@ -1246,17 +1145,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public searchThings(
     args: SearchThingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchThingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchThingsCommandOutput) => void),
     cb?: (err: any, data?: SearchThingsCommandOutput) => void
   ): Promise<SearchThingsCommandOutput> | void {
     const command = new SearchThingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1266,14 +1162,8 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   /**
    * <p>Creates a tag for the specified resource.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1281,17 +1171,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1316,17 +1203,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public undeploySystemInstance(
     args: UndeploySystemInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UndeploySystemInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UndeploySystemInstanceCommandOutput) => void),
     cb?: (err: any, data?: UndeploySystemInstanceCommandOutput) => void
   ): Promise<UndeploySystemInstanceCommandOutput> | void {
     const command = new UndeploySystemInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1351,17 +1235,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1387,17 +1268,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public updateFlowTemplate(
     args: UpdateFlowTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFlowTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFlowTemplateCommandOutput) => void),
     cb?: (err: any, data?: UpdateFlowTemplateCommandOutput) => void
   ): Promise<UpdateFlowTemplateCommandOutput> | void {
     const command = new UpdateFlowTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1422,17 +1300,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public updateSystemTemplate(
     args: UpdateSystemTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSystemTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSystemTemplateCommandOutput) => void),
     cb?: (err: any, data?: UpdateSystemTemplateCommandOutput) => void
   ): Promise<UpdateSystemTemplateCommandOutput> | void {
     const command = new UpdateSystemTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1467,17 +1342,14 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public uploadEntityDefinitions(
     args: UploadEntityDefinitionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UploadEntityDefinitionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UploadEntityDefinitionsCommandOutput) => void),
     cb?: (err: any, data?: UploadEntityDefinitionsCommandOutput) => void
   ): Promise<UploadEntityDefinitionsCommandOutput> | void {
     const command = new UploadEntityDefinitionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

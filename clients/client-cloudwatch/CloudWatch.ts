@@ -2,147 +2,139 @@ import { CloudWatchClient } from "./CloudWatchClient";
 import {
   DeleteAlarmsCommand,
   DeleteAlarmsCommandInput,
-  DeleteAlarmsCommandOutput
+  DeleteAlarmsCommandOutput,
 } from "./commands/DeleteAlarmsCommand";
 import {
   DeleteAnomalyDetectorCommand,
   DeleteAnomalyDetectorCommandInput,
-  DeleteAnomalyDetectorCommandOutput
+  DeleteAnomalyDetectorCommandOutput,
 } from "./commands/DeleteAnomalyDetectorCommand";
 import {
   DeleteDashboardsCommand,
   DeleteDashboardsCommandInput,
-  DeleteDashboardsCommandOutput
+  DeleteDashboardsCommandOutput,
 } from "./commands/DeleteDashboardsCommand";
 import {
   DeleteInsightRulesCommand,
   DeleteInsightRulesCommandInput,
-  DeleteInsightRulesCommandOutput
+  DeleteInsightRulesCommandOutput,
 } from "./commands/DeleteInsightRulesCommand";
 import {
   DescribeAlarmHistoryCommand,
   DescribeAlarmHistoryCommandInput,
-  DescribeAlarmHistoryCommandOutput
+  DescribeAlarmHistoryCommandOutput,
 } from "./commands/DescribeAlarmHistoryCommand";
 import {
   DescribeAlarmsCommand,
   DescribeAlarmsCommandInput,
-  DescribeAlarmsCommandOutput
+  DescribeAlarmsCommandOutput,
 } from "./commands/DescribeAlarmsCommand";
 import {
   DescribeAlarmsForMetricCommand,
   DescribeAlarmsForMetricCommandInput,
-  DescribeAlarmsForMetricCommandOutput
+  DescribeAlarmsForMetricCommandOutput,
 } from "./commands/DescribeAlarmsForMetricCommand";
 import {
   DescribeAnomalyDetectorsCommand,
   DescribeAnomalyDetectorsCommandInput,
-  DescribeAnomalyDetectorsCommandOutput
+  DescribeAnomalyDetectorsCommandOutput,
 } from "./commands/DescribeAnomalyDetectorsCommand";
 import {
   DescribeInsightRulesCommand,
   DescribeInsightRulesCommandInput,
-  DescribeInsightRulesCommandOutput
+  DescribeInsightRulesCommandOutput,
 } from "./commands/DescribeInsightRulesCommand";
 import {
   DisableAlarmActionsCommand,
   DisableAlarmActionsCommandInput,
-  DisableAlarmActionsCommandOutput
+  DisableAlarmActionsCommandOutput,
 } from "./commands/DisableAlarmActionsCommand";
 import {
   DisableInsightRulesCommand,
   DisableInsightRulesCommandInput,
-  DisableInsightRulesCommandOutput
+  DisableInsightRulesCommandOutput,
 } from "./commands/DisableInsightRulesCommand";
 import {
   EnableAlarmActionsCommand,
   EnableAlarmActionsCommandInput,
-  EnableAlarmActionsCommandOutput
+  EnableAlarmActionsCommandOutput,
 } from "./commands/EnableAlarmActionsCommand";
 import {
   EnableInsightRulesCommand,
   EnableInsightRulesCommandInput,
-  EnableInsightRulesCommandOutput
+  EnableInsightRulesCommandOutput,
 } from "./commands/EnableInsightRulesCommand";
 import {
   GetDashboardCommand,
   GetDashboardCommandInput,
-  GetDashboardCommandOutput
+  GetDashboardCommandOutput,
 } from "./commands/GetDashboardCommand";
 import {
   GetInsightRuleReportCommand,
   GetInsightRuleReportCommandInput,
-  GetInsightRuleReportCommandOutput
+  GetInsightRuleReportCommandOutput,
 } from "./commands/GetInsightRuleReportCommand";
 import {
   GetMetricDataCommand,
   GetMetricDataCommandInput,
-  GetMetricDataCommandOutput
+  GetMetricDataCommandOutput,
 } from "./commands/GetMetricDataCommand";
 import {
   GetMetricStatisticsCommand,
   GetMetricStatisticsCommandInput,
-  GetMetricStatisticsCommandOutput
+  GetMetricStatisticsCommandOutput,
 } from "./commands/GetMetricStatisticsCommand";
 import {
   GetMetricWidgetImageCommand,
   GetMetricWidgetImageCommandInput,
-  GetMetricWidgetImageCommandOutput
+  GetMetricWidgetImageCommandOutput,
 } from "./commands/GetMetricWidgetImageCommand";
 import {
   ListDashboardsCommand,
   ListDashboardsCommandInput,
-  ListDashboardsCommandOutput
+  ListDashboardsCommandOutput,
 } from "./commands/ListDashboardsCommand";
-import {
-  ListMetricsCommand,
-  ListMetricsCommandInput,
-  ListMetricsCommandOutput
-} from "./commands/ListMetricsCommand";
+import { ListMetricsCommand, ListMetricsCommandInput, ListMetricsCommandOutput } from "./commands/ListMetricsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   PutAnomalyDetectorCommand,
   PutAnomalyDetectorCommandInput,
-  PutAnomalyDetectorCommandOutput
+  PutAnomalyDetectorCommandOutput,
 } from "./commands/PutAnomalyDetectorCommand";
 import {
   PutDashboardCommand,
   PutDashboardCommandInput,
-  PutDashboardCommandOutput
+  PutDashboardCommandOutput,
 } from "./commands/PutDashboardCommand";
 import {
   PutInsightRuleCommand,
   PutInsightRuleCommandInput,
-  PutInsightRuleCommandOutput
+  PutInsightRuleCommandOutput,
 } from "./commands/PutInsightRuleCommand";
 import {
   PutMetricAlarmCommand,
   PutMetricAlarmCommandInput,
-  PutMetricAlarmCommandOutput
+  PutMetricAlarmCommandOutput,
 } from "./commands/PutMetricAlarmCommand";
 import {
   PutMetricDataCommand,
   PutMetricDataCommandInput,
-  PutMetricDataCommandOutput
+  PutMetricDataCommandOutput,
 } from "./commands/PutMetricDataCommand";
 import {
   SetAlarmStateCommand,
   SetAlarmStateCommandInput,
-  SetAlarmStateCommandOutput
+  SetAlarmStateCommandOutput,
 } from "./commands/SetAlarmStateCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -173,10 +165,7 @@ export class CloudWatch extends CloudWatchClient {
     args: DeleteAlarmsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteAlarmsCommandOutput>;
-  public deleteAlarms(
-    args: DeleteAlarmsCommandInput,
-    cb: (err: any, data?: DeleteAlarmsCommandOutput) => void
-  ): void;
+  public deleteAlarms(args: DeleteAlarmsCommandInput, cb: (err: any, data?: DeleteAlarmsCommandOutput) => void): void;
   public deleteAlarms(
     args: DeleteAlarmsCommandInput,
     options: __HttpHandlerOptions,
@@ -184,17 +173,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public deleteAlarms(
     args: DeleteAlarmsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAlarmsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAlarmsCommandOutput) => void),
     cb?: (err: any, data?: DeleteAlarmsCommandOutput) => void
   ): Promise<DeleteAlarmsCommandOutput> | void {
     const command = new DeleteAlarmsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -219,17 +205,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public deleteAnomalyDetector(
     args: DeleteAnomalyDetectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAnomalyDetectorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAnomalyDetectorCommandOutput) => void),
     cb?: (err: any, data?: DeleteAnomalyDetectorCommandOutput) => void
   ): Promise<DeleteAnomalyDetectorCommandOutput> | void {
     const command = new DeleteAnomalyDetectorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -255,17 +238,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public deleteDashboards(
     args: DeleteDashboardsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDashboardsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDashboardsCommandOutput) => void),
     cb?: (err: any, data?: DeleteDashboardsCommandOutput) => void
   ): Promise<DeleteDashboardsCommandOutput> | void {
     const command = new DeleteDashboardsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -292,17 +272,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public deleteInsightRules(
     args: DeleteInsightRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteInsightRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInsightRulesCommandOutput) => void),
     cb?: (err: any, data?: DeleteInsightRulesCommandOutput) => void
   ): Promise<DeleteInsightRulesCommandOutput> | void {
     const command = new DeleteInsightRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -329,17 +306,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public describeAlarmHistory(
     args: DescribeAlarmHistoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAlarmHistoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAlarmHistoryCommandOutput) => void),
     cb?: (err: any, data?: DescribeAlarmHistoryCommandOutput) => void
   ): Promise<DescribeAlarmHistoryCommandOutput> | void {
     const command = new DescribeAlarmHistoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -366,17 +340,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public describeAlarms(
     args: DescribeAlarmsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAlarmsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAlarmsCommandOutput) => void),
     cb?: (err: any, data?: DescribeAlarmsCommandOutput) => void
   ): Promise<DescribeAlarmsCommandOutput> | void {
     const command = new DescribeAlarmsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -402,17 +373,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public describeAlarmsForMetric(
     args: DescribeAlarmsForMetricCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAlarmsForMetricCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAlarmsForMetricCommandOutput) => void),
     cb?: (err: any, data?: DescribeAlarmsForMetricCommandOutput) => void
   ): Promise<DescribeAlarmsForMetricCommandOutput> | void {
     const command = new DescribeAlarmsForMetricCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -439,17 +407,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public describeAnomalyDetectors(
     args: DescribeAnomalyDetectorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAnomalyDetectorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAnomalyDetectorsCommandOutput) => void),
     cb?: (err: any, data?: DescribeAnomalyDetectorsCommandOutput) => void
   ): Promise<DescribeAnomalyDetectorsCommandOutput> | void {
     const command = new DescribeAnomalyDetectorsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -478,17 +443,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public describeInsightRules(
     args: DescribeInsightRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInsightRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInsightRulesCommandOutput) => void),
     cb?: (err: any, data?: DescribeInsightRulesCommandOutput) => void
   ): Promise<DescribeInsightRulesCommandOutput> | void {
     const command = new DescribeInsightRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -514,17 +476,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public disableAlarmActions(
     args: DisableAlarmActionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableAlarmActionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableAlarmActionsCommandOutput) => void),
     cb?: (err: any, data?: DisableAlarmActionsCommandOutput) => void
   ): Promise<DisableAlarmActionsCommandOutput> | void {
     const command = new DisableAlarmActionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -550,17 +509,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public disableInsightRules(
     args: DisableInsightRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableInsightRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableInsightRulesCommandOutput) => void),
     cb?: (err: any, data?: DisableInsightRulesCommandOutput) => void
   ): Promise<DisableInsightRulesCommandOutput> | void {
     const command = new DisableInsightRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -585,17 +541,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public enableAlarmActions(
     args: EnableAlarmActionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableAlarmActionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableAlarmActionsCommandOutput) => void),
     cb?: (err: any, data?: EnableAlarmActionsCommandOutput) => void
   ): Promise<EnableAlarmActionsCommandOutput> | void {
     const command = new EnableAlarmActionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -620,17 +573,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public enableInsightRules(
     args: EnableInsightRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableInsightRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableInsightRulesCommandOutput) => void),
     cb?: (err: any, data?: EnableInsightRulesCommandOutput) => void
   ): Promise<EnableInsightRulesCommandOutput> | void {
     const command = new EnableInsightRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -647,10 +597,7 @@ export class CloudWatch extends CloudWatchClient {
     args: GetDashboardCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDashboardCommandOutput>;
-  public getDashboard(
-    args: GetDashboardCommandInput,
-    cb: (err: any, data?: GetDashboardCommandOutput) => void
-  ): void;
+  public getDashboard(args: GetDashboardCommandInput, cb: (err: any, data?: GetDashboardCommandOutput) => void): void;
   public getDashboard(
     args: GetDashboardCommandInput,
     options: __HttpHandlerOptions,
@@ -658,17 +605,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public getDashboard(
     args: GetDashboardCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDashboardCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDashboardCommandOutput) => void),
     cb?: (err: any, data?: GetDashboardCommandOutput) => void
   ): Promise<GetDashboardCommandOutput> | void {
     const command = new GetDashboardCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -729,17 +673,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public getInsightRuleReport(
     args: GetInsightRuleReportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInsightRuleReportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInsightRuleReportCommandOutput) => void),
     cb?: (err: any, data?: GetInsightRuleReportCommandOutput) => void
   ): Promise<GetInsightRuleReportCommandOutput> | void {
     const command = new GetInsightRuleReportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -799,17 +740,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public getMetricData(
     args: GetMetricDataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMetricDataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMetricDataCommandOutput) => void),
     cb?: (err: any, data?: GetMetricDataCommandOutput) => void
   ): Promise<GetMetricDataCommandOutput> | void {
     const command = new GetMetricDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -885,17 +823,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public getMetricStatistics(
     args: GetMetricStatisticsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMetricStatisticsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMetricStatisticsCommandOutput) => void),
     cb?: (err: any, data?: GetMetricStatisticsCommandOutput) => void
   ): Promise<GetMetricStatisticsCommandOutput> | void {
     const command = new GetMetricStatisticsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -937,17 +872,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public getMetricWidgetImage(
     args: GetMetricWidgetImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMetricWidgetImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMetricWidgetImageCommandOutput) => void),
     cb?: (err: any, data?: GetMetricWidgetImageCommandOutput) => void
   ): Promise<GetMetricWidgetImageCommandOutput> | void {
     const command = new GetMetricWidgetImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -980,17 +912,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public listDashboards(
     args: ListDashboardsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDashboardsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDashboardsCommandOutput) => void),
     cb?: (err: any, data?: ListDashboardsCommandOutput) => void
   ): Promise<ListDashboardsCommandOutput> | void {
     const command = new ListDashboardsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1005,14 +934,8 @@ export class CloudWatch extends CloudWatchClient {
    * 		       <p>After you create a metric, allow up to fifteen minutes before the metric appears.
    * 			Statistics about the metric, however, are available sooner using <a>GetMetricData</a> or <a>GetMetricStatistics</a>.</p>
    */
-  public listMetrics(
-    args: ListMetricsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListMetricsCommandOutput>;
-  public listMetrics(
-    args: ListMetricsCommandInput,
-    cb: (err: any, data?: ListMetricsCommandOutput) => void
-  ): void;
+  public listMetrics(args: ListMetricsCommandInput, options?: __HttpHandlerOptions): Promise<ListMetricsCommandOutput>;
+  public listMetrics(args: ListMetricsCommandInput, cb: (err: any, data?: ListMetricsCommandOutput) => void): void;
   public listMetrics(
     args: ListMetricsCommandInput,
     options: __HttpHandlerOptions,
@@ -1020,17 +943,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public listMetrics(
     args: ListMetricsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMetricsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMetricsCommandOutput) => void),
     cb?: (err: any, data?: ListMetricsCommandOutput) => void
   ): Promise<ListMetricsCommandOutput> | void {
     const command = new ListMetricsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1055,17 +975,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1092,17 +1009,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public putAnomalyDetector(
     args: PutAnomalyDetectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutAnomalyDetectorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAnomalyDetectorCommandOutput) => void),
     cb?: (err: any, data?: PutAnomalyDetectorCommandOutput) => void
   ): Promise<PutAnomalyDetectorCommandOutput> | void {
     const command = new PutAnomalyDetectorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1129,10 +1043,7 @@ export class CloudWatch extends CloudWatchClient {
     args: PutDashboardCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutDashboardCommandOutput>;
-  public putDashboard(
-    args: PutDashboardCommandInput,
-    cb: (err: any, data?: PutDashboardCommandOutput) => void
-  ): void;
+  public putDashboard(args: PutDashboardCommandInput, cb: (err: any, data?: PutDashboardCommandOutput) => void): void;
   public putDashboard(
     args: PutDashboardCommandInput,
     options: __HttpHandlerOptions,
@@ -1140,17 +1051,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public putDashboard(
     args: PutDashboardCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutDashboardCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDashboardCommandOutput) => void),
     cb?: (err: any, data?: PutDashboardCommandOutput) => void
   ): Promise<PutDashboardCommandOutput> | void {
     const command = new PutDashboardCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1179,17 +1087,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public putInsightRule(
     args: PutInsightRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutInsightRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutInsightRuleCommandOutput) => void),
     cb?: (err: any, data?: PutInsightRuleCommandOutput) => void
   ): Promise<PutInsightRuleCommandOutput> | void {
     const command = new PutInsightRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1263,17 +1168,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public putMetricAlarm(
     args: PutMetricAlarmCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutMetricAlarmCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutMetricAlarmCommandOutput) => void),
     cb?: (err: any, data?: PutMetricAlarmCommandOutput) => void
   ): Promise<PutMetricAlarmCommandOutput> | void {
     const command = new PutMetricAlarmCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1336,17 +1238,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public putMetricData(
     args: PutMetricDataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutMetricDataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutMetricDataCommandOutput) => void),
     cb?: (err: any, data?: PutMetricDataCommandOutput) => void
   ): Promise<PutMetricDataCommandOutput> | void {
     const command = new PutMetricDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1378,17 +1277,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public setAlarmState(
     args: SetAlarmStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetAlarmStateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetAlarmStateCommandOutput) => void),
     cb?: (err: any, data?: SetAlarmStateCommandOutput) => void
   ): Promise<SetAlarmStateCommandOutput> | void {
     const command = new SetAlarmStateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1408,14 +1304,8 @@ export class CloudWatch extends CloudWatchClient {
    * 			the previous value for that tag.</p>
    * 		       <p>You can associate as many as 50 tags with a resource.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1423,17 +1313,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1458,17 +1345,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

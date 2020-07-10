@@ -1,18 +1,11 @@
-import {
-  RAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RAMClient";
+import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import { GetPermissionRequest, GetPermissionResponse } from "../models/index";
 import {
   deserializeAws_restJson1GetPermissionCommand,
-  serializeAws_restJson1GetPermissionCommand
+  serializeAws_restJson1GetPermissionCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetPermissionCommandInput = GetPermissionRequest;
-export type GetPermissionCommandOutput = GetPermissionResponse &
-  __MetadataBearer;
+export type GetPermissionCommandOutput = GetPermissionResponse & __MetadataBearer;
 
 export class GetPermissionCommand extends $Command<
   GetPermissionCommandInput,
@@ -47,14 +39,12 @@ export class GetPermissionCommand extends $Command<
     configuration: RAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetPermissionCommandInput, GetPermissionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class GetPermissionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetPermissionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPermissionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetPermissionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPermissionCommandOutput> {
     return deserializeAws_restJson1GetPermissionCommand(output, context);
   }
 

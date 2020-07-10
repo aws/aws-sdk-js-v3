@@ -1,21 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient";
-import {
-  GetInstanceStateRequest,
-  GetInstanceStateResult
-} from "../models/index";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { GetInstanceStateRequest, GetInstanceStateResult } from "../models/index";
 import {
   deserializeAws_json1_1GetInstanceStateCommand,
-  serializeAws_json1_1GetInstanceStateCommand
+  serializeAws_json1_1GetInstanceStateCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetInstanceStateCommandInput = GetInstanceStateRequest;
-export type GetInstanceStateCommandOutput = GetInstanceStateResult &
-  __MetadataBearer;
+export type GetInstanceStateCommandOutput = GetInstanceStateResult & __MetadataBearer;
 
 export class GetInstanceStateCommand extends $Command<
   GetInstanceStateCommandInput,
@@ -50,14 +39,12 @@ export class GetInstanceStateCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetInstanceStateCommandInput, GetInstanceStateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class GetInstanceStateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetInstanceStateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetInstanceStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetInstanceStateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetInstanceStateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceStateCommandOutput> {
     return deserializeAws_json1_1GetInstanceStateCommand(output, context);
   }
 

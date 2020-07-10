@@ -1,21 +1,11 @@
-import {
-  InspectorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../InspectorClient";
-import {
-  DescribeFindingsRequest,
-  DescribeFindingsResponse
-} from "../models/index";
+import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
+import { DescribeFindingsRequest, DescribeFindingsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeFindingsCommand,
-  serializeAws_json1_1DescribeFindingsCommand
+  serializeAws_json1_1DescribeFindingsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeFindingsCommandInput = DescribeFindingsRequest;
-export type DescribeFindingsCommandOutput = DescribeFindingsResponse &
-  __MetadataBearer;
+export type DescribeFindingsCommandOutput = DescribeFindingsResponse & __MetadataBearer;
 
 export class DescribeFindingsCommand extends $Command<
   DescribeFindingsCommandInput,
@@ -50,14 +39,12 @@ export class DescribeFindingsCommand extends $Command<
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeFindingsCommandInput, DescribeFindingsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class DescribeFindingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeFindingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFindingsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeFindingsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFindingsCommandOutput> {
     return deserializeAws_json1_1DescribeFindingsCommand(output, context);
   }
 

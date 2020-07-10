@@ -1,18 +1,11 @@
-import {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElasticBeanstalkClient";
+import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { UpdateTagsForResourceMessage } from "../models/index";
 import {
   deserializeAws_queryUpdateTagsForResourceCommand,
-  serializeAws_queryUpdateTagsForResourceCommand
+  serializeAws_queryUpdateTagsForResourceCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateTagsForResourceCommandInput = UpdateTagsForResourceMessage;
@@ -45,18 +38,13 @@ export class UpdateTagsForResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateTagsForResourceCommandInput,
-    UpdateTagsForResourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateTagsForResourceCommandInput, UpdateTagsForResourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,17 +54,11 @@ export class UpdateTagsForResourceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateTagsForResourceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateTagsForResourceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateTagsForResourceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTagsForResourceCommandOutput> {
     return deserializeAws_queryUpdateTagsForResourceCommand(output, context);
   }
 

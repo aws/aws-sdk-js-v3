@@ -1,18 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetStaticIpRequest, GetStaticIpResult } from "../models/index";
 import {
   deserializeAws_json1_1GetStaticIpCommand,
-  serializeAws_json1_1GetStaticIpCommand
+  serializeAws_json1_1GetStaticIpCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetStaticIpCommandInput = GetStaticIpRequest;
@@ -46,14 +39,12 @@ export class GetStaticIpCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetStaticIpCommandInput, GetStaticIpCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +54,11 @@ export class GetStaticIpCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetStaticIpCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetStaticIpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetStaticIpCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetStaticIpCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStaticIpCommandOutput> {
     return deserializeAws_json1_1GetStaticIpCommand(output, context);
   }
 

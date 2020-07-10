@@ -1,106 +1,67 @@
-import {
-  BuildSuggestersCommandInput,
-  BuildSuggestersCommandOutput
-} from "./commands/BuildSuggestersCommand";
-import {
-  CreateDomainCommandInput,
-  CreateDomainCommandOutput
-} from "./commands/CreateDomainCommand";
+import { BuildSuggestersCommandInput, BuildSuggestersCommandOutput } from "./commands/BuildSuggestersCommand";
+import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
 import {
   DefineAnalysisSchemeCommandInput,
-  DefineAnalysisSchemeCommandOutput
+  DefineAnalysisSchemeCommandOutput,
 } from "./commands/DefineAnalysisSchemeCommand";
-import {
-  DefineExpressionCommandInput,
-  DefineExpressionCommandOutput
-} from "./commands/DefineExpressionCommand";
-import {
-  DefineIndexFieldCommandInput,
-  DefineIndexFieldCommandOutput
-} from "./commands/DefineIndexFieldCommand";
-import {
-  DefineSuggesterCommandInput,
-  DefineSuggesterCommandOutput
-} from "./commands/DefineSuggesterCommand";
+import { DefineExpressionCommandInput, DefineExpressionCommandOutput } from "./commands/DefineExpressionCommand";
+import { DefineIndexFieldCommandInput, DefineIndexFieldCommandOutput } from "./commands/DefineIndexFieldCommand";
+import { DefineSuggesterCommandInput, DefineSuggesterCommandOutput } from "./commands/DefineSuggesterCommand";
 import {
   DeleteAnalysisSchemeCommandInput,
-  DeleteAnalysisSchemeCommandOutput
+  DeleteAnalysisSchemeCommandOutput,
 } from "./commands/DeleteAnalysisSchemeCommand";
-import {
-  DeleteDomainCommandInput,
-  DeleteDomainCommandOutput
-} from "./commands/DeleteDomainCommand";
-import {
-  DeleteExpressionCommandInput,
-  DeleteExpressionCommandOutput
-} from "./commands/DeleteExpressionCommand";
-import {
-  DeleteIndexFieldCommandInput,
-  DeleteIndexFieldCommandOutput
-} from "./commands/DeleteIndexFieldCommand";
-import {
-  DeleteSuggesterCommandInput,
-  DeleteSuggesterCommandOutput
-} from "./commands/DeleteSuggesterCommand";
+import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
+import { DeleteExpressionCommandInput, DeleteExpressionCommandOutput } from "./commands/DeleteExpressionCommand";
+import { DeleteIndexFieldCommandInput, DeleteIndexFieldCommandOutput } from "./commands/DeleteIndexFieldCommand";
+import { DeleteSuggesterCommandInput, DeleteSuggesterCommandOutput } from "./commands/DeleteSuggesterCommand";
 import {
   DescribeAnalysisSchemesCommandInput,
-  DescribeAnalysisSchemesCommandOutput
+  DescribeAnalysisSchemesCommandOutput,
 } from "./commands/DescribeAnalysisSchemesCommand";
 import {
   DescribeAvailabilityOptionsCommandInput,
-  DescribeAvailabilityOptionsCommandOutput
+  DescribeAvailabilityOptionsCommandOutput,
 } from "./commands/DescribeAvailabilityOptionsCommand";
 import {
   DescribeDomainEndpointOptionsCommandInput,
-  DescribeDomainEndpointOptionsCommandOutput
+  DescribeDomainEndpointOptionsCommandOutput,
 } from "./commands/DescribeDomainEndpointOptionsCommand";
-import {
-  DescribeDomainsCommandInput,
-  DescribeDomainsCommandOutput
-} from "./commands/DescribeDomainsCommand";
+import { DescribeDomainsCommandInput, DescribeDomainsCommandOutput } from "./commands/DescribeDomainsCommand";
 import {
   DescribeExpressionsCommandInput,
-  DescribeExpressionsCommandOutput
+  DescribeExpressionsCommandOutput,
 } from "./commands/DescribeExpressionsCommand";
 import {
   DescribeIndexFieldsCommandInput,
-  DescribeIndexFieldsCommandOutput
+  DescribeIndexFieldsCommandOutput,
 } from "./commands/DescribeIndexFieldsCommand";
 import {
   DescribeScalingParametersCommandInput,
-  DescribeScalingParametersCommandOutput
+  DescribeScalingParametersCommandOutput,
 } from "./commands/DescribeScalingParametersCommand";
 import {
   DescribeServiceAccessPoliciesCommandInput,
-  DescribeServiceAccessPoliciesCommandOutput
+  DescribeServiceAccessPoliciesCommandOutput,
 } from "./commands/DescribeServiceAccessPoliciesCommand";
-import {
-  DescribeSuggestersCommandInput,
-  DescribeSuggestersCommandOutput
-} from "./commands/DescribeSuggestersCommand";
-import {
-  IndexDocumentsCommandInput,
-  IndexDocumentsCommandOutput
-} from "./commands/IndexDocumentsCommand";
-import {
-  ListDomainNamesCommandInput,
-  ListDomainNamesCommandOutput
-} from "./commands/ListDomainNamesCommand";
+import { DescribeSuggestersCommandInput, DescribeSuggestersCommandOutput } from "./commands/DescribeSuggestersCommand";
+import { IndexDocumentsCommandInput, IndexDocumentsCommandOutput } from "./commands/IndexDocumentsCommand";
+import { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "./commands/ListDomainNamesCommand";
 import {
   UpdateAvailabilityOptionsCommandInput,
-  UpdateAvailabilityOptionsCommandOutput
+  UpdateAvailabilityOptionsCommandOutput,
 } from "./commands/UpdateAvailabilityOptionsCommand";
 import {
   UpdateDomainEndpointOptionsCommandInput,
-  UpdateDomainEndpointOptionsCommandOutput
+  UpdateDomainEndpointOptionsCommandOutput,
 } from "./commands/UpdateDomainEndpointOptionsCommand";
 import {
   UpdateScalingParametersCommandInput,
-  UpdateScalingParametersCommandOutput
+  UpdateScalingParametersCommandOutput,
 } from "./commands/UpdateScalingParametersCommand";
 import {
   UpdateServiceAccessPoliciesCommandInput,
-  UpdateServiceAccessPoliciesCommandOutput
+  UpdateServiceAccessPoliciesCommandOutput,
 } from "./commands/UpdateServiceAccessPoliciesCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -109,38 +70,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -151,7 +107,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -210,8 +166,7 @@ export type ServiceOutputTypes =
   | UpdateScalingParametersCommandOutput
   | UpdateServiceAccessPoliciesCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -300,9 +255,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CloudSearchClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CloudSearchClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -311,9 +264,7 @@ export type CloudSearchClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CloudSearchClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CloudSearchClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -342,7 +293,7 @@ export class CloudSearchClient extends __Client<
   constructor(configuration: CloudSearchClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

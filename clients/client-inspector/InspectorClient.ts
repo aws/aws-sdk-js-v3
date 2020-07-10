@@ -1,150 +1,117 @@
 import {
   AddAttributesToFindingsCommandInput,
-  AddAttributesToFindingsCommandOutput
+  AddAttributesToFindingsCommandOutput,
 } from "./commands/AddAttributesToFindingsCommand";
 import {
   CreateAssessmentTargetCommandInput,
-  CreateAssessmentTargetCommandOutput
+  CreateAssessmentTargetCommandOutput,
 } from "./commands/CreateAssessmentTargetCommand";
 import {
   CreateAssessmentTemplateCommandInput,
-  CreateAssessmentTemplateCommandOutput
+  CreateAssessmentTemplateCommandOutput,
 } from "./commands/CreateAssessmentTemplateCommand";
 import {
   CreateExclusionsPreviewCommandInput,
-  CreateExclusionsPreviewCommandOutput
+  CreateExclusionsPreviewCommandOutput,
 } from "./commands/CreateExclusionsPreviewCommand";
 import {
   CreateResourceGroupCommandInput,
-  CreateResourceGroupCommandOutput
+  CreateResourceGroupCommandOutput,
 } from "./commands/CreateResourceGroupCommand";
 import {
   DeleteAssessmentRunCommandInput,
-  DeleteAssessmentRunCommandOutput
+  DeleteAssessmentRunCommandOutput,
 } from "./commands/DeleteAssessmentRunCommand";
 import {
   DeleteAssessmentTargetCommandInput,
-  DeleteAssessmentTargetCommandOutput
+  DeleteAssessmentTargetCommandOutput,
 } from "./commands/DeleteAssessmentTargetCommand";
 import {
   DeleteAssessmentTemplateCommandInput,
-  DeleteAssessmentTemplateCommandOutput
+  DeleteAssessmentTemplateCommandOutput,
 } from "./commands/DeleteAssessmentTemplateCommand";
 import {
   DescribeAssessmentRunsCommandInput,
-  DescribeAssessmentRunsCommandOutput
+  DescribeAssessmentRunsCommandOutput,
 } from "./commands/DescribeAssessmentRunsCommand";
 import {
   DescribeAssessmentTargetsCommandInput,
-  DescribeAssessmentTargetsCommandOutput
+  DescribeAssessmentTargetsCommandOutput,
 } from "./commands/DescribeAssessmentTargetsCommand";
 import {
   DescribeAssessmentTemplatesCommandInput,
-  DescribeAssessmentTemplatesCommandOutput
+  DescribeAssessmentTemplatesCommandOutput,
 } from "./commands/DescribeAssessmentTemplatesCommand";
 import {
   DescribeCrossAccountAccessRoleCommandInput,
-  DescribeCrossAccountAccessRoleCommandOutput
+  DescribeCrossAccountAccessRoleCommandOutput,
 } from "./commands/DescribeCrossAccountAccessRoleCommand";
-import {
-  DescribeExclusionsCommandInput,
-  DescribeExclusionsCommandOutput
-} from "./commands/DescribeExclusionsCommand";
-import {
-  DescribeFindingsCommandInput,
-  DescribeFindingsCommandOutput
-} from "./commands/DescribeFindingsCommand";
+import { DescribeExclusionsCommandInput, DescribeExclusionsCommandOutput } from "./commands/DescribeExclusionsCommand";
+import { DescribeFindingsCommandInput, DescribeFindingsCommandOutput } from "./commands/DescribeFindingsCommand";
 import {
   DescribeResourceGroupsCommandInput,
-  DescribeResourceGroupsCommandOutput
+  DescribeResourceGroupsCommandOutput,
 } from "./commands/DescribeResourceGroupsCommand";
 import {
   DescribeRulesPackagesCommandInput,
-  DescribeRulesPackagesCommandOutput
+  DescribeRulesPackagesCommandOutput,
 } from "./commands/DescribeRulesPackagesCommand";
 import {
   GetAssessmentReportCommandInput,
-  GetAssessmentReportCommandOutput
+  GetAssessmentReportCommandOutput,
 } from "./commands/GetAssessmentReportCommand";
 import {
   GetExclusionsPreviewCommandInput,
-  GetExclusionsPreviewCommandOutput
+  GetExclusionsPreviewCommandOutput,
 } from "./commands/GetExclusionsPreviewCommand";
 import {
   GetTelemetryMetadataCommandInput,
-  GetTelemetryMetadataCommandOutput
+  GetTelemetryMetadataCommandOutput,
 } from "./commands/GetTelemetryMetadataCommand";
 import {
   ListAssessmentRunAgentsCommandInput,
-  ListAssessmentRunAgentsCommandOutput
+  ListAssessmentRunAgentsCommandOutput,
 } from "./commands/ListAssessmentRunAgentsCommand";
-import {
-  ListAssessmentRunsCommandInput,
-  ListAssessmentRunsCommandOutput
-} from "./commands/ListAssessmentRunsCommand";
+import { ListAssessmentRunsCommandInput, ListAssessmentRunsCommandOutput } from "./commands/ListAssessmentRunsCommand";
 import {
   ListAssessmentTargetsCommandInput,
-  ListAssessmentTargetsCommandOutput
+  ListAssessmentTargetsCommandOutput,
 } from "./commands/ListAssessmentTargetsCommand";
 import {
   ListAssessmentTemplatesCommandInput,
-  ListAssessmentTemplatesCommandOutput
+  ListAssessmentTemplatesCommandOutput,
 } from "./commands/ListAssessmentTemplatesCommand";
 import {
   ListEventSubscriptionsCommandInput,
-  ListEventSubscriptionsCommandOutput
+  ListEventSubscriptionsCommandOutput,
 } from "./commands/ListEventSubscriptionsCommand";
-import {
-  ListExclusionsCommandInput,
-  ListExclusionsCommandOutput
-} from "./commands/ListExclusionsCommand";
-import {
-  ListFindingsCommandInput,
-  ListFindingsCommandOutput
-} from "./commands/ListFindingsCommand";
-import {
-  ListRulesPackagesCommandInput,
-  ListRulesPackagesCommandOutput
-} from "./commands/ListRulesPackagesCommand";
+import { ListExclusionsCommandInput, ListExclusionsCommandOutput } from "./commands/ListExclusionsCommand";
+import { ListFindingsCommandInput, ListFindingsCommandOutput } from "./commands/ListFindingsCommand";
+import { ListRulesPackagesCommandInput, ListRulesPackagesCommandOutput } from "./commands/ListRulesPackagesCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  PreviewAgentsCommandInput,
-  PreviewAgentsCommandOutput
-} from "./commands/PreviewAgentsCommand";
+import { PreviewAgentsCommandInput, PreviewAgentsCommandOutput } from "./commands/PreviewAgentsCommand";
 import {
   RegisterCrossAccountAccessRoleCommandInput,
-  RegisterCrossAccountAccessRoleCommandOutput
+  RegisterCrossAccountAccessRoleCommandOutput,
 } from "./commands/RegisterCrossAccountAccessRoleCommand";
 import {
   RemoveAttributesFromFindingsCommandInput,
-  RemoveAttributesFromFindingsCommandOutput
+  RemoveAttributesFromFindingsCommandOutput,
 } from "./commands/RemoveAttributesFromFindingsCommand";
-import {
-  SetTagsForResourceCommandInput,
-  SetTagsForResourceCommandOutput
-} from "./commands/SetTagsForResourceCommand";
-import {
-  StartAssessmentRunCommandInput,
-  StartAssessmentRunCommandOutput
-} from "./commands/StartAssessmentRunCommand";
-import {
-  StopAssessmentRunCommandInput,
-  StopAssessmentRunCommandOutput
-} from "./commands/StopAssessmentRunCommand";
-import {
-  SubscribeToEventCommandInput,
-  SubscribeToEventCommandOutput
-} from "./commands/SubscribeToEventCommand";
+import { SetTagsForResourceCommandInput, SetTagsForResourceCommandOutput } from "./commands/SetTagsForResourceCommand";
+import { StartAssessmentRunCommandInput, StartAssessmentRunCommandOutput } from "./commands/StartAssessmentRunCommand";
+import { StopAssessmentRunCommandInput, StopAssessmentRunCommandOutput } from "./commands/StopAssessmentRunCommand";
+import { SubscribeToEventCommandInput, SubscribeToEventCommandOutput } from "./commands/SubscribeToEventCommand";
 import {
   UnsubscribeFromEventCommandInput,
-  UnsubscribeFromEventCommandOutput
+  UnsubscribeFromEventCommandOutput,
 } from "./commands/UnsubscribeFromEventCommand";
 import {
   UpdateAssessmentTargetCommandInput,
-  UpdateAssessmentTargetCommandOutput
+  UpdateAssessmentTargetCommandOutput,
 } from "./commands/UpdateAssessmentTargetCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -153,38 +120,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -195,7 +157,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -276,8 +238,7 @@ export type ServiceOutputTypes =
   | UnsubscribeFromEventCommandOutput
   | UpdateAssessmentTargetCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -366,9 +327,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type InspectorClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type InspectorClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -377,9 +336,7 @@ export type InspectorClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type InspectorClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type InspectorClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -405,7 +362,7 @@ export class InspectorClient extends __Client<
   constructor(configuration: InspectorClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

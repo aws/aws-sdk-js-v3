@@ -1,21 +1,11 @@
-import {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElasticBeanstalkClient";
-import {
-  ApplicationDescriptionsMessage,
-  DescribeApplicationsMessage
-} from "../models/index";
+import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
+import { ApplicationDescriptionsMessage, DescribeApplicationsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeApplicationsCommand,
-  serializeAws_queryDescribeApplicationsCommand
+  serializeAws_queryDescribeApplicationsCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeApplicationsCommandInput = DescribeApplicationsMessage;
-export type DescribeApplicationsCommandOutput = ApplicationDescriptionsMessage &
-  __MetadataBearer;
+export type DescribeApplicationsCommandOutput = ApplicationDescriptionsMessage & __MetadataBearer;
 
 export class DescribeApplicationsCommand extends $Command<
   DescribeApplicationsCommandInput,
@@ -49,18 +38,13 @@ export class DescribeApplicationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeApplicationsCommandInput,
-    DescribeApplicationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeApplicationsCommandInput, DescribeApplicationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DescribeApplicationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeApplicationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeApplicationsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeApplicationsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeApplicationsCommandOutput> {
     return deserializeAws_queryDescribeApplicationsCommand(output, context);
   }
 

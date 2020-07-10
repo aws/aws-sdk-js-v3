@@ -2,92 +2,88 @@ import { ShieldClient } from "./ShieldClient";
 import {
   AssociateDRTLogBucketCommand,
   AssociateDRTLogBucketCommandInput,
-  AssociateDRTLogBucketCommandOutput
+  AssociateDRTLogBucketCommandOutput,
 } from "./commands/AssociateDRTLogBucketCommand";
 import {
   AssociateDRTRoleCommand,
   AssociateDRTRoleCommandInput,
-  AssociateDRTRoleCommandOutput
+  AssociateDRTRoleCommandOutput,
 } from "./commands/AssociateDRTRoleCommand";
 import {
   CreateProtectionCommand,
   CreateProtectionCommandInput,
-  CreateProtectionCommandOutput
+  CreateProtectionCommandOutput,
 } from "./commands/CreateProtectionCommand";
 import {
   CreateSubscriptionCommand,
   CreateSubscriptionCommandInput,
-  CreateSubscriptionCommandOutput
+  CreateSubscriptionCommandOutput,
 } from "./commands/CreateSubscriptionCommand";
 import {
   DeleteProtectionCommand,
   DeleteProtectionCommandInput,
-  DeleteProtectionCommandOutput
+  DeleteProtectionCommandOutput,
 } from "./commands/DeleteProtectionCommand";
 import {
   DeleteSubscriptionCommand,
   DeleteSubscriptionCommandInput,
-  DeleteSubscriptionCommandOutput
+  DeleteSubscriptionCommandOutput,
 } from "./commands/DeleteSubscriptionCommand";
 import {
   DescribeAttackCommand,
   DescribeAttackCommandInput,
-  DescribeAttackCommandOutput
+  DescribeAttackCommandOutput,
 } from "./commands/DescribeAttackCommand";
 import {
   DescribeDRTAccessCommand,
   DescribeDRTAccessCommandInput,
-  DescribeDRTAccessCommandOutput
+  DescribeDRTAccessCommandOutput,
 } from "./commands/DescribeDRTAccessCommand";
 import {
   DescribeEmergencyContactSettingsCommand,
   DescribeEmergencyContactSettingsCommandInput,
-  DescribeEmergencyContactSettingsCommandOutput
+  DescribeEmergencyContactSettingsCommandOutput,
 } from "./commands/DescribeEmergencyContactSettingsCommand";
 import {
   DescribeProtectionCommand,
   DescribeProtectionCommandInput,
-  DescribeProtectionCommandOutput
+  DescribeProtectionCommandOutput,
 } from "./commands/DescribeProtectionCommand";
 import {
   DescribeSubscriptionCommand,
   DescribeSubscriptionCommandInput,
-  DescribeSubscriptionCommandOutput
+  DescribeSubscriptionCommandOutput,
 } from "./commands/DescribeSubscriptionCommand";
 import {
   DisassociateDRTLogBucketCommand,
   DisassociateDRTLogBucketCommandInput,
-  DisassociateDRTLogBucketCommandOutput
+  DisassociateDRTLogBucketCommandOutput,
 } from "./commands/DisassociateDRTLogBucketCommand";
 import {
   DisassociateDRTRoleCommand,
   DisassociateDRTRoleCommandInput,
-  DisassociateDRTRoleCommandOutput
+  DisassociateDRTRoleCommandOutput,
 } from "./commands/DisassociateDRTRoleCommand";
 import {
   GetSubscriptionStateCommand,
   GetSubscriptionStateCommandInput,
-  GetSubscriptionStateCommandOutput
+  GetSubscriptionStateCommandOutput,
 } from "./commands/GetSubscriptionStateCommand";
-import {
-  ListAttacksCommand,
-  ListAttacksCommandInput,
-  ListAttacksCommandOutput
-} from "./commands/ListAttacksCommand";
+import { ListAttacksCommand, ListAttacksCommandInput, ListAttacksCommandOutput } from "./commands/ListAttacksCommand";
 import {
   ListProtectionsCommand,
   ListProtectionsCommandInput,
-  ListProtectionsCommandOutput
+  ListProtectionsCommandOutput,
 } from "./commands/ListProtectionsCommand";
 import {
   UpdateEmergencyContactSettingsCommand,
   UpdateEmergencyContactSettingsCommandInput,
-  UpdateEmergencyContactSettingsCommandOutput
+  UpdateEmergencyContactSettingsCommandOutput,
 } from "./commands/UpdateEmergencyContactSettingsCommand";
 import {
   UpdateSubscriptionCommand,
   UpdateSubscriptionCommandInput,
-  UpdateSubscriptionCommandOutput
+  UpdateSubscriptionCommandOutput,
 } from "./commands/UpdateSubscriptionCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -117,17 +113,14 @@ export class Shield extends ShieldClient {
   ): void;
   public associateDRTLogBucket(
     args: AssociateDRTLogBucketCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateDRTLogBucketCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateDRTLogBucketCommandOutput) => void),
     cb?: (err: any, data?: AssociateDRTLogBucketCommandOutput) => void
   ): Promise<AssociateDRTLogBucketCommandOutput> | void {
     const command = new AssociateDRTLogBucketCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -158,17 +151,14 @@ export class Shield extends ShieldClient {
   ): void;
   public associateDRTRole(
     args: AssociateDRTRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateDRTRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateDRTRoleCommandOutput) => void),
     cb?: (err: any, data?: AssociateDRTRoleCommandOutput) => void
   ): Promise<AssociateDRTRoleCommandOutput> | void {
     const command = new AssociateDRTRoleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -195,17 +185,14 @@ export class Shield extends ShieldClient {
   ): void;
   public createProtection(
     args: CreateProtectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProtectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProtectionCommandOutput) => void),
     cb?: (err: any, data?: CreateProtectionCommandOutput) => void
   ): Promise<CreateProtectionCommandOutput> | void {
     const command = new CreateProtectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -236,17 +223,14 @@ export class Shield extends ShieldClient {
   ): void;
   public createSubscription(
     args: CreateSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSubscriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: CreateSubscriptionCommandOutput) => void
   ): Promise<CreateSubscriptionCommandOutput> | void {
     const command = new CreateSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -271,17 +255,14 @@ export class Shield extends ShieldClient {
   ): void;
   public deleteProtection(
     args: DeleteProtectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteProtectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProtectionCommandOutput) => void),
     cb?: (err: any, data?: DeleteProtectionCommandOutput) => void
   ): Promise<DeleteProtectionCommandOutput> | void {
     const command = new DeleteProtectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -306,17 +287,14 @@ export class Shield extends ShieldClient {
   ): void;
   public deleteSubscription(
     args: DeleteSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSubscriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: DeleteSubscriptionCommandOutput) => void
   ): Promise<DeleteSubscriptionCommandOutput> | void {
     const command = new DeleteSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -341,17 +319,14 @@ export class Shield extends ShieldClient {
   ): void;
   public describeAttack(
     args: DescribeAttackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAttackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAttackCommandOutput) => void),
     cb?: (err: any, data?: DescribeAttackCommandOutput) => void
   ): Promise<DescribeAttackCommandOutput> | void {
     const command = new DescribeAttackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -376,17 +351,14 @@ export class Shield extends ShieldClient {
   ): void;
   public describeDRTAccess(
     args: DescribeDRTAccessCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDRTAccessCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDRTAccessCommandOutput) => void),
     cb?: (err: any, data?: DescribeDRTAccessCommandOutput) => void
   ): Promise<DescribeDRTAccessCommandOutput> | void {
     const command = new DescribeDRTAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -411,23 +383,14 @@ export class Shield extends ShieldClient {
   ): void;
   public describeEmergencyContactSettings(
     args: DescribeEmergencyContactSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEmergencyContactSettingsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeEmergencyContactSettingsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEmergencyContactSettingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEmergencyContactSettingsCommandOutput) => void
   ): Promise<DescribeEmergencyContactSettingsCommandOutput> | void {
     const command = new DescribeEmergencyContactSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -452,17 +415,14 @@ export class Shield extends ShieldClient {
   ): void;
   public describeProtection(
     args: DescribeProtectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeProtectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProtectionCommandOutput) => void),
     cb?: (err: any, data?: DescribeProtectionCommandOutput) => void
   ): Promise<DescribeProtectionCommandOutput> | void {
     const command = new DescribeProtectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -487,17 +447,14 @@ export class Shield extends ShieldClient {
   ): void;
   public describeSubscription(
     args: DescribeSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSubscriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: DescribeSubscriptionCommandOutput) => void
   ): Promise<DescribeSubscriptionCommandOutput> | void {
     const command = new DescribeSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -523,17 +480,14 @@ export class Shield extends ShieldClient {
   ): void;
   public disassociateDRTLogBucket(
     args: DisassociateDRTLogBucketCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateDRTLogBucketCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateDRTLogBucketCommandOutput) => void),
     cb?: (err: any, data?: DisassociateDRTLogBucketCommandOutput) => void
   ): Promise<DisassociateDRTLogBucketCommandOutput> | void {
     const command = new DisassociateDRTLogBucketCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -559,17 +513,14 @@ export class Shield extends ShieldClient {
   ): void;
   public disassociateDRTRole(
     args: DisassociateDRTRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateDRTRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateDRTRoleCommandOutput) => void),
     cb?: (err: any, data?: DisassociateDRTRoleCommandOutput) => void
   ): Promise<DisassociateDRTRoleCommandOutput> | void {
     const command = new DisassociateDRTRoleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -594,17 +545,14 @@ export class Shield extends ShieldClient {
   ): void;
   public getSubscriptionState(
     args: GetSubscriptionStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSubscriptionStateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSubscriptionStateCommandOutput) => void),
     cb?: (err: any, data?: GetSubscriptionStateCommandOutput) => void
   ): Promise<GetSubscriptionStateCommandOutput> | void {
     const command = new GetSubscriptionStateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -615,14 +563,8 @@ export class Shield extends ShieldClient {
    * <p>Returns all ongoing DDoS attacks or all DDoS attacks during a specified time
    *          period.</p>
    */
-  public listAttacks(
-    args: ListAttacksCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAttacksCommandOutput>;
-  public listAttacks(
-    args: ListAttacksCommandInput,
-    cb: (err: any, data?: ListAttacksCommandOutput) => void
-  ): void;
+  public listAttacks(args: ListAttacksCommandInput, options?: __HttpHandlerOptions): Promise<ListAttacksCommandOutput>;
+  public listAttacks(args: ListAttacksCommandInput, cb: (err: any, data?: ListAttacksCommandOutput) => void): void;
   public listAttacks(
     args: ListAttacksCommandInput,
     options: __HttpHandlerOptions,
@@ -630,17 +572,14 @@ export class Shield extends ShieldClient {
   ): void;
   public listAttacks(
     args: ListAttacksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAttacksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAttacksCommandOutput) => void),
     cb?: (err: any, data?: ListAttacksCommandOutput) => void
   ): Promise<ListAttacksCommandOutput> | void {
     const command = new ListAttacksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -665,17 +604,14 @@ export class Shield extends ShieldClient {
   ): void;
   public listProtections(
     args: ListProtectionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProtectionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProtectionsCommandOutput) => void),
     cb?: (err: any, data?: ListProtectionsCommandOutput) => void
   ): Promise<ListProtectionsCommandOutput> | void {
     const command = new ListProtectionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -700,20 +636,14 @@ export class Shield extends ShieldClient {
   ): void;
   public updateEmergencyContactSettings(
     args: UpdateEmergencyContactSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateEmergencyContactSettingsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEmergencyContactSettingsCommandOutput) => void),
     cb?: (err: any, data?: UpdateEmergencyContactSettingsCommandOutput) => void
   ): Promise<UpdateEmergencyContactSettingsCommandOutput> | void {
     const command = new UpdateEmergencyContactSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -738,17 +668,14 @@ export class Shield extends ShieldClient {
   ): void;
   public updateSubscription(
     args: UpdateSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSubscriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: UpdateSubscriptionCommandOutput) => void
   ): Promise<UpdateSubscriptionCommandOutput> | void {
     const command = new UpdateSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

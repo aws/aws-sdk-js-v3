@@ -2,242 +2,242 @@ import { ElastiCacheClient } from "./ElastiCacheClient";
 import {
   AddTagsToResourceCommand,
   AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput
+  AddTagsToResourceCommandOutput,
 } from "./commands/AddTagsToResourceCommand";
 import {
   AuthorizeCacheSecurityGroupIngressCommand,
   AuthorizeCacheSecurityGroupIngressCommandInput,
-  AuthorizeCacheSecurityGroupIngressCommandOutput
+  AuthorizeCacheSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeCacheSecurityGroupIngressCommand";
 import {
   BatchApplyUpdateActionCommand,
   BatchApplyUpdateActionCommandInput,
-  BatchApplyUpdateActionCommandOutput
+  BatchApplyUpdateActionCommandOutput,
 } from "./commands/BatchApplyUpdateActionCommand";
 import {
   BatchStopUpdateActionCommand,
   BatchStopUpdateActionCommandInput,
-  BatchStopUpdateActionCommandOutput
+  BatchStopUpdateActionCommandOutput,
 } from "./commands/BatchStopUpdateActionCommand";
 import {
   CompleteMigrationCommand,
   CompleteMigrationCommandInput,
-  CompleteMigrationCommandOutput
+  CompleteMigrationCommandOutput,
 } from "./commands/CompleteMigrationCommand";
 import {
   CopySnapshotCommand,
   CopySnapshotCommandInput,
-  CopySnapshotCommandOutput
+  CopySnapshotCommandOutput,
 } from "./commands/CopySnapshotCommand";
 import {
   CreateCacheClusterCommand,
   CreateCacheClusterCommandInput,
-  CreateCacheClusterCommandOutput
+  CreateCacheClusterCommandOutput,
 } from "./commands/CreateCacheClusterCommand";
 import {
   CreateCacheParameterGroupCommand,
   CreateCacheParameterGroupCommandInput,
-  CreateCacheParameterGroupCommandOutput
+  CreateCacheParameterGroupCommandOutput,
 } from "./commands/CreateCacheParameterGroupCommand";
 import {
   CreateCacheSecurityGroupCommand,
   CreateCacheSecurityGroupCommandInput,
-  CreateCacheSecurityGroupCommandOutput
+  CreateCacheSecurityGroupCommandOutput,
 } from "./commands/CreateCacheSecurityGroupCommand";
 import {
   CreateCacheSubnetGroupCommand,
   CreateCacheSubnetGroupCommandInput,
-  CreateCacheSubnetGroupCommandOutput
+  CreateCacheSubnetGroupCommandOutput,
 } from "./commands/CreateCacheSubnetGroupCommand";
 import {
   CreateReplicationGroupCommand,
   CreateReplicationGroupCommandInput,
-  CreateReplicationGroupCommandOutput
+  CreateReplicationGroupCommandOutput,
 } from "./commands/CreateReplicationGroupCommand";
 import {
   CreateSnapshotCommand,
   CreateSnapshotCommandInput,
-  CreateSnapshotCommandOutput
+  CreateSnapshotCommandOutput,
 } from "./commands/CreateSnapshotCommand";
 import {
   DecreaseReplicaCountCommand,
   DecreaseReplicaCountCommandInput,
-  DecreaseReplicaCountCommandOutput
+  DecreaseReplicaCountCommandOutput,
 } from "./commands/DecreaseReplicaCountCommand";
 import {
   DeleteCacheClusterCommand,
   DeleteCacheClusterCommandInput,
-  DeleteCacheClusterCommandOutput
+  DeleteCacheClusterCommandOutput,
 } from "./commands/DeleteCacheClusterCommand";
 import {
   DeleteCacheParameterGroupCommand,
   DeleteCacheParameterGroupCommandInput,
-  DeleteCacheParameterGroupCommandOutput
+  DeleteCacheParameterGroupCommandOutput,
 } from "./commands/DeleteCacheParameterGroupCommand";
 import {
   DeleteCacheSecurityGroupCommand,
   DeleteCacheSecurityGroupCommandInput,
-  DeleteCacheSecurityGroupCommandOutput
+  DeleteCacheSecurityGroupCommandOutput,
 } from "./commands/DeleteCacheSecurityGroupCommand";
 import {
   DeleteCacheSubnetGroupCommand,
   DeleteCacheSubnetGroupCommandInput,
-  DeleteCacheSubnetGroupCommandOutput
+  DeleteCacheSubnetGroupCommandOutput,
 } from "./commands/DeleteCacheSubnetGroupCommand";
 import {
   DeleteReplicationGroupCommand,
   DeleteReplicationGroupCommandInput,
-  DeleteReplicationGroupCommandOutput
+  DeleteReplicationGroupCommandOutput,
 } from "./commands/DeleteReplicationGroupCommand";
 import {
   DeleteSnapshotCommand,
   DeleteSnapshotCommandInput,
-  DeleteSnapshotCommandOutput
+  DeleteSnapshotCommandOutput,
 } from "./commands/DeleteSnapshotCommand";
 import {
   DescribeCacheClustersCommand,
   DescribeCacheClustersCommandInput,
-  DescribeCacheClustersCommandOutput
+  DescribeCacheClustersCommandOutput,
 } from "./commands/DescribeCacheClustersCommand";
 import {
   DescribeCacheEngineVersionsCommand,
   DescribeCacheEngineVersionsCommandInput,
-  DescribeCacheEngineVersionsCommandOutput
+  DescribeCacheEngineVersionsCommandOutput,
 } from "./commands/DescribeCacheEngineVersionsCommand";
 import {
   DescribeCacheParameterGroupsCommand,
   DescribeCacheParameterGroupsCommandInput,
-  DescribeCacheParameterGroupsCommandOutput
+  DescribeCacheParameterGroupsCommandOutput,
 } from "./commands/DescribeCacheParameterGroupsCommand";
 import {
   DescribeCacheParametersCommand,
   DescribeCacheParametersCommandInput,
-  DescribeCacheParametersCommandOutput
+  DescribeCacheParametersCommandOutput,
 } from "./commands/DescribeCacheParametersCommand";
 import {
   DescribeCacheSecurityGroupsCommand,
   DescribeCacheSecurityGroupsCommandInput,
-  DescribeCacheSecurityGroupsCommandOutput
+  DescribeCacheSecurityGroupsCommandOutput,
 } from "./commands/DescribeCacheSecurityGroupsCommand";
 import {
   DescribeCacheSubnetGroupsCommand,
   DescribeCacheSubnetGroupsCommandInput,
-  DescribeCacheSubnetGroupsCommandOutput
+  DescribeCacheSubnetGroupsCommandOutput,
 } from "./commands/DescribeCacheSubnetGroupsCommand";
 import {
   DescribeEngineDefaultParametersCommand,
   DescribeEngineDefaultParametersCommandInput,
-  DescribeEngineDefaultParametersCommandOutput
+  DescribeEngineDefaultParametersCommandOutput,
 } from "./commands/DescribeEngineDefaultParametersCommand";
 import {
   DescribeEventsCommand,
   DescribeEventsCommandInput,
-  DescribeEventsCommandOutput
+  DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand";
 import {
   DescribeReplicationGroupsCommand,
   DescribeReplicationGroupsCommandInput,
-  DescribeReplicationGroupsCommandOutput
+  DescribeReplicationGroupsCommandOutput,
 } from "./commands/DescribeReplicationGroupsCommand";
 import {
   DescribeReservedCacheNodesCommand,
   DescribeReservedCacheNodesCommandInput,
-  DescribeReservedCacheNodesCommandOutput
+  DescribeReservedCacheNodesCommandOutput,
 } from "./commands/DescribeReservedCacheNodesCommand";
 import {
   DescribeReservedCacheNodesOfferingsCommand,
   DescribeReservedCacheNodesOfferingsCommandInput,
-  DescribeReservedCacheNodesOfferingsCommandOutput
+  DescribeReservedCacheNodesOfferingsCommandOutput,
 } from "./commands/DescribeReservedCacheNodesOfferingsCommand";
 import {
   DescribeServiceUpdatesCommand,
   DescribeServiceUpdatesCommandInput,
-  DescribeServiceUpdatesCommandOutput
+  DescribeServiceUpdatesCommandOutput,
 } from "./commands/DescribeServiceUpdatesCommand";
 import {
   DescribeSnapshotsCommand,
   DescribeSnapshotsCommandInput,
-  DescribeSnapshotsCommandOutput
+  DescribeSnapshotsCommandOutput,
 } from "./commands/DescribeSnapshotsCommand";
 import {
   DescribeUpdateActionsCommand,
   DescribeUpdateActionsCommandInput,
-  DescribeUpdateActionsCommandOutput
+  DescribeUpdateActionsCommandOutput,
 } from "./commands/DescribeUpdateActionsCommand";
 import {
   IncreaseReplicaCountCommand,
   IncreaseReplicaCountCommandInput,
-  IncreaseReplicaCountCommandOutput
+  IncreaseReplicaCountCommandOutput,
 } from "./commands/IncreaseReplicaCountCommand";
 import {
   ListAllowedNodeTypeModificationsCommand,
   ListAllowedNodeTypeModificationsCommandInput,
-  ListAllowedNodeTypeModificationsCommandOutput
+  ListAllowedNodeTypeModificationsCommandOutput,
 } from "./commands/ListAllowedNodeTypeModificationsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   ModifyCacheClusterCommand,
   ModifyCacheClusterCommandInput,
-  ModifyCacheClusterCommandOutput
+  ModifyCacheClusterCommandOutput,
 } from "./commands/ModifyCacheClusterCommand";
 import {
   ModifyCacheParameterGroupCommand,
   ModifyCacheParameterGroupCommandInput,
-  ModifyCacheParameterGroupCommandOutput
+  ModifyCacheParameterGroupCommandOutput,
 } from "./commands/ModifyCacheParameterGroupCommand";
 import {
   ModifyCacheSubnetGroupCommand,
   ModifyCacheSubnetGroupCommandInput,
-  ModifyCacheSubnetGroupCommandOutput
+  ModifyCacheSubnetGroupCommandOutput,
 } from "./commands/ModifyCacheSubnetGroupCommand";
 import {
   ModifyReplicationGroupCommand,
   ModifyReplicationGroupCommandInput,
-  ModifyReplicationGroupCommandOutput
+  ModifyReplicationGroupCommandOutput,
 } from "./commands/ModifyReplicationGroupCommand";
 import {
   ModifyReplicationGroupShardConfigurationCommand,
   ModifyReplicationGroupShardConfigurationCommandInput,
-  ModifyReplicationGroupShardConfigurationCommandOutput
+  ModifyReplicationGroupShardConfigurationCommandOutput,
 } from "./commands/ModifyReplicationGroupShardConfigurationCommand";
 import {
   PurchaseReservedCacheNodesOfferingCommand,
   PurchaseReservedCacheNodesOfferingCommandInput,
-  PurchaseReservedCacheNodesOfferingCommandOutput
+  PurchaseReservedCacheNodesOfferingCommandOutput,
 } from "./commands/PurchaseReservedCacheNodesOfferingCommand";
 import {
   RebootCacheClusterCommand,
   RebootCacheClusterCommandInput,
-  RebootCacheClusterCommandOutput
+  RebootCacheClusterCommandOutput,
 } from "./commands/RebootCacheClusterCommand";
 import {
   RemoveTagsFromResourceCommand,
   RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput
+  RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand";
 import {
   ResetCacheParameterGroupCommand,
   ResetCacheParameterGroupCommandInput,
-  ResetCacheParameterGroupCommandOutput
+  ResetCacheParameterGroupCommandOutput,
 } from "./commands/ResetCacheParameterGroupCommand";
 import {
   RevokeCacheSecurityGroupIngressCommand,
   RevokeCacheSecurityGroupIngressCommandInput,
-  RevokeCacheSecurityGroupIngressCommandOutput
+  RevokeCacheSecurityGroupIngressCommandOutput,
 } from "./commands/RevokeCacheSecurityGroupIngressCommand";
 import {
   StartMigrationCommand,
   StartMigrationCommandInput,
-  StartMigrationCommandOutput
+  StartMigrationCommandOutput,
 } from "./commands/StartMigrationCommand";
 import {
   TestFailoverCommand,
   TestFailoverCommandInput,
-  TestFailoverCommandOutput
+  TestFailoverCommandOutput,
 } from "./commands/TestFailoverCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -283,17 +283,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddTagsToResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsToResourceCommandOutput) => void),
     cb?: (err: any, data?: AddTagsToResourceCommandOutput) => void
   ): Promise<AddTagsToResourceCommandOutput> | void {
     const command = new AddTagsToResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -315,38 +312,23 @@ export class ElastiCache extends ElastiCacheClient {
   ): Promise<AuthorizeCacheSecurityGroupIngressCommandOutput>;
   public authorizeCacheSecurityGroupIngress(
     args: AuthorizeCacheSecurityGroupIngressCommandInput,
-    cb: (
-      err: any,
-      data?: AuthorizeCacheSecurityGroupIngressCommandOutput
-    ) => void
+    cb: (err: any, data?: AuthorizeCacheSecurityGroupIngressCommandOutput) => void
   ): void;
   public authorizeCacheSecurityGroupIngress(
     args: AuthorizeCacheSecurityGroupIngressCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AuthorizeCacheSecurityGroupIngressCommandOutput
-    ) => void
+    cb: (err: any, data?: AuthorizeCacheSecurityGroupIngressCommandOutput) => void
   ): void;
   public authorizeCacheSecurityGroupIngress(
     args: AuthorizeCacheSecurityGroupIngressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AuthorizeCacheSecurityGroupIngressCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AuthorizeCacheSecurityGroupIngressCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AuthorizeCacheSecurityGroupIngressCommandOutput) => void),
+    cb?: (err: any, data?: AuthorizeCacheSecurityGroupIngressCommandOutput) => void
   ): Promise<AuthorizeCacheSecurityGroupIngressCommandOutput> | void {
     const command = new AuthorizeCacheSecurityGroupIngressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -371,17 +353,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public batchApplyUpdateAction(
     args: BatchApplyUpdateActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchApplyUpdateActionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchApplyUpdateActionCommandOutput) => void),
     cb?: (err: any, data?: BatchApplyUpdateActionCommandOutput) => void
   ): Promise<BatchApplyUpdateActionCommandOutput> | void {
     const command = new BatchApplyUpdateActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -406,17 +385,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public batchStopUpdateAction(
     args: BatchStopUpdateActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchStopUpdateActionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchStopUpdateActionCommandOutput) => void),
     cb?: (err: any, data?: BatchStopUpdateActionCommandOutput) => void
   ): Promise<BatchStopUpdateActionCommandOutput> | void {
     const command = new BatchStopUpdateActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -441,17 +417,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public completeMigration(
     args: CompleteMigrationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CompleteMigrationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CompleteMigrationCommandOutput) => void),
     cb?: (err: any, data?: CompleteMigrationCommandOutput) => void
   ): Promise<CompleteMigrationCommandOutput> | void {
     const command = new CompleteMigrationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -558,10 +531,7 @@ export class ElastiCache extends ElastiCacheClient {
     args: CopySnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CopySnapshotCommandOutput>;
-  public copySnapshot(
-    args: CopySnapshotCommandInput,
-    cb: (err: any, data?: CopySnapshotCommandOutput) => void
-  ): void;
+  public copySnapshot(args: CopySnapshotCommandInput, cb: (err: any, data?: CopySnapshotCommandOutput) => void): void;
   public copySnapshot(
     args: CopySnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -569,17 +539,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public copySnapshot(
     args: CopySnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopySnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopySnapshotCommandOutput) => void),
     cb?: (err: any, data?: CopySnapshotCommandOutput) => void
   ): Promise<CopySnapshotCommandOutput> | void {
     const command = new CopySnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -607,17 +574,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public createCacheCluster(
     args: CreateCacheClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCacheClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCacheClusterCommandOutput) => void),
     cb?: (err: any, data?: CreateCacheClusterCommandOutput) => void
   ): Promise<CreateCacheClusterCommandOutput> | void {
     const command = new CreateCacheClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -657,17 +621,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public createCacheParameterGroup(
     args: CreateCacheParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCacheParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCacheParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateCacheParameterGroupCommandOutput) => void
   ): Promise<CreateCacheParameterGroupCommandOutput> | void {
     const command = new CreateCacheParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -697,17 +658,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public createCacheSecurityGroup(
     args: CreateCacheSecurityGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCacheSecurityGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCacheSecurityGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateCacheSecurityGroupCommandOutput) => void
   ): Promise<CreateCacheSecurityGroupCommandOutput> | void {
     const command = new CreateCacheSecurityGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -733,17 +691,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public createCacheSubnetGroup(
     args: CreateCacheSubnetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCacheSubnetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCacheSubnetGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateCacheSubnetGroupCommandOutput) => void
   ): Promise<CreateCacheSubnetGroupCommandOutput> | void {
     const command = new CreateCacheSubnetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -784,17 +739,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public createReplicationGroup(
     args: CreateReplicationGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateReplicationGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateReplicationGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateReplicationGroupCommandOutput) => void
   ): Promise<CreateReplicationGroupCommandOutput> | void {
     const command = new CreateReplicationGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -824,17 +776,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public createSnapshot(
     args: CreateSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CreateSnapshotCommandOutput) => void
   ): Promise<CreateSnapshotCommandOutput> | void {
     const command = new CreateSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -861,17 +810,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public decreaseReplicaCount(
     args: DecreaseReplicaCountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DecreaseReplicaCountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DecreaseReplicaCountCommandOutput) => void),
     cb?: (err: any, data?: DecreaseReplicaCountCommandOutput) => void
   ): Promise<DecreaseReplicaCountCommandOutput> | void {
     const command = new DecreaseReplicaCountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -918,17 +864,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public deleteCacheCluster(
     args: DeleteCacheClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCacheClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCacheClusterCommandOutput) => void),
     cb?: (err: any, data?: DeleteCacheClusterCommandOutput) => void
   ): Promise<DeleteCacheClusterCommandOutput> | void {
     const command = new DeleteCacheClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -955,17 +898,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public deleteCacheParameterGroup(
     args: DeleteCacheParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCacheParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCacheParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteCacheParameterGroupCommandOutput) => void
   ): Promise<DeleteCacheParameterGroupCommandOutput> | void {
     const command = new DeleteCacheParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -993,17 +933,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public deleteCacheSecurityGroup(
     args: DeleteCacheSecurityGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCacheSecurityGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCacheSecurityGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteCacheSecurityGroupCommandOutput) => void
   ): Promise<DeleteCacheSecurityGroupCommandOutput> | void {
     const command = new DeleteCacheSecurityGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1031,17 +968,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public deleteCacheSubnetGroup(
     args: DeleteCacheSubnetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCacheSubnetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCacheSubnetGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteCacheSubnetGroupCommandOutput) => void
   ): Promise<DeleteCacheSubnetGroupCommandOutput> | void {
     const command = new DeleteCacheSubnetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1074,17 +1008,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public deleteReplicationGroup(
     args: DeleteReplicationGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteReplicationGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteReplicationGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteReplicationGroupCommandOutput) => void
   ): Promise<DeleteReplicationGroupCommandOutput> | void {
     const command = new DeleteReplicationGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1115,17 +1046,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public deleteSnapshot(
     args: DeleteSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSnapshotCommandOutput) => void),
     cb?: (err: any, data?: DeleteSnapshotCommandOutput) => void
   ): Promise<DeleteSnapshotCommandOutput> | void {
     const command = new DeleteSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1165,17 +1093,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public describeCacheClusters(
     args: DescribeCacheClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCacheClustersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCacheClustersCommandOutput) => void),
     cb?: (err: any, data?: DescribeCacheClustersCommandOutput) => void
   ): Promise<DescribeCacheClustersCommandOutput> | void {
     const command = new DescribeCacheClustersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1201,17 +1126,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public describeCacheEngineVersions(
     args: DescribeCacheEngineVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCacheEngineVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCacheEngineVersionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeCacheEngineVersionsCommandOutput) => void
   ): Promise<DescribeCacheEngineVersionsCommandOutput> | void {
     const command = new DescribeCacheEngineVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1238,17 +1160,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public describeCacheParameterGroups(
     args: DescribeCacheParameterGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCacheParameterGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCacheParameterGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeCacheParameterGroupsCommandOutput) => void
   ): Promise<DescribeCacheParameterGroupsCommandOutput> | void {
     const command = new DescribeCacheParameterGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1274,17 +1193,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public describeCacheParameters(
     args: DescribeCacheParametersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCacheParametersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCacheParametersCommandOutput) => void),
     cb?: (err: any, data?: DescribeCacheParametersCommandOutput) => void
   ): Promise<DescribeCacheParametersCommandOutput> | void {
     const command = new DescribeCacheParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1312,17 +1228,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public describeCacheSecurityGroups(
     args: DescribeCacheSecurityGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCacheSecurityGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCacheSecurityGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeCacheSecurityGroupsCommandOutput) => void
   ): Promise<DescribeCacheSecurityGroupsCommandOutput> | void {
     const command = new DescribeCacheSecurityGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1350,17 +1263,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public describeCacheSubnetGroups(
     args: DescribeCacheSubnetGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCacheSubnetGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCacheSubnetGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeCacheSubnetGroupsCommandOutput) => void
   ): Promise<DescribeCacheSubnetGroupsCommandOutput> | void {
     const command = new DescribeCacheSubnetGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1386,20 +1296,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public describeEngineDefaultParameters(
     args: DescribeEngineDefaultParametersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEngineDefaultParametersCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEngineDefaultParametersCommandOutput) => void),
     cb?: (err: any, data?: DescribeEngineDefaultParametersCommandOutput) => void
   ): Promise<DescribeEngineDefaultParametersCommandOutput> | void {
     const command = new DescribeEngineDefaultParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1429,17 +1333,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public describeEvents(
     args: DescribeEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventsCommandOutput) => void
   ): Promise<DescribeEventsCommandOutput> | void {
     const command = new DescribeEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1469,17 +1370,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public describeReplicationGroups(
     args: DescribeReplicationGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeReplicationGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReplicationGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeReplicationGroupsCommandOutput) => void
   ): Promise<DescribeReplicationGroupsCommandOutput> | void {
     const command = new DescribeReplicationGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1505,17 +1403,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public describeReservedCacheNodes(
     args: DescribeReservedCacheNodesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeReservedCacheNodesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReservedCacheNodesCommandOutput) => void),
     cb?: (err: any, data?: DescribeReservedCacheNodesCommandOutput) => void
   ): Promise<DescribeReservedCacheNodesCommandOutput> | void {
     const command = new DescribeReservedCacheNodesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1532,38 +1427,23 @@ export class ElastiCache extends ElastiCacheClient {
   ): Promise<DescribeReservedCacheNodesOfferingsCommandOutput>;
   public describeReservedCacheNodesOfferings(
     args: DescribeReservedCacheNodesOfferingsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeReservedCacheNodesOfferingsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReservedCacheNodesOfferingsCommandOutput) => void
   ): void;
   public describeReservedCacheNodesOfferings(
     args: DescribeReservedCacheNodesOfferingsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeReservedCacheNodesOfferingsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReservedCacheNodesOfferingsCommandOutput) => void
   ): void;
   public describeReservedCacheNodesOfferings(
     args: DescribeReservedCacheNodesOfferingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeReservedCacheNodesOfferingsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeReservedCacheNodesOfferingsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReservedCacheNodesOfferingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReservedCacheNodesOfferingsCommandOutput) => void
   ): Promise<DescribeReservedCacheNodesOfferingsCommandOutput> | void {
     const command = new DescribeReservedCacheNodesOfferingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1588,17 +1468,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public describeServiceUpdates(
     args: DescribeServiceUpdatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeServiceUpdatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeServiceUpdatesCommandOutput) => void),
     cb?: (err: any, data?: DescribeServiceUpdatesCommandOutput) => void
   ): Promise<DescribeServiceUpdatesCommandOutput> | void {
     const command = new DescribeServiceUpdatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1630,17 +1507,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public describeSnapshots(
     args: DescribeSnapshotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSnapshotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSnapshotsCommandOutput) => void),
     cb?: (err: any, data?: DescribeSnapshotsCommandOutput) => void
   ): Promise<DescribeSnapshotsCommandOutput> | void {
     const command = new DescribeSnapshotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1665,17 +1539,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public describeUpdateActions(
     args: DescribeUpdateActionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUpdateActionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUpdateActionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeUpdateActionsCommandOutput) => void
   ): Promise<DescribeUpdateActionsCommandOutput> | void {
     const command = new DescribeUpdateActionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1702,17 +1573,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public increaseReplicaCount(
     args: IncreaseReplicaCountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: IncreaseReplicaCountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: IncreaseReplicaCountCommandOutput) => void),
     cb?: (err: any, data?: IncreaseReplicaCountCommandOutput) => void
   ): Promise<IncreaseReplicaCountCommandOutput> | void {
     const command = new IncreaseReplicaCountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1742,23 +1610,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public listAllowedNodeTypeModifications(
     args: ListAllowedNodeTypeModificationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListAllowedNodeTypeModificationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListAllowedNodeTypeModificationsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAllowedNodeTypeModificationsCommandOutput) => void),
+    cb?: (err: any, data?: ListAllowedNodeTypeModificationsCommandOutput) => void
   ): Promise<ListAllowedNodeTypeModificationsCommandOutput> | void {
     const command = new ListAllowedNodeTypeModificationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1790,17 +1649,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1827,17 +1683,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public modifyCacheCluster(
     args: ModifyCacheClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyCacheClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyCacheClusterCommandOutput) => void),
     cb?: (err: any, data?: ModifyCacheClusterCommandOutput) => void
   ): Promise<ModifyCacheClusterCommandOutput> | void {
     const command = new ModifyCacheClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1864,17 +1717,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public modifyCacheParameterGroup(
     args: ModifyCacheParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyCacheParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyCacheParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: ModifyCacheParameterGroupCommandOutput) => void
   ): Promise<ModifyCacheParameterGroupCommandOutput> | void {
     const command = new ModifyCacheParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1899,17 +1749,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public modifyCacheSubnetGroup(
     args: ModifyCacheSubnetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyCacheSubnetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyCacheSubnetGroupCommandOutput) => void),
     cb?: (err: any, data?: ModifyCacheSubnetGroupCommandOutput) => void
   ): Promise<ModifyCacheSubnetGroupCommandOutput> | void {
     const command = new ModifyCacheSubnetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1952,17 +1799,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public modifyReplicationGroup(
     args: ModifyReplicationGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyReplicationGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyReplicationGroupCommandOutput) => void),
     cb?: (err: any, data?: ModifyReplicationGroupCommandOutput) => void
   ): Promise<ModifyReplicationGroupCommandOutput> | void {
     const command = new ModifyReplicationGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1979,38 +1823,25 @@ export class ElastiCache extends ElastiCacheClient {
   ): Promise<ModifyReplicationGroupShardConfigurationCommandOutput>;
   public modifyReplicationGroupShardConfiguration(
     args: ModifyReplicationGroupShardConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: ModifyReplicationGroupShardConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyReplicationGroupShardConfigurationCommandOutput) => void
   ): void;
   public modifyReplicationGroupShardConfiguration(
     args: ModifyReplicationGroupShardConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifyReplicationGroupShardConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyReplicationGroupShardConfigurationCommandOutput) => void
   ): void;
   public modifyReplicationGroupShardConfiguration(
     args: ModifyReplicationGroupShardConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyReplicationGroupShardConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyReplicationGroupShardConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: ModifyReplicationGroupShardConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: ModifyReplicationGroupShardConfigurationCommandOutput) => void
   ): Promise<ModifyReplicationGroupShardConfigurationCommandOutput> | void {
     const command = new ModifyReplicationGroupShardConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2027,38 +1858,23 @@ export class ElastiCache extends ElastiCacheClient {
   ): Promise<PurchaseReservedCacheNodesOfferingCommandOutput>;
   public purchaseReservedCacheNodesOffering(
     args: PurchaseReservedCacheNodesOfferingCommandInput,
-    cb: (
-      err: any,
-      data?: PurchaseReservedCacheNodesOfferingCommandOutput
-    ) => void
+    cb: (err: any, data?: PurchaseReservedCacheNodesOfferingCommandOutput) => void
   ): void;
   public purchaseReservedCacheNodesOffering(
     args: PurchaseReservedCacheNodesOfferingCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PurchaseReservedCacheNodesOfferingCommandOutput
-    ) => void
+    cb: (err: any, data?: PurchaseReservedCacheNodesOfferingCommandOutput) => void
   ): void;
   public purchaseReservedCacheNodesOffering(
     args: PurchaseReservedCacheNodesOfferingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PurchaseReservedCacheNodesOfferingCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PurchaseReservedCacheNodesOfferingCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PurchaseReservedCacheNodesOfferingCommandOutput) => void),
+    cb?: (err: any, data?: PurchaseReservedCacheNodesOfferingCommandOutput) => void
   ): Promise<PurchaseReservedCacheNodesOfferingCommandOutput> | void {
     const command = new PurchaseReservedCacheNodesOfferingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2095,17 +1911,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public rebootCacheCluster(
     args: RebootCacheClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RebootCacheClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootCacheClusterCommandOutput) => void),
     cb?: (err: any, data?: RebootCacheClusterCommandOutput) => void
   ): Promise<RebootCacheClusterCommandOutput> | void {
     const command = new RebootCacheClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2131,17 +1944,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveTagsFromResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsFromResourceCommandOutput) => void),
     cb?: (err: any, data?: RemoveTagsFromResourceCommandOutput) => void
   ): Promise<RemoveTagsFromResourceCommandOutput> | void {
     const command = new RemoveTagsFromResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2169,17 +1979,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public resetCacheParameterGroup(
     args: ResetCacheParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResetCacheParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetCacheParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: ResetCacheParameterGroupCommandOutput) => void
   ): Promise<ResetCacheParameterGroupCommandOutput> | void {
     const command = new ResetCacheParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2206,20 +2013,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public revokeCacheSecurityGroupIngress(
     args: RevokeCacheSecurityGroupIngressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RevokeCacheSecurityGroupIngressCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeCacheSecurityGroupIngressCommandOutput) => void),
     cb?: (err: any, data?: RevokeCacheSecurityGroupIngressCommandOutput) => void
   ): Promise<RevokeCacheSecurityGroupIngressCommandOutput> | void {
     const command = new RevokeCacheSecurityGroupIngressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2244,17 +2045,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public startMigration(
     args: StartMigrationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartMigrationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMigrationCommandOutput) => void),
     cb?: (err: any, data?: StartMigrationCommandOutput) => void
   ): Promise<StartMigrationCommandOutput> | void {
     const command = new StartMigrationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2330,10 +2128,7 @@ export class ElastiCache extends ElastiCacheClient {
     args: TestFailoverCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<TestFailoverCommandOutput>;
-  public testFailover(
-    args: TestFailoverCommandInput,
-    cb: (err: any, data?: TestFailoverCommandOutput) => void
-  ): void;
+  public testFailover(args: TestFailoverCommandInput, cb: (err: any, data?: TestFailoverCommandOutput) => void): void;
   public testFailover(
     args: TestFailoverCommandInput,
     options: __HttpHandlerOptions,
@@ -2341,17 +2136,14 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public testFailover(
     args: TestFailoverCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TestFailoverCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestFailoverCommandOutput) => void),
     cb?: (err: any, data?: TestFailoverCommandOutput) => void
   ): Promise<TestFailoverCommandOutput> | void {
     const command = new TestFailoverCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

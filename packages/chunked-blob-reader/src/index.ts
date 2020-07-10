@@ -17,12 +17,10 @@ export function blobReader(
         resolve();
         return;
       }
-      fileReader.readAsArrayBuffer(
-        blob.slice(totalBytesRead, Math.min(size, totalBytesRead + chunkSize))
-      );
+      fileReader.readAsArrayBuffer(blob.slice(totalBytesRead, Math.min(size, totalBytesRead + chunkSize)));
     }
 
-    fileReader.addEventListener("load", event => {
+    fileReader.addEventListener("load", (event) => {
       const result = <ArrayBuffer>(event.target as any).result;
       onChunk(new Uint8Array(result));
       totalBytesRead += result.byteLength;

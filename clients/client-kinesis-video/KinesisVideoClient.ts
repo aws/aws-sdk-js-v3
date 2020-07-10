@@ -1,79 +1,46 @@
 import {
   CreateSignalingChannelCommandInput,
-  CreateSignalingChannelCommandOutput
+  CreateSignalingChannelCommandOutput,
 } from "./commands/CreateSignalingChannelCommand";
-import {
-  CreateStreamCommandInput,
-  CreateStreamCommandOutput
-} from "./commands/CreateStreamCommand";
+import { CreateStreamCommandInput, CreateStreamCommandOutput } from "./commands/CreateStreamCommand";
 import {
   DeleteSignalingChannelCommandInput,
-  DeleteSignalingChannelCommandOutput
+  DeleteSignalingChannelCommandOutput,
 } from "./commands/DeleteSignalingChannelCommand";
-import {
-  DeleteStreamCommandInput,
-  DeleteStreamCommandOutput
-} from "./commands/DeleteStreamCommand";
+import { DeleteStreamCommandInput, DeleteStreamCommandOutput } from "./commands/DeleteStreamCommand";
 import {
   DescribeSignalingChannelCommandInput,
-  DescribeSignalingChannelCommandOutput
+  DescribeSignalingChannelCommandOutput,
 } from "./commands/DescribeSignalingChannelCommand";
-import {
-  DescribeStreamCommandInput,
-  DescribeStreamCommandOutput
-} from "./commands/DescribeStreamCommand";
-import {
-  GetDataEndpointCommandInput,
-  GetDataEndpointCommandOutput
-} from "./commands/GetDataEndpointCommand";
+import { DescribeStreamCommandInput, DescribeStreamCommandOutput } from "./commands/DescribeStreamCommand";
+import { GetDataEndpointCommandInput, GetDataEndpointCommandOutput } from "./commands/GetDataEndpointCommand";
 import {
   GetSignalingChannelEndpointCommandInput,
-  GetSignalingChannelEndpointCommandOutput
+  GetSignalingChannelEndpointCommandOutput,
 } from "./commands/GetSignalingChannelEndpointCommand";
 import {
   ListSignalingChannelsCommandInput,
-  ListSignalingChannelsCommandOutput
+  ListSignalingChannelsCommandOutput,
 } from "./commands/ListSignalingChannelsCommand";
-import {
-  ListStreamsCommandInput,
-  ListStreamsCommandOutput
-} from "./commands/ListStreamsCommand";
+import { ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListTagsForStreamCommandInput,
-  ListTagsForStreamCommandOutput
-} from "./commands/ListTagsForStreamCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  TagStreamCommandInput,
-  TagStreamCommandOutput
-} from "./commands/TagStreamCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UntagStreamCommandInput,
-  UntagStreamCommandOutput
-} from "./commands/UntagStreamCommand";
+import { ListTagsForStreamCommandInput, ListTagsForStreamCommandOutput } from "./commands/ListTagsForStreamCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { TagStreamCommandInput, TagStreamCommandOutput } from "./commands/TagStreamCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UntagStreamCommandInput, UntagStreamCommandOutput } from "./commands/UntagStreamCommand";
 import {
   UpdateDataRetentionCommandInput,
-  UpdateDataRetentionCommandOutput
+  UpdateDataRetentionCommandOutput,
 } from "./commands/UpdateDataRetentionCommand";
 import {
   UpdateSignalingChannelCommandInput,
-  UpdateSignalingChannelCommandOutput
+  UpdateSignalingChannelCommandOutput,
 } from "./commands/UpdateSignalingChannelCommand";
-import {
-  UpdateStreamCommandInput,
-  UpdateStreamCommandOutput
-} from "./commands/UpdateStreamCommand";
+import { UpdateStreamCommandInput, UpdateStreamCommandOutput } from "./commands/UpdateStreamCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -81,38 +48,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -123,7 +85,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -168,8 +130,7 @@ export type ServiceOutputTypes =
   | UpdateSignalingChannelCommandOutput
   | UpdateStreamCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -258,9 +219,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type KinesisVideoClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type KinesisVideoClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -269,9 +228,7 @@ export type KinesisVideoClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type KinesisVideoClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type KinesisVideoClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -294,7 +251,7 @@ export class KinesisVideoClient extends __Client<
   constructor(configuration: KinesisVideoClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

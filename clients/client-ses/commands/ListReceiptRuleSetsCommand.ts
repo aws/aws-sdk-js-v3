@@ -1,21 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
-import {
-  ListReceiptRuleSetsRequest,
-  ListReceiptRuleSetsResponse
-} from "../models/index";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
+import { ListReceiptRuleSetsRequest, ListReceiptRuleSetsResponse } from "../models/index";
 import {
   deserializeAws_queryListReceiptRuleSetsCommand,
-  serializeAws_queryListReceiptRuleSetsCommand
+  serializeAws_queryListReceiptRuleSetsCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListReceiptRuleSetsCommandInput = ListReceiptRuleSetsRequest;
-export type ListReceiptRuleSetsCommandOutput = ListReceiptRuleSetsResponse &
-  __MetadataBearer;
+export type ListReceiptRuleSetsCommandOutput = ListReceiptRuleSetsResponse & __MetadataBearer;
 
 export class ListReceiptRuleSetsCommand extends $Command<
   ListReceiptRuleSetsCommandInput,
@@ -49,18 +38,13 @@ export class ListReceiptRuleSetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListReceiptRuleSetsCommandInput,
-    ListReceiptRuleSetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListReceiptRuleSetsCommandInput, ListReceiptRuleSetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class ListReceiptRuleSetsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListReceiptRuleSetsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListReceiptRuleSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListReceiptRuleSetsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListReceiptRuleSetsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReceiptRuleSetsCommandOutput> {
     return deserializeAws_queryListReceiptRuleSetsCommand(output, context);
   }
 

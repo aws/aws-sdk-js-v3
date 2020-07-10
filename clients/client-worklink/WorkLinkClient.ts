@@ -1,122 +1,89 @@
-import {
-  AssociateDomainCommandInput,
-  AssociateDomainCommandOutput
-} from "./commands/AssociateDomainCommand";
+import { AssociateDomainCommandInput, AssociateDomainCommandOutput } from "./commands/AssociateDomainCommand";
 import {
   AssociateWebsiteAuthorizationProviderCommandInput,
-  AssociateWebsiteAuthorizationProviderCommandOutput
+  AssociateWebsiteAuthorizationProviderCommandOutput,
 } from "./commands/AssociateWebsiteAuthorizationProviderCommand";
 import {
   AssociateWebsiteCertificateAuthorityCommandInput,
-  AssociateWebsiteCertificateAuthorityCommandOutput
+  AssociateWebsiteCertificateAuthorityCommandOutput,
 } from "./commands/AssociateWebsiteCertificateAuthorityCommand";
-import {
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput
-} from "./commands/CreateFleetCommand";
-import {
-  DeleteFleetCommandInput,
-  DeleteFleetCommandOutput
-} from "./commands/DeleteFleetCommand";
+import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
+import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
 import {
   DescribeAuditStreamConfigurationCommandInput,
-  DescribeAuditStreamConfigurationCommandOutput
+  DescribeAuditStreamConfigurationCommandOutput,
 } from "./commands/DescribeAuditStreamConfigurationCommand";
 import {
   DescribeCompanyNetworkConfigurationCommandInput,
-  DescribeCompanyNetworkConfigurationCommandOutput
+  DescribeCompanyNetworkConfigurationCommandOutput,
 } from "./commands/DescribeCompanyNetworkConfigurationCommand";
-import {
-  DescribeDeviceCommandInput,
-  DescribeDeviceCommandOutput
-} from "./commands/DescribeDeviceCommand";
+import { DescribeDeviceCommandInput, DescribeDeviceCommandOutput } from "./commands/DescribeDeviceCommand";
 import {
   DescribeDevicePolicyConfigurationCommandInput,
-  DescribeDevicePolicyConfigurationCommandOutput
+  DescribeDevicePolicyConfigurationCommandOutput,
 } from "./commands/DescribeDevicePolicyConfigurationCommand";
-import {
-  DescribeDomainCommandInput,
-  DescribeDomainCommandOutput
-} from "./commands/DescribeDomainCommand";
+import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand";
 import {
   DescribeFleetMetadataCommandInput,
-  DescribeFleetMetadataCommandOutput
+  DescribeFleetMetadataCommandOutput,
 } from "./commands/DescribeFleetMetadataCommand";
 import {
   DescribeIdentityProviderConfigurationCommandInput,
-  DescribeIdentityProviderConfigurationCommandOutput
+  DescribeIdentityProviderConfigurationCommandOutput,
 } from "./commands/DescribeIdentityProviderConfigurationCommand";
 import {
   DescribeWebsiteCertificateAuthorityCommandInput,
-  DescribeWebsiteCertificateAuthorityCommandOutput
+  DescribeWebsiteCertificateAuthorityCommandOutput,
 } from "./commands/DescribeWebsiteCertificateAuthorityCommand";
-import {
-  DisassociateDomainCommandInput,
-  DisassociateDomainCommandOutput
-} from "./commands/DisassociateDomainCommand";
+import { DisassociateDomainCommandInput, DisassociateDomainCommandOutput } from "./commands/DisassociateDomainCommand";
 import {
   DisassociateWebsiteAuthorizationProviderCommandInput,
-  DisassociateWebsiteAuthorizationProviderCommandOutput
+  DisassociateWebsiteAuthorizationProviderCommandOutput,
 } from "./commands/DisassociateWebsiteAuthorizationProviderCommand";
 import {
   DisassociateWebsiteCertificateAuthorityCommandInput,
-  DisassociateWebsiteCertificateAuthorityCommandOutput
+  DisassociateWebsiteCertificateAuthorityCommandOutput,
 } from "./commands/DisassociateWebsiteCertificateAuthorityCommand";
-import {
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput
-} from "./commands/ListDevicesCommand";
-import {
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput
-} from "./commands/ListDomainsCommand";
-import {
-  ListFleetsCommandInput,
-  ListFleetsCommandOutput
-} from "./commands/ListFleetsCommand";
+import { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
+import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
+import { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
 import {
   ListWebsiteAuthorizationProvidersCommandInput,
-  ListWebsiteAuthorizationProvidersCommandOutput
+  ListWebsiteAuthorizationProvidersCommandOutput,
 } from "./commands/ListWebsiteAuthorizationProvidersCommand";
 import {
   ListWebsiteCertificateAuthoritiesCommandInput,
-  ListWebsiteCertificateAuthoritiesCommandOutput
+  ListWebsiteCertificateAuthoritiesCommandOutput,
 } from "./commands/ListWebsiteCertificateAuthoritiesCommand";
 import {
   RestoreDomainAccessCommandInput,
-  RestoreDomainAccessCommandOutput
+  RestoreDomainAccessCommandOutput,
 } from "./commands/RestoreDomainAccessCommand";
-import {
-  RevokeDomainAccessCommandInput,
-  RevokeDomainAccessCommandOutput
-} from "./commands/RevokeDomainAccessCommand";
-import {
-  SignOutUserCommandInput,
-  SignOutUserCommandOutput
-} from "./commands/SignOutUserCommand";
+import { RevokeDomainAccessCommandInput, RevokeDomainAccessCommandOutput } from "./commands/RevokeDomainAccessCommand";
+import { SignOutUserCommandInput, SignOutUserCommandOutput } from "./commands/SignOutUserCommand";
 import {
   UpdateAuditStreamConfigurationCommandInput,
-  UpdateAuditStreamConfigurationCommandOutput
+  UpdateAuditStreamConfigurationCommandOutput,
 } from "./commands/UpdateAuditStreamConfigurationCommand";
 import {
   UpdateCompanyNetworkConfigurationCommandInput,
-  UpdateCompanyNetworkConfigurationCommandOutput
+  UpdateCompanyNetworkConfigurationCommandOutput,
 } from "./commands/UpdateCompanyNetworkConfigurationCommand";
 import {
   UpdateDevicePolicyConfigurationCommandInput,
-  UpdateDevicePolicyConfigurationCommandOutput
+  UpdateDevicePolicyConfigurationCommandOutput,
 } from "./commands/UpdateDevicePolicyConfigurationCommand";
 import {
   UpdateDomainMetadataCommandInput,
-  UpdateDomainMetadataCommandOutput
+  UpdateDomainMetadataCommandOutput,
 } from "./commands/UpdateDomainMetadataCommand";
 import {
   UpdateFleetMetadataCommandInput,
-  UpdateFleetMetadataCommandOutput
+  UpdateFleetMetadataCommandOutput,
 } from "./commands/UpdateFleetMetadataCommand";
 import {
   UpdateIdentityProviderConfigurationCommandInput,
-  UpdateIdentityProviderConfigurationCommandOutput
+  UpdateIdentityProviderConfigurationCommandOutput,
 } from "./commands/UpdateIdentityProviderConfigurationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -125,38 +92,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -167,7 +129,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -234,8 +196,7 @@ export type ServiceOutputTypes =
   | UpdateFleetMetadataCommandOutput
   | UpdateIdentityProviderConfigurationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -324,9 +285,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type WorkLinkClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type WorkLinkClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -335,9 +294,7 @@ export type WorkLinkClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type WorkLinkClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type WorkLinkClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -366,7 +323,7 @@ export class WorkLinkClient extends __Client<
   constructor(configuration: WorkLinkClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

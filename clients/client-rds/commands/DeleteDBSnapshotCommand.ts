@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DeleteDBSnapshotMessage,
-  DeleteDBSnapshotResult
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DeleteDBSnapshotMessage, DeleteDBSnapshotResult } from "../models/index";
 import {
   deserializeAws_queryDeleteDBSnapshotCommand,
-  serializeAws_queryDeleteDBSnapshotCommand
+  serializeAws_queryDeleteDBSnapshotCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteDBSnapshotCommandInput = DeleteDBSnapshotMessage;
-export type DeleteDBSnapshotCommandOutput = DeleteDBSnapshotResult &
-  __MetadataBearer;
+export type DeleteDBSnapshotCommandOutput = DeleteDBSnapshotResult & __MetadataBearer;
 
 export class DeleteDBSnapshotCommand extends $Command<
   DeleteDBSnapshotCommandInput,
@@ -50,14 +39,12 @@ export class DeleteDBSnapshotCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDBSnapshotCommandInput, DeleteDBSnapshotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class DeleteDBSnapshotCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteDBSnapshotCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteDBSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDBSnapshotCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteDBSnapshotCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBSnapshotCommandOutput> {
     return deserializeAws_queryDeleteDBSnapshotCommand(output, context);
   }
 

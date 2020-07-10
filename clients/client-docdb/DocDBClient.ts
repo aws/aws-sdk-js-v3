@@ -1,171 +1,132 @@
-import {
-  AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput
-} from "./commands/AddTagsToResourceCommand";
+import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand";
 import {
   ApplyPendingMaintenanceActionCommandInput,
-  ApplyPendingMaintenanceActionCommandOutput
+  ApplyPendingMaintenanceActionCommandOutput,
 } from "./commands/ApplyPendingMaintenanceActionCommand";
 import {
   CopyDBClusterParameterGroupCommandInput,
-  CopyDBClusterParameterGroupCommandOutput
+  CopyDBClusterParameterGroupCommandOutput,
 } from "./commands/CopyDBClusterParameterGroupCommand";
 import {
   CopyDBClusterSnapshotCommandInput,
-  CopyDBClusterSnapshotCommandOutput
+  CopyDBClusterSnapshotCommandOutput,
 } from "./commands/CopyDBClusterSnapshotCommand";
-import {
-  CreateDBClusterCommandInput,
-  CreateDBClusterCommandOutput
-} from "./commands/CreateDBClusterCommand";
+import { CreateDBClusterCommandInput, CreateDBClusterCommandOutput } from "./commands/CreateDBClusterCommand";
 import {
   CreateDBClusterParameterGroupCommandInput,
-  CreateDBClusterParameterGroupCommandOutput
+  CreateDBClusterParameterGroupCommandOutput,
 } from "./commands/CreateDBClusterParameterGroupCommand";
 import {
   CreateDBClusterSnapshotCommandInput,
-  CreateDBClusterSnapshotCommandOutput
+  CreateDBClusterSnapshotCommandOutput,
 } from "./commands/CreateDBClusterSnapshotCommand";
-import {
-  CreateDBInstanceCommandInput,
-  CreateDBInstanceCommandOutput
-} from "./commands/CreateDBInstanceCommand";
+import { CreateDBInstanceCommandInput, CreateDBInstanceCommandOutput } from "./commands/CreateDBInstanceCommand";
 import {
   CreateDBSubnetGroupCommandInput,
-  CreateDBSubnetGroupCommandOutput
+  CreateDBSubnetGroupCommandOutput,
 } from "./commands/CreateDBSubnetGroupCommand";
-import {
-  DeleteDBClusterCommandInput,
-  DeleteDBClusterCommandOutput
-} from "./commands/DeleteDBClusterCommand";
+import { DeleteDBClusterCommandInput, DeleteDBClusterCommandOutput } from "./commands/DeleteDBClusterCommand";
 import {
   DeleteDBClusterParameterGroupCommandInput,
-  DeleteDBClusterParameterGroupCommandOutput
+  DeleteDBClusterParameterGroupCommandOutput,
 } from "./commands/DeleteDBClusterParameterGroupCommand";
 import {
   DeleteDBClusterSnapshotCommandInput,
-  DeleteDBClusterSnapshotCommandOutput
+  DeleteDBClusterSnapshotCommandOutput,
 } from "./commands/DeleteDBClusterSnapshotCommand";
-import {
-  DeleteDBInstanceCommandInput,
-  DeleteDBInstanceCommandOutput
-} from "./commands/DeleteDBInstanceCommand";
+import { DeleteDBInstanceCommandInput, DeleteDBInstanceCommandOutput } from "./commands/DeleteDBInstanceCommand";
 import {
   DeleteDBSubnetGroupCommandInput,
-  DeleteDBSubnetGroupCommandOutput
+  DeleteDBSubnetGroupCommandOutput,
 } from "./commands/DeleteDBSubnetGroupCommand";
 import {
   DescribeCertificatesCommandInput,
-  DescribeCertificatesCommandOutput
+  DescribeCertificatesCommandOutput,
 } from "./commands/DescribeCertificatesCommand";
 import {
   DescribeDBClusterParameterGroupsCommandInput,
-  DescribeDBClusterParameterGroupsCommandOutput
+  DescribeDBClusterParameterGroupsCommandOutput,
 } from "./commands/DescribeDBClusterParameterGroupsCommand";
 import {
   DescribeDBClusterParametersCommandInput,
-  DescribeDBClusterParametersCommandOutput
+  DescribeDBClusterParametersCommandOutput,
 } from "./commands/DescribeDBClusterParametersCommand";
 import {
   DescribeDBClusterSnapshotAttributesCommandInput,
-  DescribeDBClusterSnapshotAttributesCommandOutput
+  DescribeDBClusterSnapshotAttributesCommandOutput,
 } from "./commands/DescribeDBClusterSnapshotAttributesCommand";
 import {
   DescribeDBClusterSnapshotsCommandInput,
-  DescribeDBClusterSnapshotsCommandOutput
+  DescribeDBClusterSnapshotsCommandOutput,
 } from "./commands/DescribeDBClusterSnapshotsCommand";
-import {
-  DescribeDBClustersCommandInput,
-  DescribeDBClustersCommandOutput
-} from "./commands/DescribeDBClustersCommand";
+import { DescribeDBClustersCommandInput, DescribeDBClustersCommandOutput } from "./commands/DescribeDBClustersCommand";
 import {
   DescribeDBEngineVersionsCommandInput,
-  DescribeDBEngineVersionsCommandOutput
+  DescribeDBEngineVersionsCommandOutput,
 } from "./commands/DescribeDBEngineVersionsCommand";
 import {
   DescribeDBInstancesCommandInput,
-  DescribeDBInstancesCommandOutput
+  DescribeDBInstancesCommandOutput,
 } from "./commands/DescribeDBInstancesCommand";
 import {
   DescribeDBSubnetGroupsCommandInput,
-  DescribeDBSubnetGroupsCommandOutput
+  DescribeDBSubnetGroupsCommandOutput,
 } from "./commands/DescribeDBSubnetGroupsCommand";
 import {
   DescribeEngineDefaultClusterParametersCommandInput,
-  DescribeEngineDefaultClusterParametersCommandOutput
+  DescribeEngineDefaultClusterParametersCommandOutput,
 } from "./commands/DescribeEngineDefaultClusterParametersCommand";
 import {
   DescribeEventCategoriesCommandInput,
-  DescribeEventCategoriesCommandOutput
+  DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand";
-import {
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput
-} from "./commands/DescribeEventsCommand";
+import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
 import {
   DescribeOrderableDBInstanceOptionsCommandInput,
-  DescribeOrderableDBInstanceOptionsCommandOutput
+  DescribeOrderableDBInstanceOptionsCommandOutput,
 } from "./commands/DescribeOrderableDBInstanceOptionsCommand";
 import {
   DescribePendingMaintenanceActionsCommandInput,
-  DescribePendingMaintenanceActionsCommandOutput
+  DescribePendingMaintenanceActionsCommandOutput,
 } from "./commands/DescribePendingMaintenanceActionsCommand";
-import {
-  FailoverDBClusterCommandInput,
-  FailoverDBClusterCommandOutput
-} from "./commands/FailoverDBClusterCommand";
+import { FailoverDBClusterCommandInput, FailoverDBClusterCommandOutput } from "./commands/FailoverDBClusterCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ModifyDBClusterCommandInput,
-  ModifyDBClusterCommandOutput
-} from "./commands/ModifyDBClusterCommand";
+import { ModifyDBClusterCommandInput, ModifyDBClusterCommandOutput } from "./commands/ModifyDBClusterCommand";
 import {
   ModifyDBClusterParameterGroupCommandInput,
-  ModifyDBClusterParameterGroupCommandOutput
+  ModifyDBClusterParameterGroupCommandOutput,
 } from "./commands/ModifyDBClusterParameterGroupCommand";
 import {
   ModifyDBClusterSnapshotAttributeCommandInput,
-  ModifyDBClusterSnapshotAttributeCommandOutput
+  ModifyDBClusterSnapshotAttributeCommandOutput,
 } from "./commands/ModifyDBClusterSnapshotAttributeCommand";
-import {
-  ModifyDBInstanceCommandInput,
-  ModifyDBInstanceCommandOutput
-} from "./commands/ModifyDBInstanceCommand";
+import { ModifyDBInstanceCommandInput, ModifyDBInstanceCommandOutput } from "./commands/ModifyDBInstanceCommand";
 import {
   ModifyDBSubnetGroupCommandInput,
-  ModifyDBSubnetGroupCommandOutput
+  ModifyDBSubnetGroupCommandOutput,
 } from "./commands/ModifyDBSubnetGroupCommand";
-import {
-  RebootDBInstanceCommandInput,
-  RebootDBInstanceCommandOutput
-} from "./commands/RebootDBInstanceCommand";
+import { RebootDBInstanceCommandInput, RebootDBInstanceCommandOutput } from "./commands/RebootDBInstanceCommand";
 import {
   RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput
+  RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand";
 import {
   ResetDBClusterParameterGroupCommandInput,
-  ResetDBClusterParameterGroupCommandOutput
+  ResetDBClusterParameterGroupCommandOutput,
 } from "./commands/ResetDBClusterParameterGroupCommand";
 import {
   RestoreDBClusterFromSnapshotCommandInput,
-  RestoreDBClusterFromSnapshotCommandOutput
+  RestoreDBClusterFromSnapshotCommandOutput,
 } from "./commands/RestoreDBClusterFromSnapshotCommand";
 import {
   RestoreDBClusterToPointInTimeCommandInput,
-  RestoreDBClusterToPointInTimeCommandOutput
+  RestoreDBClusterToPointInTimeCommandOutput,
 } from "./commands/RestoreDBClusterToPointInTimeCommand";
-import {
-  StartDBClusterCommandInput,
-  StartDBClusterCommandOutput
-} from "./commands/StartDBClusterCommand";
-import {
-  StopDBClusterCommandInput,
-  StopDBClusterCommandOutput
-} from "./commands/StopDBClusterCommand";
+import { StartDBClusterCommandInput, StartDBClusterCommandOutput } from "./commands/StartDBClusterCommand";
+import { StopDBClusterCommandInput, StopDBClusterCommandOutput } from "./commands/StopDBClusterCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -173,38 +134,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -215,7 +171,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -306,8 +262,7 @@ export type ServiceOutputTypes =
   | StartDBClusterCommandOutput
   | StopDBClusterCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -396,9 +351,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DocDBClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DocDBClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -407,9 +360,7 @@ export type DocDBClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DocDBClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DocDBClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -432,7 +383,7 @@ export class DocDBClient extends __Client<
   constructor(configuration: DocDBClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

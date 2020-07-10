@@ -1,21 +1,15 @@
 import {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  DescribeSchemasMessage,
-  DescribeSchemasResponse
-} from "../models/index";
+import { DescribeSchemasMessage, DescribeSchemasResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeSchemasCommand,
-  serializeAws_json1_1DescribeSchemasCommand
+  serializeAws_json1_1DescribeSchemasCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeSchemasCommandInput = DescribeSchemasMessage;
-export type DescribeSchemasCommandOutput = DescribeSchemasResponse &
-  __MetadataBearer;
+export type DescribeSchemasCommandOutput = DescribeSchemasResponse & __MetadataBearer;
 
 export class DescribeSchemasCommand extends $Command<
   DescribeSchemasCommandInput,
@@ -50,14 +43,12 @@ export class DescribeSchemasCommand extends $Command<
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeSchemasCommandInput, DescribeSchemasCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +58,11 @@ export class DescribeSchemasCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeSchemasCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeSchemasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSchemasCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeSchemasCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSchemasCommandOutput> {
     return deserializeAws_json1_1DescribeSchemasCommand(output, context);
   }
 

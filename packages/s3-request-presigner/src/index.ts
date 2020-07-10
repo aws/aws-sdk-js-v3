@@ -1,9 +1,5 @@
 import { RequestPresigner, RequestPresigningArguments } from "@aws-sdk/types";
-import {
-  SignatureV4,
-  SignatureV4Init,
-  SignatureV4CryptoInit
-} from "@aws-sdk/signature-v4";
+import { SignatureV4, SignatureV4Init, SignatureV4CryptoInit } from "@aws-sdk/signature-v4";
 import { HttpRequest as IHttpRequest } from "@aws-sdk/types";
 import { UNSIGNED_PAYLOAD, SHA256_HEADER } from "./constants";
 
@@ -27,24 +23,21 @@ export class S3RequestPresigner implements RequestPresigner {
       // directly. Where service equals signingName.
       service: options.signingName || options.service || "s3",
       uriEscapePath: options.uriEscapePath || false,
-      ...options
+      ...options,
     };
     this.signer = new SignatureV4(resolvedOptions);
   }
 
   public async presign(
     requestToSign: IHttpRequest,
-    {
-      unsignableHeaders = new Set(),
-      ...options
-    }: RequestPresigningArguments = {}
+    { unsignableHeaders = new Set(), ...options }: RequestPresigningArguments = {}
   ): Promise<IHttpRequest> {
     unsignableHeaders.add("content-type");
     requestToSign.headers[SHA256_HEADER] = UNSIGNED_PAYLOAD;
     return this.signer.presign(requestToSign, {
       expiresIn: 900,
       unsignableHeaders,
-      ...options
+      ...options,
     });
   }
 }

@@ -1,21 +1,11 @@
-import {
-  SecurityHubClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SecurityHubClient";
-import {
-  ListEnabledProductsForImportRequest,
-  ListEnabledProductsForImportResponse
-} from "../models/index";
+import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
+import { ListEnabledProductsForImportRequest, ListEnabledProductsForImportResponse } from "../models/index";
 import {
   deserializeAws_restJson1ListEnabledProductsForImportCommand,
-  serializeAws_restJson1ListEnabledProductsForImportCommand
+  serializeAws_restJson1ListEnabledProductsForImportCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListEnabledProductsForImportCommandInput = ListEnabledProductsForImportRequest;
-export type ListEnabledProductsForImportCommandOutput = ListEnabledProductsForImportResponse &
-  __MetadataBearer;
+export type ListEnabledProductsForImportCommandOutput = ListEnabledProductsForImportResponse & __MetadataBearer;
 
 export class ListEnabledProductsForImportCommand extends $Command<
   ListEnabledProductsForImportCommandInput,
@@ -49,18 +38,13 @@ export class ListEnabledProductsForImportCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListEnabledProductsForImportCommandInput,
-    ListEnabledProductsForImportCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListEnabledProductsForImportCommandInput, ListEnabledProductsForImportCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class ListEnabledProductsForImportCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListEnabledProductsForImportCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEnabledProductsForImportCommand(
-      input,
-      context
-    );
+  private serialize(input: ListEnabledProductsForImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListEnabledProductsForImportCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListEnabledProductsForImportCommandOutput> {
-    return deserializeAws_restJson1ListEnabledProductsForImportCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListEnabledProductsForImportCommand(output, context);
   }
 
   // Start section: command_body_extra

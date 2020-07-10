@@ -1,22 +1,12 @@
-import {
-  Route53ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53Client";
-import {
-  ListQueryLoggingConfigsRequest,
-  ListQueryLoggingConfigsResponse
-} from "../models/index";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import { ListQueryLoggingConfigsRequest, ListQueryLoggingConfigsResponse } from "../models/index";
 import {
   deserializeAws_restXmlListQueryLoggingConfigsCommand,
-  serializeAws_restXmlListQueryLoggingConfigsCommand
+  serializeAws_restXmlListQueryLoggingConfigsCommand,
 } from "../protocols/Aws_restXml";
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,12 +15,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListQueryLoggingConfigsCommandInput = ListQueryLoggingConfigsRequest;
-export type ListQueryLoggingConfigsCommandOutput = ListQueryLoggingConfigsResponse &
-  __MetadataBearer;
+export type ListQueryLoggingConfigsCommandOutput = ListQueryLoggingConfigsResponse & __MetadataBearer;
 
 export class ListQueryLoggingConfigsCommand extends $Command<
   ListQueryLoggingConfigsCommandInput,
@@ -50,19 +39,14 @@ export class ListQueryLoggingConfigsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListQueryLoggingConfigsCommandInput,
-    ListQueryLoggingConfigsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListQueryLoggingConfigsCommandInput, ListQueryLoggingConfigsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,21 +56,12 @@ export class ListQueryLoggingConfigsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListQueryLoggingConfigsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListQueryLoggingConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListQueryLoggingConfigsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListQueryLoggingConfigsCommandOutput> {
-    return deserializeAws_restXmlListQueryLoggingConfigsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueryLoggingConfigsCommandOutput> {
+    return deserializeAws_restXmlListQueryLoggingConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

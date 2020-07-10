@@ -4,5 +4,5 @@ export const ClientSharedValues = {
   apiVersion: "2017-01-11",
   disableHostPrefix: false,
   regionInfoProvider: defaultRegionInfoProvider,
-  signingName: "clouddirectory"
+  signingName: "clouddirectory",
 };

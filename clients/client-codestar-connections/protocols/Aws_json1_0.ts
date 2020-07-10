@@ -1,19 +1,7 @@
-import {
-  CreateConnectionCommandInput,
-  CreateConnectionCommandOutput
-} from "../commands/CreateConnectionCommand";
-import {
-  DeleteConnectionCommandInput,
-  DeleteConnectionCommandOutput
-} from "../commands/DeleteConnectionCommand";
-import {
-  GetConnectionCommandInput,
-  GetConnectionCommandOutput
-} from "../commands/GetConnectionCommand";
-import {
-  ListConnectionsCommandInput,
-  ListConnectionsCommandOutput
-} from "../commands/ListConnectionsCommand";
+import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "../commands/CreateConnectionCommand";
+import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "../commands/DeleteConnectionCommand";
+import { GetConnectionCommandInput, GetConnectionCommandOutput } from "../commands/GetConnectionCommand";
+import { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "../commands/ListConnectionsCommand";
 import {
   Connection,
   CreateConnectionInput,
@@ -25,19 +13,16 @@ import {
   LimitExceededException,
   ListConnectionsInput,
   ListConnectionsOutput,
-  ResourceNotFoundException
+  ResourceNotFoundException,
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export const serializeAws_json1_0CreateConnectionCommand = async (
@@ -46,12 +31,10 @@ export const serializeAws_json1_0CreateConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "CodeStar_connections_20191201.CreateConnection"
+    "X-Amz-Target": "CodeStar_connections_20191201.CreateConnection",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0CreateConnectionInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0CreateConnectionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -61,12 +44,10 @@ export const serializeAws_json1_0DeleteConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "CodeStar_connections_20191201.DeleteConnection"
+    "X-Amz-Target": "CodeStar_connections_20191201.DeleteConnection",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0DeleteConnectionInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0DeleteConnectionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -76,7 +57,7 @@ export const serializeAws_json1_0GetConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "CodeStar_connections_20191201.GetConnection"
+    "X-Amz-Target": "CodeStar_connections_20191201.GetConnection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetConnectionInput(input, context));
@@ -89,12 +70,10 @@ export const serializeAws_json1_0ListConnectionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "CodeStar_connections_20191201.ListConnections"
+    "X-Amz-Target": "CodeStar_connections_20191201.ListConnections",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0ListConnectionsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0ListConnectionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -111,7 +90,7 @@ export const deserializeAws_json1_0CreateConnectionCommand = async (
   const response: CreateConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateConnectionOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -122,23 +101,19 @@ const deserializeAws_json1_0CreateConnectionCommandError = async (
 ): Promise<CreateConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.codestarconnections#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -149,7 +124,7 @@ const deserializeAws_json1_0CreateConnectionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -171,7 +146,7 @@ export const deserializeAws_json1_0DeleteConnectionCommand = async (
   const response: DeleteConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteConnectionOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -182,23 +157,19 @@ const deserializeAws_json1_0DeleteConnectionCommandError = async (
 ): Promise<DeleteConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarconnections#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -209,7 +180,7 @@ const deserializeAws_json1_0DeleteConnectionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -231,7 +202,7 @@ export const deserializeAws_json1_0GetConnectionCommand = async (
   const response: GetConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetConnectionOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -242,23 +213,19 @@ const deserializeAws_json1_0GetConnectionCommandError = async (
 ): Promise<GetConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarconnections#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -269,7 +236,7 @@ const deserializeAws_json1_0GetConnectionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -291,7 +258,7 @@ export const deserializeAws_json1_0ListConnectionsCommand = async (
   const response: ListConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListConnectionsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -302,13 +269,12 @@ const deserializeAws_json1_0ListConnectionsCommandError = async (
 ): Promise<ListConnectionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -318,7 +284,7 @@ const deserializeAws_json1_0ListConnectionsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -332,15 +298,12 @@ const deserializeAws_json1_0LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0LimitExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0LimitExceededException(body, context);
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -350,168 +313,101 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ResourceNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0ResourceNotFoundException(body, context);
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
 
-const serializeAws_json1_0CreateConnectionInput = (
-  input: CreateConnectionInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0CreateConnectionInput = (input: CreateConnectionInput, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectionName !== undefined && {
-      ConnectionName: input.ConnectionName
-    }),
-    ...(input.ProviderType !== undefined && {
-      ProviderType: input.ProviderType
-    })
+    ...(input.ConnectionName !== undefined && { ConnectionName: input.ConnectionName }),
+    ...(input.ProviderType !== undefined && { ProviderType: input.ProviderType }),
   };
 };
 
-const serializeAws_json1_0DeleteConnectionInput = (
-  input: DeleteConnectionInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0DeleteConnectionInput = (input: DeleteConnectionInput, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectionArn !== undefined && {
-      ConnectionArn: input.ConnectionArn
-    })
+    ...(input.ConnectionArn !== undefined && { ConnectionArn: input.ConnectionArn }),
   };
 };
 
-const serializeAws_json1_0GetConnectionInput = (
-  input: GetConnectionInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0GetConnectionInput = (input: GetConnectionInput, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectionArn !== undefined && {
-      ConnectionArn: input.ConnectionArn
-    })
+    ...(input.ConnectionArn !== undefined && { ConnectionArn: input.ConnectionArn }),
   };
 };
 
-const serializeAws_json1_0ListConnectionsInput = (
-  input: ListConnectionsInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0ListConnectionsInput = (input: ListConnectionsInput, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ProviderTypeFilter !== undefined && {
-      ProviderTypeFilter: input.ProviderTypeFilter
-    })
+    ...(input.ProviderTypeFilter !== undefined && { ProviderTypeFilter: input.ProviderTypeFilter }),
   };
 };
 
-const deserializeAws_json1_0Connection = (
-  output: any,
-  context: __SerdeContext
-): Connection => {
+const deserializeAws_json1_0Connection = (output: any, context: __SerdeContext): Connection => {
   return {
     __type: "Connection",
     ConnectionArn:
-      output.ConnectionArn !== undefined && output.ConnectionArn !== null
-        ? output.ConnectionArn
-        : undefined,
+      output.ConnectionArn !== undefined && output.ConnectionArn !== null ? output.ConnectionArn : undefined,
     ConnectionName:
-      output.ConnectionName !== undefined && output.ConnectionName !== null
-        ? output.ConnectionName
-        : undefined,
+      output.ConnectionName !== undefined && output.ConnectionName !== null ? output.ConnectionName : undefined,
     ConnectionStatus:
-      output.ConnectionStatus !== undefined && output.ConnectionStatus !== null
-        ? output.ConnectionStatus
-        : undefined,
+      output.ConnectionStatus !== undefined && output.ConnectionStatus !== null ? output.ConnectionStatus : undefined,
     OwnerAccountId:
-      output.OwnerAccountId !== undefined && output.OwnerAccountId !== null
-        ? output.OwnerAccountId
-        : undefined,
-    ProviderType:
-      output.ProviderType !== undefined && output.ProviderType !== null
-        ? output.ProviderType
-        : undefined
+      output.OwnerAccountId !== undefined && output.OwnerAccountId !== null ? output.OwnerAccountId : undefined,
+    ProviderType: output.ProviderType !== undefined && output.ProviderType !== null ? output.ProviderType : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ConnectionList = (
-  output: any,
-  context: __SerdeContext
-): Connection[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0Connection(entry, context)
-  );
+const deserializeAws_json1_0ConnectionList = (output: any, context: __SerdeContext): Connection[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0Connection(entry, context));
 };
 
-const deserializeAws_json1_0CreateConnectionOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateConnectionOutput => {
+const deserializeAws_json1_0CreateConnectionOutput = (output: any, context: __SerdeContext): CreateConnectionOutput => {
   return {
     __type: "CreateConnectionOutput",
     ConnectionArn:
-      output.ConnectionArn !== undefined && output.ConnectionArn !== null
-        ? output.ConnectionArn
-        : undefined
+      output.ConnectionArn !== undefined && output.ConnectionArn !== null ? output.ConnectionArn : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DeleteConnectionOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteConnectionOutput => {
+const deserializeAws_json1_0DeleteConnectionOutput = (output: any, context: __SerdeContext): DeleteConnectionOutput => {
   return {
-    __type: "DeleteConnectionOutput"
+    __type: "DeleteConnectionOutput",
   } as any;
 };
 
-const deserializeAws_json1_0GetConnectionOutput = (
-  output: any,
-  context: __SerdeContext
-): GetConnectionOutput => {
+const deserializeAws_json1_0GetConnectionOutput = (output: any, context: __SerdeContext): GetConnectionOutput => {
   return {
     __type: "GetConnectionOutput",
     Connection:
       output.Connection !== undefined && output.Connection !== null
         ? deserializeAws_json1_0Connection(output.Connection, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0LimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): LimitExceededException => {
+const deserializeAws_json1_0LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     __type: "LimitExceededException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ListConnectionsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListConnectionsOutput => {
+const deserializeAws_json1_0ListConnectionsOutput = (output: any, context: __SerdeContext): ListConnectionsOutput => {
   return {
     __type: "ListConnectionsOutput",
     Connections:
       output.Connections !== undefined && output.Connections !== null
         ? deserializeAws_json1_0ConnectionList(output.Connections, context)
         : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
   } as any;
 };
 
@@ -521,38 +417,27 @@ const deserializeAws_json1_0ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     __type: "ResourceNotFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"]
+  requestId: output.headers["x-amzn-requestid"],
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
-  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -568,7 +453,7 @@ const buildHttpRpcRequest = async (
     port,
     method: "POST",
     path,
-    headers
+    headers,
   };
   if (resolvedHostname !== undefined) {
     contents.hostname = resolvedHostname;
@@ -580,7 +465,7 @@ const buildHttpRpcRequest = async (
 };
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then(encoded => {
+  collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

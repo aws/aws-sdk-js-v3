@@ -1,115 +1,67 @@
-import {
-  AddTagsToStreamCommandInput,
-  AddTagsToStreamCommandOutput
-} from "./commands/AddTagsToStreamCommand";
-import {
-  CreateStreamCommandInput,
-  CreateStreamCommandOutput
-} from "./commands/CreateStreamCommand";
+import { AddTagsToStreamCommandInput, AddTagsToStreamCommandOutput } from "./commands/AddTagsToStreamCommand";
+import { CreateStreamCommandInput, CreateStreamCommandOutput } from "./commands/CreateStreamCommand";
 import {
   DecreaseStreamRetentionPeriodCommandInput,
-  DecreaseStreamRetentionPeriodCommandOutput
+  DecreaseStreamRetentionPeriodCommandOutput,
 } from "./commands/DecreaseStreamRetentionPeriodCommand";
-import {
-  DeleteStreamCommandInput,
-  DeleteStreamCommandOutput
-} from "./commands/DeleteStreamCommand";
+import { DeleteStreamCommandInput, DeleteStreamCommandOutput } from "./commands/DeleteStreamCommand";
 import {
   DeregisterStreamConsumerCommandInput,
-  DeregisterStreamConsumerCommandOutput
+  DeregisterStreamConsumerCommandOutput,
 } from "./commands/DeregisterStreamConsumerCommand";
-import {
-  DescribeLimitsCommandInput,
-  DescribeLimitsCommandOutput
-} from "./commands/DescribeLimitsCommand";
-import {
-  DescribeStreamCommandInput,
-  DescribeStreamCommandOutput
-} from "./commands/DescribeStreamCommand";
+import { DescribeLimitsCommandInput, DescribeLimitsCommandOutput } from "./commands/DescribeLimitsCommand";
+import { DescribeStreamCommandInput, DescribeStreamCommandOutput } from "./commands/DescribeStreamCommand";
 import {
   DescribeStreamConsumerCommandInput,
-  DescribeStreamConsumerCommandOutput
+  DescribeStreamConsumerCommandOutput,
 } from "./commands/DescribeStreamConsumerCommand";
 import {
   DescribeStreamSummaryCommandInput,
-  DescribeStreamSummaryCommandOutput
+  DescribeStreamSummaryCommandOutput,
 } from "./commands/DescribeStreamSummaryCommand";
 import {
   DisableEnhancedMonitoringCommandInput,
-  DisableEnhancedMonitoringCommandOutput
+  DisableEnhancedMonitoringCommandOutput,
 } from "./commands/DisableEnhancedMonitoringCommand";
 import {
   EnableEnhancedMonitoringCommandInput,
-  EnableEnhancedMonitoringCommandOutput
+  EnableEnhancedMonitoringCommandOutput,
 } from "./commands/EnableEnhancedMonitoringCommand";
-import {
-  GetRecordsCommandInput,
-  GetRecordsCommandOutput
-} from "./commands/GetRecordsCommand";
-import {
-  GetShardIteratorCommandInput,
-  GetShardIteratorCommandOutput
-} from "./commands/GetShardIteratorCommand";
+import { GetRecordsCommandInput, GetRecordsCommandOutput } from "./commands/GetRecordsCommand";
+import { GetShardIteratorCommandInput, GetShardIteratorCommandOutput } from "./commands/GetShardIteratorCommand";
 import {
   IncreaseStreamRetentionPeriodCommandInput,
-  IncreaseStreamRetentionPeriodCommandOutput
+  IncreaseStreamRetentionPeriodCommandOutput,
 } from "./commands/IncreaseStreamRetentionPeriodCommand";
-import {
-  ListShardsCommandInput,
-  ListShardsCommandOutput
-} from "./commands/ListShardsCommand";
+import { ListShardsCommandInput, ListShardsCommandOutput } from "./commands/ListShardsCommand";
 import {
   ListStreamConsumersCommandInput,
-  ListStreamConsumersCommandOutput
+  ListStreamConsumersCommandOutput,
 } from "./commands/ListStreamConsumersCommand";
-import {
-  ListStreamsCommandInput,
-  ListStreamsCommandOutput
-} from "./commands/ListStreamsCommand";
-import {
-  ListTagsForStreamCommandInput,
-  ListTagsForStreamCommandOutput
-} from "./commands/ListTagsForStreamCommand";
-import {
-  MergeShardsCommandInput,
-  MergeShardsCommandOutput
-} from "./commands/MergeShardsCommand";
-import {
-  PutRecordCommandInput,
-  PutRecordCommandOutput
-} from "./commands/PutRecordCommand";
-import {
-  PutRecordsCommandInput,
-  PutRecordsCommandOutput
-} from "./commands/PutRecordsCommand";
+import { ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
+import { ListTagsForStreamCommandInput, ListTagsForStreamCommandOutput } from "./commands/ListTagsForStreamCommand";
+import { MergeShardsCommandInput, MergeShardsCommandOutput } from "./commands/MergeShardsCommand";
+import { PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand";
+import { PutRecordsCommandInput, PutRecordsCommandOutput } from "./commands/PutRecordsCommand";
 import {
   RegisterStreamConsumerCommandInput,
-  RegisterStreamConsumerCommandOutput
+  RegisterStreamConsumerCommandOutput,
 } from "./commands/RegisterStreamConsumerCommand";
 import {
   RemoveTagsFromStreamCommandInput,
-  RemoveTagsFromStreamCommandOutput
+  RemoveTagsFromStreamCommandOutput,
 } from "./commands/RemoveTagsFromStreamCommand";
-import {
-  SplitShardCommandInput,
-  SplitShardCommandOutput
-} from "./commands/SplitShardCommand";
+import { SplitShardCommandInput, SplitShardCommandOutput } from "./commands/SplitShardCommand";
 import {
   StartStreamEncryptionCommandInput,
-  StartStreamEncryptionCommandOutput
+  StartStreamEncryptionCommandOutput,
 } from "./commands/StartStreamEncryptionCommand";
 import {
   StopStreamEncryptionCommandInput,
-  StopStreamEncryptionCommandOutput
+  StopStreamEncryptionCommandOutput,
 } from "./commands/StopStreamEncryptionCommand";
-import {
-  SubscribeToShardCommandInput,
-  SubscribeToShardCommandOutput
-} from "./commands/SubscribeToShardCommand";
-import {
-  UpdateShardCountCommandInput,
-  UpdateShardCountCommandOutput
-} from "./commands/UpdateShardCountCommand";
+import { SubscribeToShardCommandInput, SubscribeToShardCommandOutput } from "./commands/SubscribeToShardCommand";
+import { UpdateShardCountCommandInput, UpdateShardCountCommandOutput } from "./commands/UpdateShardCountCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -117,43 +69,38 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import {
   EventStreamSerdeInputConfig,
   EventStreamSerdeResolvedConfig,
-  resolveEventStreamSerdeConfig
+  resolveEventStreamSerdeConfig,
 } from "@aws-sdk/eventstream-serde-config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -165,7 +112,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -228,8 +175,7 @@ export type ServiceOutputTypes =
   | SubscribeToShardCommandOutput
   | UpdateShardCountCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -323,9 +269,7 @@ export interface ClientDefaults
   eventStreamSerdeProvider?: __EventStreamSerdeProvider;
 }
 
-export type KinesisClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type KinesisClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -335,9 +279,7 @@ export type KinesisClientConfig = Partial<
   HostHeaderInputConfig &
   EventStreamSerdeInputConfig;
 
-export type KinesisClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type KinesisClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -363,7 +305,7 @@ export class KinesisClient extends __Client<
   constructor(configuration: KinesisClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

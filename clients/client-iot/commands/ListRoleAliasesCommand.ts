@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListRoleAliasesRequest,
-  ListRoleAliasesResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListRoleAliasesRequest, ListRoleAliasesResponse } from "../models/index";
 import {
   deserializeAws_restJson1ListRoleAliasesCommand,
-  serializeAws_restJson1ListRoleAliasesCommand
+  serializeAws_restJson1ListRoleAliasesCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListRoleAliasesCommandInput = ListRoleAliasesRequest;
-export type ListRoleAliasesCommandOutput = ListRoleAliasesResponse &
-  __MetadataBearer;
+export type ListRoleAliasesCommandOutput = ListRoleAliasesResponse & __MetadataBearer;
 
 export class ListRoleAliasesCommand extends $Command<
   ListRoleAliasesCommandInput,
@@ -50,14 +39,12 @@ export class ListRoleAliasesCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListRoleAliasesCommandInput, ListRoleAliasesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class ListRoleAliasesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListRoleAliasesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListRoleAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRoleAliasesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListRoleAliasesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoleAliasesCommandOutput> {
     return deserializeAws_restJson1ListRoleAliasesCommand(output, context);
   }
 

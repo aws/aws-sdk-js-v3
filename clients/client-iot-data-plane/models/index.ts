@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -19,10 +15,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 
 export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConflictException =>
-    __isa(o, "ConflictException");
+  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 /**
@@ -38,10 +33,9 @@ export interface DeleteThingShadowRequest {
 
 export namespace DeleteThingShadowRequest {
   export const filterSensitiveLog = (obj: DeleteThingShadowRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteThingShadowRequest =>
-    __isa(o, "DeleteThingShadowRequest");
+  export const isa = (o: any): o is DeleteThingShadowRequest => __isa(o, "DeleteThingShadowRequest");
 }
 
 /**
@@ -57,10 +51,9 @@ export interface DeleteThingShadowResponse {
 
 export namespace DeleteThingShadowResponse {
   export const filterSensitiveLog = (obj: DeleteThingShadowResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteThingShadowResponse =>
-    __isa(o, "DeleteThingShadowResponse");
+  export const isa = (o: any): o is DeleteThingShadowResponse => __isa(o, "DeleteThingShadowResponse");
 }
 
 /**
@@ -76,10 +69,9 @@ export interface GetThingShadowRequest {
 
 export namespace GetThingShadowRequest {
   export const filterSensitiveLog = (obj: GetThingShadowRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetThingShadowRequest =>
-    __isa(o, "GetThingShadowRequest");
+  export const isa = (o: any): o is GetThingShadowRequest => __isa(o, "GetThingShadowRequest");
 }
 
 /**
@@ -95,18 +87,15 @@ export interface GetThingShadowResponse {
 
 export namespace GetThingShadowResponse {
   export const filterSensitiveLog = (obj: GetThingShadowResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetThingShadowResponse =>
-    __isa(o, "GetThingShadowResponse");
+  export const isa = (o: any): o is GetThingShadowResponse => __isa(o, "GetThingShadowResponse");
 }
 
 /**
  * <p>An unexpected error has occurred.</p>
  */
-export interface InternalFailureException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalFailureException extends __SmithyException, $MetadataBearer {
   name: "InternalFailureException";
   $fault: "server";
   /**
@@ -117,18 +106,15 @@ export interface InternalFailureException
 
 export namespace InternalFailureException {
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalFailureException =>
-    __isa(o, "InternalFailureException");
+  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
 /**
  * <p>The request is not valid.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   /**
@@ -139,18 +125,15 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
  * <p>The specified combination of HTTP verb and URI is not supported.</p>
  */
-export interface MethodNotAllowedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MethodNotAllowedException extends __SmithyException, $MetadataBearer {
   name: "MethodNotAllowedException";
   $fault: "client";
   /**
@@ -161,10 +144,9 @@ export interface MethodNotAllowedException
 
 export namespace MethodNotAllowedException {
   export const filterSensitiveLog = (obj: MethodNotAllowedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MethodNotAllowedException =>
-    __isa(o, "MethodNotAllowedException");
+  export const isa = (o: any): o is MethodNotAllowedException => __isa(o, "MethodNotAllowedException");
 }
 
 /**
@@ -190,18 +172,15 @@ export interface PublishRequest {
 
 export namespace PublishRequest {
   export const filterSensitiveLog = (obj: PublishRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PublishRequest =>
-    __isa(o, "PublishRequest");
+  export const isa = (o: any): o is PublishRequest => __isa(o, "PublishRequest");
 }
 
 /**
  * <p>The payload exceeds the maximum size allowed.</p>
  */
-export interface RequestEntityTooLargeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RequestEntityTooLargeException extends __SmithyException, $MetadataBearer {
   name: "RequestEntityTooLargeException";
   $fault: "client";
   /**
@@ -211,21 +190,16 @@ export interface RequestEntityTooLargeException
 }
 
 export namespace RequestEntityTooLargeException {
-  export const filterSensitiveLog = (
-    obj: RequestEntityTooLargeException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RequestEntityTooLargeException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RequestEntityTooLargeException =>
-    __isa(o, "RequestEntityTooLargeException");
+  export const isa = (o: any): o is RequestEntityTooLargeException => __isa(o, "RequestEntityTooLargeException");
 }
 
 /**
  * <p>The specified resource does not exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -236,18 +210,15 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>The service is temporarily unavailable.</p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -257,21 +228,16 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (
-    obj: ServiceUnavailableException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException =>
-    __isa(o, "ServiceUnavailableException");
+  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
  * <p>The rate exceeds the limit.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   /**
@@ -282,18 +248,15 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
  * <p>You are not authorized to perform this operation.</p>
  */
-export interface UnauthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
   name: "UnauthorizedException";
   $fault: "client";
   /**
@@ -304,18 +267,15 @@ export interface UnauthorizedException
 
 export namespace UnauthorizedException {
   export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UnauthorizedException =>
-    __isa(o, "UnauthorizedException");
+  export const isa = (o: any): o is UnauthorizedException => __isa(o, "UnauthorizedException");
 }
 
 /**
  * <p>The document encoding is not supported.</p>
  */
-export interface UnsupportedDocumentEncodingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedDocumentEncodingException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedDocumentEncodingException";
   $fault: "client";
   /**
@@ -325,10 +285,8 @@ export interface UnsupportedDocumentEncodingException
 }
 
 export namespace UnsupportedDocumentEncodingException {
-  export const filterSensitiveLog = (
-    obj: UnsupportedDocumentEncodingException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UnsupportedDocumentEncodingException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UnsupportedDocumentEncodingException =>
     __isa(o, "UnsupportedDocumentEncodingException");
@@ -352,10 +310,9 @@ export interface UpdateThingShadowRequest {
 
 export namespace UpdateThingShadowRequest {
   export const filterSensitiveLog = (obj: UpdateThingShadowRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateThingShadowRequest =>
-    __isa(o, "UpdateThingShadowRequest");
+  export const isa = (o: any): o is UpdateThingShadowRequest => __isa(o, "UpdateThingShadowRequest");
 }
 
 /**
@@ -371,8 +328,7 @@ export interface UpdateThingShadowResponse {
 
 export namespace UpdateThingShadowResponse {
   export const filterSensitiveLog = (obj: UpdateThingShadowResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateThingShadowResponse =>
-    __isa(o, "UpdateThingShadowResponse");
+  export const isa = (o: any): o is UpdateThingShadowResponse => __isa(o, "UpdateThingShadowResponse");
 }

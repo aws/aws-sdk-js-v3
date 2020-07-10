@@ -1,18 +1,11 @@
-import {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../NetworkManagerClient";
+import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import { CreateDeviceRequest, CreateDeviceResponse } from "../models/index";
 import {
   deserializeAws_restJson1CreateDeviceCommand,
-  serializeAws_restJson1CreateDeviceCommand
+  serializeAws_restJson1CreateDeviceCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateDeviceCommandInput = CreateDeviceRequest;
@@ -46,14 +39,12 @@ export class CreateDeviceCommand extends $Command<
     configuration: NetworkManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDeviceCommandInput, CreateDeviceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +54,11 @@ export class CreateDeviceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDeviceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDeviceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateDeviceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeviceCommandOutput> {
     return deserializeAws_restJson1CreateDeviceCommand(output, context);
   }
 

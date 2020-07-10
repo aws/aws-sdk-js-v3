@@ -1,18 +1,11 @@
-import {
-  SQSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SQSClient";
+import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
 import { DeleteMessageRequest } from "../models/index";
 import {
   deserializeAws_queryDeleteMessageCommand,
-  serializeAws_queryDeleteMessageCommand
+  serializeAws_queryDeleteMessageCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteMessageCommandInput = DeleteMessageRequest;
@@ -46,14 +39,12 @@ export class DeleteMessageCommand extends $Command<
     configuration: SQSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteMessageCommandInput, DeleteMessageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +54,11 @@ export class DeleteMessageCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteMessageCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteMessageCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteMessageCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMessageCommandOutput> {
     return deserializeAws_queryDeleteMessageCommand(output, context);
   }
 

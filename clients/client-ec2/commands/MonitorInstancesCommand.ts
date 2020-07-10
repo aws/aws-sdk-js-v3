@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  MonitorInstancesRequest,
-  MonitorInstancesResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { MonitorInstancesRequest, MonitorInstancesResult } from "../models/index";
 import {
   deserializeAws_ec2MonitorInstancesCommand,
-  serializeAws_ec2MonitorInstancesCommand
+  serializeAws_ec2MonitorInstancesCommand,
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type MonitorInstancesCommandInput = MonitorInstancesRequest;
-export type MonitorInstancesCommandOutput = MonitorInstancesResult &
-  __MetadataBearer;
+export type MonitorInstancesCommandOutput = MonitorInstancesResult & __MetadataBearer;
 
 export class MonitorInstancesCommand extends $Command<
   MonitorInstancesCommandInput,
@@ -50,14 +39,12 @@ export class MonitorInstancesCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<MonitorInstancesCommandInput, MonitorInstancesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class MonitorInstancesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: MonitorInstancesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: MonitorInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2MonitorInstancesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<MonitorInstancesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MonitorInstancesCommandOutput> {
     return deserializeAws_ec2MonitorInstancesCommand(output, context);
   }
 

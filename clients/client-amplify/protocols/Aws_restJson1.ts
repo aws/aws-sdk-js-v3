@@ -1,151 +1,70 @@
-import {
-  CreateAppCommandInput,
-  CreateAppCommandOutput
-} from "../commands/CreateAppCommand";
+import { CreateAppCommandInput, CreateAppCommandOutput } from "../commands/CreateAppCommand";
 import {
   CreateBackendEnvironmentCommandInput,
-  CreateBackendEnvironmentCommandOutput
+  CreateBackendEnvironmentCommandOutput,
 } from "../commands/CreateBackendEnvironmentCommand";
-import {
-  CreateBranchCommandInput,
-  CreateBranchCommandOutput
-} from "../commands/CreateBranchCommand";
-import {
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput
-} from "../commands/CreateDeploymentCommand";
+import { CreateBranchCommandInput, CreateBranchCommandOutput } from "../commands/CreateBranchCommand";
+import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "../commands/CreateDeploymentCommand";
 import {
   CreateDomainAssociationCommandInput,
-  CreateDomainAssociationCommandOutput
+  CreateDomainAssociationCommandOutput,
 } from "../commands/CreateDomainAssociationCommand";
-import {
-  CreateWebhookCommandInput,
-  CreateWebhookCommandOutput
-} from "../commands/CreateWebhookCommand";
-import {
-  DeleteAppCommandInput,
-  DeleteAppCommandOutput
-} from "../commands/DeleteAppCommand";
+import { CreateWebhookCommandInput, CreateWebhookCommandOutput } from "../commands/CreateWebhookCommand";
+import { DeleteAppCommandInput, DeleteAppCommandOutput } from "../commands/DeleteAppCommand";
 import {
   DeleteBackendEnvironmentCommandInput,
-  DeleteBackendEnvironmentCommandOutput
+  DeleteBackendEnvironmentCommandOutput,
 } from "../commands/DeleteBackendEnvironmentCommand";
-import {
-  DeleteBranchCommandInput,
-  DeleteBranchCommandOutput
-} from "../commands/DeleteBranchCommand";
+import { DeleteBranchCommandInput, DeleteBranchCommandOutput } from "../commands/DeleteBranchCommand";
 import {
   DeleteDomainAssociationCommandInput,
-  DeleteDomainAssociationCommandOutput
+  DeleteDomainAssociationCommandOutput,
 } from "../commands/DeleteDomainAssociationCommand";
-import {
-  DeleteJobCommandInput,
-  DeleteJobCommandOutput
-} from "../commands/DeleteJobCommand";
-import {
-  DeleteWebhookCommandInput,
-  DeleteWebhookCommandOutput
-} from "../commands/DeleteWebhookCommand";
-import {
-  GenerateAccessLogsCommandInput,
-  GenerateAccessLogsCommandOutput
-} from "../commands/GenerateAccessLogsCommand";
-import {
-  GetAppCommandInput,
-  GetAppCommandOutput
-} from "../commands/GetAppCommand";
-import {
-  GetArtifactUrlCommandInput,
-  GetArtifactUrlCommandOutput
-} from "../commands/GetArtifactUrlCommand";
+import { DeleteJobCommandInput, DeleteJobCommandOutput } from "../commands/DeleteJobCommand";
+import { DeleteWebhookCommandInput, DeleteWebhookCommandOutput } from "../commands/DeleteWebhookCommand";
+import { GenerateAccessLogsCommandInput, GenerateAccessLogsCommandOutput } from "../commands/GenerateAccessLogsCommand";
+import { GetAppCommandInput, GetAppCommandOutput } from "../commands/GetAppCommand";
+import { GetArtifactUrlCommandInput, GetArtifactUrlCommandOutput } from "../commands/GetArtifactUrlCommand";
 import {
   GetBackendEnvironmentCommandInput,
-  GetBackendEnvironmentCommandOutput
+  GetBackendEnvironmentCommandOutput,
 } from "../commands/GetBackendEnvironmentCommand";
-import {
-  GetBranchCommandInput,
-  GetBranchCommandOutput
-} from "../commands/GetBranchCommand";
+import { GetBranchCommandInput, GetBranchCommandOutput } from "../commands/GetBranchCommand";
 import {
   GetDomainAssociationCommandInput,
-  GetDomainAssociationCommandOutput
+  GetDomainAssociationCommandOutput,
 } from "../commands/GetDomainAssociationCommand";
-import {
-  GetJobCommandInput,
-  GetJobCommandOutput
-} from "../commands/GetJobCommand";
-import {
-  GetWebhookCommandInput,
-  GetWebhookCommandOutput
-} from "../commands/GetWebhookCommand";
-import {
-  ListAppsCommandInput,
-  ListAppsCommandOutput
-} from "../commands/ListAppsCommand";
-import {
-  ListArtifactsCommandInput,
-  ListArtifactsCommandOutput
-} from "../commands/ListArtifactsCommand";
+import { GetJobCommandInput, GetJobCommandOutput } from "../commands/GetJobCommand";
+import { GetWebhookCommandInput, GetWebhookCommandOutput } from "../commands/GetWebhookCommand";
+import { ListAppsCommandInput, ListAppsCommandOutput } from "../commands/ListAppsCommand";
+import { ListArtifactsCommandInput, ListArtifactsCommandOutput } from "../commands/ListArtifactsCommand";
 import {
   ListBackendEnvironmentsCommandInput,
-  ListBackendEnvironmentsCommandOutput
+  ListBackendEnvironmentsCommandOutput,
 } from "../commands/ListBackendEnvironmentsCommand";
-import {
-  ListBranchesCommandInput,
-  ListBranchesCommandOutput
-} from "../commands/ListBranchesCommand";
+import { ListBranchesCommandInput, ListBranchesCommandOutput } from "../commands/ListBranchesCommand";
 import {
   ListDomainAssociationsCommandInput,
-  ListDomainAssociationsCommandOutput
+  ListDomainAssociationsCommandOutput,
 } from "../commands/ListDomainAssociationsCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "../commands/ListJobsCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
-import {
-  ListWebhooksCommandInput,
-  ListWebhooksCommandOutput
-} from "../commands/ListWebhooksCommand";
-import {
-  StartDeploymentCommandInput,
-  StartDeploymentCommandOutput
-} from "../commands/StartDeploymentCommand";
-import {
-  StartJobCommandInput,
-  StartJobCommandOutput
-} from "../commands/StartJobCommand";
-import {
-  StopJobCommandInput,
-  StopJobCommandOutput
-} from "../commands/StopJobCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "../commands/UntagResourceCommand";
-import {
-  UpdateAppCommandInput,
-  UpdateAppCommandOutput
-} from "../commands/UpdateAppCommand";
-import {
-  UpdateBranchCommandInput,
-  UpdateBranchCommandOutput
-} from "../commands/UpdateBranchCommand";
+import { ListWebhooksCommandInput, ListWebhooksCommandOutput } from "../commands/ListWebhooksCommand";
+import { StartDeploymentCommandInput, StartDeploymentCommandOutput } from "../commands/StartDeploymentCommand";
+import { StartJobCommandInput, StartJobCommandOutput } from "../commands/StartJobCommand";
+import { StopJobCommandInput, StopJobCommandOutput } from "../commands/StopJobCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateAppCommandInput, UpdateAppCommandOutput } from "../commands/UpdateAppCommand";
+import { UpdateBranchCommandInput, UpdateBranchCommandOutput } from "../commands/UpdateBranchCommand";
 import {
   UpdateDomainAssociationCommandInput,
-  UpdateDomainAssociationCommandOutput
+  UpdateDomainAssociationCommandOutput,
 } from "../commands/UpdateDomainAssociationCommand";
-import {
-  UpdateWebhookCommandInput,
-  UpdateWebhookCommandOutput
-} from "../commands/UpdateWebhookCommand";
+import { UpdateWebhookCommandInput, UpdateWebhookCommandOutput } from "../commands/UpdateWebhookCommand";
 import {
   App,
   Artifact,
@@ -167,21 +86,18 @@ import {
   SubDomain,
   SubDomainSetting,
   UnauthorizedException,
-  Webhook
+  Webhook,
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export const serializeAws_restJson1CreateAppCommand = async (
@@ -189,57 +105,39 @@ export const serializeAws_restJson1CreateAppCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/apps";
   let body: any;
   body = JSON.stringify({
     ...(input.accessToken !== undefined && { accessToken: input.accessToken }),
     ...(input.autoBranchCreationConfig !== undefined && {
-      autoBranchCreationConfig: serializeAws_restJson1AutoBranchCreationConfig(
-        input.autoBranchCreationConfig,
-        context
-      )
+      autoBranchCreationConfig: serializeAws_restJson1AutoBranchCreationConfig(input.autoBranchCreationConfig, context),
     }),
     ...(input.autoBranchCreationPatterns !== undefined && {
       autoBranchCreationPatterns: serializeAws_restJson1AutoBranchCreationPatterns(
         input.autoBranchCreationPatterns,
         context
-      )
+      ),
     }),
-    ...(input.basicAuthCredentials !== undefined && {
-      basicAuthCredentials: input.basicAuthCredentials
-    }),
+    ...(input.basicAuthCredentials !== undefined && { basicAuthCredentials: input.basicAuthCredentials }),
     ...(input.buildSpec !== undefined && { buildSpec: input.buildSpec }),
     ...(input.customRules !== undefined && {
-      customRules: serializeAws_restJson1CustomRules(input.customRules, context)
+      customRules: serializeAws_restJson1CustomRules(input.customRules, context),
     }),
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.enableAutoBranchCreation !== undefined && {
-      enableAutoBranchCreation: input.enableAutoBranchCreation
-    }),
-    ...(input.enableBasicAuth !== undefined && {
-      enableBasicAuth: input.enableBasicAuth
-    }),
-    ...(input.enableBranchAutoBuild !== undefined && {
-      enableBranchAutoBuild: input.enableBranchAutoBuild
-    }),
+    ...(input.enableAutoBranchCreation !== undefined && { enableAutoBranchCreation: input.enableAutoBranchCreation }),
+    ...(input.enableBasicAuth !== undefined && { enableBasicAuth: input.enableBasicAuth }),
+    ...(input.enableBranchAutoBuild !== undefined && { enableBranchAutoBuild: input.enableBranchAutoBuild }),
     ...(input.environmentVariables !== undefined && {
-      environmentVariables: serializeAws_restJson1EnvironmentVariables(
-        input.environmentVariables,
-        context
-      )
+      environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
     }),
-    ...(input.iamServiceRoleArn !== undefined && {
-      iamServiceRoleArn: input.iamServiceRoleArn
-    }),
+    ...(input.iamServiceRoleArn !== undefined && { iamServiceRoleArn: input.iamServiceRoleArn }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.oauthToken !== undefined && { oauthToken: input.oauthToken }),
     ...(input.platform !== undefined && { platform: input.platform }),
     ...(input.repository !== undefined && { repository: input.repository }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context)
-    })
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -249,7 +147,7 @@ export const serializeAws_restJson1CreateAppCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -258,7 +156,7 @@ export const serializeAws_restJson1CreateBackendEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/backendenvironments";
   if (input.appId !== undefined) {
@@ -266,22 +164,15 @@ export const serializeAws_restJson1CreateBackendEnvironmentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.deploymentArtifacts !== undefined && {
-      deploymentArtifacts: input.deploymentArtifacts
-    }),
-    ...(input.environmentName !== undefined && {
-      environmentName: input.environmentName
-    }),
-    ...(input.stackName !== undefined && { stackName: input.stackName })
+    ...(input.deploymentArtifacts !== undefined && { deploymentArtifacts: input.deploymentArtifacts }),
+    ...(input.environmentName !== undefined && { environmentName: input.environmentName }),
+    ...(input.stackName !== undefined && { stackName: input.stackName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -291,7 +182,7 @@ export const serializeAws_restJson1CreateBackendEnvironmentCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -300,7 +191,7 @@ export const serializeAws_restJson1CreateBranchCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/branches";
   if (input.appId !== undefined) {
@@ -308,52 +199,32 @@ export const serializeAws_restJson1CreateBranchCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.backendEnvironmentArn !== undefined && {
-      backendEnvironmentArn: input.backendEnvironmentArn
-    }),
-    ...(input.basicAuthCredentials !== undefined && {
-      basicAuthCredentials: input.basicAuthCredentials
-    }),
+    ...(input.backendEnvironmentArn !== undefined && { backendEnvironmentArn: input.backendEnvironmentArn }),
+    ...(input.basicAuthCredentials !== undefined && { basicAuthCredentials: input.basicAuthCredentials }),
     ...(input.branchName !== undefined && { branchName: input.branchName }),
     ...(input.buildSpec !== undefined && { buildSpec: input.buildSpec }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.displayName !== undefined && { displayName: input.displayName }),
-    ...(input.enableAutoBuild !== undefined && {
-      enableAutoBuild: input.enableAutoBuild
-    }),
-    ...(input.enableBasicAuth !== undefined && {
-      enableBasicAuth: input.enableBasicAuth
-    }),
-    ...(input.enableNotification !== undefined && {
-      enableNotification: input.enableNotification
-    }),
-    ...(input.enablePullRequestPreview !== undefined && {
-      enablePullRequestPreview: input.enablePullRequestPreview
-    }),
+    ...(input.enableAutoBuild !== undefined && { enableAutoBuild: input.enableAutoBuild }),
+    ...(input.enableBasicAuth !== undefined && { enableBasicAuth: input.enableBasicAuth }),
+    ...(input.enableNotification !== undefined && { enableNotification: input.enableNotification }),
+    ...(input.enablePullRequestPreview !== undefined && { enablePullRequestPreview: input.enablePullRequestPreview }),
     ...(input.environmentVariables !== undefined && {
-      environmentVariables: serializeAws_restJson1EnvironmentVariables(
-        input.environmentVariables,
-        context
-      )
+      environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
     }),
     ...(input.framework !== undefined && { framework: input.framework }),
     ...(input.pullRequestEnvironmentName !== undefined && {
-      pullRequestEnvironmentName: input.pullRequestEnvironmentName
+      pullRequestEnvironmentName: input.pullRequestEnvironmentName,
     }),
     ...(input.stage !== undefined && { stage: input.stage }),
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context)
-    }),
-    ...(input.ttl !== undefined && { ttl: input.ttl })
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.ttl !== undefined && { ttl: input.ttl }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -363,7 +234,7 @@ export const serializeAws_restJson1CreateBranchCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -372,7 +243,7 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/deployments";
   if (input.appId !== undefined) {
@@ -380,10 +251,7 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
@@ -392,18 +260,13 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{branchName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.fileMap !== undefined && {
-      fileMap: serializeAws_restJson1FileMap(input.fileMap, context)
-    })
+    ...(input.fileMap !== undefined && { fileMap: serializeAws_restJson1FileMap(input.fileMap, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -413,7 +276,7 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -422,7 +285,7 @@ export const serializeAws_restJson1CreateDomainAssociationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/domains";
   if (input.appId !== undefined) {
@@ -430,25 +293,17 @@ export const serializeAws_restJson1CreateDomainAssociationCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.domainName !== undefined && { domainName: input.domainName }),
-    ...(input.enableAutoSubDomain !== undefined && {
-      enableAutoSubDomain: input.enableAutoSubDomain
-    }),
+    ...(input.enableAutoSubDomain !== undefined && { enableAutoSubDomain: input.enableAutoSubDomain }),
     ...(input.subDomainSettings !== undefined && {
-      subDomainSettings: serializeAws_restJson1SubDomainSettings(
-        input.subDomainSettings,
-        context
-      )
-    })
+      subDomainSettings: serializeAws_restJson1SubDomainSettings(input.subDomainSettings, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -458,7 +313,7 @@ export const serializeAws_restJson1CreateDomainAssociationCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -467,7 +322,7 @@ export const serializeAws_restJson1CreateWebhookCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/webhooks";
   if (input.appId !== undefined) {
@@ -475,17 +330,14 @@ export const serializeAws_restJson1CreateWebhookCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.branchName !== undefined && { branchName: input.branchName }),
-    ...(input.description !== undefined && { description: input.description })
+    ...(input.description !== undefined && { description: input.description }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -495,7 +347,7 @@ export const serializeAws_restJson1CreateWebhookCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -504,7 +356,7 @@ export const serializeAws_restJson1DeleteAppCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}";
   if (input.appId !== undefined) {
@@ -512,10 +364,7 @@ export const serializeAws_restJson1DeleteAppCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
@@ -528,7 +377,7 @@ export const serializeAws_restJson1DeleteAppCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -537,7 +386,7 @@ export const serializeAws_restJson1DeleteBackendEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/backendenvironments/{environmentName}";
   if (input.appId !== undefined) {
@@ -545,24 +394,16 @@ export const serializeAws_restJson1DeleteBackendEnvironmentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
   if (input.environmentName !== undefined) {
     const labelValue: string = input.environmentName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: environmentName."
-      );
+      throw new Error("Empty value provided for input HTTP label: environmentName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{environmentName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{environmentName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: environmentName.");
   }
@@ -575,7 +416,7 @@ export const serializeAws_restJson1DeleteBackendEnvironmentCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -584,7 +425,7 @@ export const serializeAws_restJson1DeleteBranchCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}";
   if (input.appId !== undefined) {
@@ -592,10 +433,7 @@ export const serializeAws_restJson1DeleteBranchCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
@@ -604,10 +442,7 @@ export const serializeAws_restJson1DeleteBranchCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{branchName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
   }
@@ -620,7 +455,7 @@ export const serializeAws_restJson1DeleteBranchCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -629,7 +464,7 @@ export const serializeAws_restJson1DeleteDomainAssociationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/domains/{domainName}";
   if (input.appId !== undefined) {
@@ -637,10 +472,7 @@ export const serializeAws_restJson1DeleteDomainAssociationCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
@@ -649,10 +481,7 @@ export const serializeAws_restJson1DeleteDomainAssociationCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: domainName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{domainName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{domainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: domainName.");
   }
@@ -665,7 +494,7 @@ export const serializeAws_restJson1DeleteDomainAssociationCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -674,7 +503,7 @@ export const serializeAws_restJson1DeleteJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs/{jobId}";
   if (input.appId !== undefined) {
@@ -682,10 +511,7 @@ export const serializeAws_restJson1DeleteJobCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
@@ -694,10 +520,7 @@ export const serializeAws_restJson1DeleteJobCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{branchName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
   }
@@ -706,10 +529,7 @@ export const serializeAws_restJson1DeleteJobCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{jobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
@@ -722,7 +542,7 @@ export const serializeAws_restJson1DeleteJobCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -731,7 +551,7 @@ export const serializeAws_restJson1DeleteWebhookCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/webhooks/{webhookId}";
   if (input.webhookId !== undefined) {
@@ -739,10 +559,7 @@ export const serializeAws_restJson1DeleteWebhookCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: webhookId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{webhookId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{webhookId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: webhookId.");
   }
@@ -755,7 +572,7 @@ export const serializeAws_restJson1DeleteWebhookCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -764,7 +581,7 @@ export const serializeAws_restJson1GenerateAccessLogsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/accesslogs";
   if (input.appId !== undefined) {
@@ -772,22 +589,15 @@ export const serializeAws_restJson1GenerateAccessLogsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.domainName !== undefined && { domainName: input.domainName }),
-    ...(input.endTime !== undefined && {
-      endTime: Math.round(input.endTime.getTime() / 1000)
-    }),
-    ...(input.startTime !== undefined && {
-      startTime: Math.round(input.startTime.getTime() / 1000)
-    })
+    ...(input.endTime !== undefined && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.startTime !== undefined && { startTime: Math.round(input.startTime.getTime() / 1000) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -797,7 +607,7 @@ export const serializeAws_restJson1GenerateAccessLogsCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -806,7 +616,7 @@ export const serializeAws_restJson1GetAppCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}";
   if (input.appId !== undefined) {
@@ -814,10 +624,7 @@ export const serializeAws_restJson1GetAppCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
@@ -830,7 +637,7 @@ export const serializeAws_restJson1GetAppCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -839,7 +646,7 @@ export const serializeAws_restJson1GetArtifactUrlCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/artifacts/{artifactId}";
   if (input.artifactId !== undefined) {
@@ -847,10 +654,7 @@ export const serializeAws_restJson1GetArtifactUrlCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: artifactId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{artifactId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{artifactId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: artifactId.");
   }
@@ -863,7 +667,7 @@ export const serializeAws_restJson1GetArtifactUrlCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -872,7 +676,7 @@ export const serializeAws_restJson1GetBackendEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/backendenvironments/{environmentName}";
   if (input.appId !== undefined) {
@@ -880,24 +684,16 @@ export const serializeAws_restJson1GetBackendEnvironmentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
   if (input.environmentName !== undefined) {
     const labelValue: string = input.environmentName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: environmentName."
-      );
+      throw new Error("Empty value provided for input HTTP label: environmentName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{environmentName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{environmentName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: environmentName.");
   }
@@ -910,7 +706,7 @@ export const serializeAws_restJson1GetBackendEnvironmentCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -919,7 +715,7 @@ export const serializeAws_restJson1GetBranchCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}";
   if (input.appId !== undefined) {
@@ -927,10 +723,7 @@ export const serializeAws_restJson1GetBranchCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
@@ -939,10 +732,7 @@ export const serializeAws_restJson1GetBranchCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{branchName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
   }
@@ -955,7 +745,7 @@ export const serializeAws_restJson1GetBranchCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -964,7 +754,7 @@ export const serializeAws_restJson1GetDomainAssociationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/domains/{domainName}";
   if (input.appId !== undefined) {
@@ -972,10 +762,7 @@ export const serializeAws_restJson1GetDomainAssociationCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
@@ -984,10 +771,7 @@ export const serializeAws_restJson1GetDomainAssociationCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: domainName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{domainName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{domainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: domainName.");
   }
@@ -1000,7 +784,7 @@ export const serializeAws_restJson1GetDomainAssociationCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1009,7 +793,7 @@ export const serializeAws_restJson1GetJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs/{jobId}";
   if (input.appId !== undefined) {
@@ -1017,10 +801,7 @@ export const serializeAws_restJson1GetJobCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
@@ -1029,10 +810,7 @@ export const serializeAws_restJson1GetJobCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{branchName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
   }
@@ -1041,10 +819,7 @@ export const serializeAws_restJson1GetJobCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{jobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
@@ -1057,7 +832,7 @@ export const serializeAws_restJson1GetJobCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1066,7 +841,7 @@ export const serializeAws_restJson1GetWebhookCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/webhooks/{webhookId}";
   if (input.webhookId !== undefined) {
@@ -1074,10 +849,7 @@ export const serializeAws_restJson1GetWebhookCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: webhookId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{webhookId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{webhookId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: webhookId.");
   }
@@ -1090,7 +862,7 @@ export const serializeAws_restJson1GetWebhookCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1099,14 +871,12 @@ export const serializeAws_restJson1ListAppsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/apps";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString()
-    }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1118,7 +888,7 @@ export const serializeAws_restJson1ListAppsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -1127,19 +897,15 @@ export const serializeAws_restJson1ListArtifactsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
-  let resolvedPath =
-    "/apps/{appId}/branches/{branchName}/jobs/{jobId}/artifacts";
+  let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs/{jobId}/artifacts";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
@@ -1148,10 +914,7 @@ export const serializeAws_restJson1ListArtifactsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{branchName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
   }
@@ -1160,18 +923,13 @@ export const serializeAws_restJson1ListArtifactsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{jobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString()
-    }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1183,7 +941,7 @@ export const serializeAws_restJson1ListArtifactsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -1192,7 +950,7 @@ export const serializeAws_restJson1ListBackendEnvironmentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/backendenvironments";
   if (input.appId !== undefined) {
@@ -1200,24 +958,17 @@ export const serializeAws_restJson1ListBackendEnvironmentsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString()
-    }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.environmentName !== undefined && {
-      environmentName: input.environmentName
-    })
+    ...(input.environmentName !== undefined && { environmentName: input.environmentName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1228,7 +979,7 @@ export const serializeAws_restJson1ListBackendEnvironmentsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -1237,7 +988,7 @@ export const serializeAws_restJson1ListBranchesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/branches";
   if (input.appId !== undefined) {
@@ -1245,18 +996,13 @@ export const serializeAws_restJson1ListBranchesCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString()
-    }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1268,7 +1014,7 @@ export const serializeAws_restJson1ListBranchesCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -1277,7 +1023,7 @@ export const serializeAws_restJson1ListDomainAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/domains";
   if (input.appId !== undefined) {
@@ -1285,18 +1031,13 @@ export const serializeAws_restJson1ListDomainAssociationsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString()
-    }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1308,7 +1049,7 @@ export const serializeAws_restJson1ListDomainAssociationsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -1317,7 +1058,7 @@ export const serializeAws_restJson1ListJobsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs";
   if (input.appId !== undefined) {
@@ -1325,10 +1066,7 @@ export const serializeAws_restJson1ListJobsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
@@ -1337,18 +1075,13 @@ export const serializeAws_restJson1ListJobsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{branchName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString()
-    }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1360,7 +1093,7 @@ export const serializeAws_restJson1ListJobsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -1369,20 +1102,15 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: resourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: resourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{resourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
@@ -1395,7 +1123,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1404,7 +1132,7 @@ export const serializeAws_restJson1ListWebhooksCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/webhooks";
   if (input.appId !== undefined) {
@@ -1412,18 +1140,13 @@ export const serializeAws_restJson1ListWebhooksCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString()
-    }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1435,7 +1158,7 @@ export const serializeAws_restJson1ListWebhooksCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -1444,7 +1167,7 @@ export const serializeAws_restJson1StartDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/deployments/start";
   if (input.appId !== undefined) {
@@ -1452,10 +1175,7 @@ export const serializeAws_restJson1StartDeploymentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
@@ -1464,17 +1184,14 @@ export const serializeAws_restJson1StartDeploymentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{branchName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.jobId !== undefined && { jobId: input.jobId }),
-    ...(input.sourceUrl !== undefined && { sourceUrl: input.sourceUrl })
+    ...(input.sourceUrl !== undefined && { sourceUrl: input.sourceUrl }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1484,7 +1201,7 @@ export const serializeAws_restJson1StartDeploymentCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1493,7 +1210,7 @@ export const serializeAws_restJson1StartJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs";
   if (input.appId !== undefined) {
@@ -1501,10 +1218,7 @@ export const serializeAws_restJson1StartJobCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
@@ -1513,25 +1227,18 @@ export const serializeAws_restJson1StartJobCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{branchName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.commitId !== undefined && { commitId: input.commitId }),
-    ...(input.commitMessage !== undefined && {
-      commitMessage: input.commitMessage
-    }),
-    ...(input.commitTime !== undefined && {
-      commitTime: Math.round(input.commitTime.getTime() / 1000)
-    }),
+    ...(input.commitMessage !== undefined && { commitMessage: input.commitMessage }),
+    ...(input.commitTime !== undefined && { commitTime: Math.round(input.commitTime.getTime() / 1000) }),
     ...(input.jobId !== undefined && { jobId: input.jobId }),
     ...(input.jobReason !== undefined && { jobReason: input.jobReason }),
-    ...(input.jobType !== undefined && { jobType: input.jobType })
+    ...(input.jobType !== undefined && { jobType: input.jobType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1541,7 +1248,7 @@ export const serializeAws_restJson1StartJobCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1550,7 +1257,7 @@ export const serializeAws_restJson1StopJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs/{jobId}/stop";
   if (input.appId !== undefined) {
@@ -1558,10 +1265,7 @@ export const serializeAws_restJson1StopJobCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
@@ -1570,10 +1274,7 @@ export const serializeAws_restJson1StopJobCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{branchName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
   }
@@ -1582,10 +1283,7 @@ export const serializeAws_restJson1StopJobCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{jobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
@@ -1598,7 +1296,7 @@ export const serializeAws_restJson1StopJobCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1607,28 +1305,21 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: resourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: resourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{resourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && {
-      tags: serializeAws_restJson1TagMap(input.tags, context)
-    })
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1638,7 +1329,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1647,27 +1338,20 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: resourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: resourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{resourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && {
-      tagKeys: (input.tagKeys || []).map(_entry => _entry)
-    })
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1679,7 +1363,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -1688,7 +1372,7 @@ export const serializeAws_restJson1UpdateAppCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/apps/{appId}";
   if (input.appId !== undefined) {
@@ -1696,10 +1380,7 @@ export const serializeAws_restJson1UpdateAppCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
@@ -1707,47 +1388,31 @@ export const serializeAws_restJson1UpdateAppCommand = async (
   body = JSON.stringify({
     ...(input.accessToken !== undefined && { accessToken: input.accessToken }),
     ...(input.autoBranchCreationConfig !== undefined && {
-      autoBranchCreationConfig: serializeAws_restJson1AutoBranchCreationConfig(
-        input.autoBranchCreationConfig,
-        context
-      )
+      autoBranchCreationConfig: serializeAws_restJson1AutoBranchCreationConfig(input.autoBranchCreationConfig, context),
     }),
     ...(input.autoBranchCreationPatterns !== undefined && {
       autoBranchCreationPatterns: serializeAws_restJson1AutoBranchCreationPatterns(
         input.autoBranchCreationPatterns,
         context
-      )
+      ),
     }),
-    ...(input.basicAuthCredentials !== undefined && {
-      basicAuthCredentials: input.basicAuthCredentials
-    }),
+    ...(input.basicAuthCredentials !== undefined && { basicAuthCredentials: input.basicAuthCredentials }),
     ...(input.buildSpec !== undefined && { buildSpec: input.buildSpec }),
     ...(input.customRules !== undefined && {
-      customRules: serializeAws_restJson1CustomRules(input.customRules, context)
+      customRules: serializeAws_restJson1CustomRules(input.customRules, context),
     }),
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.enableAutoBranchCreation !== undefined && {
-      enableAutoBranchCreation: input.enableAutoBranchCreation
-    }),
-    ...(input.enableBasicAuth !== undefined && {
-      enableBasicAuth: input.enableBasicAuth
-    }),
-    ...(input.enableBranchAutoBuild !== undefined && {
-      enableBranchAutoBuild: input.enableBranchAutoBuild
-    }),
+    ...(input.enableAutoBranchCreation !== undefined && { enableAutoBranchCreation: input.enableAutoBranchCreation }),
+    ...(input.enableBasicAuth !== undefined && { enableBasicAuth: input.enableBasicAuth }),
+    ...(input.enableBranchAutoBuild !== undefined && { enableBranchAutoBuild: input.enableBranchAutoBuild }),
     ...(input.environmentVariables !== undefined && {
-      environmentVariables: serializeAws_restJson1EnvironmentVariables(
-        input.environmentVariables,
-        context
-      )
+      environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
     }),
-    ...(input.iamServiceRoleArn !== undefined && {
-      iamServiceRoleArn: input.iamServiceRoleArn
-    }),
+    ...(input.iamServiceRoleArn !== undefined && { iamServiceRoleArn: input.iamServiceRoleArn }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.oauthToken !== undefined && { oauthToken: input.oauthToken }),
     ...(input.platform !== undefined && { platform: input.platform }),
-    ...(input.repository !== undefined && { repository: input.repository })
+    ...(input.repository !== undefined && { repository: input.repository }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1757,7 +1422,7 @@ export const serializeAws_restJson1UpdateAppCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1766,7 +1431,7 @@ export const serializeAws_restJson1UpdateBranchCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}";
   if (input.appId !== undefined) {
@@ -1774,10 +1439,7 @@ export const serializeAws_restJson1UpdateBranchCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
@@ -1786,48 +1448,30 @@ export const serializeAws_restJson1UpdateBranchCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: branchName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{branchName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.backendEnvironmentArn !== undefined && {
-      backendEnvironmentArn: input.backendEnvironmentArn
-    }),
-    ...(input.basicAuthCredentials !== undefined && {
-      basicAuthCredentials: input.basicAuthCredentials
-    }),
+    ...(input.backendEnvironmentArn !== undefined && { backendEnvironmentArn: input.backendEnvironmentArn }),
+    ...(input.basicAuthCredentials !== undefined && { basicAuthCredentials: input.basicAuthCredentials }),
     ...(input.buildSpec !== undefined && { buildSpec: input.buildSpec }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.displayName !== undefined && { displayName: input.displayName }),
-    ...(input.enableAutoBuild !== undefined && {
-      enableAutoBuild: input.enableAutoBuild
-    }),
-    ...(input.enableBasicAuth !== undefined && {
-      enableBasicAuth: input.enableBasicAuth
-    }),
-    ...(input.enableNotification !== undefined && {
-      enableNotification: input.enableNotification
-    }),
-    ...(input.enablePullRequestPreview !== undefined && {
-      enablePullRequestPreview: input.enablePullRequestPreview
-    }),
+    ...(input.enableAutoBuild !== undefined && { enableAutoBuild: input.enableAutoBuild }),
+    ...(input.enableBasicAuth !== undefined && { enableBasicAuth: input.enableBasicAuth }),
+    ...(input.enableNotification !== undefined && { enableNotification: input.enableNotification }),
+    ...(input.enablePullRequestPreview !== undefined && { enablePullRequestPreview: input.enablePullRequestPreview }),
     ...(input.environmentVariables !== undefined && {
-      environmentVariables: serializeAws_restJson1EnvironmentVariables(
-        input.environmentVariables,
-        context
-      )
+      environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
     }),
     ...(input.framework !== undefined && { framework: input.framework }),
     ...(input.pullRequestEnvironmentName !== undefined && {
-      pullRequestEnvironmentName: input.pullRequestEnvironmentName
+      pullRequestEnvironmentName: input.pullRequestEnvironmentName,
     }),
     ...(input.stage !== undefined && { stage: input.stage }),
-    ...(input.ttl !== undefined && { ttl: input.ttl })
+    ...(input.ttl !== undefined && { ttl: input.ttl }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1837,7 +1481,7 @@ export const serializeAws_restJson1UpdateBranchCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1846,7 +1490,7 @@ export const serializeAws_restJson1UpdateDomainAssociationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/domains/{domainName}";
   if (input.appId !== undefined) {
@@ -1854,10 +1498,7 @@ export const serializeAws_restJson1UpdateDomainAssociationCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{appId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
@@ -1866,24 +1507,16 @@ export const serializeAws_restJson1UpdateDomainAssociationCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: domainName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{domainName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{domainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: domainName.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.enableAutoSubDomain !== undefined && {
-      enableAutoSubDomain: input.enableAutoSubDomain
-    }),
+    ...(input.enableAutoSubDomain !== undefined && { enableAutoSubDomain: input.enableAutoSubDomain }),
     ...(input.subDomainSettings !== undefined && {
-      subDomainSettings: serializeAws_restJson1SubDomainSettings(
-        input.subDomainSettings,
-        context
-      )
-    })
+      subDomainSettings: serializeAws_restJson1SubDomainSettings(input.subDomainSettings, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1893,7 +1526,7 @@ export const serializeAws_restJson1UpdateDomainAssociationCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1902,7 +1535,7 @@ export const serializeAws_restJson1UpdateWebhookCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/webhooks/{webhookId}";
   if (input.webhookId !== undefined) {
@@ -1910,17 +1543,14 @@ export const serializeAws_restJson1UpdateWebhookCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: webhookId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{webhookId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{webhookId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: webhookId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.branchName !== undefined && { branchName: input.branchName }),
-    ...(input.description !== undefined && { description: input.description })
+    ...(input.description !== undefined && { description: input.description }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1930,7 +1560,7 @@ export const serializeAws_restJson1UpdateWebhookCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -1944,7 +1574,7 @@ export const deserializeAws_restJson1CreateAppCommand = async (
   const contents: CreateAppCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateAppResult",
-    app: undefined
+    app: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.app !== undefined && data.app !== null) {
@@ -1959,7 +1589,7 @@ const deserializeAws_restJson1CreateAppCommandError = async (
 ): Promise<CreateAppCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1968,56 +1598,41 @@ const deserializeAws_restJson1CreateAppCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2028,7 +1643,7 @@ const deserializeAws_restJson1CreateAppCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2042,25 +1657,16 @@ export const deserializeAws_restJson1CreateBackendEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<CreateBackendEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateBackendEnvironmentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateBackendEnvironmentCommandError(output, context);
   }
   const contents: CreateBackendEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateBackendEnvironmentResult",
-    backendEnvironment: undefined
+    backendEnvironment: undefined,
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.backendEnvironment !== undefined &&
-    data.backendEnvironment !== null
-  ) {
-    contents.backendEnvironment = deserializeAws_restJson1BackendEnvironment(
-      data.backendEnvironment,
-      context
-    );
+  if (data.backendEnvironment !== undefined && data.backendEnvironment !== null) {
+    contents.backendEnvironment = deserializeAws_restJson1BackendEnvironment(data.backendEnvironment, context);
   }
   return Promise.resolve(contents);
 };
@@ -2071,7 +1677,7 @@ const deserializeAws_restJson1CreateBackendEnvironmentCommandError = async (
 ): Promise<CreateBackendEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2080,56 +1686,41 @@ const deserializeAws_restJson1CreateBackendEnvironmentCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2140,7 +1731,7 @@ const deserializeAws_restJson1CreateBackendEnvironmentCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2159,7 +1750,7 @@ export const deserializeAws_restJson1CreateBranchCommand = async (
   const contents: CreateBranchCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateBranchResult",
-    branch: undefined
+    branch: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.branch !== undefined && data.branch !== null) {
@@ -2174,7 +1765,7 @@ const deserializeAws_restJson1CreateBranchCommandError = async (
 ): Promise<CreateBranchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2183,67 +1774,49 @@ const deserializeAws_restJson1CreateBranchCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2254,7 +1827,7 @@ const deserializeAws_restJson1CreateBranchCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2268,24 +1841,18 @@ export const deserializeAws_restJson1CreateDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateDeploymentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateDeploymentCommandError(output, context);
   }
   const contents: CreateDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDeploymentResult",
     fileUploadUrls: undefined,
     jobId: undefined,
-    zipUploadUrl: undefined
+    zipUploadUrl: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.fileUploadUrls !== undefined && data.fileUploadUrls !== null) {
-    contents.fileUploadUrls = deserializeAws_restJson1FileUploadUrls(
-      data.fileUploadUrls,
-      context
-    );
+    contents.fileUploadUrls = deserializeAws_restJson1FileUploadUrls(data.fileUploadUrls, context);
   }
   if (data.jobId !== undefined && data.jobId !== null) {
     contents.jobId = data.jobId;
@@ -2302,7 +1869,7 @@ const deserializeAws_restJson1CreateDeploymentCommandError = async (
 ): Promise<CreateDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2311,45 +1878,33 @@ const deserializeAws_restJson1CreateDeploymentCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2360,7 +1915,7 @@ const deserializeAws_restJson1CreateDeploymentCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2374,22 +1929,16 @@ export const deserializeAws_restJson1CreateDomainAssociationCommand = async (
   context: __SerdeContext
 ): Promise<CreateDomainAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateDomainAssociationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateDomainAssociationCommandError(output, context);
   }
   const contents: CreateDomainAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDomainAssociationResult",
-    domainAssociation: undefined
+    domainAssociation: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.domainAssociation !== undefined && data.domainAssociation !== null) {
-    contents.domainAssociation = deserializeAws_restJson1DomainAssociation(
-      data.domainAssociation,
-      context
-    );
+    contents.domainAssociation = deserializeAws_restJson1DomainAssociation(data.domainAssociation, context);
   }
   return Promise.resolve(contents);
 };
@@ -2400,7 +1949,7 @@ const deserializeAws_restJson1CreateDomainAssociationCommandError = async (
 ): Promise<CreateDomainAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2409,67 +1958,49 @@ const deserializeAws_restJson1CreateDomainAssociationCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2480,7 +2011,7 @@ const deserializeAws_restJson1CreateDomainAssociationCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2499,7 +2030,7 @@ export const deserializeAws_restJson1CreateWebhookCommand = async (
   const contents: CreateWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateWebhookResult",
-    webhook: undefined
+    webhook: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.webhook !== undefined && data.webhook !== null) {
@@ -2514,7 +2045,7 @@ const deserializeAws_restJson1CreateWebhookCommandError = async (
 ): Promise<CreateWebhookCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2523,67 +2054,49 @@ const deserializeAws_restJson1CreateWebhookCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2594,7 +2107,7 @@ const deserializeAws_restJson1CreateWebhookCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2613,7 +2126,7 @@ export const deserializeAws_restJson1DeleteAppCommand = async (
   const contents: DeleteAppCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteAppResult",
-    app: undefined
+    app: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.app !== undefined && data.app !== null) {
@@ -2628,7 +2141,7 @@ const deserializeAws_restJson1DeleteAppCommandError = async (
 ): Promise<DeleteAppCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2637,56 +2150,41 @@ const deserializeAws_restJson1DeleteAppCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2697,7 +2195,7 @@ const deserializeAws_restJson1DeleteAppCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2711,25 +2209,16 @@ export const deserializeAws_restJson1DeleteBackendEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBackendEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DeleteBackendEnvironmentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteBackendEnvironmentCommandError(output, context);
   }
   const contents: DeleteBackendEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteBackendEnvironmentResult",
-    backendEnvironment: undefined
+    backendEnvironment: undefined,
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.backendEnvironment !== undefined &&
-    data.backendEnvironment !== null
-  ) {
-    contents.backendEnvironment = deserializeAws_restJson1BackendEnvironment(
-      data.backendEnvironment,
-      context
-    );
+  if (data.backendEnvironment !== undefined && data.backendEnvironment !== null) {
+    contents.backendEnvironment = deserializeAws_restJson1BackendEnvironment(data.backendEnvironment, context);
   }
   return Promise.resolve(contents);
 };
@@ -2740,7 +2229,7 @@ const deserializeAws_restJson1DeleteBackendEnvironmentCommandError = async (
 ): Promise<DeleteBackendEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2749,56 +2238,41 @@ const deserializeAws_restJson1DeleteBackendEnvironmentCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2809,7 +2283,7 @@ const deserializeAws_restJson1DeleteBackendEnvironmentCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2828,7 +2302,7 @@ export const deserializeAws_restJson1DeleteBranchCommand = async (
   const contents: DeleteBranchCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteBranchResult",
-    branch: undefined
+    branch: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.branch !== undefined && data.branch !== null) {
@@ -2843,7 +2317,7 @@ const deserializeAws_restJson1DeleteBranchCommandError = async (
 ): Promise<DeleteBranchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2852,56 +2326,41 @@ const deserializeAws_restJson1DeleteBranchCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2912,7 +2371,7 @@ const deserializeAws_restJson1DeleteBranchCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2926,22 +2385,16 @@ export const deserializeAws_restJson1DeleteDomainAssociationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDomainAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DeleteDomainAssociationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteDomainAssociationCommandError(output, context);
   }
   const contents: DeleteDomainAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDomainAssociationResult",
-    domainAssociation: undefined
+    domainAssociation: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.domainAssociation !== undefined && data.domainAssociation !== null) {
-    contents.domainAssociation = deserializeAws_restJson1DomainAssociation(
-      data.domainAssociation,
-      context
-    );
+    contents.domainAssociation = deserializeAws_restJson1DomainAssociation(data.domainAssociation, context);
   }
   return Promise.resolve(contents);
 };
@@ -2952,7 +2405,7 @@ const deserializeAws_restJson1DeleteDomainAssociationCommandError = async (
 ): Promise<DeleteDomainAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -2961,56 +2414,41 @@ const deserializeAws_restJson1DeleteDomainAssociationCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3021,7 +2459,7 @@ const deserializeAws_restJson1DeleteDomainAssociationCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3040,14 +2478,11 @@ export const deserializeAws_restJson1DeleteJobCommand = async (
   const contents: DeleteJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteJobResult",
-    jobSummary: undefined
+    jobSummary: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.jobSummary !== undefined && data.jobSummary !== null) {
-    contents.jobSummary = deserializeAws_restJson1JobSummary(
-      data.jobSummary,
-      context
-    );
+    contents.jobSummary = deserializeAws_restJson1JobSummary(data.jobSummary, context);
   }
   return Promise.resolve(contents);
 };
@@ -3058,7 +2493,7 @@ const deserializeAws_restJson1DeleteJobCommandError = async (
 ): Promise<DeleteJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3067,56 +2502,41 @@ const deserializeAws_restJson1DeleteJobCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3127,7 +2547,7 @@ const deserializeAws_restJson1DeleteJobCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3146,7 +2566,7 @@ export const deserializeAws_restJson1DeleteWebhookCommand = async (
   const contents: DeleteWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteWebhookResult",
-    webhook: undefined
+    webhook: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.webhook !== undefined && data.webhook !== null) {
@@ -3161,7 +2581,7 @@ const deserializeAws_restJson1DeleteWebhookCommandError = async (
 ): Promise<DeleteWebhookCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3170,56 +2590,41 @@ const deserializeAws_restJson1DeleteWebhookCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3230,7 +2635,7 @@ const deserializeAws_restJson1DeleteWebhookCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3244,15 +2649,12 @@ export const deserializeAws_restJson1GenerateAccessLogsCommand = async (
   context: __SerdeContext
 ): Promise<GenerateAccessLogsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GenerateAccessLogsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GenerateAccessLogsCommandError(output, context);
   }
   const contents: GenerateAccessLogsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GenerateAccessLogsResult",
-    logUrl: undefined
+    logUrl: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.logUrl !== undefined && data.logUrl !== null) {
@@ -3267,7 +2669,7 @@ const deserializeAws_restJson1GenerateAccessLogsCommandError = async (
 ): Promise<GenerateAccessLogsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3276,45 +2678,33 @@ const deserializeAws_restJson1GenerateAccessLogsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3325,7 +2715,7 @@ const deserializeAws_restJson1GenerateAccessLogsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3344,7 +2734,7 @@ export const deserializeAws_restJson1GetAppCommand = async (
   const contents: GetAppCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetAppResult",
-    app: undefined
+    app: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.app !== undefined && data.app !== null) {
@@ -3359,7 +2749,7 @@ const deserializeAws_restJson1GetAppCommandError = async (
 ): Promise<GetAppCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3368,45 +2758,33 @@ const deserializeAws_restJson1GetAppCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3417,7 +2795,7 @@ const deserializeAws_restJson1GetAppCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3437,7 +2815,7 @@ export const deserializeAws_restJson1GetArtifactUrlCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "GetArtifactUrlResult",
     artifactId: undefined,
-    artifactUrl: undefined
+    artifactUrl: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.artifactId !== undefined && data.artifactId !== null) {
@@ -3455,7 +2833,7 @@ const deserializeAws_restJson1GetArtifactUrlCommandError = async (
 ): Promise<GetArtifactUrlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3464,56 +2842,41 @@ const deserializeAws_restJson1GetArtifactUrlCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3524,7 +2887,7 @@ const deserializeAws_restJson1GetArtifactUrlCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3538,25 +2901,16 @@ export const deserializeAws_restJson1GetBackendEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<GetBackendEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetBackendEnvironmentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetBackendEnvironmentCommandError(output, context);
   }
   const contents: GetBackendEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetBackendEnvironmentResult",
-    backendEnvironment: undefined
+    backendEnvironment: undefined,
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.backendEnvironment !== undefined &&
-    data.backendEnvironment !== null
-  ) {
-    contents.backendEnvironment = deserializeAws_restJson1BackendEnvironment(
-      data.backendEnvironment,
-      context
-    );
+  if (data.backendEnvironment !== undefined && data.backendEnvironment !== null) {
+    contents.backendEnvironment = deserializeAws_restJson1BackendEnvironment(data.backendEnvironment, context);
   }
   return Promise.resolve(contents);
 };
@@ -3567,7 +2921,7 @@ const deserializeAws_restJson1GetBackendEnvironmentCommandError = async (
 ): Promise<GetBackendEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3576,45 +2930,33 @@ const deserializeAws_restJson1GetBackendEnvironmentCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3625,7 +2967,7 @@ const deserializeAws_restJson1GetBackendEnvironmentCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3644,7 +2986,7 @@ export const deserializeAws_restJson1GetBranchCommand = async (
   const contents: GetBranchCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetBranchResult",
-    branch: undefined
+    branch: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.branch !== undefined && data.branch !== null) {
@@ -3659,7 +3001,7 @@ const deserializeAws_restJson1GetBranchCommandError = async (
 ): Promise<GetBranchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3668,45 +3010,33 @@ const deserializeAws_restJson1GetBranchCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3717,7 +3047,7 @@ const deserializeAws_restJson1GetBranchCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3731,22 +3061,16 @@ export const deserializeAws_restJson1GetDomainAssociationCommand = async (
   context: __SerdeContext
 ): Promise<GetDomainAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetDomainAssociationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetDomainAssociationCommandError(output, context);
   }
   const contents: GetDomainAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDomainAssociationResult",
-    domainAssociation: undefined
+    domainAssociation: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.domainAssociation !== undefined && data.domainAssociation !== null) {
-    contents.domainAssociation = deserializeAws_restJson1DomainAssociation(
-      data.domainAssociation,
-      context
-    );
+    contents.domainAssociation = deserializeAws_restJson1DomainAssociation(data.domainAssociation, context);
   }
   return Promise.resolve(contents);
 };
@@ -3757,7 +3081,7 @@ const deserializeAws_restJson1GetDomainAssociationCommandError = async (
 ): Promise<GetDomainAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3766,45 +3090,33 @@ const deserializeAws_restJson1GetDomainAssociationCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3815,7 +3127,7 @@ const deserializeAws_restJson1GetDomainAssociationCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3834,7 +3146,7 @@ export const deserializeAws_restJson1GetJobCommand = async (
   const contents: GetJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetJobResult",
-    job: undefined
+    job: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.job !== undefined && data.job !== null) {
@@ -3849,7 +3161,7 @@ const deserializeAws_restJson1GetJobCommandError = async (
 ): Promise<GetJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3858,56 +3170,41 @@ const deserializeAws_restJson1GetJobCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3918,7 +3215,7 @@ const deserializeAws_restJson1GetJobCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3937,7 +3234,7 @@ export const deserializeAws_restJson1GetWebhookCommand = async (
   const contents: GetWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetWebhookResult",
-    webhook: undefined
+    webhook: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.webhook !== undefined && data.webhook !== null) {
@@ -3952,7 +3249,7 @@ const deserializeAws_restJson1GetWebhookCommandError = async (
 ): Promise<GetWebhookCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -3961,56 +3258,41 @@ const deserializeAws_restJson1GetWebhookCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4021,7 +3303,7 @@ const deserializeAws_restJson1GetWebhookCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4041,7 +3323,7 @@ export const deserializeAws_restJson1ListAppsCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "ListAppsResult",
     apps: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.apps !== undefined && data.apps !== null) {
@@ -4059,7 +3341,7 @@ const deserializeAws_restJson1ListAppsCommandError = async (
 ): Promise<ListAppsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4068,34 +3350,25 @@ const deserializeAws_restJson1ListAppsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4106,7 +3379,7 @@ const deserializeAws_restJson1ListAppsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4126,14 +3399,11 @@ export const deserializeAws_restJson1ListArtifactsCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "ListArtifactsResult",
     artifacts: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.artifacts !== undefined && data.artifacts !== null) {
-    contents.artifacts = deserializeAws_restJson1Artifacts(
-      data.artifacts,
-      context
-    );
+    contents.artifacts = deserializeAws_restJson1Artifacts(data.artifacts, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -4147,7 +3417,7 @@ const deserializeAws_restJson1ListArtifactsCommandError = async (
 ): Promise<ListArtifactsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4156,45 +3426,33 @@ const deserializeAws_restJson1ListArtifactsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4205,7 +3463,7 @@ const deserializeAws_restJson1ListArtifactsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4219,26 +3477,17 @@ export const deserializeAws_restJson1ListBackendEnvironmentsCommand = async (
   context: __SerdeContext
 ): Promise<ListBackendEnvironmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListBackendEnvironmentsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListBackendEnvironmentsCommandError(output, context);
   }
   const contents: ListBackendEnvironmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListBackendEnvironmentsResult",
     backendEnvironments: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.backendEnvironments !== undefined &&
-    data.backendEnvironments !== null
-  ) {
-    contents.backendEnvironments = deserializeAws_restJson1BackendEnvironments(
-      data.backendEnvironments,
-      context
-    );
+  if (data.backendEnvironments !== undefined && data.backendEnvironments !== null) {
+    contents.backendEnvironments = deserializeAws_restJson1BackendEnvironments(data.backendEnvironments, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -4252,7 +3501,7 @@ const deserializeAws_restJson1ListBackendEnvironmentsCommandError = async (
 ): Promise<ListBackendEnvironmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4261,34 +3510,25 @@ const deserializeAws_restJson1ListBackendEnvironmentsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4299,7 +3539,7 @@ const deserializeAws_restJson1ListBackendEnvironmentsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4319,14 +3559,11 @@ export const deserializeAws_restJson1ListBranchesCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "ListBranchesResult",
     branches: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.branches !== undefined && data.branches !== null) {
-    contents.branches = deserializeAws_restJson1Branches(
-      data.branches,
-      context
-    );
+    contents.branches = deserializeAws_restJson1Branches(data.branches, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -4340,7 +3577,7 @@ const deserializeAws_restJson1ListBranchesCommandError = async (
 ): Promise<ListBranchesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4349,34 +3586,25 @@ const deserializeAws_restJson1ListBranchesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4387,7 +3615,7 @@ const deserializeAws_restJson1ListBranchesCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4401,26 +3629,17 @@ export const deserializeAws_restJson1ListDomainAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<ListDomainAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListDomainAssociationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListDomainAssociationsCommandError(output, context);
   }
   const contents: ListDomainAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDomainAssociationsResult",
     domainAssociations: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.domainAssociations !== undefined &&
-    data.domainAssociations !== null
-  ) {
-    contents.domainAssociations = deserializeAws_restJson1DomainAssociations(
-      data.domainAssociations,
-      context
-    );
+  if (data.domainAssociations !== undefined && data.domainAssociations !== null) {
+    contents.domainAssociations = deserializeAws_restJson1DomainAssociations(data.domainAssociations, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -4434,7 +3653,7 @@ const deserializeAws_restJson1ListDomainAssociationsCommandError = async (
 ): Promise<ListDomainAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4443,34 +3662,25 @@ const deserializeAws_restJson1ListDomainAssociationsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4481,7 +3691,7 @@ const deserializeAws_restJson1ListDomainAssociationsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4501,14 +3711,11 @@ export const deserializeAws_restJson1ListJobsCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "ListJobsResult",
     jobSummaries: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.jobSummaries !== undefined && data.jobSummaries !== null) {
-    contents.jobSummaries = deserializeAws_restJson1JobSummaries(
-      data.jobSummaries,
-      context
-    );
+    contents.jobSummaries = deserializeAws_restJson1JobSummaries(data.jobSummaries, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -4522,7 +3729,7 @@ const deserializeAws_restJson1ListJobsCommandError = async (
 ): Promise<ListJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4531,45 +3738,33 @@ const deserializeAws_restJson1ListJobsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4580,7 +3775,7 @@ const deserializeAws_restJson1ListJobsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4594,15 +3789,12 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
-    tags: undefined
+    tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.tags !== undefined && data.tags !== null) {
@@ -4617,7 +3809,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4626,34 +3818,25 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amplify#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4664,7 +3847,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4684,17 +3867,14 @@ export const deserializeAws_restJson1ListWebhooksCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "ListWebhooksResult",
     nextToken: undefined,
-    webhooks: undefined
+    webhooks: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
   if (data.webhooks !== undefined && data.webhooks !== null) {
-    contents.webhooks = deserializeAws_restJson1Webhooks(
-      data.webhooks,
-      context
-    );
+    contents.webhooks = deserializeAws_restJson1Webhooks(data.webhooks, context);
   }
   return Promise.resolve(contents);
 };
@@ -4705,7 +3885,7 @@ const deserializeAws_restJson1ListWebhooksCommandError = async (
 ): Promise<ListWebhooksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4714,45 +3894,33 @@ const deserializeAws_restJson1ListWebhooksCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4763,7 +3931,7 @@ const deserializeAws_restJson1ListWebhooksCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4782,14 +3950,11 @@ export const deserializeAws_restJson1StartDeploymentCommand = async (
   const contents: StartDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartDeploymentResult",
-    jobSummary: undefined
+    jobSummary: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.jobSummary !== undefined && data.jobSummary !== null) {
-    contents.jobSummary = deserializeAws_restJson1JobSummary(
-      data.jobSummary,
-      context
-    );
+    contents.jobSummary = deserializeAws_restJson1JobSummary(data.jobSummary, context);
   }
   return Promise.resolve(contents);
 };
@@ -4800,7 +3965,7 @@ const deserializeAws_restJson1StartDeploymentCommandError = async (
 ): Promise<StartDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4809,56 +3974,41 @@ const deserializeAws_restJson1StartDeploymentCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4869,7 +4019,7 @@ const deserializeAws_restJson1StartDeploymentCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4888,14 +4038,11 @@ export const deserializeAws_restJson1StartJobCommand = async (
   const contents: StartJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartJobResult",
-    jobSummary: undefined
+    jobSummary: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.jobSummary !== undefined && data.jobSummary !== null) {
-    contents.jobSummary = deserializeAws_restJson1JobSummary(
-      data.jobSummary,
-      context
-    );
+    contents.jobSummary = deserializeAws_restJson1JobSummary(data.jobSummary, context);
   }
   return Promise.resolve(contents);
 };
@@ -4906,7 +4053,7 @@ const deserializeAws_restJson1StartJobCommandError = async (
 ): Promise<StartJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -4915,56 +4062,41 @@ const deserializeAws_restJson1StartJobCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4975,7 +4107,7 @@ const deserializeAws_restJson1StartJobCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4994,14 +4126,11 @@ export const deserializeAws_restJson1StopJobCommand = async (
   const contents: StopJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopJobResult",
-    jobSummary: undefined
+    jobSummary: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.jobSummary !== undefined && data.jobSummary !== null) {
-    contents.jobSummary = deserializeAws_restJson1JobSummary(
-      data.jobSummary,
-      context
-    );
+    contents.jobSummary = deserializeAws_restJson1JobSummary(data.jobSummary, context);
   }
   return Promise.resolve(contents);
 };
@@ -5012,7 +4141,7 @@ const deserializeAws_restJson1StopJobCommandError = async (
 ): Promise<StopJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5021,56 +4150,41 @@ const deserializeAws_restJson1StopJobCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5081,7 +4195,7 @@ const deserializeAws_restJson1StopJobCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5099,7 +4213,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse"
+    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5111,7 +4225,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5120,34 +4234,25 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amplify#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5158,7 +4263,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5176,7 +4281,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse"
+    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5188,7 +4293,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5197,34 +4302,25 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amplify#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5235,7 +4331,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5254,7 +4350,7 @@ export const deserializeAws_restJson1UpdateAppCommand = async (
   const contents: UpdateAppCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateAppResult",
-    app: undefined
+    app: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.app !== undefined && data.app !== null) {
@@ -5269,7 +4365,7 @@ const deserializeAws_restJson1UpdateAppCommandError = async (
 ): Promise<UpdateAppCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5278,45 +4374,33 @@ const deserializeAws_restJson1UpdateAppCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5327,7 +4411,7 @@ const deserializeAws_restJson1UpdateAppCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5346,7 +4430,7 @@ export const deserializeAws_restJson1UpdateBranchCommand = async (
   const contents: UpdateBranchCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateBranchResult",
-    branch: undefined
+    branch: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.branch !== undefined && data.branch !== null) {
@@ -5361,7 +4445,7 @@ const deserializeAws_restJson1UpdateBranchCommandError = async (
 ): Promise<UpdateBranchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5370,56 +4454,41 @@ const deserializeAws_restJson1UpdateBranchCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5430,7 +4499,7 @@ const deserializeAws_restJson1UpdateBranchCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5444,22 +4513,16 @@ export const deserializeAws_restJson1UpdateDomainAssociationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDomainAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1UpdateDomainAssociationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateDomainAssociationCommandError(output, context);
   }
   const contents: UpdateDomainAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDomainAssociationResult",
-    domainAssociation: undefined
+    domainAssociation: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.domainAssociation !== undefined && data.domainAssociation !== null) {
-    contents.domainAssociation = deserializeAws_restJson1DomainAssociation(
-      data.domainAssociation,
-      context
-    );
+    contents.domainAssociation = deserializeAws_restJson1DomainAssociation(data.domainAssociation, context);
   }
   return Promise.resolve(contents);
 };
@@ -5470,7 +4533,7 @@ const deserializeAws_restJson1UpdateDomainAssociationCommandError = async (
 ): Promise<UpdateDomainAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5479,56 +4542,41 @@ const deserializeAws_restJson1UpdateDomainAssociationCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5539,7 +4587,7 @@ const deserializeAws_restJson1UpdateDomainAssociationCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5558,7 +4606,7 @@ export const deserializeAws_restJson1UpdateWebhookCommand = async (
   const contents: UpdateWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateWebhookResult",
-    webhook: undefined
+    webhook: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.webhook !== undefined && data.webhook !== null) {
@@ -5573,7 +4621,7 @@ const deserializeAws_restJson1UpdateWebhookCommandError = async (
 ): Promise<UpdateWebhookCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -5582,56 +4630,41 @@ const deserializeAws_restJson1UpdateWebhookCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1DependentServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -5642,7 +4675,7 @@ const deserializeAws_restJson1UpdateWebhookCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -5659,7 +4692,7 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
     name: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -5676,7 +4709,7 @@ const deserializeAws_restJson1DependentServiceFailureExceptionResponse = async (
     name: "DependentServiceFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -5693,7 +4726,7 @@ const deserializeAws_restJson1InternalFailureExceptionResponse = async (
     name: "InternalFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -5710,7 +4743,7 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
     name: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -5727,7 +4760,7 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
     name: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -5745,7 +4778,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     code: undefined,
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
@@ -5765,7 +4798,7 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
     name: "UnauthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -5779,156 +4812,98 @@ const serializeAws_restJson1AutoBranchCreationConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.basicAuthCredentials !== undefined && {
-      basicAuthCredentials: input.basicAuthCredentials
-    }),
+    ...(input.basicAuthCredentials !== undefined && { basicAuthCredentials: input.basicAuthCredentials }),
     ...(input.buildSpec !== undefined && { buildSpec: input.buildSpec }),
-    ...(input.enableAutoBuild !== undefined && {
-      enableAutoBuild: input.enableAutoBuild
-    }),
-    ...(input.enableBasicAuth !== undefined && {
-      enableBasicAuth: input.enableBasicAuth
-    }),
-    ...(input.enablePullRequestPreview !== undefined && {
-      enablePullRequestPreview: input.enablePullRequestPreview
-    }),
+    ...(input.enableAutoBuild !== undefined && { enableAutoBuild: input.enableAutoBuild }),
+    ...(input.enableBasicAuth !== undefined && { enableBasicAuth: input.enableBasicAuth }),
+    ...(input.enablePullRequestPreview !== undefined && { enablePullRequestPreview: input.enablePullRequestPreview }),
     ...(input.environmentVariables !== undefined && {
-      environmentVariables: serializeAws_restJson1EnvironmentVariables(
-        input.environmentVariables,
-        context
-      )
+      environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
     }),
     ...(input.framework !== undefined && { framework: input.framework }),
     ...(input.pullRequestEnvironmentName !== undefined && {
-      pullRequestEnvironmentName: input.pullRequestEnvironmentName
+      pullRequestEnvironmentName: input.pullRequestEnvironmentName,
     }),
-    ...(input.stage !== undefined && { stage: input.stage })
+    ...(input.stage !== undefined && { stage: input.stage }),
   };
 };
 
-const serializeAws_restJson1AutoBranchCreationPatterns = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
+const serializeAws_restJson1AutoBranchCreationPatterns = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
-const serializeAws_restJson1CustomRule = (
-  input: CustomRule,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1CustomRule = (input: CustomRule, context: __SerdeContext): any => {
   return {
     ...(input.condition !== undefined && { condition: input.condition }),
     ...(input.source !== undefined && { source: input.source }),
     ...(input.status !== undefined && { status: input.status }),
-    ...(input.target !== undefined && { target: input.target })
+    ...(input.target !== undefined && { target: input.target }),
   };
 };
 
-const serializeAws_restJson1CustomRules = (
-  input: CustomRule[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_restJson1CustomRule(entry, context));
+const serializeAws_restJson1CustomRules = (input: CustomRule[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1CustomRule(entry, context));
 };
 
-const serializeAws_restJson1EnvironmentVariables = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1EnvironmentVariables = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
 };
 
-const serializeAws_restJson1FileMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1FileMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
 };
 
-const serializeAws_restJson1SubDomainSetting = (
-  input: SubDomainSetting,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1SubDomainSetting = (input: SubDomainSetting, context: __SerdeContext): any => {
   return {
     ...(input.branchName !== undefined && { branchName: input.branchName }),
-    ...(input.prefix !== undefined && { prefix: input.prefix })
+    ...(input.prefix !== undefined && { prefix: input.prefix }),
   };
 };
 
-const serializeAws_restJson1SubDomainSettings = (
-  input: SubDomainSetting[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1SubDomainSetting(entry, context)
-  );
+const serializeAws_restJson1SubDomainSettings = (input: SubDomainSetting[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1SubDomainSetting(entry, context));
 };
 
-const serializeAws_restJson1TagMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
 };
 
-const deserializeAws_restJson1App = (
-  output: any,
-  context: __SerdeContext
-): App => {
+const deserializeAws_restJson1App = (output: any, context: __SerdeContext): App => {
   return {
     __type: "App",
-    appArn:
-      output.appArn !== undefined && output.appArn !== null
-        ? output.appArn
-        : undefined,
-    appId:
-      output.appId !== undefined && output.appId !== null
-        ? output.appId
-        : undefined,
+    appArn: output.appArn !== undefined && output.appArn !== null ? output.appArn : undefined,
+    appId: output.appId !== undefined && output.appId !== null ? output.appId : undefined,
     autoBranchCreationConfig:
-      output.autoBranchCreationConfig !== undefined &&
-      output.autoBranchCreationConfig !== null
-        ? deserializeAws_restJson1AutoBranchCreationConfig(
-            output.autoBranchCreationConfig,
-            context
-          )
+      output.autoBranchCreationConfig !== undefined && output.autoBranchCreationConfig !== null
+        ? deserializeAws_restJson1AutoBranchCreationConfig(output.autoBranchCreationConfig, context)
         : undefined,
     autoBranchCreationPatterns:
-      output.autoBranchCreationPatterns !== undefined &&
-      output.autoBranchCreationPatterns !== null
-        ? deserializeAws_restJson1AutoBranchCreationPatterns(
-            output.autoBranchCreationPatterns,
-            context
-          )
+      output.autoBranchCreationPatterns !== undefined && output.autoBranchCreationPatterns !== null
+        ? deserializeAws_restJson1AutoBranchCreationPatterns(output.autoBranchCreationPatterns, context)
         : undefined,
     basicAuthCredentials:
-      output.basicAuthCredentials !== undefined &&
-      output.basicAuthCredentials !== null
+      output.basicAuthCredentials !== undefined && output.basicAuthCredentials !== null
         ? output.basicAuthCredentials
         : undefined,
-    buildSpec:
-      output.buildSpec !== undefined && output.buildSpec !== null
-        ? output.buildSpec
-        : undefined,
+    buildSpec: output.buildSpec !== undefined && output.buildSpec !== null ? output.buildSpec : undefined,
     createTime:
       output.createTime !== undefined && output.createTime !== null
         ? new Date(Math.round(output.createTime * 1000))
@@ -5938,59 +4913,33 @@ const deserializeAws_restJson1App = (
         ? deserializeAws_restJson1CustomRules(output.customRules, context)
         : undefined,
     defaultDomain:
-      output.defaultDomain !== undefined && output.defaultDomain !== null
-        ? output.defaultDomain
-        : undefined,
-    description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined,
+      output.defaultDomain !== undefined && output.defaultDomain !== null ? output.defaultDomain : undefined,
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
     enableAutoBranchCreation:
-      output.enableAutoBranchCreation !== undefined &&
-      output.enableAutoBranchCreation !== null
+      output.enableAutoBranchCreation !== undefined && output.enableAutoBranchCreation !== null
         ? output.enableAutoBranchCreation
         : undefined,
     enableBasicAuth:
-      output.enableBasicAuth !== undefined && output.enableBasicAuth !== null
-        ? output.enableBasicAuth
-        : undefined,
+      output.enableBasicAuth !== undefined && output.enableBasicAuth !== null ? output.enableBasicAuth : undefined,
     enableBranchAutoBuild:
-      output.enableBranchAutoBuild !== undefined &&
-      output.enableBranchAutoBuild !== null
+      output.enableBranchAutoBuild !== undefined && output.enableBranchAutoBuild !== null
         ? output.enableBranchAutoBuild
         : undefined,
     environmentVariables:
-      output.environmentVariables !== undefined &&
-      output.environmentVariables !== null
-        ? deserializeAws_restJson1EnvironmentVariables(
-            output.environmentVariables,
-            context
-          )
+      output.environmentVariables !== undefined && output.environmentVariables !== null
+        ? deserializeAws_restJson1EnvironmentVariables(output.environmentVariables, context)
         : undefined,
     iamServiceRoleArn:
-      output.iamServiceRoleArn !== undefined &&
-      output.iamServiceRoleArn !== null
+      output.iamServiceRoleArn !== undefined && output.iamServiceRoleArn !== null
         ? output.iamServiceRoleArn
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    platform:
-      output.platform !== undefined && output.platform !== null
-        ? output.platform
-        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    platform: output.platform !== undefined && output.platform !== null ? output.platform : undefined,
     productionBranch:
       output.productionBranch !== undefined && output.productionBranch !== null
-        ? deserializeAws_restJson1ProductionBranch(
-            output.productionBranch,
-            context
-          )
+        ? deserializeAws_restJson1ProductionBranch(output.productionBranch, context)
         : undefined,
-    repository:
-      output.repository !== undefined && output.repository !== null
-        ? output.repository
-        : undefined,
+    repository: output.repository !== undefined && output.repository !== null ? output.repository : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
@@ -5998,49 +4947,28 @@ const deserializeAws_restJson1App = (
     updateTime:
       output.updateTime !== undefined && output.updateTime !== null
         ? new Date(Math.round(output.updateTime * 1000))
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Apps = (
-  output: any,
-  context: __SerdeContext
-): App[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1App(entry, context)
-  );
+const deserializeAws_restJson1Apps = (output: any, context: __SerdeContext): App[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1App(entry, context));
 };
 
-const deserializeAws_restJson1Artifact = (
-  output: any,
-  context: __SerdeContext
-): Artifact => {
+const deserializeAws_restJson1Artifact = (output: any, context: __SerdeContext): Artifact => {
   return {
     __type: "Artifact",
     artifactFileName:
-      output.artifactFileName !== undefined && output.artifactFileName !== null
-        ? output.artifactFileName
-        : undefined,
-    artifactId:
-      output.artifactId !== undefined && output.artifactId !== null
-        ? output.artifactId
-        : undefined
+      output.artifactFileName !== undefined && output.artifactFileName !== null ? output.artifactFileName : undefined,
+    artifactId: output.artifactId !== undefined && output.artifactId !== null ? output.artifactId : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Artifacts = (
-  output: any,
-  context: __SerdeContext
-): Artifact[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1Artifact(entry, context)
-  );
+const deserializeAws_restJson1Artifacts = (output: any, context: __SerdeContext): Artifact[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Artifact(entry, context));
 };
 
-const deserializeAws_restJson1AssociatedResources = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1AssociatedResources = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6051,67 +4979,40 @@ const deserializeAws_restJson1AutoBranchCreationConfig = (
   return {
     __type: "AutoBranchCreationConfig",
     basicAuthCredentials:
-      output.basicAuthCredentials !== undefined &&
-      output.basicAuthCredentials !== null
+      output.basicAuthCredentials !== undefined && output.basicAuthCredentials !== null
         ? output.basicAuthCredentials
         : undefined,
-    buildSpec:
-      output.buildSpec !== undefined && output.buildSpec !== null
-        ? output.buildSpec
-        : undefined,
+    buildSpec: output.buildSpec !== undefined && output.buildSpec !== null ? output.buildSpec : undefined,
     enableAutoBuild:
-      output.enableAutoBuild !== undefined && output.enableAutoBuild !== null
-        ? output.enableAutoBuild
-        : undefined,
+      output.enableAutoBuild !== undefined && output.enableAutoBuild !== null ? output.enableAutoBuild : undefined,
     enableBasicAuth:
-      output.enableBasicAuth !== undefined && output.enableBasicAuth !== null
-        ? output.enableBasicAuth
-        : undefined,
+      output.enableBasicAuth !== undefined && output.enableBasicAuth !== null ? output.enableBasicAuth : undefined,
     enablePullRequestPreview:
-      output.enablePullRequestPreview !== undefined &&
-      output.enablePullRequestPreview !== null
+      output.enablePullRequestPreview !== undefined && output.enablePullRequestPreview !== null
         ? output.enablePullRequestPreview
         : undefined,
     environmentVariables:
-      output.environmentVariables !== undefined &&
-      output.environmentVariables !== null
-        ? deserializeAws_restJson1EnvironmentVariables(
-            output.environmentVariables,
-            context
-          )
+      output.environmentVariables !== undefined && output.environmentVariables !== null
+        ? deserializeAws_restJson1EnvironmentVariables(output.environmentVariables, context)
         : undefined,
-    framework:
-      output.framework !== undefined && output.framework !== null
-        ? output.framework
-        : undefined,
+    framework: output.framework !== undefined && output.framework !== null ? output.framework : undefined,
     pullRequestEnvironmentName:
-      output.pullRequestEnvironmentName !== undefined &&
-      output.pullRequestEnvironmentName !== null
+      output.pullRequestEnvironmentName !== undefined && output.pullRequestEnvironmentName !== null
         ? output.pullRequestEnvironmentName
         : undefined,
-    stage:
-      output.stage !== undefined && output.stage !== null
-        ? output.stage
-        : undefined
+    stage: output.stage !== undefined && output.stage !== null ? output.stage : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1AutoBranchCreationPatterns = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1AutoBranchCreationPatterns = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1BackendEnvironment = (
-  output: any,
-  context: __SerdeContext
-): BackendEnvironment => {
+const deserializeAws_restJson1BackendEnvironment = (output: any, context: __SerdeContext): BackendEnvironment => {
   return {
     __type: "BackendEnvironment",
     backendEnvironmentArn:
-      output.backendEnvironmentArn !== undefined &&
-      output.backendEnvironmentArn !== null
+      output.backendEnvironmentArn !== undefined && output.backendEnvironmentArn !== null
         ? output.backendEnvironmentArn
         : undefined,
     createTime:
@@ -6119,74 +5020,42 @@ const deserializeAws_restJson1BackendEnvironment = (
         ? new Date(Math.round(output.createTime * 1000))
         : undefined,
     deploymentArtifacts:
-      output.deploymentArtifacts !== undefined &&
-      output.deploymentArtifacts !== null
+      output.deploymentArtifacts !== undefined && output.deploymentArtifacts !== null
         ? output.deploymentArtifacts
         : undefined,
     environmentName:
-      output.environmentName !== undefined && output.environmentName !== null
-        ? output.environmentName
-        : undefined,
-    stackName:
-      output.stackName !== undefined && output.stackName !== null
-        ? output.stackName
-        : undefined,
+      output.environmentName !== undefined && output.environmentName !== null ? output.environmentName : undefined,
+    stackName: output.stackName !== undefined && output.stackName !== null ? output.stackName : undefined,
     updateTime:
       output.updateTime !== undefined && output.updateTime !== null
         ? new Date(Math.round(output.updateTime * 1000))
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1BackendEnvironments = (
-  output: any,
-  context: __SerdeContext
-): BackendEnvironment[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1BackendEnvironment(entry, context)
-  );
+const deserializeAws_restJson1BackendEnvironments = (output: any, context: __SerdeContext): BackendEnvironment[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1BackendEnvironment(entry, context));
 };
 
-const deserializeAws_restJson1Branch = (
-  output: any,
-  context: __SerdeContext
-): Branch => {
+const deserializeAws_restJson1Branch = (output: any, context: __SerdeContext): Branch => {
   return {
     __type: "Branch",
-    activeJobId:
-      output.activeJobId !== undefined && output.activeJobId !== null
-        ? output.activeJobId
-        : undefined,
+    activeJobId: output.activeJobId !== undefined && output.activeJobId !== null ? output.activeJobId : undefined,
     associatedResources:
-      output.associatedResources !== undefined &&
-      output.associatedResources !== null
-        ? deserializeAws_restJson1AssociatedResources(
-            output.associatedResources,
-            context
-          )
+      output.associatedResources !== undefined && output.associatedResources !== null
+        ? deserializeAws_restJson1AssociatedResources(output.associatedResources, context)
         : undefined,
     backendEnvironmentArn:
-      output.backendEnvironmentArn !== undefined &&
-      output.backendEnvironmentArn !== null
+      output.backendEnvironmentArn !== undefined && output.backendEnvironmentArn !== null
         ? output.backendEnvironmentArn
         : undefined,
     basicAuthCredentials:
-      output.basicAuthCredentials !== undefined &&
-      output.basicAuthCredentials !== null
+      output.basicAuthCredentials !== undefined && output.basicAuthCredentials !== null
         ? output.basicAuthCredentials
         : undefined,
-    branchArn:
-      output.branchArn !== undefined && output.branchArn !== null
-        ? output.branchArn
-        : undefined,
-    branchName:
-      output.branchName !== undefined && output.branchName !== null
-        ? output.branchName
-        : undefined,
-    buildSpec:
-      output.buildSpec !== undefined && output.buildSpec !== null
-        ? output.buildSpec
-        : undefined,
+    branchArn: output.branchArn !== undefined && output.branchArn !== null ? output.branchArn : undefined,
+    branchName: output.branchName !== undefined && output.branchName !== null ? output.branchName : undefined,
+    buildSpec: output.buildSpec !== undefined && output.buildSpec !== null ? output.buildSpec : undefined,
     createTime:
       output.createTime !== undefined && output.createTime !== null
         ? new Date(Math.round(output.createTime * 1000))
@@ -6195,181 +5064,101 @@ const deserializeAws_restJson1Branch = (
       output.customDomains !== undefined && output.customDomains !== null
         ? deserializeAws_restJson1CustomDomains(output.customDomains, context)
         : undefined,
-    description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined,
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
     destinationBranch:
-      output.destinationBranch !== undefined &&
-      output.destinationBranch !== null
+      output.destinationBranch !== undefined && output.destinationBranch !== null
         ? output.destinationBranch
         : undefined,
-    displayName:
-      output.displayName !== undefined && output.displayName !== null
-        ? output.displayName
-        : undefined,
+    displayName: output.displayName !== undefined && output.displayName !== null ? output.displayName : undefined,
     enableAutoBuild:
-      output.enableAutoBuild !== undefined && output.enableAutoBuild !== null
-        ? output.enableAutoBuild
-        : undefined,
+      output.enableAutoBuild !== undefined && output.enableAutoBuild !== null ? output.enableAutoBuild : undefined,
     enableBasicAuth:
-      output.enableBasicAuth !== undefined && output.enableBasicAuth !== null
-        ? output.enableBasicAuth
-        : undefined,
+      output.enableBasicAuth !== undefined && output.enableBasicAuth !== null ? output.enableBasicAuth : undefined,
     enableNotification:
-      output.enableNotification !== undefined &&
-      output.enableNotification !== null
+      output.enableNotification !== undefined && output.enableNotification !== null
         ? output.enableNotification
         : undefined,
     enablePullRequestPreview:
-      output.enablePullRequestPreview !== undefined &&
-      output.enablePullRequestPreview !== null
+      output.enablePullRequestPreview !== undefined && output.enablePullRequestPreview !== null
         ? output.enablePullRequestPreview
         : undefined,
     environmentVariables:
-      output.environmentVariables !== undefined &&
-      output.environmentVariables !== null
-        ? deserializeAws_restJson1EnvironmentVariables(
-            output.environmentVariables,
-            context
-          )
+      output.environmentVariables !== undefined && output.environmentVariables !== null
+        ? deserializeAws_restJson1EnvironmentVariables(output.environmentVariables, context)
         : undefined,
-    framework:
-      output.framework !== undefined && output.framework !== null
-        ? output.framework
-        : undefined,
+    framework: output.framework !== undefined && output.framework !== null ? output.framework : undefined,
     pullRequestEnvironmentName:
-      output.pullRequestEnvironmentName !== undefined &&
-      output.pullRequestEnvironmentName !== null
+      output.pullRequestEnvironmentName !== undefined && output.pullRequestEnvironmentName !== null
         ? output.pullRequestEnvironmentName
         : undefined,
-    sourceBranch:
-      output.sourceBranch !== undefined && output.sourceBranch !== null
-        ? output.sourceBranch
-        : undefined,
-    stage:
-      output.stage !== undefined && output.stage !== null
-        ? output.stage
-        : undefined,
+    sourceBranch: output.sourceBranch !== undefined && output.sourceBranch !== null ? output.sourceBranch : undefined,
+    stage: output.stage !== undefined && output.stage !== null ? output.stage : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
         : undefined,
-    thumbnailUrl:
-      output.thumbnailUrl !== undefined && output.thumbnailUrl !== null
-        ? output.thumbnailUrl
-        : undefined,
+    thumbnailUrl: output.thumbnailUrl !== undefined && output.thumbnailUrl !== null ? output.thumbnailUrl : undefined,
     totalNumberOfJobs:
-      output.totalNumberOfJobs !== undefined &&
-      output.totalNumberOfJobs !== null
+      output.totalNumberOfJobs !== undefined && output.totalNumberOfJobs !== null
         ? output.totalNumberOfJobs
         : undefined,
-    ttl:
-      output.ttl !== undefined && output.ttl !== null ? output.ttl : undefined,
+    ttl: output.ttl !== undefined && output.ttl !== null ? output.ttl : undefined,
     updateTime:
       output.updateTime !== undefined && output.updateTime !== null
         ? new Date(Math.round(output.updateTime * 1000))
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Branches = (
-  output: any,
-  context: __SerdeContext
-): Branch[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1Branch(entry, context)
-  );
+const deserializeAws_restJson1Branches = (output: any, context: __SerdeContext): Branch[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Branch(entry, context));
 };
 
-const deserializeAws_restJson1CustomDomains = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1CustomDomains = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1CustomRule = (
-  output: any,
-  context: __SerdeContext
-): CustomRule => {
+const deserializeAws_restJson1CustomRule = (output: any, context: __SerdeContext): CustomRule => {
   return {
     __type: "CustomRule",
-    condition:
-      output.condition !== undefined && output.condition !== null
-        ? output.condition
-        : undefined,
-    source:
-      output.source !== undefined && output.source !== null
-        ? output.source
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    target:
-      output.target !== undefined && output.target !== null
-        ? output.target
-        : undefined
+    condition: output.condition !== undefined && output.condition !== null ? output.condition : undefined,
+    source: output.source !== undefined && output.source !== null ? output.source : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    target: output.target !== undefined && output.target !== null ? output.target : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1CustomRules = (
-  output: any,
-  context: __SerdeContext
-): CustomRule[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1CustomRule(entry, context)
-  );
+const deserializeAws_restJson1CustomRules = (output: any, context: __SerdeContext): CustomRule[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1CustomRule(entry, context));
 };
 
-const deserializeAws_restJson1DomainAssociation = (
-  output: any,
-  context: __SerdeContext
-): DomainAssociation => {
+const deserializeAws_restJson1DomainAssociation = (output: any, context: __SerdeContext): DomainAssociation => {
   return {
     __type: "DomainAssociation",
     certificateVerificationDNSRecord:
-      output.certificateVerificationDNSRecord !== undefined &&
-      output.certificateVerificationDNSRecord !== null
+      output.certificateVerificationDNSRecord !== undefined && output.certificateVerificationDNSRecord !== null
         ? output.certificateVerificationDNSRecord
         : undefined,
     domainAssociationArn:
-      output.domainAssociationArn !== undefined &&
-      output.domainAssociationArn !== null
+      output.domainAssociationArn !== undefined && output.domainAssociationArn !== null
         ? output.domainAssociationArn
         : undefined,
-    domainName:
-      output.domainName !== undefined && output.domainName !== null
-        ? output.domainName
-        : undefined,
-    domainStatus:
-      output.domainStatus !== undefined && output.domainStatus !== null
-        ? output.domainStatus
-        : undefined,
+    domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
+    domainStatus: output.domainStatus !== undefined && output.domainStatus !== null ? output.domainStatus : undefined,
     enableAutoSubDomain:
-      output.enableAutoSubDomain !== undefined &&
-      output.enableAutoSubDomain !== null
+      output.enableAutoSubDomain !== undefined && output.enableAutoSubDomain !== null
         ? output.enableAutoSubDomain
         : undefined,
-    statusReason:
-      output.statusReason !== undefined && output.statusReason !== null
-        ? output.statusReason
-        : undefined,
+    statusReason: output.statusReason !== undefined && output.statusReason !== null ? output.statusReason : undefined,
     subDomains:
       output.subDomains !== undefined && output.subDomains !== null
         ? deserializeAws_restJson1SubDomains(output.subDomains, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1DomainAssociations = (
-  output: any,
-  context: __SerdeContext
-): DomainAssociation[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1DomainAssociation(entry, context)
-  );
+const deserializeAws_restJson1DomainAssociations = (output: any, context: __SerdeContext): DomainAssociation[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1DomainAssociation(entry, context));
 };
 
 const deserializeAws_restJson1EnvironmentVariables = (
@@ -6379,29 +5168,23 @@ const deserializeAws_restJson1EnvironmentVariables = (
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
 };
 
-const deserializeAws_restJson1FileUploadUrls = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1FileUploadUrls = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
 };
 
-const deserializeAws_restJson1Job = (
-  output: any,
-  context: __SerdeContext
-): Job => {
+const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job => {
   return {
     __type: "Job",
     steps:
@@ -6411,124 +5194,68 @@ const deserializeAws_restJson1Job = (
     summary:
       output.summary !== undefined && output.summary !== null
         ? deserializeAws_restJson1JobSummary(output.summary, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1JobSummaries = (
-  output: any,
-  context: __SerdeContext
-): JobSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1JobSummary(entry, context)
-  );
+const deserializeAws_restJson1JobSummaries = (output: any, context: __SerdeContext): JobSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1JobSummary(entry, context));
 };
 
-const deserializeAws_restJson1JobSummary = (
-  output: any,
-  context: __SerdeContext
-): JobSummary => {
+const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext): JobSummary => {
   return {
     __type: "JobSummary",
-    commitId:
-      output.commitId !== undefined && output.commitId !== null
-        ? output.commitId
-        : undefined,
+    commitId: output.commitId !== undefined && output.commitId !== null ? output.commitId : undefined,
     commitMessage:
-      output.commitMessage !== undefined && output.commitMessage !== null
-        ? output.commitMessage
-        : undefined,
+      output.commitMessage !== undefined && output.commitMessage !== null ? output.commitMessage : undefined,
     commitTime:
       output.commitTime !== undefined && output.commitTime !== null
         ? new Date(Math.round(output.commitTime * 1000))
         : undefined,
     endTime:
-      output.endTime !== undefined && output.endTime !== null
-        ? new Date(Math.round(output.endTime * 1000))
-        : undefined,
-    jobArn:
-      output.jobArn !== undefined && output.jobArn !== null
-        ? output.jobArn
-        : undefined,
-    jobId:
-      output.jobId !== undefined && output.jobId !== null
-        ? output.jobId
-        : undefined,
-    jobType:
-      output.jobType !== undefined && output.jobType !== null
-        ? output.jobType
-        : undefined,
+      output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
+    jobArn: output.jobArn !== undefined && output.jobArn !== null ? output.jobArn : undefined,
+    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
+    jobType: output.jobType !== undefined && output.jobType !== null ? output.jobType : undefined,
     startTime:
       output.startTime !== undefined && output.startTime !== null
         ? new Date(Math.round(output.startTime * 1000))
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ProductionBranch = (
-  output: any,
-  context: __SerdeContext
-): ProductionBranch => {
+const deserializeAws_restJson1ProductionBranch = (output: any, context: __SerdeContext): ProductionBranch => {
   return {
     __type: "ProductionBranch",
-    branchName:
-      output.branchName !== undefined && output.branchName !== null
-        ? output.branchName
-        : undefined,
+    branchName: output.branchName !== undefined && output.branchName !== null ? output.branchName : undefined,
     lastDeployTime:
       output.lastDeployTime !== undefined && output.lastDeployTime !== null
         ? new Date(Math.round(output.lastDeployTime * 1000))
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    thumbnailUrl:
-      output.thumbnailUrl !== undefined && output.thumbnailUrl !== null
-        ? output.thumbnailUrl
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    thumbnailUrl: output.thumbnailUrl !== undefined && output.thumbnailUrl !== null ? output.thumbnailUrl : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Screenshots = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1Screenshots = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
 };
 
-const deserializeAws_restJson1Step = (
-  output: any,
-  context: __SerdeContext
-): Step => {
+const deserializeAws_restJson1Step = (output: any, context: __SerdeContext): Step => {
   return {
     __type: "Step",
-    artifactsUrl:
-      output.artifactsUrl !== undefined && output.artifactsUrl !== null
-        ? output.artifactsUrl
-        : undefined,
-    context:
-      output.context !== undefined && output.context !== null
-        ? output.context
-        : undefined,
+    artifactsUrl: output.artifactsUrl !== undefined && output.artifactsUrl !== null ? output.artifactsUrl : undefined,
+    context: output.context !== undefined && output.context !== null ? output.context : undefined,
     endTime:
-      output.endTime !== undefined && output.endTime !== null
-        ? new Date(Math.round(output.endTime * 1000))
-        : undefined,
-    logUrl:
-      output.logUrl !== undefined && output.logUrl !== null
-        ? output.logUrl
-        : undefined,
+      output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
+    logUrl: output.logUrl !== undefined && output.logUrl !== null ? output.logUrl : undefined,
     screenshots:
       output.screenshots !== undefined && output.screenshots !== null
         ? deserializeAws_restJson1Screenshots(output.screenshots, context)
@@ -6537,182 +5264,103 @@ const deserializeAws_restJson1Step = (
       output.startTime !== undefined && output.startTime !== null
         ? new Date(Math.round(output.startTime * 1000))
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    statusReason:
-      output.statusReason !== undefined && output.statusReason !== null
-        ? output.statusReason
-        : undefined,
-    stepName:
-      output.stepName !== undefined && output.stepName !== null
-        ? output.stepName
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    statusReason: output.statusReason !== undefined && output.statusReason !== null ? output.statusReason : undefined,
+    stepName: output.stepName !== undefined && output.stepName !== null ? output.stepName : undefined,
     testArtifactsUrl:
-      output.testArtifactsUrl !== undefined && output.testArtifactsUrl !== null
-        ? output.testArtifactsUrl
-        : undefined,
+      output.testArtifactsUrl !== undefined && output.testArtifactsUrl !== null ? output.testArtifactsUrl : undefined,
     testConfigUrl:
-      output.testConfigUrl !== undefined && output.testConfigUrl !== null
-        ? output.testConfigUrl
-        : undefined
+      output.testConfigUrl !== undefined && output.testConfigUrl !== null ? output.testConfigUrl : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Steps = (
-  output: any,
-  context: __SerdeContext
-): Step[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1Step(entry, context)
-  );
+const deserializeAws_restJson1Steps = (output: any, context: __SerdeContext): Step[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Step(entry, context));
 };
 
-const deserializeAws_restJson1SubDomain = (
-  output: any,
-  context: __SerdeContext
-): SubDomain => {
+const deserializeAws_restJson1SubDomain = (output: any, context: __SerdeContext): SubDomain => {
   return {
     __type: "SubDomain",
-    dnsRecord:
-      output.dnsRecord !== undefined && output.dnsRecord !== null
-        ? output.dnsRecord
-        : undefined,
+    dnsRecord: output.dnsRecord !== undefined && output.dnsRecord !== null ? output.dnsRecord : undefined,
     subDomainSetting:
       output.subDomainSetting !== undefined && output.subDomainSetting !== null
-        ? deserializeAws_restJson1SubDomainSetting(
-            output.subDomainSetting,
-            context
-          )
+        ? deserializeAws_restJson1SubDomainSetting(output.subDomainSetting, context)
         : undefined,
-    verified:
-      output.verified !== undefined && output.verified !== null
-        ? output.verified
-        : undefined
+    verified: output.verified !== undefined && output.verified !== null ? output.verified : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1SubDomains = (
-  output: any,
-  context: __SerdeContext
-): SubDomain[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1SubDomain(entry, context)
-  );
+const deserializeAws_restJson1SubDomains = (output: any, context: __SerdeContext): SubDomain[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1SubDomain(entry, context));
 };
 
-const deserializeAws_restJson1SubDomainSetting = (
-  output: any,
-  context: __SerdeContext
-): SubDomainSetting => {
+const deserializeAws_restJson1SubDomainSetting = (output: any, context: __SerdeContext): SubDomainSetting => {
   return {
     __type: "SubDomainSetting",
-    branchName:
-      output.branchName !== undefined && output.branchName !== null
-        ? output.branchName
-        : undefined,
-    prefix:
-      output.prefix !== undefined && output.prefix !== null
-        ? output.prefix
-        : undefined
+    branchName: output.branchName !== undefined && output.branchName !== null ? output.branchName : undefined,
+    prefix: output.prefix !== undefined && output.prefix !== null ? output.prefix : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1TagMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
 };
 
-const deserializeAws_restJson1Webhook = (
-  output: any,
-  context: __SerdeContext
-): Webhook => {
+const deserializeAws_restJson1Webhook = (output: any, context: __SerdeContext): Webhook => {
   return {
     __type: "Webhook",
-    branchName:
-      output.branchName !== undefined && output.branchName !== null
-        ? output.branchName
-        : undefined,
+    branchName: output.branchName !== undefined && output.branchName !== null ? output.branchName : undefined,
     createTime:
       output.createTime !== undefined && output.createTime !== null
         ? new Date(Math.round(output.createTime * 1000))
         : undefined,
-    description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined,
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
     updateTime:
       output.updateTime !== undefined && output.updateTime !== null
         ? new Date(Math.round(output.updateTime * 1000))
         : undefined,
-    webhookArn:
-      output.webhookArn !== undefined && output.webhookArn !== null
-        ? output.webhookArn
-        : undefined,
-    webhookId:
-      output.webhookId !== undefined && output.webhookId !== null
-        ? output.webhookId
-        : undefined,
-    webhookUrl:
-      output.webhookUrl !== undefined && output.webhookUrl !== null
-        ? output.webhookUrl
-        : undefined
+    webhookArn: output.webhookArn !== undefined && output.webhookArn !== null ? output.webhookArn : undefined,
+    webhookId: output.webhookId !== undefined && output.webhookId !== null ? output.webhookId : undefined,
+    webhookUrl: output.webhookUrl !== undefined && output.webhookUrl !== null ? output.webhookUrl : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Webhooks = (
-  output: any,
-  context: __SerdeContext
-): Webhook[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1Webhook(entry, context)
-  );
+const deserializeAws_restJson1Webhooks = (output: any, context: __SerdeContext): Webhook[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Webhook(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"]
+  requestId: output.headers["x-amzn-requestid"],
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
-  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then(encoded => {
+  collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
@@ -6723,8 +5371,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

@@ -1,21 +1,11 @@
-import {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFormationClient";
-import {
-  ListStackInstancesInput,
-  ListStackInstancesOutput
-} from "../models/index";
+import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
+import { ListStackInstancesInput, ListStackInstancesOutput } from "../models/index";
 import {
   deserializeAws_queryListStackInstancesCommand,
-  serializeAws_queryListStackInstancesCommand
+  serializeAws_queryListStackInstancesCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListStackInstancesCommandInput = ListStackInstancesInput;
-export type ListStackInstancesCommandOutput = ListStackInstancesOutput &
-  __MetadataBearer;
+export type ListStackInstancesCommandOutput = ListStackInstancesOutput & __MetadataBearer;
 
 export class ListStackInstancesCommand extends $Command<
   ListStackInstancesCommandInput,
@@ -50,14 +39,12 @@ export class ListStackInstancesCommand extends $Command<
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListStackInstancesCommandInput, ListStackInstancesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class ListStackInstancesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListStackInstancesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListStackInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListStackInstancesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListStackInstancesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStackInstancesCommandOutput> {
     return deserializeAws_queryListStackInstancesCommand(output, context);
   }
 

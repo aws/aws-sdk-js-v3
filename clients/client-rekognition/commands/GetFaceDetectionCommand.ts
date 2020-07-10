@@ -1,21 +1,11 @@
-import {
-  RekognitionClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RekognitionClient";
-import {
-  GetFaceDetectionRequest,
-  GetFaceDetectionResponse
-} from "../models/index";
+import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
+import { GetFaceDetectionRequest, GetFaceDetectionResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetFaceDetectionCommand,
-  serializeAws_json1_1GetFaceDetectionCommand
+  serializeAws_json1_1GetFaceDetectionCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetFaceDetectionCommandInput = GetFaceDetectionRequest;
-export type GetFaceDetectionCommandOutput = GetFaceDetectionResponse &
-  __MetadataBearer;
+export type GetFaceDetectionCommandOutput = GetFaceDetectionResponse & __MetadataBearer;
 
 export class GetFaceDetectionCommand extends $Command<
   GetFaceDetectionCommandInput,
@@ -50,14 +39,12 @@ export class GetFaceDetectionCommand extends $Command<
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetFaceDetectionCommandInput, GetFaceDetectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class GetFaceDetectionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetFaceDetectionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetFaceDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetFaceDetectionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetFaceDetectionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFaceDetectionCommandOutput> {
     return deserializeAws_json1_1GetFaceDetectionCommand(output, context);
   }
 

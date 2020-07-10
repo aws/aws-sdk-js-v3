@@ -10,10 +10,7 @@ export async function createRequest<
   client: Client<any, InputTypesUnion, MetadataBearer, any>,
   command: Command<InputType, OutputType, any, InputTypesUnion, MetadataBearer>
 ): Promise<HttpRequest> {
-  const interceptMiddleware: BuildMiddleware<
-    InputType,
-    OutputType
-  > = next => async args => {
+  const interceptMiddleware: BuildMiddleware<InputType, OutputType> = (next) => async (args) => {
     return { output: { request: args.request } as any, response: undefined };
   };
   const clientStack = client.middlewareStack.clone();
@@ -21,15 +18,11 @@ export async function createRequest<
   //add middleware to the last of 'build' step
   clientStack.add(interceptMiddleware, {
     step: "build",
-    priority: "low"
+    priority: "low",
   });
 
-  const handler = command.resolveMiddleware(
-    clientStack as MiddlewareStack<any, any>,
-    client.config,
-    undefined
-  );
+  const handler = command.resolveMiddleware(clientStack as MiddlewareStack<any, any>, client.config, undefined);
 
   //@ts-ignore
-  return await handler(command).then(output => output.output.request);
+  return await handler(command).then((output) => output.output.request);
 }

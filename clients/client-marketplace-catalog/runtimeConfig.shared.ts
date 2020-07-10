@@ -4,5 +4,5 @@ export const ClientSharedValues = {
   apiVersion: "2018-09-17",
   disableHostPrefix: false,
   regionInfoProvider: defaultRegionInfoProvider,
-  signingName: "aws-marketplace"
+  signingName: "aws-marketplace",
 };

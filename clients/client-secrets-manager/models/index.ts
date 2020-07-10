@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface CancelRotateSecretRequest {
@@ -27,10 +23,9 @@ export interface CancelRotateSecretRequest {
 
 export namespace CancelRotateSecretRequest {
   export const filterSensitiveLog = (obj: CancelRotateSecretRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CancelRotateSecretRequest =>
-    __isa(o, "CancelRotateSecretRequest");
+  export const isa = (o: any): o is CancelRotateSecretRequest => __isa(o, "CancelRotateSecretRequest");
 }
 
 export interface CancelRotateSecretResponse {
@@ -57,10 +52,9 @@ export interface CancelRotateSecretResponse {
 
 export namespace CancelRotateSecretResponse {
   export const filterSensitiveLog = (obj: CancelRotateSecretResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CancelRotateSecretResponse =>
-    __isa(o, "CancelRotateSecretResponse");
+  export const isa = (o: any): o is CancelRotateSecretResponse => __isa(o, "CancelRotateSecretResponse");
 }
 
 export interface CreateSecretRequest {
@@ -233,10 +227,9 @@ export namespace CreateSecretRequest {
   export const filterSensitiveLog = (obj: CreateSecretRequest): any => ({
     ...obj,
     ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
-    ...(obj.SecretString && { SecretString: SENSITIVE_STRING })
+    ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateSecretRequest =>
-    __isa(o, "CreateSecretRequest");
+  export const isa = (o: any): o is CreateSecretRequest => __isa(o, "CreateSecretRequest");
 }
 
 export interface CreateSecretResponse {
@@ -267,10 +260,9 @@ export interface CreateSecretResponse {
 
 export namespace CreateSecretResponse {
   export const filterSensitiveLog = (obj: CreateSecretResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSecretResponse =>
-    __isa(o, "CreateSecretResponse");
+  export const isa = (o: any): o is CreateSecretResponse => __isa(o, "CreateSecretResponse");
 }
 
 /**
@@ -284,10 +276,9 @@ export interface DecryptionFailure extends __SmithyException, $MetadataBearer {
 
 export namespace DecryptionFailure {
   export const filterSensitiveLog = (obj: DecryptionFailure): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DecryptionFailure =>
-    __isa(o, "DecryptionFailure");
+  export const isa = (o: any): o is DecryptionFailure => __isa(o, "DecryptionFailure");
 }
 
 export interface DeleteResourcePolicyRequest {
@@ -311,13 +302,10 @@ export interface DeleteResourcePolicyRequest {
 }
 
 export namespace DeleteResourcePolicyRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteResourcePolicyRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteResourcePolicyRequest =>
-    __isa(o, "DeleteResourcePolicyRequest");
+  export const isa = (o: any): o is DeleteResourcePolicyRequest => __isa(o, "DeleteResourcePolicyRequest");
 }
 
 export interface DeleteResourcePolicyResponse {
@@ -334,13 +322,10 @@ export interface DeleteResourcePolicyResponse {
 }
 
 export namespace DeleteResourcePolicyResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteResourcePolicyResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteResourcePolicyResponse =>
-    __isa(o, "DeleteResourcePolicyResponse");
+  export const isa = (o: any): o is DeleteResourcePolicyResponse => __isa(o, "DeleteResourcePolicyResponse");
 }
 
 export interface DeleteSecretRequest {
@@ -391,10 +376,9 @@ export interface DeleteSecretRequest {
 
 export namespace DeleteSecretRequest {
   export const filterSensitiveLog = (obj: DeleteSecretRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSecretRequest =>
-    __isa(o, "DeleteSecretRequest");
+  export const isa = (o: any): o is DeleteSecretRequest => __isa(o, "DeleteSecretRequest");
 }
 
 export interface DeleteSecretResponse {
@@ -419,10 +403,9 @@ export interface DeleteSecretResponse {
 
 export namespace DeleteSecretResponse {
   export const filterSensitiveLog = (obj: DeleteSecretResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSecretResponse =>
-    __isa(o, "DeleteSecretResponse");
+  export const isa = (o: any): o is DeleteSecretResponse => __isa(o, "DeleteSecretResponse");
 }
 
 export interface DescribeSecretRequest {
@@ -447,10 +430,9 @@ export interface DescribeSecretRequest {
 
 export namespace DescribeSecretRequest {
   export const filterSensitiveLog = (obj: DescribeSecretRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSecretRequest =>
-    __isa(o, "DescribeSecretRequest");
+  export const isa = (o: any): o is DescribeSecretRequest => __isa(o, "DescribeSecretRequest");
 }
 
 export interface DescribeSecretResponse {
@@ -544,10 +526,9 @@ export interface DescribeSecretResponse {
 
 export namespace DescribeSecretResponse {
   export const filterSensitiveLog = (obj: DescribeSecretResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSecretResponse =>
-    __isa(o, "DescribeSecretResponse");
+  export const isa = (o: any): o is DescribeSecretResponse => __isa(o, "DescribeSecretResponse");
 }
 
 /**
@@ -564,10 +545,9 @@ export interface EncryptionFailure extends __SmithyException, $MetadataBearer {
 
 export namespace EncryptionFailure {
   export const filterSensitiveLog = (obj: EncryptionFailure): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EncryptionFailure =>
-    __isa(o, "EncryptionFailure");
+  export const isa = (o: any): o is EncryptionFailure => __isa(o, "EncryptionFailure");
 }
 
 export interface GetRandomPasswordRequest {
@@ -632,10 +612,9 @@ export interface GetRandomPasswordRequest {
 
 export namespace GetRandomPasswordRequest {
   export const filterSensitiveLog = (obj: GetRandomPasswordRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetRandomPasswordRequest =>
-    __isa(o, "GetRandomPasswordRequest");
+  export const isa = (o: any): o is GetRandomPasswordRequest => __isa(o, "GetRandomPasswordRequest");
 }
 
 export interface GetRandomPasswordResponse {
@@ -649,10 +628,9 @@ export interface GetRandomPasswordResponse {
 export namespace GetRandomPasswordResponse {
   export const filterSensitiveLog = (obj: GetRandomPasswordResponse): any => ({
     ...obj,
-    ...(obj.RandomPassword && { RandomPassword: SENSITIVE_STRING })
+    ...(obj.RandomPassword && { RandomPassword: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetRandomPasswordResponse =>
-    __isa(o, "GetRandomPasswordResponse");
+  export const isa = (o: any): o is GetRandomPasswordResponse => __isa(o, "GetRandomPasswordResponse");
 }
 
 export interface GetResourcePolicyRequest {
@@ -677,10 +655,9 @@ export interface GetResourcePolicyRequest {
 
 export namespace GetResourcePolicyRequest {
   export const filterSensitiveLog = (obj: GetResourcePolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetResourcePolicyRequest =>
-    __isa(o, "GetResourcePolicyRequest");
+  export const isa = (o: any): o is GetResourcePolicyRequest => __isa(o, "GetResourcePolicyRequest");
 }
 
 export interface GetResourcePolicyResponse {
@@ -707,10 +684,9 @@ export interface GetResourcePolicyResponse {
 
 export namespace GetResourcePolicyResponse {
   export const filterSensitiveLog = (obj: GetResourcePolicyResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetResourcePolicyResponse =>
-    __isa(o, "GetResourcePolicyResponse");
+  export const isa = (o: any): o is GetResourcePolicyResponse => __isa(o, "GetResourcePolicyResponse");
 }
 
 export interface GetSecretValueRequest {
@@ -757,10 +733,9 @@ export interface GetSecretValueRequest {
 
 export namespace GetSecretValueRequest {
   export const filterSensitiveLog = (obj: GetSecretValueRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSecretValueRequest =>
-    __isa(o, "GetSecretValueRequest");
+  export const isa = (o: any): o is GetSecretValueRequest => __isa(o, "GetSecretValueRequest");
 }
 
 export interface GetSecretValueResponse {
@@ -822,18 +797,15 @@ export namespace GetSecretValueResponse {
   export const filterSensitiveLog = (obj: GetSecretValueResponse): any => ({
     ...obj,
     ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
-    ...(obj.SecretString && { SecretString: SENSITIVE_STRING })
+    ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetSecretValueResponse =>
-    __isa(o, "GetSecretValueResponse");
+  export const isa = (o: any): o is GetSecretValueResponse => __isa(o, "GetSecretValueResponse");
 }
 
 /**
  * <p>An error occurred on the server side.</p>
  */
-export interface InternalServiceError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceError extends __SmithyException, $MetadataBearer {
   name: "InternalServiceError";
   $fault: "server";
   Message?: string;
@@ -841,18 +813,15 @@ export interface InternalServiceError
 
 export namespace InternalServiceError {
   export const filterSensitiveLog = (obj: InternalServiceError): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServiceError =>
-    __isa(o, "InternalServiceError");
+  export const isa = (o: any): o is InternalServiceError => __isa(o, "InternalServiceError");
 }
 
 /**
  * <p>You provided an invalid <code>NextToken</code> value.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -860,18 +829,15 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException =>
-    __isa(o, "InvalidNextTokenException");
+  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
  * <p>You provided an invalid value for a parameter.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   Message?: string;
@@ -879,10 +845,9 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException =>
-    __isa(o, "InvalidParameterException");
+  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -899,9 +864,7 @@ export namespace InvalidParameterException {
  *             </li>
  *          </ul>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
@@ -909,18 +872,15 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
  * <p>The request failed because it would exceed one of the Secrets Manager internal limits.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -928,10 +888,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListSecretsRequest {
@@ -959,10 +918,9 @@ export interface ListSecretsRequest {
 
 export namespace ListSecretsRequest {
   export const filterSensitiveLog = (obj: ListSecretsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSecretsRequest =>
-    __isa(o, "ListSecretsRequest");
+  export const isa = (o: any): o is ListSecretsRequest => __isa(o, "ListSecretsRequest");
 }
 
 export interface ListSecretsResponse {
@@ -986,10 +944,9 @@ export interface ListSecretsResponse {
 
 export namespace ListSecretsResponse {
   export const filterSensitiveLog = (obj: ListSecretsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSecretsResponse =>
-    __isa(o, "ListSecretsResponse");
+  export const isa = (o: any): o is ListSecretsResponse => __isa(o, "ListSecretsResponse");
 }
 
 export interface ListSecretVersionIdsRequest {
@@ -1040,13 +997,10 @@ export interface ListSecretVersionIdsRequest {
 }
 
 export namespace ListSecretVersionIdsRequest {
-  export const filterSensitiveLog = (
-    obj: ListSecretVersionIdsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListSecretVersionIdsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListSecretVersionIdsRequest =>
-    __isa(o, "ListSecretVersionIdsRequest");
+  export const isa = (o: any): o is ListSecretVersionIdsRequest => __isa(o, "ListSecretVersionIdsRequest");
 }
 
 export interface ListSecretVersionIdsResponse {
@@ -1086,55 +1040,42 @@ export interface ListSecretVersionIdsResponse {
 }
 
 export namespace ListSecretVersionIdsResponse {
-  export const filterSensitiveLog = (
-    obj: ListSecretVersionIdsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListSecretVersionIdsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListSecretVersionIdsResponse =>
-    __isa(o, "ListSecretVersionIdsResponse");
+  export const isa = (o: any): o is ListSecretVersionIdsResponse => __isa(o, "ListSecretVersionIdsResponse");
 }
 
 /**
  * <p>The policy document that you provided isn't valid.</p>
  */
-export interface MalformedPolicyDocumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MalformedPolicyDocumentException extends __SmithyException, $MetadataBearer {
   name: "MalformedPolicyDocumentException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace MalformedPolicyDocumentException {
-  export const filterSensitiveLog = (
-    obj: MalformedPolicyDocumentException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MalformedPolicyDocumentException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MalformedPolicyDocumentException =>
-    __isa(o, "MalformedPolicyDocumentException");
+  export const isa = (o: any): o is MalformedPolicyDocumentException => __isa(o, "MalformedPolicyDocumentException");
 }
 
 /**
  * <p>The request failed because you did not complete all the prerequisite steps.</p>
  */
-export interface PreconditionNotMetException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PreconditionNotMetException extends __SmithyException, $MetadataBearer {
   name: "PreconditionNotMetException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace PreconditionNotMetException {
-  export const filterSensitiveLog = (
-    obj: PreconditionNotMetException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PreconditionNotMetException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PreconditionNotMetException =>
-    __isa(o, "PreconditionNotMetException");
+  export const isa = (o: any): o is PreconditionNotMetException => __isa(o, "PreconditionNotMetException");
 }
 
 export interface PutResourcePolicyRequest {
@@ -1168,10 +1109,9 @@ export interface PutResourcePolicyRequest {
 
 export namespace PutResourcePolicyRequest {
   export const filterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutResourcePolicyRequest =>
-    __isa(o, "PutResourcePolicyRequest");
+  export const isa = (o: any): o is PutResourcePolicyRequest => __isa(o, "PutResourcePolicyRequest");
 }
 
 export interface PutResourcePolicyResponse {
@@ -1189,10 +1129,9 @@ export interface PutResourcePolicyResponse {
 
 export namespace PutResourcePolicyResponse {
   export const filterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutResourcePolicyResponse =>
-    __isa(o, "PutResourcePolicyResponse");
+  export const isa = (o: any): o is PutResourcePolicyResponse => __isa(o, "PutResourcePolicyResponse");
 }
 
 export interface PutSecretValueRequest {
@@ -1300,10 +1239,9 @@ export namespace PutSecretValueRequest {
   export const filterSensitiveLog = (obj: PutSecretValueRequest): any => ({
     ...obj,
     ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
-    ...(obj.SecretString && { SecretString: SENSITIVE_STRING })
+    ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PutSecretValueRequest =>
-    __isa(o, "PutSecretValueRequest");
+  export const isa = (o: any): o is PutSecretValueRequest => __isa(o, "PutSecretValueRequest");
 }
 
 export interface PutSecretValueResponse {
@@ -1333,18 +1271,15 @@ export interface PutSecretValueResponse {
 
 export namespace PutSecretValueResponse {
   export const filterSensitiveLog = (obj: PutSecretValueResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutSecretValueResponse =>
-    __isa(o, "PutSecretValueResponse");
+  export const isa = (o: any): o is PutSecretValueResponse => __isa(o, "PutSecretValueResponse");
 }
 
 /**
  * <p>A resource with the ID you requested already exists.</p>
  */
-export interface ResourceExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceExistsException";
   $fault: "client";
   Message?: string;
@@ -1352,18 +1287,15 @@ export interface ResourceExistsException
 
 export namespace ResourceExistsException {
   export const filterSensitiveLog = (obj: ResourceExistsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceExistsException =>
-    __isa(o, "ResourceExistsException");
+  export const isa = (o: any): o is ResourceExistsException => __isa(o, "ResourceExistsException");
 }
 
 /**
  * <p>We can't find the resource that you asked for.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1371,10 +1303,9 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export interface RestoreSecretRequest {
@@ -1399,10 +1330,9 @@ export interface RestoreSecretRequest {
 
 export namespace RestoreSecretRequest {
   export const filterSensitiveLog = (obj: RestoreSecretRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RestoreSecretRequest =>
-    __isa(o, "RestoreSecretRequest");
+  export const isa = (o: any): o is RestoreSecretRequest => __isa(o, "RestoreSecretRequest");
 }
 
 export interface RestoreSecretResponse {
@@ -1420,10 +1350,9 @@ export interface RestoreSecretResponse {
 
 export namespace RestoreSecretResponse {
   export const filterSensitiveLog = (obj: RestoreSecretResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RestoreSecretResponse =>
-    __isa(o, "RestoreSecretResponse");
+  export const isa = (o: any): o is RestoreSecretResponse => __isa(o, "RestoreSecretResponse");
 }
 
 export interface RotateSecretRequest {
@@ -1477,10 +1406,9 @@ export interface RotateSecretRequest {
 
 export namespace RotateSecretRequest {
   export const filterSensitiveLog = (obj: RotateSecretRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RotateSecretRequest =>
-    __isa(o, "RotateSecretRequest");
+  export const isa = (o: any): o is RotateSecretRequest => __isa(o, "RotateSecretRequest");
 }
 
 export interface RotateSecretResponse {
@@ -1504,10 +1432,9 @@ export interface RotateSecretResponse {
 
 export namespace RotateSecretResponse {
   export const filterSensitiveLog = (obj: RotateSecretResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RotateSecretResponse =>
-    __isa(o, "RotateSecretResponse");
+  export const isa = (o: any): o is RotateSecretResponse => __isa(o, "RotateSecretResponse");
 }
 
 /**
@@ -1528,10 +1455,9 @@ export interface RotationRulesType {
 
 export namespace RotationRulesType {
   export const filterSensitiveLog = (obj: RotationRulesType): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RotationRulesType =>
-    __isa(o, "RotationRulesType");
+  export const isa = (o: any): o is RotationRulesType => __isa(o, "RotationRulesType");
 }
 
 /**
@@ -1629,10 +1555,9 @@ export interface SecretListEntry {
 
 export namespace SecretListEntry {
   export const filterSensitiveLog = (obj: SecretListEntry): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SecretListEntry =>
-    __isa(o, "SecretListEntry");
+  export const isa = (o: any): o is SecretListEntry => __isa(o, "SecretListEntry");
 }
 
 /**
@@ -1665,10 +1590,9 @@ export interface SecretVersionsListEntry {
 
 export namespace SecretVersionsListEntry {
   export const filterSensitiveLog = (obj: SecretVersionsListEntry): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SecretVersionsListEntry =>
-    __isa(o, "SecretVersionsListEntry");
+  export const isa = (o: any): o is SecretVersionsListEntry => __isa(o, "SecretVersionsListEntry");
 }
 
 /**
@@ -1689,7 +1613,7 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -1727,10 +1651,9 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface UntagResourceRequest {
@@ -1763,10 +1686,9 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateSecretRequest {
@@ -1882,10 +1804,9 @@ export namespace UpdateSecretRequest {
   export const filterSensitiveLog = (obj: UpdateSecretRequest): any => ({
     ...obj,
     ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
-    ...(obj.SecretString && { SecretString: SENSITIVE_STRING })
+    ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateSecretRequest =>
-    __isa(o, "UpdateSecretRequest");
+  export const isa = (o: any): o is UpdateSecretRequest => __isa(o, "UpdateSecretRequest");
 }
 
 export interface UpdateSecretResponse {
@@ -1916,10 +1837,9 @@ export interface UpdateSecretResponse {
 
 export namespace UpdateSecretResponse {
   export const filterSensitiveLog = (obj: UpdateSecretResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateSecretResponse =>
-    __isa(o, "UpdateSecretResponse");
+  export const isa = (o: any): o is UpdateSecretResponse => __isa(o, "UpdateSecretResponse");
 }
 
 export interface UpdateSecretVersionStageRequest {
@@ -1965,13 +1885,10 @@ export interface UpdateSecretVersionStageRequest {
 }
 
 export namespace UpdateSecretVersionStageRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateSecretVersionStageRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateSecretVersionStageRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateSecretVersionStageRequest =>
-    __isa(o, "UpdateSecretVersionStageRequest");
+  export const isa = (o: any): o is UpdateSecretVersionStageRequest => __isa(o, "UpdateSecretVersionStageRequest");
 }
 
 export interface UpdateSecretVersionStageResponse {
@@ -1988,11 +1905,8 @@ export interface UpdateSecretVersionStageResponse {
 }
 
 export namespace UpdateSecretVersionStageResponse {
-  export const filterSensitiveLog = (
-    obj: UpdateSecretVersionStageResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateSecretVersionStageResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateSecretVersionStageResponse =>
-    __isa(o, "UpdateSecretVersionStageResponse");
+  export const isa = (o: any): o is UpdateSecretVersionStageResponse => __isa(o, "UpdateSecretVersionStageResponse");
 }

@@ -5,17 +5,13 @@ import {
   BuildHandlerOutput,
   BuildMiddleware,
   MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { ResolvedPredictEndpointMiddlewareConfig } from "./configurations";
 
-export function predictEndpointMiddleware(
-  options: ResolvedPredictEndpointMiddlewareConfig
-): BuildMiddleware<any, any> {
-  return <Output extends MetadataBearer>(
-    next: BuildHandler<any, Output>
-  ): BuildHandler<any, Output> => async (
+export function predictEndpointMiddleware(options: ResolvedPredictEndpointMiddlewareConfig): BuildMiddleware<any, any> {
+  return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
     const { input } = args;
@@ -29,13 +25,13 @@ export function predictEndpointMiddleware(
           path: endpoint.path,
           port: endpoint.port,
           protocol: endpoint.protocol,
-          query: endpoint.query
+          query: endpoint.query,
         };
       }
     }
     return next({
       ...args,
-      request
+      request,
     });
   };
 }
@@ -43,16 +39,11 @@ export function predictEndpointMiddleware(
 export const predictEndpointMiddlewareOptions: BuildHandlerOptions = {
   step: "build",
   tags: ["PREDICT_ENDPOINT"],
-  name: "predictEndpointMiddleware"
+  name: "predictEndpointMiddleware",
 };
 
-export const getPredictEndpointPlugin = (
-  config: ResolvedPredictEndpointMiddlewareConfig
-): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
-    clientStack.add(
-      predictEndpointMiddleware(config),
-      predictEndpointMiddlewareOptions
-    );
-  }
+export const getPredictEndpointPlugin = (config: ResolvedPredictEndpointMiddlewareConfig): Pluggable<any, any> => ({
+  applyToStack: (clientStack) => {
+    clientStack.add(predictEndpointMiddleware(config), predictEndpointMiddlewareOptions);
+  },
 });

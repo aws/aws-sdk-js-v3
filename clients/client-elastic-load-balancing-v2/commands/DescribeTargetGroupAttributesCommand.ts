@@ -1,21 +1,15 @@
 import {
   ElasticLoadBalancingv2ClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticLoadBalancingv2Client";
-import {
-  DescribeTargetGroupAttributesInput,
-  DescribeTargetGroupAttributesOutput
-} from "../models/index";
+import { DescribeTargetGroupAttributesInput, DescribeTargetGroupAttributesOutput } from "../models/index";
 import {
   deserializeAws_queryDescribeTargetGroupAttributesCommand,
-  serializeAws_queryDescribeTargetGroupAttributesCommand
+  serializeAws_queryDescribeTargetGroupAttributesCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeTargetGroupAttributesCommandInput = DescribeTargetGroupAttributesInput;
-export type DescribeTargetGroupAttributesCommandOutput = DescribeTargetGroupAttributesOutput &
-  __MetadataBearer;
+export type DescribeTargetGroupAttributesCommandOutput = DescribeTargetGroupAttributesOutput & __MetadataBearer;
 
 export class DescribeTargetGroupAttributesCommand extends $Command<
   DescribeTargetGroupAttributesCommandInput,
@@ -49,18 +42,13 @@ export class DescribeTargetGroupAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTargetGroupAttributesCommandInput,
-    DescribeTargetGroupAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeTargetGroupAttributesCommandInput, DescribeTargetGroupAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +58,15 @@ export class DescribeTargetGroupAttributesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeTargetGroupAttributesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeTargetGroupAttributesCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeTargetGroupAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryDescribeTargetGroupAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTargetGroupAttributesCommandOutput> {
-    return deserializeAws_queryDescribeTargetGroupAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeTargetGroupAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

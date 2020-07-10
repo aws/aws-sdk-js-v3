@@ -1,21 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient";
-import {
-  CreateLoadBalancerRequest,
-  CreateLoadBalancerResult
-} from "../models/index";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { CreateLoadBalancerRequest, CreateLoadBalancerResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateLoadBalancerCommand,
-  serializeAws_json1_1CreateLoadBalancerCommand
+  serializeAws_json1_1CreateLoadBalancerCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateLoadBalancerCommandInput = CreateLoadBalancerRequest;
-export type CreateLoadBalancerCommandOutput = CreateLoadBalancerResult &
-  __MetadataBearer;
+export type CreateLoadBalancerCommandOutput = CreateLoadBalancerResult & __MetadataBearer;
 
 export class CreateLoadBalancerCommand extends $Command<
   CreateLoadBalancerCommandInput,
@@ -50,14 +39,12 @@ export class CreateLoadBalancerCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateLoadBalancerCommandInput, CreateLoadBalancerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class CreateLoadBalancerCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateLoadBalancerCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLoadBalancerCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateLoadBalancerCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLoadBalancerCommandOutput> {
     return deserializeAws_json1_1CreateLoadBalancerCommand(output, context);
   }
 

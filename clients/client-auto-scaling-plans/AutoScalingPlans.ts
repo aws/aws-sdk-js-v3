@@ -2,32 +2,32 @@ import { AutoScalingPlansClient } from "./AutoScalingPlansClient";
 import {
   CreateScalingPlanCommand,
   CreateScalingPlanCommandInput,
-  CreateScalingPlanCommandOutput
+  CreateScalingPlanCommandOutput,
 } from "./commands/CreateScalingPlanCommand";
 import {
   DeleteScalingPlanCommand,
   DeleteScalingPlanCommandInput,
-  DeleteScalingPlanCommandOutput
+  DeleteScalingPlanCommandOutput,
 } from "./commands/DeleteScalingPlanCommand";
 import {
   DescribeScalingPlanResourcesCommand,
   DescribeScalingPlanResourcesCommandInput,
-  DescribeScalingPlanResourcesCommandOutput
+  DescribeScalingPlanResourcesCommandOutput,
 } from "./commands/DescribeScalingPlanResourcesCommand";
 import {
   DescribeScalingPlansCommand,
   DescribeScalingPlansCommandInput,
-  DescribeScalingPlansCommandOutput
+  DescribeScalingPlansCommandOutput,
 } from "./commands/DescribeScalingPlansCommand";
 import {
   GetScalingPlanResourceForecastDataCommand,
   GetScalingPlanResourceForecastDataCommandInput,
-  GetScalingPlanResourceForecastDataCommandOutput
+  GetScalingPlanResourceForecastDataCommandOutput,
 } from "./commands/GetScalingPlanResourceForecastDataCommand";
 import {
   UpdateScalingPlanCommand,
   UpdateScalingPlanCommandInput,
-  UpdateScalingPlanCommandOutput
+  UpdateScalingPlanCommandOutput,
 } from "./commands/UpdateScalingPlanCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -60,17 +60,14 @@ export class AutoScalingPlans extends AutoScalingPlansClient {
   ): void;
   public createScalingPlan(
     args: CreateScalingPlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateScalingPlanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateScalingPlanCommandOutput) => void),
     cb?: (err: any, data?: CreateScalingPlanCommandOutput) => void
   ): Promise<CreateScalingPlanCommandOutput> | void {
     const command = new CreateScalingPlanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -99,17 +96,14 @@ export class AutoScalingPlans extends AutoScalingPlansClient {
   ): void;
   public deleteScalingPlan(
     args: DeleteScalingPlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteScalingPlanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteScalingPlanCommandOutput) => void),
     cb?: (err: any, data?: DeleteScalingPlanCommandOutput) => void
   ): Promise<DeleteScalingPlanCommandOutput> | void {
     const command = new DeleteScalingPlanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -134,17 +128,14 @@ export class AutoScalingPlans extends AutoScalingPlansClient {
   ): void;
   public describeScalingPlanResources(
     args: DescribeScalingPlanResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScalingPlanResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScalingPlanResourcesCommandOutput) => void),
     cb?: (err: any, data?: DescribeScalingPlanResourcesCommandOutput) => void
   ): Promise<DescribeScalingPlanResourcesCommandOutput> | void {
     const command = new DescribeScalingPlanResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -169,17 +160,14 @@ export class AutoScalingPlans extends AutoScalingPlansClient {
   ): void;
   public describeScalingPlans(
     args: DescribeScalingPlansCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScalingPlansCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScalingPlansCommandOutput) => void),
     cb?: (err: any, data?: DescribeScalingPlansCommandOutput) => void
   ): Promise<DescribeScalingPlansCommandOutput> | void {
     const command = new DescribeScalingPlansCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -200,38 +188,23 @@ export class AutoScalingPlans extends AutoScalingPlansClient {
   ): Promise<GetScalingPlanResourceForecastDataCommandOutput>;
   public getScalingPlanResourceForecastData(
     args: GetScalingPlanResourceForecastDataCommandInput,
-    cb: (
-      err: any,
-      data?: GetScalingPlanResourceForecastDataCommandOutput
-    ) => void
+    cb: (err: any, data?: GetScalingPlanResourceForecastDataCommandOutput) => void
   ): void;
   public getScalingPlanResourceForecastData(
     args: GetScalingPlanResourceForecastDataCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetScalingPlanResourceForecastDataCommandOutput
-    ) => void
+    cb: (err: any, data?: GetScalingPlanResourceForecastDataCommandOutput) => void
   ): void;
   public getScalingPlanResourceForecastData(
     args: GetScalingPlanResourceForecastDataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetScalingPlanResourceForecastDataCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetScalingPlanResourceForecastDataCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetScalingPlanResourceForecastDataCommandOutput) => void),
+    cb?: (err: any, data?: GetScalingPlanResourceForecastDataCommandOutput) => void
   ): Promise<GetScalingPlanResourceForecastDataCommandOutput> | void {
     const command = new GetScalingPlanResourceForecastDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -258,17 +231,14 @@ export class AutoScalingPlans extends AutoScalingPlansClient {
   ): void;
   public updateScalingPlan(
     args: UpdateScalingPlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateScalingPlanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateScalingPlanCommandOutput) => void),
     cb?: (err: any, data?: UpdateScalingPlanCommandOutput) => void
   ): Promise<UpdateScalingPlanCommandOutput> | void {
     const command = new UpdateScalingPlanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

@@ -1,21 +1,11 @@
-import {
-  QuickSightClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QuickSightClient";
-import {
-  DescribeTemplateAliasRequest,
-  DescribeTemplateAliasResponse
-} from "../models/index";
+import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { DescribeTemplateAliasRequest, DescribeTemplateAliasResponse } from "../models/index";
 import {
   deserializeAws_restJson1DescribeTemplateAliasCommand,
-  serializeAws_restJson1DescribeTemplateAliasCommand
+  serializeAws_restJson1DescribeTemplateAliasCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeTemplateAliasCommandInput = DescribeTemplateAliasRequest;
-export type DescribeTemplateAliasCommandOutput = DescribeTemplateAliasResponse &
-  __MetadataBearer;
+export type DescribeTemplateAliasCommandOutput = DescribeTemplateAliasResponse & __MetadataBearer;
 
 export class DescribeTemplateAliasCommand extends $Command<
   DescribeTemplateAliasCommandInput,
@@ -49,18 +38,13 @@ export class DescribeTemplateAliasCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTemplateAliasCommandInput,
-    DescribeTemplateAliasCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeTemplateAliasCommandInput, DescribeTemplateAliasCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class DescribeTemplateAliasCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeTemplateAliasCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeTemplateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeTemplateAliasCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeTemplateAliasCommandOutput> {
-    return deserializeAws_restJson1DescribeTemplateAliasCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTemplateAliasCommandOutput> {
+    return deserializeAws_restJson1DescribeTemplateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

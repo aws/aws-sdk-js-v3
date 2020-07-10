@@ -1,21 +1,11 @@
-import {
-  RAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RAMClient";
-import {
-  CreateResourceShareRequest,
-  CreateResourceShareResponse
-} from "../models/index";
+import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
+import { CreateResourceShareRequest, CreateResourceShareResponse } from "../models/index";
 import {
   deserializeAws_restJson1CreateResourceShareCommand,
-  serializeAws_restJson1CreateResourceShareCommand
+  serializeAws_restJson1CreateResourceShareCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateResourceShareCommandInput = CreateResourceShareRequest;
-export type CreateResourceShareCommandOutput = CreateResourceShareResponse &
-  __MetadataBearer;
+export type CreateResourceShareCommandOutput = CreateResourceShareResponse & __MetadataBearer;
 
 export class CreateResourceShareCommand extends $Command<
   CreateResourceShareCommandInput,
@@ -49,18 +38,13 @@ export class CreateResourceShareCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateResourceShareCommandInput,
-    CreateResourceShareCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateResourceShareCommandInput, CreateResourceShareCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class CreateResourceShareCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateResourceShareCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateResourceShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateResourceShareCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateResourceShareCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResourceShareCommandOutput> {
     return deserializeAws_restJson1CreateResourceShareCommand(output, context);
   }
 

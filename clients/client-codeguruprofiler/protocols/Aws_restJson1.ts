@@ -1,54 +1,30 @@
-import {
-  ConfigureAgentCommandInput,
-  ConfigureAgentCommandOutput
-} from "../commands/ConfigureAgentCommand";
+import { ConfigureAgentCommandInput, ConfigureAgentCommandOutput } from "../commands/ConfigureAgentCommand";
 import {
   CreateProfilingGroupCommandInput,
-  CreateProfilingGroupCommandOutput
+  CreateProfilingGroupCommandOutput,
 } from "../commands/CreateProfilingGroupCommand";
 import {
   DeleteProfilingGroupCommandInput,
-  DeleteProfilingGroupCommandOutput
+  DeleteProfilingGroupCommandOutput,
 } from "../commands/DeleteProfilingGroupCommand";
 import {
   DescribeProfilingGroupCommandInput,
-  DescribeProfilingGroupCommandOutput
+  DescribeProfilingGroupCommandOutput,
 } from "../commands/DescribeProfilingGroupCommand";
-import {
-  GetPolicyCommandInput,
-  GetPolicyCommandOutput
-} from "../commands/GetPolicyCommand";
-import {
-  GetProfileCommandInput,
-  GetProfileCommandOutput
-} from "../commands/GetProfileCommand";
-import {
-  ListProfileTimesCommandInput,
-  ListProfileTimesCommandOutput
-} from "../commands/ListProfileTimesCommand";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "../commands/GetPolicyCommand";
+import { GetProfileCommandInput, GetProfileCommandOutput } from "../commands/GetProfileCommand";
+import { ListProfileTimesCommandInput, ListProfileTimesCommandOutput } from "../commands/ListProfileTimesCommand";
 import {
   ListProfilingGroupsCommandInput,
-  ListProfilingGroupsCommandOutput
+  ListProfilingGroupsCommandOutput,
 } from "../commands/ListProfilingGroupsCommand";
-import {
-  PostAgentProfileCommandInput,
-  PostAgentProfileCommandOutput
-} from "../commands/PostAgentProfileCommand";
-import {
-  PutPermissionCommandInput,
-  PutPermissionCommandOutput
-} from "../commands/PutPermissionCommand";
-import {
-  RemovePermissionCommandInput,
-  RemovePermissionCommandOutput
-} from "../commands/RemovePermissionCommand";
-import {
-  RetrieveTimeSeriesCommandInput,
-  RetrieveTimeSeriesCommandOutput
-} from "../commands/RetrieveTimeSeriesCommand";
+import { PostAgentProfileCommandInput, PostAgentProfileCommandOutput } from "../commands/PostAgentProfileCommand";
+import { PutPermissionCommandInput, PutPermissionCommandOutput } from "../commands/PutPermissionCommand";
+import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "../commands/RemovePermissionCommand";
+import { RetrieveTimeSeriesCommandInput, RetrieveTimeSeriesCommandOutput } from "../commands/RetrieveTimeSeriesCommand";
 import {
   UpdateProfilingGroupCommandInput,
-  UpdateProfilingGroupCommandOutput
+  UpdateProfilingGroupCommandOutput,
 } from "../commands/UpdateProfilingGroupCommand";
 import {
   AgentConfiguration,
@@ -65,21 +41,18 @@ import {
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   ThrottlingException,
-  ValidationException
+  ValidationException,
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
@@ -88,33 +61,22 @@ export const serializeAws_restJson1ConfigureAgentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/profilingGroups/{profilingGroupName}/configureAgent";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: profilingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: profilingGroupName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{profilingGroupName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{profilingGroupName}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: profilingGroupName."
-    );
+    throw new Error("No value provided for input HTTP label: profilingGroupName.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.fleetInstanceId !== undefined && {
-      fleetInstanceId: input.fleetInstanceId
-    }),
-    ...(input.metadata !== undefined && {
-      metadata: serializeAws_restJson1Metadata(input.metadata, context)
-    })
+    ...(input.fleetInstanceId !== undefined && { fleetInstanceId: input.fleetInstanceId }),
+    ...(input.metadata !== undefined && { metadata: serializeAws_restJson1Metadata(input.metadata, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -124,7 +86,7 @@ export const serializeAws_restJson1ConfigureAgentCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -133,26 +95,19 @@ export const serializeAws_restJson1CreateProfilingGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/profilingGroups";
   const query: any = {
-    ...(input.clientToken !== undefined && { clientToken: input.clientToken })
+    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
   };
   let body: any;
   body = JSON.stringify({
     ...(input.agentOrchestrationConfig !== undefined && {
-      agentOrchestrationConfig: serializeAws_restJson1AgentOrchestrationConfig(
-        input.agentOrchestrationConfig,
-        context
-      )
+      agentOrchestrationConfig: serializeAws_restJson1AgentOrchestrationConfig(input.agentOrchestrationConfig, context),
     }),
-    ...(input.computePlatform !== undefined && {
-      computePlatform: input.computePlatform
-    }),
-    ...(input.profilingGroupName !== undefined && {
-      profilingGroupName: input.profilingGroupName
-    })
+    ...(input.computePlatform !== undefined && { computePlatform: input.computePlatform }),
+    ...(input.profilingGroupName !== undefined && { profilingGroupName: input.profilingGroupName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -163,7 +118,7 @@ export const serializeAws_restJson1CreateProfilingGroupCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -172,24 +127,17 @@ export const serializeAws_restJson1DeleteProfilingGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/profilingGroups/{profilingGroupName}";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: profilingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: profilingGroupName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{profilingGroupName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{profilingGroupName}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: profilingGroupName."
-    );
+    throw new Error("No value provided for input HTTP label: profilingGroupName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -200,7 +148,7 @@ export const serializeAws_restJson1DeleteProfilingGroupCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -209,24 +157,17 @@ export const serializeAws_restJson1DescribeProfilingGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/profilingGroups/{profilingGroupName}";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: profilingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: profilingGroupName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{profilingGroupName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{profilingGroupName}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: profilingGroupName."
-    );
+    throw new Error("No value provided for input HTTP label: profilingGroupName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -237,7 +178,7 @@ export const serializeAws_restJson1DescribeProfilingGroupCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -246,17 +187,13 @@ export const serializeAws_restJson1ListProfilingGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/profilingGroups";
   const query: any = {
-    ...(input.includeDescription !== undefined && {
-      includeDescription: input.includeDescription.toString()
-    }),
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString()
-    }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+    ...(input.includeDescription !== undefined && { includeDescription: input.includeDescription.toString() }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -268,7 +205,7 @@ export const serializeAws_restJson1ListProfilingGroupsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -277,33 +214,23 @@ export const serializeAws_restJson1UpdateProfilingGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/profilingGroups/{profilingGroupName}";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: profilingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: profilingGroupName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{profilingGroupName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{profilingGroupName}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: profilingGroupName."
-    );
+    throw new Error("No value provided for input HTTP label: profilingGroupName.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.agentOrchestrationConfig !== undefined && {
-      agentOrchestrationConfig: serializeAws_restJson1AgentOrchestrationConfig(
-        input.agentOrchestrationConfig,
-        context
-      )
-    })
+      agentOrchestrationConfig: serializeAws_restJson1AgentOrchestrationConfig(input.agentOrchestrationConfig, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -313,7 +240,7 @@ export const serializeAws_restJson1UpdateProfilingGroupCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -322,24 +249,17 @@ export const serializeAws_restJson1GetPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/profilingGroups/{profilingGroupName}/policy";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: profilingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: profilingGroupName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{profilingGroupName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{profilingGroupName}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: profilingGroupName."
-    );
+    throw new Error("No value provided for input HTTP label: profilingGroupName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -350,7 +270,7 @@ export const serializeAws_restJson1GetPolicyCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -359,46 +279,31 @@ export const serializeAws_restJson1PutPermissionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
-  let resolvedPath =
-    "/profilingGroups/{profilingGroupName}/policy/{actionGroup}";
+  let resolvedPath = "/profilingGroups/{profilingGroupName}/policy/{actionGroup}";
   if (input.actionGroup !== undefined) {
     const labelValue: string = input.actionGroup;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: actionGroup."
-      );
+      throw new Error("Empty value provided for input HTTP label: actionGroup.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{actionGroup}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{actionGroup}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: actionGroup.");
   }
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: profilingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: profilingGroupName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{profilingGroupName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{profilingGroupName}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: profilingGroupName."
-    );
+    throw new Error("No value provided for input HTTP label: profilingGroupName.");
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.principals !== undefined && {
-      principals: serializeAws_restJson1Principals(input.principals, context)
-    }),
-    ...(input.revisionId !== undefined && { revisionId: input.revisionId })
+    ...(input.principals !== undefined && { principals: serializeAws_restJson1Principals(input.principals, context) }),
+    ...(input.revisionId !== undefined && { revisionId: input.revisionId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -408,7 +313,7 @@ export const serializeAws_restJson1PutPermissionCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -417,42 +322,29 @@ export const serializeAws_restJson1RemovePermissionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
-  let resolvedPath =
-    "/profilingGroups/{profilingGroupName}/policy/{actionGroup}";
+  let resolvedPath = "/profilingGroups/{profilingGroupName}/policy/{actionGroup}";
   if (input.actionGroup !== undefined) {
     const labelValue: string = input.actionGroup;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: actionGroup."
-      );
+      throw new Error("Empty value provided for input HTTP label: actionGroup.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{actionGroup}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{actionGroup}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: actionGroup.");
   }
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: profilingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: profilingGroupName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{profilingGroupName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{profilingGroupName}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: profilingGroupName."
-    );
+    throw new Error("No value provided for input HTTP label: profilingGroupName.");
   }
   const query: any = {
-    ...(input.revisionId !== undefined && { revisionId: input.revisionId })
+    ...(input.revisionId !== undefined && { revisionId: input.revisionId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -464,7 +356,7 @@ export const serializeAws_restJson1RemovePermissionCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -474,36 +366,23 @@ export const serializeAws_restJson1GetProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.accept) && { Accept: input.accept! })
+    ...(isSerializableHeaderValue(input.accept) && { Accept: input.accept! }),
   };
   let resolvedPath = "/profilingGroups/{profilingGroupName}/profile";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: profilingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: profilingGroupName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{profilingGroupName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{profilingGroupName}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: profilingGroupName."
-    );
+    throw new Error("No value provided for input HTTP label: profilingGroupName.");
   }
   const query: any = {
-    ...(input.endTime !== undefined && {
-      endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString()
-    }),
-    ...(input.maxDepth !== undefined && {
-      maxDepth: input.maxDepth.toString()
-    }),
+    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.maxDepth !== undefined && { maxDepth: input.maxDepth.toString() }),
     ...(input.period !== undefined && { period: input.period }),
-    ...(input.startTime !== undefined && {
-      startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString()
-    })
+    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -515,7 +394,7 @@ export const serializeAws_restJson1GetProfileCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -524,38 +403,25 @@ export const serializeAws_restJson1ListProfileTimesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/profilingGroups/{profilingGroupName}/profileTimes";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: profilingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: profilingGroupName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{profilingGroupName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{profilingGroupName}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: profilingGroupName."
-    );
+    throw new Error("No value provided for input HTTP label: profilingGroupName.");
   }
   const query: any = {
-    ...(input.endTime !== undefined && {
-      endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString()
-    }),
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString()
-    }),
+    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.orderBy !== undefined && { orderBy: input.orderBy }),
     ...(input.period !== undefined && { period: input.period }),
-    ...(input.startTime !== undefined && {
-      startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString()
-    })
+    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -567,7 +433,7 @@ export const serializeAws_restJson1ListProfileTimesCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -577,31 +443,20 @@ export const serializeAws_restJson1PostAgentProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/octet-stream",
-    ...(isSerializableHeaderValue(input.contentType) && {
-      "Content-Type": input.contentType!
-    })
+    ...(isSerializableHeaderValue(input.contentType) && { "Content-Type": input.contentType! }),
   };
   let resolvedPath = "/profilingGroups/{profilingGroupName}/agentProfile";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: profilingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: profilingGroupName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{profilingGroupName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{profilingGroupName}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: profilingGroupName."
-    );
+    throw new Error("No value provided for input HTTP label: profilingGroupName.");
   }
   const query: any = {
-    ...(input.profileToken !== undefined && {
-      profileToken: input.profileToken
-    })
+    ...(input.profileToken !== undefined && { profileToken: input.profileToken }),
   };
   let body: any;
   if (input.agentProfile !== undefined) {
@@ -616,7 +471,7 @@ export const serializeAws_restJson1PostAgentProfileCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -625,45 +480,29 @@ export const serializeAws_restJson1RetrieveTimeSeriesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/profilingGroups/{profilingGroupName}/timeseries";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: profilingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: profilingGroupName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{profilingGroupName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{profilingGroupName}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: profilingGroupName."
-    );
+    throw new Error("No value provided for input HTTP label: profilingGroupName.");
   }
   const query: any = {
-    ...(input.endTime !== undefined && {
-      endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString()
-    }),
+    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.period !== undefined && { period: input.period }),
-    ...(input.startTime !== undefined && {
-      startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString()
-    }),
-    ...(input.targetResolution !== undefined && {
-      targetResolution: input.targetResolution
-    })
+    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.targetResolution !== undefined && { targetResolution: input.targetResolution }),
   };
   let body: any;
   body = JSON.stringify({
     ...(input.frameMetrics !== undefined && {
-      frameMetrics: serializeAws_restJson1FrameMetrics(
-        input.frameMetrics,
-        context
-      )
-    })
+      frameMetrics: serializeAws_restJson1FrameMetrics(input.frameMetrics, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -674,7 +513,7 @@ export const serializeAws_restJson1RetrieveTimeSeriesCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -688,13 +527,10 @@ export const deserializeAws_restJson1ConfigureAgentCommand = async (
   const contents: ConfigureAgentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ConfigureAgentResponse",
-    configuration: undefined
+    configuration: undefined,
   };
   const data: any = await parseBody(output.body, context);
-  contents.configuration = deserializeAws_restJson1AgentConfiguration(
-    data,
-    context
-  );
+  contents.configuration = deserializeAws_restJson1AgentConfiguration(data, context);
   return Promise.resolve(contents);
 };
 
@@ -704,7 +540,7 @@ const deserializeAws_restJson1ConfigureAgentCommandError = async (
 ): Promise<ConfigureAgentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -713,45 +549,33 @@ const deserializeAws_restJson1ConfigureAgentCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.codeguruprofiler#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codeguruprofiler#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.codeguruprofiler#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codeguruprofiler#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -762,7 +586,7 @@ const deserializeAws_restJson1ConfigureAgentCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -776,21 +600,15 @@ export const deserializeAws_restJson1CreateProfilingGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateProfilingGroupCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateProfilingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateProfilingGroupCommandError(output, context);
   }
   const contents: CreateProfilingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateProfilingGroupResponse",
-    profilingGroup: undefined
+    profilingGroup: undefined,
   };
   const data: any = await parseBody(output.body, context);
-  contents.profilingGroup = deserializeAws_restJson1ProfilingGroupDescription(
-    data,
-    context
-  );
+  contents.profilingGroup = deserializeAws_restJson1ProfilingGroupDescription(data, context);
   return Promise.resolve(contents);
 };
 
@@ -800,7 +618,7 @@ const deserializeAws_restJson1CreateProfilingGroupCommandError = async (
 ): Promise<CreateProfilingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -809,56 +627,41 @@ const deserializeAws_restJson1CreateProfilingGroupCommandError = async (
     case "ConflictException":
     case "com.amazonaws.codeguruprofiler#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerException":
     case "com.amazonaws.codeguruprofiler#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceQuotaExceededException":
     case "com.amazonaws.codeguruprofiler#ServiceQuotaExceededException":
       response = {
-        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.codeguruprofiler#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codeguruprofiler#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -869,7 +672,7 @@ const deserializeAws_restJson1CreateProfilingGroupCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -883,14 +686,11 @@ export const deserializeAws_restJson1DeleteProfilingGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProfilingGroupCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DeleteProfilingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteProfilingGroupCommandError(output, context);
   }
   const contents: DeleteProfilingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteProfilingGroupResponse"
+    __type: "DeleteProfilingGroupResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -902,7 +702,7 @@ const deserializeAws_restJson1DeleteProfilingGroupCommandError = async (
 ): Promise<DeleteProfilingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -911,45 +711,33 @@ const deserializeAws_restJson1DeleteProfilingGroupCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.codeguruprofiler#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codeguruprofiler#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.codeguruprofiler#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codeguruprofiler#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -960,7 +748,7 @@ const deserializeAws_restJson1DeleteProfilingGroupCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -974,21 +762,15 @@ export const deserializeAws_restJson1DescribeProfilingGroupCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProfilingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DescribeProfilingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DescribeProfilingGroupCommandError(output, context);
   }
   const contents: DescribeProfilingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeProfilingGroupResponse",
-    profilingGroup: undefined
+    profilingGroup: undefined,
   };
   const data: any = await parseBody(output.body, context);
-  contents.profilingGroup = deserializeAws_restJson1ProfilingGroupDescription(
-    data,
-    context
-  );
+  contents.profilingGroup = deserializeAws_restJson1ProfilingGroupDescription(data, context);
   return Promise.resolve(contents);
 };
 
@@ -998,7 +780,7 @@ const deserializeAws_restJson1DescribeProfilingGroupCommandError = async (
 ): Promise<DescribeProfilingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1007,45 +789,33 @@ const deserializeAws_restJson1DescribeProfilingGroupCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.codeguruprofiler#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codeguruprofiler#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.codeguruprofiler#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codeguruprofiler#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1056,7 +826,7 @@ const deserializeAws_restJson1DescribeProfilingGroupCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1070,36 +840,24 @@ export const deserializeAws_restJson1ListProfilingGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListProfilingGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListProfilingGroupsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListProfilingGroupsCommandError(output, context);
   }
   const contents: ListProfilingGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListProfilingGroupsResponse",
     nextToken: undefined,
     profilingGroupNames: undefined,
-    profilingGroups: undefined
+    profilingGroups: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (
-    data.profilingGroupNames !== undefined &&
-    data.profilingGroupNames !== null
-  ) {
-    contents.profilingGroupNames = deserializeAws_restJson1ProfilingGroupNames(
-      data.profilingGroupNames,
-      context
-    );
+  if (data.profilingGroupNames !== undefined && data.profilingGroupNames !== null) {
+    contents.profilingGroupNames = deserializeAws_restJson1ProfilingGroupNames(data.profilingGroupNames, context);
   }
   if (data.profilingGroups !== undefined && data.profilingGroups !== null) {
-    contents.profilingGroups = deserializeAws_restJson1ProfilingGroupDescriptions(
-      data.profilingGroups,
-      context
-    );
+    contents.profilingGroups = deserializeAws_restJson1ProfilingGroupDescriptions(data.profilingGroups, context);
   }
   return Promise.resolve(contents);
 };
@@ -1110,7 +868,7 @@ const deserializeAws_restJson1ListProfilingGroupsCommandError = async (
 ): Promise<ListProfilingGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1119,23 +877,17 @@ const deserializeAws_restJson1ListProfilingGroupsCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.codeguruprofiler#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.codeguruprofiler#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1146,7 +898,7 @@ const deserializeAws_restJson1ListProfilingGroupsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1160,21 +912,15 @@ export const deserializeAws_restJson1UpdateProfilingGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateProfilingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1UpdateProfilingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateProfilingGroupCommandError(output, context);
   }
   const contents: UpdateProfilingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateProfilingGroupResponse",
-    profilingGroup: undefined
+    profilingGroup: undefined,
   };
   const data: any = await parseBody(output.body, context);
-  contents.profilingGroup = deserializeAws_restJson1ProfilingGroupDescription(
-    data,
-    context
-  );
+  contents.profilingGroup = deserializeAws_restJson1ProfilingGroupDescription(data, context);
   return Promise.resolve(contents);
 };
 
@@ -1184,7 +930,7 @@ const deserializeAws_restJson1UpdateProfilingGroupCommandError = async (
 ): Promise<UpdateProfilingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1193,56 +939,41 @@ const deserializeAws_restJson1UpdateProfilingGroupCommandError = async (
     case "ConflictException":
     case "com.amazonaws.codeguruprofiler#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerException":
     case "com.amazonaws.codeguruprofiler#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codeguruprofiler#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.codeguruprofiler#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codeguruprofiler#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1253,7 +984,7 @@ const deserializeAws_restJson1UpdateProfilingGroupCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1273,7 +1004,7 @@ export const deserializeAws_restJson1GetPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "GetPolicyResponse",
     policy: undefined,
-    revisionId: undefined
+    revisionId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.policy !== undefined && data.policy !== null) {
@@ -1291,7 +1022,7 @@ const deserializeAws_restJson1GetPolicyCommandError = async (
 ): Promise<GetPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1300,34 +1031,25 @@ const deserializeAws_restJson1GetPolicyCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.codeguruprofiler#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codeguruprofiler#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.codeguruprofiler#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1338,7 +1060,7 @@ const deserializeAws_restJson1GetPolicyCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1358,7 +1080,7 @@ export const deserializeAws_restJson1PutPermissionCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "PutPermissionResponse",
     policy: undefined,
-    revisionId: undefined
+    revisionId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.policy !== undefined && data.policy !== null) {
@@ -1376,7 +1098,7 @@ const deserializeAws_restJson1PutPermissionCommandError = async (
 ): Promise<PutPermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1385,56 +1107,41 @@ const deserializeAws_restJson1PutPermissionCommandError = async (
     case "ConflictException":
     case "com.amazonaws.codeguruprofiler#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerException":
     case "com.amazonaws.codeguruprofiler#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codeguruprofiler#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.codeguruprofiler#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codeguruprofiler#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1445,7 +1152,7 @@ const deserializeAws_restJson1PutPermissionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1459,16 +1166,13 @@ export const deserializeAws_restJson1RemovePermissionCommand = async (
   context: __SerdeContext
 ): Promise<RemovePermissionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1RemovePermissionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1RemovePermissionCommandError(output, context);
   }
   const contents: RemovePermissionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RemovePermissionResponse",
     policy: undefined,
-    revisionId: undefined
+    revisionId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.policy !== undefined && data.policy !== null) {
@@ -1486,7 +1190,7 @@ const deserializeAws_restJson1RemovePermissionCommandError = async (
 ): Promise<RemovePermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1495,56 +1199,41 @@ const deserializeAws_restJson1RemovePermissionCommandError = async (
     case "ConflictException":
     case "com.amazonaws.codeguruprofiler#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerException":
     case "com.amazonaws.codeguruprofiler#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codeguruprofiler#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.codeguruprofiler#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codeguruprofiler#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1555,7 +1244,7 @@ const deserializeAws_restJson1RemovePermissionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1576,7 +1265,7 @@ export const deserializeAws_restJson1GetProfileCommand = async (
     __type: "GetProfileResponse",
     contentEncoding: undefined,
     contentType: undefined,
-    profile: undefined
+    profile: undefined,
   };
   if (output.headers["content-encoding"] !== undefined) {
     contents.contentEncoding = output.headers["content-encoding"];
@@ -1595,7 +1284,7 @@ const deserializeAws_restJson1GetProfileCommandError = async (
 ): Promise<GetProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1604,45 +1293,33 @@ const deserializeAws_restJson1GetProfileCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.codeguruprofiler#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codeguruprofiler#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.codeguruprofiler#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codeguruprofiler#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1653,7 +1330,7 @@ const deserializeAws_restJson1GetProfileCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1667,26 +1344,20 @@ export const deserializeAws_restJson1ListProfileTimesCommand = async (
   context: __SerdeContext
 ): Promise<ListProfileTimesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1ListProfileTimesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListProfileTimesCommandError(output, context);
   }
   const contents: ListProfileTimesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListProfileTimesResponse",
     nextToken: undefined,
-    profileTimes: undefined
+    profileTimes: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
   if (data.profileTimes !== undefined && data.profileTimes !== null) {
-    contents.profileTimes = deserializeAws_restJson1ProfileTimes(
-      data.profileTimes,
-      context
-    );
+    contents.profileTimes = deserializeAws_restJson1ProfileTimes(data.profileTimes, context);
   }
   return Promise.resolve(contents);
 };
@@ -1697,7 +1368,7 @@ const deserializeAws_restJson1ListProfileTimesCommandError = async (
 ): Promise<ListProfileTimesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1706,45 +1377,33 @@ const deserializeAws_restJson1ListProfileTimesCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.codeguruprofiler#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codeguruprofiler#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.codeguruprofiler#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codeguruprofiler#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1755,7 +1414,7 @@ const deserializeAws_restJson1ListProfileTimesCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1769,14 +1428,11 @@ export const deserializeAws_restJson1PostAgentProfileCommand = async (
   context: __SerdeContext
 ): Promise<PostAgentProfileCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1PostAgentProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1PostAgentProfileCommandError(output, context);
   }
   const contents: PostAgentProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PostAgentProfileResponse"
+    __type: "PostAgentProfileResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1788,7 +1444,7 @@ const deserializeAws_restJson1PostAgentProfileCommandError = async (
 ): Promise<PostAgentProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1797,45 +1453,33 @@ const deserializeAws_restJson1PostAgentProfileCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.codeguruprofiler#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codeguruprofiler#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.codeguruprofiler#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codeguruprofiler#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1846,7 +1490,7 @@ const deserializeAws_restJson1PostAgentProfileCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1860,10 +1504,7 @@ export const deserializeAws_restJson1RetrieveTimeSeriesCommand = async (
   context: __SerdeContext
 ): Promise<RetrieveTimeSeriesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1RetrieveTimeSeriesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1RetrieveTimeSeriesCommandError(output, context);
   }
   const contents: RetrieveTimeSeriesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1874,7 +1515,7 @@ export const deserializeAws_restJson1RetrieveTimeSeriesCommand = async (
     frameMetrics: undefined,
     resolution: undefined,
     startTime: undefined,
-    unprocessedEndTimes: undefined
+    unprocessedEndTimes: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.data !== undefined && data.data !== null) {
@@ -1884,16 +1525,10 @@ export const deserializeAws_restJson1RetrieveTimeSeriesCommand = async (
     contents.endTime = new Date(data.endTime);
   }
   if (data.endTimes !== undefined && data.endTimes !== null) {
-    contents.endTimes = deserializeAws_restJson1ListOfTimestamps(
-      data.endTimes,
-      context
-    );
+    contents.endTimes = deserializeAws_restJson1ListOfTimestamps(data.endTimes, context);
   }
   if (data.frameMetrics !== undefined && data.frameMetrics !== null) {
-    contents.frameMetrics = deserializeAws_restJson1FrameMetrics(
-      data.frameMetrics,
-      context
-    );
+    contents.frameMetrics = deserializeAws_restJson1FrameMetrics(data.frameMetrics, context);
   }
   if (data.resolution !== undefined && data.resolution !== null) {
     contents.resolution = data.resolution;
@@ -1901,14 +1536,8 @@ export const deserializeAws_restJson1RetrieveTimeSeriesCommand = async (
   if (data.startTime !== undefined && data.startTime !== null) {
     contents.startTime = new Date(data.startTime);
   }
-  if (
-    data.unprocessedEndTimes !== undefined &&
-    data.unprocessedEndTimes !== null
-  ) {
-    contents.unprocessedEndTimes = deserializeAws_restJson1UnprocessedEndTimeMap(
-      data.unprocessedEndTimes,
-      context
-    );
+  if (data.unprocessedEndTimes !== undefined && data.unprocessedEndTimes !== null) {
+    contents.unprocessedEndTimes = deserializeAws_restJson1UnprocessedEndTimeMap(data.unprocessedEndTimes, context);
   }
   return Promise.resolve(contents);
 };
@@ -1919,7 +1548,7 @@ const deserializeAws_restJson1RetrieveTimeSeriesCommandError = async (
 ): Promise<RetrieveTimeSeriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1928,45 +1557,33 @@ const deserializeAws_restJson1RetrieveTimeSeriesCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.codeguruprofiler#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codeguruprofiler#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.codeguruprofiler#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.codeguruprofiler#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1977,7 +1594,7 @@ const deserializeAws_restJson1RetrieveTimeSeriesCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1994,7 +1611,7 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
     name: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -2012,7 +1629,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
     $fault: "server",
     $retryable: {},
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -2029,7 +1646,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
     name: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -2047,7 +1664,7 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
     $fault: "client",
     $retryable: {},
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -2065,7 +1682,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
     $fault: "client",
     $retryable: {},
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -2082,7 +1699,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
     name: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -2091,17 +1708,11 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1Metadata = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1Metadata = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
-    (
-      acc: { [key: string]: string },
-      [key, value]: [MetadataField | string, any]
-    ) => ({
+    (acc: { [key: string]: string }, [key, value]: [MetadataField | string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
@@ -2112,103 +1723,61 @@ const serializeAws_restJson1AgentOrchestrationConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.profilingEnabled !== undefined && {
-      profilingEnabled: input.profilingEnabled
-    })
+    ...(input.profilingEnabled !== undefined && { profilingEnabled: input.profilingEnabled }),
   };
 };
 
-const serializeAws_restJson1Principals = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
+const serializeAws_restJson1Principals = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
-const serializeAws_restJson1FrameMetric = (
-  input: FrameMetric,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1FrameMetric = (input: FrameMetric, context: __SerdeContext): any => {
   return {
     ...(input.frameName !== undefined && { frameName: input.frameName }),
     ...(input.threadStates !== undefined && {
-      threadStates: serializeAws_restJson1ThreadStates(
-        input.threadStates,
-        context
-      )
+      threadStates: serializeAws_restJson1ThreadStates(input.threadStates, context),
     }),
-    ...(input.type !== undefined && { type: input.type })
+    ...(input.type !== undefined && { type: input.type }),
   };
 };
 
-const serializeAws_restJson1FrameMetrics = (
-  input: FrameMetric[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_restJson1FrameMetric(entry, context));
+const serializeAws_restJson1FrameMetrics = (input: FrameMetric[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1FrameMetric(entry, context));
 };
 
-const serializeAws_restJson1ThreadStates = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
+const serializeAws_restJson1ThreadStates = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
-const deserializeAws_restJson1AgentParameters = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1AgentParameters = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: string },
-      [key, value]: [AgentParameterField | string, any]
-    ) => ({
+    (acc: { [key: string]: string }, [key, value]: [AgentParameterField | string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
 };
 
-const deserializeAws_restJson1AggregatedProfileTime = (
-  output: any,
-  context: __SerdeContext
-): AggregatedProfileTime => {
+const deserializeAws_restJson1AggregatedProfileTime = (output: any, context: __SerdeContext): AggregatedProfileTime => {
   return {
     __type: "AggregatedProfileTime",
-    period:
-      output.period !== undefined && output.period !== null
-        ? output.period
-        : undefined,
-    start:
-      output.start !== undefined && output.start !== null
-        ? new Date(output.start)
-        : undefined
+    period: output.period !== undefined && output.period !== null ? output.period : undefined,
+    start: output.start !== undefined && output.start !== null ? new Date(output.start) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1AgentConfiguration = (
-  output: any,
-  context: __SerdeContext
-): AgentConfiguration => {
+const deserializeAws_restJson1AgentConfiguration = (output: any, context: __SerdeContext): AgentConfiguration => {
   return {
     __type: "AgentConfiguration",
     agentParameters:
       output.agentParameters !== undefined && output.agentParameters !== null
-        ? deserializeAws_restJson1AgentParameters(
-            output.agentParameters,
-            context
-          )
+        ? deserializeAws_restJson1AgentParameters(output.agentParameters, context)
         : undefined,
     periodInSeconds:
-      output.periodInSeconds !== undefined && output.periodInSeconds !== null
-        ? output.periodInSeconds
-        : undefined,
+      output.periodInSeconds !== undefined && output.periodInSeconds !== null ? output.periodInSeconds : undefined,
     shouldProfile:
-      output.shouldProfile !== undefined && output.shouldProfile !== null
-        ? output.shouldProfile
-        : undefined
+      output.shouldProfile !== undefined && output.shouldProfile !== null ? output.shouldProfile : undefined,
   } as any;
 };
 
@@ -2219,9 +1788,7 @@ const deserializeAws_restJson1AgentOrchestrationConfig = (
   return {
     __type: "AgentOrchestrationConfig",
     profilingEnabled:
-      output.profilingEnabled !== undefined && output.profilingEnabled !== null
-        ? output.profilingEnabled
-        : undefined
+      output.profilingEnabled !== undefined && output.profilingEnabled !== null ? output.profilingEnabled : undefined,
   } as any;
 };
 
@@ -2232,38 +1799,19 @@ const deserializeAws_restJson1ProfilingGroupDescription = (
   return {
     __type: "ProfilingGroupDescription",
     agentOrchestrationConfig:
-      output.agentOrchestrationConfig !== undefined &&
-      output.agentOrchestrationConfig !== null
-        ? deserializeAws_restJson1AgentOrchestrationConfig(
-            output.agentOrchestrationConfig,
-            context
-          )
+      output.agentOrchestrationConfig !== undefined && output.agentOrchestrationConfig !== null
+        ? deserializeAws_restJson1AgentOrchestrationConfig(output.agentOrchestrationConfig, context)
         : undefined,
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     computePlatform:
-      output.computePlatform !== undefined && output.computePlatform !== null
-        ? output.computePlatform
-        : undefined,
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(output.createdAt)
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+      output.computePlatform !== undefined && output.computePlatform !== null ? output.computePlatform : undefined,
+    createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     profilingStatus:
       output.profilingStatus !== undefined && output.profilingStatus !== null
-        ? deserializeAws_restJson1ProfilingStatus(
-            output.profilingStatus,
-            context
-          )
+        ? deserializeAws_restJson1ProfilingStatus(output.profilingStatus, context)
         : undefined,
-    updatedAt:
-      output.updatedAt !== undefined && output.updatedAt !== null
-        ? new Date(output.updatedAt)
-        : undefined
+    updatedAt: output.updatedAt !== undefined && output.updatedAt !== null ? new Date(output.updatedAt) : undefined,
   } as any;
 };
 
@@ -2271,124 +1819,71 @@ const deserializeAws_restJson1ProfilingGroupDescriptions = (
   output: any,
   context: __SerdeContext
 ): ProfilingGroupDescription[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1ProfilingGroupDescription(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1ProfilingGroupDescription(entry, context));
 };
 
-const deserializeAws_restJson1ProfilingGroupNames = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1ProfilingGroupNames = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1ProfilingStatus = (
-  output: any,
-  context: __SerdeContext
-): ProfilingStatus => {
+const deserializeAws_restJson1ProfilingStatus = (output: any, context: __SerdeContext): ProfilingStatus => {
   return {
     __type: "ProfilingStatus",
     latestAgentOrchestratedAt:
-      output.latestAgentOrchestratedAt !== undefined &&
-      output.latestAgentOrchestratedAt !== null
+      output.latestAgentOrchestratedAt !== undefined && output.latestAgentOrchestratedAt !== null
         ? new Date(output.latestAgentOrchestratedAt)
         : undefined,
     latestAgentProfileReportedAt:
-      output.latestAgentProfileReportedAt !== undefined &&
-      output.latestAgentProfileReportedAt !== null
+      output.latestAgentProfileReportedAt !== undefined && output.latestAgentProfileReportedAt !== null
         ? new Date(output.latestAgentProfileReportedAt)
         : undefined,
     latestAggregatedProfile:
-      output.latestAggregatedProfile !== undefined &&
-      output.latestAggregatedProfile !== null
-        ? deserializeAws_restJson1AggregatedProfileTime(
-            output.latestAggregatedProfile,
-            context
-          )
-        : undefined
+      output.latestAggregatedProfile !== undefined && output.latestAggregatedProfile !== null
+        ? deserializeAws_restJson1AggregatedProfileTime(output.latestAggregatedProfile, context)
+        : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ProfileTime = (
-  output: any,
-  context: __SerdeContext
-): ProfileTime => {
+const deserializeAws_restJson1ProfileTime = (output: any, context: __SerdeContext): ProfileTime => {
   return {
     __type: "ProfileTime",
-    start:
-      output.start !== undefined && output.start !== null
-        ? new Date(output.start)
-        : undefined
+    start: output.start !== undefined && output.start !== null ? new Date(output.start) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ProfileTimes = (
-  output: any,
-  context: __SerdeContext
-): ProfileTime[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1ProfileTime(entry, context)
-  );
+const deserializeAws_restJson1ProfileTimes = (output: any, context: __SerdeContext): ProfileTime[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1ProfileTime(entry, context));
 };
 
-const deserializeAws_restJson1DataMatrix = (
-  output: any,
-  context: __SerdeContext
-): number[][] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1DataMatrixRow(entry, context)
-  );
+const deserializeAws_restJson1DataMatrix = (output: any, context: __SerdeContext): number[][] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1DataMatrixRow(entry, context));
 };
 
-const deserializeAws_restJson1DataMatrixRow = (
-  output: any,
-  context: __SerdeContext
-): number[] => {
+const deserializeAws_restJson1DataMatrixRow = (output: any, context: __SerdeContext): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1FrameMetric = (
-  output: any,
-  context: __SerdeContext
-): FrameMetric => {
+const deserializeAws_restJson1FrameMetric = (output: any, context: __SerdeContext): FrameMetric => {
   return {
     __type: "FrameMetric",
-    frameName:
-      output.frameName !== undefined && output.frameName !== null
-        ? output.frameName
-        : undefined,
+    frameName: output.frameName !== undefined && output.frameName !== null ? output.frameName : undefined,
     threadStates:
       output.threadStates !== undefined && output.threadStates !== null
         ? deserializeAws_restJson1ThreadStates(output.threadStates, context)
         : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1FrameMetrics = (
-  output: any,
-  context: __SerdeContext
-): FrameMetric[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1FrameMetric(entry, context)
-  );
+const deserializeAws_restJson1FrameMetrics = (output: any, context: __SerdeContext): FrameMetric[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1FrameMetric(entry, context));
 };
 
-const deserializeAws_restJson1ListOfTimestamps = (
-  output: any,
-  context: __SerdeContext
-): Date[] => {
+const deserializeAws_restJson1ListOfTimestamps = (output: any, context: __SerdeContext): Date[] => {
   return (output || []).map((entry: any) => new Date(entry));
 };
 
-const deserializeAws_restJson1ThreadStates = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1ThreadStates = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2399,7 +1894,7 @@ const deserializeAws_restJson1UnprocessedEndTimeMap = (
   return Object.entries(output).reduce(
     (acc: { [key: string]: Date[] }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: deserializeAws_restJson1ListOfTimestamps(value, context)
+      [key]: deserializeAws_restJson1ListOfTimestamps(value, context),
     }),
     {}
   );
@@ -2408,38 +1903,29 @@ const deserializeAws_restJson1UnprocessedEndTimeMap = (
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"]
+  requestId: output.headers["x-amzn-requestid"],
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
-  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then(encoded => {
+  collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
@@ -2450,8 +1936,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

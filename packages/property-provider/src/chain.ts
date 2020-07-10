@@ -12,9 +12,7 @@ import { Provider } from "@aws-sdk/types";
  */
 export function chain<T>(...providers: Array<Provider<T>>): Provider<T> {
   return () => {
-    let promise: Promise<T> = Promise.reject(
-      new ProviderError("No providers in chain")
-    );
+    let promise: Promise<T> = Promise.reject(new ProviderError("No providers in chain"));
     for (const provider of providers) {
       promise = promise.catch((err: any) => {
         if (err?.tryNextLink) {

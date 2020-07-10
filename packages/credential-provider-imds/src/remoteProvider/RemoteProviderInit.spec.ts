@@ -1,14 +1,10 @@
-import {
-  DEFAULT_MAX_RETRIES,
-  DEFAULT_TIMEOUT,
-  providerConfigFromInit
-} from "./RemoteProviderInit";
+import { DEFAULT_MAX_RETRIES, DEFAULT_TIMEOUT, providerConfigFromInit } from "./RemoteProviderInit";
 
 describe("providerConfigFromInit", () => {
   it("should populate default values for retries and timeouts", () => {
     expect(providerConfigFromInit({})).toEqual({
       timeout: DEFAULT_TIMEOUT,
-      maxRetries: DEFAULT_MAX_RETRIES
+      maxRetries: DEFAULT_MAX_RETRIES,
     });
   });
 
@@ -18,7 +14,7 @@ describe("providerConfigFromInit", () => {
 
     expect(providerConfigFromInit({ timeout, maxRetries })).toEqual({
       timeout,
-      maxRetries
+      maxRetries,
     });
   });
 });

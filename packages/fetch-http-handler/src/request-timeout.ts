@@ -2,9 +2,7 @@ export function requestTimeout(timeoutInMs: number = 0): Promise<never> {
   return new Promise((resolve, reject) => {
     if (timeoutInMs) {
       setTimeout(() => {
-        const timeoutError = new Error(
-          `Request did not complete within ${timeoutInMs} ms`
-        );
+        const timeoutError = new Error(`Request did not complete within ${timeoutInMs} ms`);
         timeoutError.name = "TimeoutError";
         reject(timeoutError);
       }, timeoutInMs);

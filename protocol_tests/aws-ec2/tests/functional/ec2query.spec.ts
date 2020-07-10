@@ -32,10 +32,7 @@ class EXPECTED_REQUEST_SERIALIZATION_ERROR {
  * request. The thrown exception contains the serialized request.
  */
 class RequestSerializationTestHandler implements HttpHandler {
-  handle(
-    request: HttpRequest,
-    options: HttpHandlerOptions
-  ): Promise<{ response: HttpResponse }> {
+  handle(request: HttpRequest, options: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return Promise.reject(new EXPECTED_REQUEST_SERIALIZATION_ERROR(request));
   }
 }
@@ -49,12 +46,7 @@ class ResponseDeserializationTestHandler implements HttpHandler {
   headers: HeaderBag;
   body: String;
 
-  constructor(
-    isSuccess: boolean,
-    code: number,
-    headers?: HeaderBag,
-    body?: String
-  ) {
+  constructor(isSuccess: boolean, code: number, headers?: HeaderBag, body?: String) {
     this.isSuccess = isSuccess;
     this.code = code;
     if (headers === undefined) {
@@ -68,16 +60,13 @@ class ResponseDeserializationTestHandler implements HttpHandler {
     this.body = body;
   }
 
-  handle(
-    request: HttpRequest,
-    options: HttpHandlerOptions
-  ): Promise<{ response: HttpResponse }> {
+  handle(request: HttpRequest, options: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return Promise.resolve({
       response: {
         statusCode: this.code,
         headers: this.headers,
-        body: Readable.from([this.body])
-      }
+        body: Readable.from([this.body]),
+      },
     });
   }
 }
@@ -89,12 +78,9 @@ interface comparableParts {
 /**
  * Generates a standard map of un-equal values given input parts.
  */
-const compareParts = (
-  expectedParts: comparableParts,
-  generatedParts: comparableParts
-) => {
+const compareParts = (expectedParts: comparableParts, generatedParts: comparableParts) => {
   const unequalParts: any = {};
-  Object.keys(expectedParts).forEach(key => {
+  Object.keys(expectedParts).forEach((key) => {
     if (generatedParts[key] === undefined) {
       unequalParts[key] = { exp: expectedParts[key], gen: undefined };
     } else if (!equivalentContents(expectedParts[key], generatedParts[key])) {
@@ -102,7 +88,7 @@ const compareParts = (
     }
   });
 
-  Object.keys(generatedParts).forEach(key => {
+  Object.keys(generatedParts).forEach((key) => {
     if (expectedParts[key] === undefined) {
       unequalParts[key] = { exp: undefined, gen: generatedParts[key] };
     }
@@ -134,12 +120,8 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   delete generated["__type"];
   delete localExpected["$metadata"];
   delete generated["$metadata"];
-  Object.keys(localExpected).forEach(
-    key => localExpected[key] === undefined && delete localExpected[key]
-  );
-  Object.keys(generated).forEach(
-    key => generated[key] === undefined && delete generated[key]
-  );
+  Object.keys(localExpected).forEach((key) => localExpected[key] === undefined && delete localExpected[key]);
+  Object.keys(generated).forEach((key) => generated[key] === undefined && delete generated[key]);
 
   const expectedProperties = Object.getOwnPropertyNames(localExpected);
   const generatedProperties = Object.getOwnPropertyNames(generated);
@@ -152,9 +134,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   // Compare properties directly.
   for (var index = 0; index < expectedProperties.length; index++) {
     const propertyName = expectedProperties[index];
-    if (
-      !equivalentContents(localExpected[propertyName], generated[propertyName])
-    ) {
+    if (!equivalentContents(localExpected[propertyName], generated[propertyName])) {
       return false;
     }
   }
@@ -167,7 +147,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
  */
 it("Ec2QueryEmptyInputAndEmptyOutput:Request", async () => {
   const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new EmptyInputAndEmptyOutputCommand({} as any);
@@ -190,10 +170,7 @@ it("Ec2QueryEmptyInputAndEmptyOutput:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=EmptyInputAndEmptyOutput
     &Version=2020-01-08`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -207,13 +184,13 @@ it("Ec2QueryEmptyInputAndEmptyOutput:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml;charset=UTF-8",
       },
       `<EmptyInputAndEmptyOutputResponse xmlns="https://example.com/">
           <RequestId>requestid</RequestId>
       </EmptyInputAndEmptyOutputResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -238,14 +215,14 @@ it("Ec2GreetingWithErrors:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml;charset=UTF-8",
       },
       `<GreetingWithErrorsResponse xmlns="https://example.com/">
           <greeting>Hello</greeting>
           <RequestId>requestid</RequestId>
       </GreetingWithErrorsResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -261,10 +238,10 @@ it("Ec2GreetingWithErrors:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      greeting: "Hello"
-    }
+      greeting: "Hello",
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -279,7 +256,7 @@ it("Ec2InvalidGreetingError:Error:GreetingWithErrors", async () => {
       false,
       400,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml;charset=UTF-8",
       },
       `<Response>
           <Errors>
@@ -291,7 +268,7 @@ it("Ec2InvalidGreetingError:Error:GreetingWithErrors", async () => {
           <RequestId>foo-id</RequestId>
       </Response>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -309,10 +286,10 @@ it("Ec2InvalidGreetingError:Error:GreetingWithErrors", async () => {
     expect(r["$metadata"].httpStatusCode).toBe(400);
     const paramsToValidate: any = [
       {
-        message: "Hi"
-      }
+        message: "Hi",
+      },
     ][0];
-    Object.keys(paramsToValidate).forEach(param => {
+    Object.keys(paramsToValidate).forEach((param) => {
       expect(r[param]).toBeDefined();
       expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
     });
@@ -327,7 +304,7 @@ it("Ec2ComplexError:Error:GreetingWithErrors", async () => {
       false,
       400,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml;charset=UTF-8",
       },
       `<Response>
           <Errors>
@@ -343,7 +320,7 @@ it("Ec2ComplexError:Error:GreetingWithErrors", async () => {
           <RequestId>foo-id</RequestId>
       </Response>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -364,11 +341,11 @@ it("Ec2ComplexError:Error:GreetingWithErrors", async () => {
         TopLevel: "Top level",
 
         Nested: {
-          Foo: "bar"
-        }
-      }
+          Foo: "bar",
+        },
+      },
     ][0];
-    Object.keys(paramsToValidate).forEach(param => {
+    Object.keys(paramsToValidate).forEach((param) => {
       expect(r[param]).toBeDefined();
       expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
     });
@@ -386,14 +363,14 @@ it("Ec2IgnoresWrappingXmlName:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml;charset=UTF-8",
       },
       `<IgnoresWrappingXmlNameResponse xmlns="http://foo.com" xmlns="https://example.com/">
           <foo>bar</foo>
           <RequestId>requestid</RequestId>
       </IgnoresWrappingXmlNameResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -409,10 +386,10 @@ it("Ec2IgnoresWrappingXmlName:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      foo: "bar"
-    }
+      foo: "bar",
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -423,7 +400,7 @@ it("Ec2IgnoresWrappingXmlName:Response", async () => {
  */
 it("Ec2NestedStructures:Request", async () => {
   const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new NestedStructuresCommand({
@@ -433,9 +410,9 @@ it("Ec2NestedStructures:Request", async () => {
       OtherArg: true,
 
       RecursiveArg: {
-        StringArg: "baz"
-      } as any
-    } as any
+        StringArg: "baz",
+      } as any,
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -459,10 +436,7 @@ it("Ec2NestedStructures:Request", async () => {
     &Nested.StringArg=foo
     &Nested.OtherArg=true
     &Nested.RecursiveArg.StringArg=baz`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -472,7 +446,7 @@ it("Ec2NestedStructures:Request", async () => {
  */
 it("Ec2QueryNoInputAndOutput:Request", async () => {
   const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new NoInputAndOutputCommand({});
@@ -495,10 +469,7 @@ it("Ec2QueryNoInputAndOutput:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=NoInputAndOutput
     &Version=2020-01-08`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -512,13 +483,13 @@ it("Ec2QueryNoInputAndOutput:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml;charset=UTF-8",
       },
       `<NoInputAndOutputResponse xmlns="https://example.com/">
           <RequestId>requestid</RequestId>
       </NoInputAndOutputResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -539,11 +510,11 @@ it("Ec2QueryNoInputAndOutput:Response", async () => {
  */
 it("Ec2ProtocolIdempotencyTokenAutoFill:Request", async () => {
   const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryIdempotencyTokenAutoFillCommand({
-    token: "00000000-0000-4000-8000-000000000000"
+    token: "00000000-0000-4000-8000-000000000000",
   } as any);
   try {
     await client.send(command);
@@ -565,10 +536,7 @@ it("Ec2ProtocolIdempotencyTokenAutoFill:Request", async () => {
     const bodyString = `Action=QueryIdempotencyTokenAutoFill
     &Version=2020-01-08
     &Token=00000000-0000-4000-8000-000000000000`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -578,11 +546,11 @@ it("Ec2ProtocolIdempotencyTokenAutoFill:Request", async () => {
  */
 it("Ec2ProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
   const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryIdempotencyTokenAutoFillCommand({
-    token: "00000000-0000-4000-8000-000000000123"
+    token: "00000000-0000-4000-8000-000000000123",
   } as any);
   try {
     await client.send(command);
@@ -604,10 +572,7 @@ it("Ec2ProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
     const bodyString = `Action=QueryIdempotencyTokenAutoFill
     &Version=2020-01-08
     &Token=00000000-0000-4000-8000-000000000123`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -617,7 +582,7 @@ it("Ec2ProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
  */
 it("Ec2Lists:Request", async () => {
   const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryListsCommand({
@@ -625,13 +590,13 @@ it("Ec2Lists:Request", async () => {
 
     ComplexListArg: [
       {
-        hi: "hello"
+        hi: "hello",
       } as any,
 
       {
-        hi: "hola"
-      } as any
-    ]
+        hi: "hola",
+      } as any,
+    ],
   } as any);
   try {
     await client.send(command);
@@ -657,10 +622,7 @@ it("Ec2Lists:Request", async () => {
     &ListArg.3=baz
     &ComplexListArg.1.Hi=hello
     &ComplexListArg.2.Hi=hola`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -670,11 +632,11 @@ it("Ec2Lists:Request", async () => {
  */
 it("Ec2EmptyQueryLists:Request", async () => {
   const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryListsCommand({
-    ListArg: []
+    ListArg: [],
   } as any);
   try {
     await client.send(command);
@@ -695,10 +657,7 @@ it("Ec2EmptyQueryLists:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryLists
     &Version=2020-01-08`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -708,11 +667,11 @@ it("Ec2EmptyQueryLists:Request", async () => {
  */
 it("Ec2ListArgWithXmlNameMember:Request", async () => {
   const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryListsCommand({
-    ListArgWithXmlNameMember: ["A", "B"]
+    ListArgWithXmlNameMember: ["A", "B"],
   } as any);
   try {
     await client.send(command);
@@ -735,10 +694,7 @@ it("Ec2ListArgWithXmlNameMember:Request", async () => {
     &Version=2020-01-08
     &ListArgWithXmlNameMember.1=A
     &ListArgWithXmlNameMember.2=B`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -748,11 +704,11 @@ it("Ec2ListArgWithXmlNameMember:Request", async () => {
  */
 it("Ec2ListMemberWithXmlName:Request", async () => {
   const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryListsCommand({
-    ListArgWithXmlName: ["A", "B"]
+    ListArgWithXmlName: ["A", "B"],
   } as any);
   try {
     await client.send(command);
@@ -775,10 +731,7 @@ it("Ec2ListMemberWithXmlName:Request", async () => {
     &Version=2020-01-08
     &Hi.1=A
     &Hi.2=B`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -788,7 +741,7 @@ it("Ec2ListMemberWithXmlName:Request", async () => {
  */
 it("Ec2TimestampsInput:Request", async () => {
   const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new QueryTimestampsCommand({
@@ -796,7 +749,7 @@ it("Ec2TimestampsInput:Request", async () => {
 
     epochMember: new Date(1422172800000),
 
-    epochTarget: new Date(1422172800000)
+    epochTarget: new Date(1422172800000),
   } as any);
   try {
     await client.send(command);
@@ -820,10 +773,7 @@ it("Ec2TimestampsInput:Request", async () => {
     &NormalFormat=2015-01-25T08%3A00%3A00Z
     &EpochMember=1422172800
     &EpochTarget=1422172800`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -837,7 +787,7 @@ it("Ec2RecursiveShapes:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml;charset=UTF-8",
       },
       `<RecursiveXmlShapesResponse xmlns="https://example.com/">
           <nested>
@@ -855,7 +805,7 @@ it("Ec2RecursiveShapes:Response", async () => {
           <RequestId>requestid</RequestId>
       </RecursiveXmlShapesResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -881,14 +831,14 @@ it("Ec2RecursiveShapes:Response", async () => {
             foo: "Foo2",
 
             nested: {
-              bar: "Bar2"
-            }
-          }
-        }
-      }
-    }
+              bar: "Bar2",
+            },
+          },
+        },
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -899,13 +849,13 @@ it("Ec2RecursiveShapes:Response", async () => {
  */
 it("Ec2SimpleInputParamsStrings:Request", async () => {
   const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new SimpleInputParamsCommand({
     Foo: "val1",
 
-    Bar: "val2"
+    Bar: "val2",
   } as any);
   try {
     await client.send(command);
@@ -928,10 +878,7 @@ it("Ec2SimpleInputParamsStrings:Request", async () => {
     &Version=2020-01-08
     &Foo=val1
     &Bar=val2`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -941,13 +888,13 @@ it("Ec2SimpleInputParamsStrings:Request", async () => {
  */
 it("Ec2SimpleInputParamsStringAndBooleanTrue:Request", async () => {
   const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new SimpleInputParamsCommand({
     Foo: "val1",
 
-    Baz: true
+    Baz: true,
   } as any);
   try {
     await client.send(command);
@@ -970,10 +917,7 @@ it("Ec2SimpleInputParamsStringAndBooleanTrue:Request", async () => {
     &Version=2020-01-08
     &Foo=val1
     &Baz=true`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -983,11 +927,11 @@ it("Ec2SimpleInputParamsStringAndBooleanTrue:Request", async () => {
  */
 it("Ec2SimpleInputParamsStringsAndBooleanFalse:Request", async () => {
   const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new SimpleInputParamsCommand({
-    Baz: false
+    Baz: false,
   } as any);
   try {
     await client.send(command);
@@ -1009,10 +953,7 @@ it("Ec2SimpleInputParamsStringsAndBooleanFalse:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &Baz=false`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1022,11 +963,11 @@ it("Ec2SimpleInputParamsStringsAndBooleanFalse:Request", async () => {
  */
 it("Ec2SimpleInputParamsInteger:Request", async () => {
   const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new SimpleInputParamsCommand({
-    Bam: 10
+    Bam: 10,
   } as any);
   try {
     await client.send(command);
@@ -1048,10 +989,7 @@ it("Ec2SimpleInputParamsInteger:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &Bam=10`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1061,11 +999,11 @@ it("Ec2SimpleInputParamsInteger:Request", async () => {
  */
 it("Ec2SimpleInputParamsFloat:Request", async () => {
   const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new SimpleInputParamsCommand({
-    Boo: 10.8
+    Boo: 10.8,
   } as any);
   try {
     await client.send(command);
@@ -1087,10 +1025,7 @@ it("Ec2SimpleInputParamsFloat:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &Boo=10.8`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1100,11 +1035,11 @@ it("Ec2SimpleInputParamsFloat:Request", async () => {
  */
 it("Ec2SimpleInputParamsBlob:Request", async () => {
   const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new SimpleInputParamsCommand({
-    Qux: Uint8Array.from("value", c => c.charCodeAt(0))
+    Qux: Uint8Array.from("value", (c) => c.charCodeAt(0)),
   } as any);
   try {
     await client.send(command);
@@ -1126,10 +1061,7 @@ it("Ec2SimpleInputParamsBlob:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &Qux=dmFsdWU%3D`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1139,11 +1071,11 @@ it("Ec2SimpleInputParamsBlob:Request", async () => {
  */
 it("Ec2Enums:Request", async () => {
   const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new SimpleInputParamsCommand({
-    FooEnum: "Foo"
+    FooEnum: "Foo",
   } as any);
   try {
     await client.send(command);
@@ -1165,10 +1097,7 @@ it("Ec2Enums:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &FooEnum=Foo`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1178,11 +1107,11 @@ it("Ec2Enums:Request", async () => {
  */
 it("Ec2Query:Request", async () => {
   const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new SimpleInputParamsCommand({
-    HasQueryName: "Hi"
+    HasQueryName: "Hi",
   } as any);
   try {
     await client.send(command);
@@ -1204,10 +1133,7 @@ it("Ec2Query:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &A=Hi`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1217,11 +1143,11 @@ it("Ec2Query:Request", async () => {
  */
 it("Ec2QueryIsPreferred:Request", async () => {
   const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new SimpleInputParamsCommand({
-    HasQueryAndXmlName: "Hi"
+    HasQueryAndXmlName: "Hi",
   } as any);
   try {
     await client.send(command);
@@ -1243,10 +1169,7 @@ it("Ec2QueryIsPreferred:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &B=Hi`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1256,11 +1179,11 @@ it("Ec2QueryIsPreferred:Request", async () => {
  */
 it("Ec2XmlNameIsUppercased:Request", async () => {
   const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
+    requestHandler: new RequestSerializationTestHandler(),
   });
 
   const command = new SimpleInputParamsCommand({
-    UsesXmlName: "Hi"
+    UsesXmlName: "Hi",
   } as any);
   try {
     await client.send(command);
@@ -1282,10 +1205,7 @@ it("Ec2XmlNameIsUppercased:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &C=Hi`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1299,7 +1219,7 @@ it("Ec2SimpleScalarProperties:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml;charset=UTF-8",
       },
       `<SimpleScalarXmlPropertiesResponse xmlns="https://example.com/">
           <stringValue>string</stringValue>
@@ -1315,7 +1235,7 @@ it("Ec2SimpleScalarProperties:Response", async () => {
           <RequestId>requestid</RequestId>
       </SimpleScalarXmlPropertiesResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -1349,10 +1269,10 @@ it("Ec2SimpleScalarProperties:Response", async () => {
 
       floatValue: 5.5,
 
-      doubleValue: 6.5
-    }
+      doubleValue: 6.5,
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1367,14 +1287,14 @@ it("Ec2XmlBlobs:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml;charset=UTF-8",
       },
       `<XmlBlobsResponse xmlns="https://example.com/">
           <data>dmFsdWU=</data>
           <RequestId>requestid</RequestId>
       </XmlBlobsResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -1390,10 +1310,10 @@ it("Ec2XmlBlobs:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      data: Uint8Array.from("value", c => c.charCodeAt(0))
-    }
+      data: Uint8Array.from("value", (c) => c.charCodeAt(0)),
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1408,7 +1328,7 @@ it("Ec2XmlEnums:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml;charset=UTF-8",
       },
       `<XmlEnumsResponse xmlns="https://example.com/">
           <fooEnum1>Foo</fooEnum1>
@@ -1435,7 +1355,7 @@ it("Ec2XmlEnums:Response", async () => {
           <RequestId>requestid</RequestId>
       </XmlEnumsResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -1464,11 +1384,11 @@ it("Ec2XmlEnums:Response", async () => {
       fooEnumMap: {
         hi: "Foo",
 
-        zero: "0"
-      }
-    }
+        zero: "0",
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1483,7 +1403,7 @@ it("Ec2XmlLists:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml;charset=UTF-8",
       },
       `<XmlListsResponse xmlns="https://example.com/">
           <stringList>
@@ -1541,7 +1461,7 @@ it("Ec2XmlLists:Response", async () => {
           <RequestId>requestid</RequestId>
       </XmlListsResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -1572,7 +1492,7 @@ it("Ec2XmlLists:Response", async () => {
       nestedStringList: [
         ["foo", "bar"],
 
-        ["baz", "qux"]
+        ["baz", "qux"],
       ],
 
       renamedListMembers: ["foo", "bar"],
@@ -1585,18 +1505,18 @@ it("Ec2XmlLists:Response", async () => {
         {
           a: "1",
 
-          b: "2"
+          b: "2",
         },
 
         {
           a: "3",
 
-          b: "4"
-        }
-      ]
-    }
+          b: "4",
+        },
+      ],
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1611,7 +1531,7 @@ it("Ec2XmlNamespaces:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml;charset=UTF-8",
       },
       `<XmlNamespacesResponse xmlns="http://foo.com" xmlns="https://example.com/">
           <nested>
@@ -1624,7 +1544,7 @@ it("Ec2XmlNamespaces:Response", async () => {
           <RequestId>requestid</RequestId>
       </XmlNamespacesResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -1643,11 +1563,11 @@ it("Ec2XmlNamespaces:Response", async () => {
       nested: {
         foo: "Foo",
 
-        values: ["Bar", "Baz"]
-      }
-    }
+        values: ["Bar", "Baz"],
+      },
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1662,14 +1582,14 @@ it("Ec2XmlTimestamps:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml;charset=UTF-8",
       },
       `<XmlTimestampsResponse xmlns="https://example.com/">
           <normal>2014-04-29T18:30:38Z</normal>
           <RequestId>requestid</RequestId>
       </XmlTimestampsResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -1685,10 +1605,10 @@ it("Ec2XmlTimestamps:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      normal: new Date(1398796238000)
-    }
+      normal: new Date(1398796238000),
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1703,14 +1623,14 @@ it("Ec2XmlTimestampsWithDateTimeFormat:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml;charset=UTF-8",
       },
       `<XmlTimestampsResponse xmlns="https://example.com/">
           <dateTime>2014-04-29T18:30:38Z</dateTime>
           <RequestId>requestid</RequestId>
       </XmlTimestampsResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -1726,10 +1646,10 @@ it("Ec2XmlTimestampsWithDateTimeFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      dateTime: new Date(1398796238000)
-    }
+      dateTime: new Date(1398796238000),
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1744,14 +1664,14 @@ it("Ec2XmlTimestampsWithEpochSecondsFormat:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml;charset=UTF-8",
       },
       `<XmlTimestampsResponse xmlns="https://example.com/">
           <epochSeconds>1398796238</epochSeconds>
           <RequestId>requestid</RequestId>
       </XmlTimestampsResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -1767,10 +1687,10 @@ it("Ec2XmlTimestampsWithEpochSecondsFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      epochSeconds: new Date(1398796238000)
-    }
+      epochSeconds: new Date(1398796238000),
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1785,14 +1705,14 @@ it("Ec2XmlTimestampsWithHttpDateFormat:Response", async () => {
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml;charset=UTF-8",
       },
       `<XmlTimestampsResponse xmlns="https://example.com/">
           <httpDate>Tue, 29 Apr 2014 18:30:38 GMT</httpDate>
           <RequestId>requestid</RequestId>
       </XmlTimestampsResponse>
       `
-    )
+    ),
   });
 
   const params: any = {};
@@ -1808,10 +1728,10 @@ it("Ec2XmlTimestampsWithHttpDateFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      httpDate: new Date(1398796238000)
-    }
+      httpDate: new Date(1398796238000),
+    },
   ][0];
-  Object.keys(paramsToValidate).forEach(param => {
+  Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
@@ -1821,14 +1741,11 @@ it("Ec2XmlTimestampsWithHttpDateFormat:Response", async () => {
  * Returns a map of key names that were un-equal to value objects showing the
  * discrepancies between the components.
  */
-const compareEquivalentBodies = (
-  expectedBody: string,
-  generatedBody: string
-): Object => {
+const compareEquivalentBodies = (expectedBody: string, generatedBody: string): Object => {
   const fromEntries = (components: string[][]): { [key: string]: string } => {
     const parts: { [key: string]: string } = {};
 
-    components.forEach(component => {
+    components.forEach((component) => {
       parts[component[0]] = component[1];
     });
 
@@ -1836,12 +1753,8 @@ const compareEquivalentBodies = (
   };
 
   // Generate to k:v maps from query components
-  const expectedParts = fromEntries(
-    expectedBody.split("&").map(part => part.trim().split("="))
-  );
-  const generatedParts = fromEntries(
-    generatedBody.split("&").map(part => part.trim().split("="))
-  );
+  const expectedParts = fromEntries(expectedBody.split("&").map((part) => part.trim().split("=")));
+  const generatedParts = fromEntries(generatedBody.split("&").map((part) => part.trim().split("=")));
 
   return compareParts(expectedParts, generatedParts);
 };

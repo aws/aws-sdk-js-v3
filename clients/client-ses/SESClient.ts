@@ -1,286 +1,223 @@
 import {
   CloneReceiptRuleSetCommandInput,
-  CloneReceiptRuleSetCommandOutput
+  CloneReceiptRuleSetCommandOutput,
 } from "./commands/CloneReceiptRuleSetCommand";
 import {
   CreateConfigurationSetCommandInput,
-  CreateConfigurationSetCommandOutput
+  CreateConfigurationSetCommandOutput,
 } from "./commands/CreateConfigurationSetCommand";
 import {
   CreateConfigurationSetEventDestinationCommandInput,
-  CreateConfigurationSetEventDestinationCommandOutput
+  CreateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/CreateConfigurationSetEventDestinationCommand";
 import {
   CreateConfigurationSetTrackingOptionsCommandInput,
-  CreateConfigurationSetTrackingOptionsCommandOutput
+  CreateConfigurationSetTrackingOptionsCommandOutput,
 } from "./commands/CreateConfigurationSetTrackingOptionsCommand";
 import {
   CreateCustomVerificationEmailTemplateCommandInput,
-  CreateCustomVerificationEmailTemplateCommandOutput
+  CreateCustomVerificationEmailTemplateCommandOutput,
 } from "./commands/CreateCustomVerificationEmailTemplateCommand";
 import {
   CreateReceiptFilterCommandInput,
-  CreateReceiptFilterCommandOutput
+  CreateReceiptFilterCommandOutput,
 } from "./commands/CreateReceiptFilterCommand";
-import {
-  CreateReceiptRuleCommandInput,
-  CreateReceiptRuleCommandOutput
-} from "./commands/CreateReceiptRuleCommand";
+import { CreateReceiptRuleCommandInput, CreateReceiptRuleCommandOutput } from "./commands/CreateReceiptRuleCommand";
 import {
   CreateReceiptRuleSetCommandInput,
-  CreateReceiptRuleSetCommandOutput
+  CreateReceiptRuleSetCommandOutput,
 } from "./commands/CreateReceiptRuleSetCommand";
-import {
-  CreateTemplateCommandInput,
-  CreateTemplateCommandOutput
-} from "./commands/CreateTemplateCommand";
+import { CreateTemplateCommandInput, CreateTemplateCommandOutput } from "./commands/CreateTemplateCommand";
 import {
   DeleteConfigurationSetCommandInput,
-  DeleteConfigurationSetCommandOutput
+  DeleteConfigurationSetCommandOutput,
 } from "./commands/DeleteConfigurationSetCommand";
 import {
   DeleteConfigurationSetEventDestinationCommandInput,
-  DeleteConfigurationSetEventDestinationCommandOutput
+  DeleteConfigurationSetEventDestinationCommandOutput,
 } from "./commands/DeleteConfigurationSetEventDestinationCommand";
 import {
   DeleteConfigurationSetTrackingOptionsCommandInput,
-  DeleteConfigurationSetTrackingOptionsCommandOutput
+  DeleteConfigurationSetTrackingOptionsCommandOutput,
 } from "./commands/DeleteConfigurationSetTrackingOptionsCommand";
 import {
   DeleteCustomVerificationEmailTemplateCommandInput,
-  DeleteCustomVerificationEmailTemplateCommandOutput
+  DeleteCustomVerificationEmailTemplateCommandOutput,
 } from "./commands/DeleteCustomVerificationEmailTemplateCommand";
-import {
-  DeleteIdentityCommandInput,
-  DeleteIdentityCommandOutput
-} from "./commands/DeleteIdentityCommand";
+import { DeleteIdentityCommandInput, DeleteIdentityCommandOutput } from "./commands/DeleteIdentityCommand";
 import {
   DeleteIdentityPolicyCommandInput,
-  DeleteIdentityPolicyCommandOutput
+  DeleteIdentityPolicyCommandOutput,
 } from "./commands/DeleteIdentityPolicyCommand";
 import {
   DeleteReceiptFilterCommandInput,
-  DeleteReceiptFilterCommandOutput
+  DeleteReceiptFilterCommandOutput,
 } from "./commands/DeleteReceiptFilterCommand";
-import {
-  DeleteReceiptRuleCommandInput,
-  DeleteReceiptRuleCommandOutput
-} from "./commands/DeleteReceiptRuleCommand";
+import { DeleteReceiptRuleCommandInput, DeleteReceiptRuleCommandOutput } from "./commands/DeleteReceiptRuleCommand";
 import {
   DeleteReceiptRuleSetCommandInput,
-  DeleteReceiptRuleSetCommandOutput
+  DeleteReceiptRuleSetCommandOutput,
 } from "./commands/DeleteReceiptRuleSetCommand";
-import {
-  DeleteTemplateCommandInput,
-  DeleteTemplateCommandOutput
-} from "./commands/DeleteTemplateCommand";
+import { DeleteTemplateCommandInput, DeleteTemplateCommandOutput } from "./commands/DeleteTemplateCommand";
 import {
   DeleteVerifiedEmailAddressCommandInput,
-  DeleteVerifiedEmailAddressCommandOutput
+  DeleteVerifiedEmailAddressCommandOutput,
 } from "./commands/DeleteVerifiedEmailAddressCommand";
 import {
   DescribeActiveReceiptRuleSetCommandInput,
-  DescribeActiveReceiptRuleSetCommandOutput
+  DescribeActiveReceiptRuleSetCommandOutput,
 } from "./commands/DescribeActiveReceiptRuleSetCommand";
 import {
   DescribeConfigurationSetCommandInput,
-  DescribeConfigurationSetCommandOutput
+  DescribeConfigurationSetCommandOutput,
 } from "./commands/DescribeConfigurationSetCommand";
 import {
   DescribeReceiptRuleCommandInput,
-  DescribeReceiptRuleCommandOutput
+  DescribeReceiptRuleCommandOutput,
 } from "./commands/DescribeReceiptRuleCommand";
 import {
   DescribeReceiptRuleSetCommandInput,
-  DescribeReceiptRuleSetCommandOutput
+  DescribeReceiptRuleSetCommandOutput,
 } from "./commands/DescribeReceiptRuleSetCommand";
 import {
   GetAccountSendingEnabledCommandInput,
-  GetAccountSendingEnabledCommandOutput
+  GetAccountSendingEnabledCommandOutput,
 } from "./commands/GetAccountSendingEnabledCommand";
 import {
   GetCustomVerificationEmailTemplateCommandInput,
-  GetCustomVerificationEmailTemplateCommandOutput
+  GetCustomVerificationEmailTemplateCommandOutput,
 } from "./commands/GetCustomVerificationEmailTemplateCommand";
 import {
   GetIdentityDkimAttributesCommandInput,
-  GetIdentityDkimAttributesCommandOutput
+  GetIdentityDkimAttributesCommandOutput,
 } from "./commands/GetIdentityDkimAttributesCommand";
 import {
   GetIdentityMailFromDomainAttributesCommandInput,
-  GetIdentityMailFromDomainAttributesCommandOutput
+  GetIdentityMailFromDomainAttributesCommandOutput,
 } from "./commands/GetIdentityMailFromDomainAttributesCommand";
 import {
   GetIdentityNotificationAttributesCommandInput,
-  GetIdentityNotificationAttributesCommandOutput
+  GetIdentityNotificationAttributesCommandOutput,
 } from "./commands/GetIdentityNotificationAttributesCommand";
 import {
   GetIdentityPoliciesCommandInput,
-  GetIdentityPoliciesCommandOutput
+  GetIdentityPoliciesCommandOutput,
 } from "./commands/GetIdentityPoliciesCommand";
 import {
   GetIdentityVerificationAttributesCommandInput,
-  GetIdentityVerificationAttributesCommandOutput
+  GetIdentityVerificationAttributesCommandOutput,
 } from "./commands/GetIdentityVerificationAttributesCommand";
-import {
-  GetSendQuotaCommandInput,
-  GetSendQuotaCommandOutput
-} from "./commands/GetSendQuotaCommand";
-import {
-  GetSendStatisticsCommandInput,
-  GetSendStatisticsCommandOutput
-} from "./commands/GetSendStatisticsCommand";
-import {
-  GetTemplateCommandInput,
-  GetTemplateCommandOutput
-} from "./commands/GetTemplateCommand";
+import { GetSendQuotaCommandInput, GetSendQuotaCommandOutput } from "./commands/GetSendQuotaCommand";
+import { GetSendStatisticsCommandInput, GetSendStatisticsCommandOutput } from "./commands/GetSendStatisticsCommand";
+import { GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand";
 import {
   ListConfigurationSetsCommandInput,
-  ListConfigurationSetsCommandOutput
+  ListConfigurationSetsCommandOutput,
 } from "./commands/ListConfigurationSetsCommand";
 import {
   ListCustomVerificationEmailTemplatesCommandInput,
-  ListCustomVerificationEmailTemplatesCommandOutput
+  ListCustomVerificationEmailTemplatesCommandOutput,
 } from "./commands/ListCustomVerificationEmailTemplatesCommand";
-import {
-  ListIdentitiesCommandInput,
-  ListIdentitiesCommandOutput
-} from "./commands/ListIdentitiesCommand";
+import { ListIdentitiesCommandInput, ListIdentitiesCommandOutput } from "./commands/ListIdentitiesCommand";
 import {
   ListIdentityPoliciesCommandInput,
-  ListIdentityPoliciesCommandOutput
+  ListIdentityPoliciesCommandOutput,
 } from "./commands/ListIdentityPoliciesCommand";
-import {
-  ListReceiptFiltersCommandInput,
-  ListReceiptFiltersCommandOutput
-} from "./commands/ListReceiptFiltersCommand";
+import { ListReceiptFiltersCommandInput, ListReceiptFiltersCommandOutput } from "./commands/ListReceiptFiltersCommand";
 import {
   ListReceiptRuleSetsCommandInput,
-  ListReceiptRuleSetsCommandOutput
+  ListReceiptRuleSetsCommandOutput,
 } from "./commands/ListReceiptRuleSetsCommand";
-import {
-  ListTemplatesCommandInput,
-  ListTemplatesCommandOutput
-} from "./commands/ListTemplatesCommand";
+import { ListTemplatesCommandInput, ListTemplatesCommandOutput } from "./commands/ListTemplatesCommand";
 import {
   ListVerifiedEmailAddressesCommandInput,
-  ListVerifiedEmailAddressesCommandOutput
+  ListVerifiedEmailAddressesCommandOutput,
 } from "./commands/ListVerifiedEmailAddressesCommand";
 import {
   PutConfigurationSetDeliveryOptionsCommandInput,
-  PutConfigurationSetDeliveryOptionsCommandOutput
+  PutConfigurationSetDeliveryOptionsCommandOutput,
 } from "./commands/PutConfigurationSetDeliveryOptionsCommand";
-import {
-  PutIdentityPolicyCommandInput,
-  PutIdentityPolicyCommandOutput
-} from "./commands/PutIdentityPolicyCommand";
+import { PutIdentityPolicyCommandInput, PutIdentityPolicyCommandOutput } from "./commands/PutIdentityPolicyCommand";
 import {
   ReorderReceiptRuleSetCommandInput,
-  ReorderReceiptRuleSetCommandOutput
+  ReorderReceiptRuleSetCommandOutput,
 } from "./commands/ReorderReceiptRuleSetCommand";
-import {
-  SendBounceCommandInput,
-  SendBounceCommandOutput
-} from "./commands/SendBounceCommand";
+import { SendBounceCommandInput, SendBounceCommandOutput } from "./commands/SendBounceCommand";
 import {
   SendBulkTemplatedEmailCommandInput,
-  SendBulkTemplatedEmailCommandOutput
+  SendBulkTemplatedEmailCommandOutput,
 } from "./commands/SendBulkTemplatedEmailCommand";
 import {
   SendCustomVerificationEmailCommandInput,
-  SendCustomVerificationEmailCommandOutput
+  SendCustomVerificationEmailCommandOutput,
 } from "./commands/SendCustomVerificationEmailCommand";
-import {
-  SendEmailCommandInput,
-  SendEmailCommandOutput
-} from "./commands/SendEmailCommand";
-import {
-  SendRawEmailCommandInput,
-  SendRawEmailCommandOutput
-} from "./commands/SendRawEmailCommand";
-import {
-  SendTemplatedEmailCommandInput,
-  SendTemplatedEmailCommandOutput
-} from "./commands/SendTemplatedEmailCommand";
+import { SendEmailCommandInput, SendEmailCommandOutput } from "./commands/SendEmailCommand";
+import { SendRawEmailCommandInput, SendRawEmailCommandOutput } from "./commands/SendRawEmailCommand";
+import { SendTemplatedEmailCommandInput, SendTemplatedEmailCommandOutput } from "./commands/SendTemplatedEmailCommand";
 import {
   SetActiveReceiptRuleSetCommandInput,
-  SetActiveReceiptRuleSetCommandOutput
+  SetActiveReceiptRuleSetCommandOutput,
 } from "./commands/SetActiveReceiptRuleSetCommand";
 import {
   SetIdentityDkimEnabledCommandInput,
-  SetIdentityDkimEnabledCommandOutput
+  SetIdentityDkimEnabledCommandOutput,
 } from "./commands/SetIdentityDkimEnabledCommand";
 import {
   SetIdentityFeedbackForwardingEnabledCommandInput,
-  SetIdentityFeedbackForwardingEnabledCommandOutput
+  SetIdentityFeedbackForwardingEnabledCommandOutput,
 } from "./commands/SetIdentityFeedbackForwardingEnabledCommand";
 import {
   SetIdentityHeadersInNotificationsEnabledCommandInput,
-  SetIdentityHeadersInNotificationsEnabledCommandOutput
+  SetIdentityHeadersInNotificationsEnabledCommandOutput,
 } from "./commands/SetIdentityHeadersInNotificationsEnabledCommand";
 import {
   SetIdentityMailFromDomainCommandInput,
-  SetIdentityMailFromDomainCommandOutput
+  SetIdentityMailFromDomainCommandOutput,
 } from "./commands/SetIdentityMailFromDomainCommand";
 import {
   SetIdentityNotificationTopicCommandInput,
-  SetIdentityNotificationTopicCommandOutput
+  SetIdentityNotificationTopicCommandOutput,
 } from "./commands/SetIdentityNotificationTopicCommand";
 import {
   SetReceiptRulePositionCommandInput,
-  SetReceiptRulePositionCommandOutput
+  SetReceiptRulePositionCommandOutput,
 } from "./commands/SetReceiptRulePositionCommand";
-import {
-  TestRenderTemplateCommandInput,
-  TestRenderTemplateCommandOutput
-} from "./commands/TestRenderTemplateCommand";
+import { TestRenderTemplateCommandInput, TestRenderTemplateCommandOutput } from "./commands/TestRenderTemplateCommand";
 import {
   UpdateAccountSendingEnabledCommandInput,
-  UpdateAccountSendingEnabledCommandOutput
+  UpdateAccountSendingEnabledCommandOutput,
 } from "./commands/UpdateAccountSendingEnabledCommand";
 import {
   UpdateConfigurationSetEventDestinationCommandInput,
-  UpdateConfigurationSetEventDestinationCommandOutput
+  UpdateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/UpdateConfigurationSetEventDestinationCommand";
 import {
   UpdateConfigurationSetReputationMetricsEnabledCommandInput,
-  UpdateConfigurationSetReputationMetricsEnabledCommandOutput
+  UpdateConfigurationSetReputationMetricsEnabledCommandOutput,
 } from "./commands/UpdateConfigurationSetReputationMetricsEnabledCommand";
 import {
   UpdateConfigurationSetSendingEnabledCommandInput,
-  UpdateConfigurationSetSendingEnabledCommandOutput
+  UpdateConfigurationSetSendingEnabledCommandOutput,
 } from "./commands/UpdateConfigurationSetSendingEnabledCommand";
 import {
   UpdateConfigurationSetTrackingOptionsCommandInput,
-  UpdateConfigurationSetTrackingOptionsCommandOutput
+  UpdateConfigurationSetTrackingOptionsCommandOutput,
 } from "./commands/UpdateConfigurationSetTrackingOptionsCommand";
 import {
   UpdateCustomVerificationEmailTemplateCommandInput,
-  UpdateCustomVerificationEmailTemplateCommandOutput
+  UpdateCustomVerificationEmailTemplateCommandOutput,
 } from "./commands/UpdateCustomVerificationEmailTemplateCommand";
-import {
-  UpdateReceiptRuleCommandInput,
-  UpdateReceiptRuleCommandOutput
-} from "./commands/UpdateReceiptRuleCommand";
-import {
-  UpdateTemplateCommandInput,
-  UpdateTemplateCommandOutput
-} from "./commands/UpdateTemplateCommand";
-import {
-  VerifyDomainDkimCommandInput,
-  VerifyDomainDkimCommandOutput
-} from "./commands/VerifyDomainDkimCommand";
+import { UpdateReceiptRuleCommandInput, UpdateReceiptRuleCommandOutput } from "./commands/UpdateReceiptRuleCommand";
+import { UpdateTemplateCommandInput, UpdateTemplateCommandOutput } from "./commands/UpdateTemplateCommand";
+import { VerifyDomainDkimCommandInput, VerifyDomainDkimCommandOutput } from "./commands/VerifyDomainDkimCommand";
 import {
   VerifyDomainIdentityCommandInput,
-  VerifyDomainIdentityCommandOutput
+  VerifyDomainIdentityCommandOutput,
 } from "./commands/VerifyDomainIdentityCommand";
-import {
-  VerifyEmailAddressCommandInput,
-  VerifyEmailAddressCommandOutput
-} from "./commands/VerifyEmailAddressCommand";
+import { VerifyEmailAddressCommandInput, VerifyEmailAddressCommandOutput } from "./commands/VerifyEmailAddressCommand";
 import {
   VerifyEmailIdentityCommandInput,
-  VerifyEmailIdentityCommandOutput
+  VerifyEmailIdentityCommandOutput,
 } from "./commands/VerifyEmailIdentityCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -289,38 +226,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -331,7 +263,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -480,8 +412,7 @@ export type ServiceOutputTypes =
   | VerifyEmailAddressCommandOutput
   | VerifyEmailIdentityCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -570,9 +501,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SESClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SESClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -581,9 +510,7 @@ export type SESClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SESClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SESClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -614,7 +541,7 @@ export class SESClient extends __Client<
   constructor(configuration: SESClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

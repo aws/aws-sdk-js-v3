@@ -1,362 +1,314 @@
 import {
   AssociateRoleToGroupCommandInput,
-  AssociateRoleToGroupCommandOutput
+  AssociateRoleToGroupCommandOutput,
 } from "./commands/AssociateRoleToGroupCommand";
 import {
   AssociateServiceRoleToAccountCommandInput,
-  AssociateServiceRoleToAccountCommandOutput
+  AssociateServiceRoleToAccountCommandOutput,
 } from "./commands/AssociateServiceRoleToAccountCommand";
 import {
   CreateConnectorDefinitionCommandInput,
-  CreateConnectorDefinitionCommandOutput
+  CreateConnectorDefinitionCommandOutput,
 } from "./commands/CreateConnectorDefinitionCommand";
 import {
   CreateConnectorDefinitionVersionCommandInput,
-  CreateConnectorDefinitionVersionCommandOutput
+  CreateConnectorDefinitionVersionCommandOutput,
 } from "./commands/CreateConnectorDefinitionVersionCommand";
 import {
   CreateCoreDefinitionCommandInput,
-  CreateCoreDefinitionCommandOutput
+  CreateCoreDefinitionCommandOutput,
 } from "./commands/CreateCoreDefinitionCommand";
 import {
   CreateCoreDefinitionVersionCommandInput,
-  CreateCoreDefinitionVersionCommandOutput
+  CreateCoreDefinitionVersionCommandOutput,
 } from "./commands/CreateCoreDefinitionVersionCommand";
-import {
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput
-} from "./commands/CreateDeploymentCommand";
+import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand";
 import {
   CreateDeviceDefinitionCommandInput,
-  CreateDeviceDefinitionCommandOutput
+  CreateDeviceDefinitionCommandOutput,
 } from "./commands/CreateDeviceDefinitionCommand";
 import {
   CreateDeviceDefinitionVersionCommandInput,
-  CreateDeviceDefinitionVersionCommandOutput
+  CreateDeviceDefinitionVersionCommandOutput,
 } from "./commands/CreateDeviceDefinitionVersionCommand";
 import {
   CreateFunctionDefinitionCommandInput,
-  CreateFunctionDefinitionCommandOutput
+  CreateFunctionDefinitionCommandOutput,
 } from "./commands/CreateFunctionDefinitionCommand";
 import {
   CreateFunctionDefinitionVersionCommandInput,
-  CreateFunctionDefinitionVersionCommandOutput
+  CreateFunctionDefinitionVersionCommandOutput,
 } from "./commands/CreateFunctionDefinitionVersionCommand";
 import {
   CreateGroupCertificateAuthorityCommandInput,
-  CreateGroupCertificateAuthorityCommandOutput
+  CreateGroupCertificateAuthorityCommandOutput,
 } from "./commands/CreateGroupCertificateAuthorityCommand";
-import {
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput
-} from "./commands/CreateGroupCommand";
-import {
-  CreateGroupVersionCommandInput,
-  CreateGroupVersionCommandOutput
-} from "./commands/CreateGroupVersionCommand";
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
+import { CreateGroupVersionCommandInput, CreateGroupVersionCommandOutput } from "./commands/CreateGroupVersionCommand";
 import {
   CreateLoggerDefinitionCommandInput,
-  CreateLoggerDefinitionCommandOutput
+  CreateLoggerDefinitionCommandOutput,
 } from "./commands/CreateLoggerDefinitionCommand";
 import {
   CreateLoggerDefinitionVersionCommandInput,
-  CreateLoggerDefinitionVersionCommandOutput
+  CreateLoggerDefinitionVersionCommandOutput,
 } from "./commands/CreateLoggerDefinitionVersionCommand";
 import {
   CreateResourceDefinitionCommandInput,
-  CreateResourceDefinitionCommandOutput
+  CreateResourceDefinitionCommandOutput,
 } from "./commands/CreateResourceDefinitionCommand";
 import {
   CreateResourceDefinitionVersionCommandInput,
-  CreateResourceDefinitionVersionCommandOutput
+  CreateResourceDefinitionVersionCommandOutput,
 } from "./commands/CreateResourceDefinitionVersionCommand";
 import {
   CreateSoftwareUpdateJobCommandInput,
-  CreateSoftwareUpdateJobCommandOutput
+  CreateSoftwareUpdateJobCommandOutput,
 } from "./commands/CreateSoftwareUpdateJobCommand";
 import {
   CreateSubscriptionDefinitionCommandInput,
-  CreateSubscriptionDefinitionCommandOutput
+  CreateSubscriptionDefinitionCommandOutput,
 } from "./commands/CreateSubscriptionDefinitionCommand";
 import {
   CreateSubscriptionDefinitionVersionCommandInput,
-  CreateSubscriptionDefinitionVersionCommandOutput
+  CreateSubscriptionDefinitionVersionCommandOutput,
 } from "./commands/CreateSubscriptionDefinitionVersionCommand";
 import {
   DeleteConnectorDefinitionCommandInput,
-  DeleteConnectorDefinitionCommandOutput
+  DeleteConnectorDefinitionCommandOutput,
 } from "./commands/DeleteConnectorDefinitionCommand";
 import {
   DeleteCoreDefinitionCommandInput,
-  DeleteCoreDefinitionCommandOutput
+  DeleteCoreDefinitionCommandOutput,
 } from "./commands/DeleteCoreDefinitionCommand";
 import {
   DeleteDeviceDefinitionCommandInput,
-  DeleteDeviceDefinitionCommandOutput
+  DeleteDeviceDefinitionCommandOutput,
 } from "./commands/DeleteDeviceDefinitionCommand";
 import {
   DeleteFunctionDefinitionCommandInput,
-  DeleteFunctionDefinitionCommandOutput
+  DeleteFunctionDefinitionCommandOutput,
 } from "./commands/DeleteFunctionDefinitionCommand";
-import {
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
-} from "./commands/DeleteGroupCommand";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
   DeleteLoggerDefinitionCommandInput,
-  DeleteLoggerDefinitionCommandOutput
+  DeleteLoggerDefinitionCommandOutput,
 } from "./commands/DeleteLoggerDefinitionCommand";
 import {
   DeleteResourceDefinitionCommandInput,
-  DeleteResourceDefinitionCommandOutput
+  DeleteResourceDefinitionCommandOutput,
 } from "./commands/DeleteResourceDefinitionCommand";
 import {
   DeleteSubscriptionDefinitionCommandInput,
-  DeleteSubscriptionDefinitionCommandOutput
+  DeleteSubscriptionDefinitionCommandOutput,
 } from "./commands/DeleteSubscriptionDefinitionCommand";
 import {
   DisassociateRoleFromGroupCommandInput,
-  DisassociateRoleFromGroupCommandOutput
+  DisassociateRoleFromGroupCommandOutput,
 } from "./commands/DisassociateRoleFromGroupCommand";
 import {
   DisassociateServiceRoleFromAccountCommandInput,
-  DisassociateServiceRoleFromAccountCommandOutput
+  DisassociateServiceRoleFromAccountCommandOutput,
 } from "./commands/DisassociateServiceRoleFromAccountCommand";
-import {
-  GetAssociatedRoleCommandInput,
-  GetAssociatedRoleCommandOutput
-} from "./commands/GetAssociatedRoleCommand";
+import { GetAssociatedRoleCommandInput, GetAssociatedRoleCommandOutput } from "./commands/GetAssociatedRoleCommand";
 import {
   GetBulkDeploymentStatusCommandInput,
-  GetBulkDeploymentStatusCommandOutput
+  GetBulkDeploymentStatusCommandOutput,
 } from "./commands/GetBulkDeploymentStatusCommand";
 import {
   GetConnectivityInfoCommandInput,
-  GetConnectivityInfoCommandOutput
+  GetConnectivityInfoCommandOutput,
 } from "./commands/GetConnectivityInfoCommand";
 import {
   GetConnectorDefinitionCommandInput,
-  GetConnectorDefinitionCommandOutput
+  GetConnectorDefinitionCommandOutput,
 } from "./commands/GetConnectorDefinitionCommand";
 import {
   GetConnectorDefinitionVersionCommandInput,
-  GetConnectorDefinitionVersionCommandOutput
+  GetConnectorDefinitionVersionCommandOutput,
 } from "./commands/GetConnectorDefinitionVersionCommand";
-import {
-  GetCoreDefinitionCommandInput,
-  GetCoreDefinitionCommandOutput
-} from "./commands/GetCoreDefinitionCommand";
+import { GetCoreDefinitionCommandInput, GetCoreDefinitionCommandOutput } from "./commands/GetCoreDefinitionCommand";
 import {
   GetCoreDefinitionVersionCommandInput,
-  GetCoreDefinitionVersionCommandOutput
+  GetCoreDefinitionVersionCommandOutput,
 } from "./commands/GetCoreDefinitionVersionCommand";
 import {
   GetDeploymentStatusCommandInput,
-  GetDeploymentStatusCommandOutput
+  GetDeploymentStatusCommandOutput,
 } from "./commands/GetDeploymentStatusCommand";
 import {
   GetDeviceDefinitionCommandInput,
-  GetDeviceDefinitionCommandOutput
+  GetDeviceDefinitionCommandOutput,
 } from "./commands/GetDeviceDefinitionCommand";
 import {
   GetDeviceDefinitionVersionCommandInput,
-  GetDeviceDefinitionVersionCommandOutput
+  GetDeviceDefinitionVersionCommandOutput,
 } from "./commands/GetDeviceDefinitionVersionCommand";
 import {
   GetFunctionDefinitionCommandInput,
-  GetFunctionDefinitionCommandOutput
+  GetFunctionDefinitionCommandOutput,
 } from "./commands/GetFunctionDefinitionCommand";
 import {
   GetFunctionDefinitionVersionCommandInput,
-  GetFunctionDefinitionVersionCommandOutput
+  GetFunctionDefinitionVersionCommandOutput,
 } from "./commands/GetFunctionDefinitionVersionCommand";
 import {
   GetGroupCertificateAuthorityCommandInput,
-  GetGroupCertificateAuthorityCommandOutput
+  GetGroupCertificateAuthorityCommandOutput,
 } from "./commands/GetGroupCertificateAuthorityCommand";
 import {
   GetGroupCertificateConfigurationCommandInput,
-  GetGroupCertificateConfigurationCommandOutput
+  GetGroupCertificateConfigurationCommandOutput,
 } from "./commands/GetGroupCertificateConfigurationCommand";
-import {
-  GetGroupCommandInput,
-  GetGroupCommandOutput
-} from "./commands/GetGroupCommand";
-import {
-  GetGroupVersionCommandInput,
-  GetGroupVersionCommandOutput
-} from "./commands/GetGroupVersionCommand";
+import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
+import { GetGroupVersionCommandInput, GetGroupVersionCommandOutput } from "./commands/GetGroupVersionCommand";
 import {
   GetLoggerDefinitionCommandInput,
-  GetLoggerDefinitionCommandOutput
+  GetLoggerDefinitionCommandOutput,
 } from "./commands/GetLoggerDefinitionCommand";
 import {
   GetLoggerDefinitionVersionCommandInput,
-  GetLoggerDefinitionVersionCommandOutput
+  GetLoggerDefinitionVersionCommandOutput,
 } from "./commands/GetLoggerDefinitionVersionCommand";
 import {
   GetResourceDefinitionCommandInput,
-  GetResourceDefinitionCommandOutput
+  GetResourceDefinitionCommandOutput,
 } from "./commands/GetResourceDefinitionCommand";
 import {
   GetResourceDefinitionVersionCommandInput,
-  GetResourceDefinitionVersionCommandOutput
+  GetResourceDefinitionVersionCommandOutput,
 } from "./commands/GetResourceDefinitionVersionCommand";
 import {
   GetServiceRoleForAccountCommandInput,
-  GetServiceRoleForAccountCommandOutput
+  GetServiceRoleForAccountCommandOutput,
 } from "./commands/GetServiceRoleForAccountCommand";
 import {
   GetSubscriptionDefinitionCommandInput,
-  GetSubscriptionDefinitionCommandOutput
+  GetSubscriptionDefinitionCommandOutput,
 } from "./commands/GetSubscriptionDefinitionCommand";
 import {
   GetSubscriptionDefinitionVersionCommandInput,
-  GetSubscriptionDefinitionVersionCommandOutput
+  GetSubscriptionDefinitionVersionCommandOutput,
 } from "./commands/GetSubscriptionDefinitionVersionCommand";
 import {
   ListBulkDeploymentDetailedReportsCommandInput,
-  ListBulkDeploymentDetailedReportsCommandOutput
+  ListBulkDeploymentDetailedReportsCommandOutput,
 } from "./commands/ListBulkDeploymentDetailedReportsCommand";
 import {
   ListBulkDeploymentsCommandInput,
-  ListBulkDeploymentsCommandOutput
+  ListBulkDeploymentsCommandOutput,
 } from "./commands/ListBulkDeploymentsCommand";
 import {
   ListConnectorDefinitionVersionsCommandInput,
-  ListConnectorDefinitionVersionsCommandOutput
+  ListConnectorDefinitionVersionsCommandOutput,
 } from "./commands/ListConnectorDefinitionVersionsCommand";
 import {
   ListConnectorDefinitionsCommandInput,
-  ListConnectorDefinitionsCommandOutput
+  ListConnectorDefinitionsCommandOutput,
 } from "./commands/ListConnectorDefinitionsCommand";
 import {
   ListCoreDefinitionVersionsCommandInput,
-  ListCoreDefinitionVersionsCommandOutput
+  ListCoreDefinitionVersionsCommandOutput,
 } from "./commands/ListCoreDefinitionVersionsCommand";
 import {
   ListCoreDefinitionsCommandInput,
-  ListCoreDefinitionsCommandOutput
+  ListCoreDefinitionsCommandOutput,
 } from "./commands/ListCoreDefinitionsCommand";
-import {
-  ListDeploymentsCommandInput,
-  ListDeploymentsCommandOutput
-} from "./commands/ListDeploymentsCommand";
+import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand";
 import {
   ListDeviceDefinitionVersionsCommandInput,
-  ListDeviceDefinitionVersionsCommandOutput
+  ListDeviceDefinitionVersionsCommandOutput,
 } from "./commands/ListDeviceDefinitionVersionsCommand";
 import {
   ListDeviceDefinitionsCommandInput,
-  ListDeviceDefinitionsCommandOutput
+  ListDeviceDefinitionsCommandOutput,
 } from "./commands/ListDeviceDefinitionsCommand";
 import {
   ListFunctionDefinitionVersionsCommandInput,
-  ListFunctionDefinitionVersionsCommandOutput
+  ListFunctionDefinitionVersionsCommandOutput,
 } from "./commands/ListFunctionDefinitionVersionsCommand";
 import {
   ListFunctionDefinitionsCommandInput,
-  ListFunctionDefinitionsCommandOutput
+  ListFunctionDefinitionsCommandOutput,
 } from "./commands/ListFunctionDefinitionsCommand";
 import {
   ListGroupCertificateAuthoritiesCommandInput,
-  ListGroupCertificateAuthoritiesCommandOutput
+  ListGroupCertificateAuthoritiesCommandOutput,
 } from "./commands/ListGroupCertificateAuthoritiesCommand";
-import {
-  ListGroupVersionsCommandInput,
-  ListGroupVersionsCommandOutput
-} from "./commands/ListGroupVersionsCommand";
-import {
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput
-} from "./commands/ListGroupsCommand";
+import { ListGroupVersionsCommandInput, ListGroupVersionsCommandOutput } from "./commands/ListGroupVersionsCommand";
+import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
   ListLoggerDefinitionVersionsCommandInput,
-  ListLoggerDefinitionVersionsCommandOutput
+  ListLoggerDefinitionVersionsCommandOutput,
 } from "./commands/ListLoggerDefinitionVersionsCommand";
 import {
   ListLoggerDefinitionsCommandInput,
-  ListLoggerDefinitionsCommandOutput
+  ListLoggerDefinitionsCommandOutput,
 } from "./commands/ListLoggerDefinitionsCommand";
 import {
   ListResourceDefinitionVersionsCommandInput,
-  ListResourceDefinitionVersionsCommandOutput
+  ListResourceDefinitionVersionsCommandOutput,
 } from "./commands/ListResourceDefinitionVersionsCommand";
 import {
   ListResourceDefinitionsCommandInput,
-  ListResourceDefinitionsCommandOutput
+  ListResourceDefinitionsCommandOutput,
 } from "./commands/ListResourceDefinitionsCommand";
 import {
   ListSubscriptionDefinitionVersionsCommandInput,
-  ListSubscriptionDefinitionVersionsCommandOutput
+  ListSubscriptionDefinitionVersionsCommandOutput,
 } from "./commands/ListSubscriptionDefinitionVersionsCommand";
 import {
   ListSubscriptionDefinitionsCommandInput,
-  ListSubscriptionDefinitionsCommandOutput
+  ListSubscriptionDefinitionsCommandOutput,
 } from "./commands/ListSubscriptionDefinitionsCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ResetDeploymentsCommandInput,
-  ResetDeploymentsCommandOutput
-} from "./commands/ResetDeploymentsCommand";
+import { ResetDeploymentsCommandInput, ResetDeploymentsCommandOutput } from "./commands/ResetDeploymentsCommand";
 import {
   StartBulkDeploymentCommandInput,
-  StartBulkDeploymentCommandOutput
+  StartBulkDeploymentCommandOutput,
 } from "./commands/StartBulkDeploymentCommand";
-import {
-  StopBulkDeploymentCommandInput,
-  StopBulkDeploymentCommandOutput
-} from "./commands/StopBulkDeploymentCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { StopBulkDeploymentCommandInput, StopBulkDeploymentCommandOutput } from "./commands/StopBulkDeploymentCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateConnectivityInfoCommandInput,
-  UpdateConnectivityInfoCommandOutput
+  UpdateConnectivityInfoCommandOutput,
 } from "./commands/UpdateConnectivityInfoCommand";
 import {
   UpdateConnectorDefinitionCommandInput,
-  UpdateConnectorDefinitionCommandOutput
+  UpdateConnectorDefinitionCommandOutput,
 } from "./commands/UpdateConnectorDefinitionCommand";
 import {
   UpdateCoreDefinitionCommandInput,
-  UpdateCoreDefinitionCommandOutput
+  UpdateCoreDefinitionCommandOutput,
 } from "./commands/UpdateCoreDefinitionCommand";
 import {
   UpdateDeviceDefinitionCommandInput,
-  UpdateDeviceDefinitionCommandOutput
+  UpdateDeviceDefinitionCommandOutput,
 } from "./commands/UpdateDeviceDefinitionCommand";
 import {
   UpdateFunctionDefinitionCommandInput,
-  UpdateFunctionDefinitionCommandOutput
+  UpdateFunctionDefinitionCommandOutput,
 } from "./commands/UpdateFunctionDefinitionCommand";
 import {
   UpdateGroupCertificateConfigurationCommandInput,
-  UpdateGroupCertificateConfigurationCommandOutput
+  UpdateGroupCertificateConfigurationCommandOutput,
 } from "./commands/UpdateGroupCertificateConfigurationCommand";
-import {
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
-} from "./commands/UpdateGroupCommand";
+import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
   UpdateLoggerDefinitionCommandInput,
-  UpdateLoggerDefinitionCommandOutput
+  UpdateLoggerDefinitionCommandOutput,
 } from "./commands/UpdateLoggerDefinitionCommand";
 import {
   UpdateResourceDefinitionCommandInput,
-  UpdateResourceDefinitionCommandOutput
+  UpdateResourceDefinitionCommandOutput,
 } from "./commands/UpdateResourceDefinitionCommand";
 import {
   UpdateSubscriptionDefinitionCommandInput,
-  UpdateSubscriptionDefinitionCommandOutput
+  UpdateSubscriptionDefinitionCommandOutput,
 } from "./commands/UpdateSubscriptionDefinitionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -365,38 +317,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -407,7 +354,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -594,8 +541,7 @@ export type ServiceOutputTypes =
   | UpdateResourceDefinitionCommandOutput
   | UpdateSubscriptionDefinitionCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -684,9 +630,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type GreengrassClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type GreengrassClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -695,9 +639,7 @@ export type GreengrassClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type GreengrassClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type GreengrassClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -720,7 +662,7 @@ export class GreengrassClient extends __Client<
   constructor(configuration: GreengrassClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

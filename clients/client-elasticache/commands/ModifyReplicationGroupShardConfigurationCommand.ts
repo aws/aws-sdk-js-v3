@@ -1,21 +1,14 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import {
   ModifyReplicationGroupShardConfigurationMessage,
-  ModifyReplicationGroupShardConfigurationResult
+  ModifyReplicationGroupShardConfigurationResult,
 } from "../models/index";
 import {
   deserializeAws_queryModifyReplicationGroupShardConfigurationCommand,
-  serializeAws_queryModifyReplicationGroupShardConfigurationCommand
+  serializeAws_queryModifyReplicationGroupShardConfigurationCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ModifyReplicationGroupShardConfigurationCommandInput = ModifyReplicationGroupShardConfigurationMessage;
@@ -39,9 +32,7 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: ModifyReplicationGroupShardConfigurationCommandInput
-  ) {
+  constructor(readonly input: ModifyReplicationGroupShardConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,14 +46,12 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
     ModifyReplicationGroupShardConfigurationCommandInput,
     ModifyReplicationGroupShardConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +65,14 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
     input: ModifyReplicationGroupShardConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryModifyReplicationGroupShardConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_queryModifyReplicationGroupShardConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyReplicationGroupShardConfigurationCommandOutput> {
-    return deserializeAws_queryModifyReplicationGroupShardConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryModifyReplicationGroupShardConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

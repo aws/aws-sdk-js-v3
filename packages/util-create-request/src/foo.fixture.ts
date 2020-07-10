@@ -23,43 +23,18 @@ const input: OperationInput = { String: "input" };
 export const fooClient: Client<any, InputTypesUnion, OutputTypesUnion, any> = {
   config: {},
   middlewareStack: new MiddlewareStack<InputTypesUnion, OutputTypesUnion>(),
-  send: (
-    command: Command<
-      InputTypesUnion,
-      OutputTypesUnion,
-      any,
-      OperationInput,
-      OperationOutput
-    >
-  ) =>
-    command.resolveMiddleware(
-      this.middlewareStack,
-      this.config,
-      undefined
-    )({ input }),
-  destroy: () => {}
+  send: (command: Command<InputTypesUnion, OutputTypesUnion, any, OperationInput, OperationOutput>) =>
+    command.resolveMiddleware(this.middlewareStack, this.config, undefined)({ input }),
+  destroy: () => {},
 };
 
-export const operationCommand: Command<
-  InputTypesUnion,
-  OutputTypesUnion,
-  any,
-  OperationInput,
-  OperationOutput
-> = {
+export const operationCommand: Command<InputTypesUnion, OutputTypesUnion, any, OperationInput, OperationOutput> = {
   middlewareStack: new MiddlewareStack<object, OutputTypesUnion>(),
   input: {} as any,
-  resolveMiddleware: (
-    stack: MiddlewareStack<InputTypesUnion, OutputTypesUnion>,
-    config: any,
-    options: any
-  ) => {
+  resolveMiddleware: (stack: MiddlewareStack<InputTypesUnion, OutputTypesUnion>, config: any, options: any) => {
     const concatStack = stack.concat(operationCommand.middlewareStack);
-    return concatStack.resolve(
-      () => Promise.resolve({ output, response: {} }),
-      {} as any
-    );
-  }
+    return concatStack.resolve(() => Promise.resolve({ output, response: {} }), {} as any);
+  },
 };
 
 export const httpRequest = new HttpRequest({
@@ -68,5 +43,5 @@ export const httpRequest = new HttpRequest({
   hostname: "foo-service.us-east-1.amazonaws.com",
   headers: {},
   method: "GET",
-  body: ""
+  body: "",
 });

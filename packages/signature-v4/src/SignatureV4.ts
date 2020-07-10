@@ -18,7 +18,7 @@ import {
   SIGNED_HEADERS_QUERY_PARAM,
   TOKEN_HEADER,
   TOKEN_QUERY_PARAM,
-  EVENT_ALGORITHM_IDENTIFIER
+  EVENT_ALGORITHM_IDENTIFIER,
 } from "./constants";
 import {
   Credentials,
@@ -35,7 +35,7 @@ import {
   FormattedEvent,
   EventSigningArguments,
   HeaderBag,
-  HttpRequest
+  HttpRequest,
 } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 import { hasHeader } from "./hasHeader";
@@ -89,8 +89,7 @@ export interface SignatureV4CryptoInit {
   sha256: HashConstructor;
 }
 
-export class SignatureV4
-  implements RequestPresigner, RequestSigner, StringSigner, EventSigner {
+export class SignatureV4 implements RequestPresigner, RequestSigner, StringSigner, EventSigner {
   private readonly service: string;
   private readonly regionProvider: Provider<string>;
   private readonly credentialProvider: Provider<Credentials>;
@@ -104,14 +103,13 @@ export class SignatureV4
     region,
     service,
     sha256,
-    uriEscapePath = true
+    uriEscapePath = true,
   }: SignatureV4Init & SignatureV4CryptoInit) {
     this.service = service;
     this.sha256 = sha256;
     this.uriEscapePath = uriEscapePath;
     // default to true if applyChecksum isn't set
-    this.applyChecksum =
-      typeof applyChecksum === "boolean" ? applyChecksum : true;
+    this.applyChecksum = typeof applyChecksum === "boolean" ? applyChecksum : true;
 
     if (typeof region === "string") {
       const promisified = Promise.resolve(region);
@@ -128,28 +126,15 @@ export class SignatureV4
     }
   }
 
-  public async presign(
-    originalRequest: HttpRequest,
-    options: RequestPresigningArguments = {}
-  ): Promise<HttpRequest> {
-    const [region, credentials] = await Promise.all([
-      this.regionProvider(),
-      this.credentialProvider()
-    ]);
+  public async presign(originalRequest: HttpRequest, options: RequestPresigningArguments = {}): Promise<HttpRequest> {
+    const [region, credentials] = await Promise.all([this.regionProvider(), this.credentialProvider()]);
 
-    const {
-      signingDate = new Date(),
-      expiresIn = 3600,
-      unsignableHeaders,
-      signableHeaders
-    } = options;
+    const { signingDate = new Date(), expiresIn = 3600, unsignableHeaders, signableHeaders } = options;
 
     const { longDate, shortDate } = formatDate(signingDate);
     if (expiresIn > MAX_PRESIGNED_TTL) {
       return Promise.reject(
-        "Signature version 4 presigned URLs" +
-          " must have an expiration date less than one week in" +
-          " the future"
+        "Signature version 4 presigned URLs" + " must have an expiration date less than one week in" + " the future"
       );
     }
 
@@ -160,47 +145,26 @@ export class SignatureV4
       request.query[TOKEN_QUERY_PARAM] = credentials.sessionToken;
     }
     request.query[ALGORITHM_QUERY_PARAM] = ALGORITHM_IDENTIFIER;
-    request.query[
-      CREDENTIAL_QUERY_PARAM
-    ] = `${credentials.accessKeyId}/${scope}`;
+    request.query[CREDENTIAL_QUERY_PARAM] = `${credentials.accessKeyId}/${scope}`;
     request.query[AMZ_DATE_QUERY_PARAM] = longDate;
     request.query[EXPIRES_QUERY_PARAM] = expiresIn.toString(10);
 
-    const canonicalHeaders = getCanonicalHeaders(
-      request,
-      unsignableHeaders,
-      signableHeaders
-    );
-    request.query[SIGNED_HEADERS_QUERY_PARAM] = getCanonicalHeaderList(
-      canonicalHeaders
-    );
+    const canonicalHeaders = getCanonicalHeaders(request, unsignableHeaders, signableHeaders);
+    request.query[SIGNED_HEADERS_QUERY_PARAM] = getCanonicalHeaderList(canonicalHeaders);
 
     request.query[SIGNATURE_QUERY_PARAM] = await this.getSignature(
       longDate,
       scope,
       this.getSigningKey(credentials, region, shortDate),
-      this.createCanonicalRequest(
-        request,
-        canonicalHeaders,
-        await getPayloadHash(originalRequest, this.sha256)
-      )
+      this.createCanonicalRequest(request, canonicalHeaders, await getPayloadHash(originalRequest, this.sha256))
     );
 
     return request;
   }
 
-  public async sign(
-    stringToSign: string,
-    options?: SigningArguments
-  ): Promise<string>;
-  public async sign(
-    event: FormattedEvent,
-    options: EventSigningArguments
-  ): Promise<string>;
-  public async sign(
-    requestToSign: HttpRequest,
-    options?: RequestSigningArguments
-  ): Promise<HttpRequest>;
+  public async sign(stringToSign: string, options?: SigningArguments): Promise<string>;
+  public async sign(event: FormattedEvent, options: EventSigningArguments): Promise<string>;
+  public async sign(requestToSign: HttpRequest, options?: RequestSigningArguments): Promise<HttpRequest>;
   public async sign(toSign: any, options: any): Promise<any> {
     if (typeof toSign === "string") {
       return this.signString(toSign, options);
@@ -215,16 +179,10 @@ export class SignatureV4
     { headers, payload }: FormattedEvent,
     { signingDate = new Date(), priorSignature }: EventSigningArguments
   ): Promise<string> {
-    const [region] = await Promise.all([
-      this.regionProvider(),
-      this.credentialProvider()
-    ]);
+    const [region] = await Promise.all([this.regionProvider(), this.credentialProvider()]);
     const { shortDate, longDate } = formatDate(signingDate);
     const scope = createScope(shortDate, region, this.service);
-    const hashedPayload = await getPayloadHash(
-      { headers: {}, body: payload } as any,
-      this.sha256
-    );
+    const hashedPayload = await getPayloadHash({ headers: {}, body: payload } as any, this.sha256);
     const hash = new this.sha256();
     hash.update(headers);
     const hashedHeaders = toHex(await hash.digest());
@@ -234,40 +192,25 @@ export class SignatureV4
       scope,
       priorSignature,
       hashedHeaders,
-      hashedPayload
+      hashedPayload,
     ].join("\n");
     return this.signString(stringToSign, { signingDate });
   }
 
-  private async signString(
-    stringToSign: string,
-    { signingDate = new Date() }: SigningArguments = {}
-  ): Promise<string> {
-    const [region, credentials] = await Promise.all([
-      this.regionProvider(),
-      this.credentialProvider()
-    ]);
+  private async signString(stringToSign: string, { signingDate = new Date() }: SigningArguments = {}): Promise<string> {
+    const [region, credentials] = await Promise.all([this.regionProvider(), this.credentialProvider()]);
     const { shortDate } = formatDate(signingDate);
 
-    const hash = new this.sha256(
-      await this.getSigningKey(credentials, region, shortDate)
-    );
+    const hash = new this.sha256(await this.getSigningKey(credentials, region, shortDate));
     hash.update(stringToSign);
     return toHex(await hash.digest());
   }
 
   private async signRequest(
     requestToSign: HttpRequest,
-    {
-      signingDate = new Date(),
-      signableHeaders,
-      unsignableHeaders
-    }: RequestSigningArguments = {}
+    { signingDate = new Date(), signableHeaders, unsignableHeaders }: RequestSigningArguments = {}
   ): Promise<HttpRequest> {
-    const [region, credentials] = await Promise.all([
-      this.regionProvider(),
-      this.credentialProvider()
-    ]);
+    const [region, credentials] = await Promise.all([this.regionProvider(), this.credentialProvider()]);
     const request = prepareRequest(requestToSign);
     const { longDate, shortDate } = formatDate(signingDate);
     const scope = createScope(shortDate, region, this.service);
@@ -282,11 +225,7 @@ export class SignatureV4
       request.headers[SHA256_HEADER] = payloadHash;
     }
 
-    const canonicalHeaders = getCanonicalHeaders(
-      request,
-      unsignableHeaders,
-      signableHeaders
-    );
+    const canonicalHeaders = getCanonicalHeaders(request, unsignableHeaders, signableHeaders);
     const signature = await this.getSignature(
       longDate,
       scope,
@@ -303,16 +242,12 @@ export class SignatureV4
     return request;
   }
 
-  private createCanonicalRequest(
-    request: HttpRequest,
-    canonicalHeaders: HeaderBag,
-    payloadHash: string
-  ): string {
+  private createCanonicalRequest(request: HttpRequest, canonicalHeaders: HeaderBag, payloadHash: string): string {
     const sortedHeaders = Object.keys(canonicalHeaders).sort();
     return `${request.method}
 ${this.getCanonicalPath(request)}
 ${getCanonicalQuery(request)}
-${sortedHeaders.map(name => `${name}:${canonicalHeaders[name]}`).join("\n")}
+${sortedHeaders.map((name) => `${name}:${canonicalHeaders[name]}`).join("\n")}
 
 ${sortedHeaders.join(";")}
 ${payloadHash}`;
@@ -348,29 +283,15 @@ ${toHex(hashedRequest)}`;
     keyPromise: Promise<Uint8Array>,
     canonicalRequest: string
   ): Promise<string> {
-    const stringToSign = await this.createStringToSign(
-      longDate,
-      credentialScope,
-      canonicalRequest
-    );
+    const stringToSign = await this.createStringToSign(longDate, credentialScope, canonicalRequest);
 
     const hash = new this.sha256(await keyPromise);
     hash.update(stringToSign);
     return toHex(await hash.digest());
   }
 
-  private getSigningKey(
-    credentials: Credentials,
-    region: string,
-    shortDate: string
-  ): Promise<Uint8Array> {
-    return getSigningKey(
-      this.sha256,
-      credentials,
-      shortDate,
-      region,
-      this.service
-    );
+  private getSigningKey(credentials: Credentials, region: string, shortDate: string): Promise<Uint8Array> {
+    return getSigningKey(this.sha256, credentials, shortDate, region, this.service);
   }
 }
 
@@ -378,7 +299,7 @@ function formatDate(now: DateInput): { longDate: string; shortDate: string } {
   const longDate = iso8601(now).replace(/[\-:]/g, "");
   return {
     longDate,
-    shortDate: longDate.substr(0, 8)
+    shortDate: longDate.substr(0, 8),
   };
 }
 

@@ -2,87 +2,87 @@ import { GlobalAcceleratorClient } from "./GlobalAcceleratorClient";
 import {
   CreateAcceleratorCommand,
   CreateAcceleratorCommandInput,
-  CreateAcceleratorCommandOutput
+  CreateAcceleratorCommandOutput,
 } from "./commands/CreateAcceleratorCommand";
 import {
   CreateEndpointGroupCommand,
   CreateEndpointGroupCommandInput,
-  CreateEndpointGroupCommandOutput
+  CreateEndpointGroupCommandOutput,
 } from "./commands/CreateEndpointGroupCommand";
 import {
   CreateListenerCommand,
   CreateListenerCommandInput,
-  CreateListenerCommandOutput
+  CreateListenerCommandOutput,
 } from "./commands/CreateListenerCommand";
 import {
   DeleteAcceleratorCommand,
   DeleteAcceleratorCommandInput,
-  DeleteAcceleratorCommandOutput
+  DeleteAcceleratorCommandOutput,
 } from "./commands/DeleteAcceleratorCommand";
 import {
   DeleteEndpointGroupCommand,
   DeleteEndpointGroupCommandInput,
-  DeleteEndpointGroupCommandOutput
+  DeleteEndpointGroupCommandOutput,
 } from "./commands/DeleteEndpointGroupCommand";
 import {
   DeleteListenerCommand,
   DeleteListenerCommandInput,
-  DeleteListenerCommandOutput
+  DeleteListenerCommandOutput,
 } from "./commands/DeleteListenerCommand";
 import {
   DescribeAcceleratorAttributesCommand,
   DescribeAcceleratorAttributesCommandInput,
-  DescribeAcceleratorAttributesCommandOutput
+  DescribeAcceleratorAttributesCommandOutput,
 } from "./commands/DescribeAcceleratorAttributesCommand";
 import {
   DescribeAcceleratorCommand,
   DescribeAcceleratorCommandInput,
-  DescribeAcceleratorCommandOutput
+  DescribeAcceleratorCommandOutput,
 } from "./commands/DescribeAcceleratorCommand";
 import {
   DescribeEndpointGroupCommand,
   DescribeEndpointGroupCommandInput,
-  DescribeEndpointGroupCommandOutput
+  DescribeEndpointGroupCommandOutput,
 } from "./commands/DescribeEndpointGroupCommand";
 import {
   DescribeListenerCommand,
   DescribeListenerCommandInput,
-  DescribeListenerCommandOutput
+  DescribeListenerCommandOutput,
 } from "./commands/DescribeListenerCommand";
 import {
   ListAcceleratorsCommand,
   ListAcceleratorsCommandInput,
-  ListAcceleratorsCommandOutput
+  ListAcceleratorsCommandOutput,
 } from "./commands/ListAcceleratorsCommand";
 import {
   ListEndpointGroupsCommand,
   ListEndpointGroupsCommandInput,
-  ListEndpointGroupsCommandOutput
+  ListEndpointGroupsCommandOutput,
 } from "./commands/ListEndpointGroupsCommand";
 import {
   ListListenersCommand,
   ListListenersCommandInput,
-  ListListenersCommandOutput
+  ListListenersCommandOutput,
 } from "./commands/ListListenersCommand";
 import {
   UpdateAcceleratorAttributesCommand,
   UpdateAcceleratorAttributesCommandInput,
-  UpdateAcceleratorAttributesCommandOutput
+  UpdateAcceleratorAttributesCommandOutput,
 } from "./commands/UpdateAcceleratorAttributesCommand";
 import {
   UpdateAcceleratorCommand,
   UpdateAcceleratorCommandInput,
-  UpdateAcceleratorCommandOutput
+  UpdateAcceleratorCommandOutput,
 } from "./commands/UpdateAcceleratorCommand";
 import {
   UpdateEndpointGroupCommand,
   UpdateEndpointGroupCommandInput,
-  UpdateEndpointGroupCommandOutput
+  UpdateEndpointGroupCommandOutput,
 } from "./commands/UpdateEndpointGroupCommand";
 import {
   UpdateListenerCommand,
   UpdateListenerCommandInput,
-  UpdateListenerCommandOutput
+  UpdateListenerCommandOutput,
 } from "./commands/UpdateListenerCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -183,17 +183,14 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public createAccelerator(
     args: CreateAcceleratorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAcceleratorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAcceleratorCommandOutput) => void),
     cb?: (err: any, data?: CreateAcceleratorCommandOutput) => void
   ): Promise<CreateAcceleratorCommandOutput> | void {
     const command = new CreateAcceleratorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -219,17 +216,14 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public createEndpointGroup(
     args: CreateEndpointGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateEndpointGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEndpointGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateEndpointGroupCommandOutput) => void
   ): Promise<CreateEndpointGroupCommandOutput> | void {
     const command = new CreateEndpointGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -256,17 +250,14 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public createListener(
     args: CreateListenerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateListenerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateListenerCommandOutput) => void),
     cb?: (err: any, data?: CreateListenerCommandOutput) => void
   ): Promise<CreateListenerCommandOutput> | void {
     const command = new CreateListenerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -292,17 +283,14 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public deleteAccelerator(
     args: DeleteAcceleratorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAcceleratorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAcceleratorCommandOutput) => void),
     cb?: (err: any, data?: DeleteAcceleratorCommandOutput) => void
   ): Promise<DeleteAcceleratorCommandOutput> | void {
     const command = new DeleteAcceleratorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -327,17 +315,14 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public deleteEndpointGroup(
     args: DeleteEndpointGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEndpointGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEndpointGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteEndpointGroupCommandOutput) => void
   ): Promise<DeleteEndpointGroupCommandOutput> | void {
     const command = new DeleteEndpointGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -362,17 +347,14 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public deleteListener(
     args: DeleteListenerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteListenerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteListenerCommandOutput) => void),
     cb?: (err: any, data?: DeleteListenerCommandOutput) => void
   ): Promise<DeleteListenerCommandOutput> | void {
     const command = new DeleteListenerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -397,17 +379,14 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public describeAccelerator(
     args: DescribeAcceleratorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAcceleratorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAcceleratorCommandOutput) => void),
     cb?: (err: any, data?: DescribeAcceleratorCommandOutput) => void
   ): Promise<DescribeAcceleratorCommandOutput> | void {
     const command = new DescribeAcceleratorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -432,17 +411,14 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public describeAcceleratorAttributes(
     args: DescribeAcceleratorAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAcceleratorAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAcceleratorAttributesCommandOutput) => void),
     cb?: (err: any, data?: DescribeAcceleratorAttributesCommandOutput) => void
   ): Promise<DescribeAcceleratorAttributesCommandOutput> | void {
     const command = new DescribeAcceleratorAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -467,17 +443,14 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public describeEndpointGroup(
     args: DescribeEndpointGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEndpointGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEndpointGroupCommandOutput) => void),
     cb?: (err: any, data?: DescribeEndpointGroupCommandOutput) => void
   ): Promise<DescribeEndpointGroupCommandOutput> | void {
     const command = new DescribeEndpointGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -502,17 +475,14 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public describeListener(
     args: DescribeListenerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeListenerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeListenerCommandOutput) => void),
     cb?: (err: any, data?: DescribeListenerCommandOutput) => void
   ): Promise<DescribeListenerCommandOutput> | void {
     const command = new DescribeListenerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -537,17 +507,14 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public listAccelerators(
     args: ListAcceleratorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAcceleratorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAcceleratorsCommandOutput) => void),
     cb?: (err: any, data?: ListAcceleratorsCommandOutput) => void
   ): Promise<ListAcceleratorsCommandOutput> | void {
     const command = new ListAcceleratorsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -572,17 +539,14 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public listEndpointGroups(
     args: ListEndpointGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEndpointGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEndpointGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListEndpointGroupsCommandOutput) => void
   ): Promise<ListEndpointGroupsCommandOutput> | void {
     const command = new ListEndpointGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -607,17 +571,14 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public listListeners(
     args: ListListenersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListListenersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListListenersCommandOutput) => void),
     cb?: (err: any, data?: ListListenersCommandOutput) => void
   ): Promise<ListListenersCommandOutput> | void {
     const command = new ListListenersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -647,17 +608,14 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public updateAccelerator(
     args: UpdateAcceleratorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAcceleratorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAcceleratorCommandOutput) => void),
     cb?: (err: any, data?: UpdateAcceleratorCommandOutput) => void
   ): Promise<UpdateAcceleratorCommandOutput> | void {
     const command = new UpdateAcceleratorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -683,17 +641,14 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public updateAcceleratorAttributes(
     args: UpdateAcceleratorAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAcceleratorAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAcceleratorAttributesCommandOutput) => void),
     cb?: (err: any, data?: UpdateAcceleratorAttributesCommandOutput) => void
   ): Promise<UpdateAcceleratorAttributesCommandOutput> | void {
     const command = new UpdateAcceleratorAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -718,17 +673,14 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public updateEndpointGroup(
     args: UpdateEndpointGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateEndpointGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEndpointGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateEndpointGroupCommandOutput) => void
   ): Promise<UpdateEndpointGroupCommandOutput> | void {
     const command = new UpdateEndpointGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -753,17 +705,14 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public updateListener(
     args: UpdateListenerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateListenerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateListenerCommandOutput) => void),
     cb?: (err: any, data?: UpdateListenerCommandOutput) => void
   ): Promise<UpdateListenerCommandOutput> | void {
     const command = new UpdateListenerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

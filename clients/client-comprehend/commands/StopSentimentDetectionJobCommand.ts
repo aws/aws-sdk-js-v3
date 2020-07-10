@@ -1,21 +1,11 @@
-import {
-  ComprehendClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ComprehendClient";
-import {
-  StopSentimentDetectionJobRequest,
-  StopSentimentDetectionJobResponse
-} from "../models/index";
+import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
+import { StopSentimentDetectionJobRequest, StopSentimentDetectionJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1StopSentimentDetectionJobCommand,
-  serializeAws_json1_1StopSentimentDetectionJobCommand
+  serializeAws_json1_1StopSentimentDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type StopSentimentDetectionJobCommandInput = StopSentimentDetectionJobRequest;
-export type StopSentimentDetectionJobCommandOutput = StopSentimentDetectionJobResponse &
-  __MetadataBearer;
+export type StopSentimentDetectionJobCommandOutput = StopSentimentDetectionJobResponse & __MetadataBearer;
 
 export class StopSentimentDetectionJobCommand extends $Command<
   StopSentimentDetectionJobCommandInput,
@@ -49,18 +38,13 @@ export class StopSentimentDetectionJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopSentimentDetectionJobCommandInput,
-    StopSentimentDetectionJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopSentimentDetectionJobCommandInput, StopSentimentDetectionJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +54,7 @@ export class StopSentimentDetectionJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StopSentimentDetectionJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StopSentimentDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopSentimentDetectionJobCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class StopSentimentDetectionJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopSentimentDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StopSentimentDetectionJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StopSentimentDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

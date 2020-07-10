@@ -2,22 +2,22 @@ import { CodeStarconnectionsClient } from "./CodeStarconnectionsClient";
 import {
   CreateConnectionCommand,
   CreateConnectionCommandInput,
-  CreateConnectionCommandOutput
+  CreateConnectionCommandOutput,
 } from "./commands/CreateConnectionCommand";
 import {
   DeleteConnectionCommand,
   DeleteConnectionCommandInput,
-  DeleteConnectionCommandOutput
+  DeleteConnectionCommandOutput,
 } from "./commands/DeleteConnectionCommand";
 import {
   GetConnectionCommand,
   GetConnectionCommandInput,
-  GetConnectionCommandOutput
+  GetConnectionCommandOutput,
 } from "./commands/GetConnectionCommand";
 import {
   ListConnectionsCommand,
   ListConnectionsCommandInput,
-  ListConnectionsCommandOutput
+  ListConnectionsCommandOutput,
 } from "./commands/ListConnectionsCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -82,17 +82,14 @@ export class CodeStarconnections extends CodeStarconnectionsClient {
   ): void;
   public createConnection(
     args: CreateConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConnectionCommandOutput) => void),
     cb?: (err: any, data?: CreateConnectionCommandOutput) => void
   ): Promise<CreateConnectionCommandOutput> | void {
     const command = new CreateConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -117,17 +114,14 @@ export class CodeStarconnections extends CodeStarconnectionsClient {
   ): void;
   public deleteConnection(
     args: DeleteConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConnectionCommandOutput) => void),
     cb?: (err: any, data?: DeleteConnectionCommandOutput) => void
   ): Promise<DeleteConnectionCommandOutput> | void {
     const command = new DeleteConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -152,17 +146,14 @@ export class CodeStarconnections extends CodeStarconnectionsClient {
   ): void;
   public getConnection(
     args: GetConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConnectionCommandOutput) => void),
     cb?: (err: any, data?: GetConnectionCommandOutput) => void
   ): Promise<GetConnectionCommandOutput> | void {
     const command = new GetConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -187,17 +178,14 @@ export class CodeStarconnections extends CodeStarconnectionsClient {
   ): void;
   public listConnections(
     args: ListConnectionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListConnectionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConnectionsCommandOutput) => void),
     cb?: (err: any, data?: ListConnectionsCommandOutput) => void
   ): Promise<ListConnectionsCommandOutput> | void {
     const command = new ListConnectionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  CreateNetworkAclRequest,
-  CreateNetworkAclResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CreateNetworkAclRequest, CreateNetworkAclResult } from "../models/index";
 import {
   deserializeAws_ec2CreateNetworkAclCommand,
-  serializeAws_ec2CreateNetworkAclCommand
+  serializeAws_ec2CreateNetworkAclCommand,
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateNetworkAclCommandInput = CreateNetworkAclRequest;
-export type CreateNetworkAclCommandOutput = CreateNetworkAclResult &
-  __MetadataBearer;
+export type CreateNetworkAclCommandOutput = CreateNetworkAclResult & __MetadataBearer;
 
 export class CreateNetworkAclCommand extends $Command<
   CreateNetworkAclCommandInput,
@@ -50,14 +39,12 @@ export class CreateNetworkAclCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateNetworkAclCommandInput, CreateNetworkAclCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class CreateNetworkAclCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateNetworkAclCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateNetworkAclCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateNetworkAclCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateNetworkAclCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNetworkAclCommandOutput> {
     return deserializeAws_ec2CreateNetworkAclCommand(output, context);
   }
 

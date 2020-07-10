@@ -208,29 +208,29 @@ export const vectors: TestVectors = {
       171,
       165,
       241,
-      12
+      12,
     ]),
     decoded: {
       headers: {
         "event-type": {
           type: "integer",
-          value: 40972
+          value: 40972,
         },
         "content-type": {
           type: "string",
-          value: "application/json"
+          value: "application/json",
         },
         "bool false": {
           type: "boolean",
-          value: false
+          value: false,
         },
         "bool true": {
           type: "boolean",
-          value: true
+          value: true,
         },
         byte: {
           type: "byte",
-          value: -49
+          value: -49,
         },
         "byte buf": {
           type: "binary",
@@ -254,67 +254,36 @@ export const vectors: TestVectors = {
             112,
             111,
             116,
-            33
-          ])
+            33,
+          ]),
         },
         timestamp: {
           type: "timestamp",
-          value: new Date(8675309)
+          value: new Date(8675309),
         },
         int16: {
           type: "short",
-          value: 42
+          value: 42,
         },
         int64: {
           type: "long",
-          value: Int64.fromNumber(42424242)
+          value: Int64.fromNumber(42424242),
         },
         uuid: {
           type: "uuid",
-          value: "01020304-0506-0708-090a-0b0c0d0e0f10"
-        }
+          value: "01020304-0506-0708-090a-0b0c0d0e0f10",
+        },
       },
-      body: Uint8Array.from([
-        123,
-        39,
-        102,
-        111,
-        111,
-        39,
-        58,
-        39,
-        98,
-        97,
-        114,
-        39,
-        125
-      ])
-    }
+      body: Uint8Array.from([123, 39, 102, 111, 111, 39, 58, 39, 98, 97, 114, 39, 125]),
+    },
   },
   empty_message: {
     expectation: "success",
-    encoded: Uint8Array.from([
-      0,
-      0,
-      0,
-      16,
-      0,
-      0,
-      0,
-      0,
-      5,
-      194,
-      72,
-      235,
-      125,
-      152,
-      200,
-      255
-    ]),
+    encoded: Uint8Array.from([0, 0, 0, 16, 0, 0, 0, 0, 5, 194, 72, 235, 125, 152, 200, 255]),
     decoded: {
       headers: {},
-      body: Uint8Array.from([])
-    }
+      body: Uint8Array.from([]),
+    },
   },
   int32_header: {
     expectation: "success",
@@ -363,31 +332,17 @@ export const vectors: TestVectors = {
       54,
       244,
       128,
-      160
+      160,
     ]),
     decoded: {
       headers: {
         "event-type": {
           type: "integer",
-          value: 40972
-        }
+          value: 40972,
+        },
       },
-      body: Uint8Array.from([
-        123,
-        39,
-        102,
-        111,
-        111,
-        39,
-        58,
-        39,
-        98,
-        97,
-        114,
-        39,
-        125
-      ])
-    }
+      body: Uint8Array.from([123, 39, 102, 111, 111, 39, 58, 39, 98, 97, 114, 39, 125]),
+    },
   },
   payload_no_headers: {
     expectation: "success",
@@ -420,26 +375,12 @@ export const vectors: TestVectors = {
       195,
       101,
       57,
-      54
+      54,
     ]),
     decoded: {
       headers: {},
-      body: Uint8Array.from([
-        123,
-        39,
-        102,
-        111,
-        111,
-        39,
-        58,
-        39,
-        98,
-        97,
-        114,
-        39,
-        125
-      ])
-    }
+      body: Uint8Array.from([123, 39, 102, 111, 111, 39, 58, 39, 98, 97, 114, 39, 125]),
+    },
   },
   payload_one_str_header: {
     expectation: "success",
@@ -504,31 +445,17 @@ export const vectors: TestVectors = {
       141,
       156,
       8,
-      177
+      177,
     ]),
     decoded: {
       headers: {
         "content-type": {
           type: "string",
-          value: "application/json"
-        }
+          value: "application/json",
+        },
       },
-      body: Uint8Array.from([
-        123,
-        39,
-        102,
-        111,
-        111,
-        39,
-        58,
-        39,
-        98,
-        97,
-        114,
-        39,
-        125
-      ])
-    }
+      body: Uint8Array.from([123, 39, 102, 111, 111, 39, 58, 39, 98, 97, 114, 39, 125]),
+    },
   },
   corrupted_headers: {
     expectation: "failure",
@@ -593,8 +520,8 @@ export const vectors: TestVectors = {
       141,
       156,
       8,
-      177
-    ])
+      177,
+    ]),
   },
   corrupted_header_len: {
     expectation: "failure",
@@ -659,8 +586,8 @@ export const vectors: TestVectors = {
       141,
       156,
       8,
-      177
-    ])
+      177,
+    ]),
   },
   corrupted_length: {
     expectation: "failure",
@@ -725,8 +652,8 @@ export const vectors: TestVectors = {
       141,
       156,
       8,
-      177
-    ])
+      177,
+    ]),
   },
   corrupted_payload: {
     expectation: "failure",
@@ -759,7 +686,7 @@ export const vectors: TestVectors = {
       195,
       101,
       57,
-      54
-    ])
-  }
+      54,
+    ]),
+  },
 };

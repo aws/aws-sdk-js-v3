@@ -1,21 +1,15 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  codestarnotificationsClientResolvedConfig
+  codestarnotificationsClientResolvedConfig,
 } from "../codestarnotificationsClient";
-import {
-  ListNotificationRulesRequest,
-  ListNotificationRulesResult
-} from "../models/index";
+import { ListNotificationRulesRequest, ListNotificationRulesResult } from "../models/index";
 import {
   deserializeAws_restJson1ListNotificationRulesCommand,
-  serializeAws_restJson1ListNotificationRulesCommand
+  serializeAws_restJson1ListNotificationRulesCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListNotificationRulesCommandInput = ListNotificationRulesRequest;
-export type ListNotificationRulesCommandOutput = ListNotificationRulesResult &
-  __MetadataBearer;
+export type ListNotificationRulesCommandOutput = ListNotificationRulesResult & __MetadataBearer;
 
 export class ListNotificationRulesCommand extends $Command<
   ListNotificationRulesCommandInput,
@@ -49,18 +42,13 @@ export class ListNotificationRulesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: codestarnotificationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListNotificationRulesCommandInput,
-    ListNotificationRulesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListNotificationRulesCommandInput, ListNotificationRulesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +58,12 @@ export class ListNotificationRulesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListNotificationRulesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListNotificationRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListNotificationRulesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListNotificationRulesCommandOutput> {
-    return deserializeAws_restJson1ListNotificationRulesCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNotificationRulesCommandOutput> {
+    return deserializeAws_restJson1ListNotificationRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,195 +1,123 @@
 import {
   CreateCapacityProviderCommandInput,
-  CreateCapacityProviderCommandOutput
+  CreateCapacityProviderCommandOutput,
 } from "./commands/CreateCapacityProviderCommand";
-import {
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput
-} from "./commands/CreateClusterCommand";
-import {
-  CreateServiceCommandInput,
-  CreateServiceCommandOutput
-} from "./commands/CreateServiceCommand";
-import {
-  CreateTaskSetCommandInput,
-  CreateTaskSetCommandOutput
-} from "./commands/CreateTaskSetCommand";
+import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
+import { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
+import { CreateTaskSetCommandInput, CreateTaskSetCommandOutput } from "./commands/CreateTaskSetCommand";
 import {
   DeleteAccountSettingCommandInput,
-  DeleteAccountSettingCommandOutput
+  DeleteAccountSettingCommandOutput,
 } from "./commands/DeleteAccountSettingCommand";
-import {
-  DeleteAttributesCommandInput,
-  DeleteAttributesCommandOutput
-} from "./commands/DeleteAttributesCommand";
-import {
-  DeleteClusterCommandInput,
-  DeleteClusterCommandOutput
-} from "./commands/DeleteClusterCommand";
-import {
-  DeleteServiceCommandInput,
-  DeleteServiceCommandOutput
-} from "./commands/DeleteServiceCommand";
-import {
-  DeleteTaskSetCommandInput,
-  DeleteTaskSetCommandOutput
-} from "./commands/DeleteTaskSetCommand";
+import { DeleteAttributesCommandInput, DeleteAttributesCommandOutput } from "./commands/DeleteAttributesCommand";
+import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
+import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
+import { DeleteTaskSetCommandInput, DeleteTaskSetCommandOutput } from "./commands/DeleteTaskSetCommand";
 import {
   DeregisterContainerInstanceCommandInput,
-  DeregisterContainerInstanceCommandOutput
+  DeregisterContainerInstanceCommandOutput,
 } from "./commands/DeregisterContainerInstanceCommand";
 import {
   DeregisterTaskDefinitionCommandInput,
-  DeregisterTaskDefinitionCommandOutput
+  DeregisterTaskDefinitionCommandOutput,
 } from "./commands/DeregisterTaskDefinitionCommand";
 import {
   DescribeCapacityProvidersCommandInput,
-  DescribeCapacityProvidersCommandOutput
+  DescribeCapacityProvidersCommandOutput,
 } from "./commands/DescribeCapacityProvidersCommand";
-import {
-  DescribeClustersCommandInput,
-  DescribeClustersCommandOutput
-} from "./commands/DescribeClustersCommand";
+import { DescribeClustersCommandInput, DescribeClustersCommandOutput } from "./commands/DescribeClustersCommand";
 import {
   DescribeContainerInstancesCommandInput,
-  DescribeContainerInstancesCommandOutput
+  DescribeContainerInstancesCommandOutput,
 } from "./commands/DescribeContainerInstancesCommand";
-import {
-  DescribeServicesCommandInput,
-  DescribeServicesCommandOutput
-} from "./commands/DescribeServicesCommand";
+import { DescribeServicesCommandInput, DescribeServicesCommandOutput } from "./commands/DescribeServicesCommand";
 import {
   DescribeTaskDefinitionCommandInput,
-  DescribeTaskDefinitionCommandOutput
+  DescribeTaskDefinitionCommandOutput,
 } from "./commands/DescribeTaskDefinitionCommand";
-import {
-  DescribeTaskSetsCommandInput,
-  DescribeTaskSetsCommandOutput
-} from "./commands/DescribeTaskSetsCommand";
-import {
-  DescribeTasksCommandInput,
-  DescribeTasksCommandOutput
-} from "./commands/DescribeTasksCommand";
+import { DescribeTaskSetsCommandInput, DescribeTaskSetsCommandOutput } from "./commands/DescribeTaskSetsCommand";
+import { DescribeTasksCommandInput, DescribeTasksCommandOutput } from "./commands/DescribeTasksCommand";
 import {
   DiscoverPollEndpointCommandInput,
-  DiscoverPollEndpointCommandOutput
+  DiscoverPollEndpointCommandOutput,
 } from "./commands/DiscoverPollEndpointCommand";
 import {
   ListAccountSettingsCommandInput,
-  ListAccountSettingsCommandOutput
+  ListAccountSettingsCommandOutput,
 } from "./commands/ListAccountSettingsCommand";
-import {
-  ListAttributesCommandInput,
-  ListAttributesCommandOutput
-} from "./commands/ListAttributesCommand";
-import {
-  ListClustersCommandInput,
-  ListClustersCommandOutput
-} from "./commands/ListClustersCommand";
+import { ListAttributesCommandInput, ListAttributesCommandOutput } from "./commands/ListAttributesCommand";
+import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
 import {
   ListContainerInstancesCommandInput,
-  ListContainerInstancesCommandOutput
+  ListContainerInstancesCommandOutput,
 } from "./commands/ListContainerInstancesCommand";
-import {
-  ListServicesCommandInput,
-  ListServicesCommandOutput
-} from "./commands/ListServicesCommand";
+import { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   ListTaskDefinitionFamiliesCommandInput,
-  ListTaskDefinitionFamiliesCommandOutput
+  ListTaskDefinitionFamiliesCommandOutput,
 } from "./commands/ListTaskDefinitionFamiliesCommand";
 import {
   ListTaskDefinitionsCommandInput,
-  ListTaskDefinitionsCommandOutput
+  ListTaskDefinitionsCommandOutput,
 } from "./commands/ListTaskDefinitionsCommand";
-import {
-  ListTasksCommandInput,
-  ListTasksCommandOutput
-} from "./commands/ListTasksCommand";
-import {
-  PutAccountSettingCommandInput,
-  PutAccountSettingCommandOutput
-} from "./commands/PutAccountSettingCommand";
+import { ListTasksCommandInput, ListTasksCommandOutput } from "./commands/ListTasksCommand";
+import { PutAccountSettingCommandInput, PutAccountSettingCommandOutput } from "./commands/PutAccountSettingCommand";
 import {
   PutAccountSettingDefaultCommandInput,
-  PutAccountSettingDefaultCommandOutput
+  PutAccountSettingDefaultCommandOutput,
 } from "./commands/PutAccountSettingDefaultCommand";
-import {
-  PutAttributesCommandInput,
-  PutAttributesCommandOutput
-} from "./commands/PutAttributesCommand";
+import { PutAttributesCommandInput, PutAttributesCommandOutput } from "./commands/PutAttributesCommand";
 import {
   PutClusterCapacityProvidersCommandInput,
-  PutClusterCapacityProvidersCommandOutput
+  PutClusterCapacityProvidersCommandOutput,
 } from "./commands/PutClusterCapacityProvidersCommand";
 import {
   RegisterContainerInstanceCommandInput,
-  RegisterContainerInstanceCommandOutput
+  RegisterContainerInstanceCommandOutput,
 } from "./commands/RegisterContainerInstanceCommand";
 import {
   RegisterTaskDefinitionCommandInput,
-  RegisterTaskDefinitionCommandOutput
+  RegisterTaskDefinitionCommandOutput,
 } from "./commands/RegisterTaskDefinitionCommand";
-import {
-  RunTaskCommandInput,
-  RunTaskCommandOutput
-} from "./commands/RunTaskCommand";
-import {
-  StartTaskCommandInput,
-  StartTaskCommandOutput
-} from "./commands/StartTaskCommand";
-import {
-  StopTaskCommandInput,
-  StopTaskCommandOutput
-} from "./commands/StopTaskCommand";
+import { RunTaskCommandInput, RunTaskCommandOutput } from "./commands/RunTaskCommand";
+import { StartTaskCommandInput, StartTaskCommandOutput } from "./commands/StartTaskCommand";
+import { StopTaskCommandInput, StopTaskCommandOutput } from "./commands/StopTaskCommand";
 import {
   SubmitAttachmentStateChangesCommandInput,
-  SubmitAttachmentStateChangesCommandOutput
+  SubmitAttachmentStateChangesCommandOutput,
 } from "./commands/SubmitAttachmentStateChangesCommand";
 import {
   SubmitContainerStateChangeCommandInput,
-  SubmitContainerStateChangeCommandOutput
+  SubmitContainerStateChangeCommandOutput,
 } from "./commands/SubmitContainerStateChangeCommand";
 import {
   SubmitTaskStateChangeCommandInput,
-  SubmitTaskStateChangeCommandOutput
+  SubmitTaskStateChangeCommandOutput,
 } from "./commands/SubmitTaskStateChangeCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateClusterSettingsCommandInput,
-  UpdateClusterSettingsCommandOutput
+  UpdateClusterSettingsCommandOutput,
 } from "./commands/UpdateClusterSettingsCommand";
 import {
   UpdateContainerAgentCommandInput,
-  UpdateContainerAgentCommandOutput
+  UpdateContainerAgentCommandOutput,
 } from "./commands/UpdateContainerAgentCommand";
 import {
   UpdateContainerInstancesStateCommandInput,
-  UpdateContainerInstancesStateCommandOutput
+  UpdateContainerInstancesStateCommandOutput,
 } from "./commands/UpdateContainerInstancesStateCommand";
-import {
-  UpdateServiceCommandInput,
-  UpdateServiceCommandOutput
-} from "./commands/UpdateServiceCommand";
+import { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "./commands/UpdateServiceCommand";
 import {
   UpdateServicePrimaryTaskSetCommandInput,
-  UpdateServicePrimaryTaskSetCommandOutput
+  UpdateServicePrimaryTaskSetCommandOutput,
 } from "./commands/UpdateServicePrimaryTaskSetCommand";
-import {
-  UpdateTaskSetCommandInput,
-  UpdateTaskSetCommandOutput
-} from "./commands/UpdateTaskSetCommand";
+import { UpdateTaskSetCommandInput, UpdateTaskSetCommandOutput } from "./commands/UpdateTaskSetCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -197,38 +125,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -239,7 +162,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -342,8 +265,7 @@ export type ServiceOutputTypes =
   | UpdateServicePrimaryTaskSetCommandOutput
   | UpdateTaskSetCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -432,9 +354,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ECSClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ECSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -443,9 +363,7 @@ export type ECSClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ECSClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ECSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -482,7 +400,7 @@ export class ECSClient extends __Client<
   constructor(configuration: ECSClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

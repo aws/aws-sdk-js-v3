@@ -2,282 +2,278 @@ import { Route53Client } from "./Route53Client";
 import {
   AssociateVPCWithHostedZoneCommand,
   AssociateVPCWithHostedZoneCommandInput,
-  AssociateVPCWithHostedZoneCommandOutput
+  AssociateVPCWithHostedZoneCommandOutput,
 } from "./commands/AssociateVPCWithHostedZoneCommand";
 import {
   ChangeResourceRecordSetsCommand,
   ChangeResourceRecordSetsCommandInput,
-  ChangeResourceRecordSetsCommandOutput
+  ChangeResourceRecordSetsCommandOutput,
 } from "./commands/ChangeResourceRecordSetsCommand";
 import {
   ChangeTagsForResourceCommand,
   ChangeTagsForResourceCommandInput,
-  ChangeTagsForResourceCommandOutput
+  ChangeTagsForResourceCommandOutput,
 } from "./commands/ChangeTagsForResourceCommand";
 import {
   CreateHealthCheckCommand,
   CreateHealthCheckCommandInput,
-  CreateHealthCheckCommandOutput
+  CreateHealthCheckCommandOutput,
 } from "./commands/CreateHealthCheckCommand";
 import {
   CreateHostedZoneCommand,
   CreateHostedZoneCommandInput,
-  CreateHostedZoneCommandOutput
+  CreateHostedZoneCommandOutput,
 } from "./commands/CreateHostedZoneCommand";
 import {
   CreateQueryLoggingConfigCommand,
   CreateQueryLoggingConfigCommandInput,
-  CreateQueryLoggingConfigCommandOutput
+  CreateQueryLoggingConfigCommandOutput,
 } from "./commands/CreateQueryLoggingConfigCommand";
 import {
   CreateReusableDelegationSetCommand,
   CreateReusableDelegationSetCommandInput,
-  CreateReusableDelegationSetCommandOutput
+  CreateReusableDelegationSetCommandOutput,
 } from "./commands/CreateReusableDelegationSetCommand";
 import {
   CreateTrafficPolicyCommand,
   CreateTrafficPolicyCommandInput,
-  CreateTrafficPolicyCommandOutput
+  CreateTrafficPolicyCommandOutput,
 } from "./commands/CreateTrafficPolicyCommand";
 import {
   CreateTrafficPolicyInstanceCommand,
   CreateTrafficPolicyInstanceCommandInput,
-  CreateTrafficPolicyInstanceCommandOutput
+  CreateTrafficPolicyInstanceCommandOutput,
 } from "./commands/CreateTrafficPolicyInstanceCommand";
 import {
   CreateTrafficPolicyVersionCommand,
   CreateTrafficPolicyVersionCommandInput,
-  CreateTrafficPolicyVersionCommandOutput
+  CreateTrafficPolicyVersionCommandOutput,
 } from "./commands/CreateTrafficPolicyVersionCommand";
 import {
   CreateVPCAssociationAuthorizationCommand,
   CreateVPCAssociationAuthorizationCommandInput,
-  CreateVPCAssociationAuthorizationCommandOutput
+  CreateVPCAssociationAuthorizationCommandOutput,
 } from "./commands/CreateVPCAssociationAuthorizationCommand";
 import {
   DeleteHealthCheckCommand,
   DeleteHealthCheckCommandInput,
-  DeleteHealthCheckCommandOutput
+  DeleteHealthCheckCommandOutput,
 } from "./commands/DeleteHealthCheckCommand";
 import {
   DeleteHostedZoneCommand,
   DeleteHostedZoneCommandInput,
-  DeleteHostedZoneCommandOutput
+  DeleteHostedZoneCommandOutput,
 } from "./commands/DeleteHostedZoneCommand";
 import {
   DeleteQueryLoggingConfigCommand,
   DeleteQueryLoggingConfigCommandInput,
-  DeleteQueryLoggingConfigCommandOutput
+  DeleteQueryLoggingConfigCommandOutput,
 } from "./commands/DeleteQueryLoggingConfigCommand";
 import {
   DeleteReusableDelegationSetCommand,
   DeleteReusableDelegationSetCommandInput,
-  DeleteReusableDelegationSetCommandOutput
+  DeleteReusableDelegationSetCommandOutput,
 } from "./commands/DeleteReusableDelegationSetCommand";
 import {
   DeleteTrafficPolicyCommand,
   DeleteTrafficPolicyCommandInput,
-  DeleteTrafficPolicyCommandOutput
+  DeleteTrafficPolicyCommandOutput,
 } from "./commands/DeleteTrafficPolicyCommand";
 import {
   DeleteTrafficPolicyInstanceCommand,
   DeleteTrafficPolicyInstanceCommandInput,
-  DeleteTrafficPolicyInstanceCommandOutput
+  DeleteTrafficPolicyInstanceCommandOutput,
 } from "./commands/DeleteTrafficPolicyInstanceCommand";
 import {
   DeleteVPCAssociationAuthorizationCommand,
   DeleteVPCAssociationAuthorizationCommandInput,
-  DeleteVPCAssociationAuthorizationCommandOutput
+  DeleteVPCAssociationAuthorizationCommandOutput,
 } from "./commands/DeleteVPCAssociationAuthorizationCommand";
 import {
   DisassociateVPCFromHostedZoneCommand,
   DisassociateVPCFromHostedZoneCommandInput,
-  DisassociateVPCFromHostedZoneCommandOutput
+  DisassociateVPCFromHostedZoneCommandOutput,
 } from "./commands/DisassociateVPCFromHostedZoneCommand";
 import {
   GetAccountLimitCommand,
   GetAccountLimitCommandInput,
-  GetAccountLimitCommandOutput
+  GetAccountLimitCommandOutput,
 } from "./commands/GetAccountLimitCommand";
-import {
-  GetChangeCommand,
-  GetChangeCommandInput,
-  GetChangeCommandOutput
-} from "./commands/GetChangeCommand";
+import { GetChangeCommand, GetChangeCommandInput, GetChangeCommandOutput } from "./commands/GetChangeCommand";
 import {
   GetCheckerIpRangesCommand,
   GetCheckerIpRangesCommandInput,
-  GetCheckerIpRangesCommandOutput
+  GetCheckerIpRangesCommandOutput,
 } from "./commands/GetCheckerIpRangesCommand";
 import {
   GetGeoLocationCommand,
   GetGeoLocationCommandInput,
-  GetGeoLocationCommandOutput
+  GetGeoLocationCommandOutput,
 } from "./commands/GetGeoLocationCommand";
 import {
   GetHealthCheckCommand,
   GetHealthCheckCommandInput,
-  GetHealthCheckCommandOutput
+  GetHealthCheckCommandOutput,
 } from "./commands/GetHealthCheckCommand";
 import {
   GetHealthCheckCountCommand,
   GetHealthCheckCountCommandInput,
-  GetHealthCheckCountCommandOutput
+  GetHealthCheckCountCommandOutput,
 } from "./commands/GetHealthCheckCountCommand";
 import {
   GetHealthCheckLastFailureReasonCommand,
   GetHealthCheckLastFailureReasonCommandInput,
-  GetHealthCheckLastFailureReasonCommandOutput
+  GetHealthCheckLastFailureReasonCommandOutput,
 } from "./commands/GetHealthCheckLastFailureReasonCommand";
 import {
   GetHealthCheckStatusCommand,
   GetHealthCheckStatusCommandInput,
-  GetHealthCheckStatusCommandOutput
+  GetHealthCheckStatusCommandOutput,
 } from "./commands/GetHealthCheckStatusCommand";
 import {
   GetHostedZoneCommand,
   GetHostedZoneCommandInput,
-  GetHostedZoneCommandOutput
+  GetHostedZoneCommandOutput,
 } from "./commands/GetHostedZoneCommand";
 import {
   GetHostedZoneCountCommand,
   GetHostedZoneCountCommandInput,
-  GetHostedZoneCountCommandOutput
+  GetHostedZoneCountCommandOutput,
 } from "./commands/GetHostedZoneCountCommand";
 import {
   GetHostedZoneLimitCommand,
   GetHostedZoneLimitCommandInput,
-  GetHostedZoneLimitCommandOutput
+  GetHostedZoneLimitCommandOutput,
 } from "./commands/GetHostedZoneLimitCommand";
 import {
   GetQueryLoggingConfigCommand,
   GetQueryLoggingConfigCommandInput,
-  GetQueryLoggingConfigCommandOutput
+  GetQueryLoggingConfigCommandOutput,
 } from "./commands/GetQueryLoggingConfigCommand";
 import {
   GetReusableDelegationSetCommand,
   GetReusableDelegationSetCommandInput,
-  GetReusableDelegationSetCommandOutput
+  GetReusableDelegationSetCommandOutput,
 } from "./commands/GetReusableDelegationSetCommand";
 import {
   GetReusableDelegationSetLimitCommand,
   GetReusableDelegationSetLimitCommandInput,
-  GetReusableDelegationSetLimitCommandOutput
+  GetReusableDelegationSetLimitCommandOutput,
 } from "./commands/GetReusableDelegationSetLimitCommand";
 import {
   GetTrafficPolicyCommand,
   GetTrafficPolicyCommandInput,
-  GetTrafficPolicyCommandOutput
+  GetTrafficPolicyCommandOutput,
 } from "./commands/GetTrafficPolicyCommand";
 import {
   GetTrafficPolicyInstanceCommand,
   GetTrafficPolicyInstanceCommandInput,
-  GetTrafficPolicyInstanceCommandOutput
+  GetTrafficPolicyInstanceCommandOutput,
 } from "./commands/GetTrafficPolicyInstanceCommand";
 import {
   GetTrafficPolicyInstanceCountCommand,
   GetTrafficPolicyInstanceCountCommandInput,
-  GetTrafficPolicyInstanceCountCommandOutput
+  GetTrafficPolicyInstanceCountCommandOutput,
 } from "./commands/GetTrafficPolicyInstanceCountCommand";
 import {
   ListGeoLocationsCommand,
   ListGeoLocationsCommandInput,
-  ListGeoLocationsCommandOutput
+  ListGeoLocationsCommandOutput,
 } from "./commands/ListGeoLocationsCommand";
 import {
   ListHealthChecksCommand,
   ListHealthChecksCommandInput,
-  ListHealthChecksCommandOutput
+  ListHealthChecksCommandOutput,
 } from "./commands/ListHealthChecksCommand";
 import {
   ListHostedZonesByNameCommand,
   ListHostedZonesByNameCommandInput,
-  ListHostedZonesByNameCommandOutput
+  ListHostedZonesByNameCommandOutput,
 } from "./commands/ListHostedZonesByNameCommand";
 import {
   ListHostedZonesCommand,
   ListHostedZonesCommandInput,
-  ListHostedZonesCommandOutput
+  ListHostedZonesCommandOutput,
 } from "./commands/ListHostedZonesCommand";
 import {
   ListQueryLoggingConfigsCommand,
   ListQueryLoggingConfigsCommandInput,
-  ListQueryLoggingConfigsCommandOutput
+  ListQueryLoggingConfigsCommandOutput,
 } from "./commands/ListQueryLoggingConfigsCommand";
 import {
   ListResourceRecordSetsCommand,
   ListResourceRecordSetsCommandInput,
-  ListResourceRecordSetsCommandOutput
+  ListResourceRecordSetsCommandOutput,
 } from "./commands/ListResourceRecordSetsCommand";
 import {
   ListReusableDelegationSetsCommand,
   ListReusableDelegationSetsCommandInput,
-  ListReusableDelegationSetsCommandOutput
+  ListReusableDelegationSetsCommandOutput,
 } from "./commands/ListReusableDelegationSetsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   ListTagsForResourcesCommand,
   ListTagsForResourcesCommandInput,
-  ListTagsForResourcesCommandOutput
+  ListTagsForResourcesCommandOutput,
 } from "./commands/ListTagsForResourcesCommand";
 import {
   ListTrafficPoliciesCommand,
   ListTrafficPoliciesCommandInput,
-  ListTrafficPoliciesCommandOutput
+  ListTrafficPoliciesCommandOutput,
 } from "./commands/ListTrafficPoliciesCommand";
 import {
   ListTrafficPolicyInstancesByHostedZoneCommand,
   ListTrafficPolicyInstancesByHostedZoneCommandInput,
-  ListTrafficPolicyInstancesByHostedZoneCommandOutput
+  ListTrafficPolicyInstancesByHostedZoneCommandOutput,
 } from "./commands/ListTrafficPolicyInstancesByHostedZoneCommand";
 import {
   ListTrafficPolicyInstancesByPolicyCommand,
   ListTrafficPolicyInstancesByPolicyCommandInput,
-  ListTrafficPolicyInstancesByPolicyCommandOutput
+  ListTrafficPolicyInstancesByPolicyCommandOutput,
 } from "./commands/ListTrafficPolicyInstancesByPolicyCommand";
 import {
   ListTrafficPolicyInstancesCommand,
   ListTrafficPolicyInstancesCommandInput,
-  ListTrafficPolicyInstancesCommandOutput
+  ListTrafficPolicyInstancesCommandOutput,
 } from "./commands/ListTrafficPolicyInstancesCommand";
 import {
   ListTrafficPolicyVersionsCommand,
   ListTrafficPolicyVersionsCommandInput,
-  ListTrafficPolicyVersionsCommandOutput
+  ListTrafficPolicyVersionsCommandOutput,
 } from "./commands/ListTrafficPolicyVersionsCommand";
 import {
   ListVPCAssociationAuthorizationsCommand,
   ListVPCAssociationAuthorizationsCommandInput,
-  ListVPCAssociationAuthorizationsCommandOutput
+  ListVPCAssociationAuthorizationsCommandOutput,
 } from "./commands/ListVPCAssociationAuthorizationsCommand";
 import {
   TestDNSAnswerCommand,
   TestDNSAnswerCommandInput,
-  TestDNSAnswerCommandOutput
+  TestDNSAnswerCommandOutput,
 } from "./commands/TestDNSAnswerCommand";
 import {
   UpdateHealthCheckCommand,
   UpdateHealthCheckCommandInput,
-  UpdateHealthCheckCommandOutput
+  UpdateHealthCheckCommandOutput,
 } from "./commands/UpdateHealthCheckCommand";
 import {
   UpdateHostedZoneCommentCommand,
   UpdateHostedZoneCommentCommandInput,
-  UpdateHostedZoneCommentCommandOutput
+  UpdateHostedZoneCommentCommandOutput,
 } from "./commands/UpdateHostedZoneCommentCommand";
 import {
   UpdateTrafficPolicyCommentCommand,
   UpdateTrafficPolicyCommentCommandInput,
-  UpdateTrafficPolicyCommentCommandOutput
+  UpdateTrafficPolicyCommentCommandOutput,
 } from "./commands/UpdateTrafficPolicyCommentCommand";
 import {
   UpdateTrafficPolicyInstanceCommand,
   UpdateTrafficPolicyInstanceCommandInput,
-  UpdateTrafficPolicyInstanceCommandOutput
+  UpdateTrafficPolicyInstanceCommandOutput,
 } from "./commands/UpdateTrafficPolicyInstanceCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -313,17 +309,14 @@ export class Route53 extends Route53Client {
   ): void;
   public associateVPCWithHostedZone(
     args: AssociateVPCWithHostedZoneCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateVPCWithHostedZoneCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateVPCWithHostedZoneCommandOutput) => void),
     cb?: (err: any, data?: AssociateVPCWithHostedZoneCommandOutput) => void
   ): Promise<AssociateVPCWithHostedZoneCommandOutput> | void {
     const command = new AssociateVPCWithHostedZoneCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -426,17 +419,14 @@ export class Route53 extends Route53Client {
   ): void;
   public changeResourceRecordSets(
     args: ChangeResourceRecordSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ChangeResourceRecordSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ChangeResourceRecordSetsCommandOutput) => void),
     cb?: (err: any, data?: ChangeResourceRecordSetsCommandOutput) => void
   ): Promise<ChangeResourceRecordSetsCommandOutput> | void {
     const command = new ChangeResourceRecordSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -464,17 +454,14 @@ export class Route53 extends Route53Client {
   ): void;
   public changeTagsForResource(
     args: ChangeTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ChangeTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ChangeTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ChangeTagsForResourceCommandOutput) => void
   ): Promise<ChangeTagsForResourceCommandOutput> | void {
     const command = new ChangeTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -531,17 +518,14 @@ export class Route53 extends Route53Client {
   ): void;
   public createHealthCheck(
     args: CreateHealthCheckCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateHealthCheckCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHealthCheckCommandOutput) => void),
     cb?: (err: any, data?: CreateHealthCheckCommandOutput) => void
   ): Promise<CreateHealthCheckCommandOutput> | void {
     const command = new CreateHealthCheckCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -597,17 +581,14 @@ export class Route53 extends Route53Client {
   ): void;
   public createHostedZone(
     args: CreateHostedZoneCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateHostedZoneCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHostedZoneCommandOutput) => void),
     cb?: (err: any, data?: CreateHostedZoneCommandOutput) => void
   ): Promise<CreateHostedZoneCommandOutput> | void {
     const command = new CreateHostedZoneCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -748,17 +729,14 @@ export class Route53 extends Route53Client {
   ): void;
   public createQueryLoggingConfig(
     args: CreateQueryLoggingConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateQueryLoggingConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateQueryLoggingConfigCommandOutput) => void),
     cb?: (err: any, data?: CreateQueryLoggingConfigCommandOutput) => void
   ): Promise<CreateQueryLoggingConfigCommandOutput> | void {
     const command = new CreateQueryLoggingConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -831,17 +809,14 @@ export class Route53 extends Route53Client {
   ): void;
   public createReusableDelegationSet(
     args: CreateReusableDelegationSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateReusableDelegationSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateReusableDelegationSetCommandOutput) => void),
     cb?: (err: any, data?: CreateReusableDelegationSetCommandOutput) => void
   ): Promise<CreateReusableDelegationSetCommandOutput> | void {
     const command = new CreateReusableDelegationSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -867,17 +842,14 @@ export class Route53 extends Route53Client {
   ): void;
   public createTrafficPolicy(
     args: CreateTrafficPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTrafficPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTrafficPolicyCommandOutput) => void),
     cb?: (err: any, data?: CreateTrafficPolicyCommandOutput) => void
   ): Promise<CreateTrafficPolicyCommandOutput> | void {
     const command = new CreateTrafficPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -905,17 +877,14 @@ export class Route53 extends Route53Client {
   ): void;
   public createTrafficPolicyInstance(
     args: CreateTrafficPolicyInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTrafficPolicyInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTrafficPolicyInstanceCommandOutput) => void),
     cb?: (err: any, data?: CreateTrafficPolicyInstanceCommandOutput) => void
   ): Promise<CreateTrafficPolicyInstanceCommandOutput> | void {
     const command = new CreateTrafficPolicyInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -944,17 +913,14 @@ export class Route53 extends Route53Client {
   ): void;
   public createTrafficPolicyVersion(
     args: CreateTrafficPolicyVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTrafficPolicyVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTrafficPolicyVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateTrafficPolicyVersionCommandOutput) => void
   ): Promise<CreateTrafficPolicyVersionCommandOutput> | void {
     const command = new CreateTrafficPolicyVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -978,38 +944,23 @@ export class Route53 extends Route53Client {
   ): Promise<CreateVPCAssociationAuthorizationCommandOutput>;
   public createVPCAssociationAuthorization(
     args: CreateVPCAssociationAuthorizationCommandInput,
-    cb: (
-      err: any,
-      data?: CreateVPCAssociationAuthorizationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateVPCAssociationAuthorizationCommandOutput) => void
   ): void;
   public createVPCAssociationAuthorization(
     args: CreateVPCAssociationAuthorizationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateVPCAssociationAuthorizationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateVPCAssociationAuthorizationCommandOutput) => void
   ): void;
   public createVPCAssociationAuthorization(
     args: CreateVPCAssociationAuthorizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateVPCAssociationAuthorizationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateVPCAssociationAuthorizationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVPCAssociationAuthorizationCommandOutput) => void),
+    cb?: (err: any, data?: CreateVPCAssociationAuthorizationCommandOutput) => void
   ): Promise<CreateVPCAssociationAuthorizationCommandOutput> | void {
     const command = new CreateVPCAssociationAuthorizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1042,17 +993,14 @@ export class Route53 extends Route53Client {
   ): void;
   public deleteHealthCheck(
     args: DeleteHealthCheckCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteHealthCheckCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHealthCheckCommandOutput) => void),
     cb?: (err: any, data?: DeleteHealthCheckCommandOutput) => void
   ): Promise<DeleteHealthCheckCommandOutput> | void {
     const command = new DeleteHealthCheckCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1115,17 +1063,14 @@ export class Route53 extends Route53Client {
   ): void;
   public deleteHostedZone(
     args: DeleteHostedZoneCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteHostedZoneCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHostedZoneCommandOutput) => void),
     cb?: (err: any, data?: DeleteHostedZoneCommandOutput) => void
   ): Promise<DeleteHostedZoneCommandOutput> | void {
     const command = new DeleteHostedZoneCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1154,17 +1099,14 @@ export class Route53 extends Route53Client {
   ): void;
   public deleteQueryLoggingConfig(
     args: DeleteQueryLoggingConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteQueryLoggingConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteQueryLoggingConfigCommandOutput) => void),
     cb?: (err: any, data?: DeleteQueryLoggingConfigCommandOutput) => void
   ): Promise<DeleteQueryLoggingConfigCommandOutput> | void {
     const command = new DeleteQueryLoggingConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1195,17 +1137,14 @@ export class Route53 extends Route53Client {
   ): void;
   public deleteReusableDelegationSet(
     args: DeleteReusableDelegationSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteReusableDelegationSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteReusableDelegationSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteReusableDelegationSetCommandOutput) => void
   ): Promise<DeleteReusableDelegationSetCommandOutput> | void {
     const command = new DeleteReusableDelegationSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1230,17 +1169,14 @@ export class Route53 extends Route53Client {
   ): void;
   public deleteTrafficPolicy(
     args: DeleteTrafficPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTrafficPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTrafficPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteTrafficPolicyCommandOutput) => void
   ): Promise<DeleteTrafficPolicyCommandOutput> | void {
     const command = new DeleteTrafficPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1268,17 +1204,14 @@ export class Route53 extends Route53Client {
   ): void;
   public deleteTrafficPolicyInstance(
     args: DeleteTrafficPolicyInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTrafficPolicyInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTrafficPolicyInstanceCommandOutput) => void),
     cb?: (err: any, data?: DeleteTrafficPolicyInstanceCommandOutput) => void
   ): Promise<DeleteTrafficPolicyInstanceCommandOutput> | void {
     const command = new DeleteTrafficPolicyInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1302,38 +1235,23 @@ export class Route53 extends Route53Client {
   ): Promise<DeleteVPCAssociationAuthorizationCommandOutput>;
   public deleteVPCAssociationAuthorization(
     args: DeleteVPCAssociationAuthorizationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteVPCAssociationAuthorizationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteVPCAssociationAuthorizationCommandOutput) => void
   ): void;
   public deleteVPCAssociationAuthorization(
     args: DeleteVPCAssociationAuthorizationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteVPCAssociationAuthorizationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteVPCAssociationAuthorizationCommandOutput) => void
   ): void;
   public deleteVPCAssociationAuthorization(
     args: DeleteVPCAssociationAuthorizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteVPCAssociationAuthorizationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteVPCAssociationAuthorizationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVPCAssociationAuthorizationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVPCAssociationAuthorizationCommandOutput) => void
   ): Promise<DeleteVPCAssociationAuthorizationCommandOutput> | void {
     const command = new DeleteVPCAssociationAuthorizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1370,17 +1288,14 @@ export class Route53 extends Route53Client {
   ): void;
   public disassociateVPCFromHostedZone(
     args: DisassociateVPCFromHostedZoneCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateVPCFromHostedZoneCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateVPCFromHostedZoneCommandOutput) => void),
     cb?: (err: any, data?: DisassociateVPCFromHostedZoneCommandOutput) => void
   ): Promise<DisassociateVPCFromHostedZoneCommandOutput> | void {
     const command = new DisassociateVPCFromHostedZoneCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1414,17 +1329,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getAccountLimit(
     args: GetAccountLimitCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAccountLimitCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccountLimitCommandOutput) => void),
     cb?: (err: any, data?: GetAccountLimitCommandOutput) => void
   ): Promise<GetAccountLimitCommandOutput> | void {
     const command = new GetAccountLimitCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1446,14 +1358,8 @@ export class Route53 extends Route53Client {
    * 			         </li>
    *          </ul>
    */
-  public getChange(
-    args: GetChangeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetChangeCommandOutput>;
-  public getChange(
-    args: GetChangeCommandInput,
-    cb: (err: any, data?: GetChangeCommandOutput) => void
-  ): void;
+  public getChange(args: GetChangeCommandInput, options?: __HttpHandlerOptions): Promise<GetChangeCommandOutput>;
+  public getChange(args: GetChangeCommandInput, cb: (err: any, data?: GetChangeCommandOutput) => void): void;
   public getChange(
     args: GetChangeCommandInput,
     options: __HttpHandlerOptions,
@@ -1461,17 +1367,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getChange(
     args: GetChangeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetChangeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChangeCommandOutput) => void),
     cb?: (err: any, data?: GetChangeCommandOutput) => void
   ): Promise<GetChangeCommandOutput> | void {
     const command = new GetChangeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1502,17 +1405,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getCheckerIpRanges(
     args: GetCheckerIpRangesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCheckerIpRangesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCheckerIpRangesCommandOutput) => void),
     cb?: (err: any, data?: GetCheckerIpRangesCommandOutput) => void
   ): Promise<GetCheckerIpRangesCommandOutput> | void {
     const command = new GetCheckerIpRangesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1556,17 +1456,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getGeoLocation(
     args: GetGeoLocationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGeoLocationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGeoLocationCommandOutput) => void),
     cb?: (err: any, data?: GetGeoLocationCommandOutput) => void
   ): Promise<GetGeoLocationCommandOutput> | void {
     const command = new GetGeoLocationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1591,17 +1488,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getHealthCheck(
     args: GetHealthCheckCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetHealthCheckCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHealthCheckCommandOutput) => void),
     cb?: (err: any, data?: GetHealthCheckCommandOutput) => void
   ): Promise<GetHealthCheckCommandOutput> | void {
     const command = new GetHealthCheckCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1626,17 +1520,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getHealthCheckCount(
     args: GetHealthCheckCountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetHealthCheckCountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHealthCheckCountCommandOutput) => void),
     cb?: (err: any, data?: GetHealthCheckCountCommandOutput) => void
   ): Promise<GetHealthCheckCountCommandOutput> | void {
     const command = new GetHealthCheckCountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1661,20 +1552,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getHealthCheckLastFailureReason(
     args: GetHealthCheckLastFailureReasonCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetHealthCheckLastFailureReasonCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHealthCheckLastFailureReasonCommandOutput) => void),
     cb?: (err: any, data?: GetHealthCheckLastFailureReasonCommandOutput) => void
   ): Promise<GetHealthCheckLastFailureReasonCommandOutput> | void {
     const command = new GetHealthCheckLastFailureReasonCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1699,17 +1584,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getHealthCheckStatus(
     args: GetHealthCheckStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetHealthCheckStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHealthCheckStatusCommandOutput) => void),
     cb?: (err: any, data?: GetHealthCheckStatusCommandOutput) => void
   ): Promise<GetHealthCheckStatusCommandOutput> | void {
     const command = new GetHealthCheckStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1734,17 +1616,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getHostedZone(
     args: GetHostedZoneCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetHostedZoneCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHostedZoneCommandOutput) => void),
     cb?: (err: any, data?: GetHostedZoneCommandOutput) => void
   ): Promise<GetHostedZoneCommandOutput> | void {
     const command = new GetHostedZoneCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1769,17 +1648,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getHostedZoneCount(
     args: GetHostedZoneCountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetHostedZoneCountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHostedZoneCountCommandOutput) => void),
     cb?: (err: any, data?: GetHostedZoneCountCommandOutput) => void
   ): Promise<GetHostedZoneCountCommandOutput> | void {
     const command = new GetHostedZoneCountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1808,17 +1684,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getHostedZoneLimit(
     args: GetHostedZoneLimitCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetHostedZoneLimitCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHostedZoneLimitCommandOutput) => void),
     cb?: (err: any, data?: GetHostedZoneLimitCommandOutput) => void
   ): Promise<GetHostedZoneLimitCommandOutput> | void {
     const command = new GetHostedZoneLimitCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1848,17 +1721,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getQueryLoggingConfig(
     args: GetQueryLoggingConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetQueryLoggingConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQueryLoggingConfigCommandOutput) => void),
     cb?: (err: any, data?: GetQueryLoggingConfigCommandOutput) => void
   ): Promise<GetQueryLoggingConfigCommandOutput> | void {
     const command = new GetQueryLoggingConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1884,17 +1754,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getReusableDelegationSet(
     args: GetReusableDelegationSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetReusableDelegationSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReusableDelegationSetCommandOutput) => void),
     cb?: (err: any, data?: GetReusableDelegationSetCommandOutput) => void
   ): Promise<GetReusableDelegationSetCommandOutput> | void {
     const command = new GetReusableDelegationSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1922,17 +1789,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getReusableDelegationSetLimit(
     args: GetReusableDelegationSetLimitCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetReusableDelegationSetLimitCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReusableDelegationSetLimitCommandOutput) => void),
     cb?: (err: any, data?: GetReusableDelegationSetLimitCommandOutput) => void
   ): Promise<GetReusableDelegationSetLimitCommandOutput> | void {
     const command = new GetReusableDelegationSetLimitCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1957,17 +1821,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getTrafficPolicy(
     args: GetTrafficPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTrafficPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTrafficPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetTrafficPolicyCommandOutput) => void
   ): Promise<GetTrafficPolicyCommandOutput> | void {
     const command = new GetTrafficPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2000,17 +1861,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getTrafficPolicyInstance(
     args: GetTrafficPolicyInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTrafficPolicyInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTrafficPolicyInstanceCommandOutput) => void),
     cb?: (err: any, data?: GetTrafficPolicyInstanceCommandOutput) => void
   ): Promise<GetTrafficPolicyInstanceCommandOutput> | void {
     const command = new GetTrafficPolicyInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2035,17 +1893,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getTrafficPolicyInstanceCount(
     args: GetTrafficPolicyInstanceCountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTrafficPolicyInstanceCountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTrafficPolicyInstanceCountCommandOutput) => void),
     cb?: (err: any, data?: GetTrafficPolicyInstanceCountCommandOutput) => void
   ): Promise<GetTrafficPolicyInstanceCountCommandOutput> | void {
     const command = new GetTrafficPolicyInstanceCountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2072,17 +1927,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listGeoLocations(
     args: ListGeoLocationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGeoLocationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGeoLocationsCommandOutput) => void),
     cb?: (err: any, data?: ListGeoLocationsCommandOutput) => void
   ): Promise<ListGeoLocationsCommandOutput> | void {
     const command = new ListGeoLocationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2107,17 +1959,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listHealthChecks(
     args: ListHealthChecksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListHealthChecksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHealthChecksCommandOutput) => void),
     cb?: (err: any, data?: ListHealthChecksCommandOutput) => void
   ): Promise<ListHealthChecksCommandOutput> | void {
     const command = new ListHealthChecksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2145,17 +1994,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listHostedZones(
     args: ListHostedZonesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListHostedZonesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHostedZonesCommandOutput) => void),
     cb?: (err: any, data?: ListHostedZonesCommandOutput) => void
   ): Promise<ListHostedZonesCommandOutput> | void {
     const command = new ListHostedZonesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2224,17 +2070,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listHostedZonesByName(
     args: ListHostedZonesByNameCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListHostedZonesByNameCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHostedZonesByNameCommandOutput) => void),
     cb?: (err: any, data?: ListHostedZonesByNameCommandOutput) => void
   ): Promise<ListHostedZonesByNameCommandOutput> | void {
     const command = new ListHostedZonesByNameCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2266,17 +2109,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listQueryLoggingConfigs(
     args: ListQueryLoggingConfigsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListQueryLoggingConfigsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListQueryLoggingConfigsCommandOutput) => void),
     cb?: (err: any, data?: ListQueryLoggingConfigsCommandOutput) => void
   ): Promise<ListQueryLoggingConfigsCommandOutput> | void {
     const command = new ListQueryLoggingConfigsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2364,17 +2204,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listResourceRecordSets(
     args: ListResourceRecordSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourceRecordSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceRecordSetsCommandOutput) => void),
     cb?: (err: any, data?: ListResourceRecordSetsCommandOutput) => void
   ): Promise<ListResourceRecordSetsCommandOutput> | void {
     const command = new ListResourceRecordSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2399,17 +2236,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listReusableDelegationSets(
     args: ListReusableDelegationSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListReusableDelegationSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReusableDelegationSetsCommandOutput) => void),
     cb?: (err: any, data?: ListReusableDelegationSetsCommandOutput) => void
   ): Promise<ListReusableDelegationSetsCommandOutput> | void {
     const command = new ListReusableDelegationSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2437,17 +2271,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2475,17 +2306,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listTagsForResources(
     args: ListTagsForResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourcesCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourcesCommandOutput) => void
   ): Promise<ListTagsForResourcesCommandOutput> | void {
     const command = new ListTagsForResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2511,17 +2339,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listTrafficPolicies(
     args: ListTrafficPoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTrafficPoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTrafficPoliciesCommandOutput) => void),
     cb?: (err: any, data?: ListTrafficPoliciesCommandOutput) => void
   ): Promise<ListTrafficPoliciesCommandOutput> | void {
     const command = new ListTrafficPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2552,17 +2377,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listTrafficPolicyInstances(
     args: ListTrafficPolicyInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTrafficPolicyInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTrafficPolicyInstancesCommandOutput) => void),
     cb?: (err: any, data?: ListTrafficPolicyInstancesCommandOutput) => void
   ): Promise<ListTrafficPolicyInstancesCommandOutput> | void {
     const command = new ListTrafficPolicyInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2585,38 +2407,25 @@ export class Route53 extends Route53Client {
   ): Promise<ListTrafficPolicyInstancesByHostedZoneCommandOutput>;
   public listTrafficPolicyInstancesByHostedZone(
     args: ListTrafficPolicyInstancesByHostedZoneCommandInput,
-    cb: (
-      err: any,
-      data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput
-    ) => void
+    cb: (err: any, data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput) => void
   ): void;
   public listTrafficPolicyInstancesByHostedZone(
     args: ListTrafficPolicyInstancesByHostedZoneCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput
-    ) => void
+    cb: (err: any, data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput) => void
   ): void;
   public listTrafficPolicyInstancesByHostedZone(
     args: ListTrafficPolicyInstancesByHostedZoneCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput
-    ) => void
+      | ((err: any, data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput) => void),
+    cb?: (err: any, data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput) => void
   ): Promise<ListTrafficPolicyInstancesByHostedZoneCommandOutput> | void {
     const command = new ListTrafficPolicyInstancesByHostedZoneCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2639,38 +2448,23 @@ export class Route53 extends Route53Client {
   ): Promise<ListTrafficPolicyInstancesByPolicyCommandOutput>;
   public listTrafficPolicyInstancesByPolicy(
     args: ListTrafficPolicyInstancesByPolicyCommandInput,
-    cb: (
-      err: any,
-      data?: ListTrafficPolicyInstancesByPolicyCommandOutput
-    ) => void
+    cb: (err: any, data?: ListTrafficPolicyInstancesByPolicyCommandOutput) => void
   ): void;
   public listTrafficPolicyInstancesByPolicy(
     args: ListTrafficPolicyInstancesByPolicyCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListTrafficPolicyInstancesByPolicyCommandOutput
-    ) => void
+    cb: (err: any, data?: ListTrafficPolicyInstancesByPolicyCommandOutput) => void
   ): void;
   public listTrafficPolicyInstancesByPolicy(
     args: ListTrafficPolicyInstancesByPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListTrafficPolicyInstancesByPolicyCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListTrafficPolicyInstancesByPolicyCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTrafficPolicyInstancesByPolicyCommandOutput) => void),
+    cb?: (err: any, data?: ListTrafficPolicyInstancesByPolicyCommandOutput) => void
   ): Promise<ListTrafficPolicyInstancesByPolicyCommandOutput> | void {
     const command = new ListTrafficPolicyInstancesByPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2696,17 +2490,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listTrafficPolicyVersions(
     args: ListTrafficPolicyVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTrafficPolicyVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTrafficPolicyVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListTrafficPolicyVersionsCommandOutput) => void
   ): Promise<ListTrafficPolicyVersionsCommandOutput> | void {
     const command = new ListTrafficPolicyVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2734,23 +2525,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listVPCAssociationAuthorizations(
     args: ListVPCAssociationAuthorizationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListVPCAssociationAuthorizationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListVPCAssociationAuthorizationsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVPCAssociationAuthorizationsCommandOutput) => void),
+    cb?: (err: any, data?: ListVPCAssociationAuthorizationsCommandOutput) => void
   ): Promise<ListVPCAssociationAuthorizationsCommandOutput> | void {
     const command = new ListVPCAssociationAuthorizationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2776,17 +2558,14 @@ export class Route53 extends Route53Client {
   ): void;
   public testDNSAnswer(
     args: TestDNSAnswerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TestDNSAnswerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestDNSAnswerCommandOutput) => void),
     cb?: (err: any, data?: TestDNSAnswerCommandOutput) => void
   ): Promise<TestDNSAnswerCommandOutput> | void {
     const command = new TestDNSAnswerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2814,17 +2593,14 @@ export class Route53 extends Route53Client {
   ): void;
   public updateHealthCheck(
     args: UpdateHealthCheckCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateHealthCheckCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateHealthCheckCommandOutput) => void),
     cb?: (err: any, data?: UpdateHealthCheckCommandOutput) => void
   ): Promise<UpdateHealthCheckCommandOutput> | void {
     const command = new UpdateHealthCheckCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2849,17 +2625,14 @@ export class Route53 extends Route53Client {
   ): void;
   public updateHostedZoneComment(
     args: UpdateHostedZoneCommentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateHostedZoneCommentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateHostedZoneCommentCommandOutput) => void),
     cb?: (err: any, data?: UpdateHostedZoneCommentCommandOutput) => void
   ): Promise<UpdateHostedZoneCommentCommandOutput> | void {
     const command = new UpdateHostedZoneCommentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2884,17 +2657,14 @@ export class Route53 extends Route53Client {
   ): void;
   public updateTrafficPolicyComment(
     args: UpdateTrafficPolicyCommentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTrafficPolicyCommentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTrafficPolicyCommentCommandOutput) => void),
     cb?: (err: any, data?: UpdateTrafficPolicyCommentCommandOutput) => void
   ): Promise<UpdateTrafficPolicyCommentCommandOutput> | void {
     const command = new UpdateTrafficPolicyCommentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2934,17 +2704,14 @@ export class Route53 extends Route53Client {
   ): void;
   public updateTrafficPolicyInstance(
     args: UpdateTrafficPolicyInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTrafficPolicyInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTrafficPolicyInstanceCommandOutput) => void),
     cb?: (err: any, data?: UpdateTrafficPolicyInstanceCommandOutput) => void
   ): Promise<UpdateTrafficPolicyInstanceCommandOutput> | void {
     const command = new UpdateTrafficPolicyInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

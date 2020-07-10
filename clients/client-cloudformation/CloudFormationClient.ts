@@ -1,223 +1,127 @@
-import {
-  CancelUpdateStackCommandInput,
-  CancelUpdateStackCommandOutput
-} from "./commands/CancelUpdateStackCommand";
+import { CancelUpdateStackCommandInput, CancelUpdateStackCommandOutput } from "./commands/CancelUpdateStackCommand";
 import {
   ContinueUpdateRollbackCommandInput,
-  ContinueUpdateRollbackCommandOutput
+  ContinueUpdateRollbackCommandOutput,
 } from "./commands/ContinueUpdateRollbackCommand";
-import {
-  CreateChangeSetCommandInput,
-  CreateChangeSetCommandOutput
-} from "./commands/CreateChangeSetCommand";
-import {
-  CreateStackCommandInput,
-  CreateStackCommandOutput
-} from "./commands/CreateStackCommand";
+import { CreateChangeSetCommandInput, CreateChangeSetCommandOutput } from "./commands/CreateChangeSetCommand";
+import { CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand";
 import {
   CreateStackInstancesCommandInput,
-  CreateStackInstancesCommandOutput
+  CreateStackInstancesCommandOutput,
 } from "./commands/CreateStackInstancesCommand";
-import {
-  CreateStackSetCommandInput,
-  CreateStackSetCommandOutput
-} from "./commands/CreateStackSetCommand";
-import {
-  DeleteChangeSetCommandInput,
-  DeleteChangeSetCommandOutput
-} from "./commands/DeleteChangeSetCommand";
-import {
-  DeleteStackCommandInput,
-  DeleteStackCommandOutput
-} from "./commands/DeleteStackCommand";
+import { CreateStackSetCommandInput, CreateStackSetCommandOutput } from "./commands/CreateStackSetCommand";
+import { DeleteChangeSetCommandInput, DeleteChangeSetCommandOutput } from "./commands/DeleteChangeSetCommand";
+import { DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand";
 import {
   DeleteStackInstancesCommandInput,
-  DeleteStackInstancesCommandOutput
+  DeleteStackInstancesCommandOutput,
 } from "./commands/DeleteStackInstancesCommand";
-import {
-  DeleteStackSetCommandInput,
-  DeleteStackSetCommandOutput
-} from "./commands/DeleteStackSetCommand";
-import {
-  DeregisterTypeCommandInput,
-  DeregisterTypeCommandOutput
-} from "./commands/DeregisterTypeCommand";
+import { DeleteStackSetCommandInput, DeleteStackSetCommandOutput } from "./commands/DeleteStackSetCommand";
+import { DeregisterTypeCommandInput, DeregisterTypeCommandOutput } from "./commands/DeregisterTypeCommand";
 import {
   DescribeAccountLimitsCommandInput,
-  DescribeAccountLimitsCommandOutput
+  DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand";
-import {
-  DescribeChangeSetCommandInput,
-  DescribeChangeSetCommandOutput
-} from "./commands/DescribeChangeSetCommand";
+import { DescribeChangeSetCommandInput, DescribeChangeSetCommandOutput } from "./commands/DescribeChangeSetCommand";
 import {
   DescribeStackDriftDetectionStatusCommandInput,
-  DescribeStackDriftDetectionStatusCommandOutput
+  DescribeStackDriftDetectionStatusCommandOutput,
 } from "./commands/DescribeStackDriftDetectionStatusCommand";
 import {
   DescribeStackEventsCommandInput,
-  DescribeStackEventsCommandOutput
+  DescribeStackEventsCommandOutput,
 } from "./commands/DescribeStackEventsCommand";
 import {
   DescribeStackInstanceCommandInput,
-  DescribeStackInstanceCommandOutput
+  DescribeStackInstanceCommandOutput,
 } from "./commands/DescribeStackInstanceCommand";
 import {
   DescribeStackResourceCommandInput,
-  DescribeStackResourceCommandOutput
+  DescribeStackResourceCommandOutput,
 } from "./commands/DescribeStackResourceCommand";
 import {
   DescribeStackResourceDriftsCommandInput,
-  DescribeStackResourceDriftsCommandOutput
+  DescribeStackResourceDriftsCommandOutput,
 } from "./commands/DescribeStackResourceDriftsCommand";
 import {
   DescribeStackResourcesCommandInput,
-  DescribeStackResourcesCommandOutput
+  DescribeStackResourcesCommandOutput,
 } from "./commands/DescribeStackResourcesCommand";
-import {
-  DescribeStackSetCommandInput,
-  DescribeStackSetCommandOutput
-} from "./commands/DescribeStackSetCommand";
+import { DescribeStackSetCommandInput, DescribeStackSetCommandOutput } from "./commands/DescribeStackSetCommand";
 import {
   DescribeStackSetOperationCommandInput,
-  DescribeStackSetOperationCommandOutput
+  DescribeStackSetOperationCommandOutput,
 } from "./commands/DescribeStackSetOperationCommand";
-import {
-  DescribeStacksCommandInput,
-  DescribeStacksCommandOutput
-} from "./commands/DescribeStacksCommand";
-import {
-  DescribeTypeCommandInput,
-  DescribeTypeCommandOutput
-} from "./commands/DescribeTypeCommand";
+import { DescribeStacksCommandInput, DescribeStacksCommandOutput } from "./commands/DescribeStacksCommand";
+import { DescribeTypeCommandInput, DescribeTypeCommandOutput } from "./commands/DescribeTypeCommand";
 import {
   DescribeTypeRegistrationCommandInput,
-  DescribeTypeRegistrationCommandOutput
+  DescribeTypeRegistrationCommandOutput,
 } from "./commands/DescribeTypeRegistrationCommand";
-import {
-  DetectStackDriftCommandInput,
-  DetectStackDriftCommandOutput
-} from "./commands/DetectStackDriftCommand";
+import { DetectStackDriftCommandInput, DetectStackDriftCommandOutput } from "./commands/DetectStackDriftCommand";
 import {
   DetectStackResourceDriftCommandInput,
-  DetectStackResourceDriftCommandOutput
+  DetectStackResourceDriftCommandOutput,
 } from "./commands/DetectStackResourceDriftCommand";
 import {
   DetectStackSetDriftCommandInput,
-  DetectStackSetDriftCommandOutput
+  DetectStackSetDriftCommandOutput,
 } from "./commands/DetectStackSetDriftCommand";
 import {
   EstimateTemplateCostCommandInput,
-  EstimateTemplateCostCommandOutput
+  EstimateTemplateCostCommandOutput,
 } from "./commands/EstimateTemplateCostCommand";
-import {
-  ExecuteChangeSetCommandInput,
-  ExecuteChangeSetCommandOutput
-} from "./commands/ExecuteChangeSetCommand";
-import {
-  GetStackPolicyCommandInput,
-  GetStackPolicyCommandOutput
-} from "./commands/GetStackPolicyCommand";
-import {
-  GetTemplateCommandInput,
-  GetTemplateCommandOutput
-} from "./commands/GetTemplateCommand";
-import {
-  GetTemplateSummaryCommandInput,
-  GetTemplateSummaryCommandOutput
-} from "./commands/GetTemplateSummaryCommand";
-import {
-  ListChangeSetsCommandInput,
-  ListChangeSetsCommandOutput
-} from "./commands/ListChangeSetsCommand";
-import {
-  ListExportsCommandInput,
-  ListExportsCommandOutput
-} from "./commands/ListExportsCommand";
-import {
-  ListImportsCommandInput,
-  ListImportsCommandOutput
-} from "./commands/ListImportsCommand";
-import {
-  ListStackInstancesCommandInput,
-  ListStackInstancesCommandOutput
-} from "./commands/ListStackInstancesCommand";
-import {
-  ListStackResourcesCommandInput,
-  ListStackResourcesCommandOutput
-} from "./commands/ListStackResourcesCommand";
+import { ExecuteChangeSetCommandInput, ExecuteChangeSetCommandOutput } from "./commands/ExecuteChangeSetCommand";
+import { GetStackPolicyCommandInput, GetStackPolicyCommandOutput } from "./commands/GetStackPolicyCommand";
+import { GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand";
+import { GetTemplateSummaryCommandInput, GetTemplateSummaryCommandOutput } from "./commands/GetTemplateSummaryCommand";
+import { ListChangeSetsCommandInput, ListChangeSetsCommandOutput } from "./commands/ListChangeSetsCommand";
+import { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
+import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
+import { ListStackInstancesCommandInput, ListStackInstancesCommandOutput } from "./commands/ListStackInstancesCommand";
+import { ListStackResourcesCommandInput, ListStackResourcesCommandOutput } from "./commands/ListStackResourcesCommand";
 import {
   ListStackSetOperationResultsCommandInput,
-  ListStackSetOperationResultsCommandOutput
+  ListStackSetOperationResultsCommandOutput,
 } from "./commands/ListStackSetOperationResultsCommand";
 import {
   ListStackSetOperationsCommandInput,
-  ListStackSetOperationsCommandOutput
+  ListStackSetOperationsCommandOutput,
 } from "./commands/ListStackSetOperationsCommand";
-import {
-  ListStackSetsCommandInput,
-  ListStackSetsCommandOutput
-} from "./commands/ListStackSetsCommand";
-import {
-  ListStacksCommandInput,
-  ListStacksCommandOutput
-} from "./commands/ListStacksCommand";
+import { ListStackSetsCommandInput, ListStackSetsCommandOutput } from "./commands/ListStackSetsCommand";
+import { ListStacksCommandInput, ListStacksCommandOutput } from "./commands/ListStacksCommand";
 import {
   ListTypeRegistrationsCommandInput,
-  ListTypeRegistrationsCommandOutput
+  ListTypeRegistrationsCommandOutput,
 } from "./commands/ListTypeRegistrationsCommand";
-import {
-  ListTypeVersionsCommandInput,
-  ListTypeVersionsCommandOutput
-} from "./commands/ListTypeVersionsCommand";
-import {
-  ListTypesCommandInput,
-  ListTypesCommandOutput
-} from "./commands/ListTypesCommand";
+import { ListTypeVersionsCommandInput, ListTypeVersionsCommandOutput } from "./commands/ListTypeVersionsCommand";
+import { ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
 import {
   RecordHandlerProgressCommandInput,
-  RecordHandlerProgressCommandOutput
+  RecordHandlerProgressCommandOutput,
 } from "./commands/RecordHandlerProgressCommand";
-import {
-  RegisterTypeCommandInput,
-  RegisterTypeCommandOutput
-} from "./commands/RegisterTypeCommand";
-import {
-  SetStackPolicyCommandInput,
-  SetStackPolicyCommandOutput
-} from "./commands/SetStackPolicyCommand";
+import { RegisterTypeCommandInput, RegisterTypeCommandOutput } from "./commands/RegisterTypeCommand";
+import { SetStackPolicyCommandInput, SetStackPolicyCommandOutput } from "./commands/SetStackPolicyCommand";
 import {
   SetTypeDefaultVersionCommandInput,
-  SetTypeDefaultVersionCommandOutput
+  SetTypeDefaultVersionCommandOutput,
 } from "./commands/SetTypeDefaultVersionCommand";
-import {
-  SignalResourceCommandInput,
-  SignalResourceCommandOutput
-} from "./commands/SignalResourceCommand";
+import { SignalResourceCommandInput, SignalResourceCommandOutput } from "./commands/SignalResourceCommand";
 import {
   StopStackSetOperationCommandInput,
-  StopStackSetOperationCommandOutput
+  StopStackSetOperationCommandOutput,
 } from "./commands/StopStackSetOperationCommand";
-import {
-  UpdateStackCommandInput,
-  UpdateStackCommandOutput
-} from "./commands/UpdateStackCommand";
+import { UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand";
 import {
   UpdateStackInstancesCommandInput,
-  UpdateStackInstancesCommandOutput
+  UpdateStackInstancesCommandOutput,
 } from "./commands/UpdateStackInstancesCommand";
-import {
-  UpdateStackSetCommandInput,
-  UpdateStackSetCommandOutput
-} from "./commands/UpdateStackSetCommand";
+import { UpdateStackSetCommandInput, UpdateStackSetCommandOutput } from "./commands/UpdateStackSetCommand";
 import {
   UpdateTerminationProtectionCommandInput,
-  UpdateTerminationProtectionCommandOutput
+  UpdateTerminationProtectionCommandOutput,
 } from "./commands/UpdateTerminationProtectionCommand";
-import {
-  ValidateTemplateCommandInput,
-  ValidateTemplateCommandOutput
-} from "./commands/ValidateTemplateCommand";
+import { ValidateTemplateCommandInput, ValidateTemplateCommandOutput } from "./commands/ValidateTemplateCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -225,38 +129,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -267,7 +166,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -384,8 +283,7 @@ export type ServiceOutputTypes =
   | UpdateTerminationProtectionCommandOutput
   | ValidateTemplateCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -474,9 +372,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CloudFormationClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CloudFormationClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -485,9 +381,7 @@ export type CloudFormationClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CloudFormationClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CloudFormationClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -524,7 +418,7 @@ export class CloudFormationClient extends __Client<
   constructor(configuration: CloudFormationClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

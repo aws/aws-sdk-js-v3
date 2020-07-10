@@ -1,16 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -18,10 +12,9 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export interface CreateHomeRegionControlRequest {
@@ -44,13 +37,10 @@ export interface CreateHomeRegionControlRequest {
 }
 
 export namespace CreateHomeRegionControlRequest {
-  export const filterSensitiveLog = (
-    obj: CreateHomeRegionControlRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateHomeRegionControlRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateHomeRegionControlRequest =>
-    __isa(o, "CreateHomeRegionControlRequest");
+  export const isa = (o: any): o is CreateHomeRegionControlRequest => __isa(o, "CreateHomeRegionControlRequest");
 }
 
 export interface CreateHomeRegionControlResult {
@@ -63,13 +53,10 @@ export interface CreateHomeRegionControlResult {
 }
 
 export namespace CreateHomeRegionControlResult {
-  export const filterSensitiveLog = (
-    obj: CreateHomeRegionControlResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateHomeRegionControlResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateHomeRegionControlResult =>
-    __isa(o, "CreateHomeRegionControlResult");
+  export const isa = (o: any): o is CreateHomeRegionControlResult => __isa(o, "CreateHomeRegionControlResult");
 }
 
 export interface DescribeHomeRegionControlsRequest {
@@ -105,13 +92,10 @@ export interface DescribeHomeRegionControlsRequest {
 }
 
 export namespace DescribeHomeRegionControlsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeHomeRegionControlsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeHomeRegionControlsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeHomeRegionControlsRequest =>
-    __isa(o, "DescribeHomeRegionControlsRequest");
+  export const isa = (o: any): o is DescribeHomeRegionControlsRequest => __isa(o, "DescribeHomeRegionControlsRequest");
 }
 
 export interface DescribeHomeRegionControlsResult {
@@ -130,13 +114,10 @@ export interface DescribeHomeRegionControlsResult {
 }
 
 export namespace DescribeHomeRegionControlsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeHomeRegionControlsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeHomeRegionControlsResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeHomeRegionControlsResult =>
-    __isa(o, "DescribeHomeRegionControlsResult");
+  export const isa = (o: any): o is DescribeHomeRegionControlsResult => __isa(o, "DescribeHomeRegionControlsResult");
 }
 
 /**
@@ -151,10 +132,9 @@ export interface DryRunOperation extends __SmithyException, $MetadataBearer {
 
 export namespace DryRunOperation {
   export const filterSensitiveLog = (obj: DryRunOperation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DryRunOperation =>
-    __isa(o, "DryRunOperation");
+  export const isa = (o: any): o is DryRunOperation => __isa(o, "DryRunOperation");
 }
 
 export interface GetHomeRegionRequest {
@@ -163,10 +143,9 @@ export interface GetHomeRegionRequest {
 
 export namespace GetHomeRegionRequest {
   export const filterSensitiveLog = (obj: GetHomeRegionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetHomeRegionRequest =>
-    __isa(o, "GetHomeRegionRequest");
+  export const isa = (o: any): o is GetHomeRegionRequest => __isa(o, "GetHomeRegionRequest");
 }
 
 export interface GetHomeRegionResult {
@@ -179,10 +158,9 @@ export interface GetHomeRegionResult {
 
 export namespace GetHomeRegionResult {
   export const filterSensitiveLog = (obj: GetHomeRegionResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetHomeRegionResult =>
-    __isa(o, "GetHomeRegionResult");
+  export const isa = (o: any): o is GetHomeRegionResult => __isa(o, "GetHomeRegionResult");
 }
 
 /**
@@ -220,19 +198,16 @@ export interface HomeRegionControl {
 
 export namespace HomeRegionControl {
   export const filterSensitiveLog = (obj: HomeRegionControl): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is HomeRegionControl =>
-    __isa(o, "HomeRegionControl");
+  export const isa = (o: any): o is HomeRegionControl => __isa(o, "HomeRegionControl");
 }
 
 /**
  * <p>Exception raised when an internal, configuration, or dependency error is
  *       encountered.</p>
  */
-export interface InternalServerError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends __SmithyException, $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
   Message?: string;
@@ -240,19 +215,16 @@ export interface InternalServerError
 
 export namespace InternalServerError {
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServerError =>
-    __isa(o, "InternalServerError");
+  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
  * <p>Exception raised when the provided input violates a policy constraint or is entered in the
  *       wrong format or data type.</p>
  */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends __SmithyException, $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
   Message?: string;
@@ -260,31 +232,25 @@ export interface InvalidInputException
 
 export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
+  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
  * <p>Exception raised when a request fails due to temporary unavailability of the service.</p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
 }
 
 export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (
-    obj: ServiceUnavailableException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException =>
-    __isa(o, "ServiceUnavailableException");
+  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -307,11 +273,11 @@ export interface Target {
 
 export namespace Target {
   export const filterSensitiveLog = (obj: Target): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Target => __isa(o, "Target");
 }
 
 export enum TargetType {
-  ACCOUNT = "ACCOUNT"
+  ACCOUNT = "ACCOUNT",
 }

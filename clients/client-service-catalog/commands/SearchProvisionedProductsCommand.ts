@@ -1,21 +1,11 @@
-import {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ServiceCatalogClient";
-import {
-  SearchProvisionedProductsInput,
-  SearchProvisionedProductsOutput
-} from "../models/index";
+import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
+import { SearchProvisionedProductsInput, SearchProvisionedProductsOutput } from "../models/index";
 import {
   deserializeAws_json1_1SearchProvisionedProductsCommand,
-  serializeAws_json1_1SearchProvisionedProductsCommand
+  serializeAws_json1_1SearchProvisionedProductsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type SearchProvisionedProductsCommandInput = SearchProvisionedProductsInput;
-export type SearchProvisionedProductsCommandOutput = SearchProvisionedProductsOutput &
-  __MetadataBearer;
+export type SearchProvisionedProductsCommandOutput = SearchProvisionedProductsOutput & __MetadataBearer;
 
 export class SearchProvisionedProductsCommand extends $Command<
   SearchProvisionedProductsCommandInput,
@@ -49,18 +38,13 @@ export class SearchProvisionedProductsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SearchProvisionedProductsCommandInput,
-    SearchProvisionedProductsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SearchProvisionedProductsCommandInput, SearchProvisionedProductsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +54,7 @@ export class SearchProvisionedProductsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SearchProvisionedProductsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SearchProvisionedProductsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchProvisionedProductsCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class SearchProvisionedProductsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchProvisionedProductsCommandOutput> {
-    return deserializeAws_json1_1SearchProvisionedProductsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SearchProvisionedProductsCommand(output, context);
   }
 
   // Start section: command_body_extra

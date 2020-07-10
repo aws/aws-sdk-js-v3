@@ -1,21 +1,11 @@
-import {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElasticBeanstalkClient";
-import {
-  ApplicationVersionDescriptionMessage,
-  UpdateApplicationVersionMessage
-} from "../models/index";
+import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
+import { ApplicationVersionDescriptionMessage, UpdateApplicationVersionMessage } from "../models/index";
 import {
   deserializeAws_queryUpdateApplicationVersionCommand,
-  serializeAws_queryUpdateApplicationVersionCommand
+  serializeAws_queryUpdateApplicationVersionCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateApplicationVersionCommandInput = UpdateApplicationVersionMessage;
-export type UpdateApplicationVersionCommandOutput = ApplicationVersionDescriptionMessage &
-  __MetadataBearer;
+export type UpdateApplicationVersionCommandOutput = ApplicationVersionDescriptionMessage & __MetadataBearer;
 
 export class UpdateApplicationVersionCommand extends $Command<
   UpdateApplicationVersionCommandInput,
@@ -49,18 +38,13 @@ export class UpdateApplicationVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateApplicationVersionCommandInput,
-    UpdateApplicationVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateApplicationVersionCommandInput, UpdateApplicationVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class UpdateApplicationVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateApplicationVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateApplicationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateApplicationVersionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateApplicationVersionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApplicationVersionCommandOutput> {
     return deserializeAws_queryUpdateApplicationVersionCommand(output, context);
   }
 

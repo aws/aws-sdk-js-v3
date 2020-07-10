@@ -1,21 +1,11 @@
-import {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFormationClient";
-import {
-  DescribeTypeRegistrationInput,
-  DescribeTypeRegistrationOutput
-} from "../models/index";
+import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
+import { DescribeTypeRegistrationInput, DescribeTypeRegistrationOutput } from "../models/index";
 import {
   deserializeAws_queryDescribeTypeRegistrationCommand,
-  serializeAws_queryDescribeTypeRegistrationCommand
+  serializeAws_queryDescribeTypeRegistrationCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeTypeRegistrationCommandInput = DescribeTypeRegistrationInput;
-export type DescribeTypeRegistrationCommandOutput = DescribeTypeRegistrationOutput &
-  __MetadataBearer;
+export type DescribeTypeRegistrationCommandOutput = DescribeTypeRegistrationOutput & __MetadataBearer;
 
 export class DescribeTypeRegistrationCommand extends $Command<
   DescribeTypeRegistrationCommandInput,
@@ -49,18 +38,13 @@ export class DescribeTypeRegistrationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTypeRegistrationCommandInput,
-    DescribeTypeRegistrationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeTypeRegistrationCommandInput, DescribeTypeRegistrationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DescribeTypeRegistrationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeTypeRegistrationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeTypeRegistrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeTypeRegistrationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeTypeRegistrationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTypeRegistrationCommandOutput> {
     return deserializeAws_queryDescribeTypeRegistrationCommand(output, context);
   }
 

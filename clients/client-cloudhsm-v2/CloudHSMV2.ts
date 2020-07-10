@@ -2,67 +2,51 @@ import { CloudHSMV2Client } from "./CloudHSMV2Client";
 import {
   CopyBackupToRegionCommand,
   CopyBackupToRegionCommandInput,
-  CopyBackupToRegionCommandOutput
+  CopyBackupToRegionCommandOutput,
 } from "./commands/CopyBackupToRegionCommand";
 import {
   CreateClusterCommand,
   CreateClusterCommandInput,
-  CreateClusterCommandOutput
+  CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
-import {
-  CreateHsmCommand,
-  CreateHsmCommandInput,
-  CreateHsmCommandOutput
-} from "./commands/CreateHsmCommand";
+import { CreateHsmCommand, CreateHsmCommandInput, CreateHsmCommandOutput } from "./commands/CreateHsmCommand";
 import {
   DeleteBackupCommand,
   DeleteBackupCommandInput,
-  DeleteBackupCommandOutput
+  DeleteBackupCommandOutput,
 } from "./commands/DeleteBackupCommand";
 import {
   DeleteClusterCommand,
   DeleteClusterCommandInput,
-  DeleteClusterCommandOutput
+  DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
-import {
-  DeleteHsmCommand,
-  DeleteHsmCommandInput,
-  DeleteHsmCommandOutput
-} from "./commands/DeleteHsmCommand";
+import { DeleteHsmCommand, DeleteHsmCommandInput, DeleteHsmCommandOutput } from "./commands/DeleteHsmCommand";
 import {
   DescribeBackupsCommand,
   DescribeBackupsCommandInput,
-  DescribeBackupsCommandOutput
+  DescribeBackupsCommandOutput,
 } from "./commands/DescribeBackupsCommand";
 import {
   DescribeClustersCommand,
   DescribeClustersCommandInput,
-  DescribeClustersCommandOutput
+  DescribeClustersCommandOutput,
 } from "./commands/DescribeClustersCommand";
 import {
   InitializeClusterCommand,
   InitializeClusterCommandInput,
-  InitializeClusterCommandOutput
+  InitializeClusterCommandOutput,
 } from "./commands/InitializeClusterCommand";
-import {
-  ListTagsCommand,
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand";
+import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   RestoreBackupCommand,
   RestoreBackupCommandInput,
-  RestoreBackupCommandOutput
+  RestoreBackupCommandOutput,
 } from "./commands/RestoreBackupCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -89,17 +73,14 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public copyBackupToRegion(
     args: CopyBackupToRegionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopyBackupToRegionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyBackupToRegionCommandOutput) => void),
     cb?: (err: any, data?: CopyBackupToRegionCommandOutput) => void
   ): Promise<CopyBackupToRegionCommandOutput> | void {
     const command = new CopyBackupToRegionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -124,17 +105,14 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public createCluster(
     args: CreateClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClusterCommandOutput) => void),
     cb?: (err: any, data?: CreateClusterCommandOutput) => void
   ): Promise<CreateClusterCommandOutput> | void {
     const command = new CreateClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -145,14 +123,8 @@ export class CloudHSMV2 extends CloudHSMV2Client {
    * <p>Creates a new hardware security module (HSM) in the specified AWS CloudHSM
    *       cluster.</p>
    */
-  public createHsm(
-    args: CreateHsmCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateHsmCommandOutput>;
-  public createHsm(
-    args: CreateHsmCommandInput,
-    cb: (err: any, data?: CreateHsmCommandOutput) => void
-  ): void;
+  public createHsm(args: CreateHsmCommandInput, options?: __HttpHandlerOptions): Promise<CreateHsmCommandOutput>;
+  public createHsm(args: CreateHsmCommandInput, cb: (err: any, data?: CreateHsmCommandOutput) => void): void;
   public createHsm(
     args: CreateHsmCommandInput,
     options: __HttpHandlerOptions,
@@ -160,17 +132,14 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public createHsm(
     args: CreateHsmCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateHsmCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHsmCommandOutput) => void),
     cb?: (err: any, data?: CreateHsmCommandOutput) => void
   ): Promise<CreateHsmCommandOutput> | void {
     const command = new CreateHsmCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -186,10 +155,7 @@ export class CloudHSMV2 extends CloudHSMV2Client {
     args: DeleteBackupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteBackupCommandOutput>;
-  public deleteBackup(
-    args: DeleteBackupCommandInput,
-    cb: (err: any, data?: DeleteBackupCommandOutput) => void
-  ): void;
+  public deleteBackup(args: DeleteBackupCommandInput, cb: (err: any, data?: DeleteBackupCommandOutput) => void): void;
   public deleteBackup(
     args: DeleteBackupCommandInput,
     options: __HttpHandlerOptions,
@@ -197,17 +163,14 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public deleteBackup(
     args: DeleteBackupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBackupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBackupCommandOutput) => void),
     cb?: (err: any, data?: DeleteBackupCommandOutput) => void
   ): Promise<DeleteBackupCommandOutput> | void {
     const command = new DeleteBackupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -233,17 +196,14 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public deleteCluster(
     args: DeleteClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteClusterCommandOutput) => void),
     cb?: (err: any, data?: DeleteClusterCommandOutput) => void
   ): Promise<DeleteClusterCommandOutput> | void {
     const command = new DeleteClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -255,14 +215,8 @@ export class CloudHSMV2 extends CloudHSMV2Client {
    *       address of the HSM's elastic network interface (ENI), or the ID of the HSM's ENI. You need to
    *       specify only one of these values. To find these values, use <a>DescribeClusters</a>.</p>
    */
-  public deleteHsm(
-    args: DeleteHsmCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteHsmCommandOutput>;
-  public deleteHsm(
-    args: DeleteHsmCommandInput,
-    cb: (err: any, data?: DeleteHsmCommandOutput) => void
-  ): void;
+  public deleteHsm(args: DeleteHsmCommandInput, options?: __HttpHandlerOptions): Promise<DeleteHsmCommandOutput>;
+  public deleteHsm(args: DeleteHsmCommandInput, cb: (err: any, data?: DeleteHsmCommandOutput) => void): void;
   public deleteHsm(
     args: DeleteHsmCommandInput,
     options: __HttpHandlerOptions,
@@ -270,17 +224,14 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public deleteHsm(
     args: DeleteHsmCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteHsmCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHsmCommandOutput) => void),
     cb?: (err: any, data?: DeleteHsmCommandOutput) => void
   ): Promise<DeleteHsmCommandOutput> | void {
     const command = new DeleteHsmCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -310,17 +261,14 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public describeBackups(
     args: DescribeBackupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBackupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBackupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeBackupsCommandOutput) => void
   ): Promise<DescribeBackupsCommandOutput> | void {
     const command = new DescribeBackupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -350,17 +298,14 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public describeClusters(
     args: DescribeClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClustersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClustersCommandOutput) => void),
     cb?: (err: any, data?: DescribeClustersCommandOutput) => void
   ): Promise<DescribeClustersCommandOutput> | void {
     const command = new DescribeClustersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -388,17 +333,14 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public initializeCluster(
     args: InitializeClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InitializeClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InitializeClusterCommandOutput) => void),
     cb?: (err: any, data?: InitializeClusterCommandOutput) => void
   ): Promise<InitializeClusterCommandOutput> | void {
     const command = new InitializeClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -413,14 +355,8 @@ export class CloudHSMV2 extends CloudHSMV2Client {
    *       get more tags. When you receive a response with no <code>NextToken</code> (or an empty or null
    *       value), that means there are no more tags to get.</p>
    */
-  public listTags(
-    args: ListTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsCommandOutput>;
-  public listTags(
-    args: ListTagsCommandInput,
-    cb: (err: any, data?: ListTagsCommandOutput) => void
-  ): void;
+  public listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
+  public listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
   public listTags(
     args: ListTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -428,17 +364,14 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public listTags(
     args: ListTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
     cb?: (err: any, data?: ListTagsCommandOutput) => void
   ): Promise<ListTagsCommandOutput> | void {
     const command = new ListTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -465,17 +398,14 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public restoreBackup(
     args: RestoreBackupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestoreBackupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreBackupCommandOutput) => void),
     cb?: (err: any, data?: RestoreBackupCommandOutput) => void
   ): Promise<RestoreBackupCommandOutput> | void {
     const command = new RestoreBackupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -485,14 +415,8 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   /**
    * <p>Adds or overwrites one or more tags for the specified AWS CloudHSM cluster.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -500,17 +424,14 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -535,17 +456,14 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

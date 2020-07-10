@@ -1,21 +1,11 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
-import {
-  CreateBackupSelectionInput,
-  CreateBackupSelectionOutput
-} from "../models/index";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { CreateBackupSelectionInput, CreateBackupSelectionOutput } from "../models/index";
 import {
   deserializeAws_restJson1CreateBackupSelectionCommand,
-  serializeAws_restJson1CreateBackupSelectionCommand
+  serializeAws_restJson1CreateBackupSelectionCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateBackupSelectionCommandInput = CreateBackupSelectionInput;
-export type CreateBackupSelectionCommandOutput = CreateBackupSelectionOutput &
-  __MetadataBearer;
+export type CreateBackupSelectionCommandOutput = CreateBackupSelectionOutput & __MetadataBearer;
 
 export class CreateBackupSelectionCommand extends $Command<
   CreateBackupSelectionCommandInput,
@@ -49,18 +38,13 @@ export class CreateBackupSelectionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateBackupSelectionCommandInput,
-    CreateBackupSelectionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateBackupSelectionCommandInput, CreateBackupSelectionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class CreateBackupSelectionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateBackupSelectionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateBackupSelectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateBackupSelectionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateBackupSelectionCommandOutput> {
-    return deserializeAws_restJson1CreateBackupSelectionCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackupSelectionCommandOutput> {
+    return deserializeAws_restJson1CreateBackupSelectionCommand(output, context);
   }
 
   // Start section: command_body_extra

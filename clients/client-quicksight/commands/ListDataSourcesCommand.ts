@@ -1,21 +1,11 @@
-import {
-  QuickSightClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QuickSightClient";
-import {
-  ListDataSourcesRequest,
-  ListDataSourcesResponse
-} from "../models/index";
+import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { ListDataSourcesRequest, ListDataSourcesResponse } from "../models/index";
 import {
   deserializeAws_restJson1ListDataSourcesCommand,
-  serializeAws_restJson1ListDataSourcesCommand
+  serializeAws_restJson1ListDataSourcesCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListDataSourcesCommandInput = ListDataSourcesRequest;
-export type ListDataSourcesCommandOutput = ListDataSourcesResponse &
-  __MetadataBearer;
+export type ListDataSourcesCommandOutput = ListDataSourcesResponse & __MetadataBearer;
 
 export class ListDataSourcesCommand extends $Command<
   ListDataSourcesCommandInput,
@@ -50,14 +39,12 @@ export class ListDataSourcesCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDataSourcesCommandInput, ListDataSourcesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class ListDataSourcesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListDataSourcesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListDataSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDataSourcesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListDataSourcesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataSourcesCommandOutput> {
     return deserializeAws_restJson1ListDataSourcesCommand(output, context);
   }
 

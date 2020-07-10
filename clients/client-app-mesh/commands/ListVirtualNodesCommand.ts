@@ -1,18 +1,11 @@
-import {
-  AppMeshClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppMeshClient";
+import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { ListVirtualNodesInput, ListVirtualNodesOutput } from "../models/index";
 import {
   deserializeAws_restJson1ListVirtualNodesCommand,
-  serializeAws_restJson1ListVirtualNodesCommand
+  serializeAws_restJson1ListVirtualNodesCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListVirtualNodesCommandInput = ListVirtualNodesInput;
-export type ListVirtualNodesCommandOutput = ListVirtualNodesOutput &
-  __MetadataBearer;
+export type ListVirtualNodesCommandOutput = ListVirtualNodesOutput & __MetadataBearer;
 
 export class ListVirtualNodesCommand extends $Command<
   ListVirtualNodesCommandInput,
@@ -47,14 +39,12 @@ export class ListVirtualNodesCommand extends $Command<
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListVirtualNodesCommandInput, ListVirtualNodesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class ListVirtualNodesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListVirtualNodesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListVirtualNodesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListVirtualNodesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListVirtualNodesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVirtualNodesCommandOutput> {
     return deserializeAws_restJson1ListVirtualNodesCommand(output, context);
   }
 

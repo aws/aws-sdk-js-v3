@@ -1,18 +1,11 @@
-import {
-  FraudDetectorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FraudDetectorClient";
+import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { UpdateVariableRequest, UpdateVariableResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateVariableCommand,
-  serializeAws_json1_1UpdateVariableCommand
+  serializeAws_json1_1UpdateVariableCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateVariableCommandInput = UpdateVariableRequest;
-export type UpdateVariableCommandOutput = UpdateVariableResult &
-  __MetadataBearer;
+export type UpdateVariableCommandOutput = UpdateVariableResult & __MetadataBearer;
 
 export class UpdateVariableCommand extends $Command<
   UpdateVariableCommandInput,
@@ -47,14 +39,12 @@ export class UpdateVariableCommand extends $Command<
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateVariableCommandInput, UpdateVariableCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class UpdateVariableCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateVariableCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateVariableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateVariableCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateVariableCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVariableCommandOutput> {
     return deserializeAws_json1_1UpdateVariableCommand(output, context);
   }
 

@@ -1,21 +1,14 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   EnableTransitGatewayRouteTablePropagationRequest,
-  EnableTransitGatewayRouteTablePropagationResult
+  EnableTransitGatewayRouteTablePropagationResult,
 } from "../models/index";
 import {
   deserializeAws_ec2EnableTransitGatewayRouteTablePropagationCommand,
-  serializeAws_ec2EnableTransitGatewayRouteTablePropagationCommand
+  serializeAws_ec2EnableTransitGatewayRouteTablePropagationCommand,
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type EnableTransitGatewayRouteTablePropagationCommandInput = EnableTransitGatewayRouteTablePropagationRequest;
@@ -39,9 +32,7 @@ export class EnableTransitGatewayRouteTablePropagationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: EnableTransitGatewayRouteTablePropagationCommandInput
-  ) {
+  constructor(readonly input: EnableTransitGatewayRouteTablePropagationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,14 +46,12 @@ export class EnableTransitGatewayRouteTablePropagationCommand extends $Command<
     EnableTransitGatewayRouteTablePropagationCommandInput,
     EnableTransitGatewayRouteTablePropagationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +65,14 @@ export class EnableTransitGatewayRouteTablePropagationCommand extends $Command<
     input: EnableTransitGatewayRouteTablePropagationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableTransitGatewayRouteTablePropagationCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2EnableTransitGatewayRouteTablePropagationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableTransitGatewayRouteTablePropagationCommandOutput> {
-    return deserializeAws_ec2EnableTransitGatewayRouteTablePropagationCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2EnableTransitGatewayRouteTablePropagationCommand(output, context);
   }
 
   // Start section: command_body_extra

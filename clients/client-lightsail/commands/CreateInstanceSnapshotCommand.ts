@@ -1,21 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient";
-import {
-  CreateInstanceSnapshotRequest,
-  CreateInstanceSnapshotResult
-} from "../models/index";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { CreateInstanceSnapshotRequest, CreateInstanceSnapshotResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateInstanceSnapshotCommand,
-  serializeAws_json1_1CreateInstanceSnapshotCommand
+  serializeAws_json1_1CreateInstanceSnapshotCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateInstanceSnapshotCommandInput = CreateInstanceSnapshotRequest;
-export type CreateInstanceSnapshotCommandOutput = CreateInstanceSnapshotResult &
-  __MetadataBearer;
+export type CreateInstanceSnapshotCommandOutput = CreateInstanceSnapshotResult & __MetadataBearer;
 
 export class CreateInstanceSnapshotCommand extends $Command<
   CreateInstanceSnapshotCommandInput,
@@ -49,18 +38,13 @@ export class CreateInstanceSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateInstanceSnapshotCommandInput,
-    CreateInstanceSnapshotCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateInstanceSnapshotCommandInput, CreateInstanceSnapshotCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class CreateInstanceSnapshotCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateInstanceSnapshotCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateInstanceSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateInstanceSnapshotCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateInstanceSnapshotCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInstanceSnapshotCommandOutput> {
     return deserializeAws_json1_1CreateInstanceSnapshotCommand(output, context);
   }
 

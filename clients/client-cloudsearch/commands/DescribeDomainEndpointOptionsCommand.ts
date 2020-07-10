@@ -1,21 +1,11 @@
-import {
-  CloudSearchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudSearchClient";
-import {
-  DescribeDomainEndpointOptionsRequest,
-  DescribeDomainEndpointOptionsResponse
-} from "../models/index";
+import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
+import { DescribeDomainEndpointOptionsRequest, DescribeDomainEndpointOptionsResponse } from "../models/index";
 import {
   deserializeAws_queryDescribeDomainEndpointOptionsCommand,
-  serializeAws_queryDescribeDomainEndpointOptionsCommand
+  serializeAws_queryDescribeDomainEndpointOptionsCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeDomainEndpointOptionsCommandInput = DescribeDomainEndpointOptionsRequest;
-export type DescribeDomainEndpointOptionsCommandOutput = DescribeDomainEndpointOptionsResponse &
-  __MetadataBearer;
+export type DescribeDomainEndpointOptionsCommandOutput = DescribeDomainEndpointOptionsResponse & __MetadataBearer;
 
 export class DescribeDomainEndpointOptionsCommand extends $Command<
   DescribeDomainEndpointOptionsCommandInput,
@@ -49,18 +38,13 @@ export class DescribeDomainEndpointOptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDomainEndpointOptionsCommandInput,
-    DescribeDomainEndpointOptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDomainEndpointOptionsCommandInput, DescribeDomainEndpointOptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class DescribeDomainEndpointOptionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDomainEndpointOptionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDomainEndpointOptionsCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeDomainEndpointOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryDescribeDomainEndpointOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDomainEndpointOptionsCommandOutput> {
-    return deserializeAws_queryDescribeDomainEndpointOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeDomainEndpointOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,302 +1,218 @@
 import {
   AssociateApprovalRuleTemplateWithRepositoryCommandInput,
-  AssociateApprovalRuleTemplateWithRepositoryCommandOutput
+  AssociateApprovalRuleTemplateWithRepositoryCommandOutput,
 } from "./commands/AssociateApprovalRuleTemplateWithRepositoryCommand";
 import {
   BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
-  BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
+  BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput,
 } from "./commands/BatchAssociateApprovalRuleTemplateWithRepositoriesCommand";
 import {
   BatchDescribeMergeConflictsCommandInput,
-  BatchDescribeMergeConflictsCommandOutput
+  BatchDescribeMergeConflictsCommandOutput,
 } from "./commands/BatchDescribeMergeConflictsCommand";
 import {
   BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput,
-  BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
+  BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput,
 } from "./commands/BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand";
-import {
-  BatchGetCommitsCommandInput,
-  BatchGetCommitsCommandOutput
-} from "./commands/BatchGetCommitsCommand";
+import { BatchGetCommitsCommandInput, BatchGetCommitsCommandOutput } from "./commands/BatchGetCommitsCommand";
 import {
   BatchGetRepositoriesCommandInput,
-  BatchGetRepositoriesCommandOutput
+  BatchGetRepositoriesCommandOutput,
 } from "./commands/BatchGetRepositoriesCommand";
 import {
   CreateApprovalRuleTemplateCommandInput,
-  CreateApprovalRuleTemplateCommandOutput
+  CreateApprovalRuleTemplateCommandOutput,
 } from "./commands/CreateApprovalRuleTemplateCommand";
-import {
-  CreateBranchCommandInput,
-  CreateBranchCommandOutput
-} from "./commands/CreateBranchCommand";
-import {
-  CreateCommitCommandInput,
-  CreateCommitCommandOutput
-} from "./commands/CreateCommitCommand";
+import { CreateBranchCommandInput, CreateBranchCommandOutput } from "./commands/CreateBranchCommand";
+import { CreateCommitCommandInput, CreateCommitCommandOutput } from "./commands/CreateCommitCommand";
 import {
   CreatePullRequestApprovalRuleCommandInput,
-  CreatePullRequestApprovalRuleCommandOutput
+  CreatePullRequestApprovalRuleCommandOutput,
 } from "./commands/CreatePullRequestApprovalRuleCommand";
-import {
-  CreatePullRequestCommandInput,
-  CreatePullRequestCommandOutput
-} from "./commands/CreatePullRequestCommand";
-import {
-  CreateRepositoryCommandInput,
-  CreateRepositoryCommandOutput
-} from "./commands/CreateRepositoryCommand";
+import { CreatePullRequestCommandInput, CreatePullRequestCommandOutput } from "./commands/CreatePullRequestCommand";
+import { CreateRepositoryCommandInput, CreateRepositoryCommandOutput } from "./commands/CreateRepositoryCommand";
 import {
   CreateUnreferencedMergeCommitCommandInput,
-  CreateUnreferencedMergeCommitCommandOutput
+  CreateUnreferencedMergeCommitCommandOutput,
 } from "./commands/CreateUnreferencedMergeCommitCommand";
 import {
   DeleteApprovalRuleTemplateCommandInput,
-  DeleteApprovalRuleTemplateCommandOutput
+  DeleteApprovalRuleTemplateCommandOutput,
 } from "./commands/DeleteApprovalRuleTemplateCommand";
-import {
-  DeleteBranchCommandInput,
-  DeleteBranchCommandOutput
-} from "./commands/DeleteBranchCommand";
+import { DeleteBranchCommandInput, DeleteBranchCommandOutput } from "./commands/DeleteBranchCommand";
 import {
   DeleteCommentContentCommandInput,
-  DeleteCommentContentCommandOutput
+  DeleteCommentContentCommandOutput,
 } from "./commands/DeleteCommentContentCommand";
-import {
-  DeleteFileCommandInput,
-  DeleteFileCommandOutput
-} from "./commands/DeleteFileCommand";
+import { DeleteFileCommandInput, DeleteFileCommandOutput } from "./commands/DeleteFileCommand";
 import {
   DeletePullRequestApprovalRuleCommandInput,
-  DeletePullRequestApprovalRuleCommandOutput
+  DeletePullRequestApprovalRuleCommandOutput,
 } from "./commands/DeletePullRequestApprovalRuleCommand";
-import {
-  DeleteRepositoryCommandInput,
-  DeleteRepositoryCommandOutput
-} from "./commands/DeleteRepositoryCommand";
+import { DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput } from "./commands/DeleteRepositoryCommand";
 import {
   DescribeMergeConflictsCommandInput,
-  DescribeMergeConflictsCommandOutput
+  DescribeMergeConflictsCommandOutput,
 } from "./commands/DescribeMergeConflictsCommand";
 import {
   DescribePullRequestEventsCommandInput,
-  DescribePullRequestEventsCommandOutput
+  DescribePullRequestEventsCommandOutput,
 } from "./commands/DescribePullRequestEventsCommand";
 import {
   DisassociateApprovalRuleTemplateFromRepositoryCommandInput,
-  DisassociateApprovalRuleTemplateFromRepositoryCommandOutput
+  DisassociateApprovalRuleTemplateFromRepositoryCommandOutput,
 } from "./commands/DisassociateApprovalRuleTemplateFromRepositoryCommand";
 import {
   EvaluatePullRequestApprovalRulesCommandInput,
-  EvaluatePullRequestApprovalRulesCommandOutput
+  EvaluatePullRequestApprovalRulesCommandOutput,
 } from "./commands/EvaluatePullRequestApprovalRulesCommand";
 import {
   GetApprovalRuleTemplateCommandInput,
-  GetApprovalRuleTemplateCommandOutput
+  GetApprovalRuleTemplateCommandOutput,
 } from "./commands/GetApprovalRuleTemplateCommand";
-import {
-  GetBlobCommandInput,
-  GetBlobCommandOutput
-} from "./commands/GetBlobCommand";
-import {
-  GetBranchCommandInput,
-  GetBranchCommandOutput
-} from "./commands/GetBranchCommand";
-import {
-  GetCommentCommandInput,
-  GetCommentCommandOutput
-} from "./commands/GetCommentCommand";
+import { GetBlobCommandInput, GetBlobCommandOutput } from "./commands/GetBlobCommand";
+import { GetBranchCommandInput, GetBranchCommandOutput } from "./commands/GetBranchCommand";
+import { GetCommentCommandInput, GetCommentCommandOutput } from "./commands/GetCommentCommand";
 import {
   GetCommentsForComparedCommitCommandInput,
-  GetCommentsForComparedCommitCommandOutput
+  GetCommentsForComparedCommitCommandOutput,
 } from "./commands/GetCommentsForComparedCommitCommand";
 import {
   GetCommentsForPullRequestCommandInput,
-  GetCommentsForPullRequestCommandOutput
+  GetCommentsForPullRequestCommandOutput,
 } from "./commands/GetCommentsForPullRequestCommand";
-import {
-  GetCommitCommandInput,
-  GetCommitCommandOutput
-} from "./commands/GetCommitCommand";
-import {
-  GetDifferencesCommandInput,
-  GetDifferencesCommandOutput
-} from "./commands/GetDifferencesCommand";
-import {
-  GetFileCommandInput,
-  GetFileCommandOutput
-} from "./commands/GetFileCommand";
-import {
-  GetFolderCommandInput,
-  GetFolderCommandOutput
-} from "./commands/GetFolderCommand";
-import {
-  GetMergeCommitCommandInput,
-  GetMergeCommitCommandOutput
-} from "./commands/GetMergeCommitCommand";
-import {
-  GetMergeConflictsCommandInput,
-  GetMergeConflictsCommandOutput
-} from "./commands/GetMergeConflictsCommand";
-import {
-  GetMergeOptionsCommandInput,
-  GetMergeOptionsCommandOutput
-} from "./commands/GetMergeOptionsCommand";
+import { GetCommitCommandInput, GetCommitCommandOutput } from "./commands/GetCommitCommand";
+import { GetDifferencesCommandInput, GetDifferencesCommandOutput } from "./commands/GetDifferencesCommand";
+import { GetFileCommandInput, GetFileCommandOutput } from "./commands/GetFileCommand";
+import { GetFolderCommandInput, GetFolderCommandOutput } from "./commands/GetFolderCommand";
+import { GetMergeCommitCommandInput, GetMergeCommitCommandOutput } from "./commands/GetMergeCommitCommand";
+import { GetMergeConflictsCommandInput, GetMergeConflictsCommandOutput } from "./commands/GetMergeConflictsCommand";
+import { GetMergeOptionsCommandInput, GetMergeOptionsCommandOutput } from "./commands/GetMergeOptionsCommand";
 import {
   GetPullRequestApprovalStatesCommandInput,
-  GetPullRequestApprovalStatesCommandOutput
+  GetPullRequestApprovalStatesCommandOutput,
 } from "./commands/GetPullRequestApprovalStatesCommand";
-import {
-  GetPullRequestCommandInput,
-  GetPullRequestCommandOutput
-} from "./commands/GetPullRequestCommand";
+import { GetPullRequestCommandInput, GetPullRequestCommandOutput } from "./commands/GetPullRequestCommand";
 import {
   GetPullRequestOverrideStateCommandInput,
-  GetPullRequestOverrideStateCommandOutput
+  GetPullRequestOverrideStateCommandOutput,
 } from "./commands/GetPullRequestOverrideStateCommand";
-import {
-  GetRepositoryCommandInput,
-  GetRepositoryCommandOutput
-} from "./commands/GetRepositoryCommand";
+import { GetRepositoryCommandInput, GetRepositoryCommandOutput } from "./commands/GetRepositoryCommand";
 import {
   GetRepositoryTriggersCommandInput,
-  GetRepositoryTriggersCommandOutput
+  GetRepositoryTriggersCommandOutput,
 } from "./commands/GetRepositoryTriggersCommand";
 import {
   ListApprovalRuleTemplatesCommandInput,
-  ListApprovalRuleTemplatesCommandOutput
+  ListApprovalRuleTemplatesCommandOutput,
 } from "./commands/ListApprovalRuleTemplatesCommand";
 import {
   ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
-  ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
+  ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput,
 } from "./commands/ListAssociatedApprovalRuleTemplatesForRepositoryCommand";
-import {
-  ListBranchesCommandInput,
-  ListBranchesCommandOutput
-} from "./commands/ListBranchesCommand";
-import {
-  ListPullRequestsCommandInput,
-  ListPullRequestsCommandOutput
-} from "./commands/ListPullRequestsCommand";
-import {
-  ListRepositoriesCommandInput,
-  ListRepositoriesCommandOutput
-} from "./commands/ListRepositoriesCommand";
+import { ListBranchesCommandInput, ListBranchesCommandOutput } from "./commands/ListBranchesCommand";
+import { ListPullRequestsCommandInput, ListPullRequestsCommandOutput } from "./commands/ListPullRequestsCommand";
+import { ListRepositoriesCommandInput, ListRepositoriesCommandOutput } from "./commands/ListRepositoriesCommand";
 import {
   ListRepositoriesForApprovalRuleTemplateCommandInput,
-  ListRepositoriesForApprovalRuleTemplateCommandOutput
+  ListRepositoriesForApprovalRuleTemplateCommandOutput,
 } from "./commands/ListRepositoriesForApprovalRuleTemplateCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   MergeBranchesByFastForwardCommandInput,
-  MergeBranchesByFastForwardCommandOutput
+  MergeBranchesByFastForwardCommandOutput,
 } from "./commands/MergeBranchesByFastForwardCommand";
 import {
   MergeBranchesBySquashCommandInput,
-  MergeBranchesBySquashCommandOutput
+  MergeBranchesBySquashCommandOutput,
 } from "./commands/MergeBranchesBySquashCommand";
 import {
   MergeBranchesByThreeWayCommandInput,
-  MergeBranchesByThreeWayCommandOutput
+  MergeBranchesByThreeWayCommandOutput,
 } from "./commands/MergeBranchesByThreeWayCommand";
 import {
   MergePullRequestByFastForwardCommandInput,
-  MergePullRequestByFastForwardCommandOutput
+  MergePullRequestByFastForwardCommandOutput,
 } from "./commands/MergePullRequestByFastForwardCommand";
 import {
   MergePullRequestBySquashCommandInput,
-  MergePullRequestBySquashCommandOutput
+  MergePullRequestBySquashCommandOutput,
 } from "./commands/MergePullRequestBySquashCommand";
 import {
   MergePullRequestByThreeWayCommandInput,
-  MergePullRequestByThreeWayCommandOutput
+  MergePullRequestByThreeWayCommandOutput,
 } from "./commands/MergePullRequestByThreeWayCommand";
 import {
   OverridePullRequestApprovalRulesCommandInput,
-  OverridePullRequestApprovalRulesCommandOutput
+  OverridePullRequestApprovalRulesCommandOutput,
 } from "./commands/OverridePullRequestApprovalRulesCommand";
 import {
   PostCommentForComparedCommitCommandInput,
-  PostCommentForComparedCommitCommandOutput
+  PostCommentForComparedCommitCommandOutput,
 } from "./commands/PostCommentForComparedCommitCommand";
 import {
   PostCommentForPullRequestCommandInput,
-  PostCommentForPullRequestCommandOutput
+  PostCommentForPullRequestCommandOutput,
 } from "./commands/PostCommentForPullRequestCommand";
-import {
-  PostCommentReplyCommandInput,
-  PostCommentReplyCommandOutput
-} from "./commands/PostCommentReplyCommand";
-import {
-  PutFileCommandInput,
-  PutFileCommandOutput
-} from "./commands/PutFileCommand";
+import { PostCommentReplyCommandInput, PostCommentReplyCommandOutput } from "./commands/PostCommentReplyCommand";
+import { PutFileCommandInput, PutFileCommandOutput } from "./commands/PutFileCommand";
 import {
   PutRepositoryTriggersCommandInput,
-  PutRepositoryTriggersCommandOutput
+  PutRepositoryTriggersCommandOutput,
 } from "./commands/PutRepositoryTriggersCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TestRepositoryTriggersCommandInput,
-  TestRepositoryTriggersCommandOutput
+  TestRepositoryTriggersCommandOutput,
 } from "./commands/TestRepositoryTriggersCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateApprovalRuleTemplateContentCommandInput,
-  UpdateApprovalRuleTemplateContentCommandOutput
+  UpdateApprovalRuleTemplateContentCommandOutput,
 } from "./commands/UpdateApprovalRuleTemplateContentCommand";
 import {
   UpdateApprovalRuleTemplateDescriptionCommandInput,
-  UpdateApprovalRuleTemplateDescriptionCommandOutput
+  UpdateApprovalRuleTemplateDescriptionCommandOutput,
 } from "./commands/UpdateApprovalRuleTemplateDescriptionCommand";
 import {
   UpdateApprovalRuleTemplateNameCommandInput,
-  UpdateApprovalRuleTemplateNameCommandOutput
+  UpdateApprovalRuleTemplateNameCommandOutput,
 } from "./commands/UpdateApprovalRuleTemplateNameCommand";
-import {
-  UpdateCommentCommandInput,
-  UpdateCommentCommandOutput
-} from "./commands/UpdateCommentCommand";
+import { UpdateCommentCommandInput, UpdateCommentCommandOutput } from "./commands/UpdateCommentCommand";
 import {
   UpdateDefaultBranchCommandInput,
-  UpdateDefaultBranchCommandOutput
+  UpdateDefaultBranchCommandOutput,
 } from "./commands/UpdateDefaultBranchCommand";
 import {
   UpdatePullRequestApprovalRuleContentCommandInput,
-  UpdatePullRequestApprovalRuleContentCommandOutput
+  UpdatePullRequestApprovalRuleContentCommandOutput,
 } from "./commands/UpdatePullRequestApprovalRuleContentCommand";
 import {
   UpdatePullRequestApprovalStateCommandInput,
-  UpdatePullRequestApprovalStateCommandOutput
+  UpdatePullRequestApprovalStateCommandOutput,
 } from "./commands/UpdatePullRequestApprovalStateCommand";
 import {
   UpdatePullRequestDescriptionCommandInput,
-  UpdatePullRequestDescriptionCommandOutput
+  UpdatePullRequestDescriptionCommandOutput,
 } from "./commands/UpdatePullRequestDescriptionCommand";
 import {
   UpdatePullRequestStatusCommandInput,
-  UpdatePullRequestStatusCommandOutput
+  UpdatePullRequestStatusCommandOutput,
 } from "./commands/UpdatePullRequestStatusCommand";
 import {
   UpdatePullRequestTitleCommandInput,
-  UpdatePullRequestTitleCommandOutput
+  UpdatePullRequestTitleCommandOutput,
 } from "./commands/UpdatePullRequestTitleCommand";
 import {
   UpdateRepositoryDescriptionCommandInput,
-  UpdateRepositoryDescriptionCommandOutput
+  UpdateRepositoryDescriptionCommandOutput,
 } from "./commands/UpdateRepositoryDescriptionCommand";
 import {
   UpdateRepositoryNameCommandInput,
-  UpdateRepositoryNameCommandOutput
+  UpdateRepositoryNameCommandOutput,
 } from "./commands/UpdateRepositoryNameCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -305,38 +221,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -347,7 +258,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -504,8 +415,7 @@ export type ServiceOutputTypes =
   | UpdateRepositoryDescriptionCommandOutput
   | UpdateRepositoryNameCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -594,9 +504,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CodeCommitClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CodeCommitClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -605,9 +513,7 @@ export type CodeCommitClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CodeCommitClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CodeCommitClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -1018,7 +924,7 @@ export class CodeCommitClient extends __Client<
   constructor(configuration: CodeCommitClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

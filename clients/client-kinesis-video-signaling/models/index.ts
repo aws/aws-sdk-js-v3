@@ -1,30 +1,21 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Your request was throttled because you have exceeded the limit of allowed client
  *             calls. Try making the call later.</p>
  */
-export interface ClientLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClientLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ClientLimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ClientLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: ClientLimitExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClientLimitExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ClientLimitExceededException =>
-    __isa(o, "ClientLimitExceededException");
+  export const isa = (o: any): o is ClientLimitExceededException => __isa(o, "ClientLimitExceededException");
 }
 
 export interface GetIceServerConfigRequest {
@@ -54,10 +45,9 @@ export interface GetIceServerConfigRequest {
 
 export namespace GetIceServerConfigRequest {
   export const filterSensitiveLog = (obj: GetIceServerConfigRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetIceServerConfigRequest =>
-    __isa(o, "GetIceServerConfigRequest");
+  export const isa = (o: any): o is GetIceServerConfigRequest => __isa(o, "GetIceServerConfigRequest");
 }
 
 export interface GetIceServerConfigResponse {
@@ -70,10 +60,9 @@ export interface GetIceServerConfigResponse {
 
 export namespace GetIceServerConfigResponse {
   export const filterSensitiveLog = (obj: GetIceServerConfigResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetIceServerConfigResponse =>
-    __isa(o, "GetIceServerConfigResponse");
+  export const isa = (o: any): o is GetIceServerConfigResponse => __isa(o, "GetIceServerConfigResponse");
 }
 
 /**
@@ -106,7 +95,7 @@ export interface IceServer {
 
 export namespace IceServer {
   export const filterSensitiveLog = (obj: IceServer): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is IceServer => __isa(o, "IceServer");
 }
@@ -114,9 +103,7 @@ export namespace IceServer {
 /**
  * <p>The value for this input parameter is invalid.</p>
  */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -124,18 +111,15 @@ export interface InvalidArgumentException
 
 export namespace InvalidArgumentException {
   export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidArgumentException =>
-    __isa(o, "InvalidArgumentException");
+  export const isa = (o: any): o is InvalidArgumentException => __isa(o, "InvalidArgumentException");
 }
 
 /**
  * <p>The specified client is invalid.</p>
  */
-export interface InvalidClientException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidClientException extends __SmithyException, $MetadataBearer {
   name: "InvalidClientException";
   $fault: "client";
   message?: string;
@@ -143,18 +127,15 @@ export interface InvalidClientException
 
 export namespace InvalidClientException {
   export const filterSensitiveLog = (obj: InvalidClientException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidClientException =>
-    __isa(o, "InvalidClientException");
+  export const isa = (o: any): o is InvalidClientException => __isa(o, "InvalidClientException");
 }
 
 /**
  * <p>The caller is not authorized to perform this operation.</p>
  */
-export interface NotAuthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NotAuthorizedException extends __SmithyException, $MetadataBearer {
   name: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
@@ -162,18 +143,15 @@ export interface NotAuthorizedException
 
 export namespace NotAuthorizedException {
   export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotAuthorizedException =>
-    __isa(o, "NotAuthorizedException");
+  export const isa = (o: any): o is NotAuthorizedException => __isa(o, "NotAuthorizedException");
 }
 
 /**
  * <p>The specified resource is not found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -181,10 +159,9 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export interface SendAlexaOfferToMasterRequest {
@@ -207,13 +184,10 @@ export interface SendAlexaOfferToMasterRequest {
 }
 
 export namespace SendAlexaOfferToMasterRequest {
-  export const filterSensitiveLog = (
-    obj: SendAlexaOfferToMasterRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SendAlexaOfferToMasterRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SendAlexaOfferToMasterRequest =>
-    __isa(o, "SendAlexaOfferToMasterRequest");
+  export const isa = (o: any): o is SendAlexaOfferToMasterRequest => __isa(o, "SendAlexaOfferToMasterRequest");
 }
 
 export interface SendAlexaOfferToMasterResponse {
@@ -225,17 +199,14 @@ export interface SendAlexaOfferToMasterResponse {
 }
 
 export namespace SendAlexaOfferToMasterResponse {
-  export const filterSensitiveLog = (
-    obj: SendAlexaOfferToMasterResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SendAlexaOfferToMasterResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SendAlexaOfferToMasterResponse =>
-    __isa(o, "SendAlexaOfferToMasterResponse");
+  export const isa = (o: any): o is SendAlexaOfferToMasterResponse => __isa(o, "SendAlexaOfferToMasterResponse");
 }
 
 export enum Service {
-  TURN = "TURN"
+  TURN = "TURN",
 }
 
 /**
@@ -243,9 +214,7 @@ export enum Service {
  *             for 45 minutes. Client should reconnect to the channel to continue sending/receiving
  *             messages.</p>
  */
-export interface SessionExpiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SessionExpiredException extends __SmithyException, $MetadataBearer {
   name: "SessionExpiredException";
   $fault: "client";
   message?: string;
@@ -253,8 +222,7 @@ export interface SessionExpiredException
 
 export namespace SessionExpiredException {
   export const filterSensitiveLog = (obj: SessionExpiredException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SessionExpiredException =>
-    __isa(o, "SessionExpiredException");
+  export const isa = (o: any): o is SessionExpiredException => __isa(o, "SessionExpiredException");
 }

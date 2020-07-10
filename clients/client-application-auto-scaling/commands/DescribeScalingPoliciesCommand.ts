@@ -1,21 +1,15 @@
 import {
   ApplicationAutoScalingClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
-import {
-  DescribeScalingPoliciesRequest,
-  DescribeScalingPoliciesResponse
-} from "../models/index";
+import { DescribeScalingPoliciesRequest, DescribeScalingPoliciesResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeScalingPoliciesCommand,
-  serializeAws_json1_1DescribeScalingPoliciesCommand
+  serializeAws_json1_1DescribeScalingPoliciesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeScalingPoliciesCommandInput = DescribeScalingPoliciesRequest;
-export type DescribeScalingPoliciesCommandOutput = DescribeScalingPoliciesResponse &
-  __MetadataBearer;
+export type DescribeScalingPoliciesCommandOutput = DescribeScalingPoliciesResponse & __MetadataBearer;
 
 export class DescribeScalingPoliciesCommand extends $Command<
   DescribeScalingPoliciesCommandInput,
@@ -49,18 +42,13 @@ export class DescribeScalingPoliciesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationAutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeScalingPoliciesCommandInput,
-    DescribeScalingPoliciesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeScalingPoliciesCommandInput, DescribeScalingPoliciesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +58,12 @@ export class DescribeScalingPoliciesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeScalingPoliciesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeScalingPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeScalingPoliciesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeScalingPoliciesCommandOutput> {
-    return deserializeAws_json1_1DescribeScalingPoliciesCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScalingPoliciesCommandOutput> {
+    return deserializeAws_json1_1DescribeScalingPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

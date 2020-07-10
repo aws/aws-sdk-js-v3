@@ -1,21 +1,15 @@
 import {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  CreateReplicationSubnetGroupMessage,
-  CreateReplicationSubnetGroupResponse
-} from "../models/index";
+import { CreateReplicationSubnetGroupMessage, CreateReplicationSubnetGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateReplicationSubnetGroupCommand,
-  serializeAws_json1_1CreateReplicationSubnetGroupCommand
+  serializeAws_json1_1CreateReplicationSubnetGroupCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateReplicationSubnetGroupCommandInput = CreateReplicationSubnetGroupMessage;
-export type CreateReplicationSubnetGroupCommandOutput = CreateReplicationSubnetGroupResponse &
-  __MetadataBearer;
+export type CreateReplicationSubnetGroupCommandOutput = CreateReplicationSubnetGroupResponse & __MetadataBearer;
 
 export class CreateReplicationSubnetGroupCommand extends $Command<
   CreateReplicationSubnetGroupCommandInput,
@@ -49,18 +42,13 @@ export class CreateReplicationSubnetGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateReplicationSubnetGroupCommandInput,
-    CreateReplicationSubnetGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateReplicationSubnetGroupCommandInput, CreateReplicationSubnetGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +58,15 @@ export class CreateReplicationSubnetGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateReplicationSubnetGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateReplicationSubnetGroupCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateReplicationSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1CreateReplicationSubnetGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateReplicationSubnetGroupCommandOutput> {
-    return deserializeAws_json1_1CreateReplicationSubnetGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateReplicationSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,18 +1,11 @@
-import {
-  CognitoIdentityClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CognitoIdentityClient";
+import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
 import { GetOpenIdTokenInput, GetOpenIdTokenResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetOpenIdTokenCommand,
-  serializeAws_json1_1GetOpenIdTokenCommand
+  serializeAws_json1_1GetOpenIdTokenCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type GetOpenIdTokenCommandInput = GetOpenIdTokenInput;
-export type GetOpenIdTokenCommandOutput = GetOpenIdTokenResponse &
-  __MetadataBearer;
+export type GetOpenIdTokenCommandOutput = GetOpenIdTokenResponse & __MetadataBearer;
 
 export class GetOpenIdTokenCommand extends $Command<
   GetOpenIdTokenCommandInput,
@@ -47,14 +39,12 @@ export class GetOpenIdTokenCommand extends $Command<
     configuration: CognitoIdentityClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetOpenIdTokenCommandInput, GetOpenIdTokenCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class GetOpenIdTokenCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetOpenIdTokenCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetOpenIdTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetOpenIdTokenCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetOpenIdTokenCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOpenIdTokenCommandOutput> {
     return deserializeAws_json1_1GetOpenIdTokenCommand(output, context);
   }
 

@@ -2,182 +2,154 @@ import { RoboMakerClient } from "./RoboMakerClient";
 import {
   BatchDescribeSimulationJobCommand,
   BatchDescribeSimulationJobCommandInput,
-  BatchDescribeSimulationJobCommandOutput
+  BatchDescribeSimulationJobCommandOutput,
 } from "./commands/BatchDescribeSimulationJobCommand";
 import {
   CancelDeploymentJobCommand,
   CancelDeploymentJobCommandInput,
-  CancelDeploymentJobCommandOutput
+  CancelDeploymentJobCommandOutput,
 } from "./commands/CancelDeploymentJobCommand";
 import {
   CancelSimulationJobCommand,
   CancelSimulationJobCommandInput,
-  CancelSimulationJobCommandOutput
+  CancelSimulationJobCommandOutput,
 } from "./commands/CancelSimulationJobCommand";
 import {
   CreateDeploymentJobCommand,
   CreateDeploymentJobCommandInput,
-  CreateDeploymentJobCommandOutput
+  CreateDeploymentJobCommandOutput,
 } from "./commands/CreateDeploymentJobCommand";
-import {
-  CreateFleetCommand,
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput
-} from "./commands/CreateFleetCommand";
+import { CreateFleetCommand, CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
 import {
   CreateRobotApplicationCommand,
   CreateRobotApplicationCommandInput,
-  CreateRobotApplicationCommandOutput
+  CreateRobotApplicationCommandOutput,
 } from "./commands/CreateRobotApplicationCommand";
 import {
   CreateRobotApplicationVersionCommand,
   CreateRobotApplicationVersionCommandInput,
-  CreateRobotApplicationVersionCommandOutput
+  CreateRobotApplicationVersionCommandOutput,
 } from "./commands/CreateRobotApplicationVersionCommand";
-import {
-  CreateRobotCommand,
-  CreateRobotCommandInput,
-  CreateRobotCommandOutput
-} from "./commands/CreateRobotCommand";
+import { CreateRobotCommand, CreateRobotCommandInput, CreateRobotCommandOutput } from "./commands/CreateRobotCommand";
 import {
   CreateSimulationApplicationCommand,
   CreateSimulationApplicationCommandInput,
-  CreateSimulationApplicationCommandOutput
+  CreateSimulationApplicationCommandOutput,
 } from "./commands/CreateSimulationApplicationCommand";
 import {
   CreateSimulationApplicationVersionCommand,
   CreateSimulationApplicationVersionCommandInput,
-  CreateSimulationApplicationVersionCommandOutput
+  CreateSimulationApplicationVersionCommandOutput,
 } from "./commands/CreateSimulationApplicationVersionCommand";
 import {
   CreateSimulationJobCommand,
   CreateSimulationJobCommandInput,
-  CreateSimulationJobCommandOutput
+  CreateSimulationJobCommandOutput,
 } from "./commands/CreateSimulationJobCommand";
-import {
-  DeleteFleetCommand,
-  DeleteFleetCommandInput,
-  DeleteFleetCommandOutput
-} from "./commands/DeleteFleetCommand";
+import { DeleteFleetCommand, DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
 import {
   DeleteRobotApplicationCommand,
   DeleteRobotApplicationCommandInput,
-  DeleteRobotApplicationCommandOutput
+  DeleteRobotApplicationCommandOutput,
 } from "./commands/DeleteRobotApplicationCommand";
-import {
-  DeleteRobotCommand,
-  DeleteRobotCommandInput,
-  DeleteRobotCommandOutput
-} from "./commands/DeleteRobotCommand";
+import { DeleteRobotCommand, DeleteRobotCommandInput, DeleteRobotCommandOutput } from "./commands/DeleteRobotCommand";
 import {
   DeleteSimulationApplicationCommand,
   DeleteSimulationApplicationCommandInput,
-  DeleteSimulationApplicationCommandOutput
+  DeleteSimulationApplicationCommandOutput,
 } from "./commands/DeleteSimulationApplicationCommand";
 import {
   DeregisterRobotCommand,
   DeregisterRobotCommandInput,
-  DeregisterRobotCommandOutput
+  DeregisterRobotCommandOutput,
 } from "./commands/DeregisterRobotCommand";
 import {
   DescribeDeploymentJobCommand,
   DescribeDeploymentJobCommandInput,
-  DescribeDeploymentJobCommandOutput
+  DescribeDeploymentJobCommandOutput,
 } from "./commands/DescribeDeploymentJobCommand";
 import {
   DescribeFleetCommand,
   DescribeFleetCommandInput,
-  DescribeFleetCommandOutput
+  DescribeFleetCommandOutput,
 } from "./commands/DescribeFleetCommand";
 import {
   DescribeRobotApplicationCommand,
   DescribeRobotApplicationCommandInput,
-  DescribeRobotApplicationCommandOutput
+  DescribeRobotApplicationCommandOutput,
 } from "./commands/DescribeRobotApplicationCommand";
 import {
   DescribeRobotCommand,
   DescribeRobotCommandInput,
-  DescribeRobotCommandOutput
+  DescribeRobotCommandOutput,
 } from "./commands/DescribeRobotCommand";
 import {
   DescribeSimulationApplicationCommand,
   DescribeSimulationApplicationCommandInput,
-  DescribeSimulationApplicationCommandOutput
+  DescribeSimulationApplicationCommandOutput,
 } from "./commands/DescribeSimulationApplicationCommand";
 import {
   DescribeSimulationJobCommand,
   DescribeSimulationJobCommandInput,
-  DescribeSimulationJobCommandOutput
+  DescribeSimulationJobCommandOutput,
 } from "./commands/DescribeSimulationJobCommand";
 import {
   ListDeploymentJobsCommand,
   ListDeploymentJobsCommandInput,
-  ListDeploymentJobsCommandOutput
+  ListDeploymentJobsCommandOutput,
 } from "./commands/ListDeploymentJobsCommand";
-import {
-  ListFleetsCommand,
-  ListFleetsCommandInput,
-  ListFleetsCommandOutput
-} from "./commands/ListFleetsCommand";
+import { ListFleetsCommand, ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
 import {
   ListRobotApplicationsCommand,
   ListRobotApplicationsCommandInput,
-  ListRobotApplicationsCommandOutput
+  ListRobotApplicationsCommandOutput,
 } from "./commands/ListRobotApplicationsCommand";
-import {
-  ListRobotsCommand,
-  ListRobotsCommandInput,
-  ListRobotsCommandOutput
-} from "./commands/ListRobotsCommand";
+import { ListRobotsCommand, ListRobotsCommandInput, ListRobotsCommandOutput } from "./commands/ListRobotsCommand";
 import {
   ListSimulationApplicationsCommand,
   ListSimulationApplicationsCommandInput,
-  ListSimulationApplicationsCommandOutput
+  ListSimulationApplicationsCommandOutput,
 } from "./commands/ListSimulationApplicationsCommand";
 import {
   ListSimulationJobsCommand,
   ListSimulationJobsCommandInput,
-  ListSimulationJobsCommandOutput
+  ListSimulationJobsCommandOutput,
 } from "./commands/ListSimulationJobsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   RegisterRobotCommand,
   RegisterRobotCommandInput,
-  RegisterRobotCommandOutput
+  RegisterRobotCommandOutput,
 } from "./commands/RegisterRobotCommand";
 import {
   RestartSimulationJobCommand,
   RestartSimulationJobCommandInput,
-  RestartSimulationJobCommandOutput
+  RestartSimulationJobCommandOutput,
 } from "./commands/RestartSimulationJobCommand";
 import {
   SyncDeploymentJobCommand,
   SyncDeploymentJobCommandInput,
-  SyncDeploymentJobCommandOutput
+  SyncDeploymentJobCommandOutput,
 } from "./commands/SyncDeploymentJobCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateRobotApplicationCommand,
   UpdateRobotApplicationCommandInput,
-  UpdateRobotApplicationCommandOutput
+  UpdateRobotApplicationCommandOutput,
 } from "./commands/UpdateRobotApplicationCommand";
 import {
   UpdateSimulationApplicationCommand,
   UpdateSimulationApplicationCommandInput,
-  UpdateSimulationApplicationCommandOutput
+  UpdateSimulationApplicationCommandOutput,
 } from "./commands/UpdateSimulationApplicationCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -203,17 +175,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public batchDescribeSimulationJob(
     args: BatchDescribeSimulationJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchDescribeSimulationJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDescribeSimulationJobCommandOutput) => void),
     cb?: (err: any, data?: BatchDescribeSimulationJobCommandOutput) => void
   ): Promise<BatchDescribeSimulationJobCommandOutput> | void {
     const command = new BatchDescribeSimulationJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -238,17 +207,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public cancelDeploymentJob(
     args: CancelDeploymentJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelDeploymentJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelDeploymentJobCommandOutput) => void),
     cb?: (err: any, data?: CancelDeploymentJobCommandOutput) => void
   ): Promise<CancelDeploymentJobCommandOutput> | void {
     const command = new CancelDeploymentJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -273,17 +239,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public cancelSimulationJob(
     args: CancelSimulationJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelSimulationJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelSimulationJobCommandOutput) => void),
     cb?: (err: any, data?: CancelSimulationJobCommandOutput) => void
   ): Promise<CancelSimulationJobCommandOutput> | void {
     const command = new CancelSimulationJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -316,17 +279,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public createDeploymentJob(
     args: CreateDeploymentJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDeploymentJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeploymentJobCommandOutput) => void),
     cb?: (err: any, data?: CreateDeploymentJobCommandOutput) => void
   ): Promise<CreateDeploymentJobCommandOutput> | void {
     const command = new CreateDeploymentJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -336,14 +296,8 @@ export class RoboMaker extends RoboMakerClient {
   /**
    * <p>Creates a fleet, a logical group of robots running the same robot application.</p>
    */
-  public createFleet(
-    args: CreateFleetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateFleetCommandOutput>;
-  public createFleet(
-    args: CreateFleetCommandInput,
-    cb: (err: any, data?: CreateFleetCommandOutput) => void
-  ): void;
+  public createFleet(args: CreateFleetCommandInput, options?: __HttpHandlerOptions): Promise<CreateFleetCommandOutput>;
+  public createFleet(args: CreateFleetCommandInput, cb: (err: any, data?: CreateFleetCommandOutput) => void): void;
   public createFleet(
     args: CreateFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -351,17 +305,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public createFleet(
     args: CreateFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFleetCommandOutput) => void),
     cb?: (err: any, data?: CreateFleetCommandOutput) => void
   ): Promise<CreateFleetCommandOutput> | void {
     const command = new CreateFleetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -371,14 +322,8 @@ export class RoboMaker extends RoboMakerClient {
   /**
    * <p>Creates a robot.</p>
    */
-  public createRobot(
-    args: CreateRobotCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateRobotCommandOutput>;
-  public createRobot(
-    args: CreateRobotCommandInput,
-    cb: (err: any, data?: CreateRobotCommandOutput) => void
-  ): void;
+  public createRobot(args: CreateRobotCommandInput, options?: __HttpHandlerOptions): Promise<CreateRobotCommandOutput>;
+  public createRobot(args: CreateRobotCommandInput, cb: (err: any, data?: CreateRobotCommandOutput) => void): void;
   public createRobot(
     args: CreateRobotCommandInput,
     options: __HttpHandlerOptions,
@@ -386,17 +331,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public createRobot(
     args: CreateRobotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRobotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRobotCommandOutput) => void),
     cb?: (err: any, data?: CreateRobotCommandOutput) => void
   ): Promise<CreateRobotCommandOutput> | void {
     const command = new CreateRobotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -422,17 +364,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public createRobotApplication(
     args: CreateRobotApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRobotApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRobotApplicationCommandOutput) => void),
     cb?: (err: any, data?: CreateRobotApplicationCommandOutput) => void
   ): Promise<CreateRobotApplicationCommandOutput> | void {
     const command = new CreateRobotApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -457,17 +396,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public createRobotApplicationVersion(
     args: CreateRobotApplicationVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRobotApplicationVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRobotApplicationVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateRobotApplicationVersionCommandOutput) => void
   ): Promise<CreateRobotApplicationVersionCommandOutput> | void {
     const command = new CreateRobotApplicationVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -492,17 +428,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public createSimulationApplication(
     args: CreateSimulationApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSimulationApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSimulationApplicationCommandOutput) => void),
     cb?: (err: any, data?: CreateSimulationApplicationCommandOutput) => void
   ): Promise<CreateSimulationApplicationCommandOutput> | void {
     const command = new CreateSimulationApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -518,38 +451,23 @@ export class RoboMaker extends RoboMakerClient {
   ): Promise<CreateSimulationApplicationVersionCommandOutput>;
   public createSimulationApplicationVersion(
     args: CreateSimulationApplicationVersionCommandInput,
-    cb: (
-      err: any,
-      data?: CreateSimulationApplicationVersionCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateSimulationApplicationVersionCommandOutput) => void
   ): void;
   public createSimulationApplicationVersion(
     args: CreateSimulationApplicationVersionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateSimulationApplicationVersionCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateSimulationApplicationVersionCommandOutput) => void
   ): void;
   public createSimulationApplicationVersion(
     args: CreateSimulationApplicationVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateSimulationApplicationVersionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateSimulationApplicationVersionCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSimulationApplicationVersionCommandOutput) => void),
+    cb?: (err: any, data?: CreateSimulationApplicationVersionCommandOutput) => void
   ): Promise<CreateSimulationApplicationVersionCommandOutput> | void {
     const command = new CreateSimulationApplicationVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -578,17 +496,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public createSimulationJob(
     args: CreateSimulationJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSimulationJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSimulationJobCommandOutput) => void),
     cb?: (err: any, data?: CreateSimulationJobCommandOutput) => void
   ): Promise<CreateSimulationJobCommandOutput> | void {
     const command = new CreateSimulationJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -598,14 +513,8 @@ export class RoboMaker extends RoboMakerClient {
   /**
    * <p>Deletes a fleet.</p>
    */
-  public deleteFleet(
-    args: DeleteFleetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteFleetCommandOutput>;
-  public deleteFleet(
-    args: DeleteFleetCommandInput,
-    cb: (err: any, data?: DeleteFleetCommandOutput) => void
-  ): void;
+  public deleteFleet(args: DeleteFleetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFleetCommandOutput>;
+  public deleteFleet(args: DeleteFleetCommandInput, cb: (err: any, data?: DeleteFleetCommandOutput) => void): void;
   public deleteFleet(
     args: DeleteFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -613,17 +522,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public deleteFleet(
     args: DeleteFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFleetCommandOutput) => void),
     cb?: (err: any, data?: DeleteFleetCommandOutput) => void
   ): Promise<DeleteFleetCommandOutput> | void {
     const command = new DeleteFleetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -633,14 +539,8 @@ export class RoboMaker extends RoboMakerClient {
   /**
    * <p>Deletes a robot.</p>
    */
-  public deleteRobot(
-    args: DeleteRobotCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteRobotCommandOutput>;
-  public deleteRobot(
-    args: DeleteRobotCommandInput,
-    cb: (err: any, data?: DeleteRobotCommandOutput) => void
-  ): void;
+  public deleteRobot(args: DeleteRobotCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRobotCommandOutput>;
+  public deleteRobot(args: DeleteRobotCommandInput, cb: (err: any, data?: DeleteRobotCommandOutput) => void): void;
   public deleteRobot(
     args: DeleteRobotCommandInput,
     options: __HttpHandlerOptions,
@@ -648,17 +548,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public deleteRobot(
     args: DeleteRobotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRobotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRobotCommandOutput) => void),
     cb?: (err: any, data?: DeleteRobotCommandOutput) => void
   ): Promise<DeleteRobotCommandOutput> | void {
     const command = new DeleteRobotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -683,17 +580,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public deleteRobotApplication(
     args: DeleteRobotApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRobotApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRobotApplicationCommandOutput) => void),
     cb?: (err: any, data?: DeleteRobotApplicationCommandOutput) => void
   ): Promise<DeleteRobotApplicationCommandOutput> | void {
     const command = new DeleteRobotApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -718,17 +612,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public deleteSimulationApplication(
     args: DeleteSimulationApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSimulationApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSimulationApplicationCommandOutput) => void),
     cb?: (err: any, data?: DeleteSimulationApplicationCommandOutput) => void
   ): Promise<DeleteSimulationApplicationCommandOutput> | void {
     const command = new DeleteSimulationApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -753,17 +644,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public deregisterRobot(
     args: DeregisterRobotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterRobotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterRobotCommandOutput) => void),
     cb?: (err: any, data?: DeregisterRobotCommandOutput) => void
   ): Promise<DeregisterRobotCommandOutput> | void {
     const command = new DeregisterRobotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -788,17 +676,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public describeDeploymentJob(
     args: DescribeDeploymentJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDeploymentJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDeploymentJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeDeploymentJobCommandOutput) => void
   ): Promise<DescribeDeploymentJobCommandOutput> | void {
     const command = new DescribeDeploymentJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -823,17 +708,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public describeFleet(
     args: DescribeFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetCommandOutput) => void),
     cb?: (err: any, data?: DescribeFleetCommandOutput) => void
   ): Promise<DescribeFleetCommandOutput> | void {
     const command = new DescribeFleetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -858,17 +740,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public describeRobot(
     args: DescribeRobotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRobotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRobotCommandOutput) => void),
     cb?: (err: any, data?: DescribeRobotCommandOutput) => void
   ): Promise<DescribeRobotCommandOutput> | void {
     const command = new DescribeRobotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -893,17 +772,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public describeRobotApplication(
     args: DescribeRobotApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRobotApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRobotApplicationCommandOutput) => void),
     cb?: (err: any, data?: DescribeRobotApplicationCommandOutput) => void
   ): Promise<DescribeRobotApplicationCommandOutput> | void {
     const command = new DescribeRobotApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -928,17 +804,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public describeSimulationApplication(
     args: DescribeSimulationApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSimulationApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSimulationApplicationCommandOutput) => void),
     cb?: (err: any, data?: DescribeSimulationApplicationCommandOutput) => void
   ): Promise<DescribeSimulationApplicationCommandOutput> | void {
     const command = new DescribeSimulationApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -963,17 +836,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public describeSimulationJob(
     args: DescribeSimulationJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSimulationJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSimulationJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeSimulationJobCommandOutput) => void
   ): Promise<DescribeSimulationJobCommandOutput> | void {
     const command = new DescribeSimulationJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1003,17 +873,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public listDeploymentJobs(
     args: ListDeploymentJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDeploymentJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeploymentJobsCommandOutput) => void),
     cb?: (err: any, data?: ListDeploymentJobsCommandOutput) => void
   ): Promise<ListDeploymentJobsCommandOutput> | void {
     const command = new ListDeploymentJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1024,14 +891,8 @@ export class RoboMaker extends RoboMakerClient {
    * <p>Returns a list of fleets. You can optionally provide filters to retrieve
    *          specific fleets. </p>
    */
-  public listFleets(
-    args: ListFleetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListFleetsCommandOutput>;
-  public listFleets(
-    args: ListFleetsCommandInput,
-    cb: (err: any, data?: ListFleetsCommandOutput) => void
-  ): void;
+  public listFleets(args: ListFleetsCommandInput, options?: __HttpHandlerOptions): Promise<ListFleetsCommandOutput>;
+  public listFleets(args: ListFleetsCommandInput, cb: (err: any, data?: ListFleetsCommandOutput) => void): void;
   public listFleets(
     args: ListFleetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1039,17 +900,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public listFleets(
     args: ListFleetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFleetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFleetsCommandOutput) => void),
     cb?: (err: any, data?: ListFleetsCommandOutput) => void
   ): Promise<ListFleetsCommandOutput> | void {
     const command = new ListFleetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1075,17 +933,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public listRobotApplications(
     args: ListRobotApplicationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRobotApplicationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRobotApplicationsCommandOutput) => void),
     cb?: (err: any, data?: ListRobotApplicationsCommandOutput) => void
   ): Promise<ListRobotApplicationsCommandOutput> | void {
     const command = new ListRobotApplicationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1096,14 +951,8 @@ export class RoboMaker extends RoboMakerClient {
    * <p>Returns a list of robots. You can optionally provide filters to retrieve
    *          specific robots.</p>
    */
-  public listRobots(
-    args: ListRobotsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListRobotsCommandOutput>;
-  public listRobots(
-    args: ListRobotsCommandInput,
-    cb: (err: any, data?: ListRobotsCommandOutput) => void
-  ): void;
+  public listRobots(args: ListRobotsCommandInput, options?: __HttpHandlerOptions): Promise<ListRobotsCommandOutput>;
+  public listRobots(args: ListRobotsCommandInput, cb: (err: any, data?: ListRobotsCommandOutput) => void): void;
   public listRobots(
     args: ListRobotsCommandInput,
     options: __HttpHandlerOptions,
@@ -1111,17 +960,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public listRobots(
     args: ListRobotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRobotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRobotsCommandOutput) => void),
     cb?: (err: any, data?: ListRobotsCommandOutput) => void
   ): Promise<ListRobotsCommandOutput> | void {
     const command = new ListRobotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1147,17 +993,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public listSimulationApplications(
     args: ListSimulationApplicationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSimulationApplicationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSimulationApplicationsCommandOutput) => void),
     cb?: (err: any, data?: ListSimulationApplicationsCommandOutput) => void
   ): Promise<ListSimulationApplicationsCommandOutput> | void {
     const command = new ListSimulationApplicationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1183,17 +1026,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public listSimulationJobs(
     args: ListSimulationJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSimulationJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSimulationJobsCommandOutput) => void),
     cb?: (err: any, data?: ListSimulationJobsCommandOutput) => void
   ): Promise<ListSimulationJobsCommandOutput> | void {
     const command = new ListSimulationJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1218,17 +1058,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1253,17 +1090,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public registerRobot(
     args: RegisterRobotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterRobotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterRobotCommandOutput) => void),
     cb?: (err: any, data?: RegisterRobotCommandOutput) => void
   ): Promise<RegisterRobotCommandOutput> | void {
     const command = new RegisterRobotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1288,17 +1122,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public restartSimulationJob(
     args: RestartSimulationJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestartSimulationJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestartSimulationJobCommandOutput) => void),
     cb?: (err: any, data?: RestartSimulationJobCommandOutput) => void
   ): Promise<RestartSimulationJobCommandOutput> | void {
     const command = new RestartSimulationJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1323,17 +1154,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public syncDeploymentJob(
     args: SyncDeploymentJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SyncDeploymentJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SyncDeploymentJobCommandOutput) => void),
     cb?: (err: any, data?: SyncDeploymentJobCommandOutput) => void
   ): Promise<SyncDeploymentJobCommandOutput> | void {
     const command = new SyncDeploymentJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1345,14 +1173,8 @@ export class RoboMaker extends RoboMakerClient {
    *          <p>Each tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty strings. </p>
    *          <p>For information about the rules that apply to tag keys and tag values, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1360,17 +1182,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1400,17 +1219,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1435,17 +1251,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public updateRobotApplication(
     args: UpdateRobotApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRobotApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRobotApplicationCommandOutput) => void),
     cb?: (err: any, data?: UpdateRobotApplicationCommandOutput) => void
   ): Promise<UpdateRobotApplicationCommandOutput> | void {
     const command = new UpdateRobotApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1470,17 +1283,14 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public updateSimulationApplication(
     args: UpdateSimulationApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSimulationApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSimulationApplicationCommandOutput) => void),
     cb?: (err: any, data?: UpdateSimulationApplicationCommandOutput) => void
   ): Promise<UpdateSimulationApplicationCommandOutput> | void {
     const command = new UpdateSimulationApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

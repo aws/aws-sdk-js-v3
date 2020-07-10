@@ -1,21 +1,11 @@
-import {
-  EFSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EFSClient";
-import {
-  LifecycleConfigurationDescription,
-  PutLifecycleConfigurationRequest
-} from "../models/index";
+import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
+import { LifecycleConfigurationDescription, PutLifecycleConfigurationRequest } from "../models/index";
 import {
   deserializeAws_restJson1PutLifecycleConfigurationCommand,
-  serializeAws_restJson1PutLifecycleConfigurationCommand
+  serializeAws_restJson1PutLifecycleConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type PutLifecycleConfigurationCommandInput = PutLifecycleConfigurationRequest;
-export type PutLifecycleConfigurationCommandOutput = LifecycleConfigurationDescription &
-  __MetadataBearer;
+export type PutLifecycleConfigurationCommandOutput = LifecycleConfigurationDescription & __MetadataBearer;
 
 export class PutLifecycleConfigurationCommand extends $Command<
   PutLifecycleConfigurationCommandInput,
@@ -49,18 +38,13 @@ export class PutLifecycleConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EFSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutLifecycleConfigurationCommandInput,
-    PutLifecycleConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutLifecycleConfigurationCommandInput, PutLifecycleConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class PutLifecycleConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutLifecycleConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutLifecycleConfigurationCommand(
-      input,
-      context
-    );
+  private serialize(input: PutLifecycleConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1PutLifecycleConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutLifecycleConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutLifecycleConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1PutLifecycleConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

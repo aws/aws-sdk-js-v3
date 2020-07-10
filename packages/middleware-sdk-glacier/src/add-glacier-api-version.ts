@@ -5,16 +5,12 @@ import {
   BuildHandlerOptions,
   BuildHandlerOutput,
   BuildMiddleware,
-  MetadataBearer
+  MetadataBearer,
 } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
-export function addGlacierApiVersionMiddleware(
-  options: ResolvedGlacierMiddlewareConfig
-): BuildMiddleware<any, any> {
-  return <Output extends MetadataBearer>(
-    next: BuildHandler<any, Output>
-  ): BuildHandler<any, Output> => async (
+export function addGlacierApiVersionMiddleware(options: ResolvedGlacierMiddlewareConfig): BuildMiddleware<any, any> {
+  return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
     let request = args.request;
@@ -24,7 +20,7 @@ export function addGlacierApiVersionMiddleware(
 
     return next({
       ...args,
-      request
+      request,
     });
   };
 }
@@ -32,5 +28,5 @@ export function addGlacierApiVersionMiddleware(
 export const addGlacierApiVersionMiddlewareOptions: BuildHandlerOptions = {
   step: "build",
   tags: ["SET_GLACIER_VERSION"],
-  name: "addGlacierApiVersionMiddleware"
+  name: "addGlacierApiVersionMiddleware",
 };

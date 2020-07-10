@@ -1,18 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import { UpdateConfigurationSetReputationMetricsEnabledRequest } from "../models/index";
 import {
   deserializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand,
-  serializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand
+  serializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateConfigurationSetReputationMetricsEnabledCommandInput = UpdateConfigurationSetReputationMetricsEnabledRequest;
@@ -35,9 +28,7 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: UpdateConfigurationSetReputationMetricsEnabledCommandInput
-  ) {
+  constructor(readonly input: UpdateConfigurationSetReputationMetricsEnabledCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,14 +42,12 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
     UpdateConfigurationSetReputationMetricsEnabledCommandInput,
     UpdateConfigurationSetReputationMetricsEnabledCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,20 +61,14 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
     input: UpdateConfigurationSetReputationMetricsEnabledCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand(
-      input,
-      context
-    );
+    return serializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfigurationSetReputationMetricsEnabledCommandOutput> {
-    return deserializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand(output, context);
   }
 
   // Start section: command_body_extra

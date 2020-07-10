@@ -1,18 +1,11 @@
-import {
-  AppSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppSyncClient";
+import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { UpdateResolverRequest, UpdateResolverResponse } from "../models/index";
 import {
   deserializeAws_restJson1UpdateResolverCommand,
-  serializeAws_restJson1UpdateResolverCommand
+  serializeAws_restJson1UpdateResolverCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type UpdateResolverCommandInput = UpdateResolverRequest;
-export type UpdateResolverCommandOutput = UpdateResolverResponse &
-  __MetadataBearer;
+export type UpdateResolverCommandOutput = UpdateResolverResponse & __MetadataBearer;
 
 export class UpdateResolverCommand extends $Command<
   UpdateResolverCommandInput,
@@ -47,14 +39,12 @@ export class UpdateResolverCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateResolverCommandInput, UpdateResolverCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class UpdateResolverCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateResolverCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateResolverCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateResolverCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateResolverCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResolverCommandOutput> {
     return deserializeAws_restJson1UpdateResolverCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  ListAccountAliasesRequest,
-  ListAccountAliasesResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { ListAccountAliasesRequest, ListAccountAliasesResponse } from "../models/index";
 import {
   deserializeAws_queryListAccountAliasesCommand,
-  serializeAws_queryListAccountAliasesCommand
+  serializeAws_queryListAccountAliasesCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListAccountAliasesCommandInput = ListAccountAliasesRequest;
-export type ListAccountAliasesCommandOutput = ListAccountAliasesResponse &
-  __MetadataBearer;
+export type ListAccountAliasesCommandOutput = ListAccountAliasesResponse & __MetadataBearer;
 
 export class ListAccountAliasesCommand extends $Command<
   ListAccountAliasesCommandInput,
@@ -50,14 +39,12 @@ export class ListAccountAliasesCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAccountAliasesCommandInput, ListAccountAliasesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class ListAccountAliasesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListAccountAliasesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListAccountAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListAccountAliasesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListAccountAliasesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountAliasesCommandOutput> {
     return deserializeAws_queryListAccountAliasesCommand(output, context);
   }
 

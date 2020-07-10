@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeTransitGatewaysRequest,
-  DescribeTransitGatewaysResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeTransitGatewaysRequest, DescribeTransitGatewaysResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeTransitGatewaysCommand,
-  serializeAws_ec2DescribeTransitGatewaysCommand
+  serializeAws_ec2DescribeTransitGatewaysCommand,
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeTransitGatewaysCommandInput = DescribeTransitGatewaysRequest;
-export type DescribeTransitGatewaysCommandOutput = DescribeTransitGatewaysResult &
-  __MetadataBearer;
+export type DescribeTransitGatewaysCommandOutput = DescribeTransitGatewaysResult & __MetadataBearer;
 
 export class DescribeTransitGatewaysCommand extends $Command<
   DescribeTransitGatewaysCommandInput,
@@ -49,18 +38,13 @@ export class DescribeTransitGatewaysCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTransitGatewaysCommandInput,
-    DescribeTransitGatewaysCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeTransitGatewaysCommandInput, DescribeTransitGatewaysCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DescribeTransitGatewaysCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeTransitGatewaysCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeTransitGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeTransitGatewaysCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeTransitGatewaysCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTransitGatewaysCommandOutput> {
     return deserializeAws_ec2DescribeTransitGatewaysCommand(output, context);
   }
 

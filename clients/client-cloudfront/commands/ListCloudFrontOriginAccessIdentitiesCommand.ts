@@ -1,21 +1,14 @@
-import {
-  CloudFrontClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFrontClient";
+import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   ListCloudFrontOriginAccessIdentitiesRequest,
-  ListCloudFrontOriginAccessIdentitiesResult
+  ListCloudFrontOriginAccessIdentitiesResult,
 } from "../models/index";
 import {
   deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand,
-  serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand
+  serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand,
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListCloudFrontOriginAccessIdentitiesCommandInput = ListCloudFrontOriginAccessIdentitiesRequest;
@@ -39,9 +32,7 @@ export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: ListCloudFrontOriginAccessIdentitiesCommandInput
-  ) {
+  constructor(readonly input: ListCloudFrontOriginAccessIdentitiesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,18 +42,13 @@ export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListCloudFrontOriginAccessIdentitiesCommandInput,
-    ListCloudFrontOriginAccessIdentitiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListCloudFrontOriginAccessIdentitiesCommandInput, ListCloudFrontOriginAccessIdentitiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +62,14 @@ export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command<
     input: ListCloudFrontOriginAccessIdentitiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput> {
-    return deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

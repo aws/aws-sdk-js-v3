@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  DeleteBillingGroupRequest,
-  DeleteBillingGroupResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DeleteBillingGroupRequest, DeleteBillingGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1DeleteBillingGroupCommand,
-  serializeAws_restJson1DeleteBillingGroupCommand
+  serializeAws_restJson1DeleteBillingGroupCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteBillingGroupCommandInput = DeleteBillingGroupRequest;
-export type DeleteBillingGroupCommandOutput = DeleteBillingGroupResponse &
-  __MetadataBearer;
+export type DeleteBillingGroupCommandOutput = DeleteBillingGroupResponse & __MetadataBearer;
 
 export class DeleteBillingGroupCommand extends $Command<
   DeleteBillingGroupCommandInput,
@@ -50,14 +39,12 @@ export class DeleteBillingGroupCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteBillingGroupCommandInput, DeleteBillingGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class DeleteBillingGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteBillingGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteBillingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteBillingGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteBillingGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBillingGroupCommandOutput> {
     return deserializeAws_restJson1DeleteBillingGroupCommand(output, context);
   }
 

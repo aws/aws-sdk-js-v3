@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeIdFormatRequest,
-  DescribeIdFormatResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeIdFormatRequest, DescribeIdFormatResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeIdFormatCommand,
-  serializeAws_ec2DescribeIdFormatCommand
+  serializeAws_ec2DescribeIdFormatCommand,
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeIdFormatCommandInput = DescribeIdFormatRequest;
-export type DescribeIdFormatCommandOutput = DescribeIdFormatResult &
-  __MetadataBearer;
+export type DescribeIdFormatCommandOutput = DescribeIdFormatResult & __MetadataBearer;
 
 export class DescribeIdFormatCommand extends $Command<
   DescribeIdFormatCommandInput,
@@ -50,14 +39,12 @@ export class DescribeIdFormatCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeIdFormatCommandInput, DescribeIdFormatCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class DescribeIdFormatCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeIdFormatCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeIdFormatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeIdFormatCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeIdFormatCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIdFormatCommandOutput> {
     return deserializeAws_ec2DescribeIdFormatCommand(output, context);
   }
 

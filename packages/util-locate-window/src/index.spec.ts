@@ -46,7 +46,7 @@ describe("locateWindow", () => {
     expect(locateWindow()).toBe(locateWindow());
 
     expect(locateWindow().alert).not.toBeDefined();
-    locateWindow().alert = message => console.log(message);
+    locateWindow().alert = (message) => console.log(message);
     expect(locateWindow().alert).toBeDefined();
   });
 });

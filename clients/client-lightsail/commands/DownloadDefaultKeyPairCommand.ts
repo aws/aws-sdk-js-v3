@@ -1,21 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient";
-import {
-  DownloadDefaultKeyPairRequest,
-  DownloadDefaultKeyPairResult
-} from "../models/index";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { DownloadDefaultKeyPairRequest, DownloadDefaultKeyPairResult } from "../models/index";
 import {
   deserializeAws_json1_1DownloadDefaultKeyPairCommand,
-  serializeAws_json1_1DownloadDefaultKeyPairCommand
+  serializeAws_json1_1DownloadDefaultKeyPairCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DownloadDefaultKeyPairCommandInput = DownloadDefaultKeyPairRequest;
-export type DownloadDefaultKeyPairCommandOutput = DownloadDefaultKeyPairResult &
-  __MetadataBearer;
+export type DownloadDefaultKeyPairCommandOutput = DownloadDefaultKeyPairResult & __MetadataBearer;
 
 export class DownloadDefaultKeyPairCommand extends $Command<
   DownloadDefaultKeyPairCommandInput,
@@ -49,18 +38,13 @@ export class DownloadDefaultKeyPairCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DownloadDefaultKeyPairCommandInput,
-    DownloadDefaultKeyPairCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DownloadDefaultKeyPairCommandInput, DownloadDefaultKeyPairCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class DownloadDefaultKeyPairCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DownloadDefaultKeyPairCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DownloadDefaultKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DownloadDefaultKeyPairCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DownloadDefaultKeyPairCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DownloadDefaultKeyPairCommandOutput> {
     return deserializeAws_json1_1DownloadDefaultKeyPairCommand(output, context);
   }
 

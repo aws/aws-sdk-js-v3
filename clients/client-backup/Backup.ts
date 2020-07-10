@@ -2,232 +2,224 @@ import { BackupClient } from "./BackupClient";
 import {
   CreateBackupPlanCommand,
   CreateBackupPlanCommandInput,
-  CreateBackupPlanCommandOutput
+  CreateBackupPlanCommandOutput,
 } from "./commands/CreateBackupPlanCommand";
 import {
   CreateBackupSelectionCommand,
   CreateBackupSelectionCommandInput,
-  CreateBackupSelectionCommandOutput
+  CreateBackupSelectionCommandOutput,
 } from "./commands/CreateBackupSelectionCommand";
 import {
   CreateBackupVaultCommand,
   CreateBackupVaultCommandInput,
-  CreateBackupVaultCommandOutput
+  CreateBackupVaultCommandOutput,
 } from "./commands/CreateBackupVaultCommand";
 import {
   DeleteBackupPlanCommand,
   DeleteBackupPlanCommandInput,
-  DeleteBackupPlanCommandOutput
+  DeleteBackupPlanCommandOutput,
 } from "./commands/DeleteBackupPlanCommand";
 import {
   DeleteBackupSelectionCommand,
   DeleteBackupSelectionCommandInput,
-  DeleteBackupSelectionCommandOutput
+  DeleteBackupSelectionCommandOutput,
 } from "./commands/DeleteBackupSelectionCommand";
 import {
   DeleteBackupVaultAccessPolicyCommand,
   DeleteBackupVaultAccessPolicyCommandInput,
-  DeleteBackupVaultAccessPolicyCommandOutput
+  DeleteBackupVaultAccessPolicyCommandOutput,
 } from "./commands/DeleteBackupVaultAccessPolicyCommand";
 import {
   DeleteBackupVaultCommand,
   DeleteBackupVaultCommandInput,
-  DeleteBackupVaultCommandOutput
+  DeleteBackupVaultCommandOutput,
 } from "./commands/DeleteBackupVaultCommand";
 import {
   DeleteBackupVaultNotificationsCommand,
   DeleteBackupVaultNotificationsCommandInput,
-  DeleteBackupVaultNotificationsCommandOutput
+  DeleteBackupVaultNotificationsCommandOutput,
 } from "./commands/DeleteBackupVaultNotificationsCommand";
 import {
   DeleteRecoveryPointCommand,
   DeleteRecoveryPointCommandInput,
-  DeleteRecoveryPointCommandOutput
+  DeleteRecoveryPointCommandOutput,
 } from "./commands/DeleteRecoveryPointCommand";
 import {
   DescribeBackupJobCommand,
   DescribeBackupJobCommandInput,
-  DescribeBackupJobCommandOutput
+  DescribeBackupJobCommandOutput,
 } from "./commands/DescribeBackupJobCommand";
 import {
   DescribeBackupVaultCommand,
   DescribeBackupVaultCommandInput,
-  DescribeBackupVaultCommandOutput
+  DescribeBackupVaultCommandOutput,
 } from "./commands/DescribeBackupVaultCommand";
 import {
   DescribeCopyJobCommand,
   DescribeCopyJobCommandInput,
-  DescribeCopyJobCommandOutput
+  DescribeCopyJobCommandOutput,
 } from "./commands/DescribeCopyJobCommand";
 import {
   DescribeProtectedResourceCommand,
   DescribeProtectedResourceCommandInput,
-  DescribeProtectedResourceCommandOutput
+  DescribeProtectedResourceCommandOutput,
 } from "./commands/DescribeProtectedResourceCommand";
 import {
   DescribeRecoveryPointCommand,
   DescribeRecoveryPointCommandInput,
-  DescribeRecoveryPointCommandOutput
+  DescribeRecoveryPointCommandOutput,
 } from "./commands/DescribeRecoveryPointCommand";
 import {
   DescribeRestoreJobCommand,
   DescribeRestoreJobCommandInput,
-  DescribeRestoreJobCommandOutput
+  DescribeRestoreJobCommandOutput,
 } from "./commands/DescribeRestoreJobCommand";
 import {
   ExportBackupPlanTemplateCommand,
   ExportBackupPlanTemplateCommandInput,
-  ExportBackupPlanTemplateCommandOutput
+  ExportBackupPlanTemplateCommandOutput,
 } from "./commands/ExportBackupPlanTemplateCommand";
 import {
   GetBackupPlanCommand,
   GetBackupPlanCommandInput,
-  GetBackupPlanCommandOutput
+  GetBackupPlanCommandOutput,
 } from "./commands/GetBackupPlanCommand";
 import {
   GetBackupPlanFromJSONCommand,
   GetBackupPlanFromJSONCommandInput,
-  GetBackupPlanFromJSONCommandOutput
+  GetBackupPlanFromJSONCommandOutput,
 } from "./commands/GetBackupPlanFromJSONCommand";
 import {
   GetBackupPlanFromTemplateCommand,
   GetBackupPlanFromTemplateCommandInput,
-  GetBackupPlanFromTemplateCommandOutput
+  GetBackupPlanFromTemplateCommandOutput,
 } from "./commands/GetBackupPlanFromTemplateCommand";
 import {
   GetBackupSelectionCommand,
   GetBackupSelectionCommandInput,
-  GetBackupSelectionCommandOutput
+  GetBackupSelectionCommandOutput,
 } from "./commands/GetBackupSelectionCommand";
 import {
   GetBackupVaultAccessPolicyCommand,
   GetBackupVaultAccessPolicyCommandInput,
-  GetBackupVaultAccessPolicyCommandOutput
+  GetBackupVaultAccessPolicyCommandOutput,
 } from "./commands/GetBackupVaultAccessPolicyCommand";
 import {
   GetBackupVaultNotificationsCommand,
   GetBackupVaultNotificationsCommandInput,
-  GetBackupVaultNotificationsCommandOutput
+  GetBackupVaultNotificationsCommandOutput,
 } from "./commands/GetBackupVaultNotificationsCommand";
 import {
   GetRecoveryPointRestoreMetadataCommand,
   GetRecoveryPointRestoreMetadataCommandInput,
-  GetRecoveryPointRestoreMetadataCommandOutput
+  GetRecoveryPointRestoreMetadataCommandOutput,
 } from "./commands/GetRecoveryPointRestoreMetadataCommand";
 import {
   GetSupportedResourceTypesCommand,
   GetSupportedResourceTypesCommandInput,
-  GetSupportedResourceTypesCommandOutput
+  GetSupportedResourceTypesCommandOutput,
 } from "./commands/GetSupportedResourceTypesCommand";
 import {
   ListBackupJobsCommand,
   ListBackupJobsCommandInput,
-  ListBackupJobsCommandOutput
+  ListBackupJobsCommandOutput,
 } from "./commands/ListBackupJobsCommand";
 import {
   ListBackupPlanTemplatesCommand,
   ListBackupPlanTemplatesCommandInput,
-  ListBackupPlanTemplatesCommandOutput
+  ListBackupPlanTemplatesCommandOutput,
 } from "./commands/ListBackupPlanTemplatesCommand";
 import {
   ListBackupPlanVersionsCommand,
   ListBackupPlanVersionsCommandInput,
-  ListBackupPlanVersionsCommandOutput
+  ListBackupPlanVersionsCommandOutput,
 } from "./commands/ListBackupPlanVersionsCommand";
 import {
   ListBackupPlansCommand,
   ListBackupPlansCommandInput,
-  ListBackupPlansCommandOutput
+  ListBackupPlansCommandOutput,
 } from "./commands/ListBackupPlansCommand";
 import {
   ListBackupSelectionsCommand,
   ListBackupSelectionsCommandInput,
-  ListBackupSelectionsCommandOutput
+  ListBackupSelectionsCommandOutput,
 } from "./commands/ListBackupSelectionsCommand";
 import {
   ListBackupVaultsCommand,
   ListBackupVaultsCommandInput,
-  ListBackupVaultsCommandOutput
+  ListBackupVaultsCommandOutput,
 } from "./commands/ListBackupVaultsCommand";
 import {
   ListCopyJobsCommand,
   ListCopyJobsCommandInput,
-  ListCopyJobsCommandOutput
+  ListCopyJobsCommandOutput,
 } from "./commands/ListCopyJobsCommand";
 import {
   ListProtectedResourcesCommand,
   ListProtectedResourcesCommandInput,
-  ListProtectedResourcesCommandOutput
+  ListProtectedResourcesCommandOutput,
 } from "./commands/ListProtectedResourcesCommand";
 import {
   ListRecoveryPointsByBackupVaultCommand,
   ListRecoveryPointsByBackupVaultCommandInput,
-  ListRecoveryPointsByBackupVaultCommandOutput
+  ListRecoveryPointsByBackupVaultCommandOutput,
 } from "./commands/ListRecoveryPointsByBackupVaultCommand";
 import {
   ListRecoveryPointsByResourceCommand,
   ListRecoveryPointsByResourceCommandInput,
-  ListRecoveryPointsByResourceCommandOutput
+  ListRecoveryPointsByResourceCommandOutput,
 } from "./commands/ListRecoveryPointsByResourceCommand";
 import {
   ListRestoreJobsCommand,
   ListRestoreJobsCommandInput,
-  ListRestoreJobsCommandOutput
+  ListRestoreJobsCommandOutput,
 } from "./commands/ListRestoreJobsCommand";
-import {
-  ListTagsCommand,
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand";
+import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   PutBackupVaultAccessPolicyCommand,
   PutBackupVaultAccessPolicyCommandInput,
-  PutBackupVaultAccessPolicyCommandOutput
+  PutBackupVaultAccessPolicyCommandOutput,
 } from "./commands/PutBackupVaultAccessPolicyCommand";
 import {
   PutBackupVaultNotificationsCommand,
   PutBackupVaultNotificationsCommandInput,
-  PutBackupVaultNotificationsCommandOutput
+  PutBackupVaultNotificationsCommandOutput,
 } from "./commands/PutBackupVaultNotificationsCommand";
 import {
   StartBackupJobCommand,
   StartBackupJobCommandInput,
-  StartBackupJobCommandOutput
+  StartBackupJobCommandOutput,
 } from "./commands/StartBackupJobCommand";
 import {
   StartCopyJobCommand,
   StartCopyJobCommandInput,
-  StartCopyJobCommandOutput
+  StartCopyJobCommandOutput,
 } from "./commands/StartCopyJobCommand";
 import {
   StartRestoreJobCommand,
   StartRestoreJobCommandInput,
-  StartRestoreJobCommandOutput
+  StartRestoreJobCommandOutput,
 } from "./commands/StartRestoreJobCommand";
 import {
   StopBackupJobCommand,
   StopBackupJobCommandInput,
-  StopBackupJobCommandOutput
+  StopBackupJobCommandOutput,
 } from "./commands/StopBackupJobCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateBackupPlanCommand,
   UpdateBackupPlanCommandInput,
-  UpdateBackupPlanCommandOutput
+  UpdateBackupPlanCommandOutput,
 } from "./commands/UpdateBackupPlanCommand";
 import {
   UpdateRecoveryPointLifecycleCommand,
   UpdateRecoveryPointLifecycleCommandInput,
-  UpdateRecoveryPointLifecycleCommandOutput
+  UpdateRecoveryPointLifecycleCommandOutput,
 } from "./commands/UpdateRecoveryPointLifecycleCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -259,17 +251,14 @@ export class Backup extends BackupClient {
   ): void;
   public createBackupPlan(
     args: CreateBackupPlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBackupPlanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBackupPlanCommandOutput) => void),
     cb?: (err: any, data?: CreateBackupPlanCommandOutput) => void
   ): Promise<CreateBackupPlanCommandOutput> | void {
     const command = new CreateBackupPlanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -333,17 +322,14 @@ export class Backup extends BackupClient {
   ): void;
   public createBackupSelection(
     args: CreateBackupSelectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBackupSelectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBackupSelectionCommandOutput) => void),
     cb?: (err: any, data?: CreateBackupSelectionCommandOutput) => void
   ): Promise<CreateBackupSelectionCommandOutput> | void {
     const command = new CreateBackupSelectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -374,17 +360,14 @@ export class Backup extends BackupClient {
   ): void;
   public createBackupVault(
     args: CreateBackupVaultCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBackupVaultCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBackupVaultCommandOutput) => void),
     cb?: (err: any, data?: CreateBackupVaultCommandOutput) => void
   ): Promise<CreateBackupVaultCommandOutput> | void {
     const command = new CreateBackupVaultCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -411,17 +394,14 @@ export class Backup extends BackupClient {
   ): void;
   public deleteBackupPlan(
     args: DeleteBackupPlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBackupPlanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBackupPlanCommandOutput) => void),
     cb?: (err: any, data?: DeleteBackupPlanCommandOutput) => void
   ): Promise<DeleteBackupPlanCommandOutput> | void {
     const command = new DeleteBackupPlanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -447,17 +427,14 @@ export class Backup extends BackupClient {
   ): void;
   public deleteBackupSelection(
     args: DeleteBackupSelectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBackupSelectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBackupSelectionCommandOutput) => void),
     cb?: (err: any, data?: DeleteBackupSelectionCommandOutput) => void
   ): Promise<DeleteBackupSelectionCommandOutput> | void {
     const command = new DeleteBackupSelectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -483,17 +460,14 @@ export class Backup extends BackupClient {
   ): void;
   public deleteBackupVault(
     args: DeleteBackupVaultCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBackupVaultCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBackupVaultCommandOutput) => void),
     cb?: (err: any, data?: DeleteBackupVaultCommandOutput) => void
   ): Promise<DeleteBackupVaultCommandOutput> | void {
     const command = new DeleteBackupVaultCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -518,17 +492,14 @@ export class Backup extends BackupClient {
   ): void;
   public deleteBackupVaultAccessPolicy(
     args: DeleteBackupVaultAccessPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBackupVaultAccessPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBackupVaultAccessPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteBackupVaultAccessPolicyCommandOutput) => void
   ): Promise<DeleteBackupVaultAccessPolicyCommandOutput> | void {
     const command = new DeleteBackupVaultAccessPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -553,20 +524,14 @@ export class Backup extends BackupClient {
   ): void;
   public deleteBackupVaultNotifications(
     args: DeleteBackupVaultNotificationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteBackupVaultNotificationsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBackupVaultNotificationsCommandOutput) => void),
     cb?: (err: any, data?: DeleteBackupVaultNotificationsCommandOutput) => void
   ): Promise<DeleteBackupVaultNotificationsCommandOutput> | void {
     const command = new DeleteBackupVaultNotificationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -591,17 +556,14 @@ export class Backup extends BackupClient {
   ): void;
   public deleteRecoveryPoint(
     args: DeleteRecoveryPointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRecoveryPointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRecoveryPointCommandOutput) => void),
     cb?: (err: any, data?: DeleteRecoveryPointCommandOutput) => void
   ): Promise<DeleteRecoveryPointCommandOutput> | void {
     const command = new DeleteRecoveryPointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -626,17 +588,14 @@ export class Backup extends BackupClient {
   ): void;
   public describeBackupJob(
     args: DescribeBackupJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBackupJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBackupJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeBackupJobCommandOutput) => void
   ): Promise<DescribeBackupJobCommandOutput> | void {
     const command = new DescribeBackupJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -661,17 +620,14 @@ export class Backup extends BackupClient {
   ): void;
   public describeBackupVault(
     args: DescribeBackupVaultCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBackupVaultCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBackupVaultCommandOutput) => void),
     cb?: (err: any, data?: DescribeBackupVaultCommandOutput) => void
   ): Promise<DescribeBackupVaultCommandOutput> | void {
     const command = new DescribeBackupVaultCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -696,17 +652,14 @@ export class Backup extends BackupClient {
   ): void;
   public describeCopyJob(
     args: DescribeCopyJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCopyJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCopyJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeCopyJobCommandOutput) => void
   ): Promise<DescribeCopyJobCommandOutput> | void {
     const command = new DescribeCopyJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -732,17 +685,14 @@ export class Backup extends BackupClient {
   ): void;
   public describeProtectedResource(
     args: DescribeProtectedResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeProtectedResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProtectedResourceCommandOutput) => void),
     cb?: (err: any, data?: DescribeProtectedResourceCommandOutput) => void
   ): Promise<DescribeProtectedResourceCommandOutput> | void {
     const command = new DescribeProtectedResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -768,17 +718,14 @@ export class Backup extends BackupClient {
   ): void;
   public describeRecoveryPoint(
     args: DescribeRecoveryPointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRecoveryPointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRecoveryPointCommandOutput) => void),
     cb?: (err: any, data?: DescribeRecoveryPointCommandOutput) => void
   ): Promise<DescribeRecoveryPointCommandOutput> | void {
     const command = new DescribeRecoveryPointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -803,17 +750,14 @@ export class Backup extends BackupClient {
   ): void;
   public describeRestoreJob(
     args: DescribeRestoreJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRestoreJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRestoreJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeRestoreJobCommandOutput) => void
   ): Promise<DescribeRestoreJobCommandOutput> | void {
     const command = new DescribeRestoreJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -838,17 +782,14 @@ export class Backup extends BackupClient {
   ): void;
   public exportBackupPlanTemplate(
     args: ExportBackupPlanTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExportBackupPlanTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportBackupPlanTemplateCommandOutput) => void),
     cb?: (err: any, data?: ExportBackupPlanTemplateCommandOutput) => void
   ): Promise<ExportBackupPlanTemplateCommandOutput> | void {
     const command = new ExportBackupPlanTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -873,17 +814,14 @@ export class Backup extends BackupClient {
   ): void;
   public getBackupPlan(
     args: GetBackupPlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBackupPlanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBackupPlanCommandOutput) => void),
     cb?: (err: any, data?: GetBackupPlanCommandOutput) => void
   ): Promise<GetBackupPlanCommandOutput> | void {
     const command = new GetBackupPlanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -908,17 +846,14 @@ export class Backup extends BackupClient {
   ): void;
   public getBackupPlanFromJSON(
     args: GetBackupPlanFromJSONCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBackupPlanFromJSONCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBackupPlanFromJSONCommandOutput) => void),
     cb?: (err: any, data?: GetBackupPlanFromJSONCommandOutput) => void
   ): Promise<GetBackupPlanFromJSONCommandOutput> | void {
     const command = new GetBackupPlanFromJSONCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -943,17 +878,14 @@ export class Backup extends BackupClient {
   ): void;
   public getBackupPlanFromTemplate(
     args: GetBackupPlanFromTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBackupPlanFromTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBackupPlanFromTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetBackupPlanFromTemplateCommandOutput) => void
   ): Promise<GetBackupPlanFromTemplateCommandOutput> | void {
     const command = new GetBackupPlanFromTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -979,17 +911,14 @@ export class Backup extends BackupClient {
   ): void;
   public getBackupSelection(
     args: GetBackupSelectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBackupSelectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBackupSelectionCommandOutput) => void),
     cb?: (err: any, data?: GetBackupSelectionCommandOutput) => void
   ): Promise<GetBackupSelectionCommandOutput> | void {
     const command = new GetBackupSelectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1015,17 +944,14 @@ export class Backup extends BackupClient {
   ): void;
   public getBackupVaultAccessPolicy(
     args: GetBackupVaultAccessPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBackupVaultAccessPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBackupVaultAccessPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetBackupVaultAccessPolicyCommandOutput) => void
   ): Promise<GetBackupVaultAccessPolicyCommandOutput> | void {
     const command = new GetBackupVaultAccessPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1050,17 +976,14 @@ export class Backup extends BackupClient {
   ): void;
   public getBackupVaultNotifications(
     args: GetBackupVaultNotificationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBackupVaultNotificationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBackupVaultNotificationsCommandOutput) => void),
     cb?: (err: any, data?: GetBackupVaultNotificationsCommandOutput) => void
   ): Promise<GetBackupVaultNotificationsCommandOutput> | void {
     const command = new GetBackupVaultNotificationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1085,20 +1008,14 @@ export class Backup extends BackupClient {
   ): void;
   public getRecoveryPointRestoreMetadata(
     args: GetRecoveryPointRestoreMetadataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetRecoveryPointRestoreMetadataCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRecoveryPointRestoreMetadataCommandOutput) => void),
     cb?: (err: any, data?: GetRecoveryPointRestoreMetadataCommandOutput) => void
   ): Promise<GetRecoveryPointRestoreMetadataCommandOutput> | void {
     const command = new GetRecoveryPointRestoreMetadataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1123,17 +1040,14 @@ export class Backup extends BackupClient {
   ): void;
   public getSupportedResourceTypes(
     args: GetSupportedResourceTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSupportedResourceTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSupportedResourceTypesCommandOutput) => void),
     cb?: (err: any, data?: GetSupportedResourceTypesCommandOutput) => void
   ): Promise<GetSupportedResourceTypesCommandOutput> | void {
     const command = new GetSupportedResourceTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1158,17 +1072,14 @@ export class Backup extends BackupClient {
   ): void;
   public listBackupJobs(
     args: ListBackupJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBackupJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBackupJobsCommandOutput) => void),
     cb?: (err: any, data?: ListBackupJobsCommandOutput) => void
   ): Promise<ListBackupJobsCommandOutput> | void {
     const command = new ListBackupJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1195,17 +1106,14 @@ export class Backup extends BackupClient {
   ): void;
   public listBackupPlans(
     args: ListBackupPlansCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBackupPlansCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBackupPlansCommandOutput) => void),
     cb?: (err: any, data?: ListBackupPlansCommandOutput) => void
   ): Promise<ListBackupPlansCommandOutput> | void {
     const command = new ListBackupPlansCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1231,17 +1139,14 @@ export class Backup extends BackupClient {
   ): void;
   public listBackupPlanTemplates(
     args: ListBackupPlanTemplatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBackupPlanTemplatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBackupPlanTemplatesCommandOutput) => void),
     cb?: (err: any, data?: ListBackupPlanTemplatesCommandOutput) => void
   ): Promise<ListBackupPlanTemplatesCommandOutput> | void {
     const command = new ListBackupPlanTemplatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1267,17 +1172,14 @@ export class Backup extends BackupClient {
   ): void;
   public listBackupPlanVersions(
     args: ListBackupPlanVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBackupPlanVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBackupPlanVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListBackupPlanVersionsCommandOutput) => void
   ): Promise<ListBackupPlanVersionsCommandOutput> | void {
     const command = new ListBackupPlanVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1303,17 +1205,14 @@ export class Backup extends BackupClient {
   ): void;
   public listBackupSelections(
     args: ListBackupSelectionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBackupSelectionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBackupSelectionsCommandOutput) => void),
     cb?: (err: any, data?: ListBackupSelectionsCommandOutput) => void
   ): Promise<ListBackupSelectionsCommandOutput> | void {
     const command = new ListBackupSelectionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1339,17 +1238,14 @@ export class Backup extends BackupClient {
   ): void;
   public listBackupVaults(
     args: ListBackupVaultsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBackupVaultsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBackupVaultsCommandOutput) => void),
     cb?: (err: any, data?: ListBackupVaultsCommandOutput) => void
   ): Promise<ListBackupVaultsCommandOutput> | void {
     const command = new ListBackupVaultsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1363,10 +1259,7 @@ export class Backup extends BackupClient {
     args: ListCopyJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListCopyJobsCommandOutput>;
-  public listCopyJobs(
-    args: ListCopyJobsCommandInput,
-    cb: (err: any, data?: ListCopyJobsCommandOutput) => void
-  ): void;
+  public listCopyJobs(args: ListCopyJobsCommandInput, cb: (err: any, data?: ListCopyJobsCommandOutput) => void): void;
   public listCopyJobs(
     args: ListCopyJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -1374,17 +1267,14 @@ export class Backup extends BackupClient {
   ): void;
   public listCopyJobs(
     args: ListCopyJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListCopyJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCopyJobsCommandOutput) => void),
     cb?: (err: any, data?: ListCopyJobsCommandOutput) => void
   ): Promise<ListCopyJobsCommandOutput> | void {
     const command = new ListCopyJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1411,17 +1301,14 @@ export class Backup extends BackupClient {
   ): void;
   public listProtectedResources(
     args: ListProtectedResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProtectedResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProtectedResourcesCommandOutput) => void),
     cb?: (err: any, data?: ListProtectedResourcesCommandOutput) => void
   ): Promise<ListProtectedResourcesCommandOutput> | void {
     const command = new ListProtectedResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1446,20 +1333,14 @@ export class Backup extends BackupClient {
   ): void;
   public listRecoveryPointsByBackupVault(
     args: ListRecoveryPointsByBackupVaultCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListRecoveryPointsByBackupVaultCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRecoveryPointsByBackupVaultCommandOutput) => void),
     cb?: (err: any, data?: ListRecoveryPointsByBackupVaultCommandOutput) => void
   ): Promise<ListRecoveryPointsByBackupVaultCommandOutput> | void {
     const command = new ListRecoveryPointsByBackupVaultCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1485,17 +1366,14 @@ export class Backup extends BackupClient {
   ): void;
   public listRecoveryPointsByResource(
     args: ListRecoveryPointsByResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRecoveryPointsByResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRecoveryPointsByResourceCommandOutput) => void),
     cb?: (err: any, data?: ListRecoveryPointsByResourceCommandOutput) => void
   ): Promise<ListRecoveryPointsByResourceCommandOutput> | void {
     const command = new ListRecoveryPointsByResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1521,17 +1399,14 @@ export class Backup extends BackupClient {
   ): void;
   public listRestoreJobs(
     args: ListRestoreJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRestoreJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRestoreJobsCommandOutput) => void),
     cb?: (err: any, data?: ListRestoreJobsCommandOutput) => void
   ): Promise<ListRestoreJobsCommandOutput> | void {
     const command = new ListRestoreJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1542,14 +1417,8 @@ export class Backup extends BackupClient {
    * <p>Returns a list of key-value pairs assigned to a target recovery point, backup plan, or
    *          backup vault.</p>
    */
-  public listTags(
-    args: ListTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsCommandOutput>;
-  public listTags(
-    args: ListTagsCommandInput,
-    cb: (err: any, data?: ListTagsCommandOutput) => void
-  ): void;
+  public listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
+  public listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
   public listTags(
     args: ListTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -1557,17 +1426,14 @@ export class Backup extends BackupClient {
   ): void;
   public listTags(
     args: ListTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
     cb?: (err: any, data?: ListTagsCommandOutput) => void
   ): Promise<ListTagsCommandOutput> | void {
     const command = new ListTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1594,17 +1460,14 @@ export class Backup extends BackupClient {
   ): void;
   public putBackupVaultAccessPolicy(
     args: PutBackupVaultAccessPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBackupVaultAccessPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBackupVaultAccessPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutBackupVaultAccessPolicyCommandOutput) => void
   ): Promise<PutBackupVaultAccessPolicyCommandOutput> | void {
     const command = new PutBackupVaultAccessPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1629,17 +1492,14 @@ export class Backup extends BackupClient {
   ): void;
   public putBackupVaultNotifications(
     args: PutBackupVaultNotificationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBackupVaultNotificationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBackupVaultNotificationsCommandOutput) => void),
     cb?: (err: any, data?: PutBackupVaultNotificationsCommandOutput) => void
   ): Promise<PutBackupVaultNotificationsCommandOutput> | void {
     const command = new PutBackupVaultNotificationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1664,17 +1524,14 @@ export class Backup extends BackupClient {
   ): void;
   public startBackupJob(
     args: StartBackupJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartBackupJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartBackupJobCommandOutput) => void),
     cb?: (err: any, data?: StartBackupJobCommandOutput) => void
   ): Promise<StartBackupJobCommandOutput> | void {
     const command = new StartBackupJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1688,10 +1545,7 @@ export class Backup extends BackupClient {
     args: StartCopyJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartCopyJobCommandOutput>;
-  public startCopyJob(
-    args: StartCopyJobCommandInput,
-    cb: (err: any, data?: StartCopyJobCommandOutput) => void
-  ): void;
+  public startCopyJob(args: StartCopyJobCommandInput, cb: (err: any, data?: StartCopyJobCommandOutput) => void): void;
   public startCopyJob(
     args: StartCopyJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1699,17 +1553,14 @@ export class Backup extends BackupClient {
   ): void;
   public startCopyJob(
     args: StartCopyJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartCopyJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartCopyJobCommandOutput) => void),
     cb?: (err: any, data?: StartCopyJobCommandOutput) => void
   ): Promise<StartCopyJobCommandOutput> | void {
     const command = new StartCopyJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1737,17 +1588,14 @@ export class Backup extends BackupClient {
   ): void;
   public startRestoreJob(
     args: StartRestoreJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartRestoreJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartRestoreJobCommandOutput) => void),
     cb?: (err: any, data?: StartRestoreJobCommandOutput) => void
   ): Promise<StartRestoreJobCommandOutput> | void {
     const command = new StartRestoreJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1772,17 +1620,14 @@ export class Backup extends BackupClient {
   ): void;
   public stopBackupJob(
     args: StopBackupJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopBackupJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopBackupJobCommandOutput) => void),
     cb?: (err: any, data?: StopBackupJobCommandOutput) => void
   ): Promise<StopBackupJobCommandOutput> | void {
     const command = new StopBackupJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1793,14 +1638,8 @@ export class Backup extends BackupClient {
    * <p>Assigns a set of key-value pairs to a recovery point, backup plan, or backup vault
    *          identified by an Amazon Resource Name (ARN).</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1808,17 +1647,14 @@ export class Backup extends BackupClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1844,17 +1680,14 @@ export class Backup extends BackupClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1881,17 +1714,14 @@ export class Backup extends BackupClient {
   ): void;
   public updateBackupPlan(
     args: UpdateBackupPlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateBackupPlanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBackupPlanCommandOutput) => void),
     cb?: (err: any, data?: UpdateBackupPlanCommandOutput) => void
   ): Promise<UpdateBackupPlanCommandOutput> | void {
     const command = new UpdateBackupPlanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1923,17 +1753,14 @@ export class Backup extends BackupClient {
   ): void;
   public updateRecoveryPointLifecycle(
     args: UpdateRecoveryPointLifecycleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRecoveryPointLifecycleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRecoveryPointLifecycleCommandOutput) => void),
     cb?: (err: any, data?: UpdateRecoveryPointLifecycleCommandOutput) => void
   ): Promise<UpdateRecoveryPointLifecycleCommandOutput> | void {
     const command = new UpdateRecoveryPointLifecycleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

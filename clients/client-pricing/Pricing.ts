@@ -2,18 +2,14 @@ import { PricingClient } from "./PricingClient";
 import {
   DescribeServicesCommand,
   DescribeServicesCommandInput,
-  DescribeServicesCommandOutput
+  DescribeServicesCommandOutput,
 } from "./commands/DescribeServicesCommand";
 import {
   GetAttributeValuesCommand,
   GetAttributeValuesCommandInput,
-  GetAttributeValuesCommandOutput
+  GetAttributeValuesCommandOutput,
 } from "./commands/GetAttributeValuesCommand";
-import {
-  GetProductsCommand,
-  GetProductsCommandInput,
-  GetProductsCommandOutput
-} from "./commands/GetProductsCommand";
+import { GetProductsCommand, GetProductsCommandInput, GetProductsCommandOutput } from "./commands/GetProductsCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -67,17 +63,14 @@ export class Pricing extends PricingClient {
   ): void;
   public describeServices(
     args: DescribeServicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeServicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeServicesCommandOutput) => void),
     cb?: (err: any, data?: DescribeServicesCommandOutput) => void
   ): Promise<DescribeServicesCommandOutput> | void {
     const command = new DescribeServicesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -105,17 +98,14 @@ export class Pricing extends PricingClient {
   ): void;
   public getAttributeValues(
     args: GetAttributeValuesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAttributeValuesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAttributeValuesCommandOutput) => void),
     cb?: (err: any, data?: GetAttributeValuesCommandOutput) => void
   ): Promise<GetAttributeValuesCommandOutput> | void {
     const command = new GetAttributeValuesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -125,14 +115,8 @@ export class Pricing extends PricingClient {
   /**
    * <p>Returns a list of all products that match the filter criteria.</p>
    */
-  public getProducts(
-    args: GetProductsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetProductsCommandOutput>;
-  public getProducts(
-    args: GetProductsCommandInput,
-    cb: (err: any, data?: GetProductsCommandOutput) => void
-  ): void;
+  public getProducts(args: GetProductsCommandInput, options?: __HttpHandlerOptions): Promise<GetProductsCommandOutput>;
+  public getProducts(args: GetProductsCommandInput, cb: (err: any, data?: GetProductsCommandOutput) => void): void;
   public getProducts(
     args: GetProductsCommandInput,
     options: __HttpHandlerOptions,
@@ -140,17 +124,14 @@ export class Pricing extends PricingClient {
   ): void;
   public getProducts(
     args: GetProductsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetProductsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetProductsCommandOutput) => void),
     cb?: (err: any, data?: GetProductsCommandOutput) => void
   ): Promise<GetProductsCommandOutput> | void {
     const command = new GetProductsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

@@ -1,18 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { SetSecurityTokenServicePreferencesRequest } from "../models/index";
 import {
   deserializeAws_querySetSecurityTokenServicePreferencesCommand,
-  serializeAws_querySetSecurityTokenServicePreferencesCommand
+  serializeAws_querySetSecurityTokenServicePreferencesCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type SetSecurityTokenServicePreferencesCommandInput = SetSecurityTokenServicePreferencesRequest;
@@ -45,18 +38,13 @@ export class SetSecurityTokenServicePreferencesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetSecurityTokenServicePreferencesCommandInput,
-    SetSecurityTokenServicePreferencesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetSecurityTokenServicePreferencesCommandInput, SetSecurityTokenServicePreferencesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,20 +58,14 @@ export class SetSecurityTokenServicePreferencesCommand extends $Command<
     input: SetSecurityTokenServicePreferencesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetSecurityTokenServicePreferencesCommand(
-      input,
-      context
-    );
+    return serializeAws_querySetSecurityTokenServicePreferencesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetSecurityTokenServicePreferencesCommandOutput> {
-    return deserializeAws_querySetSecurityTokenServicePreferencesCommand(
-      output,
-      context
-    );
+    return deserializeAws_querySetSecurityTokenServicePreferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

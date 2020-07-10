@@ -1,21 +1,15 @@
 import {
   ComprehendMedicalClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import {
-  DescribePHIDetectionJobRequest,
-  DescribePHIDetectionJobResponse
-} from "../models/index";
+import { DescribePHIDetectionJobRequest, DescribePHIDetectionJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribePHIDetectionJobCommand,
-  serializeAws_json1_1DescribePHIDetectionJobCommand
+  serializeAws_json1_1DescribePHIDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribePHIDetectionJobCommandInput = DescribePHIDetectionJobRequest;
-export type DescribePHIDetectionJobCommandOutput = DescribePHIDetectionJobResponse &
-  __MetadataBearer;
+export type DescribePHIDetectionJobCommandOutput = DescribePHIDetectionJobResponse & __MetadataBearer;
 
 export class DescribePHIDetectionJobCommand extends $Command<
   DescribePHIDetectionJobCommandInput,
@@ -49,18 +42,13 @@ export class DescribePHIDetectionJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribePHIDetectionJobCommandInput,
-    DescribePHIDetectionJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribePHIDetectionJobCommandInput, DescribePHIDetectionJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +58,12 @@ export class DescribePHIDetectionJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribePHIDetectionJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribePHIDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePHIDetectionJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribePHIDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribePHIDetectionJobCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePHIDetectionJobCommandOutput> {
+    return deserializeAws_json1_1DescribePHIDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

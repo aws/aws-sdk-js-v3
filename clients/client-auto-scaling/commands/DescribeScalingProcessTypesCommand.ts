@@ -1,18 +1,11 @@
-import {
-  AutoScalingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AutoScalingClient";
+import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { ProcessesType } from "../models/index";
 import {
   deserializeAws_queryDescribeScalingProcessTypesCommand,
-  serializeAws_queryDescribeScalingProcessTypesCommand
+  serializeAws_queryDescribeScalingProcessTypesCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeScalingProcessTypesCommandInput = {};
-export type DescribeScalingProcessTypesCommandOutput = ProcessesType &
-  __MetadataBearer;
+export type DescribeScalingProcessTypesCommandOutput = ProcessesType & __MetadataBearer;
 
 export class DescribeScalingProcessTypesCommand extends $Command<
   DescribeScalingProcessTypesCommandInput,
@@ -46,18 +38,13 @@ export class DescribeScalingProcessTypesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeScalingProcessTypesCommandInput,
-    DescribeScalingProcessTypesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeScalingProcessTypesCommandInput, DescribeScalingProcessTypesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,10 +54,7 @@ export class DescribeScalingProcessTypesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeScalingProcessTypesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeScalingProcessTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeScalingProcessTypesCommand(input, context);
   }
 
@@ -78,10 +62,7 @@ export class DescribeScalingProcessTypesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeScalingProcessTypesCommandOutput> {
-    return deserializeAws_queryDescribeScalingProcessTypesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeScalingProcessTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

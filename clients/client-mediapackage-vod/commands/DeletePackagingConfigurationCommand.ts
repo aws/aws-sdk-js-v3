@@ -1,21 +1,11 @@
-import {
-  MediaPackageVodClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaPackageVodClient";
-import {
-  DeletePackagingConfigurationRequest,
-  DeletePackagingConfigurationResponse
-} from "../models/index";
+import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
+import { DeletePackagingConfigurationRequest, DeletePackagingConfigurationResponse } from "../models/index";
 import {
   deserializeAws_restJson1DeletePackagingConfigurationCommand,
-  serializeAws_restJson1DeletePackagingConfigurationCommand
+  serializeAws_restJson1DeletePackagingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeletePackagingConfigurationCommandInput = DeletePackagingConfigurationRequest;
-export type DeletePackagingConfigurationCommandOutput = DeletePackagingConfigurationResponse &
-  __MetadataBearer;
+export type DeletePackagingConfigurationCommandOutput = DeletePackagingConfigurationResponse & __MetadataBearer;
 
 export class DeletePackagingConfigurationCommand extends $Command<
   DeletePackagingConfigurationCommandInput,
@@ -49,18 +38,13 @@ export class DeletePackagingConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageVodClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeletePackagingConfigurationCommandInput,
-    DeletePackagingConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeletePackagingConfigurationCommandInput, DeletePackagingConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class DeletePackagingConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeletePackagingConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePackagingConfigurationCommand(
-      input,
-      context
-    );
+  private serialize(input: DeletePackagingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DeletePackagingConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePackagingConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeletePackagingConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeletePackagingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -2,183 +2,127 @@ import { LexModelBuildingServiceClient } from "./LexModelBuildingServiceClient";
 import {
   CreateBotVersionCommand,
   CreateBotVersionCommandInput,
-  CreateBotVersionCommandOutput
+  CreateBotVersionCommandOutput,
 } from "./commands/CreateBotVersionCommand";
 import {
   CreateIntentVersionCommand,
   CreateIntentVersionCommandInput,
-  CreateIntentVersionCommandOutput
+  CreateIntentVersionCommandOutput,
 } from "./commands/CreateIntentVersionCommand";
 import {
   CreateSlotTypeVersionCommand,
   CreateSlotTypeVersionCommandInput,
-  CreateSlotTypeVersionCommandOutput
+  CreateSlotTypeVersionCommandOutput,
 } from "./commands/CreateSlotTypeVersionCommand";
 import {
   DeleteBotAliasCommand,
   DeleteBotAliasCommandInput,
-  DeleteBotAliasCommandOutput
+  DeleteBotAliasCommandOutput,
 } from "./commands/DeleteBotAliasCommand";
 import {
   DeleteBotChannelAssociationCommand,
   DeleteBotChannelAssociationCommandInput,
-  DeleteBotChannelAssociationCommandOutput
+  DeleteBotChannelAssociationCommandOutput,
 } from "./commands/DeleteBotChannelAssociationCommand";
-import {
-  DeleteBotCommand,
-  DeleteBotCommandInput,
-  DeleteBotCommandOutput
-} from "./commands/DeleteBotCommand";
+import { DeleteBotCommand, DeleteBotCommandInput, DeleteBotCommandOutput } from "./commands/DeleteBotCommand";
 import {
   DeleteBotVersionCommand,
   DeleteBotVersionCommandInput,
-  DeleteBotVersionCommandOutput
+  DeleteBotVersionCommandOutput,
 } from "./commands/DeleteBotVersionCommand";
 import {
   DeleteIntentCommand,
   DeleteIntentCommandInput,
-  DeleteIntentCommandOutput
+  DeleteIntentCommandOutput,
 } from "./commands/DeleteIntentCommand";
 import {
   DeleteIntentVersionCommand,
   DeleteIntentVersionCommandInput,
-  DeleteIntentVersionCommandOutput
+  DeleteIntentVersionCommandOutput,
 } from "./commands/DeleteIntentVersionCommand";
 import {
   DeleteSlotTypeCommand,
   DeleteSlotTypeCommandInput,
-  DeleteSlotTypeCommandOutput
+  DeleteSlotTypeCommandOutput,
 } from "./commands/DeleteSlotTypeCommand";
 import {
   DeleteSlotTypeVersionCommand,
   DeleteSlotTypeVersionCommandInput,
-  DeleteSlotTypeVersionCommandOutput
+  DeleteSlotTypeVersionCommandOutput,
 } from "./commands/DeleteSlotTypeVersionCommand";
 import {
   DeleteUtterancesCommand,
   DeleteUtterancesCommandInput,
-  DeleteUtterancesCommandOutput
+  DeleteUtterancesCommandOutput,
 } from "./commands/DeleteUtterancesCommand";
-import {
-  GetBotAliasCommand,
-  GetBotAliasCommandInput,
-  GetBotAliasCommandOutput
-} from "./commands/GetBotAliasCommand";
+import { GetBotAliasCommand, GetBotAliasCommandInput, GetBotAliasCommandOutput } from "./commands/GetBotAliasCommand";
 import {
   GetBotAliasesCommand,
   GetBotAliasesCommandInput,
-  GetBotAliasesCommandOutput
+  GetBotAliasesCommandOutput,
 } from "./commands/GetBotAliasesCommand";
 import {
   GetBotChannelAssociationCommand,
   GetBotChannelAssociationCommandInput,
-  GetBotChannelAssociationCommandOutput
+  GetBotChannelAssociationCommandOutput,
 } from "./commands/GetBotChannelAssociationCommand";
 import {
   GetBotChannelAssociationsCommand,
   GetBotChannelAssociationsCommandInput,
-  GetBotChannelAssociationsCommandOutput
+  GetBotChannelAssociationsCommandOutput,
 } from "./commands/GetBotChannelAssociationsCommand";
-import {
-  GetBotCommand,
-  GetBotCommandInput,
-  GetBotCommandOutput
-} from "./commands/GetBotCommand";
+import { GetBotCommand, GetBotCommandInput, GetBotCommandOutput } from "./commands/GetBotCommand";
 import {
   GetBotVersionsCommand,
   GetBotVersionsCommandInput,
-  GetBotVersionsCommandOutput
+  GetBotVersionsCommandOutput,
 } from "./commands/GetBotVersionsCommand";
-import {
-  GetBotsCommand,
-  GetBotsCommandInput,
-  GetBotsCommandOutput
-} from "./commands/GetBotsCommand";
+import { GetBotsCommand, GetBotsCommandInput, GetBotsCommandOutput } from "./commands/GetBotsCommand";
 import {
   GetBuiltinIntentCommand,
   GetBuiltinIntentCommandInput,
-  GetBuiltinIntentCommandOutput
+  GetBuiltinIntentCommandOutput,
 } from "./commands/GetBuiltinIntentCommand";
 import {
   GetBuiltinIntentsCommand,
   GetBuiltinIntentsCommandInput,
-  GetBuiltinIntentsCommandOutput
+  GetBuiltinIntentsCommandOutput,
 } from "./commands/GetBuiltinIntentsCommand";
 import {
   GetBuiltinSlotTypesCommand,
   GetBuiltinSlotTypesCommandInput,
-  GetBuiltinSlotTypesCommandOutput
+  GetBuiltinSlotTypesCommandOutput,
 } from "./commands/GetBuiltinSlotTypesCommand";
-import {
-  GetExportCommand,
-  GetExportCommandInput,
-  GetExportCommandOutput
-} from "./commands/GetExportCommand";
-import {
-  GetImportCommand,
-  GetImportCommandInput,
-  GetImportCommandOutput
-} from "./commands/GetImportCommand";
-import {
-  GetIntentCommand,
-  GetIntentCommandInput,
-  GetIntentCommandOutput
-} from "./commands/GetIntentCommand";
+import { GetExportCommand, GetExportCommandInput, GetExportCommandOutput } from "./commands/GetExportCommand";
+import { GetImportCommand, GetImportCommandInput, GetImportCommandOutput } from "./commands/GetImportCommand";
+import { GetIntentCommand, GetIntentCommandInput, GetIntentCommandOutput } from "./commands/GetIntentCommand";
 import {
   GetIntentVersionsCommand,
   GetIntentVersionsCommandInput,
-  GetIntentVersionsCommandOutput
+  GetIntentVersionsCommandOutput,
 } from "./commands/GetIntentVersionsCommand";
-import {
-  GetIntentsCommand,
-  GetIntentsCommandInput,
-  GetIntentsCommandOutput
-} from "./commands/GetIntentsCommand";
-import {
-  GetSlotTypeCommand,
-  GetSlotTypeCommandInput,
-  GetSlotTypeCommandOutput
-} from "./commands/GetSlotTypeCommand";
+import { GetIntentsCommand, GetIntentsCommandInput, GetIntentsCommandOutput } from "./commands/GetIntentsCommand";
+import { GetSlotTypeCommand, GetSlotTypeCommandInput, GetSlotTypeCommandOutput } from "./commands/GetSlotTypeCommand";
 import {
   GetSlotTypeVersionsCommand,
   GetSlotTypeVersionsCommandInput,
-  GetSlotTypeVersionsCommandOutput
+  GetSlotTypeVersionsCommandOutput,
 } from "./commands/GetSlotTypeVersionsCommand";
 import {
   GetSlotTypesCommand,
   GetSlotTypesCommandInput,
-  GetSlotTypesCommandOutput
+  GetSlotTypesCommandOutput,
 } from "./commands/GetSlotTypesCommand";
 import {
   GetUtterancesViewCommand,
   GetUtterancesViewCommandInput,
-  GetUtterancesViewCommandOutput
+  GetUtterancesViewCommandOutput,
 } from "./commands/GetUtterancesViewCommand";
-import {
-  PutBotAliasCommand,
-  PutBotAliasCommandInput,
-  PutBotAliasCommandOutput
-} from "./commands/PutBotAliasCommand";
-import {
-  PutBotCommand,
-  PutBotCommandInput,
-  PutBotCommandOutput
-} from "./commands/PutBotCommand";
-import {
-  PutIntentCommand,
-  PutIntentCommandInput,
-  PutIntentCommandOutput
-} from "./commands/PutIntentCommand";
-import {
-  PutSlotTypeCommand,
-  PutSlotTypeCommandInput,
-  PutSlotTypeCommandOutput
-} from "./commands/PutSlotTypeCommand";
-import {
-  StartImportCommand,
-  StartImportCommandInput,
-  StartImportCommandOutput
-} from "./commands/StartImportCommand";
+import { PutBotAliasCommand, PutBotAliasCommandInput, PutBotAliasCommandOutput } from "./commands/PutBotAliasCommand";
+import { PutBotCommand, PutBotCommandInput, PutBotCommandOutput } from "./commands/PutBotCommand";
+import { PutIntentCommand, PutIntentCommandInput, PutIntentCommandOutput } from "./commands/PutIntentCommand";
+import { PutSlotTypeCommand, PutSlotTypeCommandInput, PutSlotTypeCommandOutput } from "./commands/PutSlotTypeCommand";
+import { StartImportCommand, StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -217,17 +161,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public createBotVersion(
     args: CreateBotVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBotVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBotVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateBotVersionCommandOutput) => void
   ): Promise<CreateBotVersionCommandOutput> | void {
     const command = new CreateBotVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -264,17 +205,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public createIntentVersion(
     args: CreateIntentVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateIntentVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIntentVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateIntentVersionCommandOutput) => void
   ): Promise<CreateIntentVersionCommandOutput> | void {
     const command = new CreateIntentVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -313,17 +251,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public createSlotTypeVersion(
     args: CreateSlotTypeVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSlotTypeVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSlotTypeVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateSlotTypeVersionCommandOutput) => void
   ): Promise<CreateSlotTypeVersionCommandOutput> | void {
     const command = new CreateSlotTypeVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -347,14 +282,8 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
    *          <p>This operation requires permissions for the <code>lex:DeleteBot</code>
    *       action.</p>
    */
-  public deleteBot(
-    args: DeleteBotCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteBotCommandOutput>;
-  public deleteBot(
-    args: DeleteBotCommandInput,
-    cb: (err: any, data?: DeleteBotCommandOutput) => void
-  ): void;
+  public deleteBot(args: DeleteBotCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBotCommandOutput>;
+  public deleteBot(args: DeleteBotCommandInput, cb: (err: any, data?: DeleteBotCommandOutput) => void): void;
   public deleteBot(
     args: DeleteBotCommandInput,
     options: __HttpHandlerOptions,
@@ -362,17 +291,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public deleteBot(
     args: DeleteBotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBotCommandOutput) => void),
     cb?: (err: any, data?: DeleteBotCommandOutput) => void
   ): Promise<DeleteBotCommandOutput> | void {
     const command = new DeleteBotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -403,17 +329,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public deleteBotAlias(
     args: DeleteBotAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBotAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBotAliasCommandOutput) => void),
     cb?: (err: any, data?: DeleteBotAliasCommandOutput) => void
   ): Promise<DeleteBotAliasCommandOutput> | void {
     const command = new DeleteBotAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -440,17 +363,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public deleteBotChannelAssociation(
     args: DeleteBotChannelAssociationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBotChannelAssociationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBotChannelAssociationCommandOutput) => void),
     cb?: (err: any, data?: DeleteBotChannelAssociationCommandOutput) => void
   ): Promise<DeleteBotChannelAssociationCommandOutput> | void {
     const command = new DeleteBotChannelAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -477,17 +397,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public deleteBotVersion(
     args: DeleteBotVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBotVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBotVersionCommandOutput) => void),
     cb?: (err: any, data?: DeleteBotVersionCommandOutput) => void
   ): Promise<DeleteBotVersionCommandOutput> | void {
     const command = new DeleteBotVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -516,10 +433,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
     args: DeleteIntentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteIntentCommandOutput>;
-  public deleteIntent(
-    args: DeleteIntentCommandInput,
-    cb: (err: any, data?: DeleteIntentCommandOutput) => void
-  ): void;
+  public deleteIntent(args: DeleteIntentCommandInput, cb: (err: any, data?: DeleteIntentCommandOutput) => void): void;
   public deleteIntent(
     args: DeleteIntentCommandInput,
     options: __HttpHandlerOptions,
@@ -527,17 +441,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public deleteIntent(
     args: DeleteIntentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteIntentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIntentCommandOutput) => void),
     cb?: (err: any, data?: DeleteIntentCommandOutput) => void
   ): Promise<DeleteIntentCommandOutput> | void {
     const command = new DeleteIntentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -565,17 +476,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public deleteIntentVersion(
     args: DeleteIntentVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteIntentVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIntentVersionCommandOutput) => void),
     cb?: (err: any, data?: DeleteIntentVersionCommandOutput) => void
   ): Promise<DeleteIntentVersionCommandOutput> | void {
     const command = new DeleteIntentVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -613,17 +521,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public deleteSlotType(
     args: DeleteSlotTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSlotTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSlotTypeCommandOutput) => void),
     cb?: (err: any, data?: DeleteSlotTypeCommandOutput) => void
   ): Promise<DeleteSlotTypeCommandOutput> | void {
     const command = new DeleteSlotTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -651,17 +556,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public deleteSlotTypeVersion(
     args: DeleteSlotTypeVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSlotTypeVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSlotTypeVersionCommandOutput) => void),
     cb?: (err: any, data?: DeleteSlotTypeVersionCommandOutput) => void
   ): Promise<DeleteSlotTypeVersionCommandOutput> | void {
     const command = new DeleteSlotTypeVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -696,17 +598,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public deleteUtterances(
     args: DeleteUtterancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUtterancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUtterancesCommandOutput) => void),
     cb?: (err: any, data?: DeleteUtterancesCommandOutput) => void
   ): Promise<DeleteUtterancesCommandOutput> | void {
     const command = new DeleteUtterancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -718,14 +617,8 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
    *       bot version or alias. </p>
    *          <p> This operation requires permissions for the <code>lex:GetBot</code> action. </p>
    */
-  public getBot(
-    args: GetBotCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetBotCommandOutput>;
-  public getBot(
-    args: GetBotCommandInput,
-    cb: (err: any, data?: GetBotCommandOutput) => void
-  ): void;
+  public getBot(args: GetBotCommandInput, options?: __HttpHandlerOptions): Promise<GetBotCommandOutput>;
+  public getBot(args: GetBotCommandInput, cb: (err: any, data?: GetBotCommandOutput) => void): void;
   public getBot(
     args: GetBotCommandInput,
     options: __HttpHandlerOptions,
@@ -733,17 +626,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getBot(
     args: GetBotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBotCommandOutput) => void),
     cb?: (err: any, data?: GetBotCommandOutput) => void
   ): Promise<GetBotCommandOutput> | void {
     const command = new GetBotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -756,14 +646,8 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
    *          <p>This operation requires permissions for the <code>lex:GetBotAlias</code>
    *       action.</p>
    */
-  public getBotAlias(
-    args: GetBotAliasCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetBotAliasCommandOutput>;
-  public getBotAlias(
-    args: GetBotAliasCommandInput,
-    cb: (err: any, data?: GetBotAliasCommandOutput) => void
-  ): void;
+  public getBotAlias(args: GetBotAliasCommandInput, options?: __HttpHandlerOptions): Promise<GetBotAliasCommandOutput>;
+  public getBotAlias(args: GetBotAliasCommandInput, cb: (err: any, data?: GetBotAliasCommandOutput) => void): void;
   public getBotAlias(
     args: GetBotAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -771,17 +655,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getBotAlias(
     args: GetBotAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBotAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBotAliasCommandOutput) => void),
     cb?: (err: any, data?: GetBotAliasCommandOutput) => void
   ): Promise<GetBotAliasCommandOutput> | void {
     const command = new GetBotAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -808,17 +689,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getBotAliases(
     args: GetBotAliasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBotAliasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBotAliasesCommandOutput) => void),
     cb?: (err: any, data?: GetBotAliasesCommandOutput) => void
   ): Promise<GetBotAliasesCommandOutput> | void {
     const command = new GetBotAliasesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -846,17 +724,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getBotChannelAssociation(
     args: GetBotChannelAssociationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBotChannelAssociationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBotChannelAssociationCommandOutput) => void),
     cb?: (err: any, data?: GetBotChannelAssociationCommandOutput) => void
   ): Promise<GetBotChannelAssociationCommandOutput> | void {
     const command = new GetBotChannelAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -883,17 +758,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getBotChannelAssociations(
     args: GetBotChannelAssociationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBotChannelAssociationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBotChannelAssociationsCommandOutput) => void),
     cb?: (err: any, data?: GetBotChannelAssociationsCommandOutput) => void
   ): Promise<GetBotChannelAssociationsCommandOutput> | void {
     const command = new GetBotChannelAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -915,14 +787,8 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
    *          </ul>
    *          <p>This operation requires permission for the <code>lex:GetBots</code> action.</p>
    */
-  public getBots(
-    args: GetBotsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetBotsCommandOutput>;
-  public getBots(
-    args: GetBotsCommandInput,
-    cb: (err: any, data?: GetBotsCommandOutput) => void
-  ): void;
+  public getBots(args: GetBotsCommandInput, options?: __HttpHandlerOptions): Promise<GetBotsCommandOutput>;
+  public getBots(args: GetBotsCommandInput, cb: (err: any, data?: GetBotsCommandOutput) => void): void;
   public getBots(
     args: GetBotsCommandInput,
     options: __HttpHandlerOptions,
@@ -930,17 +796,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getBots(
     args: GetBotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBotsCommandOutput) => void),
     cb?: (err: any, data?: GetBotsCommandOutput) => void
   ): Promise<GetBotsCommandOutput> | void {
     const command = new GetBotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -973,17 +836,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getBotVersions(
     args: GetBotVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBotVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBotVersionsCommandOutput) => void),
     cb?: (err: any, data?: GetBotVersionsCommandOutput) => void
   ): Promise<GetBotVersionsCommandOutput> | void {
     const command = new GetBotVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1010,17 +870,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getBuiltinIntent(
     args: GetBuiltinIntentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBuiltinIntentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBuiltinIntentCommandOutput) => void),
     cb?: (err: any, data?: GetBuiltinIntentCommandOutput) => void
   ): Promise<GetBuiltinIntentCommandOutput> | void {
     const command = new GetBuiltinIntentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1047,17 +904,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getBuiltinIntents(
     args: GetBuiltinIntentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBuiltinIntentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBuiltinIntentsCommandOutput) => void),
     cb?: (err: any, data?: GetBuiltinIntentsCommandOutput) => void
   ): Promise<GetBuiltinIntentsCommandOutput> | void {
     const command = new GetBuiltinIntentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1086,17 +940,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getBuiltinSlotTypes(
     args: GetBuiltinSlotTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBuiltinSlotTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBuiltinSlotTypesCommandOutput) => void),
     cb?: (err: any, data?: GetBuiltinSlotTypesCommandOutput) => void
   ): Promise<GetBuiltinSlotTypesCommandOutput> | void {
     const command = new GetBuiltinSlotTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1106,14 +957,8 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   /**
    * <p>Exports the contents of a Amazon Lex resource in a specified format. </p>
    */
-  public getExport(
-    args: GetExportCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetExportCommandOutput>;
-  public getExport(
-    args: GetExportCommandInput,
-    cb: (err: any, data?: GetExportCommandOutput) => void
-  ): void;
+  public getExport(args: GetExportCommandInput, options?: __HttpHandlerOptions): Promise<GetExportCommandOutput>;
+  public getExport(args: GetExportCommandInput, cb: (err: any, data?: GetExportCommandOutput) => void): void;
   public getExport(
     args: GetExportCommandInput,
     options: __HttpHandlerOptions,
@@ -1121,17 +966,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getExport(
     args: GetExportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetExportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetExportCommandOutput) => void),
     cb?: (err: any, data?: GetExportCommandOutput) => void
   ): Promise<GetExportCommandOutput> | void {
     const command = new GetExportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1142,14 +984,8 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
    * <p>Gets information about an import job started with the <code>StartImport</code>
    *       operation.</p>
    */
-  public getImport(
-    args: GetImportCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetImportCommandOutput>;
-  public getImport(
-    args: GetImportCommandInput,
-    cb: (err: any, data?: GetImportCommandOutput) => void
-  ): void;
+  public getImport(args: GetImportCommandInput, options?: __HttpHandlerOptions): Promise<GetImportCommandOutput>;
+  public getImport(args: GetImportCommandInput, cb: (err: any, data?: GetImportCommandOutput) => void): void;
   public getImport(
     args: GetImportCommandInput,
     options: __HttpHandlerOptions,
@@ -1157,17 +993,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getImport(
     args: GetImportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetImportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImportCommandOutput) => void),
     cb?: (err: any, data?: GetImportCommandOutput) => void
   ): Promise<GetImportCommandOutput> | void {
     const command = new GetImportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1180,14 +1013,8 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
    *          <p> This operation requires permissions to perform the <code>lex:GetIntent</code> action.
    *     </p>
    */
-  public getIntent(
-    args: GetIntentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetIntentCommandOutput>;
-  public getIntent(
-    args: GetIntentCommandInput,
-    cb: (err: any, data?: GetIntentCommandOutput) => void
-  ): void;
+  public getIntent(args: GetIntentCommandInput, options?: __HttpHandlerOptions): Promise<GetIntentCommandOutput>;
+  public getIntent(args: GetIntentCommandInput, cb: (err: any, data?: GetIntentCommandOutput) => void): void;
   public getIntent(
     args: GetIntentCommandInput,
     options: __HttpHandlerOptions,
@@ -1195,17 +1022,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getIntent(
     args: GetIntentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIntentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIntentCommandOutput) => void),
     cb?: (err: any, data?: GetIntentCommandOutput) => void
   ): Promise<GetIntentCommandOutput> | void {
     const command = new GetIntentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1227,14 +1051,8 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
    *          <p> The operation requires permission for the <code>lex:GetIntents</code> action.
    *     </p>
    */
-  public getIntents(
-    args: GetIntentsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetIntentsCommandOutput>;
-  public getIntents(
-    args: GetIntentsCommandInput,
-    cb: (err: any, data?: GetIntentsCommandOutput) => void
-  ): void;
+  public getIntents(args: GetIntentsCommandInput, options?: __HttpHandlerOptions): Promise<GetIntentsCommandOutput>;
+  public getIntents(args: GetIntentsCommandInput, cb: (err: any, data?: GetIntentsCommandOutput) => void): void;
   public getIntents(
     args: GetIntentsCommandInput,
     options: __HttpHandlerOptions,
@@ -1242,17 +1060,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getIntents(
     args: GetIntentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIntentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIntentsCommandOutput) => void),
     cb?: (err: any, data?: GetIntentsCommandOutput) => void
   ): Promise<GetIntentsCommandOutput> | void {
     const command = new GetIntentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1285,17 +1100,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getIntentVersions(
     args: GetIntentVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIntentVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIntentVersionsCommandOutput) => void),
     cb?: (err: any, data?: GetIntentVersionsCommandOutput) => void
   ): Promise<GetIntentVersionsCommandOutput> | void {
     const command = new GetIntentVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1308,14 +1120,8 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
    *          <p>This operation requires permissions for the <code>lex:GetSlotType</code>
    *       action.</p>
    */
-  public getSlotType(
-    args: GetSlotTypeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSlotTypeCommandOutput>;
-  public getSlotType(
-    args: GetSlotTypeCommandInput,
-    cb: (err: any, data?: GetSlotTypeCommandOutput) => void
-  ): void;
+  public getSlotType(args: GetSlotTypeCommandInput, options?: __HttpHandlerOptions): Promise<GetSlotTypeCommandOutput>;
+  public getSlotType(args: GetSlotTypeCommandInput, cb: (err: any, data?: GetSlotTypeCommandOutput) => void): void;
   public getSlotType(
     args: GetSlotTypeCommandInput,
     options: __HttpHandlerOptions,
@@ -1323,17 +1129,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getSlotType(
     args: GetSlotTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSlotTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSlotTypeCommandOutput) => void),
     cb?: (err: any, data?: GetSlotTypeCommandOutput) => void
   ): Promise<GetSlotTypeCommandOutput> | void {
     const command = new GetSlotTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1360,10 +1163,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
     args: GetSlotTypesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSlotTypesCommandOutput>;
-  public getSlotTypes(
-    args: GetSlotTypesCommandInput,
-    cb: (err: any, data?: GetSlotTypesCommandOutput) => void
-  ): void;
+  public getSlotTypes(args: GetSlotTypesCommandInput, cb: (err: any, data?: GetSlotTypesCommandOutput) => void): void;
   public getSlotTypes(
     args: GetSlotTypesCommandInput,
     options: __HttpHandlerOptions,
@@ -1371,17 +1171,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getSlotTypes(
     args: GetSlotTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSlotTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSlotTypesCommandOutput) => void),
     cb?: (err: any, data?: GetSlotTypesCommandOutput) => void
   ): Promise<GetSlotTypesCommandOutput> | void {
     const command = new GetSlotTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1415,17 +1212,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getSlotTypeVersions(
     args: GetSlotTypeVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSlotTypeVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSlotTypeVersionsCommandOutput) => void),
     cb?: (err: any, data?: GetSlotTypeVersionsCommandOutput) => void
   ): Promise<GetSlotTypeVersionsCommandOutput> | void {
     const command = new GetSlotTypeVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1467,17 +1261,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getUtterancesView(
     args: GetUtterancesViewCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUtterancesViewCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUtterancesViewCommandOutput) => void),
     cb?: (err: any, data?: GetUtterancesViewCommandOutput) => void
   ): Promise<GetUtterancesViewCommandOutput> | void {
     const command = new GetUtterancesViewCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1500,14 +1291,8 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
    *          <p>This operation requires permissions for the <code>lex:PutBot</code> action. For more
    *       information, see <a>security-iam</a>.</p>
    */
-  public putBot(
-    args: PutBotCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutBotCommandOutput>;
-  public putBot(
-    args: PutBotCommandInput,
-    cb: (err: any, data?: PutBotCommandOutput) => void
-  ): void;
+  public putBot(args: PutBotCommandInput, options?: __HttpHandlerOptions): Promise<PutBotCommandOutput>;
+  public putBot(args: PutBotCommandInput, cb: (err: any, data?: PutBotCommandOutput) => void): void;
   public putBot(
     args: PutBotCommandInput,
     options: __HttpHandlerOptions,
@@ -1515,17 +1300,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public putBot(
     args: PutBotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBotCommandOutput) => void),
     cb?: (err: any, data?: PutBotCommandOutput) => void
   ): Promise<PutBotCommandOutput> | void {
     const command = new PutBotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1539,14 +1321,8 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
    *          <p>This operation requires permissions for the <code>lex:PutBotAlias</code> action.
    *     </p>
    */
-  public putBotAlias(
-    args: PutBotAliasCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutBotAliasCommandOutput>;
-  public putBotAlias(
-    args: PutBotAliasCommandInput,
-    cb: (err: any, data?: PutBotAliasCommandOutput) => void
-  ): void;
+  public putBotAlias(args: PutBotAliasCommandInput, options?: __HttpHandlerOptions): Promise<PutBotAliasCommandOutput>;
+  public putBotAlias(args: PutBotAliasCommandInput, cb: (err: any, data?: PutBotAliasCommandOutput) => void): void;
   public putBotAlias(
     args: PutBotAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -1554,17 +1330,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public putBotAlias(
     args: PutBotAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBotAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBotAliasCommandOutput) => void),
     cb?: (err: any, data?: PutBotAliasCommandOutput) => void
   ): Promise<PutBotAliasCommandOutput> | void {
     const command = new PutBotAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1624,14 +1397,8 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
    *          <p>This operation requires permissions for the <code>lex:PutIntent</code>
    *       action.</p>
    */
-  public putIntent(
-    args: PutIntentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutIntentCommandOutput>;
-  public putIntent(
-    args: PutIntentCommandInput,
-    cb: (err: any, data?: PutIntentCommandOutput) => void
-  ): void;
+  public putIntent(args: PutIntentCommandInput, options?: __HttpHandlerOptions): Promise<PutIntentCommandOutput>;
+  public putIntent(args: PutIntentCommandInput, cb: (err: any, data?: PutIntentCommandOutput) => void): void;
   public putIntent(
     args: PutIntentCommandInput,
     options: __HttpHandlerOptions,
@@ -1639,17 +1406,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public putIntent(
     args: PutIntentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutIntentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutIntentCommandOutput) => void),
     cb?: (err: any, data?: PutIntentCommandOutput) => void
   ): Promise<PutIntentCommandOutput> | void {
     const command = new PutIntentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1671,14 +1435,8 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
    *          <p>This operation requires permissions for the <code>lex:PutSlotType</code>
    *       action.</p>
    */
-  public putSlotType(
-    args: PutSlotTypeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutSlotTypeCommandOutput>;
-  public putSlotType(
-    args: PutSlotTypeCommandInput,
-    cb: (err: any, data?: PutSlotTypeCommandOutput) => void
-  ): void;
+  public putSlotType(args: PutSlotTypeCommandInput, options?: __HttpHandlerOptions): Promise<PutSlotTypeCommandOutput>;
+  public putSlotType(args: PutSlotTypeCommandInput, cb: (err: any, data?: PutSlotTypeCommandOutput) => void): void;
   public putSlotType(
     args: PutSlotTypeCommandInput,
     options: __HttpHandlerOptions,
@@ -1686,17 +1444,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public putSlotType(
     args: PutSlotTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutSlotTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutSlotTypeCommandOutput) => void),
     cb?: (err: any, data?: PutSlotTypeCommandOutput) => void
   ): Promise<PutSlotTypeCommandOutput> | void {
     const command = new PutSlotTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1706,14 +1461,8 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   /**
    * <p>Starts a job to import a resource to Amazon Lex.</p>
    */
-  public startImport(
-    args: StartImportCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartImportCommandOutput>;
-  public startImport(
-    args: StartImportCommandInput,
-    cb: (err: any, data?: StartImportCommandOutput) => void
-  ): void;
+  public startImport(args: StartImportCommandInput, options?: __HttpHandlerOptions): Promise<StartImportCommandOutput>;
+  public startImport(args: StartImportCommandInput, cb: (err: any, data?: StartImportCommandOutput) => void): void;
   public startImport(
     args: StartImportCommandInput,
     options: __HttpHandlerOptions,
@@ -1721,17 +1470,14 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public startImport(
     args: StartImportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartImportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartImportCommandOutput) => void),
     cb?: (err: any, data?: StartImportCommandOutput) => void
   ): Promise<StartImportCommandOutput> | void {
     const command = new StartImportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

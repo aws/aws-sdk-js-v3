@@ -1,21 +1,11 @@
-import {
-  MediaLiveClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaLiveClient";
-import {
-  CreateMultiplexRequest,
-  CreateMultiplexResponse
-} from "../models/index";
+import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { CreateMultiplexRequest, CreateMultiplexResponse } from "../models/index";
 import {
   deserializeAws_restJson1CreateMultiplexCommand,
-  serializeAws_restJson1CreateMultiplexCommand
+  serializeAws_restJson1CreateMultiplexCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateMultiplexCommandInput = CreateMultiplexRequest;
-export type CreateMultiplexCommandOutput = CreateMultiplexResponse &
-  __MetadataBearer;
+export type CreateMultiplexCommandOutput = CreateMultiplexResponse & __MetadataBearer;
 
 export class CreateMultiplexCommand extends $Command<
   CreateMultiplexCommandInput,
@@ -50,14 +39,12 @@ export class CreateMultiplexCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateMultiplexCommandInput, CreateMultiplexCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class CreateMultiplexCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateMultiplexCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateMultiplexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateMultiplexCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateMultiplexCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMultiplexCommandOutput> {
     return deserializeAws_restJson1CreateMultiplexCommand(output, context);
   }
 

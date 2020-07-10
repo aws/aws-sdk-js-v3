@@ -1,21 +1,11 @@
-import {
-  AppStreamClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppStreamClient";
-import {
-  DisassociateFleetRequest,
-  DisassociateFleetResult
-} from "../models/index";
+import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
+import { DisassociateFleetRequest, DisassociateFleetResult } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateFleetCommand,
-  serializeAws_json1_1DisassociateFleetCommand
+  serializeAws_json1_1DisassociateFleetCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DisassociateFleetCommandInput = DisassociateFleetRequest;
-export type DisassociateFleetCommandOutput = DisassociateFleetResult &
-  __MetadataBearer;
+export type DisassociateFleetCommandOutput = DisassociateFleetResult & __MetadataBearer;
 
 export class DisassociateFleetCommand extends $Command<
   DisassociateFleetCommandInput,
@@ -50,14 +39,12 @@ export class DisassociateFleetCommand extends $Command<
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DisassociateFleetCommandInput, DisassociateFleetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class DisassociateFleetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DisassociateFleetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DisassociateFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateFleetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DisassociateFleetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateFleetCommandOutput> {
     return deserializeAws_json1_1DisassociateFleetCommand(output, context);
   }
 

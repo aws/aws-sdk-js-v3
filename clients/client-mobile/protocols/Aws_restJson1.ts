@@ -1,39 +1,12 @@
-import {
-  CreateProjectCommandInput,
-  CreateProjectCommandOutput
-} from "../commands/CreateProjectCommand";
-import {
-  DeleteProjectCommandInput,
-  DeleteProjectCommandOutput
-} from "../commands/DeleteProjectCommand";
-import {
-  DescribeBundleCommandInput,
-  DescribeBundleCommandOutput
-} from "../commands/DescribeBundleCommand";
-import {
-  DescribeProjectCommandInput,
-  DescribeProjectCommandOutput
-} from "../commands/DescribeProjectCommand";
-import {
-  ExportBundleCommandInput,
-  ExportBundleCommandOutput
-} from "../commands/ExportBundleCommand";
-import {
-  ExportProjectCommandInput,
-  ExportProjectCommandOutput
-} from "../commands/ExportProjectCommand";
-import {
-  ListBundlesCommandInput,
-  ListBundlesCommandOutput
-} from "../commands/ListBundlesCommand";
-import {
-  ListProjectsCommandInput,
-  ListProjectsCommandOutput
-} from "../commands/ListProjectsCommand";
-import {
-  UpdateProjectCommandInput,
-  UpdateProjectCommandOutput
-} from "../commands/UpdateProjectCommand";
+import { CreateProjectCommandInput, CreateProjectCommandOutput } from "../commands/CreateProjectCommand";
+import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "../commands/DeleteProjectCommand";
+import { DescribeBundleCommandInput, DescribeBundleCommandOutput } from "../commands/DescribeBundleCommand";
+import { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "../commands/DescribeProjectCommand";
+import { ExportBundleCommandInput, ExportBundleCommandOutput } from "../commands/ExportBundleCommand";
+import { ExportProjectCommandInput, ExportProjectCommandOutput } from "../commands/ExportProjectCommand";
+import { ListBundlesCommandInput, ListBundlesCommandOutput } from "../commands/ListBundlesCommand";
+import { ListProjectsCommandInput, ListProjectsCommandOutput } from "../commands/ListProjectsCommand";
+import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "../commands/UpdateProjectCommand";
 import {
   AccountActionRequiredException,
   BadRequestException,
@@ -47,21 +20,18 @@ import {
   Resource,
   ServiceUnavailableException,
   TooManyRequestsException,
-  UnauthorizedException
+  UnauthorizedException,
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export const serializeAws_restJson1CreateProjectCommand = async (
@@ -69,13 +39,13 @@ export const serializeAws_restJson1CreateProjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/octet-stream"
+    "Content-Type": "application/octet-stream",
   };
   let resolvedPath = "/projects";
   const query: any = {
     ...(input.name !== undefined && { name: input.name }),
     ...(input.region !== undefined && { region: input.region }),
-    ...(input.snapshotId !== undefined && { snapshotId: input.snapshotId })
+    ...(input.snapshotId !== undefined && { snapshotId: input.snapshotId }),
   };
   let body: any;
   if (input.contents !== undefined) {
@@ -90,7 +60,7 @@ export const serializeAws_restJson1CreateProjectCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -99,7 +69,7 @@ export const serializeAws_restJson1DeleteProjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/projects/{projectId}";
   if (input.projectId !== undefined) {
@@ -107,10 +77,7 @@ export const serializeAws_restJson1DeleteProjectCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: projectId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{projectId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{projectId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: projectId.");
   }
@@ -123,7 +90,7 @@ export const serializeAws_restJson1DeleteProjectCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -132,7 +99,7 @@ export const serializeAws_restJson1DescribeBundleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/bundles/{bundleId}";
   if (input.bundleId !== undefined) {
@@ -140,10 +107,7 @@ export const serializeAws_restJson1DescribeBundleCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: bundleId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{bundleId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{bundleId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: bundleId.");
   }
@@ -156,7 +120,7 @@ export const serializeAws_restJson1DescribeBundleCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -165,14 +129,12 @@ export const serializeAws_restJson1DescribeProjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/project";
   const query: any = {
     ...(input.projectId !== undefined && { projectId: input.projectId }),
-    ...(input.syncFromResources !== undefined && {
-      syncFromResources: input.syncFromResources.toString()
-    })
+    ...(input.syncFromResources !== undefined && { syncFromResources: input.syncFromResources.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -184,7 +146,7 @@ export const serializeAws_restJson1DescribeProjectCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -193,7 +155,7 @@ export const serializeAws_restJson1ExportBundleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/bundles/{bundleId}";
   if (input.bundleId !== undefined) {
@@ -201,16 +163,13 @@ export const serializeAws_restJson1ExportBundleCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: bundleId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{bundleId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{bundleId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: bundleId.");
   }
   const query: any = {
     ...(input.platform !== undefined && { platform: input.platform }),
-    ...(input.projectId !== undefined && { projectId: input.projectId })
+    ...(input.projectId !== undefined && { projectId: input.projectId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -222,7 +181,7 @@ export const serializeAws_restJson1ExportBundleCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -231,7 +190,7 @@ export const serializeAws_restJson1ExportProjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/exports/{projectId}";
   if (input.projectId !== undefined) {
@@ -239,10 +198,7 @@ export const serializeAws_restJson1ExportProjectCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: projectId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{projectId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{projectId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: projectId.");
   }
@@ -255,7 +211,7 @@ export const serializeAws_restJson1ExportProjectCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -264,14 +220,12 @@ export const serializeAws_restJson1ListBundlesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/bundles";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString()
-    }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -283,7 +237,7 @@ export const serializeAws_restJson1ListBundlesCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -292,14 +246,12 @@ export const serializeAws_restJson1ListProjectsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": ""
+    "Content-Type": "",
   };
   let resolvedPath = "/projects";
   const query: any = {
-    ...(input.maxResults !== undefined && {
-      maxResults: input.maxResults.toString()
-    }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -311,7 +263,7 @@ export const serializeAws_restJson1ListProjectsCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -320,11 +272,11 @@ export const serializeAws_restJson1UpdateProjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/octet-stream"
+    "Content-Type": "application/octet-stream",
   };
   let resolvedPath = "/update";
   const query: any = {
-    ...(input.projectId !== undefined && { projectId: input.projectId })
+    ...(input.projectId !== undefined && { projectId: input.projectId }),
   };
   let body: any;
   if (input.contents !== undefined) {
@@ -339,7 +291,7 @@ export const serializeAws_restJson1UpdateProjectCommand = async (
     headers,
     path: resolvedPath,
     query,
-    body
+    body,
   });
 };
 
@@ -353,14 +305,11 @@ export const deserializeAws_restJson1CreateProjectCommand = async (
   const contents: CreateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateProjectResult",
-    details: undefined
+    details: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.details !== undefined && data.details !== null) {
-    contents.details = deserializeAws_restJson1ProjectDetails(
-      data.details,
-      context
-    );
+    contents.details = deserializeAws_restJson1ProjectDetails(data.details, context);
   }
   return Promise.resolve(contents);
 };
@@ -371,7 +320,7 @@ const deserializeAws_restJson1CreateProjectCommandError = async (
 ): Promise<CreateProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -380,78 +329,57 @@ const deserializeAws_restJson1CreateProjectCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mobile#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.mobile#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.mobile#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.mobile#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mobile#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mobile#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.mobile#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -462,7 +390,7 @@ const deserializeAws_restJson1CreateProjectCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -482,20 +410,14 @@ export const deserializeAws_restJson1DeleteProjectCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "DeleteProjectResult",
     deletedResources: undefined,
-    orphanedResources: undefined
+    orphanedResources: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.deletedResources !== undefined && data.deletedResources !== null) {
-    contents.deletedResources = deserializeAws_restJson1Resources(
-      data.deletedResources,
-      context
-    );
+    contents.deletedResources = deserializeAws_restJson1Resources(data.deletedResources, context);
   }
   if (data.orphanedResources !== undefined && data.orphanedResources !== null) {
-    contents.orphanedResources = deserializeAws_restJson1Resources(
-      data.orphanedResources,
-      context
-    );
+    contents.orphanedResources = deserializeAws_restJson1Resources(data.orphanedResources, context);
   }
   return Promise.resolve(contents);
 };
@@ -506,7 +428,7 @@ const deserializeAws_restJson1DeleteProjectCommandError = async (
 ): Promise<DeleteProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -515,56 +437,41 @@ const deserializeAws_restJson1DeleteProjectCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.mobile#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.mobile#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mobile#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mobile#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.mobile#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -575,7 +482,7 @@ const deserializeAws_restJson1DeleteProjectCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -594,14 +501,11 @@ export const deserializeAws_restJson1DescribeBundleCommand = async (
   const contents: DescribeBundleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeBundleResult",
-    details: undefined
+    details: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.details !== undefined && data.details !== null) {
-    contents.details = deserializeAws_restJson1BundleDetails(
-      data.details,
-      context
-    );
+    contents.details = deserializeAws_restJson1BundleDetails(data.details, context);
   }
   return Promise.resolve(contents);
 };
@@ -612,7 +516,7 @@ const deserializeAws_restJson1DescribeBundleCommandError = async (
 ): Promise<DescribeBundleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -621,67 +525,49 @@ const deserializeAws_restJson1DescribeBundleCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mobile#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.mobile#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.mobile#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mobile#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mobile#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.mobile#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -692,7 +578,7 @@ const deserializeAws_restJson1DescribeBundleCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -711,14 +597,11 @@ export const deserializeAws_restJson1DescribeProjectCommand = async (
   const contents: DescribeProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeProjectResult",
-    details: undefined
+    details: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.details !== undefined && data.details !== null) {
-    contents.details = deserializeAws_restJson1ProjectDetails(
-      data.details,
-      context
-    );
+    contents.details = deserializeAws_restJson1ProjectDetails(data.details, context);
   }
   return Promise.resolve(contents);
 };
@@ -729,7 +612,7 @@ const deserializeAws_restJson1DescribeProjectCommandError = async (
 ): Promise<DescribeProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -738,67 +621,49 @@ const deserializeAws_restJson1DescribeProjectCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mobile#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.mobile#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.mobile#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mobile#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mobile#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.mobile#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -809,7 +674,7 @@ const deserializeAws_restJson1DescribeProjectCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -828,7 +693,7 @@ export const deserializeAws_restJson1ExportBundleCommand = async (
   const contents: ExportBundleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ExportBundleResult",
-    downloadUrl: undefined
+    downloadUrl: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.downloadUrl !== undefined && data.downloadUrl !== null) {
@@ -843,7 +708,7 @@ const deserializeAws_restJson1ExportBundleCommandError = async (
 ): Promise<ExportBundleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -852,67 +717,49 @@ const deserializeAws_restJson1ExportBundleCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mobile#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.mobile#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.mobile#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mobile#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mobile#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.mobile#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -923,7 +770,7 @@ const deserializeAws_restJson1ExportBundleCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -944,7 +791,7 @@ export const deserializeAws_restJson1ExportProjectCommand = async (
     __type: "ExportProjectResult",
     downloadUrl: undefined,
     shareUrl: undefined,
-    snapshotId: undefined
+    snapshotId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.downloadUrl !== undefined && data.downloadUrl !== null) {
@@ -965,7 +812,7 @@ const deserializeAws_restJson1ExportProjectCommandError = async (
 ): Promise<ExportProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -974,67 +821,49 @@ const deserializeAws_restJson1ExportProjectCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mobile#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.mobile#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.mobile#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mobile#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mobile#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.mobile#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1045,7 +874,7 @@ const deserializeAws_restJson1ExportProjectCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1065,14 +894,11 @@ export const deserializeAws_restJson1ListBundlesCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "ListBundlesResult",
     bundleList: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.bundleList !== undefined && data.bundleList !== null) {
-    contents.bundleList = deserializeAws_restJson1BundleList(
-      data.bundleList,
-      context
-    );
+    contents.bundleList = deserializeAws_restJson1BundleList(data.bundleList, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -1086,7 +912,7 @@ const deserializeAws_restJson1ListBundlesCommandError = async (
 ): Promise<ListBundlesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1095,56 +921,41 @@ const deserializeAws_restJson1ListBundlesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mobile#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.mobile#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mobile#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mobile#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.mobile#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1155,7 +966,7 @@ const deserializeAws_restJson1ListBundlesCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1175,17 +986,14 @@ export const deserializeAws_restJson1ListProjectsCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "ListProjectsResult",
     nextToken: undefined,
-    projects: undefined
+    projects: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
   if (data.projects !== undefined && data.projects !== null) {
-    contents.projects = deserializeAws_restJson1ProjectSummaries(
-      data.projects,
-      context
-    );
+    contents.projects = deserializeAws_restJson1ProjectSummaries(data.projects, context);
   }
   return Promise.resolve(contents);
 };
@@ -1196,7 +1004,7 @@ const deserializeAws_restJson1ListProjectsCommandError = async (
 ): Promise<ListProjectsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1205,56 +1013,41 @@ const deserializeAws_restJson1ListProjectsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mobile#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.mobile#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mobile#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mobile#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.mobile#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1265,7 +1058,7 @@ const deserializeAws_restJson1ListProjectsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1284,14 +1077,11 @@ export const deserializeAws_restJson1UpdateProjectCommand = async (
   const contents: UpdateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateProjectResult",
-    details: undefined
+    details: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.details !== undefined && data.details !== null) {
-    contents.details = deserializeAws_restJson1ProjectDetails(
-      data.details,
-      context
-    );
+    contents.details = deserializeAws_restJson1ProjectDetails(data.details, context);
   }
   return Promise.resolve(contents);
 };
@@ -1302,7 +1092,7 @@ const deserializeAws_restJson1UpdateProjectCommandError = async (
 ): Promise<UpdateProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -1311,89 +1101,65 @@ const deserializeAws_restJson1UpdateProjectCommandError = async (
     case "AccountActionRequiredException":
     case "com.amazonaws.mobile#AccountActionRequiredException":
       response = {
-        ...(await deserializeAws_restJson1AccountActionRequiredExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1AccountActionRequiredExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "BadRequestException":
     case "com.amazonaws.mobile#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalFailureException":
     case "com.amazonaws.mobile#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.mobile#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "NotFoundException":
     case "com.amazonaws.mobile#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mobile#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mobile#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.mobile#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1404,7 +1170,7 @@ const deserializeAws_restJson1UpdateProjectCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1421,7 +1187,7 @@ const deserializeAws_restJson1AccountActionRequiredExceptionResponse = async (
     name: "AccountActionRequiredException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1438,7 +1204,7 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
     name: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1455,7 +1221,7 @@ const deserializeAws_restJson1InternalFailureExceptionResponse = async (
     name: "InternalFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1473,7 +1239,7 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined,
-    retryAfterSeconds: undefined
+    retryAfterSeconds: undefined,
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
     contents.retryAfterSeconds = parsedOutput.headers["retry-after"];
@@ -1493,7 +1259,7 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
     name: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1511,7 +1277,7 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined,
-    retryAfterSeconds: undefined
+    retryAfterSeconds: undefined,
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
     contents.retryAfterSeconds = parsedOutput.headers["retry-after"];
@@ -1532,7 +1298,7 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined,
-    retryAfterSeconds: undefined
+    retryAfterSeconds: undefined,
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
     contents.retryAfterSeconds = parsedOutput.headers["retry-after"];
@@ -1552,7 +1318,7 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
     name: "UnauthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined
+    message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -1561,79 +1327,43 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
   return contents;
 };
 
-const deserializeAws_restJson1Attributes = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1Attributes = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
 };
 
-const deserializeAws_restJson1BundleDetails = (
-  output: any,
-  context: __SerdeContext
-): BundleDetails => {
+const deserializeAws_restJson1BundleDetails = (output: any, context: __SerdeContext): BundleDetails => {
   return {
     __type: "BundleDetails",
     availablePlatforms:
-      output.availablePlatforms !== undefined &&
-      output.availablePlatforms !== null
+      output.availablePlatforms !== undefined && output.availablePlatforms !== null
         ? deserializeAws_restJson1Platforms(output.availablePlatforms, context)
         : undefined,
-    bundleId:
-      output.bundleId !== undefined && output.bundleId !== null
-        ? output.bundleId
-        : undefined,
-    description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined,
-    iconUrl:
-      output.iconUrl !== undefined && output.iconUrl !== null
-        ? output.iconUrl
-        : undefined,
-    title:
-      output.title !== undefined && output.title !== null
-        ? output.title
-        : undefined,
-    version:
-      output.version !== undefined && output.version !== null
-        ? output.version
-        : undefined
+    bundleId: output.bundleId !== undefined && output.bundleId !== null ? output.bundleId : undefined,
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    iconUrl: output.iconUrl !== undefined && output.iconUrl !== null ? output.iconUrl : undefined,
+    title: output.title !== undefined && output.title !== null ? output.title : undefined,
+    version: output.version !== undefined && output.version !== null ? output.version : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1BundleList = (
-  output: any,
-  context: __SerdeContext
-): BundleDetails[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1BundleDetails(entry, context)
-  );
+const deserializeAws_restJson1BundleList = (output: any, context: __SerdeContext): BundleDetails[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1BundleDetails(entry, context));
 };
 
-const deserializeAws_restJson1Platforms = (
-  output: any,
-  context: __SerdeContext
-): (Platform | string)[] => {
+const deserializeAws_restJson1Platforms = (output: any, context: __SerdeContext): (Platform | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1ProjectDetails = (
-  output: any,
-  context: __SerdeContext
-): ProjectDetails => {
+const deserializeAws_restJson1ProjectDetails = (output: any, context: __SerdeContext): ProjectDetails => {
   return {
     __type: "ProjectDetails",
-    consoleUrl:
-      output.consoleUrl !== undefined && output.consoleUrl !== null
-        ? output.consoleUrl
-        : undefined,
+    consoleUrl: output.consoleUrl !== undefined && output.consoleUrl !== null ? output.consoleUrl : undefined,
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
@@ -1642,126 +1372,73 @@ const deserializeAws_restJson1ProjectDetails = (
       output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
         ? new Date(Math.round(output.lastUpdatedDate * 1000))
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    projectId:
-      output.projectId !== undefined && output.projectId !== null
-        ? output.projectId
-        : undefined,
-    region:
-      output.region !== undefined && output.region !== null
-        ? output.region
-        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    projectId: output.projectId !== undefined && output.projectId !== null ? output.projectId : undefined,
+    region: output.region !== undefined && output.region !== null ? output.region : undefined,
     resources:
       output.resources !== undefined && output.resources !== null
         ? deserializeAws_restJson1Resources(output.resources, context)
         : undefined,
-    state:
-      output.state !== undefined && output.state !== null
-        ? output.state
-        : undefined
+    state: output.state !== undefined && output.state !== null ? output.state : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ProjectSummaries = (
-  output: any,
-  context: __SerdeContext
-): ProjectSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1ProjectSummary(entry, context)
-  );
+const deserializeAws_restJson1ProjectSummaries = (output: any, context: __SerdeContext): ProjectSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1ProjectSummary(entry, context));
 };
 
-const deserializeAws_restJson1ProjectSummary = (
-  output: any,
-  context: __SerdeContext
-): ProjectSummary => {
+const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
   return {
     __type: "ProjectSummary",
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    projectId:
-      output.projectId !== undefined && output.projectId !== null
-        ? output.projectId
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    projectId: output.projectId !== undefined && output.projectId !== null ? output.projectId : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Resource = (
-  output: any,
-  context: __SerdeContext
-): Resource => {
+const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext): Resource => {
   return {
     __type: "Resource",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     attributes:
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1Attributes(output.attributes, context)
         : undefined,
-    feature:
-      output.feature !== undefined && output.feature !== null
-        ? output.feature
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    feature: output.feature !== undefined && output.feature !== null ? output.feature : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Resources = (
-  output: any,
-  context: __SerdeContext
-): Resource[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1Resource(entry, context)
-  );
+const deserializeAws_restJson1Resources = (output: any, context: __SerdeContext): Resource[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Resource(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"]
+  requestId: output.headers["x-amzn-requestid"],
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
-  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then(encoded => {
+  collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
@@ -1772,8 +1449,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

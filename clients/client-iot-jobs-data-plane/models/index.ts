@@ -1,16 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>The certificate is invalid.</p>
  */
-export interface CertificateValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CertificateValidationException extends __SmithyException, $MetadataBearer {
   name: "CertificateValidationException";
   $fault: "client";
   /**
@@ -20,13 +14,10 @@ export interface CertificateValidationException
 }
 
 export namespace CertificateValidationException {
-  export const filterSensitiveLog = (
-    obj: CertificateValidationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CertificateValidationException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CertificateValidationException =>
-    __isa(o, "CertificateValidationException");
+  export const isa = (o: any): o is CertificateValidationException => __isa(o, "CertificateValidationException");
 }
 
 export interface DescribeJobExecutionRequest {
@@ -54,13 +45,10 @@ export interface DescribeJobExecutionRequest {
 }
 
 export namespace DescribeJobExecutionRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeJobExecutionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeJobExecutionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeJobExecutionRequest =>
-    __isa(o, "DescribeJobExecutionRequest");
+  export const isa = (o: any): o is DescribeJobExecutionRequest => __isa(o, "DescribeJobExecutionRequest");
 }
 
 export interface DescribeJobExecutionResponse {
@@ -72,13 +60,10 @@ export interface DescribeJobExecutionResponse {
 }
 
 export namespace DescribeJobExecutionResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeJobExecutionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeJobExecutionResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeJobExecutionResponse =>
-    __isa(o, "DescribeJobExecutionResponse");
+  export const isa = (o: any): o is DescribeJobExecutionResponse => __isa(o, "DescribeJobExecutionResponse");
 }
 
 export interface GetPendingJobExecutionsRequest {
@@ -90,13 +75,10 @@ export interface GetPendingJobExecutionsRequest {
 }
 
 export namespace GetPendingJobExecutionsRequest {
-  export const filterSensitiveLog = (
-    obj: GetPendingJobExecutionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetPendingJobExecutionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetPendingJobExecutionsRequest =>
-    __isa(o, "GetPendingJobExecutionsRequest");
+  export const isa = (o: any): o is GetPendingJobExecutionsRequest => __isa(o, "GetPendingJobExecutionsRequest");
 }
 
 export interface GetPendingJobExecutionsResponse {
@@ -113,21 +95,16 @@ export interface GetPendingJobExecutionsResponse {
 }
 
 export namespace GetPendingJobExecutionsResponse {
-  export const filterSensitiveLog = (
-    obj: GetPendingJobExecutionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetPendingJobExecutionsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetPendingJobExecutionsResponse =>
-    __isa(o, "GetPendingJobExecutionsResponse");
+  export const isa = (o: any): o is GetPendingJobExecutionsResponse => __isa(o, "GetPendingJobExecutionsResponse");
 }
 
 /**
  * <p>The contents of the request were invalid. For example, this code is returned when an UpdateJobExecution request contains invalid status details. The message contains details about the error.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   /**
@@ -138,10 +115,9 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -149,22 +125,17 @@ export namespace InvalidRequestException {
  *          current state (for example, an attempt to change a request in state SUCCESS to state IN_PROGRESS). In this
  *          case, the body of the error message also contains the executionState field.</p>
  */
-export interface InvalidStateTransitionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidStateTransitionException extends __SmithyException, $MetadataBearer {
   name: "InvalidStateTransitionException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidStateTransitionException {
-  export const filterSensitiveLog = (
-    obj: InvalidStateTransitionException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidStateTransitionException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidStateTransitionException =>
-    __isa(o, "InvalidStateTransitionException");
+  export const isa = (o: any): o is InvalidStateTransitionException => __isa(o, "InvalidStateTransitionException");
 }
 
 /**
@@ -234,7 +205,7 @@ export interface JobExecution {
 
 export namespace JobExecution {
   export const filterSensitiveLog = (obj: JobExecution): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is JobExecution => __isa(o, "JobExecution");
 }
@@ -264,10 +235,9 @@ export interface JobExecutionState {
 
 export namespace JobExecutionState {
   export const filterSensitiveLog = (obj: JobExecutionState): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is JobExecutionState =>
-    __isa(o, "JobExecutionState");
+  export const isa = (o: any): o is JobExecutionState => __isa(o, "JobExecutionState");
 }
 
 export enum JobExecutionStatus {
@@ -278,7 +248,7 @@ export enum JobExecutionStatus {
   REJECTED = "REJECTED",
   REMOVED = "REMOVED",
   SUCCEEDED = "SUCCEEDED",
-  TIMED_OUT = "TIMED_OUT"
+  TIMED_OUT = "TIMED_OUT",
 }
 
 /**
@@ -320,18 +290,15 @@ export interface JobExecutionSummary {
 
 export namespace JobExecutionSummary {
   export const filterSensitiveLog = (obj: JobExecutionSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is JobExecutionSummary =>
-    __isa(o, "JobExecutionSummary");
+  export const isa = (o: any): o is JobExecutionSummary => __isa(o, "JobExecutionSummary");
 }
 
 /**
  * <p>The specified resource does not exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -342,18 +309,15 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>The service is temporarily unavailable.</p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -363,13 +327,10 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (
-    obj: ServiceUnavailableException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException =>
-    __isa(o, "ServiceUnavailableException");
+  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 export interface StartNextPendingJobExecutionRequest {
@@ -398,10 +359,8 @@ export interface StartNextPendingJobExecutionRequest {
 }
 
 export namespace StartNextPendingJobExecutionRequest {
-  export const filterSensitiveLog = (
-    obj: StartNextPendingJobExecutionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartNextPendingJobExecutionRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is StartNextPendingJobExecutionRequest =>
     __isa(o, "StartNextPendingJobExecutionRequest");
@@ -416,10 +375,8 @@ export interface StartNextPendingJobExecutionResponse {
 }
 
 export namespace StartNextPendingJobExecutionResponse {
-  export const filterSensitiveLog = (
-    obj: StartNextPendingJobExecutionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartNextPendingJobExecutionResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is StartNextPendingJobExecutionResponse =>
     __isa(o, "StartNextPendingJobExecutionResponse");
@@ -428,9 +385,7 @@ export namespace StartNextPendingJobExecutionResponse {
 /**
  * <p>The job is in a terminal state.</p>
  */
-export interface TerminalStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TerminalStateException extends __SmithyException, $MetadataBearer {
   name: "TerminalStateException";
   $fault: "client";
   message?: string;
@@ -438,18 +393,15 @@ export interface TerminalStateException
 
 export namespace TerminalStateException {
   export const filterSensitiveLog = (obj: TerminalStateException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TerminalStateException =>
-    __isa(o, "TerminalStateException");
+  export const isa = (o: any): o is TerminalStateException => __isa(o, "TerminalStateException");
 }
 
 /**
  * <p>The rate exceeds the limit.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   /**
@@ -465,10 +417,9 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export interface UpdateJobExecutionRequest {
@@ -534,10 +485,9 @@ export interface UpdateJobExecutionRequest {
 
 export namespace UpdateJobExecutionRequest {
   export const filterSensitiveLog = (obj: UpdateJobExecutionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateJobExecutionRequest =>
-    __isa(o, "UpdateJobExecutionRequest");
+  export const isa = (o: any): o is UpdateJobExecutionRequest => __isa(o, "UpdateJobExecutionRequest");
 }
 
 export interface UpdateJobExecutionResponse {
@@ -555,8 +505,7 @@ export interface UpdateJobExecutionResponse {
 
 export namespace UpdateJobExecutionResponse {
   export const filterSensitiveLog = (obj: UpdateJobExecutionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateJobExecutionResponse =>
-    __isa(o, "UpdateJobExecutionResponse");
+  export const isa = (o: any): o is UpdateJobExecutionResponse => __isa(o, "UpdateJobExecutionResponse");
 }

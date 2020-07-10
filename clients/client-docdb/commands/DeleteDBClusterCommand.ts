@@ -1,18 +1,11 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { DeleteDBClusterMessage, DeleteDBClusterResult } from "../models/index";
 import {
   deserializeAws_queryDeleteDBClusterCommand,
-  serializeAws_queryDeleteDBClusterCommand
+  serializeAws_queryDeleteDBClusterCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteDBClusterCommandInput = DeleteDBClusterMessage;
-export type DeleteDBClusterCommandOutput = DeleteDBClusterResult &
-  __MetadataBearer;
+export type DeleteDBClusterCommandOutput = DeleteDBClusterResult & __MetadataBearer;
 
 export class DeleteDBClusterCommand extends $Command<
   DeleteDBClusterCommandInput,
@@ -47,14 +39,12 @@ export class DeleteDBClusterCommand extends $Command<
     configuration: DocDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDBClusterCommandInput, DeleteDBClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class DeleteDBClusterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteDBClusterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDBClusterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteDBClusterCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBClusterCommandOutput> {
     return deserializeAws_queryDeleteDBClusterCommand(output, context);
   }
 

@@ -1,191 +1,104 @@
-import {
-  AssociateFleetCommandInput,
-  AssociateFleetCommandOutput
-} from "../commands/AssociateFleetCommand";
+import { AssociateFleetCommandInput, AssociateFleetCommandOutput } from "../commands/AssociateFleetCommand";
 import {
   BatchAssociateUserStackCommandInput,
-  BatchAssociateUserStackCommandOutput
+  BatchAssociateUserStackCommandOutput,
 } from "../commands/BatchAssociateUserStackCommand";
 import {
   BatchDisassociateUserStackCommandInput,
-  BatchDisassociateUserStackCommandOutput
+  BatchDisassociateUserStackCommandOutput,
 } from "../commands/BatchDisassociateUserStackCommand";
-import {
-  CopyImageCommandInput,
-  CopyImageCommandOutput
-} from "../commands/CopyImageCommand";
+import { CopyImageCommandInput, CopyImageCommandOutput } from "../commands/CopyImageCommand";
 import {
   CreateDirectoryConfigCommandInput,
-  CreateDirectoryConfigCommandOutput
+  CreateDirectoryConfigCommandOutput,
 } from "../commands/CreateDirectoryConfigCommand";
-import {
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput
-} from "../commands/CreateFleetCommand";
-import {
-  CreateImageBuilderCommandInput,
-  CreateImageBuilderCommandOutput
-} from "../commands/CreateImageBuilderCommand";
+import { CreateFleetCommandInput, CreateFleetCommandOutput } from "../commands/CreateFleetCommand";
+import { CreateImageBuilderCommandInput, CreateImageBuilderCommandOutput } from "../commands/CreateImageBuilderCommand";
 import {
   CreateImageBuilderStreamingURLCommandInput,
-  CreateImageBuilderStreamingURLCommandOutput
+  CreateImageBuilderStreamingURLCommandOutput,
 } from "../commands/CreateImageBuilderStreamingURLCommand";
-import {
-  CreateStackCommandInput,
-  CreateStackCommandOutput
-} from "../commands/CreateStackCommand";
-import {
-  CreateStreamingURLCommandInput,
-  CreateStreamingURLCommandOutput
-} from "../commands/CreateStreamingURLCommand";
+import { CreateStackCommandInput, CreateStackCommandOutput } from "../commands/CreateStackCommand";
+import { CreateStreamingURLCommandInput, CreateStreamingURLCommandOutput } from "../commands/CreateStreamingURLCommand";
 import {
   CreateUsageReportSubscriptionCommandInput,
-  CreateUsageReportSubscriptionCommandOutput
+  CreateUsageReportSubscriptionCommandOutput,
 } from "../commands/CreateUsageReportSubscriptionCommand";
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "../commands/CreateUserCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "../commands/CreateUserCommand";
 import {
   DeleteDirectoryConfigCommandInput,
-  DeleteDirectoryConfigCommandOutput
+  DeleteDirectoryConfigCommandOutput,
 } from "../commands/DeleteDirectoryConfigCommand";
-import {
-  DeleteFleetCommandInput,
-  DeleteFleetCommandOutput
-} from "../commands/DeleteFleetCommand";
-import {
-  DeleteImageBuilderCommandInput,
-  DeleteImageBuilderCommandOutput
-} from "../commands/DeleteImageBuilderCommand";
-import {
-  DeleteImageCommandInput,
-  DeleteImageCommandOutput
-} from "../commands/DeleteImageCommand";
+import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "../commands/DeleteFleetCommand";
+import { DeleteImageBuilderCommandInput, DeleteImageBuilderCommandOutput } from "../commands/DeleteImageBuilderCommand";
+import { DeleteImageCommandInput, DeleteImageCommandOutput } from "../commands/DeleteImageCommand";
 import {
   DeleteImagePermissionsCommandInput,
-  DeleteImagePermissionsCommandOutput
+  DeleteImagePermissionsCommandOutput,
 } from "../commands/DeleteImagePermissionsCommand";
-import {
-  DeleteStackCommandInput,
-  DeleteStackCommandOutput
-} from "../commands/DeleteStackCommand";
+import { DeleteStackCommandInput, DeleteStackCommandOutput } from "../commands/DeleteStackCommand";
 import {
   DeleteUsageReportSubscriptionCommandInput,
-  DeleteUsageReportSubscriptionCommandOutput
+  DeleteUsageReportSubscriptionCommandOutput,
 } from "../commands/DeleteUsageReportSubscriptionCommand";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "../commands/DeleteUserCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "../commands/DeleteUserCommand";
 import {
   DescribeDirectoryConfigsCommandInput,
-  DescribeDirectoryConfigsCommandOutput
+  DescribeDirectoryConfigsCommandOutput,
 } from "../commands/DescribeDirectoryConfigsCommand";
-import {
-  DescribeFleetsCommandInput,
-  DescribeFleetsCommandOutput
-} from "../commands/DescribeFleetsCommand";
+import { DescribeFleetsCommandInput, DescribeFleetsCommandOutput } from "../commands/DescribeFleetsCommand";
 import {
   DescribeImageBuildersCommandInput,
-  DescribeImageBuildersCommandOutput
+  DescribeImageBuildersCommandOutput,
 } from "../commands/DescribeImageBuildersCommand";
 import {
   DescribeImagePermissionsCommandInput,
-  DescribeImagePermissionsCommandOutput
+  DescribeImagePermissionsCommandOutput,
 } from "../commands/DescribeImagePermissionsCommand";
-import {
-  DescribeImagesCommandInput,
-  DescribeImagesCommandOutput
-} from "../commands/DescribeImagesCommand";
-import {
-  DescribeSessionsCommandInput,
-  DescribeSessionsCommandOutput
-} from "../commands/DescribeSessionsCommand";
-import {
-  DescribeStacksCommandInput,
-  DescribeStacksCommandOutput
-} from "../commands/DescribeStacksCommand";
+import { DescribeImagesCommandInput, DescribeImagesCommandOutput } from "../commands/DescribeImagesCommand";
+import { DescribeSessionsCommandInput, DescribeSessionsCommandOutput } from "../commands/DescribeSessionsCommand";
+import { DescribeStacksCommandInput, DescribeStacksCommandOutput } from "../commands/DescribeStacksCommand";
 import {
   DescribeUsageReportSubscriptionsCommandInput,
-  DescribeUsageReportSubscriptionsCommandOutput
+  DescribeUsageReportSubscriptionsCommandOutput,
 } from "../commands/DescribeUsageReportSubscriptionsCommand";
 import {
   DescribeUserStackAssociationsCommandInput,
-  DescribeUserStackAssociationsCommandOutput
+  DescribeUserStackAssociationsCommandOutput,
 } from "../commands/DescribeUserStackAssociationsCommand";
-import {
-  DescribeUsersCommandInput,
-  DescribeUsersCommandOutput
-} from "../commands/DescribeUsersCommand";
-import {
-  DisableUserCommandInput,
-  DisableUserCommandOutput
-} from "../commands/DisableUserCommand";
-import {
-  DisassociateFleetCommandInput,
-  DisassociateFleetCommandOutput
-} from "../commands/DisassociateFleetCommand";
-import {
-  EnableUserCommandInput,
-  EnableUserCommandOutput
-} from "../commands/EnableUserCommand";
-import {
-  ExpireSessionCommandInput,
-  ExpireSessionCommandOutput
-} from "../commands/ExpireSessionCommand";
+import { DescribeUsersCommandInput, DescribeUsersCommandOutput } from "../commands/DescribeUsersCommand";
+import { DisableUserCommandInput, DisableUserCommandOutput } from "../commands/DisableUserCommand";
+import { DisassociateFleetCommandInput, DisassociateFleetCommandOutput } from "../commands/DisassociateFleetCommand";
+import { EnableUserCommandInput, EnableUserCommandOutput } from "../commands/EnableUserCommand";
+import { ExpireSessionCommandInput, ExpireSessionCommandOutput } from "../commands/ExpireSessionCommand";
 import {
   ListAssociatedFleetsCommandInput,
-  ListAssociatedFleetsCommandOutput
+  ListAssociatedFleetsCommandOutput,
 } from "../commands/ListAssociatedFleetsCommand";
 import {
   ListAssociatedStacksCommandInput,
-  ListAssociatedStacksCommandOutput
+  ListAssociatedStacksCommandOutput,
 } from "../commands/ListAssociatedStacksCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
-import {
-  StartFleetCommandInput,
-  StartFleetCommandOutput
-} from "../commands/StartFleetCommand";
-import {
-  StartImageBuilderCommandInput,
-  StartImageBuilderCommandOutput
-} from "../commands/StartImageBuilderCommand";
-import {
-  StopFleetCommandInput,
-  StopFleetCommandOutput
-} from "../commands/StopFleetCommand";
-import {
-  StopImageBuilderCommandInput,
-  StopImageBuilderCommandOutput
-} from "../commands/StopImageBuilderCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "../commands/UntagResourceCommand";
+import { StartFleetCommandInput, StartFleetCommandOutput } from "../commands/StartFleetCommand";
+import { StartImageBuilderCommandInput, StartImageBuilderCommandOutput } from "../commands/StartImageBuilderCommand";
+import { StopFleetCommandInput, StopFleetCommandOutput } from "../commands/StopFleetCommand";
+import { StopImageBuilderCommandInput, StopImageBuilderCommandOutput } from "../commands/StopImageBuilderCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   UpdateDirectoryConfigCommandInput,
-  UpdateDirectoryConfigCommandOutput
+  UpdateDirectoryConfigCommandOutput,
 } from "../commands/UpdateDirectoryConfigCommand";
-import {
-  UpdateFleetCommandInput,
-  UpdateFleetCommandOutput
-} from "../commands/UpdateFleetCommand";
+import { UpdateFleetCommandInput, UpdateFleetCommandOutput } from "../commands/UpdateFleetCommand";
 import {
   UpdateImagePermissionsCommandInput,
-  UpdateImagePermissionsCommandOutput
+  UpdateImagePermissionsCommandOutput,
 } from "../commands/UpdateImagePermissionsCommand";
-import {
-  UpdateStackCommandInput,
-  UpdateStackCommandOutput
-} from "../commands/UpdateStackCommand";
+import { UpdateStackCommandInput, UpdateStackCommandOutput } from "../commands/UpdateStackCommand";
 import {
   AccessEndpoint,
   Application,
@@ -323,19 +236,16 @@ import {
   UserSetting,
   UserStackAssociation,
   UserStackAssociationError,
-  VpcConfig
+  VpcConfig,
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export const serializeAws_json1_1AssociateFleetCommand = async (
@@ -344,12 +254,10 @@ export const serializeAws_json1_1AssociateFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.AssociateFleet"
+    "X-Amz-Target": "PhotonAdminProxyService.AssociateFleet",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1AssociateFleetRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1AssociateFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -359,12 +267,10 @@ export const serializeAws_json1_1BatchAssociateUserStackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.BatchAssociateUserStack"
+    "X-Amz-Target": "PhotonAdminProxyService.BatchAssociateUserStack",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1BatchAssociateUserStackRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1BatchAssociateUserStackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -374,12 +280,10 @@ export const serializeAws_json1_1BatchDisassociateUserStackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.BatchDisassociateUserStack"
+    "X-Amz-Target": "PhotonAdminProxyService.BatchDisassociateUserStack",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1BatchDisassociateUserStackRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1BatchDisassociateUserStackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -389,7 +293,7 @@ export const serializeAws_json1_1CopyImageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.CopyImage"
+    "X-Amz-Target": "PhotonAdminProxyService.CopyImage",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CopyImageRequest(input, context));
@@ -402,12 +306,10 @@ export const serializeAws_json1_1CreateDirectoryConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.CreateDirectoryConfig"
+    "X-Amz-Target": "PhotonAdminProxyService.CreateDirectoryConfig",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateDirectoryConfigRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateDirectoryConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -417,7 +319,7 @@ export const serializeAws_json1_1CreateFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.CreateFleet"
+    "X-Amz-Target": "PhotonAdminProxyService.CreateFleet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateFleetRequest(input, context));
@@ -430,12 +332,10 @@ export const serializeAws_json1_1CreateImageBuilderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.CreateImageBuilder"
+    "X-Amz-Target": "PhotonAdminProxyService.CreateImageBuilder",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateImageBuilderRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateImageBuilderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -445,12 +345,10 @@ export const serializeAws_json1_1CreateImageBuilderStreamingURLCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.CreateImageBuilderStreamingURL"
+    "X-Amz-Target": "PhotonAdminProxyService.CreateImageBuilderStreamingURL",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateImageBuilderStreamingURLRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateImageBuilderStreamingURLRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -460,7 +358,7 @@ export const serializeAws_json1_1CreateStackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.CreateStack"
+    "X-Amz-Target": "PhotonAdminProxyService.CreateStack",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateStackRequest(input, context));
@@ -473,12 +371,10 @@ export const serializeAws_json1_1CreateStreamingURLCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.CreateStreamingURL"
+    "X-Amz-Target": "PhotonAdminProxyService.CreateStreamingURL",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateStreamingURLRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateStreamingURLRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -488,12 +384,10 @@ export const serializeAws_json1_1CreateUsageReportSubscriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.CreateUsageReportSubscription"
+    "X-Amz-Target": "PhotonAdminProxyService.CreateUsageReportSubscription",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateUsageReportSubscriptionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateUsageReportSubscriptionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -503,7 +397,7 @@ export const serializeAws_json1_1CreateUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.CreateUser"
+    "X-Amz-Target": "PhotonAdminProxyService.CreateUser",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateUserRequest(input, context));
@@ -516,12 +410,10 @@ export const serializeAws_json1_1DeleteDirectoryConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DeleteDirectoryConfig"
+    "X-Amz-Target": "PhotonAdminProxyService.DeleteDirectoryConfig",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteDirectoryConfigRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteDirectoryConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -531,7 +423,7 @@ export const serializeAws_json1_1DeleteFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DeleteFleet"
+    "X-Amz-Target": "PhotonAdminProxyService.DeleteFleet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteFleetRequest(input, context));
@@ -544,7 +436,7 @@ export const serializeAws_json1_1DeleteImageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DeleteImage"
+    "X-Amz-Target": "PhotonAdminProxyService.DeleteImage",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteImageRequest(input, context));
@@ -557,12 +449,10 @@ export const serializeAws_json1_1DeleteImageBuilderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DeleteImageBuilder"
+    "X-Amz-Target": "PhotonAdminProxyService.DeleteImageBuilder",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteImageBuilderRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteImageBuilderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -572,12 +462,10 @@ export const serializeAws_json1_1DeleteImagePermissionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DeleteImagePermissions"
+    "X-Amz-Target": "PhotonAdminProxyService.DeleteImagePermissions",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteImagePermissionsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteImagePermissionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -587,7 +475,7 @@ export const serializeAws_json1_1DeleteStackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DeleteStack"
+    "X-Amz-Target": "PhotonAdminProxyService.DeleteStack",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteStackRequest(input, context));
@@ -600,12 +488,10 @@ export const serializeAws_json1_1DeleteUsageReportSubscriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DeleteUsageReportSubscription"
+    "X-Amz-Target": "PhotonAdminProxyService.DeleteUsageReportSubscription",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteUsageReportSubscriptionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteUsageReportSubscriptionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -615,7 +501,7 @@ export const serializeAws_json1_1DeleteUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DeleteUser"
+    "X-Amz-Target": "PhotonAdminProxyService.DeleteUser",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteUserRequest(input, context));
@@ -628,12 +514,10 @@ export const serializeAws_json1_1DescribeDirectoryConfigsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DescribeDirectoryConfigs"
+    "X-Amz-Target": "PhotonAdminProxyService.DescribeDirectoryConfigs",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeDirectoryConfigsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeDirectoryConfigsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -643,12 +527,10 @@ export const serializeAws_json1_1DescribeFleetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DescribeFleets"
+    "X-Amz-Target": "PhotonAdminProxyService.DescribeFleets",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeFleetsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeFleetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -658,12 +540,10 @@ export const serializeAws_json1_1DescribeImageBuildersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DescribeImageBuilders"
+    "X-Amz-Target": "PhotonAdminProxyService.DescribeImageBuilders",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeImageBuildersRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeImageBuildersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -673,12 +553,10 @@ export const serializeAws_json1_1DescribeImagePermissionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DescribeImagePermissions"
+    "X-Amz-Target": "PhotonAdminProxyService.DescribeImagePermissions",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeImagePermissionsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeImagePermissionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -688,12 +566,10 @@ export const serializeAws_json1_1DescribeImagesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DescribeImages"
+    "X-Amz-Target": "PhotonAdminProxyService.DescribeImages",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeImagesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeImagesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -703,12 +579,10 @@ export const serializeAws_json1_1DescribeSessionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DescribeSessions"
+    "X-Amz-Target": "PhotonAdminProxyService.DescribeSessions",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeSessionsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeSessionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -718,12 +592,10 @@ export const serializeAws_json1_1DescribeStacksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DescribeStacks"
+    "X-Amz-Target": "PhotonAdminProxyService.DescribeStacks",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeStacksRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeStacksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -733,12 +605,10 @@ export const serializeAws_json1_1DescribeUsageReportSubscriptionsCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DescribeUsageReportSubscriptions"
+    "X-Amz-Target": "PhotonAdminProxyService.DescribeUsageReportSubscriptions",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeUsageReportSubscriptionsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeUsageReportSubscriptionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -748,12 +618,10 @@ export const serializeAws_json1_1DescribeUsersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DescribeUsers"
+    "X-Amz-Target": "PhotonAdminProxyService.DescribeUsers",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeUsersRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeUsersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -763,12 +631,10 @@ export const serializeAws_json1_1DescribeUserStackAssociationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DescribeUserStackAssociations"
+    "X-Amz-Target": "PhotonAdminProxyService.DescribeUserStackAssociations",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeUserStackAssociationsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeUserStackAssociationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -778,7 +644,7 @@ export const serializeAws_json1_1DisableUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DisableUser"
+    "X-Amz-Target": "PhotonAdminProxyService.DisableUser",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisableUserRequest(input, context));
@@ -791,12 +657,10 @@ export const serializeAws_json1_1DisassociateFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DisassociateFleet"
+    "X-Amz-Target": "PhotonAdminProxyService.DisassociateFleet",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DisassociateFleetRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DisassociateFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -806,7 +670,7 @@ export const serializeAws_json1_1EnableUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.EnableUser"
+    "X-Amz-Target": "PhotonAdminProxyService.EnableUser",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1EnableUserRequest(input, context));
@@ -819,12 +683,10 @@ export const serializeAws_json1_1ExpireSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.ExpireSession"
+    "X-Amz-Target": "PhotonAdminProxyService.ExpireSession",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ExpireSessionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ExpireSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -834,12 +696,10 @@ export const serializeAws_json1_1ListAssociatedFleetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.ListAssociatedFleets"
+    "X-Amz-Target": "PhotonAdminProxyService.ListAssociatedFleets",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListAssociatedFleetsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListAssociatedFleetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -849,12 +709,10 @@ export const serializeAws_json1_1ListAssociatedStacksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.ListAssociatedStacks"
+    "X-Amz-Target": "PhotonAdminProxyService.ListAssociatedStacks",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListAssociatedStacksRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListAssociatedStacksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -864,12 +722,10 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.ListTagsForResource"
+    "X-Amz-Target": "PhotonAdminProxyService.ListTagsForResource",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListTagsForResourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -879,7 +735,7 @@ export const serializeAws_json1_1StartFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.StartFleet"
+    "X-Amz-Target": "PhotonAdminProxyService.StartFleet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartFleetRequest(input, context));
@@ -892,12 +748,10 @@ export const serializeAws_json1_1StartImageBuilderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.StartImageBuilder"
+    "X-Amz-Target": "PhotonAdminProxyService.StartImageBuilder",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartImageBuilderRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartImageBuilderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -907,7 +761,7 @@ export const serializeAws_json1_1StopFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.StopFleet"
+    "X-Amz-Target": "PhotonAdminProxyService.StopFleet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopFleetRequest(input, context));
@@ -920,12 +774,10 @@ export const serializeAws_json1_1StopImageBuilderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.StopImageBuilder"
+    "X-Amz-Target": "PhotonAdminProxyService.StopImageBuilder",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StopImageBuilderRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StopImageBuilderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -935,7 +787,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.TagResource"
+    "X-Amz-Target": "PhotonAdminProxyService.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
@@ -948,12 +800,10 @@ export const serializeAws_json1_1UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.UntagResource"
+    "X-Amz-Target": "PhotonAdminProxyService.UntagResource",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UntagResourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -963,12 +813,10 @@ export const serializeAws_json1_1UpdateDirectoryConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.UpdateDirectoryConfig"
+    "X-Amz-Target": "PhotonAdminProxyService.UpdateDirectoryConfig",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateDirectoryConfigRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateDirectoryConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -978,7 +826,7 @@ export const serializeAws_json1_1UpdateFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.UpdateFleet"
+    "X-Amz-Target": "PhotonAdminProxyService.UpdateFleet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateFleetRequest(input, context));
@@ -991,12 +839,10 @@ export const serializeAws_json1_1UpdateImagePermissionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.UpdateImagePermissions"
+    "X-Amz-Target": "PhotonAdminProxyService.UpdateImagePermissions",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateImagePermissionsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateImagePermissionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1006,7 +852,7 @@ export const serializeAws_json1_1UpdateStackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.UpdateStack"
+    "X-Amz-Target": "PhotonAdminProxyService.UpdateStack",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateStackRequest(input, context));
@@ -1026,7 +872,7 @@ export const deserializeAws_json1_1AssociateFleetCommand = async (
   const response: AssociateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssociateFleetResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1037,78 +883,59 @@ const deserializeAws_json1_1AssociateFleetCommandError = async (
 ): Promise<AssociateFleetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IncompatibleImageException":
     case "com.amazonaws.appstream#IncompatibleImageException":
       response = {
-        ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
-        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1119,7 +946,7 @@ const deserializeAws_json1_1AssociateFleetCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1133,10 +960,7 @@ export const deserializeAws_json1_1BatchAssociateUserStackCommand = async (
   context: __SerdeContext
 ): Promise<BatchAssociateUserStackCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1BatchAssociateUserStackCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1BatchAssociateUserStackCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1144,7 +968,7 @@ export const deserializeAws_json1_1BatchAssociateUserStackCommand = async (
   const response: BatchAssociateUserStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchAssociateUserStackResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1155,23 +979,19 @@ const deserializeAws_json1_1BatchAssociateUserStackCommandError = async (
 ): Promise<BatchAssociateUserStackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1182,7 +1002,7 @@ const deserializeAws_json1_1BatchAssociateUserStackCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1196,21 +1016,15 @@ export const deserializeAws_json1_1BatchDisassociateUserStackCommand = async (
   context: __SerdeContext
 ): Promise<BatchDisassociateUserStackCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1BatchDisassociateUserStackCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1BatchDisassociateUserStackCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDisassociateUserStackResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1BatchDisassociateUserStackResult(data, context);
   const response: BatchDisassociateUserStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchDisassociateUserStackResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1221,13 +1035,12 @@ const deserializeAws_json1_1BatchDisassociateUserStackCommandError = async (
 ): Promise<BatchDisassociateUserStackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -1237,7 +1050,7 @@ const deserializeAws_json1_1BatchDisassociateUserStackCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1259,7 +1072,7 @@ export const deserializeAws_json1_1CopyImageCommand = async (
   const response: CopyImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CopyImageResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1270,78 +1083,59 @@ const deserializeAws_json1_1CopyImageCommandError = async (
 ): Promise<CopyImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IncompatibleImageException":
     case "com.amazonaws.appstream#IncompatibleImageException":
       response = {
-        ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
-        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotAvailableException":
     case "com.amazonaws.appstream#ResourceNotAvailableException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1352,7 +1146,7 @@ const deserializeAws_json1_1CopyImageCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1366,10 +1160,7 @@ export const deserializeAws_json1_1CreateDirectoryConfigCommand = async (
   context: __SerdeContext
 ): Promise<CreateDirectoryConfigCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateDirectoryConfigCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateDirectoryConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1377,7 +1168,7 @@ export const deserializeAws_json1_1CreateDirectoryConfigCommand = async (
   const response: CreateDirectoryConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDirectoryConfigResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1388,45 +1179,35 @@ const deserializeAws_json1_1CreateDirectoryConfigCommandError = async (
 ): Promise<CreateDirectoryConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
-        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1437,7 +1218,7 @@ const deserializeAws_json1_1CreateDirectoryConfigCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1459,7 +1240,7 @@ export const deserializeAws_json1_1CreateFleetCommand = async (
   const response: CreateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateFleetResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1470,122 +1251,91 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
 ): Promise<CreateFleetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IncompatibleImageException":
     case "com.amazonaws.appstream#IncompatibleImageException":
       response = {
-        ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
-        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRoleException":
     case "com.amazonaws.appstream#InvalidRoleException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotAvailableException":
     case "com.amazonaws.appstream#ResourceNotAvailableException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1596,7 +1346,7 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1610,10 +1360,7 @@ export const deserializeAws_json1_1CreateImageBuilderCommand = async (
   context: __SerdeContext
 ): Promise<CreateImageBuilderCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateImageBuilderCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateImageBuilderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1621,7 +1368,7 @@ export const deserializeAws_json1_1CreateImageBuilderCommand = async (
   const response: CreateImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateImageBuilderResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1632,122 +1379,91 @@ const deserializeAws_json1_1CreateImageBuilderCommandError = async (
 ): Promise<CreateImageBuilderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IncompatibleImageException":
     case "com.amazonaws.appstream#IncompatibleImageException":
       response = {
-        ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
-        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRoleException":
     case "com.amazonaws.appstream#InvalidRoleException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotAvailableException":
     case "com.amazonaws.appstream#ResourceNotAvailableException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1758,7 +1474,7 @@ const deserializeAws_json1_1CreateImageBuilderCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1772,21 +1488,15 @@ export const deserializeAws_json1_1CreateImageBuilderStreamingURLCommand = async
   context: __SerdeContext
 ): Promise<CreateImageBuilderStreamingURLCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateImageBuilderStreamingURLCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateImageBuilderStreamingURLCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateImageBuilderStreamingURLResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1CreateImageBuilderStreamingURLResult(data, context);
   const response: CreateImageBuilderStreamingURLCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateImageBuilderStreamingURLResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1797,34 +1507,27 @@ const deserializeAws_json1_1CreateImageBuilderStreamingURLCommandError = async (
 ): Promise<CreateImageBuilderStreamingURLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1835,7 +1538,7 @@ const deserializeAws_json1_1CreateImageBuilderStreamingURLCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1857,7 +1560,7 @@ export const deserializeAws_json1_1CreateStackCommand = async (
   const response: CreateStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateStackResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1868,89 +1571,67 @@ const deserializeAws_json1_1CreateStackCommandError = async (
 ): Promise<CreateStackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
-        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRoleException":
     case "com.amazonaws.appstream#InvalidRoleException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -1961,7 +1642,7 @@ const deserializeAws_json1_1CreateStackCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -1975,10 +1656,7 @@ export const deserializeAws_json1_1CreateStreamingURLCommand = async (
   context: __SerdeContext
 ): Promise<CreateStreamingURLCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateStreamingURLCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateStreamingURLCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1986,7 +1664,7 @@ export const deserializeAws_json1_1CreateStreamingURLCommand = async (
   const response: CreateStreamingURLCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateStreamingURLResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -1997,56 +1675,43 @@ const deserializeAws_json1_1CreateStreamingURLCommandError = async (
 ): Promise<CreateStreamingURLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotAvailableException":
     case "com.amazonaws.appstream#ResourceNotAvailableException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2057,7 +1722,7 @@ const deserializeAws_json1_1CreateStreamingURLCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2071,21 +1736,15 @@ export const deserializeAws_json1_1CreateUsageReportSubscriptionCommand = async 
   context: __SerdeContext
 ): Promise<CreateUsageReportSubscriptionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateUsageReportSubscriptionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateUsageReportSubscriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUsageReportSubscriptionResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1CreateUsageReportSubscriptionResult(data, context);
   const response: CreateUsageReportSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUsageReportSubscriptionResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2096,45 +1755,35 @@ const deserializeAws_json1_1CreateUsageReportSubscriptionCommandError = async (
 ): Promise<CreateUsageReportSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
-        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRoleException":
     case "com.amazonaws.appstream#InvalidRoleException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2145,7 +1794,7 @@ const deserializeAws_json1_1CreateUsageReportSubscriptionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2167,7 +1816,7 @@ export const deserializeAws_json1_1CreateUserCommand = async (
   const response: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUserResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2178,67 +1827,51 @@ const deserializeAws_json1_1CreateUserCommandError = async (
 ): Promise<CreateUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
-        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2249,7 +1882,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2263,10 +1896,7 @@ export const deserializeAws_json1_1DeleteDirectoryConfigCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDirectoryConfigCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteDirectoryConfigCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteDirectoryConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2274,7 +1904,7 @@ export const deserializeAws_json1_1DeleteDirectoryConfigCommand = async (
   const response: DeleteDirectoryConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDirectoryConfigResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2285,34 +1915,27 @@ const deserializeAws_json1_1DeleteDirectoryConfigCommandError = async (
 ): Promise<DeleteDirectoryConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUseException":
     case "com.amazonaws.appstream#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2323,7 +1946,7 @@ const deserializeAws_json1_1DeleteDirectoryConfigCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2345,7 +1968,7 @@ export const deserializeAws_json1_1DeleteFleetCommand = async (
   const response: DeleteFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteFleetResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2356,45 +1979,35 @@ const deserializeAws_json1_1DeleteFleetCommandError = async (
 ): Promise<DeleteFleetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.appstream#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2405,7 +2018,7 @@ const deserializeAws_json1_1DeleteFleetCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2427,7 +2040,7 @@ export const deserializeAws_json1_1DeleteImageCommand = async (
   const response: DeleteImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteImageResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2438,56 +2051,43 @@ const deserializeAws_json1_1DeleteImageCommandError = async (
 ): Promise<DeleteImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.appstream#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2498,7 +2098,7 @@ const deserializeAws_json1_1DeleteImageCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2512,10 +2112,7 @@ export const deserializeAws_json1_1DeleteImageBuilderCommand = async (
   context: __SerdeContext
 ): Promise<DeleteImageBuilderCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteImageBuilderCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteImageBuilderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2523,7 +2120,7 @@ export const deserializeAws_json1_1DeleteImageBuilderCommand = async (
   const response: DeleteImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteImageBuilderResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2534,45 +2131,35 @@ const deserializeAws_json1_1DeleteImageBuilderCommandError = async (
 ): Promise<DeleteImageBuilderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2583,7 +2170,7 @@ const deserializeAws_json1_1DeleteImageBuilderCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2597,10 +2184,7 @@ export const deserializeAws_json1_1DeleteImagePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteImagePermissionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteImagePermissionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteImagePermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2608,7 +2192,7 @@ export const deserializeAws_json1_1DeleteImagePermissionsCommand = async (
   const response: DeleteImagePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteImagePermissionsResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2619,34 +2203,27 @@ const deserializeAws_json1_1DeleteImagePermissionsCommandError = async (
 ): Promise<DeleteImagePermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotAvailableException":
     case "com.amazonaws.appstream#ResourceNotAvailableException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2657,7 +2234,7 @@ const deserializeAws_json1_1DeleteImagePermissionsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2679,7 +2256,7 @@ export const deserializeAws_json1_1DeleteStackCommand = async (
   const response: DeleteStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteStackResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2690,45 +2267,35 @@ const deserializeAws_json1_1DeleteStackCommandError = async (
 ): Promise<DeleteStackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.appstream#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2739,7 +2306,7 @@ const deserializeAws_json1_1DeleteStackCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2753,21 +2320,15 @@ export const deserializeAws_json1_1DeleteUsageReportSubscriptionCommand = async 
   context: __SerdeContext
 ): Promise<DeleteUsageReportSubscriptionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteUsageReportSubscriptionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteUsageReportSubscriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteUsageReportSubscriptionResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteUsageReportSubscriptionResult(data, context);
   const response: DeleteUsageReportSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteUsageReportSubscriptionResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2778,34 +2339,27 @@ const deserializeAws_json1_1DeleteUsageReportSubscriptionCommandError = async (
 ): Promise<DeleteUsageReportSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
-        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2816,7 +2370,7 @@ const deserializeAws_json1_1DeleteUsageReportSubscriptionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2838,7 +2392,7 @@ export const deserializeAws_json1_1DeleteUserCommand = async (
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteUserResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2849,23 +2403,19 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
 ): Promise<DeleteUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2876,7 +2426,7 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2890,21 +2440,15 @@ export const deserializeAws_json1_1DescribeDirectoryConfigsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDirectoryConfigsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeDirectoryConfigsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDirectoryConfigsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDirectoryConfigsResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeDirectoryConfigsResult(data, context);
   const response: DescribeDirectoryConfigsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeDirectoryConfigsResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2915,23 +2459,19 @@ const deserializeAws_json1_1DescribeDirectoryConfigsCommandError = async (
 ): Promise<DescribeDirectoryConfigsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -2942,7 +2482,7 @@ const deserializeAws_json1_1DescribeDirectoryConfigsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -2964,7 +2504,7 @@ export const deserializeAws_json1_1DescribeFleetsCommand = async (
   const response: DescribeFleetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeFleetsResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2975,23 +2515,19 @@ const deserializeAws_json1_1DescribeFleetsCommandError = async (
 ): Promise<DescribeFleetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3002,7 +2538,7 @@ const deserializeAws_json1_1DescribeFleetsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3016,10 +2552,7 @@ export const deserializeAws_json1_1DescribeImageBuildersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeImageBuildersCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeImageBuildersCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeImageBuildersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3027,7 +2560,7 @@ export const deserializeAws_json1_1DescribeImageBuildersCommand = async (
   const response: DescribeImageBuildersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeImageBuildersResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3038,23 +2571,19 @@ const deserializeAws_json1_1DescribeImageBuildersCommandError = async (
 ): Promise<DescribeImageBuildersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3065,7 +2594,7 @@ const deserializeAws_json1_1DescribeImageBuildersCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3079,21 +2608,15 @@ export const deserializeAws_json1_1DescribeImagePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeImagePermissionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeImagePermissionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeImagePermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeImagePermissionsResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeImagePermissionsResult(data, context);
   const response: DescribeImagePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeImagePermissionsResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3104,23 +2627,19 @@ const deserializeAws_json1_1DescribeImagePermissionsCommandError = async (
 ): Promise<DescribeImagePermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3131,7 +2650,7 @@ const deserializeAws_json1_1DescribeImagePermissionsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3153,7 +2672,7 @@ export const deserializeAws_json1_1DescribeImagesCommand = async (
   const response: DescribeImagesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeImagesResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3164,34 +2683,27 @@ const deserializeAws_json1_1DescribeImagesCommandError = async (
 ): Promise<DescribeImagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3202,7 +2714,7 @@ const deserializeAws_json1_1DescribeImagesCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3224,7 +2736,7 @@ export const deserializeAws_json1_1DescribeSessionsCommand = async (
   const response: DescribeSessionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeSessionsResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3235,23 +2747,19 @@ const deserializeAws_json1_1DescribeSessionsCommandError = async (
 ): Promise<DescribeSessionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3262,7 +2770,7 @@ const deserializeAws_json1_1DescribeSessionsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3284,7 +2792,7 @@ export const deserializeAws_json1_1DescribeStacksCommand = async (
   const response: DescribeStacksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStacksResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3295,23 +2803,19 @@ const deserializeAws_json1_1DescribeStacksCommandError = async (
 ): Promise<DescribeStacksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3322,7 +2826,7 @@ const deserializeAws_json1_1DescribeStacksCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3336,21 +2840,15 @@ export const deserializeAws_json1_1DescribeUsageReportSubscriptionsCommand = asy
   context: __SerdeContext
 ): Promise<DescribeUsageReportSubscriptionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeUsageReportSubscriptionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeUsageReportSubscriptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUsageReportSubscriptionsResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeUsageReportSubscriptionsResult(data, context);
   const response: DescribeUsageReportSubscriptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeUsageReportSubscriptionsResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3361,34 +2859,27 @@ const deserializeAws_json1_1DescribeUsageReportSubscriptionsCommandError = async
 ): Promise<DescribeUsageReportSubscriptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
-        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3399,7 +2890,7 @@ const deserializeAws_json1_1DescribeUsageReportSubscriptionsCommandError = async
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3421,7 +2912,7 @@ export const deserializeAws_json1_1DescribeUsersCommand = async (
   const response: DescribeUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeUsersResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3432,34 +2923,27 @@ const deserializeAws_json1_1DescribeUsersCommandError = async (
 ): Promise<DescribeUsersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3470,7 +2954,7 @@ const deserializeAws_json1_1DescribeUsersCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3484,21 +2968,15 @@ export const deserializeAws_json1_1DescribeUserStackAssociationsCommand = async 
   context: __SerdeContext
 ): Promise<DescribeUserStackAssociationsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeUserStackAssociationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeUserStackAssociationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUserStackAssociationsResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeUserStackAssociationsResult(data, context);
   const response: DescribeUserStackAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeUserStackAssociationsResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3509,23 +2987,19 @@ const deserializeAws_json1_1DescribeUserStackAssociationsCommandError = async (
 ): Promise<DescribeUserStackAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3536,7 +3010,7 @@ const deserializeAws_json1_1DescribeUserStackAssociationsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3558,7 +3032,7 @@ export const deserializeAws_json1_1DisableUserCommand = async (
   const response: DisableUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisableUserResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3569,23 +3043,19 @@ const deserializeAws_json1_1DisableUserCommandError = async (
 ): Promise<DisableUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3596,7 +3066,7 @@ const deserializeAws_json1_1DisableUserCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3618,7 +3088,7 @@ export const deserializeAws_json1_1DisassociateFleetCommand = async (
   const response: DisassociateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisassociateFleetResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3629,45 +3099,35 @@ const deserializeAws_json1_1DisassociateFleetCommandError = async (
 ): Promise<DisassociateFleetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.appstream#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3678,7 +3138,7 @@ const deserializeAws_json1_1DisassociateFleetCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3700,7 +3160,7 @@ export const deserializeAws_json1_1EnableUserCommand = async (
   const response: EnableUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "EnableUserResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3711,34 +3171,27 @@ const deserializeAws_json1_1EnableUserCommandError = async (
 ): Promise<EnableUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
-        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3749,7 +3202,7 @@ const deserializeAws_json1_1EnableUserCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3771,7 +3224,7 @@ export const deserializeAws_json1_1ExpireSessionCommand = async (
   const response: ExpireSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ExpireSessionResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3782,13 +3235,12 @@ const deserializeAws_json1_1ExpireSessionCommandError = async (
 ): Promise<ExpireSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -3798,7 +3250,7 @@ const deserializeAws_json1_1ExpireSessionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3812,10 +3264,7 @@ export const deserializeAws_json1_1ListAssociatedFleetsCommand = async (
   context: __SerdeContext
 ): Promise<ListAssociatedFleetsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListAssociatedFleetsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListAssociatedFleetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3823,7 +3272,7 @@ export const deserializeAws_json1_1ListAssociatedFleetsCommand = async (
   const response: ListAssociatedFleetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAssociatedFleetsResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3834,13 +3283,12 @@ const deserializeAws_json1_1ListAssociatedFleetsCommandError = async (
 ): Promise<ListAssociatedFleetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -3850,7 +3298,7 @@ const deserializeAws_json1_1ListAssociatedFleetsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3864,10 +3312,7 @@ export const deserializeAws_json1_1ListAssociatedStacksCommand = async (
   context: __SerdeContext
 ): Promise<ListAssociatedStacksCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListAssociatedStacksCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListAssociatedStacksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3875,7 +3320,7 @@ export const deserializeAws_json1_1ListAssociatedStacksCommand = async (
   const response: ListAssociatedStacksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAssociatedStacksResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3886,13 +3331,12 @@ const deserializeAws_json1_1ListAssociatedStacksCommandError = async (
 ): Promise<ListAssociatedStacksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -3902,7 +3346,7 @@ const deserializeAws_json1_1ListAssociatedStacksCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3916,10 +3360,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3927,7 +3368,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3938,23 +3379,19 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -3965,7 +3402,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -3987,7 +3424,7 @@ export const deserializeAws_json1_1StartFleetCommand = async (
   const response: StartFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartFleetResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -3998,89 +3435,67 @@ const deserializeAws_json1_1StartFleetCommandError = async (
 ): Promise<StartFleetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
-        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRoleException":
     case "com.amazonaws.appstream#InvalidRoleException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotAvailableException":
     case "com.amazonaws.appstream#ResourceNotAvailableException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4091,7 +3506,7 @@ const deserializeAws_json1_1StartFleetCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4113,7 +3528,7 @@ export const deserializeAws_json1_1StartImageBuilderCommand = async (
   const response: StartImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartImageBuilderResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -4124,67 +3539,51 @@ const deserializeAws_json1_1StartImageBuilderCommandError = async (
 ): Promise<StartImageBuilderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IncompatibleImageException":
     case "com.amazonaws.appstream#IncompatibleImageException":
       response = {
-        ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
-        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotAvailableException":
     case "com.amazonaws.appstream#ResourceNotAvailableException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4195,7 +3594,7 @@ const deserializeAws_json1_1StartImageBuilderCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4217,7 +3616,7 @@ export const deserializeAws_json1_1StopFleetCommand = async (
   const response: StopFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopFleetResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -4228,34 +3627,27 @@ const deserializeAws_json1_1StopFleetCommandError = async (
 ): Promise<StopFleetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4266,7 +3658,7 @@ const deserializeAws_json1_1StopFleetCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4288,7 +3680,7 @@ export const deserializeAws_json1_1StopImageBuilderCommand = async (
   const response: StopImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopImageBuilderResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -4299,45 +3691,35 @@ const deserializeAws_json1_1StopImageBuilderCommandError = async (
 ): Promise<StopImageBuilderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4348,7 +3730,7 @@ const deserializeAws_json1_1StopImageBuilderCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4370,7 +3752,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -4381,45 +3763,35 @@ const deserializeAws_json1_1TagResourceCommandError = async (
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
-        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4430,7 +3802,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4452,7 +3824,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -4463,23 +3835,19 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4490,7 +3858,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4504,10 +3872,7 @@ export const deserializeAws_json1_1UpdateDirectoryConfigCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDirectoryConfigCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateDirectoryConfigCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateDirectoryConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4515,7 +3880,7 @@ export const deserializeAws_json1_1UpdateDirectoryConfigCommand = async (
   const response: UpdateDirectoryConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDirectoryConfigResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -4526,45 +3891,35 @@ const deserializeAws_json1_1UpdateDirectoryConfigCommandError = async (
 ): Promise<UpdateDirectoryConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.appstream#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4575,7 +3930,7 @@ const deserializeAws_json1_1UpdateDirectoryConfigCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4597,7 +3952,7 @@ export const deserializeAws_json1_1UpdateFleetCommand = async (
   const response: UpdateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateFleetResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -4608,122 +3963,91 @@ const deserializeAws_json1_1UpdateFleetCommandError = async (
 ): Promise<UpdateFleetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IncompatibleImageException":
     case "com.amazonaws.appstream#IncompatibleImageException":
       response = {
-        ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
-        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRoleException":
     case "com.amazonaws.appstream#InvalidRoleException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.appstream#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotAvailableException":
     case "com.amazonaws.appstream#ResourceNotAvailableException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4734,7 +4058,7 @@ const deserializeAws_json1_1UpdateFleetCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4748,10 +4072,7 @@ export const deserializeAws_json1_1UpdateImagePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateImagePermissionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateImagePermissionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateImagePermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4759,7 +4080,7 @@ export const deserializeAws_json1_1UpdateImagePermissionsCommand = async (
   const response: UpdateImagePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateImagePermissionsResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -4770,45 +4091,35 @@ const deserializeAws_json1_1UpdateImagePermissionsCommandError = async (
 ): Promise<UpdateImagePermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotAvailableException":
     case "com.amazonaws.appstream#ResourceNotAvailableException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4819,7 +4130,7 @@ const deserializeAws_json1_1UpdateImagePermissionsCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4841,7 +4152,7 @@ export const deserializeAws_json1_1UpdateStackCommand = async (
   const response: UpdateStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateStackResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -4852,111 +4163,83 @@ const deserializeAws_json1_1UpdateStackCommandError = async (
 ): Promise<UpdateStackCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "IncompatibleImageException":
     case "com.amazonaws.appstream#IncompatibleImageException":
       response = {
-        ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidAccountStatusException":
     case "com.amazonaws.appstream#InvalidAccountStatusException":
       response = {
-        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InvalidRoleException":
     case "com.amazonaws.appstream#InvalidRoleException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.appstream#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -4967,7 +4250,7 @@ const deserializeAws_json1_1UpdateStackCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -4981,15 +4264,12 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(body, context);
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4999,15 +4279,12 @@ const deserializeAws_json1_1IncompatibleImageExceptionResponse = async (
   context: __SerdeContext
 ): Promise<IncompatibleImageException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1IncompatibleImageException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1IncompatibleImageException(body, context);
   const contents: IncompatibleImageException = {
     name: "IncompatibleImageException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5017,15 +4294,12 @@ const deserializeAws_json1_1InvalidAccountStatusExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidAccountStatusException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidAccountStatusException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidAccountStatusException(body, context);
   const contents: InvalidAccountStatusException = {
     name: "InvalidAccountStatusException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5035,15 +4309,12 @@ const deserializeAws_json1_1InvalidParameterCombinationExceptionResponse = async
   context: __SerdeContext
 ): Promise<InvalidParameterCombinationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterCombinationException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidParameterCombinationException(body, context);
   const contents: InvalidParameterCombinationException = {
     name: "InvalidParameterCombinationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5053,15 +4324,12 @@ const deserializeAws_json1_1InvalidRoleExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidRoleException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRoleException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidRoleException(body, context);
   const contents: InvalidRoleException = {
     name: "InvalidRoleException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5071,15 +4339,12 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5089,15 +4354,12 @@ const deserializeAws_json1_1OperationNotPermittedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<OperationNotPermittedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OperationNotPermittedException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1OperationNotPermittedException(body, context);
   const contents: OperationNotPermittedException = {
     name: "OperationNotPermittedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5107,15 +4369,12 @@ const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistsException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistsException(body, context);
   const contents: ResourceAlreadyExistsException = {
     name: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5125,15 +4384,12 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceInUseException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceInUseException(body, context);
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5143,15 +4399,12 @@ const deserializeAws_json1_1ResourceNotAvailableExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotAvailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotAvailableException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotAvailableException(body, context);
   const contents: ResourceNotAvailableException = {
     name: "ResourceNotAvailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -5161,72 +4414,47 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
 
-const serializeAws_json1_1AccessEndpoint = (
-  input: AccessEndpoint,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1AccessEndpoint = (input: AccessEndpoint, context: __SerdeContext): any => {
   return {
-    ...(input.EndpointType !== undefined && {
-      EndpointType: input.EndpointType
-    }),
-    ...(input.VpceId !== undefined && { VpceId: input.VpceId })
+    ...(input.EndpointType !== undefined && { EndpointType: input.EndpointType }),
+    ...(input.VpceId !== undefined && { VpceId: input.VpceId }),
   };
 };
 
-const serializeAws_json1_1AccessEndpointList = (
-  input: AccessEndpoint[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_json1_1AccessEndpoint(entry, context));
+const serializeAws_json1_1AccessEndpointList = (input: AccessEndpoint[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1AccessEndpoint(entry, context));
 };
 
-const serializeAws_json1_1ApplicationSettings = (
-  input: ApplicationSettings,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ApplicationSettings = (input: ApplicationSettings, context: __SerdeContext): any => {
   return {
     ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
-    ...(input.SettingsGroup !== undefined && {
-      SettingsGroup: input.SettingsGroup
-    })
+    ...(input.SettingsGroup !== undefined && { SettingsGroup: input.SettingsGroup }),
   };
 };
 
-const serializeAws_json1_1ArnList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
+const serializeAws_json1_1ArnList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
-const serializeAws_json1_1AssociateFleetRequest = (
-  input: AssociateFleetRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1AssociateFleetRequest = (input: AssociateFleetRequest, context: __SerdeContext): any => {
   return {
     ...(input.FleetName !== undefined && { FleetName: input.FleetName }),
-    ...(input.StackName !== undefined && { StackName: input.StackName })
+    ...(input.StackName !== undefined && { StackName: input.StackName }),
   };
 };
 
-const serializeAws_json1_1AwsAccountIdList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
+const serializeAws_json1_1AwsAccountIdList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
 const serializeAws_json1_1BatchAssociateUserStackRequest = (
@@ -5235,11 +4463,8 @@ const serializeAws_json1_1BatchAssociateUserStackRequest = (
 ): any => {
   return {
     ...(input.UserStackAssociations !== undefined && {
-      UserStackAssociations: serializeAws_json1_1UserStackAssociationList(
-        input.UserStackAssociations,
-        context
-      )
-    })
+      UserStackAssociations: serializeAws_json1_1UserStackAssociationList(input.UserStackAssociations, context),
+    }),
   };
 };
 
@@ -5249,42 +4474,25 @@ const serializeAws_json1_1BatchDisassociateUserStackRequest = (
 ): any => {
   return {
     ...(input.UserStackAssociations !== undefined && {
-      UserStackAssociations: serializeAws_json1_1UserStackAssociationList(
-        input.UserStackAssociations,
-        context
-      )
-    })
+      UserStackAssociations: serializeAws_json1_1UserStackAssociationList(input.UserStackAssociations, context),
+    }),
   };
 };
 
-const serializeAws_json1_1ComputeCapacity = (
-  input: ComputeCapacity,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ComputeCapacity = (input: ComputeCapacity, context: __SerdeContext): any => {
   return {
-    ...(input.DesiredInstances !== undefined && {
-      DesiredInstances: input.DesiredInstances
-    })
+    ...(input.DesiredInstances !== undefined && { DesiredInstances: input.DesiredInstances }),
   };
 };
 
-const serializeAws_json1_1CopyImageRequest = (
-  input: CopyImageRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CopyImageRequest = (input: CopyImageRequest, context: __SerdeContext): any => {
   return {
     ...(input.DestinationImageDescription !== undefined && {
-      DestinationImageDescription: input.DestinationImageDescription
+      DestinationImageDescription: input.DestinationImageDescription,
     }),
-    ...(input.DestinationImageName !== undefined && {
-      DestinationImageName: input.DestinationImageName
-    }),
-    ...(input.DestinationRegion !== undefined && {
-      DestinationRegion: input.DestinationRegion
-    }),
-    ...(input.SourceImageName !== undefined && {
-      SourceImageName: input.SourceImageName
-    })
+    ...(input.DestinationImageName !== undefined && { DestinationImageName: input.DestinationImageName }),
+    ...(input.DestinationRegion !== undefined && { DestinationRegion: input.DestinationRegion }),
+    ...(input.SourceImageName !== undefined && { SourceImageName: input.SourceImageName }),
   };
 };
 
@@ -5293,69 +4501,50 @@ const serializeAws_json1_1CreateDirectoryConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryName !== undefined && {
-      DirectoryName: input.DirectoryName
-    }),
+    ...(input.DirectoryName !== undefined && { DirectoryName: input.DirectoryName }),
     ...(input.OrganizationalUnitDistinguishedNames !== undefined && {
       OrganizationalUnitDistinguishedNames: serializeAws_json1_1OrganizationalUnitDistinguishedNamesList(
         input.OrganizationalUnitDistinguishedNames,
         context
-      )
+      ),
     }),
     ...(input.ServiceAccountCredentials !== undefined && {
       ServiceAccountCredentials: serializeAws_json1_1ServiceAccountCredentials(
         input.ServiceAccountCredentials,
         context
-      )
-    })
+      ),
+    }),
   };
 };
 
-const serializeAws_json1_1CreateFleetRequest = (
-  input: CreateFleetRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CreateFleetRequest = (input: CreateFleetRequest, context: __SerdeContext): any => {
   return {
     ...(input.ComputeCapacity !== undefined && {
-      ComputeCapacity: serializeAws_json1_1ComputeCapacity(
-        input.ComputeCapacity,
-        context
-      )
+      ComputeCapacity: serializeAws_json1_1ComputeCapacity(input.ComputeCapacity, context),
     }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.DisconnectTimeoutInSeconds !== undefined && {
-      DisconnectTimeoutInSeconds: input.DisconnectTimeoutInSeconds
+      DisconnectTimeoutInSeconds: input.DisconnectTimeoutInSeconds,
     }),
     ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
     ...(input.DomainJoinInfo !== undefined && {
-      DomainJoinInfo: serializeAws_json1_1DomainJoinInfo(
-        input.DomainJoinInfo,
-        context
-      )
+      DomainJoinInfo: serializeAws_json1_1DomainJoinInfo(input.DomainJoinInfo, context),
     }),
     ...(input.EnableDefaultInternetAccess !== undefined && {
-      EnableDefaultInternetAccess: input.EnableDefaultInternetAccess
+      EnableDefaultInternetAccess: input.EnableDefaultInternetAccess,
     }),
     ...(input.FleetType !== undefined && { FleetType: input.FleetType }),
     ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
     ...(input.IdleDisconnectTimeoutInSeconds !== undefined && {
-      IdleDisconnectTimeoutInSeconds: input.IdleDisconnectTimeoutInSeconds
+      IdleDisconnectTimeoutInSeconds: input.IdleDisconnectTimeoutInSeconds,
     }),
     ...(input.ImageArn !== undefined && { ImageArn: input.ImageArn }),
     ...(input.ImageName !== undefined && { ImageName: input.ImageName }),
-    ...(input.InstanceType !== undefined && {
-      InstanceType: input.InstanceType
-    }),
-    ...(input.MaxUserDurationInSeconds !== undefined && {
-      MaxUserDurationInSeconds: input.MaxUserDurationInSeconds
-    }),
+    ...(input.InstanceType !== undefined && { InstanceType: input.InstanceType }),
+    ...(input.MaxUserDurationInSeconds !== undefined && { MaxUserDurationInSeconds: input.MaxUserDurationInSeconds }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context)
-    }),
-    ...(input.VpcConfig !== undefined && {
-      VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context)
-    })
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.VpcConfig !== undefined && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
 };
 
@@ -5365,38 +4554,24 @@ const serializeAws_json1_1CreateImageBuilderRequest = (
 ): any => {
   return {
     ...(input.AccessEndpoints !== undefined && {
-      AccessEndpoints: serializeAws_json1_1AccessEndpointList(
-        input.AccessEndpoints,
-        context
-      )
+      AccessEndpoints: serializeAws_json1_1AccessEndpointList(input.AccessEndpoints, context),
     }),
-    ...(input.AppstreamAgentVersion !== undefined && {
-      AppstreamAgentVersion: input.AppstreamAgentVersion
-    }),
+    ...(input.AppstreamAgentVersion !== undefined && { AppstreamAgentVersion: input.AppstreamAgentVersion }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
     ...(input.DomainJoinInfo !== undefined && {
-      DomainJoinInfo: serializeAws_json1_1DomainJoinInfo(
-        input.DomainJoinInfo,
-        context
-      )
+      DomainJoinInfo: serializeAws_json1_1DomainJoinInfo(input.DomainJoinInfo, context),
     }),
     ...(input.EnableDefaultInternetAccess !== undefined && {
-      EnableDefaultInternetAccess: input.EnableDefaultInternetAccess
+      EnableDefaultInternetAccess: input.EnableDefaultInternetAccess,
     }),
     ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
     ...(input.ImageArn !== undefined && { ImageArn: input.ImageArn }),
     ...(input.ImageName !== undefined && { ImageName: input.ImageName }),
-    ...(input.InstanceType !== undefined && {
-      InstanceType: input.InstanceType
-    }),
+    ...(input.InstanceType !== undefined && { InstanceType: input.InstanceType }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context)
-    }),
-    ...(input.VpcConfig !== undefined && {
-      VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context)
-    })
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.VpcConfig !== undefined && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
 };
 
@@ -5406,53 +4581,33 @@ const serializeAws_json1_1CreateImageBuilderStreamingURLRequest = (
 ): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Validity !== undefined && { Validity: input.Validity })
+    ...(input.Validity !== undefined && { Validity: input.Validity }),
   };
 };
 
-const serializeAws_json1_1CreateStackRequest = (
-  input: CreateStackRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CreateStackRequest = (input: CreateStackRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessEndpoints !== undefined && {
-      AccessEndpoints: serializeAws_json1_1AccessEndpointList(
-        input.AccessEndpoints,
-        context
-      )
+      AccessEndpoints: serializeAws_json1_1AccessEndpointList(input.AccessEndpoints, context),
     }),
     ...(input.ApplicationSettings !== undefined && {
-      ApplicationSettings: serializeAws_json1_1ApplicationSettings(
-        input.ApplicationSettings,
-        context
-      )
+      ApplicationSettings: serializeAws_json1_1ApplicationSettings(input.ApplicationSettings, context),
     }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
     ...(input.EmbedHostDomains !== undefined && {
-      EmbedHostDomains: serializeAws_json1_1EmbedHostDomains(
-        input.EmbedHostDomains,
-        context
-      )
+      EmbedHostDomains: serializeAws_json1_1EmbedHostDomains(input.EmbedHostDomains, context),
     }),
     ...(input.FeedbackURL !== undefined && { FeedbackURL: input.FeedbackURL }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.RedirectURL !== undefined && { RedirectURL: input.RedirectURL }),
     ...(input.StorageConnectors !== undefined && {
-      StorageConnectors: serializeAws_json1_1StorageConnectorList(
-        input.StorageConnectors,
-        context
-      )
+      StorageConnectors: serializeAws_json1_1StorageConnectorList(input.StorageConnectors, context),
     }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context)
-    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.UserSettings !== undefined && {
-      UserSettings: serializeAws_json1_1UserSettingList(
-        input.UserSettings,
-        context
-      )
-    })
+      UserSettings: serializeAws_json1_1UserSettingList(input.UserSettings, context),
+    }),
   };
 };
 
@@ -5461,16 +4616,12 @@ const serializeAws_json1_1CreateStreamingURLRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ApplicationId !== undefined && {
-      ApplicationId: input.ApplicationId
-    }),
+    ...(input.ApplicationId !== undefined && { ApplicationId: input.ApplicationId }),
     ...(input.FleetName !== undefined && { FleetName: input.FleetName }),
-    ...(input.SessionContext !== undefined && {
-      SessionContext: input.SessionContext
-    }),
+    ...(input.SessionContext !== undefined && { SessionContext: input.SessionContext }),
     ...(input.StackName !== undefined && { StackName: input.StackName }),
     ...(input.UserId !== undefined && { UserId: input.UserId }),
-    ...(input.Validity !== undefined && { Validity: input.Validity })
+    ...(input.Validity !== undefined && { Validity: input.Validity }),
   };
 };
 
@@ -5481,20 +4632,13 @@ const serializeAws_json1_1CreateUsageReportSubscriptionRequest = (
   return {};
 };
 
-const serializeAws_json1_1CreateUserRequest = (
-  input: CreateUserRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AuthenticationType !== undefined && {
-      AuthenticationType: input.AuthenticationType
-    }),
+    ...(input.AuthenticationType !== undefined && { AuthenticationType: input.AuthenticationType }),
     ...(input.FirstName !== undefined && { FirstName: input.FirstName }),
     ...(input.LastName !== undefined && { LastName: input.LastName }),
-    ...(input.MessageAction !== undefined && {
-      MessageAction: input.MessageAction
-    }),
-    ...(input.UserName !== undefined && { UserName: input.UserName })
+    ...(input.MessageAction !== undefined && { MessageAction: input.MessageAction }),
+    ...(input.UserName !== undefined && { UserName: input.UserName }),
   };
 };
 
@@ -5503,18 +4647,13 @@ const serializeAws_json1_1DeleteDirectoryConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryName !== undefined && {
-      DirectoryName: input.DirectoryName
-    })
+    ...(input.DirectoryName !== undefined && { DirectoryName: input.DirectoryName }),
   };
 };
 
-const serializeAws_json1_1DeleteFleetRequest = (
-  input: DeleteFleetRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeleteFleetRequest = (input: DeleteFleetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name })
+    ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
 
@@ -5523,7 +4662,7 @@ const serializeAws_json1_1DeleteImageBuilderRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name })
+    ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
 
@@ -5533,27 +4672,19 @@ const serializeAws_json1_1DeleteImagePermissionsRequest = (
 ): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.SharedAccountId !== undefined && {
-      SharedAccountId: input.SharedAccountId
-    })
+    ...(input.SharedAccountId !== undefined && { SharedAccountId: input.SharedAccountId }),
   };
 };
 
-const serializeAws_json1_1DeleteImageRequest = (
-  input: DeleteImageRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeleteImageRequest = (input: DeleteImageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name })
+    ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
 
-const serializeAws_json1_1DeleteStackRequest = (
-  input: DeleteStackRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeleteStackRequest = (input: DeleteStackRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name })
+    ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
 
@@ -5564,15 +4695,10 @@ const serializeAws_json1_1DeleteUsageReportSubscriptionRequest = (
   return {};
 };
 
-const serializeAws_json1_1DeleteUserRequest = (
-  input: DeleteUserRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AuthenticationType !== undefined && {
-      AuthenticationType: input.AuthenticationType
-    }),
-    ...(input.UserName !== undefined && { UserName: input.UserName })
+    ...(input.AuthenticationType !== undefined && { AuthenticationType: input.AuthenticationType }),
+    ...(input.UserName !== undefined && { UserName: input.UserName }),
   };
 };
 
@@ -5582,25 +4708,17 @@ const serializeAws_json1_1DescribeDirectoryConfigsRequest = (
 ): any => {
   return {
     ...(input.DirectoryNames !== undefined && {
-      DirectoryNames: serializeAws_json1_1DirectoryNameList(
-        input.DirectoryNames,
-        context
-      )
+      DirectoryNames: serializeAws_json1_1DirectoryNameList(input.DirectoryNames, context),
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1DescribeFleetsRequest = (
-  input: DescribeFleetsRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DescribeFleetsRequest = (input: DescribeFleetsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Names !== undefined && {
-      Names: serializeAws_json1_1StringList(input.Names, context)
-    }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.Names !== undefined && { Names: serializeAws_json1_1StringList(input.Names, context) }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
 };
 
@@ -5610,10 +4728,8 @@ const serializeAws_json1_1DescribeImageBuildersRequest = (
 ): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.Names !== undefined && {
-      Names: serializeAws_json1_1StringList(input.Names, context)
-    }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.Names !== undefined && { Names: serializeAws_json1_1StringList(input.Names, context) }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
 };
 
@@ -5626,56 +4742,36 @@ const serializeAws_json1_1DescribeImagePermissionsRequest = (
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.SharedAwsAccountIds !== undefined && {
-      SharedAwsAccountIds: serializeAws_json1_1AwsAccountIdList(
-        input.SharedAwsAccountIds,
-        context
-      )
-    })
+      SharedAwsAccountIds: serializeAws_json1_1AwsAccountIdList(input.SharedAwsAccountIds, context),
+    }),
   };
 };
 
-const serializeAws_json1_1DescribeImagesRequest = (
-  input: DescribeImagesRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DescribeImagesRequest = (input: DescribeImagesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Arns !== undefined && {
-      Arns: serializeAws_json1_1ArnList(input.Arns, context)
-    }),
+    ...(input.Arns !== undefined && { Arns: serializeAws_json1_1ArnList(input.Arns, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.Names !== undefined && {
-      Names: serializeAws_json1_1StringList(input.Names, context)
-    }),
+    ...(input.Names !== undefined && { Names: serializeAws_json1_1StringList(input.Names, context) }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.Type !== undefined && { Type: input.Type })
+    ...(input.Type !== undefined && { Type: input.Type }),
   };
 };
 
-const serializeAws_json1_1DescribeSessionsRequest = (
-  input: DescribeSessionsRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DescribeSessionsRequest = (input: DescribeSessionsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AuthenticationType !== undefined && {
-      AuthenticationType: input.AuthenticationType
-    }),
+    ...(input.AuthenticationType !== undefined && { AuthenticationType: input.AuthenticationType }),
     ...(input.FleetName !== undefined && { FleetName: input.FleetName }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.StackName !== undefined && { StackName: input.StackName }),
-    ...(input.UserId !== undefined && { UserId: input.UserId })
+    ...(input.UserId !== undefined && { UserId: input.UserId }),
   };
 };
 
-const serializeAws_json1_1DescribeStacksRequest = (
-  input: DescribeStacksRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DescribeStacksRequest = (input: DescribeStacksRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Names !== undefined && {
-      Names: serializeAws_json1_1StringList(input.Names, context)
-    }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.Names !== undefined && { Names: serializeAws_json1_1StringList(input.Names, context) }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
 };
 
@@ -5685,20 +4781,15 @@ const serializeAws_json1_1DescribeUsageReportSubscriptionsRequest = (
 ): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1DescribeUsersRequest = (
-  input: DescribeUsersRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DescribeUsersRequest = (input: DescribeUsersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AuthenticationType !== undefined && {
-      AuthenticationType: input.AuthenticationType
-    }),
+    ...(input.AuthenticationType !== undefined && { AuthenticationType: input.AuthenticationType }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
 };
 
@@ -5707,32 +4798,22 @@ const serializeAws_json1_1DescribeUserStackAssociationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AuthenticationType !== undefined && {
-      AuthenticationType: input.AuthenticationType
-    }),
+    ...(input.AuthenticationType !== undefined && { AuthenticationType: input.AuthenticationType }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.StackName !== undefined && { StackName: input.StackName }),
-    ...(input.UserName !== undefined && { UserName: input.UserName })
+    ...(input.UserName !== undefined && { UserName: input.UserName }),
   };
 };
 
-const serializeAws_json1_1DirectoryNameList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
+const serializeAws_json1_1DirectoryNameList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
-const serializeAws_json1_1DisableUserRequest = (
-  input: DisableUserRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DisableUserRequest = (input: DisableUserRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AuthenticationType !== undefined && {
-      AuthenticationType: input.AuthenticationType
-    }),
-    ...(input.UserName !== undefined && { UserName: input.UserName })
+    ...(input.AuthenticationType !== undefined && { AuthenticationType: input.AuthenticationType }),
+    ...(input.UserName !== undefined && { UserName: input.UserName }),
   };
 };
 
@@ -5742,76 +4823,48 @@ const serializeAws_json1_1DisassociateFleetRequest = (
 ): any => {
   return {
     ...(input.FleetName !== undefined && { FleetName: input.FleetName }),
-    ...(input.StackName !== undefined && { StackName: input.StackName })
+    ...(input.StackName !== undefined && { StackName: input.StackName }),
   };
 };
 
-const serializeAws_json1_1DomainJoinInfo = (
-  input: DomainJoinInfo,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DomainJoinInfo = (input: DomainJoinInfo, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryName !== undefined && {
-      DirectoryName: input.DirectoryName
-    }),
+    ...(input.DirectoryName !== undefined && { DirectoryName: input.DirectoryName }),
     ...(input.OrganizationalUnitDistinguishedName !== undefined && {
-      OrganizationalUnitDistinguishedName:
-        input.OrganizationalUnitDistinguishedName
-    })
-  };
-};
-
-const serializeAws_json1_1DomainList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
-const serializeAws_json1_1EmbedHostDomains = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
-};
-
-const serializeAws_json1_1EnableUserRequest = (
-  input: EnableUserRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AuthenticationType !== undefined && {
-      AuthenticationType: input.AuthenticationType
+      OrganizationalUnitDistinguishedName: input.OrganizationalUnitDistinguishedName,
     }),
-    ...(input.UserName !== undefined && { UserName: input.UserName })
   };
 };
 
-const serializeAws_json1_1ExpireSessionRequest = (
-  input: ExpireSessionRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DomainList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1EmbedHostDomains = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1EnableUserRequest = (input: EnableUserRequest, context: __SerdeContext): any => {
   return {
-    ...(input.SessionId !== undefined && { SessionId: input.SessionId })
+    ...(input.AuthenticationType !== undefined && { AuthenticationType: input.AuthenticationType }),
+    ...(input.UserName !== undefined && { UserName: input.UserName }),
   };
 };
 
-const serializeAws_json1_1FleetAttributes = (
-  input: (FleetAttribute | string)[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
+const serializeAws_json1_1ExpireSessionRequest = (input: ExpireSessionRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.SessionId !== undefined && { SessionId: input.SessionId }),
+  };
 };
 
-const serializeAws_json1_1ImagePermissions = (
-  input: ImagePermissions,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1FleetAttributes = (input: (FleetAttribute | string)[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1ImagePermissions = (input: ImagePermissions, context: __SerdeContext): any => {
   return {
     ...(input.allowFleet !== undefined && { allowFleet: input.allowFleet }),
-    ...(input.allowImageBuilder !== undefined && {
-      allowImageBuilder: input.allowImageBuilder
-    })
+    ...(input.allowImageBuilder !== undefined && { allowImageBuilder: input.allowImageBuilder }),
   };
 };
 
@@ -5821,7 +4874,7 @@ const serializeAws_json1_1ListAssociatedFleetsRequest = (
 ): any => {
   return {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.StackName !== undefined && { StackName: input.StackName })
+    ...(input.StackName !== undefined && { StackName: input.StackName }),
   };
 };
 
@@ -5831,7 +4884,7 @@ const serializeAws_json1_1ListAssociatedStacksRequest = (
 ): any => {
   return {
     ...(input.FleetName !== undefined && { FleetName: input.FleetName }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
 };
 
@@ -5840,7 +4893,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn })
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -5848,14 +4901,11 @@ const serializeAws_json1_1OrganizationalUnitDistinguishedNamesList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry => entry);
+  return input.map((entry) => entry);
 };
 
-const serializeAws_json1_1SecurityGroupIdList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
+const serializeAws_json1_1SecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
 const serializeAws_json1_1ServiceAccountCredentials = (
@@ -5864,25 +4914,17 @@ const serializeAws_json1_1ServiceAccountCredentials = (
 ): any => {
   return {
     ...(input.AccountName !== undefined && { AccountName: input.AccountName }),
-    ...(input.AccountPassword !== undefined && {
-      AccountPassword: input.AccountPassword
-    })
+    ...(input.AccountPassword !== undefined && { AccountPassword: input.AccountPassword }),
   };
 };
 
-const serializeAws_json1_1StackAttributes = (
-  input: (StackAttribute | string)[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
+const serializeAws_json1_1StackAttributes = (input: (StackAttribute | string)[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
-const serializeAws_json1_1StartFleetRequest = (
-  input: StartFleetRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1StartFleetRequest = (input: StartFleetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name })
+    ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
 
@@ -5891,112 +4933,68 @@ const serializeAws_json1_1StartImageBuilderRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AppstreamAgentVersion !== undefined && {
-      AppstreamAgentVersion: input.AppstreamAgentVersion
-    }),
-    ...(input.Name !== undefined && { Name: input.Name })
+    ...(input.AppstreamAgentVersion !== undefined && { AppstreamAgentVersion: input.AppstreamAgentVersion }),
+    ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
 
-const serializeAws_json1_1StopFleetRequest = (
-  input: StopFleetRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1StopFleetRequest = (input: StopFleetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name })
+    ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
 
-const serializeAws_json1_1StopImageBuilderRequest = (
-  input: StopImageBuilderRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1StopImageBuilderRequest = (input: StopImageBuilderRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name })
+    ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
 
-const serializeAws_json1_1StorageConnector = (
-  input: StorageConnector,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1StorageConnector = (input: StorageConnector, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectorType !== undefined && {
-      ConnectorType: input.ConnectorType
-    }),
-    ...(input.Domains !== undefined && {
-      Domains: serializeAws_json1_1DomainList(input.Domains, context)
-    }),
-    ...(input.ResourceIdentifier !== undefined && {
-      ResourceIdentifier: input.ResourceIdentifier
-    })
+    ...(input.ConnectorType !== undefined && { ConnectorType: input.ConnectorType }),
+    ...(input.Domains !== undefined && { Domains: serializeAws_json1_1DomainList(input.Domains, context) }),
+    ...(input.ResourceIdentifier !== undefined && { ResourceIdentifier: input.ResourceIdentifier }),
   };
 };
 
-const serializeAws_json1_1StorageConnectorList = (
-  input: StorageConnector[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_1StorageConnector(entry, context)
-  );
+const serializeAws_json1_1StorageConnectorList = (input: StorageConnector[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1StorageConnector(entry, context));
 };
 
-const serializeAws_json1_1StringList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
+const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
-const serializeAws_json1_1SubnetIdList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
+const serializeAws_json1_1SubnetIdList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
-const serializeAws_json1_1TagKeyList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
+const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
-const serializeAws_json1_1TagResourceRequest = (
-  input: TagResourceRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && {
-      Tags: serializeAws_json1_1Tags(input.Tags, context)
-    })
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1Tags = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
 };
 
-const serializeAws_json1_1UntagResourceRequest = (
-  input: UntagResourceRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined && {
-      TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context)
-    })
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -6005,74 +5003,52 @@ const serializeAws_json1_1UpdateDirectoryConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryName !== undefined && {
-      DirectoryName: input.DirectoryName
-    }),
+    ...(input.DirectoryName !== undefined && { DirectoryName: input.DirectoryName }),
     ...(input.OrganizationalUnitDistinguishedNames !== undefined && {
       OrganizationalUnitDistinguishedNames: serializeAws_json1_1OrganizationalUnitDistinguishedNamesList(
         input.OrganizationalUnitDistinguishedNames,
         context
-      )
+      ),
     }),
     ...(input.ServiceAccountCredentials !== undefined && {
       ServiceAccountCredentials: serializeAws_json1_1ServiceAccountCredentials(
         input.ServiceAccountCredentials,
         context
-      )
-    })
+      ),
+    }),
   };
 };
 
-const serializeAws_json1_1UpdateFleetRequest = (
-  input: UpdateFleetRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1UpdateFleetRequest = (input: UpdateFleetRequest, context: __SerdeContext): any => {
   return {
     ...(input.AttributesToDelete !== undefined && {
-      AttributesToDelete: serializeAws_json1_1FleetAttributes(
-        input.AttributesToDelete,
-        context
-      )
+      AttributesToDelete: serializeAws_json1_1FleetAttributes(input.AttributesToDelete, context),
     }),
     ...(input.ComputeCapacity !== undefined && {
-      ComputeCapacity: serializeAws_json1_1ComputeCapacity(
-        input.ComputeCapacity,
-        context
-      )
+      ComputeCapacity: serializeAws_json1_1ComputeCapacity(input.ComputeCapacity, context),
     }),
-    ...(input.DeleteVpcConfig !== undefined && {
-      DeleteVpcConfig: input.DeleteVpcConfig
-    }),
+    ...(input.DeleteVpcConfig !== undefined && { DeleteVpcConfig: input.DeleteVpcConfig }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.DisconnectTimeoutInSeconds !== undefined && {
-      DisconnectTimeoutInSeconds: input.DisconnectTimeoutInSeconds
+      DisconnectTimeoutInSeconds: input.DisconnectTimeoutInSeconds,
     }),
     ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
     ...(input.DomainJoinInfo !== undefined && {
-      DomainJoinInfo: serializeAws_json1_1DomainJoinInfo(
-        input.DomainJoinInfo,
-        context
-      )
+      DomainJoinInfo: serializeAws_json1_1DomainJoinInfo(input.DomainJoinInfo, context),
     }),
     ...(input.EnableDefaultInternetAccess !== undefined && {
-      EnableDefaultInternetAccess: input.EnableDefaultInternetAccess
+      EnableDefaultInternetAccess: input.EnableDefaultInternetAccess,
     }),
     ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
     ...(input.IdleDisconnectTimeoutInSeconds !== undefined && {
-      IdleDisconnectTimeoutInSeconds: input.IdleDisconnectTimeoutInSeconds
+      IdleDisconnectTimeoutInSeconds: input.IdleDisconnectTimeoutInSeconds,
     }),
     ...(input.ImageArn !== undefined && { ImageArn: input.ImageArn }),
     ...(input.ImageName !== undefined && { ImageName: input.ImageName }),
-    ...(input.InstanceType !== undefined && {
-      InstanceType: input.InstanceType
-    }),
-    ...(input.MaxUserDurationInSeconds !== undefined && {
-      MaxUserDurationInSeconds: input.MaxUserDurationInSeconds
-    }),
+    ...(input.InstanceType !== undefined && { InstanceType: input.InstanceType }),
+    ...(input.MaxUserDurationInSeconds !== undefined && { MaxUserDurationInSeconds: input.MaxUserDurationInSeconds }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.VpcConfig !== undefined && {
-      VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context)
-    })
+    ...(input.VpcConfig !== undefined && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
 };
 
@@ -6082,199 +5058,106 @@ const serializeAws_json1_1UpdateImagePermissionsRequest = (
 ): any => {
   return {
     ...(input.ImagePermissions !== undefined && {
-      ImagePermissions: serializeAws_json1_1ImagePermissions(
-        input.ImagePermissions,
-        context
-      )
+      ImagePermissions: serializeAws_json1_1ImagePermissions(input.ImagePermissions, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.SharedAccountId !== undefined && {
-      SharedAccountId: input.SharedAccountId
-    })
+    ...(input.SharedAccountId !== undefined && { SharedAccountId: input.SharedAccountId }),
   };
 };
 
-const serializeAws_json1_1UpdateStackRequest = (
-  input: UpdateStackRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1UpdateStackRequest = (input: UpdateStackRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessEndpoints !== undefined && {
-      AccessEndpoints: serializeAws_json1_1AccessEndpointList(
-        input.AccessEndpoints,
-        context
-      )
+      AccessEndpoints: serializeAws_json1_1AccessEndpointList(input.AccessEndpoints, context),
     }),
     ...(input.ApplicationSettings !== undefined && {
-      ApplicationSettings: serializeAws_json1_1ApplicationSettings(
-        input.ApplicationSettings,
-        context
-      )
+      ApplicationSettings: serializeAws_json1_1ApplicationSettings(input.ApplicationSettings, context),
     }),
     ...(input.AttributesToDelete !== undefined && {
-      AttributesToDelete: serializeAws_json1_1StackAttributes(
-        input.AttributesToDelete,
-        context
-      )
+      AttributesToDelete: serializeAws_json1_1StackAttributes(input.AttributesToDelete, context),
     }),
-    ...(input.DeleteStorageConnectors !== undefined && {
-      DeleteStorageConnectors: input.DeleteStorageConnectors
-    }),
+    ...(input.DeleteStorageConnectors !== undefined && { DeleteStorageConnectors: input.DeleteStorageConnectors }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
     ...(input.EmbedHostDomains !== undefined && {
-      EmbedHostDomains: serializeAws_json1_1EmbedHostDomains(
-        input.EmbedHostDomains,
-        context
-      )
+      EmbedHostDomains: serializeAws_json1_1EmbedHostDomains(input.EmbedHostDomains, context),
     }),
     ...(input.FeedbackURL !== undefined && { FeedbackURL: input.FeedbackURL }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.RedirectURL !== undefined && { RedirectURL: input.RedirectURL }),
     ...(input.StorageConnectors !== undefined && {
-      StorageConnectors: serializeAws_json1_1StorageConnectorList(
-        input.StorageConnectors,
-        context
-      )
+      StorageConnectors: serializeAws_json1_1StorageConnectorList(input.StorageConnectors, context),
     }),
     ...(input.UserSettings !== undefined && {
-      UserSettings: serializeAws_json1_1UserSettingList(
-        input.UserSettings,
-        context
-      )
-    })
+      UserSettings: serializeAws_json1_1UserSettingList(input.UserSettings, context),
+    }),
   };
 };
 
-const serializeAws_json1_1UserSetting = (
-  input: UserSetting,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1UserSetting = (input: UserSetting, context: __SerdeContext): any => {
   return {
     ...(input.Action !== undefined && { Action: input.Action }),
-    ...(input.Permission !== undefined && { Permission: input.Permission })
+    ...(input.Permission !== undefined && { Permission: input.Permission }),
   };
 };
 
-const serializeAws_json1_1UserSettingList = (
-  input: UserSetting[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => serializeAws_json1_1UserSetting(entry, context));
+const serializeAws_json1_1UserSettingList = (input: UserSetting[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1UserSetting(entry, context));
 };
 
-const serializeAws_json1_1UserStackAssociation = (
-  input: UserStackAssociation,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1UserStackAssociation = (input: UserStackAssociation, context: __SerdeContext): any => {
   return {
-    ...(input.AuthenticationType !== undefined && {
-      AuthenticationType: input.AuthenticationType
-    }),
-    ...(input.SendEmailNotification !== undefined && {
-      SendEmailNotification: input.SendEmailNotification
-    }),
+    ...(input.AuthenticationType !== undefined && { AuthenticationType: input.AuthenticationType }),
+    ...(input.SendEmailNotification !== undefined && { SendEmailNotification: input.SendEmailNotification }),
     ...(input.StackName !== undefined && { StackName: input.StackName }),
-    ...(input.UserName !== undefined && { UserName: input.UserName })
+    ...(input.UserName !== undefined && { UserName: input.UserName }),
   };
 };
 
-const serializeAws_json1_1UserStackAssociationList = (
-  input: UserStackAssociation[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_1UserStackAssociation(entry, context)
-  );
+const serializeAws_json1_1UserStackAssociationList = (input: UserStackAssociation[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1UserStackAssociation(entry, context));
 };
 
-const serializeAws_json1_1VpcConfig = (
-  input: VpcConfig,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1VpcConfig = (input: VpcConfig, context: __SerdeContext): any => {
   return {
     ...(input.SecurityGroupIds !== undefined && {
-      SecurityGroupIds: serializeAws_json1_1SecurityGroupIdList(
-        input.SecurityGroupIds,
-        context
-      )
+      SecurityGroupIds: serializeAws_json1_1SecurityGroupIdList(input.SecurityGroupIds, context),
     }),
-    ...(input.SubnetIds !== undefined && {
-      SubnetIds: serializeAws_json1_1SubnetIdList(input.SubnetIds, context)
-    })
+    ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_1SubnetIdList(input.SubnetIds, context) }),
   };
 };
 
-const deserializeAws_json1_1AccessEndpoint = (
-  output: any,
-  context: __SerdeContext
-): AccessEndpoint => {
+const deserializeAws_json1_1AccessEndpoint = (output: any, context: __SerdeContext): AccessEndpoint => {
   return {
     __type: "AccessEndpoint",
-    EndpointType:
-      output.EndpointType !== undefined && output.EndpointType !== null
-        ? output.EndpointType
-        : undefined,
-    VpceId:
-      output.VpceId !== undefined && output.VpceId !== null
-        ? output.VpceId
-        : undefined
+    EndpointType: output.EndpointType !== undefined && output.EndpointType !== null ? output.EndpointType : undefined,
+    VpceId: output.VpceId !== undefined && output.VpceId !== null ? output.VpceId : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1AccessEndpointList = (
-  output: any,
-  context: __SerdeContext
-): AccessEndpoint[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1AccessEndpoint(entry, context)
-  );
+const deserializeAws_json1_1AccessEndpointList = (output: any, context: __SerdeContext): AccessEndpoint[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1AccessEndpoint(entry, context));
 };
 
-const deserializeAws_json1_1Application = (
-  output: any,
-  context: __SerdeContext
-): Application => {
+const deserializeAws_json1_1Application = (output: any, context: __SerdeContext): Application => {
   return {
     __type: "Application",
-    DisplayName:
-      output.DisplayName !== undefined && output.DisplayName !== null
-        ? output.DisplayName
-        : undefined,
-    Enabled:
-      output.Enabled !== undefined && output.Enabled !== null
-        ? output.Enabled
-        : undefined,
-    IconURL:
-      output.IconURL !== undefined && output.IconURL !== null
-        ? output.IconURL
-        : undefined,
+    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
+    IconURL: output.IconURL !== undefined && output.IconURL !== null ? output.IconURL : undefined,
     LaunchParameters:
-      output.LaunchParameters !== undefined && output.LaunchParameters !== null
-        ? output.LaunchParameters
-        : undefined,
-    LaunchPath:
-      output.LaunchPath !== undefined && output.LaunchPath !== null
-        ? output.LaunchPath
-        : undefined,
+      output.LaunchParameters !== undefined && output.LaunchParameters !== null ? output.LaunchParameters : undefined,
+    LaunchPath: output.LaunchPath !== undefined && output.LaunchPath !== null ? output.LaunchPath : undefined,
     Metadata:
       output.Metadata !== undefined && output.Metadata !== null
         ? deserializeAws_json1_1Metadata(output.Metadata, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1Applications = (
-  output: any,
-  context: __SerdeContext
-): Application[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Application(entry, context)
-  );
+const deserializeAws_json1_1Applications = (output: any, context: __SerdeContext): Application[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Application(entry, context));
 };
 
 const deserializeAws_json1_1ApplicationSettingsResponse = (
@@ -6283,27 +5166,16 @@ const deserializeAws_json1_1ApplicationSettingsResponse = (
 ): ApplicationSettingsResponse => {
   return {
     __type: "ApplicationSettingsResponse",
-    Enabled:
-      output.Enabled !== undefined && output.Enabled !== null
-        ? output.Enabled
-        : undefined,
-    S3BucketName:
-      output.S3BucketName !== undefined && output.S3BucketName !== null
-        ? output.S3BucketName
-        : undefined,
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
+    S3BucketName: output.S3BucketName !== undefined && output.S3BucketName !== null ? output.S3BucketName : undefined,
     SettingsGroup:
-      output.SettingsGroup !== undefined && output.SettingsGroup !== null
-        ? output.SettingsGroup
-        : undefined
+      output.SettingsGroup !== undefined && output.SettingsGroup !== null ? output.SettingsGroup : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1AssociateFleetResult = (
-  output: any,
-  context: __SerdeContext
-): AssociateFleetResult => {
+const deserializeAws_json1_1AssociateFleetResult = (output: any, context: __SerdeContext): AssociateFleetResult => {
   return {
-    __type: "AssociateFleetResult"
+    __type: "AssociateFleetResult",
   } as any;
 };
 
@@ -6315,11 +5187,8 @@ const deserializeAws_json1_1BatchAssociateUserStackResult = (
     __type: "BatchAssociateUserStackResult",
     errors:
       output.errors !== undefined && output.errors !== null
-        ? deserializeAws_json1_1UserStackAssociationErrorList(
-            output.errors,
-            context
-          )
-        : undefined
+        ? deserializeAws_json1_1UserStackAssociationErrorList(output.errors, context)
+        : undefined,
   } as any;
 };
 
@@ -6331,36 +5200,18 @@ const deserializeAws_json1_1BatchDisassociateUserStackResult = (
     __type: "BatchDisassociateUserStackResult",
     errors:
       output.errors !== undefined && output.errors !== null
-        ? deserializeAws_json1_1UserStackAssociationErrorList(
-            output.errors,
-            context
-          )
-        : undefined
+        ? deserializeAws_json1_1UserStackAssociationErrorList(output.errors, context)
+        : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ComputeCapacityStatus = (
-  output: any,
-  context: __SerdeContext
-): ComputeCapacityStatus => {
+const deserializeAws_json1_1ComputeCapacityStatus = (output: any, context: __SerdeContext): ComputeCapacityStatus => {
   return {
     __type: "ComputeCapacityStatus",
-    Available:
-      output.Available !== undefined && output.Available !== null
-        ? output.Available
-        : undefined,
-    Desired:
-      output.Desired !== undefined && output.Desired !== null
-        ? output.Desired
-        : undefined,
-    InUse:
-      output.InUse !== undefined && output.InUse !== null
-        ? output.InUse
-        : undefined,
-    Running:
-      output.Running !== undefined && output.Running !== null
-        ? output.Running
-        : undefined
+    Available: output.Available !== undefined && output.Available !== null ? output.Available : undefined,
+    Desired: output.Desired !== undefined && output.Desired !== null ? output.Desired : undefined,
+    InUse: output.InUse !== undefined && output.InUse !== null ? output.InUse : undefined,
+    Running: output.Running !== undefined && output.Running !== null ? output.Running : undefined,
   } as any;
 };
 
@@ -6370,24 +5221,17 @@ const deserializeAws_json1_1ConcurrentModificationException = (
 ): ConcurrentModificationException => {
   return {
     __type: "ConcurrentModificationException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CopyImageResponse = (
-  output: any,
-  context: __SerdeContext
-): CopyImageResponse => {
+const deserializeAws_json1_1CopyImageResponse = (output: any, context: __SerdeContext): CopyImageResponse => {
   return {
     __type: "CopyImageResponse",
     DestinationImageName:
-      output.DestinationImageName !== undefined &&
-      output.DestinationImageName !== null
+      output.DestinationImageName !== undefined && output.DestinationImageName !== null
         ? output.DestinationImageName
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -6400,20 +5244,17 @@ const deserializeAws_json1_1CreateDirectoryConfigResult = (
     DirectoryConfig:
       output.DirectoryConfig !== undefined && output.DirectoryConfig !== null
         ? deserializeAws_json1_1DirectoryConfig(output.DirectoryConfig, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateFleetResult = (
-  output: any,
-  context: __SerdeContext
-): CreateFleetResult => {
+const deserializeAws_json1_1CreateFleetResult = (output: any, context: __SerdeContext): CreateFleetResult => {
   return {
     __type: "CreateFleetResult",
     Fleet:
       output.Fleet !== undefined && output.Fleet !== null
         ? deserializeAws_json1_1Fleet(output.Fleet, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -6426,7 +5267,7 @@ const deserializeAws_json1_1CreateImageBuilderResult = (
     ImageBuilder:
       output.ImageBuilder !== undefined && output.ImageBuilder !== null
         ? deserializeAws_json1_1ImageBuilder(output.ImageBuilder, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -6437,26 +5278,18 @@ const deserializeAws_json1_1CreateImageBuilderStreamingURLResult = (
   return {
     __type: "CreateImageBuilderStreamingURLResult",
     Expires:
-      output.Expires !== undefined && output.Expires !== null
-        ? new Date(Math.round(output.Expires * 1000))
-        : undefined,
-    StreamingURL:
-      output.StreamingURL !== undefined && output.StreamingURL !== null
-        ? output.StreamingURL
-        : undefined
+      output.Expires !== undefined && output.Expires !== null ? new Date(Math.round(output.Expires * 1000)) : undefined,
+    StreamingURL: output.StreamingURL !== undefined && output.StreamingURL !== null ? output.StreamingURL : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateStackResult = (
-  output: any,
-  context: __SerdeContext
-): CreateStackResult => {
+const deserializeAws_json1_1CreateStackResult = (output: any, context: __SerdeContext): CreateStackResult => {
   return {
     __type: "CreateStackResult",
     Stack:
       output.Stack !== undefined && output.Stack !== null
         ? deserializeAws_json1_1Stack(output.Stack, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -6467,13 +5300,8 @@ const deserializeAws_json1_1CreateStreamingURLResult = (
   return {
     __type: "CreateStreamingURLResult",
     Expires:
-      output.Expires !== undefined && output.Expires !== null
-        ? new Date(Math.round(output.Expires * 1000))
-        : undefined,
-    StreamingURL:
-      output.StreamingURL !== undefined && output.StreamingURL !== null
-        ? output.StreamingURL
-        : undefined
+      output.Expires !== undefined && output.Expires !== null ? new Date(Math.round(output.Expires * 1000)) : undefined,
+    StreamingURL: output.StreamingURL !== undefined && output.StreamingURL !== null ? output.StreamingURL : undefined,
   } as any;
 };
 
@@ -6483,23 +5311,14 @@ const deserializeAws_json1_1CreateUsageReportSubscriptionResult = (
 ): CreateUsageReportSubscriptionResult => {
   return {
     __type: "CreateUsageReportSubscriptionResult",
-    S3BucketName:
-      output.S3BucketName !== undefined && output.S3BucketName !== null
-        ? output.S3BucketName
-        : undefined,
-    Schedule:
-      output.Schedule !== undefined && output.Schedule !== null
-        ? output.Schedule
-        : undefined
+    S3BucketName: output.S3BucketName !== undefined && output.S3BucketName !== null ? output.S3BucketName : undefined,
+    Schedule: output.Schedule !== undefined && output.Schedule !== null ? output.Schedule : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateUserResult = (
-  output: any,
-  context: __SerdeContext
-): CreateUserResult => {
+const deserializeAws_json1_1CreateUserResult = (output: any, context: __SerdeContext): CreateUserResult => {
   return {
-    __type: "CreateUserResult"
+    __type: "CreateUserResult",
   } as any;
 };
 
@@ -6508,16 +5327,13 @@ const deserializeAws_json1_1DeleteDirectoryConfigResult = (
   context: __SerdeContext
 ): DeleteDirectoryConfigResult => {
   return {
-    __type: "DeleteDirectoryConfigResult"
+    __type: "DeleteDirectoryConfigResult",
   } as any;
 };
 
-const deserializeAws_json1_1DeleteFleetResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteFleetResult => {
+const deserializeAws_json1_1DeleteFleetResult = (output: any, context: __SerdeContext): DeleteFleetResult => {
   return {
-    __type: "DeleteFleetResult"
+    __type: "DeleteFleetResult",
   } as any;
 };
 
@@ -6530,7 +5346,7 @@ const deserializeAws_json1_1DeleteImageBuilderResult = (
     ImageBuilder:
       output.ImageBuilder !== undefined && output.ImageBuilder !== null
         ? deserializeAws_json1_1ImageBuilder(output.ImageBuilder, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -6539,29 +5355,23 @@ const deserializeAws_json1_1DeleteImagePermissionsResult = (
   context: __SerdeContext
 ): DeleteImagePermissionsResult => {
   return {
-    __type: "DeleteImagePermissionsResult"
+    __type: "DeleteImagePermissionsResult",
   } as any;
 };
 
-const deserializeAws_json1_1DeleteImageResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteImageResult => {
+const deserializeAws_json1_1DeleteImageResult = (output: any, context: __SerdeContext): DeleteImageResult => {
   return {
     __type: "DeleteImageResult",
     Image:
       output.Image !== undefined && output.Image !== null
         ? deserializeAws_json1_1Image(output.Image, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DeleteStackResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteStackResult => {
+const deserializeAws_json1_1DeleteStackResult = (output: any, context: __SerdeContext): DeleteStackResult => {
   return {
-    __type: "DeleteStackResult"
+    __type: "DeleteStackResult",
   } as any;
 };
 
@@ -6570,16 +5380,13 @@ const deserializeAws_json1_1DeleteUsageReportSubscriptionResult = (
   context: __SerdeContext
 ): DeleteUsageReportSubscriptionResult => {
   return {
-    __type: "DeleteUsageReportSubscriptionResult"
+    __type: "DeleteUsageReportSubscriptionResult",
   } as any;
 };
 
-const deserializeAws_json1_1DeleteUserResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteUserResult => {
+const deserializeAws_json1_1DeleteUserResult = (output: any, context: __SerdeContext): DeleteUserResult => {
   return {
-    __type: "DeleteUserResult"
+    __type: "DeleteUserResult",
   } as any;
 };
 
@@ -6591,32 +5398,20 @@ const deserializeAws_json1_1DescribeDirectoryConfigsResult = (
     __type: "DescribeDirectoryConfigsResult",
     DirectoryConfigs:
       output.DirectoryConfigs !== undefined && output.DirectoryConfigs !== null
-        ? deserializeAws_json1_1DirectoryConfigList(
-            output.DirectoryConfigs,
-            context
-          )
+        ? deserializeAws_json1_1DirectoryConfigList(output.DirectoryConfigs, context)
         : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeFleetsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeFleetsResult => {
+const deserializeAws_json1_1DescribeFleetsResult = (output: any, context: __SerdeContext): DescribeFleetsResult => {
   return {
     __type: "DescribeFleetsResult",
     Fleets:
       output.Fleets !== undefined && output.Fleets !== null
         ? deserializeAws_json1_1FleetList(output.Fleets, context)
         : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
   } as any;
 };
 
@@ -6630,10 +5425,7 @@ const deserializeAws_json1_1DescribeImageBuildersResult = (
       output.ImageBuilders !== undefined && output.ImageBuilders !== null
         ? deserializeAws_json1_1ImageBuilderList(output.ImageBuilders, context)
         : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
   } as any;
 };
 
@@ -6643,73 +5435,45 @@ const deserializeAws_json1_1DescribeImagePermissionsResult = (
 ): DescribeImagePermissionsResult => {
   return {
     __type: "DescribeImagePermissionsResult",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     SharedImagePermissionsList:
-      output.SharedImagePermissionsList !== undefined &&
-      output.SharedImagePermissionsList !== null
-        ? deserializeAws_json1_1SharedImagePermissionsList(
-            output.SharedImagePermissionsList,
-            context
-          )
-        : undefined
+      output.SharedImagePermissionsList !== undefined && output.SharedImagePermissionsList !== null
+        ? deserializeAws_json1_1SharedImagePermissionsList(output.SharedImagePermissionsList, context)
+        : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeImagesResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeImagesResult => {
+const deserializeAws_json1_1DescribeImagesResult = (output: any, context: __SerdeContext): DescribeImagesResult => {
   return {
     __type: "DescribeImagesResult",
     Images:
       output.Images !== undefined && output.Images !== null
         ? deserializeAws_json1_1ImageList(output.Images, context)
         : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeSessionsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeSessionsResult => {
+const deserializeAws_json1_1DescribeSessionsResult = (output: any, context: __SerdeContext): DescribeSessionsResult => {
   return {
     __type: "DescribeSessionsResult",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Sessions:
       output.Sessions !== undefined && output.Sessions !== null
         ? deserializeAws_json1_1SessionList(output.Sessions, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeStacksResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeStacksResult => {
+const deserializeAws_json1_1DescribeStacksResult = (output: any, context: __SerdeContext): DescribeStacksResult => {
   return {
     __type: "DescribeStacksResult",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Stacks:
       output.Stacks !== undefined && output.Stacks !== null
         ? deserializeAws_json1_1StackList(output.Stacks, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -6719,35 +5483,22 @@ const deserializeAws_json1_1DescribeUsageReportSubscriptionsResult = (
 ): DescribeUsageReportSubscriptionsResult => {
   return {
     __type: "DescribeUsageReportSubscriptionsResult",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     UsageReportSubscriptions:
-      output.UsageReportSubscriptions !== undefined &&
-      output.UsageReportSubscriptions !== null
-        ? deserializeAws_json1_1UsageReportSubscriptionList(
-            output.UsageReportSubscriptions,
-            context
-          )
-        : undefined
+      output.UsageReportSubscriptions !== undefined && output.UsageReportSubscriptions !== null
+        ? deserializeAws_json1_1UsageReportSubscriptionList(output.UsageReportSubscriptions, context)
+        : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeUsersResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeUsersResult => {
+const deserializeAws_json1_1DescribeUsersResult = (output: any, context: __SerdeContext): DescribeUsersResult => {
   return {
     __type: "DescribeUsersResult",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Users:
       output.Users !== undefined && output.Users !== null
         ? deserializeAws_json1_1UserList(output.Users, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -6757,25 +5508,15 @@ const deserializeAws_json1_1DescribeUserStackAssociationsResult = (
 ): DescribeUserStackAssociationsResult => {
   return {
     __type: "DescribeUserStackAssociationsResult",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     UserStackAssociations:
-      output.UserStackAssociations !== undefined &&
-      output.UserStackAssociations !== null
-        ? deserializeAws_json1_1UserStackAssociationList(
-            output.UserStackAssociations,
-            context
-          )
-        : undefined
+      output.UserStackAssociations !== undefined && output.UserStackAssociations !== null
+        ? deserializeAws_json1_1UserStackAssociationList(output.UserStackAssociations, context)
+        : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DirectoryConfig = (
-  output: any,
-  context: __SerdeContext
-): DirectoryConfig => {
+const deserializeAws_json1_1DirectoryConfig = (output: any, context: __SerdeContext): DirectoryConfig => {
   return {
     __type: "DirectoryConfig",
     CreatedTime:
@@ -6783,43 +5524,28 @@ const deserializeAws_json1_1DirectoryConfig = (
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
     DirectoryName:
-      output.DirectoryName !== undefined && output.DirectoryName !== null
-        ? output.DirectoryName
-        : undefined,
+      output.DirectoryName !== undefined && output.DirectoryName !== null ? output.DirectoryName : undefined,
     OrganizationalUnitDistinguishedNames:
-      output.OrganizationalUnitDistinguishedNames !== undefined &&
-      output.OrganizationalUnitDistinguishedNames !== null
+      output.OrganizationalUnitDistinguishedNames !== undefined && output.OrganizationalUnitDistinguishedNames !== null
         ? deserializeAws_json1_1OrganizationalUnitDistinguishedNamesList(
             output.OrganizationalUnitDistinguishedNames,
             context
           )
         : undefined,
     ServiceAccountCredentials:
-      output.ServiceAccountCredentials !== undefined &&
-      output.ServiceAccountCredentials !== null
-        ? deserializeAws_json1_1ServiceAccountCredentials(
-            output.ServiceAccountCredentials,
-            context
-          )
-        : undefined
+      output.ServiceAccountCredentials !== undefined && output.ServiceAccountCredentials !== null
+        ? deserializeAws_json1_1ServiceAccountCredentials(output.ServiceAccountCredentials, context)
+        : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DirectoryConfigList = (
-  output: any,
-  context: __SerdeContext
-): DirectoryConfig[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1DirectoryConfig(entry, context)
-  );
+const deserializeAws_json1_1DirectoryConfigList = (output: any, context: __SerdeContext): DirectoryConfig[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1DirectoryConfig(entry, context));
 };
 
-const deserializeAws_json1_1DisableUserResult = (
-  output: any,
-  context: __SerdeContext
-): DisableUserResult => {
+const deserializeAws_json1_1DisableUserResult = (output: any, context: __SerdeContext): DisableUserResult => {
   return {
-    __type: "DisableUserResult"
+    __type: "DisableUserResult",
   } as any;
 };
 
@@ -6828,190 +5554,111 @@ const deserializeAws_json1_1DisassociateFleetResult = (
   context: __SerdeContext
 ): DisassociateFleetResult => {
   return {
-    __type: "DisassociateFleetResult"
+    __type: "DisassociateFleetResult",
   } as any;
 };
 
-const deserializeAws_json1_1DomainJoinInfo = (
-  output: any,
-  context: __SerdeContext
-): DomainJoinInfo => {
+const deserializeAws_json1_1DomainJoinInfo = (output: any, context: __SerdeContext): DomainJoinInfo => {
   return {
     __type: "DomainJoinInfo",
     DirectoryName:
-      output.DirectoryName !== undefined && output.DirectoryName !== null
-        ? output.DirectoryName
-        : undefined,
+      output.DirectoryName !== undefined && output.DirectoryName !== null ? output.DirectoryName : undefined,
     OrganizationalUnitDistinguishedName:
-      output.OrganizationalUnitDistinguishedName !== undefined &&
-      output.OrganizationalUnitDistinguishedName !== null
+      output.OrganizationalUnitDistinguishedName !== undefined && output.OrganizationalUnitDistinguishedName !== null
         ? output.OrganizationalUnitDistinguishedName
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DomainList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1DomainList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1EmbedHostDomains = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1EmbedHostDomains = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1EnableUserResult = (
-  output: any,
-  context: __SerdeContext
-): EnableUserResult => {
+const deserializeAws_json1_1EnableUserResult = (output: any, context: __SerdeContext): EnableUserResult => {
   return {
-    __type: "EnableUserResult"
+    __type: "EnableUserResult",
   } as any;
 };
 
-const deserializeAws_json1_1ExpireSessionResult = (
-  output: any,
-  context: __SerdeContext
-): ExpireSessionResult => {
+const deserializeAws_json1_1ExpireSessionResult = (output: any, context: __SerdeContext): ExpireSessionResult => {
   return {
-    __type: "ExpireSessionResult"
+    __type: "ExpireSessionResult",
   } as any;
 };
 
-const deserializeAws_json1_1Fleet = (
-  output: any,
-  context: __SerdeContext
-): Fleet => {
+const deserializeAws_json1_1Fleet = (output: any, context: __SerdeContext): Fleet => {
   return {
     __type: "Fleet",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     ComputeCapacityStatus:
-      output.ComputeCapacityStatus !== undefined &&
-      output.ComputeCapacityStatus !== null
-        ? deserializeAws_json1_1ComputeCapacityStatus(
-            output.ComputeCapacityStatus,
-            context
-          )
+      output.ComputeCapacityStatus !== undefined && output.ComputeCapacityStatus !== null
+        ? deserializeAws_json1_1ComputeCapacityStatus(output.ComputeCapacityStatus, context)
         : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    Description:
-      output.Description !== undefined && output.Description !== null
-        ? output.Description
-        : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     DisconnectTimeoutInSeconds:
-      output.DisconnectTimeoutInSeconds !== undefined &&
-      output.DisconnectTimeoutInSeconds !== null
+      output.DisconnectTimeoutInSeconds !== undefined && output.DisconnectTimeoutInSeconds !== null
         ? output.DisconnectTimeoutInSeconds
         : undefined,
-    DisplayName:
-      output.DisplayName !== undefined && output.DisplayName !== null
-        ? output.DisplayName
-        : undefined,
+    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
     DomainJoinInfo:
       output.DomainJoinInfo !== undefined && output.DomainJoinInfo !== null
         ? deserializeAws_json1_1DomainJoinInfo(output.DomainJoinInfo, context)
         : undefined,
     EnableDefaultInternetAccess:
-      output.EnableDefaultInternetAccess !== undefined &&
-      output.EnableDefaultInternetAccess !== null
+      output.EnableDefaultInternetAccess !== undefined && output.EnableDefaultInternetAccess !== null
         ? output.EnableDefaultInternetAccess
         : undefined,
     FleetErrors:
       output.FleetErrors !== undefined && output.FleetErrors !== null
         ? deserializeAws_json1_1FleetErrors(output.FleetErrors, context)
         : undefined,
-    FleetType:
-      output.FleetType !== undefined && output.FleetType !== null
-        ? output.FleetType
-        : undefined,
-    IamRoleArn:
-      output.IamRoleArn !== undefined && output.IamRoleArn !== null
-        ? output.IamRoleArn
-        : undefined,
+    FleetType: output.FleetType !== undefined && output.FleetType !== null ? output.FleetType : undefined,
+    IamRoleArn: output.IamRoleArn !== undefined && output.IamRoleArn !== null ? output.IamRoleArn : undefined,
     IdleDisconnectTimeoutInSeconds:
-      output.IdleDisconnectTimeoutInSeconds !== undefined &&
-      output.IdleDisconnectTimeoutInSeconds !== null
+      output.IdleDisconnectTimeoutInSeconds !== undefined && output.IdleDisconnectTimeoutInSeconds !== null
         ? output.IdleDisconnectTimeoutInSeconds
         : undefined,
-    ImageArn:
-      output.ImageArn !== undefined && output.ImageArn !== null
-        ? output.ImageArn
-        : undefined,
-    ImageName:
-      output.ImageName !== undefined && output.ImageName !== null
-        ? output.ImageName
-        : undefined,
-    InstanceType:
-      output.InstanceType !== undefined && output.InstanceType !== null
-        ? output.InstanceType
-        : undefined,
+    ImageArn: output.ImageArn !== undefined && output.ImageArn !== null ? output.ImageArn : undefined,
+    ImageName: output.ImageName !== undefined && output.ImageName !== null ? output.ImageName : undefined,
+    InstanceType: output.InstanceType !== undefined && output.InstanceType !== null ? output.InstanceType : undefined,
     MaxUserDurationInSeconds:
-      output.MaxUserDurationInSeconds !== undefined &&
-      output.MaxUserDurationInSeconds !== null
+      output.MaxUserDurationInSeconds !== undefined && output.MaxUserDurationInSeconds !== null
         ? output.MaxUserDurationInSeconds
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     VpcConfig:
       output.VpcConfig !== undefined && output.VpcConfig !== null
         ? deserializeAws_json1_1VpcConfig(output.VpcConfig, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1FleetError = (
-  output: any,
-  context: __SerdeContext
-): FleetError => {
+const deserializeAws_json1_1FleetError = (output: any, context: __SerdeContext): FleetError => {
   return {
     __type: "FleetError",
-    ErrorCode:
-      output.ErrorCode !== undefined && output.ErrorCode !== null
-        ? output.ErrorCode
-        : undefined,
-    ErrorMessage:
-      output.ErrorMessage !== undefined && output.ErrorMessage !== null
-        ? output.ErrorMessage
-        : undefined
+    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
+    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1FleetErrors = (
-  output: any,
-  context: __SerdeContext
-): FleetError[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1FleetError(entry, context)
-  );
+const deserializeAws_json1_1FleetErrors = (output: any, context: __SerdeContext): FleetError[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1FleetError(entry, context));
 };
 
-const deserializeAws_json1_1FleetList = (
-  output: any,
-  context: __SerdeContext
-): Fleet[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Fleet(entry, context)
-  );
+const deserializeAws_json1_1FleetList = (output: any, context: __SerdeContext): Fleet[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Fleet(entry, context));
 };
 
-const deserializeAws_json1_1Image = (
-  output: any,
-  context: __SerdeContext
-): Image => {
+const deserializeAws_json1_1Image = (output: any, context: __SerdeContext): Image => {
   return {
     __type: "Image",
     Applications:
@@ -7019,179 +5666,95 @@ const deserializeAws_json1_1Image = (
         ? deserializeAws_json1_1Applications(output.Applications, context)
         : undefined,
     AppstreamAgentVersion:
-      output.AppstreamAgentVersion !== undefined &&
-      output.AppstreamAgentVersion !== null
+      output.AppstreamAgentVersion !== undefined && output.AppstreamAgentVersion !== null
         ? output.AppstreamAgentVersion
         : undefined,
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    BaseImageArn:
-      output.BaseImageArn !== undefined && output.BaseImageArn !== null
-        ? output.BaseImageArn
-        : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    BaseImageArn: output.BaseImageArn !== undefined && output.BaseImageArn !== null ? output.BaseImageArn : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    Description:
-      output.Description !== undefined && output.Description !== null
-        ? output.Description
-        : undefined,
-    DisplayName:
-      output.DisplayName !== undefined && output.DisplayName !== null
-        ? output.DisplayName
-        : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
     ImageBuilderName:
-      output.ImageBuilderName !== undefined && output.ImageBuilderName !== null
-        ? output.ImageBuilderName
-        : undefined,
+      output.ImageBuilderName !== undefined && output.ImageBuilderName !== null ? output.ImageBuilderName : undefined,
     ImageBuilderSupported:
-      output.ImageBuilderSupported !== undefined &&
-      output.ImageBuilderSupported !== null
+      output.ImageBuilderSupported !== undefined && output.ImageBuilderSupported !== null
         ? output.ImageBuilderSupported
         : undefined,
     ImagePermissions:
       output.ImagePermissions !== undefined && output.ImagePermissions !== null
-        ? deserializeAws_json1_1ImagePermissions(
-            output.ImagePermissions,
-            context
-          )
+        ? deserializeAws_json1_1ImagePermissions(output.ImagePermissions, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Platform:
-      output.Platform !== undefined && output.Platform !== null
-        ? output.Platform
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Platform: output.Platform !== undefined && output.Platform !== null ? output.Platform : undefined,
     PublicBaseImageReleasedDate:
-      output.PublicBaseImageReleasedDate !== undefined &&
-      output.PublicBaseImageReleasedDate !== null
+      output.PublicBaseImageReleasedDate !== undefined && output.PublicBaseImageReleasedDate !== null
         ? new Date(Math.round(output.PublicBaseImageReleasedDate * 1000))
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateChangeReason:
-      output.StateChangeReason !== undefined &&
-      output.StateChangeReason !== null
-        ? deserializeAws_json1_1ImageStateChangeReason(
-            output.StateChangeReason,
-            context
-          )
+      output.StateChangeReason !== undefined && output.StateChangeReason !== null
+        ? deserializeAws_json1_1ImageStateChangeReason(output.StateChangeReason, context)
         : undefined,
-    Visibility:
-      output.Visibility !== undefined && output.Visibility !== null
-        ? output.Visibility
-        : undefined
+    Visibility: output.Visibility !== undefined && output.Visibility !== null ? output.Visibility : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ImageBuilder = (
-  output: any,
-  context: __SerdeContext
-): ImageBuilder => {
+const deserializeAws_json1_1ImageBuilder = (output: any, context: __SerdeContext): ImageBuilder => {
   return {
     __type: "ImageBuilder",
     AccessEndpoints:
       output.AccessEndpoints !== undefined && output.AccessEndpoints !== null
-        ? deserializeAws_json1_1AccessEndpointList(
-            output.AccessEndpoints,
-            context
-          )
+        ? deserializeAws_json1_1AccessEndpointList(output.AccessEndpoints, context)
         : undefined,
     AppstreamAgentVersion:
-      output.AppstreamAgentVersion !== undefined &&
-      output.AppstreamAgentVersion !== null
+      output.AppstreamAgentVersion !== undefined && output.AppstreamAgentVersion !== null
         ? output.AppstreamAgentVersion
         : undefined,
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    Description:
-      output.Description !== undefined && output.Description !== null
-        ? output.Description
-        : undefined,
-    DisplayName:
-      output.DisplayName !== undefined && output.DisplayName !== null
-        ? output.DisplayName
-        : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
     DomainJoinInfo:
       output.DomainJoinInfo !== undefined && output.DomainJoinInfo !== null
         ? deserializeAws_json1_1DomainJoinInfo(output.DomainJoinInfo, context)
         : undefined,
     EnableDefaultInternetAccess:
-      output.EnableDefaultInternetAccess !== undefined &&
-      output.EnableDefaultInternetAccess !== null
+      output.EnableDefaultInternetAccess !== undefined && output.EnableDefaultInternetAccess !== null
         ? output.EnableDefaultInternetAccess
         : undefined,
-    IamRoleArn:
-      output.IamRoleArn !== undefined && output.IamRoleArn !== null
-        ? output.IamRoleArn
-        : undefined,
-    ImageArn:
-      output.ImageArn !== undefined && output.ImageArn !== null
-        ? output.ImageArn
-        : undefined,
+    IamRoleArn: output.IamRoleArn !== undefined && output.IamRoleArn !== null ? output.IamRoleArn : undefined,
+    ImageArn: output.ImageArn !== undefined && output.ImageArn !== null ? output.ImageArn : undefined,
     ImageBuilderErrors:
-      output.ImageBuilderErrors !== undefined &&
-      output.ImageBuilderErrors !== null
-        ? deserializeAws_json1_1ResourceErrors(
-            output.ImageBuilderErrors,
-            context
-          )
+      output.ImageBuilderErrors !== undefined && output.ImageBuilderErrors !== null
+        ? deserializeAws_json1_1ResourceErrors(output.ImageBuilderErrors, context)
         : undefined,
-    InstanceType:
-      output.InstanceType !== undefined && output.InstanceType !== null
-        ? output.InstanceType
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    InstanceType: output.InstanceType !== undefined && output.InstanceType !== null ? output.InstanceType : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     NetworkAccessConfiguration:
-      output.NetworkAccessConfiguration !== undefined &&
-      output.NetworkAccessConfiguration !== null
-        ? deserializeAws_json1_1NetworkAccessConfiguration(
-            output.NetworkAccessConfiguration,
-            context
-          )
+      output.NetworkAccessConfiguration !== undefined && output.NetworkAccessConfiguration !== null
+        ? deserializeAws_json1_1NetworkAccessConfiguration(output.NetworkAccessConfiguration, context)
         : undefined,
-    Platform:
-      output.Platform !== undefined && output.Platform !== null
-        ? output.Platform
-        : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+    Platform: output.Platform !== undefined && output.Platform !== null ? output.Platform : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateChangeReason:
-      output.StateChangeReason !== undefined &&
-      output.StateChangeReason !== null
-        ? deserializeAws_json1_1ImageBuilderStateChangeReason(
-            output.StateChangeReason,
-            context
-          )
+      output.StateChangeReason !== undefined && output.StateChangeReason !== null
+        ? deserializeAws_json1_1ImageBuilderStateChangeReason(output.StateChangeReason, context)
         : undefined,
     VpcConfig:
       output.VpcConfig !== undefined && output.VpcConfig !== null
         ? deserializeAws_json1_1VpcConfig(output.VpcConfig, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ImageBuilderList = (
-  output: any,
-  context: __SerdeContext
-): ImageBuilder[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ImageBuilder(entry, context)
-  );
+const deserializeAws_json1_1ImageBuilderList = (output: any, context: __SerdeContext): ImageBuilder[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ImageBuilder(entry, context));
 };
 
 const deserializeAws_json1_1ImageBuilderStateChangeReason = (
@@ -7200,58 +5763,31 @@ const deserializeAws_json1_1ImageBuilderStateChangeReason = (
 ): ImageBuilderStateChangeReason => {
   return {
     __type: "ImageBuilderStateChangeReason",
-    Code:
-      output.Code !== undefined && output.Code !== null
-        ? output.Code
-        : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ImageList = (
-  output: any,
-  context: __SerdeContext
-): Image[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Image(entry, context)
-  );
+const deserializeAws_json1_1ImageList = (output: any, context: __SerdeContext): Image[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Image(entry, context));
 };
 
-const deserializeAws_json1_1ImagePermissions = (
-  output: any,
-  context: __SerdeContext
-): ImagePermissions => {
+const deserializeAws_json1_1ImagePermissions = (output: any, context: __SerdeContext): ImagePermissions => {
   return {
     __type: "ImagePermissions",
-    allowFleet:
-      output.allowFleet !== undefined && output.allowFleet !== null
-        ? output.allowFleet
-        : undefined,
+    allowFleet: output.allowFleet !== undefined && output.allowFleet !== null ? output.allowFleet : undefined,
     allowImageBuilder:
-      output.allowImageBuilder !== undefined &&
-      output.allowImageBuilder !== null
+      output.allowImageBuilder !== undefined && output.allowImageBuilder !== null
         ? output.allowImageBuilder
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ImageStateChangeReason = (
-  output: any,
-  context: __SerdeContext
-): ImageStateChangeReason => {
+const deserializeAws_json1_1ImageStateChangeReason = (output: any, context: __SerdeContext): ImageStateChangeReason => {
   return {
     __type: "ImageStateChangeReason",
-    Code:
-      output.Code !== undefined && output.Code !== null
-        ? output.Code
-        : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -7261,10 +5797,7 @@ const deserializeAws_json1_1IncompatibleImageException = (
 ): IncompatibleImageException => {
   return {
     __type: "IncompatibleImageException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -7274,10 +5807,7 @@ const deserializeAws_json1_1InvalidAccountStatusException = (
 ): InvalidAccountStatusException => {
   return {
     __type: "InvalidAccountStatusException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -7287,23 +5817,14 @@ const deserializeAws_json1_1InvalidParameterCombinationException = (
 ): InvalidParameterCombinationException => {
   return {
     __type: "InvalidParameterCombinationException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1InvalidRoleException = (
-  output: any,
-  context: __SerdeContext
-): InvalidRoleException => {
+const deserializeAws_json1_1InvalidRoleException = (output: any, context: __SerdeContext): InvalidRoleException => {
   return {
     __type: "InvalidRoleException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -7313,14 +5834,8 @@ const deserializeAws_json1_1LastReportGenerationExecutionError = (
 ): LastReportGenerationExecutionError => {
   return {
     __type: "LastReportGenerationExecutionError",
-    ErrorCode:
-      output.ErrorCode !== undefined && output.ErrorCode !== null
-        ? output.ErrorCode
-        : undefined,
-    ErrorMessage:
-      output.ErrorMessage !== undefined && output.ErrorMessage !== null
-        ? output.ErrorMessage
-        : undefined
+    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
+    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
   } as any;
 };
 
@@ -7328,21 +5843,13 @@ const deserializeAws_json1_1LastReportGenerationExecutionErrors = (
   output: any,
   context: __SerdeContext
 ): LastReportGenerationExecutionError[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1LastReportGenerationExecutionError(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1LastReportGenerationExecutionError(entry, context));
 };
 
-const deserializeAws_json1_1LimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): LimitExceededException => {
+const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     __type: "LimitExceededException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -7356,10 +5863,7 @@ const deserializeAws_json1_1ListAssociatedFleetsResult = (
       output.Names !== undefined && output.Names !== null
         ? deserializeAws_json1_1StringList(output.Names, context)
         : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
   } as any;
 };
 
@@ -7373,10 +5877,7 @@ const deserializeAws_json1_1ListAssociatedStacksResult = (
       output.Names !== undefined && output.Names !== null
         ? deserializeAws_json1_1StringList(output.Names, context)
         : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
   } as any;
 };
 
@@ -7387,20 +5888,15 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   return {
     __type: "ListTagsForResourceResponse",
     Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_1Tags(output.Tags, context)
-        : undefined
+      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1Metadata = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_json1_1Metadata = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
@@ -7412,15 +5908,11 @@ const deserializeAws_json1_1NetworkAccessConfiguration = (
 ): NetworkAccessConfiguration => {
   return {
     __type: "NetworkAccessConfiguration",
-    EniId:
-      output.EniId !== undefined && output.EniId !== null
-        ? output.EniId
-        : undefined,
+    EniId: output.EniId !== undefined && output.EniId !== null ? output.EniId : undefined,
     EniPrivateIpAddress:
-      output.EniPrivateIpAddress !== undefined &&
-      output.EniPrivateIpAddress !== null
+      output.EniPrivateIpAddress !== undefined && output.EniPrivateIpAddress !== null
         ? output.EniPrivateIpAddress
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -7430,10 +5922,7 @@ const deserializeAws_json1_1OperationNotPermittedException = (
 ): OperationNotPermittedException => {
   return {
     __type: "OperationNotPermittedException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -7450,53 +5939,30 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
 ): ResourceAlreadyExistsException => {
   return {
     __type: "ResourceAlreadyExistsException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ResourceError = (
-  output: any,
-  context: __SerdeContext
-): ResourceError => {
+const deserializeAws_json1_1ResourceError = (output: any, context: __SerdeContext): ResourceError => {
   return {
     __type: "ResourceError",
-    ErrorCode:
-      output.ErrorCode !== undefined && output.ErrorCode !== null
-        ? output.ErrorCode
-        : undefined,
-    ErrorMessage:
-      output.ErrorMessage !== undefined && output.ErrorMessage !== null
-        ? output.ErrorMessage
-        : undefined,
+    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
+    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     ErrorTimestamp:
       output.ErrorTimestamp !== undefined && output.ErrorTimestamp !== null
         ? new Date(Math.round(output.ErrorTimestamp * 1000))
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ResourceErrors = (
-  output: any,
-  context: __SerdeContext
-): ResourceError[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ResourceError(entry, context)
-  );
+const deserializeAws_json1_1ResourceErrors = (output: any, context: __SerdeContext): ResourceError[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ResourceError(entry, context));
 };
 
-const deserializeAws_json1_1ResourceInUseException = (
-  output: any,
-  context: __SerdeContext
-): ResourceInUseException => {
+const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
     __type: "ResourceInUseException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -7506,10 +5972,7 @@ const deserializeAws_json1_1ResourceNotAvailableException = (
 ): ResourceNotAvailableException => {
   return {
     __type: "ResourceNotAvailableException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -7519,17 +5982,11 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     __type: "ResourceNotFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1SecurityGroupIdList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1SecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7539,95 +5996,54 @@ const deserializeAws_json1_1ServiceAccountCredentials = (
 ): ServiceAccountCredentials => {
   return {
     __type: "ServiceAccountCredentials",
-    AccountName:
-      output.AccountName !== undefined && output.AccountName !== null
-        ? output.AccountName
-        : undefined,
+    AccountName: output.AccountName !== undefined && output.AccountName !== null ? output.AccountName : undefined,
     AccountPassword:
-      output.AccountPassword !== undefined && output.AccountPassword !== null
-        ? output.AccountPassword
-        : undefined
+      output.AccountPassword !== undefined && output.AccountPassword !== null ? output.AccountPassword : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1Session = (
-  output: any,
-  context: __SerdeContext
-): Session => {
+const deserializeAws_json1_1Session = (output: any, context: __SerdeContext): Session => {
   return {
     __type: "Session",
     AuthenticationType:
-      output.AuthenticationType !== undefined &&
-      output.AuthenticationType !== null
+      output.AuthenticationType !== undefined && output.AuthenticationType !== null
         ? output.AuthenticationType
         : undefined,
     ConnectionState:
-      output.ConnectionState !== undefined && output.ConnectionState !== null
-        ? output.ConnectionState
-        : undefined,
-    FleetName:
-      output.FleetName !== undefined && output.FleetName !== null
-        ? output.FleetName
-        : undefined,
+      output.ConnectionState !== undefined && output.ConnectionState !== null ? output.ConnectionState : undefined,
+    FleetName: output.FleetName !== undefined && output.FleetName !== null ? output.FleetName : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     MaxExpirationTime:
-      output.MaxExpirationTime !== undefined &&
-      output.MaxExpirationTime !== null
+      output.MaxExpirationTime !== undefined && output.MaxExpirationTime !== null
         ? new Date(Math.round(output.MaxExpirationTime * 1000))
         : undefined,
     NetworkAccessConfiguration:
-      output.NetworkAccessConfiguration !== undefined &&
-      output.NetworkAccessConfiguration !== null
-        ? deserializeAws_json1_1NetworkAccessConfiguration(
-            output.NetworkAccessConfiguration,
-            context
-          )
+      output.NetworkAccessConfiguration !== undefined && output.NetworkAccessConfiguration !== null
+        ? deserializeAws_json1_1NetworkAccessConfiguration(output.NetworkAccessConfiguration, context)
         : undefined,
-    StackName:
-      output.StackName !== undefined && output.StackName !== null
-        ? output.StackName
-        : undefined,
+    StackName: output.StackName !== undefined && output.StackName !== null ? output.StackName : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
         ? new Date(Math.round(output.StartTime * 1000))
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
-    UserId:
-      output.UserId !== undefined && output.UserId !== null
-        ? output.UserId
-        : undefined
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    UserId: output.UserId !== undefined && output.UserId !== null ? output.UserId : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1SessionList = (
-  output: any,
-  context: __SerdeContext
-): Session[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Session(entry, context)
-  );
+const deserializeAws_json1_1SessionList = (output: any, context: __SerdeContext): Session[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Session(entry, context));
 };
 
-const deserializeAws_json1_1SharedImagePermissions = (
-  output: any,
-  context: __SerdeContext
-): SharedImagePermissions => {
+const deserializeAws_json1_1SharedImagePermissions = (output: any, context: __SerdeContext): SharedImagePermissions => {
   return {
     __type: "SharedImagePermissions",
     imagePermissions:
       output.imagePermissions !== undefined && output.imagePermissions !== null
-        ? deserializeAws_json1_1ImagePermissions(
-            output.imagePermissions,
-            context
-          )
+        ? deserializeAws_json1_1ImagePermissions(output.imagePermissions, context)
         : undefined,
     sharedAccountId:
-      output.sharedAccountId !== undefined && output.sharedAccountId !== null
-        ? output.sharedAccountId
-        : undefined
+      output.sharedAccountId !== undefined && output.sharedAccountId !== null ? output.sharedAccountId : undefined,
   } as any;
 };
 
@@ -7635,125 +6051,68 @@ const deserializeAws_json1_1SharedImagePermissionsList = (
   output: any,
   context: __SerdeContext
 ): SharedImagePermissions[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1SharedImagePermissions(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1SharedImagePermissions(entry, context));
 };
 
-const deserializeAws_json1_1Stack = (
-  output: any,
-  context: __SerdeContext
-): Stack => {
+const deserializeAws_json1_1Stack = (output: any, context: __SerdeContext): Stack => {
   return {
     __type: "Stack",
     AccessEndpoints:
       output.AccessEndpoints !== undefined && output.AccessEndpoints !== null
-        ? deserializeAws_json1_1AccessEndpointList(
-            output.AccessEndpoints,
-            context
-          )
+        ? deserializeAws_json1_1AccessEndpointList(output.AccessEndpoints, context)
         : undefined,
     ApplicationSettings:
-      output.ApplicationSettings !== undefined &&
-      output.ApplicationSettings !== null
-        ? deserializeAws_json1_1ApplicationSettingsResponse(
-            output.ApplicationSettings,
-            context
-          )
+      output.ApplicationSettings !== undefined && output.ApplicationSettings !== null
+        ? deserializeAws_json1_1ApplicationSettingsResponse(output.ApplicationSettings, context)
         : undefined,
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    Description:
-      output.Description !== undefined && output.Description !== null
-        ? output.Description
-        : undefined,
-    DisplayName:
-      output.DisplayName !== undefined && output.DisplayName !== null
-        ? output.DisplayName
-        : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
     EmbedHostDomains:
       output.EmbedHostDomains !== undefined && output.EmbedHostDomains !== null
-        ? deserializeAws_json1_1EmbedHostDomains(
-            output.EmbedHostDomains,
-            context
-          )
+        ? deserializeAws_json1_1EmbedHostDomains(output.EmbedHostDomains, context)
         : undefined,
-    FeedbackURL:
-      output.FeedbackURL !== undefined && output.FeedbackURL !== null
-        ? output.FeedbackURL
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    RedirectURL:
-      output.RedirectURL !== undefined && output.RedirectURL !== null
-        ? output.RedirectURL
-        : undefined,
+    FeedbackURL: output.FeedbackURL !== undefined && output.FeedbackURL !== null ? output.FeedbackURL : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    RedirectURL: output.RedirectURL !== undefined && output.RedirectURL !== null ? output.RedirectURL : undefined,
     StackErrors:
       output.StackErrors !== undefined && output.StackErrors !== null
         ? deserializeAws_json1_1StackErrors(output.StackErrors, context)
         : undefined,
     StorageConnectors:
-      output.StorageConnectors !== undefined &&
-      output.StorageConnectors !== null
-        ? deserializeAws_json1_1StorageConnectorList(
-            output.StorageConnectors,
-            context
-          )
+      output.StorageConnectors !== undefined && output.StorageConnectors !== null
+        ? deserializeAws_json1_1StorageConnectorList(output.StorageConnectors, context)
         : undefined,
     UserSettings:
       output.UserSettings !== undefined && output.UserSettings !== null
         ? deserializeAws_json1_1UserSettingList(output.UserSettings, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1StackError = (
-  output: any,
-  context: __SerdeContext
-): StackError => {
+const deserializeAws_json1_1StackError = (output: any, context: __SerdeContext): StackError => {
   return {
     __type: "StackError",
-    ErrorCode:
-      output.ErrorCode !== undefined && output.ErrorCode !== null
-        ? output.ErrorCode
-        : undefined,
-    ErrorMessage:
-      output.ErrorMessage !== undefined && output.ErrorMessage !== null
-        ? output.ErrorMessage
-        : undefined
+    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
+    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1StackErrors = (
-  output: any,
-  context: __SerdeContext
-): StackError[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1StackError(entry, context)
-  );
+const deserializeAws_json1_1StackErrors = (output: any, context: __SerdeContext): StackError[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1StackError(entry, context));
 };
 
-const deserializeAws_json1_1StackList = (
-  output: any,
-  context: __SerdeContext
-): Stack[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Stack(entry, context)
-  );
+const deserializeAws_json1_1StackList = (output: any, context: __SerdeContext): Stack[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Stack(entry, context));
 };
 
-const deserializeAws_json1_1StartFleetResult = (
-  output: any,
-  context: __SerdeContext
-): StartFleetResult => {
+const deserializeAws_json1_1StartFleetResult = (output: any, context: __SerdeContext): StartFleetResult => {
   return {
-    __type: "StartFleetResult"
+    __type: "StartFleetResult",
   } as any;
 };
 
@@ -7766,105 +6125,73 @@ const deserializeAws_json1_1StartImageBuilderResult = (
     ImageBuilder:
       output.ImageBuilder !== undefined && output.ImageBuilder !== null
         ? deserializeAws_json1_1ImageBuilder(output.ImageBuilder, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1StopFleetResult = (
-  output: any,
-  context: __SerdeContext
-): StopFleetResult => {
+const deserializeAws_json1_1StopFleetResult = (output: any, context: __SerdeContext): StopFleetResult => {
   return {
-    __type: "StopFleetResult"
+    __type: "StopFleetResult",
   } as any;
 };
 
-const deserializeAws_json1_1StopImageBuilderResult = (
-  output: any,
-  context: __SerdeContext
-): StopImageBuilderResult => {
+const deserializeAws_json1_1StopImageBuilderResult = (output: any, context: __SerdeContext): StopImageBuilderResult => {
   return {
     __type: "StopImageBuilderResult",
     ImageBuilder:
       output.ImageBuilder !== undefined && output.ImageBuilder !== null
         ? deserializeAws_json1_1ImageBuilder(output.ImageBuilder, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1StorageConnector = (
-  output: any,
-  context: __SerdeContext
-): StorageConnector => {
+const deserializeAws_json1_1StorageConnector = (output: any, context: __SerdeContext): StorageConnector => {
   return {
     __type: "StorageConnector",
     ConnectorType:
-      output.ConnectorType !== undefined && output.ConnectorType !== null
-        ? output.ConnectorType
-        : undefined,
+      output.ConnectorType !== undefined && output.ConnectorType !== null ? output.ConnectorType : undefined,
     Domains:
       output.Domains !== undefined && output.Domains !== null
         ? deserializeAws_json1_1DomainList(output.Domains, context)
         : undefined,
     ResourceIdentifier:
-      output.ResourceIdentifier !== undefined &&
-      output.ResourceIdentifier !== null
+      output.ResourceIdentifier !== undefined && output.ResourceIdentifier !== null
         ? output.ResourceIdentifier
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1StorageConnectorList = (
-  output: any,
-  context: __SerdeContext
-): StorageConnector[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1StorageConnector(entry, context)
-  );
+const deserializeAws_json1_1StorageConnectorList = (output: any, context: __SerdeContext): StorageConnector[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1StorageConnector(entry, context));
 };
 
-const deserializeAws_json1_1StringList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1SubnetIdList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1SubnetIdList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1TagResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): TagResourceResponse => {
+const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
   return {
-    __type: "TagResourceResponse"
+    __type: "TagResourceResponse",
   } as any;
 };
 
-const deserializeAws_json1_1Tags = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: value
+      [key]: value,
     }),
     {}
   );
 };
 
-const deserializeAws_json1_1UntagResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): UntagResourceResponse => {
+const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
   return {
-    __type: "UntagResourceResponse"
+    __type: "UntagResourceResponse",
   } as any;
 };
 
@@ -7877,20 +6204,17 @@ const deserializeAws_json1_1UpdateDirectoryConfigResult = (
     DirectoryConfig:
       output.DirectoryConfig !== undefined && output.DirectoryConfig !== null
         ? deserializeAws_json1_1DirectoryConfig(output.DirectoryConfig, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdateFleetResult = (
-  output: any,
-  context: __SerdeContext
-): UpdateFleetResult => {
+const deserializeAws_json1_1UpdateFleetResult = (output: any, context: __SerdeContext): UpdateFleetResult => {
   return {
     __type: "UpdateFleetResult",
     Fleet:
       output.Fleet !== undefined && output.Fleet !== null
         ? deserializeAws_json1_1Fleet(output.Fleet, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -7899,20 +6223,17 @@ const deserializeAws_json1_1UpdateImagePermissionsResult = (
   context: __SerdeContext
 ): UpdateImagePermissionsResult => {
   return {
-    __type: "UpdateImagePermissionsResult"
+    __type: "UpdateImagePermissionsResult",
   } as any;
 };
 
-const deserializeAws_json1_1UpdateStackResult = (
-  output: any,
-  context: __SerdeContext
-): UpdateStackResult => {
+const deserializeAws_json1_1UpdateStackResult = (output: any, context: __SerdeContext): UpdateStackResult => {
   return {
     __type: "UpdateStackResult",
     Stack:
       output.Stack !== undefined && output.Stack !== null
         ? deserializeAws_json1_1Stack(output.Stack, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
@@ -7923,26 +6244,15 @@ const deserializeAws_json1_1UsageReportSubscription = (
   return {
     __type: "UsageReportSubscription",
     LastGeneratedReportDate:
-      output.LastGeneratedReportDate !== undefined &&
-      output.LastGeneratedReportDate !== null
+      output.LastGeneratedReportDate !== undefined && output.LastGeneratedReportDate !== null
         ? new Date(Math.round(output.LastGeneratedReportDate * 1000))
         : undefined,
-    S3BucketName:
-      output.S3BucketName !== undefined && output.S3BucketName !== null
-        ? output.S3BucketName
-        : undefined,
-    Schedule:
-      output.Schedule !== undefined && output.Schedule !== null
-        ? output.Schedule
-        : undefined,
+    S3BucketName: output.S3BucketName !== undefined && output.S3BucketName !== null ? output.S3BucketName : undefined,
+    Schedule: output.Schedule !== undefined && output.Schedule !== null ? output.Schedule : undefined,
     SubscriptionErrors:
-      output.SubscriptionErrors !== undefined &&
-      output.SubscriptionErrors !== null
-        ? deserializeAws_json1_1LastReportGenerationExecutionErrors(
-            output.SubscriptionErrors,
-            context
-          )
-        : undefined
+      output.SubscriptionErrors !== undefined && output.SubscriptionErrors !== null
+        ? deserializeAws_json1_1LastReportGenerationExecutionErrors(output.SubscriptionErrors, context)
+        : undefined,
   } as any;
 };
 
@@ -7950,110 +6260,58 @@ const deserializeAws_json1_1UsageReportSubscriptionList = (
   output: any,
   context: __SerdeContext
 ): UsageReportSubscription[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1UsageReportSubscription(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1UsageReportSubscription(entry, context));
 };
 
-const deserializeAws_json1_1User = (
-  output: any,
-  context: __SerdeContext
-): User => {
+const deserializeAws_json1_1User = (output: any, context: __SerdeContext): User => {
   return {
     __type: "User",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     AuthenticationType:
-      output.AuthenticationType !== undefined &&
-      output.AuthenticationType !== null
+      output.AuthenticationType !== undefined && output.AuthenticationType !== null
         ? output.AuthenticationType
         : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    Enabled:
-      output.Enabled !== undefined && output.Enabled !== null
-        ? output.Enabled
-        : undefined,
-    FirstName:
-      output.FirstName !== undefined && output.FirstName !== null
-        ? output.FirstName
-        : undefined,
-    LastName:
-      output.LastName !== undefined && output.LastName !== null
-        ? output.LastName
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
-    UserName:
-      output.UserName !== undefined && output.UserName !== null
-        ? output.UserName
-        : undefined
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
+    FirstName: output.FirstName !== undefined && output.FirstName !== null ? output.FirstName : undefined,
+    LastName: output.LastName !== undefined && output.LastName !== null ? output.LastName : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    UserName: output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UserList = (
-  output: any,
-  context: __SerdeContext
-): User[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1User(entry, context)
-  );
+const deserializeAws_json1_1UserList = (output: any, context: __SerdeContext): User[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1User(entry, context));
 };
 
-const deserializeAws_json1_1UserSetting = (
-  output: any,
-  context: __SerdeContext
-): UserSetting => {
+const deserializeAws_json1_1UserSetting = (output: any, context: __SerdeContext): UserSetting => {
   return {
     __type: "UserSetting",
-    Action:
-      output.Action !== undefined && output.Action !== null
-        ? output.Action
-        : undefined,
-    Permission:
-      output.Permission !== undefined && output.Permission !== null
-        ? output.Permission
-        : undefined
+    Action: output.Action !== undefined && output.Action !== null ? output.Action : undefined,
+    Permission: output.Permission !== undefined && output.Permission !== null ? output.Permission : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UserSettingList = (
-  output: any,
-  context: __SerdeContext
-): UserSetting[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1UserSetting(entry, context)
-  );
+const deserializeAws_json1_1UserSettingList = (output: any, context: __SerdeContext): UserSetting[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1UserSetting(entry, context));
 };
 
-const deserializeAws_json1_1UserStackAssociation = (
-  output: any,
-  context: __SerdeContext
-): UserStackAssociation => {
+const deserializeAws_json1_1UserStackAssociation = (output: any, context: __SerdeContext): UserStackAssociation => {
   return {
     __type: "UserStackAssociation",
     AuthenticationType:
-      output.AuthenticationType !== undefined &&
-      output.AuthenticationType !== null
+      output.AuthenticationType !== undefined && output.AuthenticationType !== null
         ? output.AuthenticationType
         : undefined,
     SendEmailNotification:
-      output.SendEmailNotification !== undefined &&
-      output.SendEmailNotification !== null
+      output.SendEmailNotification !== undefined && output.SendEmailNotification !== null
         ? output.SendEmailNotification
         : undefined,
-    StackName:
-      output.StackName !== undefined && output.StackName !== null
-        ? output.StackName
-        : undefined,
-    UserName:
-      output.UserName !== undefined && output.UserName !== null
-        ? output.UserName
-        : undefined
+    StackName: output.StackName !== undefined && output.StackName !== null ? output.StackName : undefined,
+    UserName: output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined,
   } as any;
 };
 
@@ -8063,22 +6321,12 @@ const deserializeAws_json1_1UserStackAssociationError = (
 ): UserStackAssociationError => {
   return {
     __type: "UserStackAssociationError",
-    ErrorCode:
-      output.ErrorCode !== undefined && output.ErrorCode !== null
-        ? output.ErrorCode
-        : undefined,
-    ErrorMessage:
-      output.ErrorMessage !== undefined && output.ErrorMessage !== null
-        ? output.ErrorMessage
-        : undefined,
+    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
+    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     UserStackAssociation:
-      output.UserStackAssociation !== undefined &&
-      output.UserStackAssociation !== null
-        ? deserializeAws_json1_1UserStackAssociation(
-            output.UserStackAssociation,
-            context
-          )
-        : undefined
+      output.UserStackAssociation !== undefined && output.UserStackAssociation !== null
+        ? deserializeAws_json1_1UserStackAssociation(output.UserStackAssociation, context)
+        : undefined,
   } as any;
 };
 
@@ -8086,65 +6334,47 @@ const deserializeAws_json1_1UserStackAssociationErrorList = (
   output: any,
   context: __SerdeContext
 ): UserStackAssociationError[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1UserStackAssociationError(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1UserStackAssociationError(entry, context));
 };
 
 const deserializeAws_json1_1UserStackAssociationList = (
   output: any,
   context: __SerdeContext
 ): UserStackAssociation[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1UserStackAssociation(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1UserStackAssociation(entry, context));
 };
 
-const deserializeAws_json1_1VpcConfig = (
-  output: any,
-  context: __SerdeContext
-): VpcConfig => {
+const deserializeAws_json1_1VpcConfig = (output: any, context: __SerdeContext): VpcConfig => {
   return {
     __type: "VpcConfig",
     SecurityGroupIds:
       output.SecurityGroupIds !== undefined && output.SecurityGroupIds !== null
-        ? deserializeAws_json1_1SecurityGroupIdList(
-            output.SecurityGroupIds,
-            context
-          )
+        ? deserializeAws_json1_1SecurityGroupIdList(output.SecurityGroupIds, context)
         : undefined,
     SubnetIds:
       output.SubnetIds !== undefined && output.SubnetIds !== null
         ? deserializeAws_json1_1SubnetIdList(output.SubnetIds, context)
-        : undefined
+        : undefined,
   } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"]
+  requestId: output.headers["x-amzn-requestid"],
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
-  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -8160,7 +6390,7 @@ const buildHttpRpcRequest = async (
     port,
     method: "POST",
     path,
-    headers
+    headers,
   };
   if (resolvedHostname !== undefined) {
     contents.hostname = resolvedHostname;
@@ -8172,7 +6402,7 @@ const buildHttpRpcRequest = async (
 };
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then(encoded => {
+  collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

@@ -1,23 +1,14 @@
 import {
   CreateParticipantConnectionCommandInput,
-  CreateParticipantConnectionCommandOutput
+  CreateParticipantConnectionCommandOutput,
 } from "../commands/CreateParticipantConnectionCommand";
 import {
   DisconnectParticipantCommandInput,
-  DisconnectParticipantCommandOutput
+  DisconnectParticipantCommandOutput,
 } from "../commands/DisconnectParticipantCommand";
-import {
-  GetTranscriptCommandInput,
-  GetTranscriptCommandOutput
-} from "../commands/GetTranscriptCommand";
-import {
-  SendEventCommandInput,
-  SendEventCommandOutput
-} from "../commands/SendEventCommand";
-import {
-  SendMessageCommandInput,
-  SendMessageCommandOutput
-} from "../commands/SendMessageCommand";
+import { GetTranscriptCommandInput, GetTranscriptCommandOutput } from "../commands/GetTranscriptCommand";
+import { SendEventCommandInput, SendEventCommandOutput } from "../commands/SendEventCommand";
+import { SendMessageCommandInput, SendMessageCommandOutput } from "../commands/SendMessageCommand";
 import {
   AccessDeniedException,
   ConnectionCredentials,
@@ -27,18 +18,15 @@ import {
   StartPosition,
   ThrottlingException,
   ValidationException,
-  Websocket
+  Websocket,
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
@@ -48,16 +36,12 @@ export const serializeAws_restJson1CreateParticipantConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ParticipantToken) && {
-      "X-Amz-Bearer": input.ParticipantToken!
-    })
+    ...(isSerializableHeaderValue(input.ParticipantToken) && { "X-Amz-Bearer": input.ParticipantToken! }),
   };
   let resolvedPath = "/participant/connection";
   let body: any;
   body = JSON.stringify({
-    ...(input.Type !== undefined && {
-      Type: serializeAws_restJson1ConnectionTypeList(input.Type, context)
-    })
+    ...(input.Type !== undefined && { Type: serializeAws_restJson1ConnectionTypeList(input.Type, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -67,7 +51,7 @@ export const serializeAws_restJson1CreateParticipantConnectionCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -77,14 +61,12 @@ export const serializeAws_restJson1DisconnectParticipantCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConnectionToken) && {
-      "X-Amz-Bearer": input.ConnectionToken!
-    })
+    ...(isSerializableHeaderValue(input.ConnectionToken) && { "X-Amz-Bearer": input.ConnectionToken! }),
   };
   let resolvedPath = "/participant/disconnect";
   let body: any;
   body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken()
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -94,7 +76,7 @@ export const serializeAws_restJson1DisconnectParticipantCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -104,9 +86,7 @@ export const serializeAws_restJson1GetTranscriptCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConnectionToken) && {
-      "X-Amz-Bearer": input.ConnectionToken!
-    })
+    ...(isSerializableHeaderValue(input.ConnectionToken) && { "X-Amz-Bearer": input.ConnectionToken! }),
   };
   let resolvedPath = "/participant/transcript";
   let body: any;
@@ -114,16 +94,11 @@ export const serializeAws_restJson1GetTranscriptCommand = async (
     ...(input.ContactId !== undefined && { ContactId: input.ContactId }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ScanDirection !== undefined && {
-      ScanDirection: input.ScanDirection
-    }),
+    ...(input.ScanDirection !== undefined && { ScanDirection: input.ScanDirection }),
     ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder }),
     ...(input.StartPosition !== undefined && {
-      StartPosition: serializeAws_restJson1StartPosition(
-        input.StartPosition,
-        context
-      )
-    })
+      StartPosition: serializeAws_restJson1StartPosition(input.StartPosition, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -133,7 +108,7 @@ export const serializeAws_restJson1GetTranscriptCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -143,16 +118,14 @@ export const serializeAws_restJson1SendEventCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConnectionToken) && {
-      "X-Amz-Bearer": input.ConnectionToken!
-    })
+    ...(isSerializableHeaderValue(input.ConnectionToken) && { "X-Amz-Bearer": input.ConnectionToken! }),
   };
   let resolvedPath = "/participant/event";
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.Content !== undefined && { Content: input.Content }),
-    ...(input.ContentType !== undefined && { ContentType: input.ContentType })
+    ...(input.ContentType !== undefined && { ContentType: input.ContentType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -162,7 +135,7 @@ export const serializeAws_restJson1SendEventCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -172,16 +145,14 @@ export const serializeAws_restJson1SendMessageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConnectionToken) && {
-      "X-Amz-Bearer": input.ConnectionToken!
-    })
+    ...(isSerializableHeaderValue(input.ConnectionToken) && { "X-Amz-Bearer": input.ConnectionToken! }),
   };
   let resolvedPath = "/participant/message";
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.Content !== undefined && { Content: input.Content }),
-    ...(input.ContentType !== undefined && { ContentType: input.ContentType })
+    ...(input.ContentType !== undefined && { ContentType: input.ContentType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -191,7 +162,7 @@ export const serializeAws_restJson1SendMessageCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 
@@ -200,32 +171,20 @@ export const deserializeAws_restJson1CreateParticipantConnectionCommand = async 
   context: __SerdeContext
 ): Promise<CreateParticipantConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1CreateParticipantConnectionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateParticipantConnectionCommandError(output, context);
   }
   const contents: CreateParticipantConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateParticipantConnectionResponse",
     ConnectionCredentials: undefined,
-    Websocket: undefined
+    Websocket: undefined,
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.ConnectionCredentials !== undefined &&
-    data.ConnectionCredentials !== null
-  ) {
-    contents.ConnectionCredentials = deserializeAws_restJson1ConnectionCredentials(
-      data.ConnectionCredentials,
-      context
-    );
+  if (data.ConnectionCredentials !== undefined && data.ConnectionCredentials !== null) {
+    contents.ConnectionCredentials = deserializeAws_restJson1ConnectionCredentials(data.ConnectionCredentials, context);
   }
   if (data.Websocket !== undefined && data.Websocket !== null) {
-    contents.Websocket = deserializeAws_restJson1Websocket(
-      data.Websocket,
-      context
-    );
+    contents.Websocket = deserializeAws_restJson1Websocket(data.Websocket, context);
   }
   return Promise.resolve(contents);
 };
@@ -236,7 +195,7 @@ const deserializeAws_restJson1CreateParticipantConnectionCommandError = async (
 ): Promise<CreateParticipantConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -245,45 +204,33 @@ const deserializeAws_restJson1CreateParticipantConnectionCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.connectparticipant#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerException":
     case "com.amazonaws.connectparticipant#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.connectparticipant#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.connectparticipant#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -294,7 +241,7 @@ const deserializeAws_restJson1CreateParticipantConnectionCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -308,14 +255,11 @@ export const deserializeAws_restJson1DisconnectParticipantCommand = async (
   context: __SerdeContext
 ): Promise<DisconnectParticipantCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DisconnectParticipantCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DisconnectParticipantCommandError(output, context);
   }
   const contents: DisconnectParticipantCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisconnectParticipantResponse"
+    __type: "DisconnectParticipantResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -327,7 +271,7 @@ const deserializeAws_restJson1DisconnectParticipantCommandError = async (
 ): Promise<DisconnectParticipantCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -336,45 +280,33 @@ const deserializeAws_restJson1DisconnectParticipantCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.connectparticipant#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerException":
     case "com.amazonaws.connectparticipant#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.connectparticipant#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.connectparticipant#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -385,7 +317,7 @@ const deserializeAws_restJson1DisconnectParticipantCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -406,7 +338,7 @@ export const deserializeAws_restJson1GetTranscriptCommand = async (
     __type: "GetTranscriptResponse",
     InitialContactId: undefined,
     NextToken: undefined,
-    Transcript: undefined
+    Transcript: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.InitialContactId !== undefined && data.InitialContactId !== null) {
@@ -416,10 +348,7 @@ export const deserializeAws_restJson1GetTranscriptCommand = async (
     contents.NextToken = data.NextToken;
   }
   if (data.Transcript !== undefined && data.Transcript !== null) {
-    contents.Transcript = deserializeAws_restJson1Transcript(
-      data.Transcript,
-      context
-    );
+    contents.Transcript = deserializeAws_restJson1Transcript(data.Transcript, context);
   }
   return Promise.resolve(contents);
 };
@@ -430,7 +359,7 @@ const deserializeAws_restJson1GetTranscriptCommandError = async (
 ): Promise<GetTranscriptCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -439,45 +368,33 @@ const deserializeAws_restJson1GetTranscriptCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.connectparticipant#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerException":
     case "com.amazonaws.connectparticipant#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.connectparticipant#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.connectparticipant#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -488,7 +405,7 @@ const deserializeAws_restJson1GetTranscriptCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -508,7 +425,7 @@ export const deserializeAws_restJson1SendEventCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "SendEventResponse",
     AbsoluteTime: undefined,
-    Id: undefined
+    Id: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AbsoluteTime !== undefined && data.AbsoluteTime !== null) {
@@ -526,7 +443,7 @@ const deserializeAws_restJson1SendEventCommandError = async (
 ): Promise<SendEventCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -535,45 +452,33 @@ const deserializeAws_restJson1SendEventCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.connectparticipant#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerException":
     case "com.amazonaws.connectparticipant#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.connectparticipant#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.connectparticipant#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -584,7 +489,7 @@ const deserializeAws_restJson1SendEventCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -604,7 +509,7 @@ export const deserializeAws_restJson1SendMessageCommand = async (
     $metadata: deserializeMetadata(output),
     __type: "SendMessageResponse",
     AbsoluteTime: undefined,
-    Id: undefined
+    Id: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AbsoluteTime !== undefined && data.AbsoluteTime !== null) {
@@ -622,7 +527,7 @@ const deserializeAws_restJson1SendMessageCommandError = async (
 ): Promise<SendMessageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context)
+    body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
@@ -631,45 +536,33 @@ const deserializeAws_restJson1SendMessageCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.connectparticipant#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "InternalServerException":
     case "com.amazonaws.connectparticipant#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ThrottlingException":
     case "com.amazonaws.connectparticipant#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     case "ValidationException":
     case "com.amazonaws.connectparticipant#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
       break;
     default:
@@ -680,7 +573,7 @@ const deserializeAws_restJson1SendMessageCommandError = async (
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       } as any;
   }
   const message = response.message || response.Message || errorCode;
@@ -697,7 +590,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
     name: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -714,7 +607,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
     name: "InternalServerException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -731,7 +624,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
     name: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -748,7 +641,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
     name: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -757,140 +650,82 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1ConnectionTypeList = (
-  input: (ConnectionType | string)[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => entry);
+const serializeAws_restJson1ConnectionTypeList = (input: (ConnectionType | string)[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
-const serializeAws_restJson1StartPosition = (
-  input: StartPosition,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1StartPosition = (input: StartPosition, context: __SerdeContext): any => {
   return {
-    ...(input.AbsoluteTime !== undefined && {
-      AbsoluteTime: input.AbsoluteTime
-    }),
+    ...(input.AbsoluteTime !== undefined && { AbsoluteTime: input.AbsoluteTime }),
     ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.MostRecent !== undefined && { MostRecent: input.MostRecent })
+    ...(input.MostRecent !== undefined && { MostRecent: input.MostRecent }),
   };
 };
 
-const deserializeAws_restJson1ConnectionCredentials = (
-  output: any,
-  context: __SerdeContext
-): ConnectionCredentials => {
+const deserializeAws_restJson1ConnectionCredentials = (output: any, context: __SerdeContext): ConnectionCredentials => {
   return {
     __type: "ConnectionCredentials",
     ConnectionToken:
-      output.ConnectionToken !== undefined && output.ConnectionToken !== null
-        ? output.ConnectionToken
-        : undefined,
-    Expiry:
-      output.Expiry !== undefined && output.Expiry !== null
-        ? output.Expiry
-        : undefined
+      output.ConnectionToken !== undefined && output.ConnectionToken !== null ? output.ConnectionToken : undefined,
+    Expiry: output.Expiry !== undefined && output.Expiry !== null ? output.Expiry : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Item = (
-  output: any,
-  context: __SerdeContext
-): Item => {
+const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Item => {
   return {
     __type: "Item",
-    AbsoluteTime:
-      output.AbsoluteTime !== undefined && output.AbsoluteTime !== null
-        ? output.AbsoluteTime
-        : undefined,
-    Content:
-      output.Content !== undefined && output.Content !== null
-        ? output.Content
-        : undefined,
-    ContentType:
-      output.ContentType !== undefined && output.ContentType !== null
-        ? output.ContentType
-        : undefined,
-    DisplayName:
-      output.DisplayName !== undefined && output.DisplayName !== null
-        ? output.DisplayName
-        : undefined,
+    AbsoluteTime: output.AbsoluteTime !== undefined && output.AbsoluteTime !== null ? output.AbsoluteTime : undefined,
+    Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
+    ContentType: output.ContentType !== undefined && output.ContentType !== null ? output.ContentType : undefined,
+    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     ParticipantId:
-      output.ParticipantId !== undefined && output.ParticipantId !== null
-        ? output.ParticipantId
-        : undefined,
+      output.ParticipantId !== undefined && output.ParticipantId !== null ? output.ParticipantId : undefined,
     ParticipantRole:
-      output.ParticipantRole !== undefined && output.ParticipantRole !== null
-        ? output.ParticipantRole
-        : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+      output.ParticipantRole !== undefined && output.ParticipantRole !== null ? output.ParticipantRole : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Transcript = (
-  output: any,
-  context: __SerdeContext
-): Item[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1Item(entry, context)
-  );
+const deserializeAws_restJson1Transcript = (output: any, context: __SerdeContext): Item[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Item(entry, context));
 };
 
-const deserializeAws_restJson1Websocket = (
-  output: any,
-  context: __SerdeContext
-): Websocket => {
+const deserializeAws_restJson1Websocket = (output: any, context: __SerdeContext): Websocket => {
   return {
     __type: "Websocket",
     ConnectionExpiry:
-      output.ConnectionExpiry !== undefined && output.ConnectionExpiry !== null
-        ? output.ConnectionExpiry
-        : undefined,
-    Url:
-      output.Url !== undefined && output.Url !== null ? output.Url : undefined
+      output.ConnectionExpiry !== undefined && output.ConnectionExpiry !== null ? output.ConnectionExpiry : undefined,
+    Url: output.Url !== undefined && output.Url !== null ? output.Url : undefined,
   } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"]
+  requestId: output.headers["x-amzn-requestid"],
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
-  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then(encoded => {
+  collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
@@ -901,8 +736,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

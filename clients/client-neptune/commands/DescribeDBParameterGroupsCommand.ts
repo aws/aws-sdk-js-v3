@@ -1,21 +1,11 @@
-import {
-  NeptuneClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../NeptuneClient";
-import {
-  DBParameterGroupsMessage,
-  DescribeDBParameterGroupsMessage
-} from "../models/index";
+import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
+import { DBParameterGroupsMessage, DescribeDBParameterGroupsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeDBParameterGroupsCommand,
-  serializeAws_queryDescribeDBParameterGroupsCommand
+  serializeAws_queryDescribeDBParameterGroupsCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DescribeDBParameterGroupsCommandInput = DescribeDBParameterGroupsMessage;
-export type DescribeDBParameterGroupsCommandOutput = DBParameterGroupsMessage &
-  __MetadataBearer;
+export type DescribeDBParameterGroupsCommandOutput = DBParameterGroupsMessage & __MetadataBearer;
 
 export class DescribeDBParameterGroupsCommand extends $Command<
   DescribeDBParameterGroupsCommandInput,
@@ -49,18 +38,13 @@ export class DescribeDBParameterGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDBParameterGroupsCommandInput,
-    DescribeDBParameterGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDBParameterGroupsCommandInput, DescribeDBParameterGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +54,7 @@ export class DescribeDBParameterGroupsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDBParameterGroupsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeDBParameterGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBParameterGroupsCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class DescribeDBParameterGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBParameterGroupsCommandOutput> {
-    return deserializeAws_queryDescribeDBParameterGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeDBParameterGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

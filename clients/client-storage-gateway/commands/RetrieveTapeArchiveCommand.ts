@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig
-} from "../StorageGatewayClient";
-import {
-  RetrieveTapeArchiveInput,
-  RetrieveTapeArchiveOutput
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
+import { RetrieveTapeArchiveInput, RetrieveTapeArchiveOutput } from "../models/index";
 import {
   deserializeAws_json1_1RetrieveTapeArchiveCommand,
-  serializeAws_json1_1RetrieveTapeArchiveCommand
+  serializeAws_json1_1RetrieveTapeArchiveCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type RetrieveTapeArchiveCommandInput = RetrieveTapeArchiveInput;
-export type RetrieveTapeArchiveCommandOutput = RetrieveTapeArchiveOutput &
-  __MetadataBearer;
+export type RetrieveTapeArchiveCommandOutput = RetrieveTapeArchiveOutput & __MetadataBearer;
 
 export class RetrieveTapeArchiveCommand extends $Command<
   RetrieveTapeArchiveCommandInput,
@@ -49,18 +38,13 @@ export class RetrieveTapeArchiveCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RetrieveTapeArchiveCommandInput,
-    RetrieveTapeArchiveCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RetrieveTapeArchiveCommandInput, RetrieveTapeArchiveCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class RetrieveTapeArchiveCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RetrieveTapeArchiveCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RetrieveTapeArchiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RetrieveTapeArchiveCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RetrieveTapeArchiveCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetrieveTapeArchiveCommandOutput> {
     return deserializeAws_json1_1RetrieveTapeArchiveCommand(output, context);
   }
 

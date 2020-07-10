@@ -1,18 +1,11 @@
-import {
-  RoboMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RoboMakerClient";
+import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 import { RegisterRobotRequest, RegisterRobotResponse } from "../models/index";
 import {
   deserializeAws_restJson1RegisterRobotCommand,
-  serializeAws_restJson1RegisterRobotCommand
+  serializeAws_restJson1RegisterRobotCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type RegisterRobotCommandInput = RegisterRobotRequest;
-export type RegisterRobotCommandOutput = RegisterRobotResponse &
-  __MetadataBearer;
+export type RegisterRobotCommandOutput = RegisterRobotResponse & __MetadataBearer;
 
 export class RegisterRobotCommand extends $Command<
   RegisterRobotCommandInput,
@@ -47,14 +39,12 @@ export class RegisterRobotCommand extends $Command<
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RegisterRobotCommandInput, RegisterRobotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +54,11 @@ export class RegisterRobotCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RegisterRobotCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RegisterRobotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RegisterRobotCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RegisterRobotCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterRobotCommandOutput> {
     return deserializeAws_restJson1RegisterRobotCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  CodeDeployClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeDeployClient";
-import {
-  BatchGetOnPremisesInstancesInput,
-  BatchGetOnPremisesInstancesOutput
-} from "../models/index";
+import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
+import { BatchGetOnPremisesInstancesInput, BatchGetOnPremisesInstancesOutput } from "../models/index";
 import {
   deserializeAws_json1_1BatchGetOnPremisesInstancesCommand,
-  serializeAws_json1_1BatchGetOnPremisesInstancesCommand
+  serializeAws_json1_1BatchGetOnPremisesInstancesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type BatchGetOnPremisesInstancesCommandInput = BatchGetOnPremisesInstancesInput;
-export type BatchGetOnPremisesInstancesCommandOutput = BatchGetOnPremisesInstancesOutput &
-  __MetadataBearer;
+export type BatchGetOnPremisesInstancesCommandOutput = BatchGetOnPremisesInstancesOutput & __MetadataBearer;
 
 export class BatchGetOnPremisesInstancesCommand extends $Command<
   BatchGetOnPremisesInstancesCommandInput,
@@ -49,18 +38,13 @@ export class BatchGetOnPremisesInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchGetOnPremisesInstancesCommandInput,
-    BatchGetOnPremisesInstancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchGetOnPremisesInstancesCommandInput, BatchGetOnPremisesInstancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +54,15 @@ export class BatchGetOnPremisesInstancesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchGetOnPremisesInstancesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetOnPremisesInstancesCommand(
-      input,
-      context
-    );
+  private serialize(input: BatchGetOnPremisesInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1BatchGetOnPremisesInstancesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetOnPremisesInstancesCommandOutput> {
-    return deserializeAws_json1_1BatchGetOnPremisesInstancesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1BatchGetOnPremisesInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,14 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   PutVoiceConnectorLoggingConfigurationRequest,
-  PutVoiceConnectorLoggingConfigurationResponse
+  PutVoiceConnectorLoggingConfigurationResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand,
-  serializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand
+  serializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type PutVoiceConnectorLoggingConfigurationCommandInput = PutVoiceConnectorLoggingConfigurationRequest;
@@ -39,9 +32,7 @@ export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: PutVoiceConnectorLoggingConfigurationCommandInput
-  ) {
+  constructor(readonly input: PutVoiceConnectorLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,18 +42,13 @@ export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutVoiceConnectorLoggingConfigurationCommandInput,
-    PutVoiceConnectorLoggingConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutVoiceConnectorLoggingConfigurationCommandInput, PutVoiceConnectorLoggingConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +62,14 @@ export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<
     input: PutVoiceConnectorLoggingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutVoiceConnectorLoggingConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

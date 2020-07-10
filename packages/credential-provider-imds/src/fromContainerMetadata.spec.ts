@@ -2,13 +2,10 @@ import {
   ENV_CMDS_AUTH_TOKEN,
   ENV_CMDS_FULL_URI,
   ENV_CMDS_RELATIVE_URI,
-  fromContainerMetadata
+  fromContainerMetadata,
 } from "./fromContainerMetadata";
 import { httpRequest } from "./remoteProvider/httpRequest";
-import {
-  fromImdsCredentials,
-  ImdsCredentials
-} from "./remoteProvider/ImdsCredentials";
+import { fromImdsCredentials, ImdsCredentials } from "./remoteProvider/ImdsCredentials";
 
 const mockHttpRequest = <any>httpRequest;
 jest.mock("./remoteProvider/httpRequest", () => ({ httpRequest: jest.fn() }));
@@ -35,7 +32,7 @@ describe("fromContainerMetadata", () => {
     AccessKeyId: "foo",
     SecretAccessKey: "bar",
     Token: "baz",
-    Expiration: new Date().toISOString()
+    Expiration: new Date().toISOString(),
   });
 
   it("should reject the promise with a terminal error if the container credentials environment variable is not set", async () => {
@@ -43,7 +40,7 @@ describe("fromContainerMetadata", () => {
       () => {
         throw new Error("The promise should have been rejected");
       },
-      err => {
+      (err) => {
         expect((err as any).tryNextLink).toBeFalsy();
       }
     );
@@ -60,7 +57,7 @@ describe("fromContainerMetadata", () => {
     expect(mockHttpRequest.mock.calls.length).toBe(1);
     const [options = {}] = mockHttpRequest.mock.calls[0];
     expect(options.headers).toMatchObject({
-      Authorization: token
+      Authorization: token,
     });
   });
 
@@ -72,9 +69,7 @@ describe("fromContainerMetadata", () => {
     it("should resolve credentials by fetching them from the container metadata service", async () => {
       mockHttpRequest.mockReturnValue(Promise.resolve(JSON.stringify(creds)));
 
-      expect(await fromContainerMetadata()()).toEqual(
-        fromImdsCredentials(creds)
-      );
+      expect(await fromContainerMetadata()()).toEqual(fromImdsCredentials(creds));
     });
 
     it("should retry the fetching operation up to maxRetries times", async () => {
@@ -82,13 +77,9 @@ describe("fromContainerMetadata", () => {
       for (let i = 0; i < maxRetries - 1; i++) {
         mockHttpRequest.mockReturnValueOnce(Promise.reject("No!"));
       }
-      mockHttpRequest.mockReturnValueOnce(
-        Promise.resolve(JSON.stringify(creds))
-      );
+      mockHttpRequest.mockReturnValueOnce(Promise.resolve(JSON.stringify(creds)));
 
-      expect(await fromContainerMetadata({ maxRetries })()).toEqual(
-        fromImdsCredentials(creds)
-      );
+      expect(await fromContainerMetadata({ maxRetries })()).toEqual(fromImdsCredentials(creds));
       expect(mockHttpRequest.mock.calls.length).toEqual(maxRetries);
     });
 
@@ -96,18 +87,12 @@ describe("fromContainerMetadata", () => {
       for (let key of Object.keys(creds)) {
         const invalidCreds: any = { ...creds };
         delete invalidCreds[key];
-        mockHttpRequest.mockReturnValueOnce(
-          Promise.resolve(JSON.stringify(invalidCreds))
-        );
+        mockHttpRequest.mockReturnValueOnce(Promise.resolve(JSON.stringify(invalidCreds)));
       }
-      mockHttpRequest.mockReturnValueOnce(
-        Promise.resolve(JSON.stringify(creds))
-      );
+      mockHttpRequest.mockReturnValueOnce(Promise.resolve(JSON.stringify(creds)));
 
       await fromContainerMetadata({ maxRetries: 100 })();
-      expect(mockHttpRequest.mock.calls.length).toEqual(
-        Object.keys(creds).length + 1
-      );
+      expect(mockHttpRequest.mock.calls.length).toEqual(Object.keys(creds).length + 1);
     });
 
     it("should pass relevant configuration to httpRequest", async () => {
@@ -118,7 +103,7 @@ describe("fromContainerMetadata", () => {
       expect(mockHttpRequest.mock.calls[0][0]).toEqual({
         hostname: "169.254.170.2",
         path: process.env[ENV_CMDS_RELATIVE_URI],
-        timeout
+        timeout,
       });
     });
   });
@@ -131,13 +116,7 @@ describe("fromContainerMetadata", () => {
       mockHttpRequest.mockReturnValue(Promise.resolve(JSON.stringify(creds)));
       await fromContainerMetadata({ timeout })();
       expect(mockHttpRequest.mock.calls.length).toEqual(1);
-      const {
-        protocol,
-        hostname,
-        path,
-        port,
-        timeout: actualTimeout
-      } = mockHttpRequest.mock.calls[0][0];
+      const { protocol, hostname, path, port, timeout: actualTimeout } = mockHttpRequest.mock.calls[0][0];
       expect(protocol).toBe("http:");
       expect(hostname).toBe("localhost");
       expect(path).toBe("/path");
@@ -156,7 +135,7 @@ describe("fromContainerMetadata", () => {
       expect(mockHttpRequest.mock.calls[0][0]).toEqual({
         hostname: "169.254.170.2",
         path: "foo",
-        timeout
+        timeout,
       });
     });
 
@@ -167,7 +146,7 @@ describe("fromContainerMetadata", () => {
         () => {
           throw new Error("The promise should have been rejected");
         },
-        err => {
+        (err) => {
           expect((err as any).tryNextLink).toBeFalsy();
         }
       );
@@ -180,7 +159,7 @@ describe("fromContainerMetadata", () => {
         () => {
           throw new Error("The promise should have been rejected");
         },
-        err => {
+        (err) => {
           expect((err as any).tryNextLink).toBeFalsy();
         }
       );

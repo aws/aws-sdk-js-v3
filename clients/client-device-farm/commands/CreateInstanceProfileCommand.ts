@@ -1,21 +1,11 @@
-import {
-  DeviceFarmClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DeviceFarmClient";
-import {
-  CreateInstanceProfileRequest,
-  CreateInstanceProfileResult
-} from "../models/index";
+import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
+import { CreateInstanceProfileRequest, CreateInstanceProfileResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateInstanceProfileCommand,
-  serializeAws_json1_1CreateInstanceProfileCommand
+  serializeAws_json1_1CreateInstanceProfileCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type CreateInstanceProfileCommandInput = CreateInstanceProfileRequest;
-export type CreateInstanceProfileCommandOutput = CreateInstanceProfileResult &
-  __MetadataBearer;
+export type CreateInstanceProfileCommandOutput = CreateInstanceProfileResult & __MetadataBearer;
 
 export class CreateInstanceProfileCommand extends $Command<
   CreateInstanceProfileCommandInput,
@@ -49,18 +38,13 @@ export class CreateInstanceProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateInstanceProfileCommandInput,
-    CreateInstanceProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateInstanceProfileCommandInput, CreateInstanceProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +54,11 @@ export class CreateInstanceProfileCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateInstanceProfileCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateInstanceProfileCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateInstanceProfileCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInstanceProfileCommandOutput> {
     return deserializeAws_json1_1CreateInstanceProfileCommand(output, context);
   }
 

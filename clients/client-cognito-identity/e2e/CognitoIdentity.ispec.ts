@@ -7,35 +7,30 @@ import { expect } from "chai";
 import { CognitoIdentity } from "../index";
 // There will be default values of defaultRegion, credentials, and isBrowser variable in browser tests.
 // Define the values for Node.js tests
-const region: string | undefined =
-  (globalThis as any).defaultRegion || undefined;
+const region: string | undefined = (globalThis as any).defaultRegion || undefined;
 const IdentityPoolId =
   (globalThis as any)?.window?.__env__?.AWS_SMOKE_TEST_IDENTITY_POOL_ID ||
   process?.env?.AWS_SMOKE_TEST_IDENTITY_POOL_ID;
 
 describe("@aws-sdk/client-cognito-identity", function () {
   const unAuthClient = new CognitoIdentity({
-    region
+    region,
   });
 
   it("should successfully fetch Id and get credentials", async () => {
     // Test getId()
     const getIdResult = await unAuthClient.getId({
-      IdentityPoolId
+      IdentityPoolId,
     });
     expect(getIdResult.$metadata.httpStatusCode).to.equal(200);
     expect(typeof getIdResult.IdentityId).to.equal("string");
 
     // Test getCredentialsForIdentity() with Id from above
     const getCredentialsResult = await unAuthClient.getCredentialsForIdentity({
-      IdentityId: getIdResult.IdentityId
+      IdentityId: getIdResult.IdentityId,
     });
     expect(getCredentialsResult.$metadata.httpStatusCode).to.equal(200);
-    expect(typeof getCredentialsResult.Credentials?.AccessKeyId).to.equal(
-      "string"
-    );
-    expect(typeof getCredentialsResult.Credentials?.SecretKey).to.equal(
-      "string"
-    );
+    expect(typeof getCredentialsResult.Credentials?.AccessKeyId).to.equal("string");
+    expect(typeof getCredentialsResult.Credentials?.SecretKey).to.equal("string");
   });
 });

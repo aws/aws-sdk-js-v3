@@ -1,21 +1,11 @@
-import {
-  CloudSearchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudSearchClient";
-import {
-  DeleteSuggesterRequest,
-  DeleteSuggesterResponse
-} from "../models/index";
+import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
+import { DeleteSuggesterRequest, DeleteSuggesterResponse } from "../models/index";
 import {
   deserializeAws_queryDeleteSuggesterCommand,
-  serializeAws_queryDeleteSuggesterCommand
+  serializeAws_queryDeleteSuggesterCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type DeleteSuggesterCommandInput = DeleteSuggesterRequest;
-export type DeleteSuggesterCommandOutput = DeleteSuggesterResponse &
-  __MetadataBearer;
+export type DeleteSuggesterCommandOutput = DeleteSuggesterResponse & __MetadataBearer;
 
 export class DeleteSuggesterCommand extends $Command<
   DeleteSuggesterCommandInput,
@@ -50,14 +39,12 @@ export class DeleteSuggesterCommand extends $Command<
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteSuggesterCommandInput, DeleteSuggesterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class DeleteSuggesterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteSuggesterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteSuggesterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteSuggesterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteSuggesterCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSuggesterCommandOutput> {
     return deserializeAws_queryDeleteSuggesterCommand(output, context);
   }
 

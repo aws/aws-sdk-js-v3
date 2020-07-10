@@ -1,119 +1,80 @@
 import {
   BatchCheckLayerAvailabilityCommandInput,
-  BatchCheckLayerAvailabilityCommandOutput
+  BatchCheckLayerAvailabilityCommandOutput,
 } from "./commands/BatchCheckLayerAvailabilityCommand";
-import {
-  BatchDeleteImageCommandInput,
-  BatchDeleteImageCommandOutput
-} from "./commands/BatchDeleteImageCommand";
-import {
-  BatchGetImageCommandInput,
-  BatchGetImageCommandOutput
-} from "./commands/BatchGetImageCommand";
+import { BatchDeleteImageCommandInput, BatchDeleteImageCommandOutput } from "./commands/BatchDeleteImageCommand";
+import { BatchGetImageCommandInput, BatchGetImageCommandOutput } from "./commands/BatchGetImageCommand";
 import {
   CompleteLayerUploadCommandInput,
-  CompleteLayerUploadCommandOutput
+  CompleteLayerUploadCommandOutput,
 } from "./commands/CompleteLayerUploadCommand";
-import {
-  CreateRepositoryCommandInput,
-  CreateRepositoryCommandOutput
-} from "./commands/CreateRepositoryCommand";
+import { CreateRepositoryCommandInput, CreateRepositoryCommandOutput } from "./commands/CreateRepositoryCommand";
 import {
   DeleteLifecyclePolicyCommandInput,
-  DeleteLifecyclePolicyCommandOutput
+  DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
-import {
-  DeleteRepositoryCommandInput,
-  DeleteRepositoryCommandOutput
-} from "./commands/DeleteRepositoryCommand";
+import { DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput } from "./commands/DeleteRepositoryCommand";
 import {
   DeleteRepositoryPolicyCommandInput,
-  DeleteRepositoryPolicyCommandOutput
+  DeleteRepositoryPolicyCommandOutput,
 } from "./commands/DeleteRepositoryPolicyCommand";
 import {
   DescribeImageScanFindingsCommandInput,
-  DescribeImageScanFindingsCommandOutput
+  DescribeImageScanFindingsCommandOutput,
 } from "./commands/DescribeImageScanFindingsCommand";
-import {
-  DescribeImagesCommandInput,
-  DescribeImagesCommandOutput
-} from "./commands/DescribeImagesCommand";
+import { DescribeImagesCommandInput, DescribeImagesCommandOutput } from "./commands/DescribeImagesCommand";
 import {
   DescribeRepositoriesCommandInput,
-  DescribeRepositoriesCommandOutput
+  DescribeRepositoriesCommandOutput,
 } from "./commands/DescribeRepositoriesCommand";
 import {
   GetAuthorizationTokenCommandInput,
-  GetAuthorizationTokenCommandOutput
+  GetAuthorizationTokenCommandOutput,
 } from "./commands/GetAuthorizationTokenCommand";
 import {
   GetDownloadUrlForLayerCommandInput,
-  GetDownloadUrlForLayerCommandOutput
+  GetDownloadUrlForLayerCommandOutput,
 } from "./commands/GetDownloadUrlForLayerCommand";
-import {
-  GetLifecyclePolicyCommandInput,
-  GetLifecyclePolicyCommandOutput
-} from "./commands/GetLifecyclePolicyCommand";
+import { GetLifecyclePolicyCommandInput, GetLifecyclePolicyCommandOutput } from "./commands/GetLifecyclePolicyCommand";
 import {
   GetLifecyclePolicyPreviewCommandInput,
-  GetLifecyclePolicyPreviewCommandOutput
+  GetLifecyclePolicyPreviewCommandOutput,
 } from "./commands/GetLifecyclePolicyPreviewCommand";
 import {
   GetRepositoryPolicyCommandInput,
-  GetRepositoryPolicyCommandOutput
+  GetRepositoryPolicyCommandOutput,
 } from "./commands/GetRepositoryPolicyCommand";
 import {
   InitiateLayerUploadCommandInput,
-  InitiateLayerUploadCommandOutput
+  InitiateLayerUploadCommandOutput,
 } from "./commands/InitiateLayerUploadCommand";
-import {
-  ListImagesCommandInput,
-  ListImagesCommandOutput
-} from "./commands/ListImagesCommand";
+import { ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  PutImageCommandInput,
-  PutImageCommandOutput
-} from "./commands/PutImageCommand";
+import { PutImageCommandInput, PutImageCommandOutput } from "./commands/PutImageCommand";
 import {
   PutImageScanningConfigurationCommandInput,
-  PutImageScanningConfigurationCommandOutput
+  PutImageScanningConfigurationCommandOutput,
 } from "./commands/PutImageScanningConfigurationCommand";
 import {
   PutImageTagMutabilityCommandInput,
-  PutImageTagMutabilityCommandOutput
+  PutImageTagMutabilityCommandOutput,
 } from "./commands/PutImageTagMutabilityCommand";
-import {
-  PutLifecyclePolicyCommandInput,
-  PutLifecyclePolicyCommandOutput
-} from "./commands/PutLifecyclePolicyCommand";
+import { PutLifecyclePolicyCommandInput, PutLifecyclePolicyCommandOutput } from "./commands/PutLifecyclePolicyCommand";
 import {
   SetRepositoryPolicyCommandInput,
-  SetRepositoryPolicyCommandOutput
+  SetRepositoryPolicyCommandOutput,
 } from "./commands/SetRepositoryPolicyCommand";
-import {
-  StartImageScanCommandInput,
-  StartImageScanCommandOutput
-} from "./commands/StartImageScanCommand";
+import { StartImageScanCommandInput, StartImageScanCommandOutput } from "./commands/StartImageScanCommand";
 import {
   StartLifecyclePolicyPreviewCommandInput,
-  StartLifecyclePolicyPreviewCommandOutput
+  StartLifecyclePolicyPreviewCommandOutput,
 } from "./commands/StartLifecyclePolicyPreviewCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UploadLayerPartCommandInput,
-  UploadLayerPartCommandOutput
-} from "./commands/UploadLayerPartCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UploadLayerPartCommandInput, UploadLayerPartCommandOutput } from "./commands/UploadLayerPartCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -121,38 +82,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -163,7 +119,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -228,8 +184,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UploadLayerPartCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -318,9 +273,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ECRClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ECRClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -329,9 +282,7 @@ export type ECRClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ECRClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ECRClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -360,7 +311,7 @@ export class ECRClient extends __Client<
   constructor(configuration: ECRClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

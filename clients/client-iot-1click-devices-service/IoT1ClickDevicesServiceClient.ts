@@ -1,55 +1,28 @@
 import {
   ClaimDevicesByClaimCodeCommandInput,
-  ClaimDevicesByClaimCodeCommandOutput
+  ClaimDevicesByClaimCodeCommandOutput,
 } from "./commands/ClaimDevicesByClaimCodeCommand";
-import {
-  DescribeDeviceCommandInput,
-  DescribeDeviceCommandOutput
-} from "./commands/DescribeDeviceCommand";
+import { DescribeDeviceCommandInput, DescribeDeviceCommandOutput } from "./commands/DescribeDeviceCommand";
 import {
   FinalizeDeviceClaimCommandInput,
-  FinalizeDeviceClaimCommandOutput
+  FinalizeDeviceClaimCommandOutput,
 } from "./commands/FinalizeDeviceClaimCommand";
-import {
-  GetDeviceMethodsCommandInput,
-  GetDeviceMethodsCommandOutput
-} from "./commands/GetDeviceMethodsCommand";
+import { GetDeviceMethodsCommandInput, GetDeviceMethodsCommandOutput } from "./commands/GetDeviceMethodsCommand";
 import {
   InitiateDeviceClaimCommandInput,
-  InitiateDeviceClaimCommandOutput
+  InitiateDeviceClaimCommandOutput,
 } from "./commands/InitiateDeviceClaimCommand";
-import {
-  InvokeDeviceMethodCommandInput,
-  InvokeDeviceMethodCommandOutput
-} from "./commands/InvokeDeviceMethodCommand";
-import {
-  ListDeviceEventsCommandInput,
-  ListDeviceEventsCommandOutput
-} from "./commands/ListDeviceEventsCommand";
-import {
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput
-} from "./commands/ListDevicesCommand";
+import { InvokeDeviceMethodCommandInput, InvokeDeviceMethodCommandOutput } from "./commands/InvokeDeviceMethodCommand";
+import { ListDeviceEventsCommandInput, ListDeviceEventsCommandOutput } from "./commands/ListDeviceEventsCommand";
+import { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UnclaimDeviceCommandInput,
-  UnclaimDeviceCommandOutput
-} from "./commands/UnclaimDeviceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateDeviceStateCommandInput,
-  UpdateDeviceStateCommandOutput
-} from "./commands/UpdateDeviceStateCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UnclaimDeviceCommandInput, UnclaimDeviceCommandOutput } from "./commands/UnclaimDeviceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateDeviceStateCommandInput, UpdateDeviceStateCommandOutput } from "./commands/UpdateDeviceStateCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -57,38 +30,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -99,7 +67,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -132,8 +100,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateDeviceStateCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -222,9 +189,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type IoT1ClickDevicesServiceClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type IoT1ClickDevicesServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -233,9 +198,7 @@ export type IoT1ClickDevicesServiceClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type IoT1ClickDevicesServiceClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type IoT1ClickDevicesServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -260,7 +223,7 @@ export class IoT1ClickDevicesServiceClient extends __Client<
   constructor(configuration: IoT1ClickDevicesServiceClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  ListAssociationVersionsRequest,
-  ListAssociationVersionsResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { ListAssociationVersionsRequest, ListAssociationVersionsResult } from "../models/index";
 import {
   deserializeAws_json1_1ListAssociationVersionsCommand,
-  serializeAws_json1_1ListAssociationVersionsCommand
+  serializeAws_json1_1ListAssociationVersionsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListAssociationVersionsCommandInput = ListAssociationVersionsRequest;
-export type ListAssociationVersionsCommandOutput = ListAssociationVersionsResult &
-  __MetadataBearer;
+export type ListAssociationVersionsCommandOutput = ListAssociationVersionsResult & __MetadataBearer;
 
 export class ListAssociationVersionsCommand extends $Command<
   ListAssociationVersionsCommandInput,
@@ -49,18 +38,13 @@ export class ListAssociationVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListAssociationVersionsCommandInput,
-    ListAssociationVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListAssociationVersionsCommandInput, ListAssociationVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +54,12 @@ export class ListAssociationVersionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListAssociationVersionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListAssociationVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAssociationVersionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListAssociationVersionsCommandOutput> {
-    return deserializeAws_json1_1ListAssociationVersionsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssociationVersionsCommandOutput> {
+    return deserializeAws_json1_1ListAssociationVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

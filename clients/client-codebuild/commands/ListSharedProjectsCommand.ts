@@ -1,21 +1,11 @@
-import {
-  CodeBuildClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeBuildClient";
-import {
-  ListSharedProjectsInput,
-  ListSharedProjectsOutput
-} from "../models/index";
+import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
+import { ListSharedProjectsInput, ListSharedProjectsOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListSharedProjectsCommand,
-  serializeAws_json1_1ListSharedProjectsCommand
+  serializeAws_json1_1ListSharedProjectsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export type ListSharedProjectsCommandInput = ListSharedProjectsInput;
-export type ListSharedProjectsCommandOutput = ListSharedProjectsOutput &
-  __MetadataBearer;
+export type ListSharedProjectsCommandOutput = ListSharedProjectsOutput & __MetadataBearer;
 
 export class ListSharedProjectsCommand extends $Command<
   ListSharedProjectsCommandInput,
@@ -50,14 +39,12 @@ export class ListSharedProjectsCommand extends $Command<
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListSharedProjectsCommandInput, ListSharedProjectsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +54,11 @@ export class ListSharedProjectsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListSharedProjectsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListSharedProjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSharedProjectsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListSharedProjectsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSharedProjectsCommandOutput> {
     return deserializeAws_json1_1ListSharedProjectsCommand(output, context);
   }
 

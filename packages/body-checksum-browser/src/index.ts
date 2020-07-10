@@ -19,10 +19,7 @@ export async function bodyChecksumGenerator(
     contentHash.update(body);
     treeHash.update(body);
   } else {
-    if (
-      Boolean(body) &&
-      Object.prototype.toString.call(body) === "[object Blob]"
-    ) {
+    if (Boolean(body) && Object.prototype.toString.call(body) === "[object Blob]") {
       await blobReader(
         body,
         (chunk: any) => {

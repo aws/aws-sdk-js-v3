@@ -4,7 +4,7 @@ import { setSocketTimeout } from "./set-socket-timeout";
 describe("setSocketTimeout", () => {
   const clientRequest: any = {
     abort: jest.fn(),
-    setTimeout: jest.fn()
+    setTimeout: jest.fn(),
   };
 
   beforeEach(() => {

@@ -1,118 +1,79 @@
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand";
-import {
-  DescribeUserCommandInput,
-  DescribeUserCommandOutput
-} from "./commands/DescribeUserCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
 import {
   DescribeUserHierarchyGroupCommandInput,
-  DescribeUserHierarchyGroupCommandOutput
+  DescribeUserHierarchyGroupCommandOutput,
 } from "./commands/DescribeUserHierarchyGroupCommand";
 import {
   DescribeUserHierarchyStructureCommandInput,
-  DescribeUserHierarchyStructureCommandOutput
+  DescribeUserHierarchyStructureCommandOutput,
 } from "./commands/DescribeUserHierarchyStructureCommand";
 import {
   GetContactAttributesCommandInput,
-  GetContactAttributesCommandOutput
+  GetContactAttributesCommandOutput,
 } from "./commands/GetContactAttributesCommand";
 import {
   GetCurrentMetricDataCommandInput,
-  GetCurrentMetricDataCommandOutput
+  GetCurrentMetricDataCommandOutput,
 } from "./commands/GetCurrentMetricDataCommand";
-import {
-  GetFederationTokenCommandInput,
-  GetFederationTokenCommandOutput
-} from "./commands/GetFederationTokenCommand";
-import {
-  GetMetricDataCommandInput,
-  GetMetricDataCommandOutput
-} from "./commands/GetMetricDataCommand";
-import {
-  ListContactFlowsCommandInput,
-  ListContactFlowsCommandOutput
-} from "./commands/ListContactFlowsCommand";
+import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "./commands/GetFederationTokenCommand";
+import { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "./commands/GetMetricDataCommand";
+import { ListContactFlowsCommandInput, ListContactFlowsCommandOutput } from "./commands/ListContactFlowsCommand";
 import {
   ListHoursOfOperationsCommandInput,
-  ListHoursOfOperationsCommandOutput
+  ListHoursOfOperationsCommandOutput,
 } from "./commands/ListHoursOfOperationsCommand";
-import {
-  ListPhoneNumbersCommandInput,
-  ListPhoneNumbersCommandOutput
-} from "./commands/ListPhoneNumbersCommand";
-import {
-  ListQueuesCommandInput,
-  ListQueuesCommandOutput
-} from "./commands/ListQueuesCommand";
+import { ListPhoneNumbersCommandInput, ListPhoneNumbersCommandOutput } from "./commands/ListPhoneNumbersCommand";
+import { ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
 import {
   ListRoutingProfilesCommandInput,
-  ListRoutingProfilesCommandOutput
+  ListRoutingProfilesCommandOutput,
 } from "./commands/ListRoutingProfilesCommand";
 import {
   ListSecurityProfilesCommandInput,
-  ListSecurityProfilesCommandOutput
+  ListSecurityProfilesCommandOutput,
 } from "./commands/ListSecurityProfilesCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   ListUserHierarchyGroupsCommandInput,
-  ListUserHierarchyGroupsCommandOutput
+  ListUserHierarchyGroupsCommandOutput,
 } from "./commands/ListUserHierarchyGroupsCommand";
-import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand";
-import {
-  StartChatContactCommandInput,
-  StartChatContactCommandOutput
-} from "./commands/StartChatContactCommand";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { StartChatContactCommandInput, StartChatContactCommandOutput } from "./commands/StartChatContactCommand";
 import {
   StartOutboundVoiceContactCommandInput,
-  StartOutboundVoiceContactCommandOutput
+  StartOutboundVoiceContactCommandOutput,
 } from "./commands/StartOutboundVoiceContactCommand";
-import {
-  StopContactCommandInput,
-  StopContactCommandOutput
-} from "./commands/StopContactCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { StopContactCommandInput, StopContactCommandOutput } from "./commands/StopContactCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateContactAttributesCommandInput,
-  UpdateContactAttributesCommandOutput
+  UpdateContactAttributesCommandOutput,
 } from "./commands/UpdateContactAttributesCommand";
 import {
   UpdateUserHierarchyCommandInput,
-  UpdateUserHierarchyCommandOutput
+  UpdateUserHierarchyCommandOutput,
 } from "./commands/UpdateUserHierarchyCommand";
 import {
   UpdateUserIdentityInfoCommandInput,
-  UpdateUserIdentityInfoCommandOutput
+  UpdateUserIdentityInfoCommandOutput,
 } from "./commands/UpdateUserIdentityInfoCommand";
 import {
   UpdateUserPhoneConfigCommandInput,
-  UpdateUserPhoneConfigCommandOutput
+  UpdateUserPhoneConfigCommandOutput,
 } from "./commands/UpdateUserPhoneConfigCommand";
 import {
   UpdateUserRoutingProfileCommandInput,
-  UpdateUserRoutingProfileCommandOutput
+  UpdateUserRoutingProfileCommandOutput,
 } from "./commands/UpdateUserRoutingProfileCommand";
 import {
   UpdateUserSecurityProfilesCommandInput,
-  UpdateUserSecurityProfilesCommandOutput
+  UpdateUserSecurityProfilesCommandOutput,
 } from "./commands/UpdateUserSecurityProfilesCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -121,38 +82,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -163,7 +119,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -228,8 +184,7 @@ export type ServiceOutputTypes =
   | UpdateUserRoutingProfileCommandOutput
   | UpdateUserSecurityProfilesCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -318,9 +273,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ConnectClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ConnectClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -329,9 +282,7 @@ export type ConnectClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ConnectClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ConnectClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -361,7 +312,7 @@ export class ConnectClient extends __Client<
   constructor(configuration: ConnectClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
