@@ -96,14 +96,14 @@ describe("format url", () => {
         },
       };
       expect(formatUrl(request)).toBe("https://foo.mock-region.awsamazon.com/?query");
-      let queryLikePath = {
+      const queryLikePath = {
         ...requestTemplate,
         query: {
           "a/query/string": null,
         },
       };
       expect(formatUrl(queryLikePath)).toBe("https://foo.mock-region.awsamazon.com/?a%2Fquery%2Fstring");
-      let complicateQuery = {
+      const complicateQuery = {
         ...requestTemplate,
         query: {
           "that's all": null,

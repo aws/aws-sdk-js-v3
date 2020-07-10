@@ -3,9 +3,9 @@ import {
   BuildHandler,
   BuildHandlerArguments,
   BuildHandlerOptions,
+  BuildHandlerOptions,
   BuildHandlerOutput,
   Pluggable,
-  BuildHandlerOptions,
 } from "@aws-sdk/types";
 
 import { UserAgentResolvedConfig } from "./configurations";

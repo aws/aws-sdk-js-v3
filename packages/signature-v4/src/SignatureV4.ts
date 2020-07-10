@@ -15,6 +15,24 @@ import {
   SigningArguments,
   StringSigner
 } from "@aws-sdk/types";
+import {
+  Credentials,
+  DateInput,
+  EventSigner,
+  EventSigningArguments,
+  FormattedEvent,
+  HashConstructor,
+  HeaderBag,
+  HttpRequest,
+  Provider,
+  RequestPresigner,
+  RequestPresigningArguments,
+  RequestSigner,
+  RequestSigningArguments,
+  SigningArguments,
+  StringSigner,
+} from "@aws-sdk/types";
+import { toHex } from "@aws-sdk/util-hex-encoding";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 
 import {
@@ -25,6 +43,7 @@ import {
   AUTH_HEADER,
   CREDENTIAL_QUERY_PARAM,
   EVENT_ALGORITHM_IDENTIFIER,
+  EVENT_ALGORITHM_IDENTIFIER,
   EXPIRES_QUERY_PARAM,
   MAX_PRESIGNED_TTL,
   SHA256_HEADER,
@@ -32,26 +51,7 @@ import {
   SIGNED_HEADERS_QUERY_PARAM,
   TOKEN_HEADER,
   TOKEN_QUERY_PARAM,
-  EVENT_ALGORITHM_IDENTIFIER,
 } from "./constants";
-import {
-  Credentials,
-  DateInput,
-  HashConstructor,
-  Provider,
-  RequestPresigner,
-  RequestSigner,
-  RequestSigningArguments,
-  RequestPresigningArguments,
-  SigningArguments,
-  StringSigner,
-  EventSigner,
-  FormattedEvent,
-  EventSigningArguments,
-  HeaderBag,
-  HttpRequest,
-} from "@aws-sdk/types";
-import { toHex } from "@aws-sdk/util-hex-encoding";
 import { hasHeader } from "./hasHeader";
 import { moveHeadersToQuery } from "./moveHeadersToQuery";
 import { prepareRequest } from "./prepareRequest";

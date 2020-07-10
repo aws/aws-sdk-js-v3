@@ -1,5 +1,5 @@
-import { BuildHandler, BuildHandlerArguments, BuildMiddleware } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+import { BuildHandler, BuildHandlerArguments, BuildMiddleware } from "@aws-sdk/types";
 import { BuildHandler, BuildHandlerArguments, BuildMiddleware } from "@aws-sdk/types";
 
 export interface HeaderDefaultArgs {

@@ -1,7 +1,7 @@
 import { Hash as IHash, SourceData } from "@aws-sdk/types";
 import { fromArrayBuffer, fromString, StringEncoding } from "@aws-sdk/util-buffer-from";
-import { Buffer } from "buffer";
 import { fromArrayBuffer, fromString, StringEncoding } from "@aws-sdk/util-buffer-from";
+import { Buffer } from "buffer";
 import { createHash, createHmac, Hash as NodeHash, Hmac } from "crypto";
 
 export class Hash implements IHash {

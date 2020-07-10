@@ -4,12 +4,12 @@ import {
   BuildHandler,
   BuildHandlerArguments,
   BuildHandlerOptions,
+  BuildHandlerOptions,
+  BuildHandlerOutput,
   BuildHandlerOutput,
   BuildMiddleware,
   MetadataBearer,
-  BuildHandlerOutput,
   Pluggable,
-  BuildHandlerOptions,
 } from "@aws-sdk/types";
 
 const CONTENT_LENGTH_HEADER = "content-length";

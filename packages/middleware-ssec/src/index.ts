@@ -4,9 +4,9 @@ import {
   InitializeHandlerOptions,
   InitializeHandlerOutput,
   InitializeMiddleware,
+  InitializeMiddleware,
   MetadataBearer,
   Pluggable,
-  InitializeMiddleware,
   SourceData,
 } from "@aws-sdk/types";
 

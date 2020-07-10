@@ -1,4 +1,5 @@
 import { MiddlewareStack } from "@aws-sdk/middleware-stack";
+
 import { bucketEndpointMiddleware, bucketEndpointMiddlewareOptions } from "./bucketEndpointMiddleware";
 import { resolveBucketEndpointConfig } from "./configurations";
 

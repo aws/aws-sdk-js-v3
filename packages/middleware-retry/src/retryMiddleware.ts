@@ -1,10 +1,10 @@
 import {
   AbsoluteLocation,
+  AbsoluteLocation,
   FinalizeHandler,
   FinalizeHandlerArguments,
   FinalizeHandlerOutput,
   FinalizeRequestHandlerOptions,
-  AbsoluteLocation,
 } from "@aws-sdk/types";
 
 import { RetryResolvedConfig } from "./configurations";

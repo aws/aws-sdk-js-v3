@@ -1,9 +1,9 @@
-import { fromEnv } from "./fromEnv";
-import { SharedConfigInit, fromSharedConfigFiles } from "./fromSharedConfigFiles";
-import { chain, memoize, fromStatic } from "@aws-sdk/property-provider";
+import { chain, fromStatic,memoize } from "@aws-sdk/property-provider";
 import { Provider } from "@aws-sdk/types";
 
 import { fromEnv } from "./fromEnv";
+import { fromEnv } from "./fromEnv";
+import { fromSharedConfigFiles,SharedConfigInit } from "./fromSharedConfigFiles";
 import { fromSharedConfigFiles, SharedConfigInit } from "./fromSharedConfigFiles";
 
 export const ENV_MAX_ATTEMPTS = "AWS_MAX_ATTEMPTS";

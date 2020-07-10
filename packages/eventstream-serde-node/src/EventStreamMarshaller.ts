@@ -1,5 +1,5 @@
 import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
-import { Encoder, Decoder, Message, EventStreamMarshaller as IEventStreamMarshaller } from "@aws-sdk/types";
+import { Decoder, Encoder, EventStreamMarshaller as IEventStreamMarshaller,Message } from "@aws-sdk/types";
 import { Readable } from "stream";
 
 import { readabletoIterable } from "./utils";

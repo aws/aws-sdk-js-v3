@@ -1,11 +1,11 @@
 import {
   EndpointBearer,
+  EndpointBearer,
   RequestSerializer,
   SerializeHandler,
   SerializeHandlerArguments,
   SerializeHandlerOutput,
   SerializeMiddleware,
-  EndpointBearer,
 } from "@aws-sdk/types";
 
 export function serializerMiddleware<Input extends object, Output extends object, RuntimeUtils extends EndpointBearer>(

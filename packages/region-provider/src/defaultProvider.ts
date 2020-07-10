@@ -1,9 +1,9 @@
-import { EnvConfiguration, fromEnv } from "./fromEnv";
-import { SharedConfigInit, fromSharedConfigFiles } from "./fromSharedConfigFiles";
 import { chain, memoize } from "@aws-sdk/property-provider";
 import { Provider } from "@aws-sdk/types";
 
 import { EnvConfiguration, fromEnv } from "./fromEnv";
+import { EnvConfiguration, fromEnv } from "./fromEnv";
+import { fromSharedConfigFiles,SharedConfigInit } from "./fromSharedConfigFiles";
 import { fromSharedConfigFiles, SharedConfigInit } from "./fromSharedConfigFiles";
 
 export type RegionProviderConfiguration = EnvConfiguration & SharedConfigInit;

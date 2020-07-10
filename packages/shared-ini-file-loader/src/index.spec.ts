@@ -1,4 +1,5 @@
 import { join, sep } from "path";
+
 import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH, loadSharedConfigFiles } from "./";
 
 jest.mock("fs", () => {

@@ -1,7 +1,7 @@
 import { ClientRequest } from "http";
 import { Socket } from "net";
 
-export function setConnectionTimeout(request: ClientRequest, reject: (err: Error) => void, timeoutInMs: number = 0) {
+export function setConnectionTimeout(request: ClientRequest, reject: (err: Error) => void, timeoutInMs = 0) {
   if (!timeoutInMs) {
     return;
   }

@@ -1,5 +1,6 @@
 import {
   AbsoluteLocation,
+  AbsoluteLocation,
   BuildHandlerOptions,
   BuildMiddleware,
   DeserializeHandler,
@@ -16,7 +17,6 @@ import {
   MiddlewareType,
   Pluggable,
   Priority,
-  AbsoluteLocation,
   RelativeLocation,
 } from "@aws-sdk/types";
 
@@ -26,8 +26,8 @@ import {
   NamedRelativeEntriesMap,
   NormalizedRelativeEntry,
   NormalizingEntryResult,
-  RelativeMiddlewareAnchor,
   NormalizingEntryResult,
+  RelativeMiddlewareAnchor,
 } from "./types";
 
 export interface MiddlewareStack<Input extends object, Output extends object> extends IMiddlewareStack<Input, Output> {}

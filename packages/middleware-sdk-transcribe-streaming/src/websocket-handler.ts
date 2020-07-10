@@ -1,8 +1,8 @@
 import { iterableToReadableStream, readableStreamtoIterable } from "@aws-sdk/eventstream-serde-browser";
+import { iterableToReadableStream, readableStreamtoIterable } from "@aws-sdk/eventstream-serde-browser";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { RequestHandlerMetadata } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
-import { iterableToReadableStream, readableStreamtoIterable } from "@aws-sdk/eventstream-serde-browser";
 
 export interface WebSocketHandlerOptions {
   /**

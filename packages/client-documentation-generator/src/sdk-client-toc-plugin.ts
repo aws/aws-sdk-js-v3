@@ -1,18 +1,18 @@
-import * as ts from "typescript";
-import { Component, RendererComponent } from "typedoc/dist/lib/output/components";
-import {
-  Reflection,
-  ProjectReflection,
-  ReflectionKind,
-  DeclarationReflection,
-} from "typedoc/dist/lib/models/reflections";
-import { NavigationItem } from "typedoc/dist/lib/output/models/NavigationItem";
-import { PageEvent } from "typedoc/dist/lib/output/events";
 import { ReferenceType } from "typedoc/dist/lib/models";
+import {
+  DeclarationReflection,
+  ProjectReflection,
+  Reflection,
+  ReflectionKind,
+} from "typedoc/dist/lib/models/reflections";
 import { DeclarationReflection, Reflection, ReflectionKind } from "typedoc/dist/lib/models/reflections";
 import { Component, RendererComponent } from "typedoc/dist/lib/output/components";
+import { Component, RendererComponent } from "typedoc/dist/lib/output/components";
+import { PageEvent } from "typedoc/dist/lib/output/events";
 import { PageEvent } from "typedoc/dist/lib/output/events";
 import { NavigationItem } from "typedoc/dist/lib/output/models/NavigationItem";
+import { NavigationItem } from "typedoc/dist/lib/output/models/NavigationItem";
+import * as ts from "typescript";
 
 @Component({ name: "SdkClientTocPlugin" })
 export class SdkClientTocPlugin extends RendererComponent {

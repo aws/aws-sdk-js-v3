@@ -2,14 +2,14 @@ import {
   BuildMiddleware,
   DeserializeHandlerArguments,
   DeserializeMiddleware,
+  DeserializeMiddleware,
   FinalizeHandlerArguments,
   FinalizeRequestMiddleware,
+  Handler,
   Handler,
   InitializeHandlerOutput,
   InitializeMiddleware,
   MiddlewareType,
-  Handler,
-  DeserializeMiddleware,
   Pluggable,
 } from "@aws-sdk/types";
 

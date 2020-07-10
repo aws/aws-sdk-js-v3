@@ -1,17 +1,18 @@
-import { fromEnv } from "./fromEnv";
-import { fromSharedConfigFiles, SharedConfigInit } from "./fromSharedConfigFiles";
-import { chain, memoize, fromStatic } from "@aws-sdk/property-provider";
+import { chain, fromStatic,memoize } from "@aws-sdk/property-provider";
+
 import {
   CONFIG_MAX_ATTEMPTS,
   CONFIG_RETRY_MODE,
+  CONFIG_RETRY_MODE,
   DEFAULT_MAX_ATTEMPTS,
+  DEFAULT_RETRY_MODE,
   DEFAULT_RETRY_MODE,
   ENV_MAX_ATTEMPTS,
   ENV_RETRY_MODE,
-  CONFIG_RETRY_MODE,
-  DEFAULT_RETRY_MODE,
 } from "./defaultProvider";
 import { fromEnv } from "./fromEnv";
+import { fromEnv } from "./fromEnv";
+import { fromSharedConfigFiles, SharedConfigInit } from "./fromSharedConfigFiles";
 import { fromSharedConfigFiles, SharedConfigInit } from "./fromSharedConfigFiles";
 
 jest.mock("./fromEnv");

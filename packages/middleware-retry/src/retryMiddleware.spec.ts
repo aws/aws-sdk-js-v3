@@ -1,5 +1,6 @@
+import { FinalizeHandlerArguments,MiddlewareStack, RetryStrategy } from "@aws-sdk/types";
+
 import { getRetryPlugin, retryMiddleware, retryMiddlewareOptions } from "./retryMiddleware";
-import { MiddlewareStack, RetryStrategy, FinalizeHandlerArguments } from "@aws-sdk/types";
 
 describe("getRetryPlugin", () => {
   const mockClientStack = {

@@ -1,4 +1,4 @@
-import { HttpMessage, Endpoint, QueryParameterBag, HeaderBag, HttpRequest as IHttpRequest } from "@aws-sdk/types";
+import { Endpoint, HeaderBag, HttpMessage, HttpRequest as IHttpRequest,QueryParameterBag } from "@aws-sdk/types";
 
 type HttpRequestOptions = Partial<HttpMessage> & Partial<Endpoint> & { method?: string };
 

@@ -1,11 +1,11 @@
-import { createRequest } from "./index";
-import { fooClient, operationCommand, InputTypesUnion, OperationInput, httpRequest } from "./foo.fixture";
 import {
   BuildHandlerArguments,
   FinalizeHandlerArguments,
 } from "@aws-sdk/types";
 
+import { fooClient, httpRequest,InputTypesUnion, operationCommand, OperationInput } from "./foo.fixture";
 import { fooClient, httpRequest, InputTypesUnion, operationCommand, OperationInput } from "./foo.fixture";
+import { createRequest } from "./index";
 import { createRequest } from "./index";
 
 describe("create-request", () => {

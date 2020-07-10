@@ -1,10 +1,10 @@
 import { chain, memoize } from "@aws-sdk/property-provider";
+import { chain, memoize } from "@aws-sdk/property-provider";
 
+import { defaultProvider, RegionProviderConfiguration } from "./defaultProvider";
 import { defaultProvider, RegionProviderConfiguration } from "./defaultProvider";
 import { fromEnv } from "./fromEnv";
 import { fromSharedConfigFiles } from "./fromSharedConfigFiles";
-import { chain, memoize } from "@aws-sdk/property-provider";
-import { defaultProvider, RegionProviderConfiguration } from "./defaultProvider";
 
 jest.mock("./fromEnv", () => ({
   fromEnv: jest.fn(),

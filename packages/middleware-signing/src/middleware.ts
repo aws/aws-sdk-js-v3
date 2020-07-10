@@ -4,10 +4,10 @@ import {
   FinalizeHandlerArguments,
   FinalizeHandlerOutput,
   FinalizeRequestHandlerOptions,
+  FinalizeRequestHandlerOptions,
   FinalizeRequestMiddleware,
   Pluggable,
   RelativeLocation,
-  FinalizeRequestHandlerOptions,
 } from "@aws-sdk/types";
 
 import { AwsAuthResolvedConfig } from "./configurations";

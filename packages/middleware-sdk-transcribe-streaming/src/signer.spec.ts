@@ -1,7 +1,7 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
+import { RequestPresigningArguments,RequestSigningArguments } from "@aws-sdk/types";
 
 import { SignatureV4 } from "./signer";
-import { RequestSigningArguments, RequestPresigningArguments } from "@aws-sdk/types";
 
 jest.mock("@aws-sdk/protocol-http");
 

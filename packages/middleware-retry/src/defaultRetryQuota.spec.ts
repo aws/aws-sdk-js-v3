@@ -1,5 +1,6 @@
 import { SdkError } from "@aws-sdk/smithy-client";
-import { INITIAL_RETRY_TOKENS, TIMEOUT_RETRY_COST, RETRY_COST, NO_RETRY_INCREMENT } from "./constants";
+
+import { INITIAL_RETRY_TOKENS, NO_RETRY_INCREMENT,RETRY_COST, TIMEOUT_RETRY_COST } from "./constants";
 
 describe("defaultRetryQuota", () => {
   const getMockError = () => new Error() as SdkError;

@@ -2,15 +2,15 @@ import { AbortController } from "@aws-sdk/abort-controller";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { Server as HttpServer } from "http";
 import * as http from "http";
+import * as http from "http";
 import { Server as HttpsServer } from "https";
 import * as https from "https";
-import * as http from "http";
-import { NodeHttpHandler } from "./node-http-handler";
-import { ReadFromBuffers } from "./readable.mock";
-import { createMockHttpServer, createMockHttpsServer, createResponseFunction } from "./server.mock";
 import { AddressInfo } from "net";
 
 import { NodeHttpHandler } from "./node-http-handler";
+import { NodeHttpHandler } from "./node-http-handler";
+import { ReadFromBuffers } from "./readable.mock";
+import { createMockHttpServer, createMockHttpsServer, createResponseFunction } from "./server.mock";
 import { createMockHttpServer, createMockHttpsServer, createResponseFunction } from "./server.mock";
 
 describe("NodeHttpHandler", () => {
@@ -319,8 +319,8 @@ describe("NodeHttpHandler", () => {
       let httpRequest: http.ClientRequest;
       let reqAbortSpy: any;
       const spy = jest.spyOn(https, "request").mockImplementationOnce(() => {
-        let calls = spy.mock.calls;
-        let currentIndex = calls.length - 1;
+        const calls = spy.mock.calls;
+        const currentIndex = calls.length - 1;
         httpRequest = https.request(calls[currentIndex][0], calls[currentIndex][1]);
         reqAbortSpy = jest.spyOn(httpRequest, "abort");
         return httpRequest;

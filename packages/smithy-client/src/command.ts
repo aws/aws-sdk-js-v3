@@ -1,5 +1,5 @@
 import { MiddlewareStack } from "@aws-sdk/middleware-stack";
-import { Command as ICommand, MetadataBearer, Handler, MiddlewareStack as IMiddlewareStack } from "@aws-sdk/types";
+import { Command as ICommand, Handler, MetadataBearer, MiddlewareStack as IMiddlewareStack } from "@aws-sdk/types";
 
 export abstract class Command<
   Input extends ClientInput,

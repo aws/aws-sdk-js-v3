@@ -1,7 +1,8 @@
-import { accountIdDefaultMiddleware, accountIdDefaultMiddlewareOptions } from "./account-id-default";
-import { addGlacierApiVersionMiddleware, addGlacierApiVersionMiddlewareOptions } from "./add-glacier-api-version";
 import { Decoder, HashConstructor, HttpRequest, Pluggable } from "@aws-sdk/types";
+
+import { accountIdDefaultMiddleware, accountIdDefaultMiddlewareOptions } from "./account-id-default";
 import { addChecksumHeadersMiddleware, addChecksumHeadersMiddlewareOptions } from "./add-checksum-headers";
+import { addGlacierApiVersionMiddleware, addGlacierApiVersionMiddlewareOptions } from "./add-glacier-api-version";
 
 export interface GlacierMiddlewareInputConfig {}
 

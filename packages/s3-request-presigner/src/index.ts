@@ -1,6 +1,6 @@
 import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@aws-sdk/signature-v4";
+import { SignatureV4, SignatureV4CryptoInit,SignatureV4Init } from "@aws-sdk/signature-v4";
 import { RequestPresigner, RequestPresigningArguments } from "@aws-sdk/types";
-import { SignatureV4, SignatureV4Init, SignatureV4CryptoInit } from "@aws-sdk/signature-v4";
 import { HttpRequest as IHttpRequest } from "@aws-sdk/types";
 
 import { SHA256_HEADER, UNSIGNED_PAYLOAD } from "./constants";

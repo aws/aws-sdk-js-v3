@@ -1,4 +1,5 @@
 import { getMasterProfileName, parseKnownFiles } from "@aws-sdk/credential-provider-ini";
+import { getMasterProfileName, parseKnownFiles } from "@aws-sdk/credential-provider-ini";
 import { ProviderError } from "@aws-sdk/property-provider";
 import {
   loadSharedConfigFiles,
@@ -7,7 +8,6 @@ import {
   SharedConfigInit,
 } from "@aws-sdk/shared-ini-file-loader";
 import { exec } from "child_process";
-import { getMasterProfileName, parseKnownFiles } from "@aws-sdk/credential-provider-ini";
 
 export const ENV_PROFILE = "AWS_PROFILE";
 
