@@ -2,9 +2,7 @@ import { EventStreamMarshaller } from "@aws-sdk/eventstream-marshaller";
 import { Message } from "@aws-sdk/types";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
 
-import { endEventMessage, exception,recordEventMessage, statsEventMessage } from "./fixtures/event.fixture";
 import { endEventMessage, exception, recordEventMessage, statsEventMessage } from "./fixtures/event.fixture";
-import { getUnmarshalledStream } from "./getUnmarshalledStream";
 import { getUnmarshalledStream } from "./getUnmarshalledStream";
 
 describe("getUnmarshalledStream", () => {
@@ -76,6 +74,7 @@ describe("getUnmarshalledStream", () => {
     };
     const deserStream = getUnmarshalledStream(source, {
       eventMarshaller: new EventStreamMarshaller(toUtf8, fromUtf8),
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       deserializer: (message) => {
         throw new Error("error event");
       },

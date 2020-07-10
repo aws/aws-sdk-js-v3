@@ -1,5 +1,3 @@
-import { HttpRequest } from "@aws-sdk/types";
-
 export function defaultUserAgent(packageName: string, packageVersion: string): string {
   const originUserAgent =
     typeof navigator !== "undefined" && typeof navigator.userAgent === "string" ? navigator.userAgent : "";

@@ -1,6 +1,7 @@
 import { defaultProvider as credentialProvider } from "@aws-sdk/credential-provider-node";
 
 // Preprocessor needs to be a function
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function createCredentialPreprocessor(args: any, config: any, logger: any, helper: any) {
   return async function (content: string, file: any, done: (content: string) => void) {
     // strip the extension from the file since it won't match the preprocessor pattern

@@ -1,8 +1,11 @@
 import { Client } from "./client";
 
 describe("SmithyClient", () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const mockHandler = jest.fn((args: any) => Promise.resolve({ output: "foo" }));
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const mockResolveMiddleware = jest.fn((args) => mockHandler);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const getCommandWithOutput = (output: string) => ({
     resolveMiddleware: mockResolveMiddleware,
   });

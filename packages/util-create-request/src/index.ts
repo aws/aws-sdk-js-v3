@@ -10,7 +10,7 @@ export async function createRequest<
   client: Client<any, InputTypesUnion, MetadataBearer, any>,
   command: Command<InputType, OutputType, any, InputTypesUnion, MetadataBearer>
 ): Promise<HttpRequest> {
-  const interceptMiddleware: BuildMiddleware<InputType, OutputType> = (next) => async (args) => {
+  const interceptMiddleware: BuildMiddleware<InputType, OutputType> = () => async (args) => {
     return { output: { request: args.request } as any, response: undefined };
   };
   const clientStack = client.middlewareStack.clone();

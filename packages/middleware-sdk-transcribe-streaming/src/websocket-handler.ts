@@ -29,6 +29,7 @@ export class WebSocketHandler implements HttpHandler {
 
   destroy(): void {}
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async handle(request: HttpRequest, options: HttpHandlerOptions = {}): Promise<{ response: HttpResponse }> {
     const url = formatUrl(request);
     const socket: WebSocket = new WebSocket(url);
