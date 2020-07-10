@@ -5,16 +5,16 @@ import { ProviderError } from "@aws-sdk/property-provider";
 /**
  * @internal
  */
-export function httpRequest(options: RequestOptions | string): Promise<Buffer> {
+export function httpRequest(options: RequestOptions): Promise<Buffer> {
   return new Promise((resolve, reject) => {
-    const request = get(options);
-    request.on("error", err => {
+    const req = get(options);
+    req.on("error", err => {
       reject(
         new ProviderError("Unable to connect to instance metadata service")
       );
     });
 
-    request.on("response", (res: IncomingMessage) => {
+    req.on("response", (res: IncomingMessage) => {
       const { statusCode = 400 } = res;
       if (statusCode < 200 || 300 <= statusCode) {
         reject(

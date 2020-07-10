@@ -52,14 +52,14 @@ describe("httpRequest", () => {
     addMatcher("/", expectedResponse);
 
     expect(
-      (await httpRequest(`http://localhost:${port}/`)).toString("utf8")
+      (await httpRequest({ host: "localhost", port })).toString("utf8")
     ).toEqual(expectedResponse);
   });
 
   it("should reject the promise with a non-terminal error if a 404 status code is received", async () => {
     addMatcher("/fizz", "buzz");
 
-    await httpRequest(`http://localhost:${port}/foo`).then(
+    await httpRequest({ host: "localhost", path: "/foo", port }).then(
       () => {
         throw new Error("The promise should have been rejected");
       },
@@ -72,7 +72,7 @@ describe("httpRequest", () => {
   it("should reject the promise with a non-terminal error if the remote server cannot be contacted", async () => {
     server.close();
 
-    await httpRequest(`http://localhost:${port}/foo`).then(
+    await httpRequest({ host: "localhost", path: "/foo", port }).then(
       () => {
         throw new Error("The promise should have been rejected");
       },
