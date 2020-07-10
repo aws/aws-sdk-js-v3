@@ -5,15 +5,30 @@ describe("httpRequest", () => {
   const host = "localhost";
   const path = "/";
 
-  it("returns response", async () => {
-    const expectedResponse = "expectedResponse";
-    const scope = nock("http://" + host)
-      .get(path)
-      .reply(200, expectedResponse);
+  describe("returns response", () => {
+    it("defaults to method GET", async () => {
+      const expectedResponse = "expectedResponse";
+      const scope = nock("http://" + host)
+        .get(path)
+        .reply(200, expectedResponse);
 
-    const response = await httpRequest({ host, path });
-    expect(response.toString()).toStrictEqual(expectedResponse);
+      const response = await httpRequest({ host, path });
+      expect(response.toString()).toStrictEqual(expectedResponse);
 
-    scope.done();
+      scope.done();
+    });
+
+    it("uses method passed in options", async () => {
+      const method = "POST";
+      const expectedResponse = "expectedResponse";
+      const scope = nock("http://" + host)
+        .post(path)
+        .reply(200, expectedResponse);
+
+      const response = await httpRequest({ host, path, method });
+      expect(response.toString()).toStrictEqual(expectedResponse);
+
+      scope.done();
+    });
   });
 });
