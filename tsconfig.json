@@ -9,14 +9,8 @@
     "noUnusedParameters": false,
     "removeComments": false,
     "incremental": true,
-
-    // "preserveConstEnums": true,
-    // "noImplicitAny": true,
-    // "sourceMap": true,
-    // "noUnusedLocals": true,
-    // "noImplicitReturns": true,
-    // "noImplicitThis": true,
-    // "alwaysStrict": true,
+    "sourceMap": true,
+    "preserveConstEnums": true,
     "noFallthroughCasesInSwitch": true,
     "module": "commonjs",
     "moduleResolution": "node",
@@ -30,5 +24,5 @@
     }
   },
   "include": ["packages/"],
-  "exclude": ["node_modules/", "packages/*/build/"]
+  "exclude": ["node_modules/"]
 }
