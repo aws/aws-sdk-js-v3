@@ -1,42 +1,132 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { SignatureV4 } from "./signer";
-describe("transcribe streaming", () => {
-  describe("WebSocket request signer", () => {
-    it("should invoke base SigV4 signer correctly", async () => {
-      expect.assertions(5);
-      const toSign = new HttpRequest({
-        headers: {
-          "x-amz-foo": "foo",
-          bar: "bar",
-          "amz-sdk-invocation-id": "123",
-          "amz-sdk-request": "attempt=1",
-          host: "aws.amazon.com"
-        },
-        body: "hello world",
-        query: {
-          prop1: "A",
-          prop2: "B"
-        }
-      });
-      const mockBaseSigner = {
-        presign: jest
-          .fn()
-          .mockImplementation(request => Promise.resolve(request))
+import {
+  RequestSigningArguments,
+  RequestPresigningArguments
+} from "@aws-sdk/types";
+
+jest.mock("@aws-sdk/protocol-http");
+
+describe("signer", () => {
+  const mockPresignedRequest = { req: "mockPresignedRequest" };
+  const mockSignedRequest = { reg: "mockSignedRequest" };
+
+  const presign = jest.fn().mockResolvedValue(mockPresignedRequest);
+  const sign = jest.fn().mockResolvedValue(mockSignedRequest);
+
+  const headers = {
+    "x-amz-foo": "foo",
+    bar: "bar",
+    host: "aws.amazon.com"
+  };
+  const body = "body";
+  const method = "method";
+
+  const request = { headers, body, method };
+  const sigV4 = new SignatureV4({ signer: { sign, presign } as any });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  describe("presign", () => {
+    const expectPresignArgs = (
+      result: any,
+      options: RequestPresigningArguments = {}
+    ) => {
+      expect(result).toStrictEqual(mockPresignedRequest);
+      expect(sign).not.toHaveBeenCalled();
+      expect(presign).toHaveBeenCalledTimes(1);
+      expect(presign).toHaveBeenCalledWith(request, options);
+    };
+
+    it("without options", async () => {
+      const result = await sigV4.presign(request as any);
+      expectPresignArgs(result);
+    });
+
+    it("with options", async () => {
+      const options = {
+        expiresIn: 300
       };
-      const signer = new SignatureV4({ signer: mockBaseSigner as any });
-      const signed = await signer.sign(toSign);
-      expect(toSign).toMatchObject(signed);
-      expect(mockBaseSigner.presign).toBeCalled();
-      // The request's body should not be presigned
-      expect(mockBaseSigner.presign.mock.calls[0][0].body).toEqual("");
-      expect(
-        mockBaseSigner.presign.mock.calls[0][1]!.unsignableHeaders
-      ).toBeDefined();
-      const unsignableHeaders: Set<string> = mockBaseSigner.presign.mock
-        .calls[0][1]!.unsignableHeaders;
-      expect([...unsignableHeaders.entries()].map(([value]) => value)).toEqual(
-        Object.keys(toSign.headers).filter(a => a !== "host")
-      );
+      const result = await sigV4.presign(request as any, options);
+      expectPresignArgs(result, options);
+    });
+  });
+
+  describe("sign", () => {
+    describe("calls presign when HttpRequest.isInstance returns true", () => {
+      const { isInstance } = HttpRequest;
+
+      beforeEach(() => {
+        ((isInstance as unknown) as jest.Mock).mockReturnValueOnce(true);
+      });
+
+      const expectSignArgs = (result: any) => {
+        expect(result).toStrictEqual({
+          ...mockPresignedRequest,
+          body: request.body
+        });
+        expect(isInstance).toHaveBeenCalledTimes(1);
+        expect(isInstance).toHaveBeenCalledWith(request);
+        expect(presign).toHaveBeenCalledTimes(1);
+        expect(presign).toHaveBeenCalledWith(
+          { ...request, body: "" },
+          {
+            expiresIn: 300,
+            unsignableHeaders: new Set(
+              Object.keys(request.headers).filter(header => header !== "host")
+            )
+          }
+        );
+        expect(sign).not.toHaveBeenCalled();
+      };
+
+      it("without options", async () => {
+        const result = await sigV4.sign(request as any);
+        expectSignArgs(result);
+      });
+
+      it("with options", async () => {
+        const options = {
+          unsignableHeaders: new Set(Object.keys(headers))
+        };
+        const result = await sigV4.sign(request as any, options);
+        expectSignArgs(result);
+      });
+    });
+
+    describe("calls sign when HttpRequest.isInstance returns false", () => {
+      const { isInstance } = HttpRequest;
+
+      beforeEach(() => {
+        ((isInstance as unknown) as jest.Mock).mockReturnValueOnce(false);
+      });
+
+      const expectSignArgs = (
+        result: any,
+        options?: RequestSigningArguments
+      ) => {
+        expect(result).toStrictEqual(mockSignedRequest);
+        expect(isInstance).toHaveBeenCalledTimes(1);
+        expect(isInstance).toHaveBeenCalledWith(request);
+        expect(sign).toHaveBeenCalledTimes(1);
+        expect(sign).toHaveBeenCalledWith(request, options);
+        expect(presign).not.toHaveBeenCalled();
+      };
+
+      it("without options", async () => {
+        const result = await sigV4.sign(request as any);
+        expectSignArgs(result);
+      });
+
+      it("with options", async () => {
+        const options = {
+          unsignableHeaders: new Set(Object.keys(headers))
+        };
+        const result = await sigV4.sign(request as any, options);
+        expectSignArgs(result, options);
+      });
     });
   });
 });
