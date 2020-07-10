@@ -7,7 +7,14 @@ const isType = (obj, type) => {
   return Object.prototype.toString.call(obj) === "[object " + type + "]";
 };
 
-const { Before, Given, Then, When, setDefaultTimeout, setWorldConstructor } = require("cucumber");
+const {
+  Before,
+  Given,
+  Then,
+  When,
+  setDefaultTimeout,
+  setWorldConstructor
+} = require("cucumber");
 
 setDefaultTimeout(300 * 1000);
 setWorldConstructor(require("./world.js").World);
@@ -21,8 +28,12 @@ Before(function (scenario, callback) {
 Given("I create a shared bucket", function (callback) {
   if (this.sharedBucket) return callback();
 
-  const bucket = (this.sharedBucket = this.uniqueName("aws-sdk-js-shared-integration"));
-  this.request("s3", "createBucket", { Bucket: this.sharedBucket }, function (err) {
+  const bucket = (this.sharedBucket = this.uniqueName(
+    "aws-sdk-js-shared-integration"
+  ));
+  this.request("s3", "createBucket", { Bucket: this.sharedBucket }, function (
+    err
+  ) {
     this.cacheBucketName(this.sharedBucket);
     if (err) {
       callback(err);
@@ -37,7 +48,10 @@ Given("I create a shared bucket", function (callback) {
 
 Given("I create a bucket", function (callback) {
   const bucket = (this.bucket = this.uniqueName("aws-sdk-js-integration"));
-  this.request("s3", "createBucket", { Bucket: this.bucket }, function (err, data) {
+  this.request("s3", "createBucket", { Bucket: this.bucket }, function (
+    err,
+    data
+  ) {
     if (err) {
       return callback(err);
     }
@@ -63,7 +77,11 @@ Given("I run the {string} operation", function (operation, callback) {
   this.request(null, operation, {}, callback, false);
 });
 
-Given("I run the {string} operation with params:", function (operation, params, callback) {
+Given("I run the {string} operation with params:", function (
+  operation,
+  params,
+  callback
+) {
   this.request(null, operation, JSON.parse(params), callback, false);
 });
 
@@ -74,19 +92,28 @@ Then("the request should be successful", function (callback) {
 
 Then("the value at {string} should be a list", function (path, callback) {
   const value = jmespath.search(this.data, path);
-  this.assert.ok(Array.isArray(value), "expected " + util.inspect(value) + " to be a list");
+  this.assert.ok(
+    Array.isArray(value),
+    "expected " + util.inspect(value) + " to be a list"
+  );
   callback();
 });
 
 Then("the value at {string} should be a number", function (path, callback) {
   const value = jmespath.search(this.data, path);
-  this.assert.ok(typeof value === "number", "expected " + util.inspect(value) + " to be a number");
+  this.assert.ok(
+    typeof value === "number",
+    "expected " + util.inspect(value) + " to be a number"
+  );
   callback();
 });
 
 Then("the value at {string} should be a string", function (path, callback) {
   const value = jmespath.search(this.data, path);
-  this.assert.ok(typeof value === "string", "expected " + util.inspect(value) + " to be a string");
+  this.assert.ok(
+    typeof value === "string",
+    "expected " + util.inspect(value) + " to be a string"
+  );
   callback();
 });
 
@@ -121,44 +148,46 @@ Then("I should get the error:", function (table, callback) {
   callback();
 });
 
-Given("I have a {string} service in the {string} region", function (svc, region, callback) {
+Given("I have a {string} service in the {string} region", function (
+  svc,
+  region,
+  callback
+) {
   this.service = new this.service.constructor({ region: region });
   callback();
 });
 
-Given(/^I paginate the "([^"]*)" operation(?: with limit (\d+))?(?: and max pages (\d+))?$/, function (
-  operation,
-  limit,
-  maxPages,
-  callback
-) {
-  limit = parseInt(limit);
-  if (maxPages) maxPages = parseInt(maxPages);
+Given(
+  /^I paginate the "([^"]*)" operation(?: with limit (\d+))?(?: and max pages (\d+))?$/,
+  function (operation, limit, maxPages, callback) {
+    limit = parseInt(limit);
+    if (maxPages) maxPages = parseInt(maxPages);
 
-  const world = this;
-  this.numPages = 0;
-  this.numMarkers = 0;
-  this.operation = operation;
-  this.paginationConfig = this.service.paginationConfig(operation);
-  this.params = this.params || {};
+    const world = this;
+    this.numPages = 0;
+    this.numMarkers = 0;
+    this.operation = operation;
+    this.paginationConfig = this.service.paginationConfig(operation);
+    this.params = this.params || {};
 
-  const marker = this.paginationConfig.outputToken;
-  if (this.paginationConfig.limitKey) {
-    this.params[this.paginationConfig.limitKey] = limit;
-  }
-  this.service[operation](this.params).eachPage(function (err, data) {
-    if (err) callback(err);
-    else if (data === null) callback();
-    else if (maxPages && world.numPages === maxPages) {
-      callback();
-      return false;
-    } else {
-      if (data[marker]) world.numMarkers++;
-      world.numPages++;
-      world.data = data;
+    const marker = this.paginationConfig.outputToken;
+    if (this.paginationConfig.limitKey) {
+      this.params[this.paginationConfig.limitKey] = limit;
     }
-  });
-});
+    this.service[operation](this.params).eachPage(function (err, data) {
+      if (err) callback(err);
+      else if (data === null) callback();
+      else if (maxPages && world.numPages === maxPages) {
+        callback();
+        return false;
+      } else {
+        if (data[marker]) world.numMarkers++;
+        world.numPages++;
+        world.data = data;
+      }
+    });
+  }
+);
 
 Then("I should get more than one page", function (callback) {
   this.assert.compare(this.numPages, ">", 1);
@@ -186,21 +215,23 @@ Then("the last page should not contain a marker", function (callback) {
   callback();
 });
 
-Then("the result at {word} should contain a property {word} with a(n) {word}", function (
-  wrapper,
+Then(
+  "the result at {word} should contain a property {word} with a(n) {word}",
+  function (wrapper, property, type, callback) {
+    if (type === "Array" || type === "Date") {
+      this.assert.equal(isType(this.data[wrapper][property], type), true);
+    } else {
+      this.assert.equal(typeof this.data[wrapper][property], type);
+    }
+    callback();
+  }
+);
+
+Then("the result should contain a property {word} with a(n) {word}", function (
   property,
   type,
   callback
 ) {
-  if (type === "Array" || type === "Date") {
-    this.assert.equal(isType(this.data[wrapper][property], type), true);
-  } else {
-    this.assert.equal(typeof this.data[wrapper][property], type);
-  }
-  callback();
-});
-
-Then("the result should contain a property {word} with a(n) {word}", function (property, type, callback) {
   if (type === "Array" || type === "Date") {
     this.assert.equal(isType(this.data[property], type), true);
   } else {
