@@ -1,6 +1,7 @@
 const { execSync, spawn } = require("child_process");
 const { join } = require("path");
 const { readFileSync, existsSync } = require("fs");
+const { spawnPromise } = require("./spawn-promise");
 
 const hasE2Etest = (packagePath) => {
   const path = join(packagePath, "package.json");
@@ -9,14 +10,16 @@ const hasE2Etest = (packagePath) => {
   return Boolean(pkgJson.scripts["test:e2e"]);
 };
 
-const run = async () => {
+exports.runE2ETests = async (resourcesEnv) => {
   /**
    * Example output:
    /path/to/package:@aws-sdk/client-accessanalyzer:1.0.0-gamma.3
    /path/to/package:@aws-sdk/client-acm-pca:1.0.0-gamma.3
    /path/to/package:@aws-sdk/client-acm:1.0.0-gamma.3
    */
-  const changedPackagesRecord = execSync("npx lerna changed --all --parseable --long --loglevel silent");
+  const changedPackagesRecord = execSync(
+    "./node_modules/.bin/lerna  changed --all --parseable --long --loglevel silent"
+  );
   // Get array for changed package's path
   const changedPackages = changedPackagesRecord
     .toString()
@@ -25,10 +28,9 @@ const run = async () => {
   const packagesToTest = changedPackages.filter((changedPackage) => hasE2Etest(changedPackage[0]));
   console.log(`packages to run e2e test:
 ${packagesToTest.map((package) => package[0]).join("\n")}`);
-  const test = spawn(
-    "npx",
+  await spawnPromise(
+    "./node_modules/.bin/lerna",
     [
-      "lerna",
       "run",
       "test:e2e",
       "--scope",
@@ -37,14 +39,11 @@ ${packagesToTest.map((package) => package[0]).join("\n")}`);
       "1",
     ],
     {
-      env: process.env,
+      env: {
+        ...process.env,
+        ...resourcesEnv,
+      },
       stdio: "inherit",
     }
   );
-  test.on("close", (code) => {
-    console.log(`e2e test complete: [${code}]`);
-    process.exit(code);
-  });
 };
-
-run();
